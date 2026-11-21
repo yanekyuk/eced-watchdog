@@ -1,0 +1,835 @@
+{
+  "filing": {
+    "province": "AKSARAY",
+    "district": "MERKEZ",
+    "project_name": "LİKİT, PASTÖRİZE VE TOZ YUMURTA ÜRETİM TESİSİ",
+    "project_owner": "EGG VALLEY GIDA SANAYİ VE TİCARET ANONİM ŞİRKETİ-AKSARAY ŞUBESİ",
+    "sector": "Gıda",
+    "sub_sector": "Likit Yumurta Üretimi",
+    "decision_type": "ÇED Gerekli Değil/ÇED Olumlu",
+    "announcement_date_tr": "13.11.2026",
+    "project_type": "Ek-2",
+    "detail_text": "AKSARAY ili MERKEZ,  ilcesinde AKSARAY ili MERKEZ,  ilcesi Erenler Osb Mah. Mehmet Altınsoy Bul. No: 22 144 Ada 1 Parsel mevkiindeki EGG VALLEY GIDA SANAYİ VE TİCARET ANONİM ŞİRKETİ-AKSARAY ŞUBESİ tarafından yapılması planlanan LİKİT, PASTÖRİZE VE TOZ YUMURTA ÜRETİM TESİSİ projesi ile ilgili olarak Bakanlığımıza sunulan PTD Dosyası incelenmiş ve değerlendirilmiştir  ÇED Yönetmeliği'nin 17. maddesi gereğince LİKİT, PASTÖRİZE VE TOZ YUMURTA ÜRETİM TESİSİ projesi'ne Valiliğimizce 'ÇED Olumlu (Kapsam Ek-2)' kararı verilmiştir.",
+    "detail_links": [
+      {
+        "text": "PTD Dosyası",
+        "href": "http://eced.csb.gov.tr/jsp/ek1/58292"
+      }
+    ],
+    "documents": [
+      {
+        "portal_doc_url": "http://eced.csb.gov.tr/jsp/ek1/58292",
+        "filing_id": "58292",
+        "consulting_firm": "EMS ÇEVRE VE MÜHENDİSLİK A.Ş.",
+        "submitted_at": "11/09/2026 02:37:11",
+        "pdf_urls": [
+          {
+            "label": "Dosya Göster",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign5940825894667475739.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-06"
+          }
+        ]
+      }
+    ],
+    "announcement_date": "2026-11-13",
+    "statutory_clocks": [
+      {
+        "code": "iyuk_20a",
+        "kind": "İYUK Madde 20/A iptal davası süresi (30 takvim günü; İYUK 11 süreyi durdurmaz)",
+        "deadline": "2026-12-13",
+        "days_remaining": 21
+      }
+    ],
+    "filing_key": "58292:13.11.2026:ÇED Gerekli Değil/ÇED Olumlu",
+    "first_seen_at": "2026-11-20T09:02:20"
+  },
+  "pdf_info": {
+    "filename": "58292.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign5940825894667475739.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-06",
+    "bytes": 52869820,
+    "sha256": "c842fc457d8ea0969371cb645574ff17400f1d0e0ced4b93b023445cc11991ce",
+    "cached": false
+  },
+  "analysis": {
+    "page_count": 301,
+    "total_chars": 573808,
+    "text_pages": 259,
+    "scanned_or_blank_pages": 42,
+    "scanned_page_sample": [
+      131,
+      132,
+      133,
+      134,
+      136,
+      137,
+      139,
+      140,
+      142,
+      143,
+      144,
+      145,
+      146,
+      147,
+      148
+    ],
+    "headings": [
+      [
+        8,
+        "PROJENİN TEKNİK OLMAYAN ÖZETİ"
+      ],
+      [
+        12,
+        "I.PROJENİN ÖZELLİKLERİ"
+      ],
+      [
+        12,
+        "I.a Projenin ve Yerin Alternatifleri (Proje Teknolojisinin ve Proje Alanının Seçilme Nedenleri)"
+      ],
+      [
+        13,
+        "I.b Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Yatırım Bedeli, Teknolojisi, Çalışacak Personel Sayısı"
+      ],
+      [
+        39,
+        "1.c Doğal Kaynakların Kullanımı (Arazi Kullanımı, Su Kullanımı, Kullanılan Enerji Türü vb.)"
+      ],
+      [
+        41,
+        "1.ç Projenin İnşaat ve İşletme Aşamasında Oluşan Her Türlü Atığın Özelliği (Cinsi, Türü, Miktarı vb.) Bertarafı ve Geri Kazanımına Yönelik Değerlendirmeler"
+      ],
+      [
+        75,
+        "1.d. Kullanılan Teknoloji ve Malzemelerden Kaynaklanabilecek Kaza Riski"
+      ],
+      [
+        80,
+        "II. PROJENİN YERİ VE ETKİ ALANININ ÇEVRESEL ÖZELLİKLERİ"
+      ],
+      [
+        81,
+        "II.a. Mevcut Arazi Kullanımı (Tarım Alanı, Orman Alanı, Planlı Alan, Su Yüzeyi ve Benzeri) ve Kalitesi, Jeolojik ve Hidrojeolojik Özellikleri"
+      ],
+      [
+        84,
+        "II.b EK-5’ deki Duyarlı Yöreler Listesi Dikkate Alınarak Korunması Gereken Alanlar"
+      ],
+      [
+        88,
+        "III. PROJENİN İNŞAAT VE İŞLETME AŞAMASINDA ÇEVRESEL ETKİLERİ, ÖNCELİKLİ ETKİLERİN BELİRLENMESİ VE ALINACAK ÖNLEMLER"
+      ],
+      [
+        98,
+        "IV. KÜMÜLATİF ETKİ DEĞERLENDİRME"
+      ],
+      [
+        100,
+        "V. ÇEVRESEL VE SOSYAL EYLEM PLANI"
+      ],
+      [
+        100,
+        "V-1: Çevre İzleme Planı"
+      ],
+      [
+        104,
+        "V-2: Sürdürülebilirlik Planı (Sıfır Atık Planı, Trafik Yönetim Planı, Sera Gazı Azaltım Planı, Çevresel ve Sosyal Yönetim Planı vb.)"
+      ],
+      [
+        124,
+        "VI. NOTLAR, KAYNAKLAR VE EKLER"
+      ],
+      [
+        1,
+        "2.8 Kat Planlari.pdf"
+      ],
+      [
+        157,
+        "Model"
+      ],
+      [
+        158,
+        "Model"
+      ],
+      [
+        159,
+        "Model"
+      ],
+      [
+        160,
+        "Model"
+      ],
+      [
+        161,
+        "Model"
+      ],
+      [
+        162,
+        "Model"
+      ],
+      [
+        163,
+        "Model"
+      ],
+      [
+        165,
+        "Model"
+      ]
+    ],
+    "geo": {
+      "precision": "exact_pdf",
+      "lat": 38.26336,
+      "lon": 34.01259,
+      "point_count": 1,
+      "points": [
+        [
+          38.26336,
+          34.01259
+        ]
+      ],
+      "datum": "UTM-Z36/ED50",
+      "pages": [
+        127
+      ]
+    },
+    "signals": {
+      "coordinates_and_footprint": {
+        "label": "Coordinates, Parcel & Footprint",
+        "page_count": 126,
+        "pages": [
+          1,
+          2,
+          6,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          21,
+          22,
+          23,
+          24,
+          26,
+          27,
+          28,
+          29,
+          30,
+          34
+        ],
+        "samples": [
+          {
+            "page": 1,
+            "match": "Ada 1 Parsel",
+            "snippet": "…ASTÖRİZE VE TOZ YUMURTA ÜRETİM TESİSİ PROJE TANITIM DOSYASI Erenler Osb Mah. Mehmet Altınsoy Bul. No: 22 144 Ada 1 Parsel MERKEZ /AKSARAY EYLÜL-2026"
+          },
+          {
+            "page": 2,
+            "match": "Ada 1 Parsel",
+            "snippet": "…VALLEY GIDA SANAYİ VE TİCARET ANONİM ŞİRKETİ-AKSARAY ŞUBESİ ADRESİ Erenler Osb Mah. Mehmet Altınsoy Bul. No: 22 144 Ada 1 Parsel MERKEZ /AKSARAY TELEFON, GSM VE FAKS NUMARALARI Tel & Faks: 0216 460 00 18 GSM: 0 (534) 216 99 97 E-POSTA necati…"
+          },
+          {
+            "page": 6,
+            "match": "Koordinat",
+            "snippet": "…PASTÖRİZE VE TOZ YUMURTA ÜRETİM TESİSİ Proje Tanıtım Dosyası v EKLER LİSTESİ Ek 1 Proje İçin Seçilen Yerin Koordinatları Ek 2 Proje Alanı ve Yakın Çevresinin Mevcut Arazi Kullanımını Değerlendirmek İçin; Yerleşim Alanlarının, Ulaşım…"
+          },
+          {
+            "page": 8,
+            "match": "ada 1 parsel",
+            "snippet": "…KETİ-AKSARAY ŞUBESİ tarafından Aksaray İli, Merkez İlçesi, Erenler OSB Mahallesi, Mehmet Altınsoy Bulvarı No: 22, 144 ada 1 parsel adresinde “LİKİT, PASTÖRİZE VE TOZ YUMURTA ÜRETİM TESİSİ” projesinin gerçekleştirilmesi planlanmaktadır. Projenin g…"
+          },
+          {
+            "page": 8,
+            "match": "808,72 m²",
+            "snippet": "…URTA ÜRETİM TESİSİ” projesinin gerçekleştirilmesi planlanmaktadır. Projenin gerçekleştirileceği 144 ada 1 parsel 39.808,72 m² yüzölçümüne sahiptir. Tapu kayıtlarına göre taşınmaz “İki Adet İki Katlı Prefabrik Fabrika Binası, İdari Bina ve Arsas…"
+          },
+          {
+            "page": 8,
+            "match": "6.400 m²",
+            "snippet": "…pu kaydı ve kira sözleşmesi Proje Tanıtım Dosyası eklerinde sunulmuştur. Proje alanında mevcut durumda 1 No.lu bina 6.400 m² ve 2 No.lu bina 7.300 m² olmak üzere toplam 13.700 m² kapalı alan bulunmaktadır. Proje kapsamında mevcut yapılarda ko…"
+          },
+          {
+            "page": 8,
+            "match": "7.300 m²",
+            "snippet": "…si Proje Tanıtım Dosyası eklerinde sunulmuştur. Proje alanında mevcut durumda 1 No.lu bina 6.400 m² ve 2 No.lu bina 7.300 m² olmak üzere toplam 13.700 m² kapalı alan bulunmaktadır. Proje kapsamında mevcut yapılarda kontrollü söküm, ilave yapı…"
+          },
+          {
+            "page": 8,
+            "match": "13.700 m²",
+            "snippet": "…erinde sunulmuştur. Proje alanında mevcut durumda 1 No.lu bina 6.400 m² ve 2 No.lu bina 7.300 m² olmak üzere toplam 13.700 m² kapalı alan bulunmaktadır. Proje kapsamında mevcut yapılarda kontrollü söküm, ilave yapı, kat düzenlemesi ve bina içi…"
+          }
+        ]
+      },
+      "water_and_discharge": {
+        "label": "Water Use, Hydrogeology & Discharge",
+        "page_count": 83,
+        "pages": [
+          2,
+          6,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          16,
+          17,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34
+        ],
+        "samples": [
+          {
+            "page": 2,
+            "match": "10 ton/gün",
+            "snippet": "…mesi Yönetmeliği” Ek-II Listesi Çevresel Etkileri Ön İnceleme ve Değerlendirmeye Tabi Projeler Listesi; “Madde 26-ö “10 ton/gün ve üzeri likit yumurta üretim tesisi” kapsamında değerlendirilmiştir. PROJENİN ANA NACE KODU 10.89 – Başka yerde sın…"
+          },
+          {
+            "page": 6,
+            "match": "Deşarj",
+            "snippet": "…k 7 Diğer Bilgi ve Belgeler Ek 7.a Tapu Ek 7.b Kira Sözleşmesi Ek 7.c Proforma Fatura Ek 7.d OSB Deşarj Kriterleri Ek 7.e Weishaupt Buhar Kazanı Brülör Seçim ve Emisyon Föyü Ek 7.f Antistatik Polyester Filtre Keçesi Tek…"
+          },
+          {
+            "page": 8,
+            "match": "250 m³/gün",
+            "snippet": "…toplam brüt inşaat alanı ise 7.890 m² artacaktır. Ayrıca tesis atıksularının arıtılması amacıyla 683 m² alan üzerinde 250 m³/gün kapasiteli atıksu arıtma tesisi kurulacaktır. Bütün çalışmalar 39.808,72 m² yüzölçümlü 144 ada 1 parsel sınırları içer…"
+          },
+          {
+            "page": 8,
+            "match": "atıksu",
+            "snippet": "…anı ise 7.890 m² artacaktır. Ayrıca tesis atıksularının arıtılması amacıyla 683 m² alan üzerinde 250 m³/gün kapasiteli atıksu arıtma tesisi kurulacaktır. Bütün çalışmalar 39.808,72 m² yüzölçümlü 144 ada 1 parsel sınırları içerisinde gerçekleşti…"
+          },
+          {
+            "page": 8,
+            "match": "210 ton/gün",
+            "snippet": "…ında bir adet yumurtanın ortalama ağırlığı 50 gram kabul edilmiş olup tesisin toplam kabuklu yumurta işleme kapasitesi 210 ton/gün olarak hesaplanmıştır. Tesisin yılda 300 gün çalışması planlandığından yıllık yumurta işleme kapasitesi 1.260.000.000…"
+          },
+          {
+            "page": 9,
+            "match": "210 ton/gün",
+            "snippet": "…er birbirine eklenmeyecektir. Tesisin bütün ürün kollarında kullanılacak toplam kabuklu yumurta miktarı hiçbir durumda 210 ton/gün değerini aşmayacaktır. Günlük 210 ton kabuklu yumurta girdisinden yaklaşık 25,20 ton/gün nemli yumurta kabuğu ve z…"
+          },
+          {
+            "page": 9,
+            "match": "25,20 ton/gün",
+            "snippet": "…murta miktarı hiçbir durumda 210 ton/gün değerini aşmayacaktır. Günlük 210 ton kabuklu yumurta girdisinden yaklaşık 25,20 ton/gün nemli yumurta kabuğu ve zarı ayrılması, proses kayıpları öncesinde ise teorik olarak 184,80 ton/gün sıvı yumurta elde…"
+          },
+          {
+            "page": 9,
+            "match": "184,80 ton/gün",
+            "snippet": "…irdisinden yaklaşık 25,20 ton/gün nemli yumurta kabuğu ve zarı ayrılması, proses kayıpları öncesinde ise teorik olarak 184,80 ton/gün sıvı yumurta elde edilmesi öngörülmektedir. Proses kayıpları sonrasında bütün ürün kollarına gönderilebilecek toplam…"
+          }
+        ]
+      },
+      "protected_land_and_olive": {
+        "label": "Protected Zones, Forests & Olive Groves",
+        "page_count": 5,
+        "pages": [
+          3,
+          81,
+          82,
+          84,
+          86
+        ],
+        "samples": [
+          {
+            "page": 3,
+            "match": "Orman Alanı",
+            "snippet": "…II. PROJENİN YERİ VE ETKİ ALANININ ÇEVRESEL ÖZELLİKLERİ .............. 73 II.a. Mevcut Arazi Kullanımı (Tarım Alanı, Orman Alanı, Planlı Alan, Su Yüzeyi ve Benzeri) ve Kalitesi, Jeolojik ve Hidrojeolojik Özellikleri ...............................…"
+          },
+          {
+            "page": 81,
+            "match": "Orman Alanı",
+            "snippet": "…osyası 74 Şekil 8. Proje Sahasını Gösterir Yer Bulduru Haritası II.a. Mevcut Arazi Kullanımı (Tarım Alanı, Orman Alanı, Planlı Alan, Su Yüzeyi ve Benzeri) ve Kalitesi, Jeolojik ve Hidrojeolojik Özellikleri Proje alanı kiralanmış olup,…"
+          },
+          {
+            "page": 82,
+            "match": "sulak alan",
+            "snippet": "…ÜRETİM TESİSİ Proje Tanıtım Dosyası 75 Bu nedenle proje alanında tarımsal üretim yapılmamakta; alan orman, mera, sulak alan veya su yüzeyi niteliği taşımamaktadır. Parselin yakın çevresinde sanayi tesisleri, sanayi parselleri, ulaşım yolları…"
+          },
+          {
+            "page": 84,
+            "match": "orman alanı",
+            "snippet": "…lunmamaktadır. g) Boğaziçi Kanunu’na göre koruma altına alınan alanlar bulunmamaktadır. ğ) Orman Kanunu uyarınca orman alanı sayılan alanlar bulunmamaktadır."
+          },
+          {
+            "page": 86,
+            "match": "kıyı kenar",
+            "snippet": "…ı olmak üzere canlıların yaşama ortamı olarak önem taşıyan bütün sular, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler; bulunmamaktadır. ç) Göller, akars…"
+          },
+          {
+            "page": 86,
+            "match": "sulak alan",
+            "snippet": "…ar, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler; bulunmamaktadır. ç) Göller, akarsular, yeraltı suyu işletme sahaları; bulunmamaktadır. d) Bilimsel…"
+          }
+        ]
+      },
+      "ecology_and_baseline": {
+        "label": "Flora, Fauna & Baseline Methodology",
+        "page_count": 6,
+        "pages": [
+          7,
+          85,
+          86,
+          103,
+          123,
+          124
+        ],
+        "samples": [
+          {
+            "page": 7,
+            "match": "IUCN",
+            "snippet": "…g Gram G Güney ha Hektar HTİYAKY Hafriyat Toprağı, İnşaat ve Yıkıntı Atıklarının Kontrolü Yönetmeliği Hz Hertz IUCN Nesli Tükenme Tehlikesi Altında Olan Türlerin Kırmızı Listesi K Kuzey kg Kilogram km Kilometre kV Kilo volt k…"
+          },
+          {
+            "page": 85,
+            "match": "BERN Sözleşmesi",
+            "snippet": "…sözleşmeler uyarınca korunması gerekli alanlar a) “Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi” (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan “Önemli Deniz Kaplumbağası Üreme Alanlarında belirtilen I. Ve II. Koruma Bö…"
+          },
+          {
+            "page": 86,
+            "match": "endemik",
+            "snippet": "…r. d) Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…"
+          },
+          {
+            "page": 103,
+            "match": "Flora ve Fauna",
+            "snippet": "…rumlarda gerekli bilgilendirmelerin yapılmasına özen gösterilerek, sosyal etkilerin azaltılması hedeflenecektir. 8. Flora ve Fauna Üzerindeki Etkilerin Değerlendirilmesi İnşaat ve işletme faaliyetlerinin flora ve fauna üzerindeki olası etkileri, Ç…"
+          },
+          {
+            "page": 123,
+            "match": "flora ve fauna",
+            "snippet": "…6 Faaliyet alanının mevcut arazi kullanım durumu ve çevresel özellikleri dikkate alındığında, proje faaliyetlerinin flora ve fauna üzerinde önemli ve kalıcı bir olumsuz etki oluşturması beklenmemektedir. Bununla birlikte, proje faaliyetleri sırasınd…"
+          },
+          {
+            "page": 124,
+            "match": "IUCN",
+            "snippet": "…eri • http://www.eski.tubitak.gov.tr/tubives/ TUBİVES (Türkiye Bitkileri Veri Servisi) • https://www.iucnredlist.org/ IUCN, 2010, Red List Categories • http://www.csb.gov.tr (Çevre Şehircilik ve İklim Değişikliği Bakanlığı resmi İnternet Si…"
+          }
+        ]
+      },
+      "pollutants_and_hazards": {
+        "label": "Emissions, Geochemistry & Waste",
+        "page_count": 38,
+        "pages": [
+          4,
+          6,
+          7,
+          11,
+          48,
+          49,
+          66,
+          68,
+          69,
+          70,
+          71,
+          73,
+          74,
+          75,
+          78,
+          80,
+          82,
+          83,
+          86,
+          87,
+          91,
+          94,
+          96,
+          97,
+          98
+        ],
+        "samples": [
+          {
+            "page": 4,
+            "match": "Gürültü",
+            "snippet": "….................................................................................... 64 Tablo 25. Proje Alanında Bütün Gürültü Kaynaklarının 4 Oktav Bandında Mesafelere Göre Toplam Ses Düzeyi .....................................................…"
+          },
+          {
+            "page": 6,
+            "match": "Deprem",
+            "snippet": "…ı Ek 2.4 Çevre Düzeni Planı Ek 2.5 Koruma Alanlarını ve Ava Açık ve Kapalı Alanları Gösterir Harita Ek 2.6 Deprem Haritası Ek 2.7 Fotoğraflar Ek 2.8 Kat Planları Ek 3 Vekaletname, İmza Sirküleri ve Türkiye Ticaret Sici…"
+          },
+          {
+            "page": 7,
+            "match": "Gürültü",
+            "snippet": "…AR AEP Acil Eylem Planı B Batı Bkz. Bakınız cm Santimetre ÇED Çevresel Etki Değerlendirmesi ÇGKY Çevresel Gürültü Kontrol Yönetmeliği D Doğu dBA A-Ağırlıklı desibel DSİ Devlet Su İşleri Genel Müdürlüğü g Gram G Güney ha…"
+          },
+          {
+            "page": 11,
+            "match": "Gürültü",
+            "snippet": "…lecek malzemeler kapalı veya üzeri örtülü araçlarla taşınacak ve saha içerisindeki araç hızları sınırlandırılacaktır. Gürültü oluşturabilecek söküm ve montaj çalışmaları gündüz saatlerinde gerçekleştirilecek; araç, makine ve ekipmanların bakım…"
+          },
+          {
+            "page": 48,
+            "match": "tehlikeli atık",
+            "snippet": "…ine ambalajlar diğer ambalaj atıklarından ayrı yönetilecektir. Atıksu arıtma tesisinde oluşacak arıtma çamuru doğrudan tehlikeli atık olarak kabul edilmeyecektir. Çamurun tehlikelilik özelliği, gerekli görülmesi hâlinde yetkilendirilmiş laboratuvarlar…"
+          },
+          {
+            "page": 49,
+            "match": "tehlikeli atık",
+            "snippet": "…İnşaat, tadilat ve bakım çalışmaları Kullanıma bağlı Sızdırmaz ve etiketli kaplarda biriktirilerek çevre lisanslı tehlikeli atık geri kazanım/bertaraf tesisine gönderilecektir. 08 03 17* Tehlikeli maddeler içeren atık baskı tonerleri İdari bi…"
+          },
+          {
+            "page": 66,
+            "match": "Gürültü",
+            "snippet": "…yayımlanan Sanayi Kaynaklı Hava Kirliliğinin Kontrolü Yönetmeliği ile ilgili diğer mevzuat hükümlerine uyulacaktır. Gürültü Proje kapsamında mevcut tesise ilave kapalı alanların yapılması planlanmakta olup söz konusu alanlarda mevcut beton…"
+          },
+          {
+            "page": 68,
+            "match": "Gürültü",
+            "snippet": "…makinesi 1 85 dBA Tablo 20. Proje Alanında Kullanılacak İş makineleri İçin 4 Oktav Bandından Ses Basıncı Düzeyi Gürültü Kaynağı Mesafe (m) Ses Basınç Düzeyi (dB) Toplam Ses Basıncı Düzeyi (dB) 500 Hz 1000 Hz 2000 Hz 4000 Hz Lpi=Lw…"
+          }
+        ]
+      },
+      "cost_and_capacity": {
+        "label": "Proje Bedeli, Güç ve Kapasite",
+        "page_count": 97,
+        "pages": [
+          2,
+          3,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          29,
+          30,
+          31,
+          32,
+          34
+        ],
+        "samples": [
+          {
+            "page": 2,
+            "match": "PROJE BEDELİ",
+            "snippet": "…534) 216 99 97 E-POSTA necati.kaptanoglu@tekkeli.com.tr PROJENİN ADI LİKİT, PASTÖRİZE VE TOZ YUMURTA ÜRETİM TESİSİ PROJE BEDELİ 1.294.061.131,28 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ:(İLİ, İLÇESİ, BELDESİ, MEVKİİ) Erenler Osb Mah. Mehmet Al…"
+          },
+          {
+            "page": 3,
+            "match": "Kapasite",
+            "snippet": "…....................................................................................... 5 I.b Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Yatırım Bedeli, Teknolojisi, Çalışacak Personel Sayısı ............................................…"
+          },
+          {
+            "page": 8,
+            "match": "kapasite",
+            "snippet": "…inşaat alanı ise 7.890 m² artacaktır. Ayrıca tesis atıksularının arıtılması amacıyla 683 m² alan üzerinde 250 m³/gün kapasiteli atıksu arıtma tesisi kurulacaktır. Bütün çalışmalar 39.808,72 m² yüzölçümlü 144 ada 1 parsel sınırları içerisinde ge…"
+          },
+          {
+            "page": 8,
+            "match": "63.000 ton/yıl",
+            "snippet": "…in yılda 300 gün çalışması planlandığından yıllık yumurta işleme kapasitesi 1.260.000.000 adet/yıl, diğer bir ifadeyle 63.000 ton/yıl olacaktır. Tesiste her biri 216.000 yumurta/saat besleme kapasitesine sahip iki üretim hattı bulunacak ve toplam saatl…"
+          },
+          {
+            "page": 9,
+            "match": "kapasite",
+            "snippet": "…kurutulmuş yumurta akı tozu üretilecektir. Likit, pastörize sıvı ve toz ürünler birbirinden bağımsız ve aynı anda tam kapasitede çalışan ayrı üretim kapasiteleri değildir. Bütün ürünler ortak kabuklu yumurta girdisinden üretilecek ve farklı ürü…"
+          },
+          {
+            "page": 9,
+            "match": "181,854 ton/gün",
+            "snippet": "…esi öngörülmektedir. Proses kayıpları sonrasında bütün ürün kollarına gönderilebilecek toplam net sıvı yumurta miktarı 181,854 ton/gün değerini aşmayacaktır. Likit yumurta, pastörize sıvı yumurta ve toz yumurta ürünlerinin üretim miktarları, işletmenin…"
+          },
+          {
+            "page": 10,
+            "match": "kapasite",
+            "snippet": "…anan evsel nitelikli atık sular oluşturacaktır. Endüstriyel nitelikli atık sular tesis bünyesinde kurulacak 250 m³/gün kapasiteli atık su arıtma tesisinde fiziksel ve biyolojik arıtma işlemlerinden geçirilecektir. Arıtılmış endüstriyel atık sula…"
+          },
+          {
+            "page": 10,
+            "match": "336.000 kW",
+            "snippet": "…mamış atık suyun doğrudan alıcı ortama verilmesi söz konusu olmayacaktır. Tesisin işletme aşamasında aylık yaklaşık 336.000 kWh, yıllık yaklaşık 4.032.000 kWh elektrik enerjisi kullanılacaktır. Buhar üretimi, yumurta kabuğu ve zarlarının kurutul…"
+          }
+        ]
+      },
+      "splitting_and_thresholds": {
+        "label": "Proje Parçalama, Kapasite Artışı ve Eşik Değerler",
+        "page_count": 8,
+        "pages": [
+          38,
+          39,
+          40,
+          80,
+          127,
+          130,
+          135,
+          138
+        ],
+        "samples": [
+          {
+            "page": 38,
+            "match": "kapasite artışı",
+            "snippet": "…şacak Personel Sayısı Proje kapsamında mevcut fabrika binalarında üretim alanlarının ihtiyaçlarına yönelik tadilat, kapasite artışı, kat ilavesi ve yeni kapalı alan oluşturulmasına ilişkin inşaat revizyonları gerçekleştirilecektir. İnşaat, mekanik-el…"
+          },
+          {
+            "page": 39,
+            "match": "ÇED alanı",
+            "snippet": "…rı, otopark, açık teknik alanlar ve yeşil alan düzenlemeleri için kullanılacaktır. Proje nedeniyle 144 ada 1 parsel ve ÇED alanı sınırları dışında ilave arazi kullanılmayacaktır. Likit, pastörize ve toz yumurta üretim hatları ile yardımcı üniteler…"
+          },
+          {
+            "page": 40,
+            "match": "ÇED alanı",
+            "snippet": "…rı ayrı olarak gösterilen 683 m² büyüklüğündeki alan içerisinde kurulacaktır. Arıtma tesisi alanı 144 ada 1 parsel ve ÇED alanı sınırları içerisinde kalmaktadır."
+          },
+          {
+            "page": 80,
+            "match": "ÇED Alanı",
+            "snippet": "…y İli, Merkez İlçesi, Erenler OSB Mahallesi, Mehmet Altınsoy Bulvarı No: 22, 144 ada 1 parsel üzerinde yer almaktadır. ÇED Alanı yüzölçümü 39.808,72 m²’dir. Tapu kayıtlarında parselin niteliği “İki Adet İki Katlı Prefabrik Fabrika Binası, İdari…"
+          },
+          {
+            "page": 127,
+            "match": "ÇED ALANI",
+            "snippet": "ÇED ALANI Koordinat Sırası : Sağa, Yukarı Datum : ED-50 Türü : UTM D.O.M.…"
+          },
+          {
+            "page": 130,
+            "match": "ÇED ALANI",
+            "snippet": "İLİ İLÇESİ : AKSARAY : MERKEZ N 1 / 25 000 ÇED ALANI NoktaNo Y X ÇED ALANI KOORDİNATLARI Alan: 39.808,72 m NoktaNo Y X KAPALI ALAN KOORDİNATLARI 2 1 588555.372 4235676.062…"
+          },
+          {
+            "page": 135,
+            "match": "ÇED ALANI",
+            "snippet": "N 1 / 2 000 ÇED ALANI 4 235 400 588 400 4 235 500 4 235 600 4 235 700 588 500 588 600 588 700 588 800 588 850 4 235 750 ATIKSU ARITMA TESİSİ…"
+          },
+          {
+            "page": 138,
+            "match": "ÇED ALANI",
+            "snippet": "İLİ İLÇESİ : AKSARAY : MERKEZ N 1 / 25 000 ÇED ALANI NoktaNo Y X ÇED ALANI KOORDİNATLARI Alan: 39.808,72 m NoktaNo Y X KAPALI ALAN KOORDİNATLARI 2 1 588555.372 4235676.062…"
+          }
+        ]
+      }
+    },
+    "audit_checks": {
+      "mentions_field_survey": false,
+      "mentions_literature_only_cue": false,
+      "mentions_seasonal_sampling": false,
+      "mentions_cumulative_impact": true,
+      "mentions_olive_law_3573": true,
+      "mentions_groundwater_or_aquifer": true,
+      "mentions_iucn_or_endemic": true,
+      "mentions_capacity_or_splitting": true,
+      "mentions_circular_2009_7_or_revision": false
+    }
+  },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-22T00:53:50",
+      "decision_type": "ÇED Gerekli Değil/ÇED Olumlu",
+      "announcement_date": "2026-11-13",
+      "announcement_date_tr": "13.11.2026",
+      "submitted_at": "11/09/2026 02:37:11",
+      "consulting_firm": "EMS ÇEVRE VE MÜHENDİSLİK A.Ş.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign5940825894667475739.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-06",
+      "pdf_temp_ad": "sign5940825894667475739.pdf",
+      "pdf_original_name": "e-imza.pdf",
+      "pdf_upload_date": "2026-11-06",
+      "sha256": "c842fc457d8ea0969371cb645574ff17400f1d0e0ced4b93b023445cc11991ce",
+      "bytes": 52869820,
+      "page_count": 301,
+      "text_pages": 259,
+      "scanned_or_blank_pages": 42,
+      "audit_checks": {
+        "mentions_field_survey": false,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": false,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": true,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true,
+        "mentions_capacity_or_splitting": true,
+        "mentions_circular_2009_7_or_revision": false
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 126,
+        "water_and_discharge": 83,
+        "protected_land_and_olive": 5,
+        "ecology_and_baseline": 6,
+        "pollutants_and_hazards": 38,
+        "cost_and_capacity": 97,
+        "splitting_and_thresholds": 8
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 38.26336,
+      "geo_lon": 34.01259,
+      "geo_point_count": 1,
+      "detail_text_sha256": "91e82ca2b875f4ba"
+    }
+  ],
+  "llm_synthesis": {
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-11-22T00:53:56",
+    "pages_sent": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      81,
+      82,
+      84,
+      85,
+      86,
+      100,
+      101,
+      103,
+      104,
+      105
+    ],
+    "usage": {
+      "prompt_tokens": 23487,
+      "output_tokens": 2009,
+      "thoughts_tokens": null,
+      "total_tokens": 25496
+    },
+    "result": {
+      "executive_summary_tr": "EGG VALLEY GIDA SANAYİ VE TİCARET A.Ş. AKSARAY ŞUBESİ tarafından Aksaray İli, Merkez İlçesi, Erenler OSB Mahallesi'ndeki mevcut 144 ada 1 parselde kurulması planlanan Likit, Pastörize ve Toz Yumurta Üretim Tesisi, günlük 210 ton kabuklu yumurta işleme kapasitesine sahiptir. Yatırım bedeli 1.294.061.131,28 TL olan projede mevcut 13.700 m² kapalı alan revize edilerek toplam brüt inşaat alanı 21.590 m²'ye çıkarılacak ve 250 m³/gün kapasiteli bir endüstriyel atıksu arıtma tesisi kurulacaktır. Faaliyet kapsamında günde 200 m³ atıksu oluşumu beklenmekte olup, arıtılan sular OSB kanalizasyon sistemine deşarj edilecektir.",
+      "executive_summary_en": "The Liquid, Pasteurized, and Powdered Egg Production Facility planned by Egg Valley Gıda Sanayi ve Ticaret A.Ş. Aksaray Branch in Aksaray Merkez Erenler OSB has a processing capacity of 210 tons/day of shell eggs on plot 144/1. With an investment value of 1,294,061,131.28 TL, the project will expand existing buildings to a total gross construction area of 21,590 m² and include a 250 m³/day industrial wastewater treatment plant. Generating approximately 200 m³/day of wastewater, treated effluents will be discharged into the organized industrial zone sewerage system.",
+      "key_facts": [
+        {
+          "label": "Proje Bedeli",
+          "value": "1.294.061.131,28 TL (23.034.196 Euro)",
+          "page": 11
+        },
+        {
+          "label": "Parsel Yüzölçümü",
+          "value": "39.808,72 m²",
+          "page": 8
+        },
+        {
+          "label": "Toplam Brüt İnşaat Alanı",
+          "value": "21.590 m²",
+          "page": 8
+        },
+        {
+          "label": "Günlük Kabuklu Yumurta İşleme Kapasitesi",
+          "value": "210 ton/gün (4.200.000 adet/gün)",
+          "page": 8
+        },
+        {
+          "label": "Yıllık Yumurta İşleme Kapasitesi",
+          "value": "63.000 ton/yıl (1.260.000.000 adet/yıl)",
+          "page": 8
+        },
+        {
+          "label": "Su Kullanım Kapasitesi",
+          "value": "200 m³/gün (5.000 m³/ay, 60.000 m³/yıl)",
+          "page": 10
+        },
+        {
+          "label": "Atıksu Arıtma Tesisi Kapasitesi",
+          "value": "250 m³/gün",
+          "page": 10
+        },
+        {
+          "label": "Elektrik Tüketimi",
+          "value": "336.000 kWh/ay (4.032.000 kWh/yıl)",
+          "page": 10
+        },
+        {
+          "label": "Doğal Gaz Tüketimi",
+          "value": "288.000 m³/ay (3.456.000 m³/yıl)",
+          "page": 10
+        },
+        {
+          "label": "İstihdam (İşletme Aşaması)",
+          "value": "60 kişi",
+          "page": 10
+        }
+      ],
+      "baseline_assessment": {
+        "field_survey_status": "not_found",
+        "seasonal_sampling_status": "not_found",
+        "cumulative_impact_status": "omitted_or_not_found",
+        "olive_and_protected_status": "Proje alanı Aksaray Organize Sanayi Bölgesi içerisinde yer almakta olup, 3573 sayılı Zeytincilik Kanunu kapsamında zeytinlik alanlarda, orman alanlarında, meralarda veya Ek-5 Duyarlı Yöreler Listesi'ndeki korunan alanlarda kalmamaktadır [s. 82, 84-85].",
+        "explanation": "Proje Tanıtım Dosyasında, proje alanının halihazırda yapılaşmış bir OSB parseli olduğu belirtilerek flora, fauna ve ekolojik deneye ilişkin herhangi bir arazi tabanlı mevsimsel saha çalışması veya envanterine yer verilmemiştir [s. 81-82]. Alanın OSB sınırları içinde ve yapay yapılarla kaplı olması nedeniyle biyoçeşitlilik incelemeleri atlanmıştır [s. 82]. Kümülatif etki değerlendirmesi ise detaylı kantitatif modellemelerden yoksun olup, genel idari taahhütler düzeyinde bırakılmıştır."
+      },
+      "red_flags": [
+        {
+          "category": "su_hidrojeoloji",
+          "severity": "medium",
+          "title": "Endüstriyel Atıksu Arıtma Çamurları ve Bertaraf Detaylarının Belirsizliği",
+          "detail": "Tesiste kurulacak 250 m³/gün kapasiteli fiziksel ve biyolojik arıtma tesisi sonucunda oluşacak arıtma çamurlarının miktarı, özellikleri ve bertaraf/geri kazanım rotası PTD metninde somut olarak quantify edilmemiştir [s. 10].",
+          "pages": [
+            10
+          ]
+        },
+        {
+          "category": "izleme_olcum_celiskisi",
+          "severity": "medium",
+          "title": "Yumurta Kabuğu ve Zarının Yan Ürün Statüsü Belirsizliği",
+          "detail": "Günlük 25,20 ton nemli yumurta kabuğu ve zarı karışımının Tarım ve Orman Bakanlığı'ndan yan uygunluğu alınana kadar atık kabul edileceği belirtilmekte ancak bu iznin alınamaması durumunda uygulanacak nihai bertaraf zinciri idari koşullara bağlanmaktadır [s. 9].",
+          "pages": [
+            9
+          ]
+        }
+      ],
+      "recommended_bilirkisi_disciplines": [
+        "Çevre Mühendisi",
+        "Gıda Mühendisi",
+        "Hidrojeoloji Mühendisi",
+        "Şehir ve Bölge Plancısı",
+        "Ziraat Mühendisi"
+      ],
+      "hkt_and_petition_questions": [
+        {
+          "question_tr": "Tesiste günlük 185,90 m³/gün endüstriyel atıksu üreteceği belirtilen proses sularının fiziksel ve biyolojik arıtma sonrasında Aksaray OSB kanalizasyon deşarj standartlarını sürekli olarak sağlayacağına dair arıtma ünitesi deşarj suyu kalite garantisi ve arıtma çamuru bertaraf planı nedir?",
+          "pages": [
+            10
+          ]
+        },
+        {
+          "question_tr": "Günde 25,20 ton/gün olarak hesaplanan nemli yumurta kabuğu ve zarı karışımının ekonomik geri kazanımı veya bertarafı aşamasında koku ve vektör kontrolü için tesis içinde hangi kapalı depolama ve sızdırmazlık tedbirleri alınacaktır?",
+          "pages": [
+            9,
+            10
+          ]
+        },
+        {
+          "question_tr": "İki adet püskürtmeli kurutucu ve buhar kazanından kaynaklanacak toplam yedi adet emisyon noktasının Hava Kalitesi Değerlendirme ve Yönetimi Yönetmeliği sınır değerlerine uygunluğu hangi sıklıkta ve hangi akredite laboratuvarlar aracılığıyla denetlenecektir?",
+          "pages": [
+            10,
+            11
+          ]
+        }
+      ],
+      "data_limitations": "İncelenen PTD metni içinde yer almayan harita ekleri (Ek-2.1 ila Ek-2.8) ve kurum görüşleri (Ek-7.g) tam olarak metin içinde taranamamış olup, değerlendirme yalnızca sağlanan PDF metin sayfaları ve tablolar üzerinden yapılmıştır."
+    }
+  }
+}

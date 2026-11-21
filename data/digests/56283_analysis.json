@@ -1,0 +1,1041 @@
+{
+  "filing": {
+    "province": "BİLECİK",
+    "district": "MERKEZ",
+    "project_name": "Etlik Piliç Yetiştirme Tesisi",
+    "project_owner": "Betül Bozkurt Küçük",
+    "sector": "Hayvancılık",
+    "sub_sector": "Kümes Hayvanları  Yetiştirme Tesisleri",
+    "decision_type": "ÇED Gerekli Değil/ÇED Olumlu",
+    "announcement_date_tr": "13.11.2026",
+    "project_type": "Ek-2",
+    "detail_text": "BİLECİK ili MERKEZ,  ilcesinde BİLECİK ili MERKEZ,  ilcesi Çukurören Köyü, Sarıkaya Mevkii, 125 ada, 34 nolu parsel, Tapulu Alan:14.742,69 m2  mevkiindeki Betül Bozkurt Küçük tarafından yapılması planlanan Etlik Piliç Yetiştirme Tesisi projesi ile ilgili olarak Bakanlığımıza sunulan PTD Dosyası incelenmiş ve değerlendirilmiştir  ÇED Yönetmeliği'nin 17. maddesi gereğince Etlik Piliç Yetiştirme Tesisi projesi'ne Valiliğimizce 'ÇED Olumlu (Kapsam Ek-2)' kararı verilmiştir.",
+    "detail_links": [
+      {
+        "text": "PTD Dosyası",
+        "href": "http://eced.csb.gov.tr/jsp/ek1/56283"
+      }
+    ],
+    "documents": [
+      {
+        "portal_doc_url": "http://eced.csb.gov.tr/jsp/ek1/56283",
+        "filing_id": "56283",
+        "consulting_firm": "MORA ÇEVRE VE ORMAN MÜHENDİSLİK SAN. TİC. LTD. ŞTİ.",
+        "submitted_at": "26/06/2026 06:08:40",
+        "pdf_urls": [
+          {
+            "label": "Dosya Göster",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4439504372025064195.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-10"
+          }
+        ]
+      }
+    ],
+    "announcement_date": "2026-11-13",
+    "statutory_clocks": [
+      {
+        "code": "iyuk_20a",
+        "kind": "İYUK Madde 20/A iptal davası süresi (30 takvim günü; İYUK 11 süreyi durdurmaz)",
+        "deadline": "2026-12-13",
+        "days_remaining": 21
+      }
+    ],
+    "filing_key": "56283:13.11.2026:ÇED Gerekli Değil/ÇED Olumlu",
+    "first_seen_at": "2026-11-20T09:02:27"
+  },
+  "pdf_info": {
+    "filename": "56283.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4439504372025064195.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-10",
+    "bytes": 14140232,
+    "sha256": "fd83fc09f1a6d64c7368009550d90f1c1da570c622a2cf1883e5c2f7f5148c70",
+    "cached": false
+  },
+  "analysis": {
+    "page_count": 314,
+    "total_chars": 524281,
+    "text_pages": 269,
+    "scanned_or_blank_pages": 45,
+    "scanned_page_sample": [
+      148,
+      153,
+      155,
+      156,
+      157,
+      158,
+      159,
+      160,
+      161,
+      163,
+      166,
+      167,
+      168,
+      169,
+      170
+    ],
+    "headings": [
+      [
+        1,
+        "PTD Dış Kapak"
+      ],
+      [
+        2,
+        "PTD İç Kapak (YEN)"
+      ],
+      [
+        3,
+        "BETÜL BOZKURT RAPOR"
+      ],
+      [
+        148,
+        "EKLER_compressed"
+      ],
+      [
+        148,
+        "EKLER_compressed"
+      ],
+      [
+        148,
+        "EKLER SAYFASI"
+      ],
+      [
+        150,
+        "KOORDİNATLAR"
+      ],
+      [
+        152,
+        "EKLER SAYFASI"
+      ],
+      [
+        154,
+        "Netcad ozgur ACER vaziyet planı"
+      ],
+      [
+        155,
+        "EKLER SAYFASI"
+      ],
+      [
+        156,
+        "Yer Buldururu"
+      ],
+      [
+        157,
+        "EKLER SAYFASI"
+      ],
+      [
+        158,
+        "topoğrafik haritas"
+      ],
+      [
+        159,
+        "EKLER SAYFASI"
+      ],
+      [
+        160,
+        "JEO HARİTASI"
+      ],
+      [
+        161,
+        "EKLER SAYFASI"
+      ],
+      [
+        162,
+        "DEPREM HARİTASI"
+      ],
+      [
+        163,
+        "EKLER SAYFASI"
+      ],
+      [
+        164,
+        "ustyazi"
+      ],
+      [
+        166,
+        "EK-1 (1)"
+      ],
+      [
+        167,
+        "EK-2"
+      ],
+      [
+        171,
+        "EKLER SAYFASI"
+      ],
+      [
+        172,
+        "hidrojeoloji haritası"
+      ],
+      [
+        173,
+        "EKLER SAYFASI"
+      ],
+      [
+        174,
+        "UYDU GÖR."
+      ]
+    ],
+    "geo": {
+      "precision": "exact_pdf",
+      "lat": 40.25232,
+      "lon": 29.95275,
+      "point_count": 74,
+      "points": [
+        [
+          40.25281,
+          29.95197
+        ],
+        [
+          40.2525,
+          29.95365
+        ],
+        [
+          40.25213,
+          29.95382
+        ],
+        [
+          40.25189,
+          29.95385
+        ],
+        [
+          40.25158,
+          29.95385
+        ],
+        [
+          40.2517,
+          29.95325
+        ],
+        [
+          40.25168,
+          29.95254
+        ],
+        [
+          40.25203,
+          29.9523
+        ],
+        [
+          40.25265,
+          29.95185
+        ],
+        [
+          40.2527,
+          29.95206
+        ],
+        [
+          40.25248,
+          29.95326
+        ],
+        [
+          40.2523,
+          29.95321
+        ],
+        [
+          40.25253,
+          29.952
+        ],
+        [
+          40.25238,
+          29.95229
+        ],
+        [
+          40.25216,
+          29.9535
+        ],
+        [
+          40.25198,
+          29.95345
+        ],
+        [
+          40.2522,
+          29.95224
+        ],
+        [
+          40.25185,
+          29.95309
+        ],
+        [
+          40.25183,
+          29.95321
+        ],
+        [
+          40.25176,
+          29.95318
+        ],
+        [
+          40.25178,
+          29.95307
+        ],
+        [
+          40.25169,
+          29.9537
+        ],
+        [
+          40.25169,
+          29.95373
+        ],
+        [
+          40.25165,
+          29.95372
+        ],
+        [
+          40.25166,
+          29.95369
+        ],
+        [
+          40.25182,
+          29.95272
+        ],
+        [
+          40.25182,
+          29.95284
+        ],
+        [
+          40.25178,
+          29.95284
+        ],
+        [
+          40.25177,
+          29.95272
+        ],
+        [
+          40.25189,
+          29.95273
+        ],
+        [
+          40.2519,
+          29.95284
+        ],
+        [
+          40.25185,
+          29.95285
+        ],
+        [
+          40.25185,
+          29.95273
+        ],
+        [
+          40.25347,
+          29.95157
+        ],
+        [
+          40.25316,
+          29.95325
+        ],
+        [
+          40.25279,
+          29.95342
+        ],
+        [
+          40.25255,
+          29.95345
+        ],
+        [
+          40.25224,
+          29.95345
+        ],
+        [
+          40.25236,
+          29.95285
+        ],
+        [
+          40.25234,
+          29.95214
+        ]
+      ],
+      "datum": "UTM-Z35/ED50",
+      "pages": [
+        21,
+        150
+      ]
+    },
+    "signals": {
+      "coordinates_and_footprint": {
+        "label": "Coordinates, Parcel & Footprint",
+        "page_count": 62,
+        "pages": [
+          5,
+          7,
+          8,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          19,
+          20,
+          21,
+          22,
+          24,
+          26,
+          30,
+          33,
+          36,
+          37,
+          39,
+          40,
+          62,
+          65,
+          67,
+          73
+        ],
+        "samples": [
+          {
+            "page": 5,
+            "match": "Koordinat",
+            "snippet": "…2: Tesise Ait Ünitelerin Kapalı Alanları -------------------------------------------------- 13 Tablo 3: Faaliyet Alanı Koordinatları ------------------------------------------------------------- 14 Tablo 4:Proje Maliyeti --------------------------…"
+          },
+          {
+            "page": 7,
+            "match": "Koordinat",
+            "snippet": "V BETÜL BOZKURT KÜÇÜK Etlik Piliç Yetiştirme Tesisi EKLER DİZİNİ Ek-1 : Proje İçin Seçilen Yerin Koordinatları Ek-2 : Proje alanı ve yakın çevresinin mevcut arazi kullanımını değerlendirmek için; yerleşim alanlarının, ulaşım…"
+          },
+          {
+            "page": 8,
+            "match": "742,69 m2",
+            "snippet": "…AYAN ÖZETİ Bilecik İli, Merkez İlçesi, Çukurören Köyü, Sarıkaya Mevkii, 125 ada, 34 nolu parsel üzerinde kayıtlı 14.742,69 m2 tapulu alanda Betül BOZKURT KÜÇÜK tarafından “Etlik Piliç Yetiştirme Tesisi” kurulması ve işletilmesi planlanmaktadır.…"
+          },
+          {
+            "page": 8,
+            "match": "4.220 m²",
+            "snippet": "…ikasyon Krokisi Ek- 7.1’de sunulmuştur. Faaliyeti planlanan etlik piliç yetiştirme tesisinde 2 adet tek katlı toplam 4.220 m² (2.110 m² + 2.110 m² ) kapalı alana sahip kümes inşaatı yapılması planlanmaktadır. Projenin hayata geçirilmesi ile…"
+          },
+          {
+            "page": 8,
+            "match": "2.110 m²",
+            "snippet": "…kisi Ek- 7.1’de sunulmuştur. Faaliyeti planlanan etlik piliç yetiştirme tesisinde 2 adet tek katlı toplam 4.220 m² (2.110 m² + 2.110 m² ) kapalı alana sahip kümes inşaatı yapılması planlanmaktadır. Projenin hayata geçirilmesi ile birlikte i…"
+          },
+          {
+            "page": 11,
+            "match": "ada 34 parsel",
+            "snippet": "…azırlanan 16.07.2026 tarihli raporda; ''Bahse konu İlimiz Merkez ilçesi, Çukurören köyü, Sarıkaya Mevkii, tapunun 125 ada 34 parsel numaralı taşınmaz üzerinde mevcut inceleme koşulları çerçevesinde görünür alanlarda yapılan incelemede, 2863 sayılı Kü…"
+          },
+          {
+            "page": 12,
+            "match": "ada 34 parsel",
+            "snippet": "…Özel İdaresi, Yol ve Ulaşım Hizmetler Müdürlüğü Kurum görüş yazısında “Bilecik İli, Merkez İlçesi, Çukurören Köyü, 125 ada 34 parsel üzerinde Betül BOZKURT KÜÇÜK tarafından gerçekleştirilmesi planlanan ''Etlik Piliç Yetiştirme Tesisi Projesi'' için Ç…"
+          },
+          {
+            "page": 13,
+            "match": "ada 34 nolu parsel",
+            "snippet": "…daresi, Çevre Koruma ve Kontrol Müdürlüğü Kurum görüş yazısında; “Bilecik İli Merkez İlçesi Çukurören Köyü tapuda; 125 ada 34 nolu parsel taşınmaz, Sicil No:89814 ER:3412494 nolu Safi Çimento Üretim San.ve Tic.A.Ş. adına II- C Grup maden arama sahası içeri…"
+          }
+        ]
+      },
+      "water_and_discharge": {
+        "label": "Water Use, Hydrogeology & Discharge",
+        "page_count": 24,
+        "pages": [
+          5,
+          10,
+          11,
+          13,
+          15,
+          29,
+          30,
+          32,
+          33,
+          34,
+          66,
+          68,
+          79,
+          80,
+          85,
+          104,
+          127,
+          128,
+          195,
+          196,
+          197,
+          246,
+          249,
+          289
+        ],
+        "samples": [
+          {
+            "page": 5,
+            "match": "Atıksu",
+            "snippet": "…8: Toplam Su Kullanım Durumu ----------------------------------------------------------- 24 Tablo 9: Tesiste Oluşacak Atıksu Miktarları ----------------------------------------------------- 27 Tablo 10:Tavuk Gübresine Ait Özellikler ----------…"
+          },
+          {
+            "page": 10,
+            "match": "yeraltı suyu",
+            "snippet": "3 BETÜL BOZKURT KÜÇÜK Etlik Piliç Yetiştirme Tesisi - Faaliyet kapsamında yüzeysel ve/veya yeraltı suyu kullanılmadan önce Kurumumuzdan izinlerin alınması, - Taşkın, sel vs. gibi risklere karşı alınacak önlemlerin dosy…"
+          },
+          {
+            "page": 10,
+            "match": "Yeraltısuyu",
+            "snippet": "…dosyada belirtilmesi, - Tüm tesiste sızdırmazlık önlemlerinin alınarak su kirliliğine sebebiyet verilmemesi, - Yeraltısuyu kaynaklarının (varsa kaynak, sondaj kuyusu vs.) ve yüzeysel su kaynaklarının kalitesi açısından olumsuz etkilenmemesi…"
+          },
+          {
+            "page": 11,
+            "match": "dere yatağı",
+            "snippet": "…i amacıyla gerekli tüm mühendislik, işletme ve çevresel tedbirler alınacaktır. Faaliyet alanı içinden herhangi bir dere yatağı veya akarsu geçmemektedir. Ancak faaliyet alanı yakın çevresinden geçen akarsu ve dere yataklarını değiştirmeyeceğimiz…"
+          },
+          {
+            "page": 13,
+            "match": "atıksu",
+            "snippet": "…ara nakledilecektir. Atıkların yeraltı ve yüzeysel sulara karışması önlenecektir. Tesisin içme ve kullanma suyu ile atıksu (kanalizasyon) ihtiyaçları, ruhsat sahibinin kendi imkânları doğrultusunda karşılanacaktır. İşletmede kullanılacak içm…"
+          },
+          {
+            "page": 15,
+            "match": "atıksu",
+            "snippet": "…iye ile evsel nitelikli atıksuların kabulüne ilişkin protokol yapacağımızı ve/veya görüş soracağımızı ve alıcı ortama atıksu deşarjı yapmayacağımızı beyan ve taahhüt ederiz. Tavuk çiftliğinin kapasitesinin 60.000 adet ve üzerinde olması dur…"
+          },
+          {
+            "page": 29,
+            "match": "4,92 m3/gün",
+            "snippet": "…ekli izin başvuruları yapılarak, kullanım izni alınacaktır. İnşaat Aşamasında: 1. Personel Kaynaklı Su İhtiyacı (4,92 m3/gün) 2. İnşaat Aşaması Su İhtiyacı (4 m3/gün) Toplam Su İhtiyacı: 8,92 m3/gün Proje kapsamında inşaat aşamasında…"
+          },
+          {
+            "page": 29,
+            "match": "4 m3/gün",
+            "snippet": "…i alınacaktır. İnşaat Aşamasında: 1. Personel Kaynaklı Su İhtiyacı (4,92 m3/gün) 2. İnşaat Aşaması Su İhtiyacı (4 m3/gün) Toplam Su İhtiyacı: 8,92 m3/gün Proje kapsamında inşaat aşamasında tesiste 20 personel çalıştırılması pl…"
+          }
+        ]
+      },
+      "protected_land_and_olive": {
+        "label": "Protected Zones, Forests & Olive Groves",
+        "page_count": 14,
+        "pages": [
+          3,
+          16,
+          27,
+          28,
+          75,
+          76,
+          77,
+          85,
+          104,
+          125,
+          127,
+          164,
+          189,
+          301
+        ],
+        "samples": [
+          {
+            "page": 3,
+            "match": "Orman Alanı",
+            "snippet": "…--------------------------------------------------------------------------- 68 a) Mevcut Arazi Kullanımı (Tarım Alanı, Orman Alanı, Planlı Alan, Su Yüzeyi ve Benzeri) ve Kalitesi, Jeolojik ve Hidrojeolojik Özellikler --------------------------------…"
+          },
+          {
+            "page": 16,
+            "match": "3573 sayılı",
+            "snippet": "…ında yapılan inceleme ve değerlendirmede proje alanında su ürünleri ihtisas alanları bulunmadığı tespit edilmiştir. 3573 sayılı Zeytinciliğin Islahı ve Yabanilerinin Aşılattırılması Hakkında Kanun kapsamında yapılan inceleme ve değerlendirmede pr…"
+          },
+          {
+            "page": 27,
+            "match": "Mutlak Tarım",
+            "snippet": "20 BETÜL BOZKURT KÜÇÜK Etlik Piliç Yetiştirme Tesisi gerçekleştirilecektir. Mutlak Tarım Arazileri: Bu alanların tarım faaliyeti amaçlı kullanılması esastır. Tarımsal amaçlı yapılar yapılması durumunda; Emsa…"
+          },
+          {
+            "page": 27,
+            "match": "Doğal Sit",
+            "snippet": "…anların Tespit, Tescil ve Onayına İlişkin Usul ve Esaslara Dair Yönetmelik\" çerçevesinde tespit edilmiş, herhangi bir Doğal Sit Alanı ile Türk Standartları Enstitüsünün, TS 13137 \"Anıt Ağaçlar-ve/veya Tabiat Varlığı Envanter, Seçim Kuralları ve İ…"
+          },
+          {
+            "page": 28,
+            "match": "Özel Çevre Koruma",
+            "snippet": "21 BETÜL BOZKURT KÜÇÜK Etlik Piliç Yetiştirme Tesisi Arkeolojik, Tarihi, Kültürel Sitler, Özel Çevre Koruma Bölgeleri, Özel Koruma Alanları, Turizm Bölgeleri bulunmamaktadır. “Kirlenmiş sahalar bilgi sistemi MADDE 7 – (1…"
+          },
+          {
+            "page": 75,
+            "match": "Orman Alanı",
+            "snippet": "…rme Tesisi BÖLÜM II: PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ a) Mevcut Arazi Kullanımı (Tarım Alanı, Orman Alanı, Planlı Alan, Su Yüzeyi ve Benzeri) ve Kalitesi, Jeolojik ve Hidrojeolojik Özellikler ÇED Yönetmeliği'ne konu faali…"
+          },
+          {
+            "page": 75,
+            "match": "Mutlak Tarım",
+            "snippet": "…arazileri sınıflamalarına göre tarımsal amaçlı yapılaşmalar, aşağıda belirlenen koşullara göre gerçekleştirilecektir. Mutlak Tarım Arazileri: Bu alanların tarım faaliyeti amaçlı kullanılması esastır. Tarımsal amaçlı yapılar yapılması durumunda; Emsa…"
+          },
+          {
+            "page": 76,
+            "match": "Doğal Sit",
+            "snippet": "…anların Tespit, Tescil ve Onayına İlişkin Usul ve Esaslara Dair Yönetmelik\" çerçevesinde tespit edilmiş, herhangi bir Doğal Sit Alanı ile Türk Standartları Enstitüsünün, TS 13137 \"Anıt Ağaçlar-ve/veya Tabiat Varlığı Envanter, Seçim Kuralları ve İ…"
+          }
+        ]
+      },
+      "ecology_and_baseline": {
+        "label": "Flora, Fauna & Baseline Methodology",
+        "page_count": 31,
+        "pages": [
+          10,
+          40,
+          78,
+          80,
+          82,
+          83,
+          84,
+          85,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106
+        ],
+        "samples": [
+          {
+            "page": 10,
+            "match": "mevsimsel",
+            "snippet": "…tün hususlara uygun bir şekilde çalışacağımızı beyan ve taahhüt ederiz. Faaliyet alanı ve çevresindeki akarsular ve mevsimsel akış gösteren kuru dere yataklar faaliyet sırasında zarar görmeyecek, dere yataklarına ve dere yataklarına ulaşması s…"
+          },
+          {
+            "page": 40,
+            "match": "mevsimsel",
+            "snippet": "…nda Bilecik Merkez Belediyesi’nin belirleyeceği alanlara dökülecektir. Proje alanı ve yakın çevresindeki akarsular, mevsimsel akış gösteren kuru dere yatakları faaliyet sırasında zarar görmeyecek, dere yataklarına ve dere yataklarına ulaşması…"
+          },
+          {
+            "page": 78,
+            "match": "mevsimsel",
+            "snippet": "…Su Yüzeyi Proje sahasının içinden herhangi bir su yüzeyi geçmemektedir. Ancak proje alanı yakın çevresinde kuru ve mevsimsel akış gösteren dere yatakları bulunmaktadır.  Jeolojik ve Hidrojeolojik Özellikler Bölgesel Jeoloji Yapı Bile…"
+          },
+          {
+            "page": 80,
+            "match": "mevsimsel",
+            "snippet": "…larak vadilere yönelmesi beklenmektedir. Yeraltı suyu seviyesinin topoğrafya ile ilişkili olarak derinde bulunacağı ve mevsimsel yağışlara bağlı değişimler gösterebileceği değerlendirilmektedir. Sonuç olarak proje alanı, yüksek verimli bir akif…"
+          },
+          {
+            "page": 82,
+            "match": "IUCN",
+            "snippet": "…e Dağılımı Proje alanı ve etki alanında tespit edilen tüm bitki türlerinin Türkiye Bitkileri Kırmızı Kitabı (TBKK), IUCN Kırmızı Liste, BERN Sözleşmesi (Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarının Korunması Sözleşmesi) ve CITES Sözleşme…"
+          },
+          {
+            "page": 82,
+            "match": "Kırmızı Liste",
+            "snippet": "…ılımı Proje alanı ve etki alanında tespit edilen tüm bitki türlerinin Türkiye Bitkileri Kırmızı Kitabı (TBKK), IUCN Kırmızı Liste, BERN Sözleşmesi (Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarının Korunması Sözleşmesi) ve CITES Sözleşmesi’ne (Nesli T…"
+          },
+          {
+            "page": 82,
+            "match": "BERN Sözleşmesi",
+            "snippet": "…alanı ve etki alanında tespit edilen tüm bitki türlerinin Türkiye Bitkileri Kırmızı Kitabı (TBKK), IUCN Kırmızı Liste, BERN Sözleşmesi (Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarının Korunması Sözleşmesi) ve CITES Sözleşmesi’ne (Nesli Tehlike Altında O…"
+          },
+          {
+            "page": 82,
+            "match": "CITES",
+            "snippet": "…ı (TBKK), IUCN Kırmızı Liste, BERN Sözleşmesi (Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarının Korunması Sözleşmesi) ve CITES Sözleşmesi’ne (Nesli Tehlike Altında Olan Yabani Hayvan ve Bitki Türlerinin Uluslararası Ticaretine İlişkin Sözleşme)…"
+          }
+        ]
+      },
+      "pollutants_and_hazards": {
+        "label": "Emissions, Geochemistry & Waste",
+        "page_count": 59,
+        "pages": [
+          3,
+          5,
+          6,
+          7,
+          18,
+          32,
+          41,
+          44,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62
+        ],
+        "samples": [
+          {
+            "page": 3,
+            "match": "KÜMÜLATİF",
+            "snippet": "…LINACAK ÖNLEMLER -------------------------------------------------------------------------------------- 121 BÖLÜM IV: KÜMÜLATİF ETKİ DEĞERLENDİRME -------------------------------- 130 BÖLÜM V: ÇEVRESEL VE SOSYAL EYLEM PLANI ----------------------…"
+          },
+          {
+            "page": 5,
+            "match": "Gürültü",
+            "snippet": "…i ----------------------------------------------------------------------- 38 Tablo 17: Makine-Ekipman Güçlerine Bağlı Gürültü Seviyeleri ----------------------------- 40 Tablo 18: Faaliyet Kapsamında Kullanılan Makine ve Ekipmanların Motor Güçl…"
+          },
+          {
+            "page": 6,
+            "match": "Toz Emisyon",
+            "snippet": "IV BETÜL BOZKURT KÜÇÜK Etlik Piliç Yetiştirme Tesisi Tablo 40: Toplam Toz Emisyon Miktarı --------------------------------------------------------- 60 Tablo 41: Tesiste Oluşacak Tüm Atıklara İlişkin B…"
+          },
+          {
+            "page": 7,
+            "match": "Deprem",
+            "snippet": "…. 2.1: Vaziyet Planı 2.2: Yer Bulduru Haritası 2.3: 1/25.000 Ölçekli Topoğrafik Harita 2.4: Jeoloji Haritası 2.5: Deprem Haritası 2.6: Çevre Düzeni Planı 2.7: Hidrojeolojik Haritası Ek-3 : Vekâletname, İmza Sirküleri ve Ticaret Sicil Gaz…"
+          },
+          {
+            "page": 18,
+            "match": "Gürültü",
+            "snippet": "…her hafta 3 ⁰C düşürülerek kesime yakın 18 – 20 ⁰C’lik sıcaklığa getirilmelidir. Piliç Ölüsü, Katı ve Sıvı Atık, Gürültü ve Emisyon Oluşumu Civcivlerin Araçlarla Faaliyet Alanına Getirilmesi Civcivlerin Kümeslere Konulması Civcivleri…"
+          },
+          {
+            "page": 32,
+            "match": "Gürültü",
+            "snippet": "…ralanmıştır. Bu kapsamda; - Sıvı atıklar - Katı Atıklar, - Tehlikeli Atıklar - Tıbbi Atıklar - Emisyon, - Gürültü gibi etkiler beklenmekte olup, bunlar daha çok çalışan personelden ve ekipmanlardan kaynaklanacaktır.  Sıvı At…"
+          },
+          {
+            "page": 41,
+            "match": "tehlikeli atık",
+            "snippet": "…yürürlüğe giren “Ambalaj Atıklarının Kontrolü Yönetmeliği” hükümlerine uyulacaktır.  Tehlikeli Atıklar Tesiste tehlikeli atık olarak dezenfektan bidonları, temizlik sırasında kullanılan bez, üstübü, eldiven gibi kontamine atık oluşacaktır. T…"
+          },
+          {
+            "page": 44,
+            "match": "PM10",
+            "snippet": "…arametre Emisyon Faktörü (lb/ton) Yakıt Miktarı Emisyon Miktarı (kg/saat) Yönetmelik Sınır Değeri (kg/saat) PM10 (g/kg) 3,40*A 0,10416 ton/saat 1,77 20 SO2 (g/GJ) 20000*(S/H)*(1- r) 0,156 60 NOx (g/GJ) 150 0,262 40 CO…"
+          }
+        ]
+      },
+      "cost_and_capacity": {
+        "label": "Proje Bedeli, Güç ve Kapasite",
+        "page_count": 23,
+        "pages": [
+          2,
+          3,
+          5,
+          15,
+          16,
+          17,
+          18,
+          19,
+          22,
+          37,
+          38,
+          39,
+          47,
+          54,
+          62,
+          77,
+          79,
+          128,
+          130,
+          197,
+          200,
+          233,
+          250
+        ],
+        "samples": [
+          {
+            "page": 2,
+            "match": "PROJE BEDELİ",
+            "snippet": "…elefon: - Faks: - GSM: 0 538 935 97 82 E-POSTA cmgumustekin@gmail.com PROJENİN ADI Etlik Piliç Yetiştirme Tesisi PROJE BEDELİ 43.632.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİ) Çukurören Köyü, Sarıkaya Mevkii, 125 ada,…"
+          },
+          {
+            "page": 2,
+            "match": "43.632.000 TL",
+            "snippet": "…s: - GSM: 0 538 935 97 82 E-POSTA cmgumustekin@gmail.com PROJENİN ADI Etlik Piliç Yetiştirme Tesisi PROJE BEDELİ 43.632.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİ) Çukurören Köyü, Sarıkaya Mevkii, 125 ada, 34 nolu parsel…"
+          },
+          {
+            "page": 3,
+            "match": "Kapasite",
+            "snippet": "…--------------------------------------------------------------------------------------- 10 b) Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Yatırım Bedeli, Teknolojisi, Çalışacak Personel Sayısı --------------------------------------------…"
+          },
+          {
+            "page": 5,
+            "match": "Kapasite",
+            "snippet": "…BETÜL BOZKURT KÜÇÜK Etlik Piliç Yetiştirme Tesisi TABLOLAR DİZİNİ Tablo 1: Proje Alanında Planlanan Kümese Ait Kapasite Bilgileri ---------------------------- 12 Tablo 2: Tesise Ait Ünitelerin Kapalı Alanları -----------------------------…"
+          },
+          {
+            "page": 15,
+            "match": "kapasite",
+            "snippet": "…/veya görüş soracağımızı ve alıcı ortama atıksu deşarjı yapmayacağımızı beyan ve taahhüt ederiz. Tavuk çiftliğinin kapasitesinin 60.000 adet ve üzerinde olması durumunda, proje sahası çevresinde bırakılması gereken sağlık koruma bandı mesafes…"
+          },
+          {
+            "page": 16,
+            "match": "kapasite",
+            "snippet": "…nde idaremizce sakınca bulunmamaktadır.” Şeklinde belirtilmiştir(Bkz.Ek-7.13). Tesiste herhangi bir değişiklik, kapasite artışı planlanması durumunda Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü’ne bildirilecektir."
+          },
+          {
+            "page": 17,
+            "match": "kapasite",
+            "snippet": "…yetiştirme ve artan otomasyon sayesinde, küçük bir alanda çok sayıda tavuk yetiştirilmesi ve daha az iş gücüyle büyük kapasitelerle çalışılması ile sağlanan yüksek üretim, tavuk yetiştiriciliğini daha kârlı hale getirmiştir. Türkiye’de kanatl…"
+          },
+          {
+            "page": 18,
+            "match": "Kapasite",
+            "snippet": "11 BETÜL BOZKURT KÜÇÜK Etlik Piliç Yetiştirme Tesisi b) Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Yatırım Bedeli, Teknolojisi, Çalışacak Personel Sayısı  Projenin İş Akış Şeması Betül BOZKUR…"
+          }
+        ]
+      },
+      "splitting_and_thresholds": {
+        "label": "Proje Parçalama, Kapasite Artışı ve Eşik Değerler",
+        "page_count": 7,
+        "pages": [
+          16,
+          26,
+          27,
+          75,
+          137,
+          164,
+          301
+        ],
+        "samples": [
+          {
+            "page": 16,
+            "match": "5403 sayılı",
+            "snippet": "…esi amaçlı arazi sınıf tespiti ve imar durum belgesi görüşü bildirilmiş olup eksik evrakların tamamlanmasının ardından 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu kapsamında izinlendirme ve nihai kurum görüşümüz bildirilecektir. 1380 sayı…"
+          },
+          {
+            "page": 16,
+            "match": "kapasite artışı",
+            "snippet": "…nde idaremizce sakınca bulunmamaktadır.” Şeklinde belirtilmiştir(Bkz.Ek-7.13). Tesiste herhangi bir değişiklik, kapasite artışı planlanması durumunda Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü’ne bildirilecektir."
+          },
+          {
+            "page": 26,
+            "match": "5403 sayılı",
+            "snippet": "…; \"Bu planda yer alan tarım alanları, plan paftasında \"Tarım Alanları\" olarak tek gösterim altında toplanmış olup 5578/5403 sayılı \"Toprak Koruma Ve Arazi Kullanımı Kanunu\" ve ilgili yönetmeliğinde tanımlanan \"Tarım Arazileri Sınıflarına\" ayrılmamı…"
+          },
+          {
+            "page": 27,
+            "match": "Mutlak Tarım",
+            "snippet": "20 BETÜL BOZKURT KÜÇÜK Etlik Piliç Yetiştirme Tesisi gerçekleştirilecektir. Mutlak Tarım Arazileri: Bu alanların tarım faaliyeti amaçlı kullanılması esastır. Tarımsal amaçlı yapılar yapılması durumunda; Emsa…"
+          },
+          {
+            "page": 27,
+            "match": "Dikili Tarım",
+            "snippet": "…yvancılık amaçlı yatırım yapılmasına izin verilmez. Tarımsal amaçlı yapılar yapılması durumunda; Emsal(e) 0.05'tir…\" Dikili Tarım Arazileri: Bu alanlarda Özel Ürün Arazilerine ilişkin hükümler geçerlidir. Marjinal Tarım Arazileri: Bu alanlarda, ta…"
+          },
+          {
+            "page": 75,
+            "match": "5403 sayılı",
+            "snippet": "…; \"Bu planda yer alan tarım alanları, plan paftasında \"Tarım Alanları\" olarak tek gösterim altında toplanmış olup 5578/5403 sayılı \"Toprak Koruma Ve Arazi Kullanımı Kanunu\" ve ilgili yönetmeliğinde tanımlanan \"Tarım Arazileri Sınıflarına\" ayrılmamı…"
+          },
+          {
+            "page": 75,
+            "match": "Mutlak Tarım",
+            "snippet": "…arazileri sınıflamalarına göre tarımsal amaçlı yapılaşmalar, aşağıda belirlenen koşullara göre gerçekleştirilecektir. Mutlak Tarım Arazileri: Bu alanların tarım faaliyeti amaçlı kullanılması esastır. Tarımsal amaçlı yapılar yapılması durumunda; Emsa…"
+          },
+          {
+            "page": 75,
+            "match": "Dikili Tarım",
+            "snippet": "…yvancılık amaçlı yatırım yapılmasına izin verilmez. Tarımsal amaçlı yapılar yapılması durumunda; Emsal(e) 0.05'tir…\" Dikili Tarım Arazileri: Bu alanlarda Özel Ürün Arazilerine ilişkin hükümler geçerlidir. Marjinal Tarım Arazileri: Bu alanlarda, ta…"
+          }
+        ]
+      }
+    },
+    "audit_checks": {
+      "mentions_field_survey": true,
+      "mentions_literature_only_cue": false,
+      "mentions_seasonal_sampling": true,
+      "mentions_cumulative_impact": true,
+      "mentions_olive_law_3573": true,
+      "mentions_groundwater_or_aquifer": true,
+      "mentions_iucn_or_endemic": true,
+      "mentions_capacity_or_splitting": true,
+      "mentions_circular_2009_7_or_revision": false
+    }
+  },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-22T00:54:13",
+      "decision_type": "ÇED Gerekli Değil/ÇED Olumlu",
+      "announcement_date": "2026-11-13",
+      "announcement_date_tr": "13.11.2026",
+      "submitted_at": "26/06/2026 06:08:40",
+      "consulting_firm": "MORA ÇEVRE VE ORMAN MÜHENDİSLİK SAN. TİC. LTD. ŞTİ.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4439504372025064195.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-10",
+      "pdf_temp_ad": "sign4439504372025064195.pdf",
+      "pdf_original_name": "e-imza.pdf",
+      "pdf_upload_date": "2026-11-10",
+      "sha256": "fd83fc09f1a6d64c7368009550d90f1c1da570c622a2cf1883e5c2f7f5148c70",
+      "bytes": 14140232,
+      "page_count": 314,
+      "text_pages": 269,
+      "scanned_or_blank_pages": 45,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": true,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": true,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true,
+        "mentions_capacity_or_splitting": true,
+        "mentions_circular_2009_7_or_revision": false
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 62,
+        "water_and_discharge": 24,
+        "protected_land_and_olive": 14,
+        "ecology_and_baseline": 31,
+        "pollutants_and_hazards": 59,
+        "cost_and_capacity": 23,
+        "splitting_and_thresholds": 7
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 40.25232,
+      "geo_lon": 29.95275,
+      "geo_point_count": 74,
+      "detail_text_sha256": "7df0a493da8b4ca6"
+    }
+  ],
+  "llm_synthesis": {
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-11-22T00:54:19",
+    "pages_sent": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      27,
+      28,
+      40,
+      78,
+      80
+    ],
+    "usage": {
+      "prompt_tokens": 19604,
+      "output_tokens": 2103,
+      "thoughts_tokens": null,
+      "total_tokens": 21707
+    },
+    "result": {
+      "executive_summary_tr": "Bilecik ili Merkez ilçesi Çukurören Köyü Sarıkaya Mevkii 125 ada 34 numaralı parsel üzerinde Betül Bozkurt Küçük tarafından kurulması planlanan Etlik Piliç Yetiştirme Tesisi projesi için Valilikçe ÇED Gerekli Değil/ÇED Olumlu kararı verilmiştir. Toplam 14.742,69 metrekarelik tapulu alanda iki adet tek katlı kümeste toplam 59.080 adet/dönem etlik piliç yetiştirilmesi planlanmaktadır. Proje alanı 1. derece deprem bölgesinde yer almakta olup, madencilik sahaları ve tarım alanları ile ilgili kurum görüşleri dosyada yer almaktadır.",
+      "executive_summary_en": "A Project Promotion File (PTD) has been prepared for the Broiler Chicken Breeding Facility proposed by Betül Bozkurt Küçük in Bilecik Province, Merkez District, Çukurören Village, on parcel 125/34, covering an area of 14,742.69 square meters with a capacity of 59,080 broilers per period. The local administration has issued an affirmative environmental clearance decision. The facility involves constructing two single-story poultry houses, manure pits, and wastewater structures while navigating overlapping mining exploration licenses and agricultural land conversion procedures.",
+      "key_facts": [
+        {
+          "label": "Proje Alanı / Tapulu Alan",
+          "value": "14.742,69 m2 [s. 8]",
+          "page": 8
+        },
+        {
+          "label": "Kümes Kapalı Alanı",
+          "value": "4.220 m² (2.110 m² + 2.110 m²) [s. 8]",
+          "page": 8
+        },
+        {
+          "label": "Kapasite",
+          "value": "59.080 adet/dönem [s. 8]",
+          "page": 8
+        },
+        {
+          "label": "Proje Bedeli",
+          "value": "43.632.000 TL [s. 2]",
+          "page": 2
+        },
+        {
+          "label": "İnşaat Aşaması Personel",
+          "value": "20 personel [s. 8]",
+          "page": 8
+        },
+        {
+          "label": "İşletme Aşaması Personel",
+          "value": "4 personel [s. 8]",
+          "page": 8
+        },
+        {
+          "label": "Toplam Hafriyat Miktarı",
+          "value": "6.304,99 m³ (9.457,49 ton) [s. 40]",
+          "page": 40
+        },
+        {
+          "label": "Gübre Çukuru Hacmi",
+          "value": "386,75 m3 [s. 40]",
+          "page": 40
+        },
+        {
+          "label": "En Yakın Yerleşim Yeri (Çukurören Köyü)",
+          "value": "Yaklaşık 2,8 km [s. 15]",
+          "page": 15
+        },
+        {
+          "label": "Deprem Tehlike PGA Değeri",
+          "value": "0,241 g [s. 80]",
+          "page": 80
+        }
+      ],
+      "baseline_assessment": {
+        "field_survey_status": "mixed_or_unclear",
+        "seasonal_sampling_status": "promised_post_approval_only",
+        "cumulative_impact_status": "omitted_or_not_found",
+        "olive_and_protected_status": "İl Tarım ve Orman Müdürlüğü görüşüne göre parselde 3573 sayılı Zeytincilik Kanunu kapsamında zeytinlik alan bulunmamaktadır [s. 16]. Çevre Şehircilik İl Müdürlüğü yazısına göre alanda tescilli Doğal Sit veya Anıt Ağaç yoktur [s. 27]. Orman Genel Müdürlüğü görüşüne göre saha orman sayılmayan yerler kapsamındadır [s. 16].",
+        "explanation": "Dosyada flora ve fauna envanterine ilişkin eksiksiz bir dört mevsim saha çalışma verisi sunulmamış, hidrojeolojik değerlendirmeler genel literatür verilerine dayandırılmıştır [s. 78, 80]. Birikimli bölgesel etkiler (çevredeki diğer hayvancılık tesisleri ile kümülatif yük) yönünden kantitatif bir analiz yapılmamıştır."
+      },
+      "red_flags": [
+        {
+          "category": "tarim_orman_korunan_alan",
+          "severity": "high",
+          "title": "5403 Sayılı Kanun Kapsamında Tarım Dışı Kullanım İzin Eksikliği",
+          "detail": "İl Tarım ve Orman Müdürlüğü görüşünde, tarla vasıflı taşınmaz için henüz 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu kapsamında tarım dışı amaçlı kesin izin alınmadığı, nihai iznin sonradan verileceği belirtilmiştir [s. 16]. ÇED sürecinde bu iznin eksik olması mevzuata aykırıdır.",
+          "pages": [
+            16
+          ]
+        },
+        {
+          "category": "su_hidrojeoloji",
+          "severity": "medium",
+          "title": "Yeraltı Suyu Temini ve Sondaj İzinleri Belirsizliği",
+          "detail": "İşletme aşamasında kullanma suyu ihtiyacının açılacak sondaj kuyusundan karşılanacağı belirtilmiş olmasına rağmen, DSİ ve İl Özel İdaresi Su ve Kanal Hizmetleri Müdürlüğü görüşlerinde henüz yeraltı suyu tahsis izninin alınmadığı, yasal izinlerin şart koşulduğu ifade edilmiştir [s. 10, 13].",
+          "pages": [
+            10,
+            13
+          ]
+        },
+        {
+          "category": "izleme_olcum_celiskisi",
+          "severity": "medium",
+          "title": "Maden Ruhsat Sahası ile Çakışma Durumu ve Bilgi Amaçlı Saha Statüsü",
+          "detail": "MAPEG görüşlerinde proje alanının S:89814 numaralı II-(c) grup işletme ruhsat sahası ile girişimli olduğu, alanın bilgi amaçlı saha olarak işlendiği belirtilmektedir [s. 14]. Çakışan maden ruhsatı ile tesis faaliyetlerinin çakışması durumunda kaynak çakışmaları ve güvenlik riskleri doğabilecektir.",
+          "pages": [
+            14
+          ]
+        }
+      ],
+      "recommended_bilirkisi_disciplines": [
+        "Çevre Mühendisi",
+        "Hidrojeoloji Mühendisi",
+        "Ziraat Mühendisi",
+        "Orman Mühendisi",
+        "Şehir ve Bölge Plancısı"
+      ],
+      "hkt_and_petition_questions": [
+        {
+          "question_tr": "Proje alanının tarla vasıflı 125 ada 34 numaralı parselinde, 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu uyarınca alınması zorunlu olan tarım dışı amaçlı kesin kullanım izni tapu tesciline işlenmiş midir?",
+          "pages": [
+            16
+          ]
+        },
+        {
+          "question_tr": "İşletmenin içme ve kullanma suyu ihtiyacı için açılması planlanan sondaj kuyusu konusunda DSİ 3. Bölge Müdürlüğü'nden alınmış resmi bir yeraltı suyu arama/kullanma belgesi dosyada mevcut mudur?",
+          "pages": [
+            10,
+            13
+          ]
+        },
+        {
+          "question_tr": "S:89814 numaralı maden işletme ruhsat sahası ile çakışan alanda, gelecekteki madencilik ve hayvancılık faaliyetlerinin birbirinin güvenliğini ve operasyonunu olumsuz etkilemeyeceğine dair teknik analizler yapılmış mıdır?",
+          "pages": [
+            14
+          ]
+        }
+      ],
+      "data_limitations": "İnceleme, PTD dosyasının sunulan sınırlı metin sayfaları (1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 27, 28, 40, 78, 80) üzerinden gerçekleştirilmiş olup, raporda adı geçen bazı ekler ve haritalar (Ek-2 ve Ek-7 kapsamındaki tam harita paftaları) metin içerisinden doğrudan okunamamıştır."
+    }
+  }
+}

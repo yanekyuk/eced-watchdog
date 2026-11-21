@@ -6,11 +6,15 @@ import hashlib
 import json
 import re
 import threading
+import time
 from pathlib import Path
 from typing import Any
 
 import httpx
 import pymupdf as fitz
+
+fitz.TOOLS.mupdf_display_errors(False)
+fitz.TOOLS.mupdf_display_warnings(False)
 
 from .fetcher import USER_AGENT, build_ssl_context
 from .geo import extract_pdf_coordinates
@@ -73,6 +77,13 @@ SIGNAL_SPECS: list[tuple[str, str, str]] = [
         r"\b(?:kapasite\s*artışı|alan\s*genişletme|ilave\s*ünite|ruhsat\s*alanı|"
         r"ÇED\s*alanı|eşik\s*değer|5403\s*sayılı|mutlak\s*tarım|dikili\s*tarım|can\s*suyu)\b",
     ),
+    (
+        "agency_opinions",
+        "Kurum Görüşleri (DSİ, İl Tarım, OGM, MAPEG, Kültür Varlıkları)",
+        r"\b(?:kurum\s*görüş|uygun\s*değildir|olumsuz\s*görüş|şartlı\s*uygun|"
+        r"DSİ|Devlet\s*Su\s*İşleri|İl\s*Tarım\s*ve\s*Orman|Orman\s*Bölge\s*Müdürlüğü|"
+        r"OGM|MAPEG|Kültür\s*Varlıklarını\s*Koruma|Büyük\s*Ova)\b",
+    ),
 ]
 
 
@@ -84,40 +95,80 @@ def download_pdf(
     force_download: bool = False,
 ) -> dict[str, Any]:
     if not force_download and dest.exists() and dest.stat().st_size > 1000:
-        data = dest.read_bytes()
+        h = hashlib.sha256()
+        total = 0
+        with dest.open("rb") as fh:
+            for chunk in iter(lambda: fh.read(65536), b""):
+                h.update(chunk)
+                total += len(chunk)
         return {
             "filename": dest.name,
             "source_url": pdf_url,
-            "bytes": len(data),
-            "sha256": hashlib.sha256(data).hexdigest(),
+            "bytes": total,
+            "sha256": h.hexdigest(),
             "cached": True,
         }
 
     ctx = build_ssl_context(cert_path)
-    with _DOWNLOAD_SEMAPHORE:
-        with httpx.Client(
-            verify=ctx,
-            http2=False,
-            headers={"User-Agent": USER_AGENT},
-            timeout=90.0,
-            follow_redirects=True,
-        ) as client:
-            resp = client.get(pdf_url)
-            resp.raise_for_status()
-            data = resp.content
-            if not data[:5].startswith(b"%PDF"):
-                raise RuntimeError(
-                    f"Expected PDF from {pdf_url}, got content-type={resp.headers.get('content-type')}"
-                )
-            dest.parent.mkdir(parents=True, exist_ok=True)
-            dest.write_bytes(data)
+    timeout = httpx.Timeout(connect=30.0, read=180.0, write=30.0, pool=60.0)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    tmp_path = dest.with_name(f"{dest.name}.{threading.get_ident()}.part")
+
+    last_err: Exception | None = None
+    for attempt, backoff in enumerate((3, 8, 0), start=1):
+        try:
+            with _DOWNLOAD_SEMAPHORE:
+                with httpx.Client(
+                    verify=ctx,
+                    http2=False,
+                    headers={"User-Agent": USER_AGENT},
+                    timeout=timeout,
+                    follow_redirects=True,
+                ) as client:
+                    with client.stream("GET", pdf_url) as resp:
+                        if resp.status_code >= 500 and attempt < 3:
+                            raise httpx.HTTPStatusError(
+                                f"HTTP {resp.status_code}", request=resp.request, response=resp
+                            )
+                        resp.raise_for_status()
+                        h = hashlib.sha256()
+                        total = 0
+                        header_checked = False
+                        with tmp_path.open("wb") as out:
+                            for chunk in resp.iter_bytes(chunk_size=65536):
+                                if not chunk:
+                                    continue
+                                if not header_checked:
+                                    header_checked = True
+                                    if not chunk[:5].startswith(b"%PDF"):
+                                        raise RuntimeError(
+                                            f"Expected PDF from {pdf_url}, got content-type={resp.headers.get('content-type')}"
+                                        )
+                                out.write(chunk)
+                                h.update(chunk)
+                                total += len(chunk)
+                        if total < 100:
+                            raise RuntimeError(f"Empty or truncated PDF ({total} bytes)")
+            tmp_path.replace(dest)
             return {
                 "filename": dest.name,
                 "source_url": pdf_url,
-                "bytes": len(data),
-                "sha256": hashlib.sha256(data).hexdigest(),
+                "bytes": total,
+                "sha256": h.hexdigest(),
                 "cached": False,
             }
+        except (httpx.TimeoutException, httpx.TransportError, httpx.HTTPStatusError) as exc:
+            tmp_path.unlink(missing_ok=True)
+            last_err = exc
+            if attempt < 3:
+                time.sleep(backoff)
+                continue
+            raise RuntimeError(f"PDF download failed after {attempt} attempts: {exc}") from exc
+        except Exception:
+            tmp_path.unlink(missing_ok=True)
+            raise
+
+    raise RuntimeError(f"PDF download failed: {last_err}")
 
 
 def _clean_snippet(text: str, start: int, end: int, radius: int = 120) -> str:
@@ -225,6 +276,8 @@ def analyze_pdf(pdf_path: Path, province: str = "") -> dict[str, Any]:
         "mentions_iucn_or_endemic": bool(re.search(r"iucn|endemik|bern\s*sözleşme", full_text_lower)),
         "mentions_capacity_or_splitting": bool(re.search(r"kapasite\s*artış|ilave\s*ünite|eşik\s*değer|alan\s*genişlet", full_text_lower)),
         "mentions_circular_2009_7_or_revision": bool(CIRCULAR_2009_7_RE.search(full_text_lower)),
+        "mentions_agency_opinions": bool(re.search(r"kurum\s*görüş|ds[iİ]|devlet\s*su\s*işleri|il\s*tarım|orman\s*bölge|mapeg|kültür\s*varlık", full_text_lower)),
+        "mentions_seismic_or_geotech": bool(re.search(r"fay\s*hattı|deprem|sismik|jeoteknik|şev\s*stabilite|sıvılaşma", full_text_lower)),
     }
 
     page_count = len(doc)
@@ -376,6 +429,8 @@ def render_markdown_digest(
             f"| Endemic / IUCN / Bern Convention | {flag(checks['mentions_iucn_or_endemic'])} |",
             f"| Capacity expansion / splitting cues (*kapasite artışı / eşik değer*) | {'Present' if checks.get('mentions_capacity_or_splitting') else 'Not found'} |",
             f"| Circular 2009/7 or post-annulment revision cues (*2009/7 / mahkeme kararı*) | {'**Present (check 2009/7 loop)**' if checks.get('mentions_circular_2009_7_or_revision') else 'Not found'} |",
+            f"| Agency opinions referenced (*DSİ / İl Tarım / OGM / MAPEG*) | {flag(checks.get('mentions_agency_opinions', False))} |",
+            f"| Seismic / fault-line / geotechnical stability | {'Present' if checks.get('mentions_seismic_or_geotech') else 'Not found'} |",
             "",
             "*(Scanned annex maps/appendices without OCR are excluded from text scan; see scanned-page count above.)*",
             "",

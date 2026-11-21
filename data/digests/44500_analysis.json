@@ -1,0 +1,282 @@
+{
+  "filing": {
+    "province": "ARDAHAN",
+    "district": "GÖLE",
+    "project_name": "BESİ (800 Büyükbaş Hayvan Kapasiteli) VE ET İŞLEME TESİSİ (Günlük Olarak 3 Adet Büyükbaş Hayvan Kesimi)",
+    "project_owner": "ALTUNGRUP TARIM VE HAYVANCILIK SAN. TİC. A.Ş.",
+    "sector": "Hayvancılık",
+    "sub_sector": "Büyükbaş-Küçükbaş Hayvan Besi Tesisleri",
+    "decision_type": "İptal/İade",
+    "announcement_date_tr": "17.11.2026",
+    "project_type": "Ek-2",
+    "detail_text": "ARDAHAN ili GÖLE,  ilcesinde ARDAHAN ili GÖLE,  ilcesi Tigem Köyü (104 Ada 5 ve 6 Parsel, 102 Ada 3 Parsel) sınırları içerisinde, ALTUNGRUP TARIM VE HAYVANCILIK SAN. TİC. A.Ş. tarafından yapılması planlanan BESİ (800 Büyükbaş Hayvan Kapasiteli) VE ET İŞLEME TESİSİ (Günlük Olarak 3 Adet Büyükbaş Hayvan Kesimi) projesi iptal edilmiştir. İptal Raporu: İptal Raporu",
+    "detail_links": [
+      {
+        "text": "İptal Raporu",
+        "href": "http://eced.csb.gov.tr/jsp/ek1/44500"
+      }
+    ],
+    "documents": [
+      {
+        "portal_doc_url": "http://eced.csb.gov.tr/jsp/ek1/44500",
+        "filing_id": "44500",
+        "consulting_firm": "EYLÜL MADENCİLİK MÜHENDİSLİK İŞ SAĞLIĞI VE GÜVENLİĞİ ÖZEL EĞİTİM HİZM.DANIŞMANLIK İNŞ. TİC.LTD.ŞTİ.",
+        "submitted_at": "12/03/2025 04:11:19",
+        "pdf_urls": [
+          {
+            "label": "İptal Dosya Göster (ek2)",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=dosya_4887024212158492172.tmp&orjinalAd=44500_projeIptalDosya.pdf&yuklemeTarihi=2026-09-28"
+          },
+          {
+            "label": "Dosya Göster",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign7030119797676983980.pdf&orjinalAd=NIHAIBESIPTD.pdf&yuklemeTarihi=2026-02-14"
+          }
+        ]
+      }
+    ],
+    "announcement_date": "2026-11-17",
+    "statutory_clocks": [],
+    "filing_key": "44500:17.11.2026:İptal/İade",
+    "first_seen_at": "2026-11-20T02:11:09"
+  },
+  "pdf_info": {
+    "filename": "44500.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=dosya_4887024212158492172.tmp&orjinalAd=44500_projeIptalDosya.pdf&yuklemeTarihi=2026-09-28",
+    "bytes": 491432,
+    "sha256": "27ec086bebdff76402f78ee4f7f5642b56f01ed6852737eacec0abbb109ef76a",
+    "cached": false
+  },
+  "analysis": {
+    "page_count": 1,
+    "total_chars": 1722,
+    "text_pages": 1,
+    "scanned_or_blank_pages": 0,
+    "scanned_page_sample": [],
+    "headings": [],
+    "geo": {
+      "precision": "province_centroid",
+      "lat": 41.1105,
+      "lon": 42.7022,
+      "point_count": 0,
+      "points": [],
+      "datum": null,
+      "pages": []
+    },
+    "signals": {
+      "coordinates_and_footprint": {
+        "label": "Coordinates, Parcel & Footprint",
+        "page_count": 1,
+        "pages": [
+          1
+        ],
+        "samples": [
+          {
+            "page": 1,
+            "match": "847,985 m2",
+            "snippet": "…ından; Ardahan İli, Göle İlçesi, Tigem Köyü, 104 ada, 5 ve 6 parsel ile 102 ada, 3 parsel üzerinde yer alan toplam 194.847,985 m2’lik (19,49 ha) alan üzerinde “Besi ve Et İşleme Tesisi ” projesinin yapılması planlanmaktadır. Firmamız tarafından haz…"
+          },
+          {
+            "page": 1,
+            "match": "19,49 ha",
+            "snippet": "…i, Göle İlçesi, Tigem Köyü, 104 ada, 5 ve 6 parsel ile 102 ada, 3 parsel üzerinde yer alan toplam 194.847,985 m2’lik (19,49 ha) alan üzerinde “Besi ve Et İşleme Tesisi ” projesinin yapılması planlanmaktadır. Firmamız tarafından hazırlanan Proje…"
+          }
+        ]
+      },
+      "water_and_discharge": {
+        "label": "Water Use, Hydrogeology & Discharge",
+        "page_count": 0,
+        "pages": [],
+        "samples": []
+      },
+      "protected_land_and_olive": {
+        "label": "Protected Zones, Forests & Olive Groves",
+        "page_count": 0,
+        "pages": [],
+        "samples": []
+      },
+      "ecology_and_baseline": {
+        "label": "Flora, Fauna & Baseline Methodology",
+        "page_count": 0,
+        "pages": [],
+        "samples": []
+      },
+      "pollutants_and_hazards": {
+        "label": "Emissions, Geochemistry & Waste",
+        "page_count": 0,
+        "pages": [],
+        "samples": []
+      },
+      "cost_and_capacity": {
+        "label": "Proje Bedeli, Güç ve Kapasite",
+        "page_count": 0,
+        "pages": [],
+        "samples": []
+      },
+      "splitting_and_thresholds": {
+        "label": "Proje Parçalama, Kapasite Artışı ve Eşik Değerler",
+        "page_count": 0,
+        "pages": [],
+        "samples": []
+      }
+    },
+    "audit_checks": {
+      "mentions_field_survey": false,
+      "mentions_literature_only_cue": false,
+      "mentions_seasonal_sampling": false,
+      "mentions_cumulative_impact": false,
+      "mentions_olive_law_3573": false,
+      "mentions_groundwater_or_aquifer": false,
+      "mentions_iucn_or_endemic": false,
+      "mentions_capacity_or_splitting": false,
+      "mentions_circular_2009_7_or_revision": false
+    }
+  },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-22T01:20:34",
+      "decision_type": "İptal/İade",
+      "announcement_date": "2026-11-17",
+      "announcement_date_tr": "17.11.2026",
+      "submitted_at": "12/03/2025 04:11:19",
+      "consulting_firm": "EYLÜL MADENCİLİK MÜHENDİSLİK İŞ SAĞLIĞI VE GÜVENLİĞİ ÖZEL EĞİTİM HİZM.DANIŞMANLIK İNŞ. TİC.LTD.ŞTİ.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=dosya_4887024212158492172.tmp&orjinalAd=44500_projeIptalDosya.pdf&yuklemeTarihi=2026-09-28",
+      "pdf_temp_ad": "dosya_4887024212158492172.tmp",
+      "pdf_original_name": "44500_projeIptalDosya.pdf",
+      "pdf_upload_date": "2026-09-28",
+      "sha256": "27ec086bebdff76402f78ee4f7f5642b56f01ed6852737eacec0abbb109ef76a",
+      "bytes": 491432,
+      "page_count": 1,
+      "text_pages": 1,
+      "scanned_or_blank_pages": 0,
+      "audit_checks": {
+        "mentions_field_survey": false,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": false,
+        "mentions_cumulative_impact": false,
+        "mentions_olive_law_3573": false,
+        "mentions_groundwater_or_aquifer": false,
+        "mentions_iucn_or_endemic": false,
+        "mentions_capacity_or_splitting": false,
+        "mentions_circular_2009_7_or_revision": false
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 1,
+        "water_and_discharge": 0,
+        "protected_land_and_olive": 0,
+        "ecology_and_baseline": 0,
+        "pollutants_and_hazards": 0,
+        "cost_and_capacity": 0,
+        "splitting_and_thresholds": 0
+      },
+      "geo_precision": "province_centroid",
+      "geo_lat": 41.1105,
+      "geo_lon": 42.7022,
+      "geo_point_count": 0,
+      "detail_text_sha256": "d14d12fcc2668238"
+    }
+  ],
+  "llm_synthesis": {
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-11-22T01:20:39",
+    "pages_sent": [
+      1
+    ],
+    "usage": {
+      "prompt_tokens": 1502,
+      "output_tokens": 1496,
+      "thoughts_tokens": null,
+      "total_tokens": 2998
+    },
+    "result": {
+      "executive_summary_tr": "Ardahan ili, Göle ilçesi, Tigem köyü sınırları içerisinde planlanan 800 büyükbaş hayvan kapasiteli besi ve günlük 3 adet büyükbaş hayvan kesimi yapacak et işleme tesisi projesi, yasal süresi içinde eksikliklerin giderilememesi ve revize Proje Tanıtım Dosyası'nın E-ÇED sistemine yüklenememesi nedeniyle iptal edilmiştir. Toplam 194.847,985 metrekarelik (19,49 ha) alanda hayata geçirilmesi öngörülen projeye dair hazırlık süreci, yetkili haritacı ölçümlerinin süresi içinde tamamlanamaması ve faaliyet sahibinin uyarıları dikkate almaması sebebiyle sonlandırılmıştır. Sunulan dosya ve resmi yazışmalar, idari sürecin öngörülen süre kısıtlarına takılarak iptal edildiğini ortaya koymaktadır.",
+      "executive_summary_en": "The proposed feedlot and meat processing facility project, with a capacity of 800 cattle and a slaughter rate of 3 cattle per day located in Tigem Village, Göle District, Ardahan Province, has been canceled. The cancellation stems from the failure to complete necessary cadastral/surveyor measurements and upload the revised Project Presentation File within the statutory 180-day deficiency period. Spanning a total area of 19,49 hectares (194,847.985 square meters), the project's administrative process was officially terminated due to procedural non-compliance and delays by the project owner. This document review encapsulates the administrative cancellation status of the filing.",
+      "key_facts": [
+        {
+          "label": "Proje Alanı (Toplam Yüzölçümü)",
+          "value": "194.847,985 m2 (19,49 ha)",
+          "page": 1
+        },
+        {
+          "label": "Besi Kapasitesi",
+          "value": "800 Büyükbaş Hayvan",
+          "page": 1
+        },
+        {
+          "label": "Et İşleme / Kesim Kapasitesi",
+          "value": "Günlük 3 Adet Büyükbaş Hayvan Kesimi",
+          "page": 1
+        },
+        {
+          "label": "İl / İlçe / Köy",
+          "value": "Ardahan / Göle / Tigem Köyü",
+          "page": 1
+        },
+        {
+          "label": "Parsel Bilgileri",
+          "value": "104 ada 5 ve 6 parsel, 102 ada 3 parsel",
+          "page": 1
+        },
+        {
+          "label": "E-ÇED ID Numarası",
+          "value": "44500",
+          "page": 1
+        },
+        {
+          "label": "E-ÇED Yükleme Tarihi",
+          "value": "12.03.2025",
+          "page": 1
+        },
+        {
+          "label": "Yasal Süre Sınırı",
+          "value": "180 gün",
+          "page": 1
+        },
+        {
+          "label": "Yazışma Tarihi",
+          "value": "20.05.2026",
+          "page": 1
+        }
+      ],
+      "baseline_assessment": {
+        "field_survey_status": "not_found",
+        "seasonal_sampling_status": "not_found",
+        "cumulative_impact_status": "omitted_or_not_found",
+        "olive_and_protected_status": "Sunulan dosya içeriğinde zeytinlik (3573 sayılı Kanun), orman, mera, sulak alan veya korunan alan statülerine ilişkin herhangi bir veri veya kurum görüşüne [s. 1] yer verilmemiştir.",
+        "explanation": "Mevcut dosya kesiti yalnızca proje tanıtım dosyasının süresi içinde eksikliklerin giderilememesi nedeniyle iptal edildiğini bildiren resmi bir yazışmadan ibaret olduğundan [s. 1], herhangi bir çevresel taban etüdü veya ekosistem değerlendirmesi içermemektedir."
+      },
+      "red_flags": [
+        {
+          "category": "tarim_orman_korunan_alan",
+          "severity": "low",
+          "title": "Eksik Süreç ve Harita Ölçümlerinin Tamamlanamaması Nedeniyle İptal",
+          "detail": "Faaliyet sahibi tarafından 180 günlük yasal süre içinde yetkili haritacı ölçümlerinin yaptırılarak mevcut ve planlanan vaziyet planının hazırlatılamaması ve eksikliklerin giderilememesi nedeniyle proje süreci sonlandırılmıştır [s. 1].",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "recommended_bilirkisi_disciplines": [
+        "Şehir ve Bölge Plancısı",
+        "Çevre Mühendisi",
+        "Ziraat Mühendisi",
+        "Harita Mühendisi"
+      ],
+      "hkt_and_petition_questions": [
+        {
+          "question_tr": "Proje tanıtım dosyasının 180 günlük yasal süre içinde eksikliklerinin giderilememesi ve harita ölçümlerinin yapılamaması nedeniyle iptal edildiği belirtilen 194.847,985 m2'lik alan için bundan sonraki süreçte yeni bir başvuru yapılması durumunda bölgedeki kümülatif hayvancılık atık yükü nasıl hesaplanacaktır?",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "question_tr": "104 ada 5 ve 6 parseller ile 102 ada 3 parsel üzerinde planlanan tesisin arazi kullanım kararları ve mülkiyet vasıfları (mera, tarım vb.) açısından 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu hükümleri uyarınca alınmış resmi kurum görüşleri mevcut mudur?",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "data_limitations": "Paylaşılan dosya yalnızca tek bir resmi yazışma sayfasından ibaret olup, ÇED/PTD raporunun tamamını, flora-fauna listelerini, hidrojeolojik etütleri ve harita eklerini içermemektedir."
+    }
+  }
+}

@@ -1,0 +1,1012 @@
+{
+  "filing": {
+    "province": "ANKARA",
+    "district": "POLATLI",
+    "project_name": "(ER.3358259) 06/2017-11 İZİN NUMARALI I-(A) GRUBU ŞEYHAHMETLİ ARİYET OCAĞI",
+    "project_owner": "KARAYOLLARI 4. BÖLGE MÜDÜRLÜĞÜ",
+    "sector": "I., II. ve V. Grup Madenler",
+    "sub_sector": "I. Grup Madenler",
+    "decision_type": "ÇED Süreci Başlayan",
+    "announcement_date_tr": "13.11.2026",
+    "project_type": "Ek-2",
+    "detail_text": "ANKARA ili POLATLI,  ilcesinde ANKARA ili POLATLI,  ilçesi ŞEYHAHMETLİ MAHALLESİ mevkiindeki KARAYOLLARI 4. BÖLGE MÜDÜRLÜĞÜ tarafından yapılması planlanan (ER.3358259) 06/2017-11 İZİN NUMARALI I-(A) GRUBU ŞEYHAHMETLİ ARİYET OCAĞI projesi ile ilgili olarak ANKARA Valiliğimize sunulan P.T.D. Dosyası Çevresel Etki Değerlendirmesi Yönetmeliği'nin 16. maddesi doğrultusunda incelenmiş ve projeye ilişkin ÇED Süreci başlamıştır. İlgililere ve kamuoyuna duyurulur.",
+    "detail_links": [
+      {
+        "text": "P.T.D. Dosyası",
+        "href": "http://eced.csb.gov.tr/jsp/ek1/61694"
+      }
+    ],
+    "documents": [
+      {
+        "portal_doc_url": "http://eced.csb.gov.tr/jsp/ek1/61694",
+        "filing_id": "61694",
+        "consulting_firm": "NOTA ÇEVRE PROJE DAN.MÜH.İNŞ.SAN.VE TİC. LTD. ŞTİ.",
+        "submitted_at": "04/11/2026 06:04:02",
+        "pdf_urls": [
+          {
+            "label": "Dosya Göster",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign1165952787653429367.pdf&orjinalAd=SEYHAHMETLIARIYETOCAGIPTD.pdf&yuklemeTarihi=2026-11-04"
+          }
+        ]
+      }
+    ],
+    "announcement_date": "2026-11-13",
+    "statutory_clocks": [
+      {
+        "code": "process_open",
+        "kind": "Karar öncesi inceleme süreci (ÇED Yönetmeliği m. 8/16; süreç boyunca yazılı görüş verilebilir)",
+        "deadline": null,
+        "days_remaining": null
+      }
+    ],
+    "filing_key": "61694:13.11.2026:ÇED Süreci Başlayan",
+    "first_seen_at": "2026-11-20T09:02:25"
+  },
+  "pdf_info": {
+    "filename": "61694.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign1165952787653429367.pdf&orjinalAd=SEYHAHMETLIARIYETOCAGIPTD.pdf&yuklemeTarihi=2026-11-04",
+    "bytes": 24001645,
+    "sha256": "c7299a220f9c146a413f378b1602131f0bd311518a10054ad5c0e987d45eac8d",
+    "cached": false
+  },
+  "analysis": {
+    "page_count": 246,
+    "total_chars": 343318,
+    "text_pages": 197,
+    "scanned_or_blank_pages": 49,
+    "scanned_page_sample": [
+      123,
+      127,
+      130,
+      131,
+      132,
+      133,
+      134,
+      135,
+      136,
+      137,
+      138,
+      139,
+      140,
+      141,
+      142
+    ],
+    "headings": [
+      [
+        3,
+        "İÇİNDEKİLER LİSTESİ"
+      ],
+      [
+        4,
+        "TABLOLAR LİSTESİ"
+      ],
+      [
+        5,
+        "ŞEKİLLER LİSTESİ"
+      ],
+      [
+        6,
+        "PROJENİN TEKNİK OLMAYAN ÖZETİ:"
+      ],
+      [
+        9,
+        "BÖLÜM I. PROJENİN ÖZELLİKLERİ:"
+      ],
+      [
+        9,
+        "a) Projenin ve yerin Alternatifleri (Proje Teknolojisinin ve Proje Alanının Seçilme Nedenleri)"
+      ],
+      [
+        10,
+        "b) Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Yatırım Bedeli, Teknolojisi, Çalışacak Personel Sayısı"
+      ],
+      [
+        20,
+        "c) Doğal Kaynakların Kullanımı (Arazi Kullanımı, Su Kullanımı, Kullanılan Enerji Türü Vb.)"
+      ],
+      [
+        25,
+        "ç) Projenin İnşaat ve İşletme Aşamasında Oluşan Her Türlü Atığın Özelliği (Cinsi, Türü, Miktarı vb.) Bertarafı Ve Geri Kazanımına Yönelik Değerlendirmeler"
+      ],
+      [
+        25,
+        "İNŞAAT AŞAMASI"
+      ],
+      [
+        25,
+        "İŞLETME AŞAMASI"
+      ],
+      [
+        26,
+        "Evsel Nitelikli Katı Atıklar"
+      ],
+      [
+        26,
+        "Ambalaj Atıkları"
+      ],
+      [
+        27,
+        "Evsel Nitelikli Atık su"
+      ],
+      [
+        27,
+        "Bitkisel Atık Yağlar"
+      ],
+      [
+        28,
+        "Madeni Atık Yağlar ve Tehlikeli Atıklar"
+      ],
+      [
+        29,
+        "Atık Pil ve Akümülatörler"
+      ],
+      [
+        30,
+        "Ömrünü Tamamlamış Lastikler"
+      ],
+      [
+        30,
+        "Maden Atıkları"
+      ],
+      [
+        30,
+        "Gaz Emisyonu"
+      ],
+      [
+        38,
+        "Modelleme Alanı Koordinatları"
+      ],
+      [
+        51,
+        "d) Kullanılan Teknoloji ve Malzemelerden Kaynaklanabilecek Kaza Riski"
+      ],
+      [
+        64,
+        "BÖLÜM II. PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ:"
+      ],
+      [
+        64,
+        "a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri"
+      ],
+      [
+        73,
+        "b) EK-5 deki Duyarlı Yöreler Listesi Dikkate Alınarak Korunması Gereken Alanlar"
+      ]
+    ],
+    "geo": {
+      "precision": "exact_pdf",
+      "lat": 39.11972,
+      "lon": 32.10965,
+      "point_count": 33,
+      "points": [
+        [
+          39.12205,
+          32.10579
+        ],
+        [
+          39.12156,
+          32.10949
+        ],
+        [
+          39.11896,
+          32.10922
+        ],
+        [
+          39.11948,
+          32.10514
+        ],
+        [
+          39.12032,
+          32.10936
+        ],
+        [
+          39.11963,
+          32.10866
+        ],
+        [
+          39.11936,
+          32.10817
+        ],
+        [
+          39.11934,
+          32.10621
+        ],
+        [
+          39.12195,
+          32.10589
+        ],
+        [
+          39.12155,
+          32.10893
+        ],
+        [
+          39.12002,
+          32.10891
+        ],
+        [
+          39.1197,
+          32.10858
+        ],
+        [
+          39.11945,
+          32.10814
+        ],
+        [
+          39.11943,
+          32.10622
+        ],
+        [
+          39.11955,
+          32.10528
+        ],
+        [
+          39.12149,
+          32.10937
+        ],
+        [
+          39.12081,
+          32.1093
+        ],
+        [
+          39.12083,
+          32.10892
+        ],
+        [
+          39.12035,
+          32.10925
+        ],
+        [
+          39.12049,
+          32.10733
+        ],
+        [
+          39.13741,
+          32.10645
+        ],
+        [
+          39.11899,
+          32.11279
+        ],
+        [
+          39.11975,
+          32.11304
+        ],
+        [
+          39.11938,
+          32.11589
+        ],
+        [
+          39.12047,
+          32.10444
+        ],
+        [
+          39.12246,
+          32.10875
+        ],
+        [
+          39.12224,
+          32.10917
+        ],
+        [
+          39.12008,
+          32.10449
+        ],
+        [
+          39.11852,
+          32.10591
+        ],
+        [
+          39.11875,
+          32.1055
+        ],
+        [
+          39.11902,
+          32.10514
+        ],
+        [
+          39.09705,
+          32.14319
+        ],
+        [
+          39.11043,
+          32.12568
+        ]
+      ],
+      "datum": "UTM-Z36/ED50",
+      "pages": [
+        18,
+        19,
+        39,
+        40,
+        42,
+        149,
+        151
+      ]
+    },
+    "signals": {
+      "coordinates_and_footprint": {
+        "label": "Coordinates, Parcel & Footprint",
+        "page_count": 46,
+        "pages": [
+          6,
+          16,
+          18,
+          19,
+          20,
+          21,
+          25,
+          33,
+          34,
+          35,
+          37,
+          38,
+          39,
+          40,
+          42,
+          59,
+          60,
+          61,
+          62,
+          64,
+          91,
+          102,
+          104,
+          122,
+          123
+        ],
+        "samples": [
+          {
+            "page": 6,
+            "match": "9,88 hektar",
+            "snippet": "…ge Müdürlüğü tarafından bölge müdürlüğü sorumluğundaki yolların yapım, bakım ve onarımında kullanılacaktır. Bu amaçla 9,88 hektar büyüklüğündeki hammadde üretim izin alanının 8,85 ha alan ÇED Alanı olarak kullanılacaktır. Maden ve Petrol İşleri Ge…"
+          },
+          {
+            "page": 6,
+            "match": "8,85 ha",
+            "snippet": "…olların yapım, bakım ve onarımında kullanılacaktır. Bu amaçla 9,88 hektar büyüklüğündeki hammadde üretim izin alanının 8,85 ha alan ÇED Alanı olarak kullanılacaktır. Maden ve Petrol İşleri Genel Müdürlüğü’nden Karayolları 4. Bölge Müdürlüğü adın…"
+          },
+          {
+            "page": 16,
+            "match": "9,88 ha",
+            "snippet": "…9.2022 tarihinde Ankara Valiliği Yatırım İzleme ve Koordinasyon Başkanlığı’nca düzenlenen hammadde üretim izin belgesi 9,88 ha. alan kaplamaktadır. 9,88 hektarlık I (A) Grubu Hammadde Üretim İzin Sahanın 8,85 ha.’lık kısmında Ariyet Ocağı faal…"
+          },
+          {
+            "page": 16,
+            "match": "9,88 hektar",
+            "snippet": "…i Yatırım İzleme ve Koordinasyon Başkanlığı’nca düzenlenen hammadde üretim izin belgesi 9,88 ha. alan kaplamaktadır. 9,88 hektarlık I (A) Grubu Hammadde Üretim İzin Sahanın 8,85 ha.’lık kısmında Ariyet Ocağı faaliyeti gerçekleştirilecektir. Ari…"
+          },
+          {
+            "page": 16,
+            "match": "8,85 ha",
+            "snippet": "…nen hammadde üretim izin belgesi 9,88 ha. alan kaplamaktadır. 9,88 hektarlık I (A) Grubu Hammadde Üretim İzin Sahanın 8,85 ha.’lık kısmında Ariyet Ocağı faaliyeti gerçekleştirilecektir. Ariyet Ocağı kapasitesi 720.000 ton/yıl olması planlanm…"
+          },
+          {
+            "page": 18,
+            "match": "koordinat",
+            "snippet": "…je alanı köşe noktalarına poligon taşları dikilerek proje alanı sınırları belirlenecek olup, proje için seçilen yerin koordinatları aşağıdaki tabloda verilmiştir. Tablo 5 .Proje İçin Seçilen HÜİB Koordinatları NOKTA NO Koor. Sırası Sağa, Yuka…"
+          },
+          {
+            "page": 18,
+            "match": "ED-50",
+            "snippet": "…İçin Seçilen HÜİB Koordinatları NOKTA NO Koor. Sırası Sağa, Yukarı Nokta No Koor. Sırası Enlem, Boylam Datum ED-50 Datum WGS-84 Türü UTM Türü COĞRAFİK D.O.M 33 D.O.M - Zone 36 Zone - Ölçek Fak. 6 Derecelik Ölçek Fak.…"
+          },
+          {
+            "page": 18,
+            "match": "WGS-84",
+            "snippet": "…HÜİB Koordinatları NOKTA NO Koor. Sırası Sağa, Yukarı Nokta No Koor. Sırası Enlem, Boylam Datum ED-50 Datum WGS-84 Türü UTM Türü COĞRAFİK D.O.M 33 D.O.M - Zone 36 Zone - Ölçek Fak. 6 Derecelik Ölçek Fak. - HÜİB: 06/20…"
+          }
+        ]
+      },
+      "water_and_discharge": {
+        "label": "Water Use, Hydrogeology & Discharge",
+        "page_count": 26,
+        "pages": [
+          7,
+          8,
+          9,
+          11,
+          13,
+          14,
+          17,
+          21,
+          23,
+          24,
+          27,
+          31,
+          33,
+          34,
+          36,
+          65,
+          72,
+          75,
+          76,
+          94,
+          104,
+          121,
+          209,
+          217,
+          238
+        ],
+        "samples": [
+          {
+            "page": 7,
+            "match": "dere yatağı",
+            "snippet": "…cezaları Karayolları 4. Bölge Müdürlüğü tarafından karşılanacaktır. Proje alanı içerisinde herhangi bir konut, ağıl, dere yatağı, çeşme, kaynak vb. hasas alan yoktur. En yakın konut 1.730 m. kuzeyde Şeyhahmetli mahallesine aittir. Ayrıca 1.900 m.…"
+          },
+          {
+            "page": 8,
+            "match": "150 ton/gün",
+            "snippet": "…Resmi Gazete’de yayımlanan “Çevre İzin ve Lisans Yönetmeliği” kapsamında; Ek.2-“ Madde 2.16 Maden çıkarma kapasitesi 150 ton/gün ve üzeri olan ve 4/6/1985 tarihli ve 3213 Sayılı Maden Kanunu’nun 1. Grup (a ve b), II. Grup (kireçraşı dahil), IV. G…"
+          },
+          {
+            "page": 9,
+            "match": "dere yatağı",
+            "snippet": "…u nedenle ormanlık alanlara herhangi bir müdahele bulunulmamaktadır. Proje alanı içerisinde herhangi bir konut, ağıl, dere yatağı, çeşme, kaynak vb. hasas alan yoktur. En yakın konut 1.730 m. kuzeyde Şeyhahmetli mahallesine aittir. Ayrıca 1.900 m.…"
+          },
+          {
+            "page": 11,
+            "match": "akifer",
+            "snippet": "…rdımı ile üretim faaliyeti gerçekleştirilecektir. Ocakçılık çalışmaları kapsamında bölgeyi besleyen memba/mansaplarda akifer kaçaklarını önlemek amacıyla malzeme temin çalışmaları kontrollü yapılacaktır. Ocak sahasında ekskavatör yardımı ile…"
+          },
+          {
+            "page": 13,
+            "match": "yeraltı suyu",
+            "snippet": "…i işletme taban kotu 909 metre; tavan kotu ise yaklaşık 914 metredir. 909 metre kotunun altına inilmeyecektir. Alanda yeraltı suyu seviyesini belirleyebilecek herhangi bir yeraltı suyu kuyusu, kaynak boşalımı, çeşme vb. yapı bulunmamaktadır. Proje…"
+          },
+          {
+            "page": 13,
+            "match": "yeraltısuyu",
+            "snippet": "…işletmenin faaliyetine son verilecek ve bu faaliyetlerden ötürü kaynak çıkış noktalarında değişme, debilerinde azalma, yeraltısuyu kalitesinde bozulma gibi oluşacak tüm zararlar Karayolları 4. Bölge Müdürlüğü tarafından temin edilecektir. DSİ 5. Bö…"
+          },
+          {
+            "page": 14,
+            "match": "Yeraltısuyu",
+            "snippet": "…orda taahhüt edilen hususlara uyacaktır. Emniyetli işletme taban kotu altında hiçbir şekilde faaliyet yapılmayacak ve Yeraltısuyu ile karşılaşılması durumunda faaliyet durdurularak başka bir alanda çalışılmaya başlanacaktır. Madencilik faaliyetleri…"
+          },
+          {
+            "page": 17,
+            "match": "150 ton/gün",
+            "snippet": "…ih ve 32113 Sayılı değişiklik “Çevre İzin ve Lisans Yönetmeliği” kapsamında; Ek.2 “Madde 2.16 Maden çıkarma kapasitesi 150 ton/gün ve üzeri olan ve 4/6/1985 tarihli ve 3213 Sayılı Maden Kanunu’nun 1. Grup (a ve b), II. Grup (kireçraşı dahil), IV. G…"
+          }
+        ]
+      },
+      "protected_land_and_olive": {
+        "label": "Protected Zones, Forests & Olive Groves",
+        "page_count": 6,
+        "pages": [
+          3,
+          64,
+          74,
+          75,
+          76,
+          121
+        ],
+        "samples": [
+          {
+            "page": 3,
+            "match": "orman alanı",
+            "snippet": "…........................................................................... 59 a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri ................................…"
+          },
+          {
+            "page": 64,
+            "match": "orman alanı",
+            "snippet": "…syası 59 BÖLÜM II. PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ: a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri Karayolları 4. Bölge Müdürlüğü…"
+          },
+          {
+            "page": 74,
+            "match": "Özel Çevre Koruma",
+            "snippet": "…tanımlanan alanlar içerisinde yer almamaktadır. f) Çevre Kanunu’nun 9 uncu maddesi uyarınca Cumhurbaşkanı tarafından \"Özel Çevre Koruma Bölgeleri\" olarak tespit ve ilan edilen alanlar, Proje alanı ve yakın çevresinde bulunmamaktadır. g) Boğaziçi Kanunu’…"
+          },
+          {
+            "page": 74,
+            "match": "orman alanı",
+            "snippet": "…anunu’na göre koruma altına alınan alanlar, Proje alanı ve yakın çevresinde bulunmamaktadır. ğ) Orman Kanunu uyarınca orman alanı sayılan yerler, Proje alanı ve yakın çevresinde bulunmamaktadır. h) Kıyı Kanunu gereğince yapı yasağı getirilen alan…"
+          },
+          {
+            "page": 75,
+            "match": "sulak alan",
+            "snippet": "…Alanların Korunması Yönetmeliği’nde belirtilen alanlar. Proje sahası içerisinde ya da yakın çevresinde göl, baraj veya sulak alan bulunmamaktadır. 2. Ülkemizin Taraf Olduğu Uluslararası Sözleşmeler Uyarınca Korunması Gerekli Alanlar a) \"Avrupa’n…"
+          },
+          {
+            "page": 76,
+            "match": "kıyı kenar",
+            "snippet": "…ı olmak üzere canlıların yaşama ortamı olarak önem taşıyan bütün sular, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler, Proje sahası içerisinde ya da yakın…"
+          },
+          {
+            "page": 76,
+            "match": "sulak alan",
+            "snippet": "…ar, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler, Proje sahası içerisinde ya da yakın çevresinde göl, baraj veya sulak alan bulunmamaktadır. ç) Göller,…"
+          },
+          {
+            "page": 121,
+            "match": "Sulak Alan",
+            "snippet": "…(https://www.says.gov.tr/savab/#/) T.C. Tarım ve Orman Bakanlığı Doğa Koruma ve Milli Parklar Genel Müdürlüğü Ulusal Sulak Alan Envanteri Yönetim Bilgi Sistemi (https://saybis.tarimorman.gov.tr/) Türk Çevre Mevzuatı (Cilt – I ve Cilt – II. Çe…"
+          }
+        ]
+      },
+      "ecology_and_baseline": {
+        "label": "Flora, Fauna & Baseline Methodology",
+        "page_count": 29,
+        "pages": [
+          7,
+          9,
+          21,
+          65,
+          75,
+          76,
+          77,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          87,
+          88,
+          89,
+          90,
+          91,
+          99,
+          103,
+          104,
+          151,
+          176,
+          205
+        ],
+        "samples": [
+          {
+            "page": 7,
+            "match": "mevsimsel",
+            "snippet": "…ftlik bulunmaktadır. Bunların haricinde ruhsat alanı içerisinde, ÇED Alanının 20 m. Güneydoğusunda Özdere deresi gibi mevsimsel akışlı kuru dereler bulunmakta olup, hakim hidrolik yönü kuzeye doğrudur. ÇED alanının 1 km sınırı içerisinde çeşme,…"
+          },
+          {
+            "page": 9,
+            "match": "mevsimsel",
+            "snippet": "…ftlik bulunmaktadır. Bunların haricinde ruhsat alanı içerisinde, ÇED Alanının 20 m. Güneydoğusunda Özdere deresi gibi mevsimsel akışlı kuru dereler bulunmakta olup, hakim hidrolik yönü kuzeye doğrudur. ÇED alanının 1 km sınırı içerisinde çeşme,…"
+          },
+          {
+            "page": 21,
+            "match": "mevsimsel",
+            "snippet": "…ftlik bulunmaktadır. Bunların haricinde ruhsat alanı içerisinde, ÇED Alanının 20 m. Güneydoğusunda Özdere deresi gibi mevsimsel akışlı kuru dereler bulunmakta olup, hakim hidrolik yönü kuzeye doğrudur. ÇED alanının 1 km sınırı içerisinde çeşme,…"
+          },
+          {
+            "page": 65,
+            "match": "mevsimsel",
+            "snippet": "…ftlik bulunmaktadır. Bunların haricinde ruhsat alanı içerisinde, ÇED Alanının 20 m. Güneydoğusunda Özdere deresi gibi mevsimsel akışlı kuru dereler bulunmakta olup, hakim hidrolik yönü kuzeye doğrudur. ÇED alanının 1 km sınırı içerisinde çeşme,…"
+          },
+          {
+            "page": 75,
+            "match": "BERN Sözleşmesi",
+            "snippet": "…Sözleşmeler Uyarınca Korunması Gerekli Alanlar a) \"Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi\" (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan \"Önemli Deniz Kaplumbağası Üreme Alanları\"nda belirtilen I. ve II. Koruma B…"
+          },
+          {
+            "page": 76,
+            "match": "endemik",
+            "snippet": "…dır. d) Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…"
+          },
+          {
+            "page": 77,
+            "match": "flora ve fauna",
+            "snippet": "…yapılacak gerekli koruma önlemleri alınacaktır. Flora-Fauna Flora Proje kapsamında, proje alanı ve yakın çevresinde flora ve fauna türlerinin tespiti, literatür çalışmalarına dayalı olarak Biyolog Oya ORBAY ve Gülsüm YILDIZHAN tarafından yapılmıştı…"
+          },
+          {
+            "page": 77,
+            "match": "arazi çalışması",
+            "snippet": "…öz önüne alınarak liste genişletilmeye çalışılmıştır. Faaliyet sahası ve çevresi flora türleri, proje alanında yapılan arazi çalışması, bölgenin topoğrafik yapısı, iklimi, jeolojisi ve toprak özellikleri dikkate alınarak proje alanının habitat yapısına…"
+          }
+        ]
+      },
+      "pollutants_and_hazards": {
+        "label": "Emissions, Geochemistry & Waste",
+        "page_count": 58,
+        "pages": [
+          8,
+          11,
+          16,
+          17,
+          22,
+          23,
+          28,
+          29,
+          31,
+          33,
+          35,
+          38,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          55,
+          58,
+          62
+        ],
+        "samples": [
+          {
+            "page": 8,
+            "match": "gürültü",
+            "snippet": "…arının alınmasını takiben yürürlükteki mevzuat ve mevzuat değişiklikleri gereğince; Çevre Kanunu kapsamında emisyon ve gürültü konulu “Çevre İzni”, yüklenici firma tarafından çevre mühendisi ataması yapılarak alınacaktır."
+          },
+          {
+            "page": 11,
+            "match": "Gürültü",
+            "snippet": "…aynaklı Hava Kirliliğinin Kontrolü Yönetmeliği’ne göre; Savurma yapılmadan boşaltma ve doldurma yapılacaktır, Toz ve Gürültü BİTKİSEL ÖRTÜ TABAKASININ ALINMASI ÖRTÜ TOPRAĞININ YÜKLENMESİ MALZEMENİN EKSKAVATÖR YARDIMIYLA SÖKÜLMESİ ÖRTÜ TOPR…"
+          },
+          {
+            "page": 16,
+            "match": "tehlikeli atık",
+            "snippet": "…lecektir. İş makinalarının acil bakımlarının ocak alanında yapılmasından kaynaklı geri dönüşümü mümkün olan atık yağ, tehlikeli atık, atık akü, atık pil, ömrünü tamamlamış lastik ve araç, ambalaj atıkları ise lisanslı firmalar tarafından ocak alanında…"
+          },
+          {
+            "page": 17,
+            "match": "gürültü",
+            "snippet": "…arının alınmasını takiben yürürlükteki mevzuat ve mevzuat değişiklikleri gereğince; Çevre Kanunu kapsamında emisyon ve gürültü konulu “Çevre İzni”, yüklenici firma tarafından çevre mühendisi ataması yapılarak alınacaktır. Proje işletme çalışma…"
+          },
+          {
+            "page": 22,
+            "match": "tehlikeli atık",
+            "snippet": "…yataklarından malzeme alımı yapılmayacak, dere kesitleri değiştirilmeyecektir. 6. Geri dönüşümü mümkün olan atık yağ, tehlikeli atık, atık akü, atık pil, ömrünü tamamlamış lastik ve araç, ambalaj atıkları lisanslı firmalar tarafından ocak alanından"
+          },
+          {
+            "page": 23,
+            "match": "tehlikeli atık",
+            "snippet": "…ı I-(A) Grubu Şeyhahmetli Ariyet Ocağı Proje Tanıtım Dosyası 18 alınacaktır. Bu atıkların geçici olarak depolandığı tehlikeli atık depo alanı ise yıkılarak rehabilitasyonu sağlanacaktır. 7. Şantiye binası, seyyar tuvalet gibi doğal olmayan yapılar…"
+          },
+          {
+            "page": 28,
+            "match": "tehlikeli atık",
+            "snippet": "…şantiye alanı oluşturulacaktır. Yağ değişim kanalı planlanmamıştır. Yağ ile kontamine olmuş eldiven, hortum, üstübü, tehlikeli atık olarak değerlendirilecektir. Bu atıklar sızdırmasız, yağmurdan arındırılmış alanlarda diğer atıklardan ayrı olarak de…"
+          },
+          {
+            "page": 29,
+            "match": "tehlikeli atık",
+            "snippet": "…iş makinelerinin akü değişimleri ilgili servislerinde yapılacak olup sahada herhangi bir kullanılmış atık akümülatör tehlikeli atık olarak çıkmayacaktır. Oluşması durumunda ise kullanılmış atık akümülatörler, saha içinde, üstü kapalı sızdırmaz beton…"
+          }
+        ]
+      },
+      "cost_and_capacity": {
+        "label": "Proje Bedeli, Güç ve Kapasite",
+        "page_count": 15,
+        "pages": [
+          2,
+          3,
+          6,
+          8,
+          10,
+          11,
+          16,
+          17,
+          18,
+          33,
+          36,
+          44,
+          53,
+          179,
+          212
+        ],
+        "samples": [
+          {
+            "page": 2,
+            "match": "PROJE BEDELİ",
+            "snippet": "…TA 4bolgecevre@kgm.gov.tr PROJENİN ADI (ER.3358259) 06/2017-11 IZIN NUMARALI I-(A) GRUBU ŞEYHAHMETLİ ARİYET OCAĞI PROJE BEDELİ 1.000.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) ANKARA İLİ, POLATLI İLÇESİ, ŞEYHAHMETL…"
+          },
+          {
+            "page": 2,
+            "match": "1.000.000 TL",
+            "snippet": "…e@kgm.gov.tr PROJENİN ADI (ER.3358259) 06/2017-11 IZIN NUMARALI I-(A) GRUBU ŞEYHAHMETLİ ARİYET OCAĞI PROJE BEDELİ 1.000.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) ANKARA İLİ, POLATLI İLÇESİ, ŞEYHAHMETLİ MAHALLESİ…"
+          },
+          {
+            "page": 3,
+            "match": "Kapasite",
+            "snippet": "…........................................................................................ 4 b) Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Yatırım Bedeli, Teknolojisi, Çalışacak Personel Sayısı .............................................…"
+          },
+          {
+            "page": 6,
+            "match": "kapasite",
+            "snippet": "…anının 8,85 ha ÇED Alanı belirlenmiş olup, ihtiyaca göre üretim çalışmalarının yapıldığı ocak alanında ariyet ocağının kapasitesi 720.000 ton/yıl olarak planlanmıştır. Sahada günümüze kadar çalışma yapılmamıştır. Mevcut durumda da sahada herhang…"
+          },
+          {
+            "page": 6,
+            "match": "720.000 ton/yıl",
+            "snippet": "…ha ÇED Alanı belirlenmiş olup, ihtiyaca göre üretim çalışmalarının yapıldığı ocak alanında ariyet ocağının kapasitesi 720.000 ton/yıl olarak planlanmıştır. Sahada günümüze kadar çalışma yapılmamıştır. Mevcut durumda da sahada herhangi bir üretim yapıl…"
+          },
+          {
+            "page": 8,
+            "match": "kapasite",
+            "snippet": "…değişiklik) Resmi Gazete’de yayımlanan “Çevre İzin ve Lisans Yönetmeliği” kapsamında; Ek.2-“ Madde 2.16 Maden çıkarma kapasitesi 150 ton/gün ve üzeri olan ve 4/6/1985 tarihli ve 3213 Sayılı Maden Kanunu’nun 1. Grup (a ve b), II. Grup (kireçraşı…"
+          },
+          {
+            "page": 10,
+            "match": "Kapasite",
+            "snippet": "…ak pasa malzeme dolgu amacıyla kullanılacak olup, sahada pasa depolaması yapılmayacaktır. b) Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Yatırım Bedeli, Teknolojisi, Çalışacak Personel Sayısı Projenin İş Akım Şeması Ariyet Ocağı İş Akı…"
+          },
+          {
+            "page": 11,
+            "match": "720.000 ton/yıl",
+            "snippet": "…kaçaklarını önlemek amacıyla malzeme temin çalışmaları kontrollü yapılacaktır. Ocak sahasında ekskavatör yardımı ile 720.000 ton/yıl malzeme çıkarılması planlanmaktadır. Çıkarılacak malzeme bölgede yer alan ve/veya yapımı planlanan, Karayolları 4. Bö…"
+          }
+        ]
+      },
+      "splitting_and_thresholds": {
+        "label": "Proje Parçalama, Kapasite Artışı ve Eşik Değerler",
+        "page_count": 12,
+        "pages": [
+          6,
+          7,
+          9,
+          18,
+          20,
+          21,
+          33,
+          64,
+          65,
+          104,
+          118,
+          178
+        ],
+        "samples": [
+          {
+            "page": 6,
+            "match": "ÇED Alanı",
+            "snippet": "…bakım ve onarımında kullanılacaktır. Bu amaçla 9,88 hektar büyüklüğündeki hammadde üretim izin alanının 8,85 ha alan ÇED Alanı olarak kullanılacaktır. Maden ve Petrol İşleri Genel Müdürlüğü’nden Karayolları 4. Bölge Müdürlüğü adına 18.09.2027 t…"
+          },
+          {
+            "page": 6,
+            "match": "5403 Sayılı",
+            "snippet": "…tır. Tarım arazilerine isabet eden; proje güzergahları ve yol inşaatı için gerekli ocak, şantiye ve depo vb. sahaların 5403 Sayılı Toprak Koruma ve Arazi Kullanım Kanununun 13. ve 14. Maddesi uyarınca; Tarım Dışı Kullanım İzinlerinin alınması ve iz…"
+          },
+          {
+            "page": 7,
+            "match": "5403 Sayılı",
+            "snippet": "…e işlemler Karayolları 4. Bölge Müdürlüğü tarafından takip edilerek sonuçlandırılacak, Karayolları 4. Bölge Müdürlüğü, 5403 Sayılı Toprak Koruma ve Arazi Kullanım Kanununun 13. ve 14. Maddesi uyarınca alınan izinler kapsamında düzenlenen geri dönüş…"
+          },
+          {
+            "page": 7,
+            "match": "ruhsat alanı",
+            "snippet": "…i mahallesine aittir. Ayrıca 1.900 m. Kuzeyinde Şeyhahmetli Mahallesine ait çiftlik bulunmaktadır. Bunların haricinde ruhsat alanı içerisinde, ÇED Alanının 20 m. Güneydoğusunda Özdere deresi gibi mevsimsel akışlı kuru dereler bulunmakta olup, hakim…"
+          },
+          {
+            "page": 9,
+            "match": "ruhsat alanı",
+            "snippet": "…i mahallesine aittir. Ayrıca 1.900 m. Kuzeyinde Şeyhahmetli Mahallesine ait çiftlik bulunmaktadır. Bunların haricinde ruhsat alanı içerisinde, ÇED Alanının 20 m. Güneydoğusunda Özdere deresi gibi mevsimsel akışlı kuru dereler bulunmakta olup, hakim…"
+          },
+          {
+            "page": 18,
+            "match": "ÇED ALANI",
+            "snippet": "…H3 39,1189582 32,1092224 H4 422677,0000 4330593,0000 H4 39,1194766 32,1051441 ALAN: 98.796 m² (9,88 hektar) ÇED ALANI NOKTA NO SAĞA (Y) YUKARI (X) NOKTA NO ENLEM BOYLAM P1 422736,0000 4330878,0000 P1 39,1220497 32,1057941 P2…"
+          },
+          {
+            "page": 20,
+            "match": "5403 Sayılı",
+            "snippet": "…tır. Tarım arazilerine isabet eden; proje güzergahları ve yol inşaatı için gerekli ocak, şantiye ve depo vb. sahaların 5403 Sayılı"
+          },
+          {
+            "page": 21,
+            "match": "5403 Sayılı",
+            "snippet": "…e işlemler Karayolları 4. Bölge Müdürlüğü tarafından takip edilerek sonuçlandırılacak, Karayolları 4. Bölge Müdürlüğü, 5403 Sayılı Toprak Koruma ve Arazi Kullanım Kanununun 13. ve 14. Maddesi uyarınca alınan izinler kapsamında düzenlenen geri dönüş…"
+          }
+        ]
+      }
+    },
+    "audit_checks": {
+      "mentions_field_survey": true,
+      "mentions_literature_only_cue": true,
+      "mentions_seasonal_sampling": true,
+      "mentions_cumulative_impact": true,
+      "mentions_olive_law_3573": false,
+      "mentions_groundwater_or_aquifer": true,
+      "mentions_iucn_or_endemic": true,
+      "mentions_capacity_or_splitting": true,
+      "mentions_circular_2009_7_or_revision": false
+    }
+  },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-22T01:09:18",
+      "decision_type": "ÇED Süreci Başlayan",
+      "announcement_date": "2026-11-13",
+      "announcement_date_tr": "13.11.2026",
+      "submitted_at": "04/11/2026 06:04:02",
+      "consulting_firm": "NOTA ÇEVRE PROJE DAN.MÜH.İNŞ.SAN.VE TİC. LTD. ŞTİ.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign1165952787653429367.pdf&orjinalAd=SEYHAHMETLIARIYETOCAGIPTD.pdf&yuklemeTarihi=2026-11-04",
+      "pdf_temp_ad": "sign1165952787653429367.pdf",
+      "pdf_original_name": "SEYHAHMETLIARIYETOCAGIPTD.pdf",
+      "pdf_upload_date": "2026-11-04",
+      "sha256": "c7299a220f9c146a413f378b1602131f0bd311518a10054ad5c0e987d45eac8d",
+      "bytes": 24001645,
+      "page_count": 246,
+      "text_pages": 197,
+      "scanned_or_blank_pages": 49,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": true,
+        "mentions_seasonal_sampling": true,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": false,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true,
+        "mentions_capacity_or_splitting": true,
+        "mentions_circular_2009_7_or_revision": false
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 46,
+        "water_and_discharge": 26,
+        "protected_land_and_olive": 6,
+        "ecology_and_baseline": 29,
+        "pollutants_and_hazards": 58,
+        "cost_and_capacity": 15,
+        "splitting_and_thresholds": 12
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 39.11972,
+      "geo_lon": 32.10965,
+      "geo_point_count": 33,
+      "detail_text_sha256": "3e0b8c8039bd275d"
+    }
+  ],
+  "llm_synthesis": {
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-11-22T01:09:25",
+    "pages_sent": [
+      1,
+      2,
+      3,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      21,
+      64,
+      65,
+      74,
+      75
+    ],
+    "usage": {
+      "prompt_tokens": 18585,
+      "output_tokens": 2080,
+      "thoughts_tokens": null,
+      "total_tokens": 20665
+    },
+    "result": {
+      "executive_summary_tr": "Karayolları 4. Bölge Müdürlüğü tarafından Ankara ili, Polatlı ilçesi, Şeyhahmetli Mahallesi sınırları içerisinde planlanan 9,88 hektarlık hammadde üretim izin alanının 8,85 hektarlık kısmında 720.000 ton/yıl kapasiteli I-(A) Grubu Şeyhahmetli Ariyet Ocağı projesi yürütülmesi amaçlanmaktadır [s. 6, 16]. Proje kapsamında patlatmasız açık işletme yöntemiyle çıkarılacak kalker malzemenin bölgedeki devlet ve il yollarının yapım, bakım ve onarım işlerinde kullanılması planlanmaktadır [s. 11, 19]. Çalışma sahasının tamamı tarım arazisi niteliğinde olup [s. 6], Özdere deresi gibi mevsimsel kuru derelere 20 metre mesafede yer almaktadır [s. 7].",
+      "executive_summary_en": "The State Highways 4th Regional Directorate proposes the operation of the Shéhahmetli Group I-(A) borrow pit project with an annual capacity of 720,000 tons within an 8.85-hectare ÇED area located in Polatlı, Ankara [s. 6, 16]. The project involves unblasted open-pit extraction of limestone to supply highway construction and maintenance works in the region [s. 11, 19]. The entire project footprint consists of agricultural land and is situated approximately 20 meters away from seasonal dry stream beds such as Özdere [s. 6, 7].",
+      "key_facts": [
+        {
+          "label": "Total HÜİB Area",
+          "value": "9,88 ha",
+          "page": 6
+        },
+        {
+          "label": "ÇED Area",
+          "value": "8,85 ha",
+          "page": 6
+        },
+        {
+          "label": "Quarry Area",
+          "value": "7,24 ha",
+          "page": 19
+        },
+        {
+          "label": "Annual Production Capacity",
+          "value": "720.000 ton/yıl",
+          "page": 16
+        },
+        {
+          "label": "Visible Reserve",
+          "value": "910.224 ton",
+          "page": 16
+        },
+        {
+          "label": "Project Reserve Life",
+          "value": "1,3 yıl",
+          "page": 16
+        },
+        {
+          "label": "Nearest Settlement",
+          "value": "1.730 m kuzey (Şeyhahmetli Mahallesi)",
+          "page": 7
+        },
+        {
+          "label": "Distance to Seasonal Stream",
+          "value": "20 m güneydoğu (Özdere deresi)",
+          "page": 7
+        },
+        {
+          "label": "Project Cost",
+          "value": "1.000.000 TL",
+          "page": 18
+        },
+        {
+          "label": "Planned Working Schedule",
+          "value": "10 ay/yıl, 24 gün/ay, 8 saat/gün",
+          "page": 17
+        }
+      ],
+      "baseline_assessment": {
+        "field_survey_status": "literature_only",
+        "seasonal_sampling_status": "not_found",
+        "cumulative_impact_status": "omitted_or_not_found",
+        "olive_and_protected_status": "Raporda saha ve yakın çevresinde 3573 sayılı Zeytincilik Kanunu kapsamında zeytinlik alanların, orman alanlarının, meraların ve SİT/ÖÇK bölgelerinin bulunmadığı beyan edilmektedir [s. 74].",
+        "explanation": "Proje tanıtım dosyasında ekosistem, flora ve fauna bileşenlerine yönelik herhangi bir gerçek saha gözlem veya çok mevsimli örneklem verisi sunulmamış, inceleme genel idari beyanlarla sınırlı tutulmuştur [s. 74]. Proje alanının tamamının tarım arazisi vasfında olduğu belirtilmesine rağmen [s. 6], 5403 sayılı Kanun kapsamındaki tarım dışı kullanım izinlerinin henüz alınmadığı ve taahhüt aşamasında bırakıldığı görülmektedir [s. 6, 7]."
+      },
+      "red_flags": [
+        {
+          "category": "tarim_orman_korunan_alan",
+          "severity": "high",
+          "title": "Tarım Arazisi Niteliğindeki Alanda 5403 Sayılı Kanun İzinlerinin Eksikliği",
+          "detail": "Hammadde üretim izin alanının tamamının Tapu ve Kadastro verilerine göre tarla vasfında tarım arazisi olduğu belirtilmesine rağmen, Ankara İl Tarım ve Orman Müdürlüğü'nden alınması zorunlu 5403 sayılı Toprak Koruma ve Arazi Kullanım Kanunu kapsamındaki tarım dışı kullanım izinlerinin henüz temin edilmediği, sürecin taahhüt düzeyinde bırakıldığı ifade edilmektedir [s. 6, 7].",
+          "pages": [
+            6,
+            7
+          ]
+        },
+        {
+          "category": "su_hidrojeoloji",
+          "severity": "medium",
+          "title": "Mevsimsel Kuru Dere Yatağına YAKINLIK ve Yeraltı Suyu Verilerinin Eksikliği",
+          "detail": "ÇED alanının 20 metre güneydoğusunda Özdere deresi gibi mevsimsel akışlı kuru derelerin bulunduğu belirtilmiş [s. 7], ancak sahada detaylı hidrojeolojik ve akifer test verilerine yer verilmeden yalnızca yeraltı suyu ile karşılaşılması durumunda faaliyetin durdurulacağı taahhüt edilmiştir [s. 13].",
+          "pages": [
+            7,
+            13
+          ]
+        },
+        {
+          "category": "flora_fauna_mevsimsel",
+          "severity": "high",
+          "title": "Ekolojik Değerlendirme ve Flora-Fauna Envanterinin Bulunmaması",
+          "detail": "Proje tanıtım dosyasında arazi çalışmalarının sadece 22.09.2026 tarihinde yapıldığı belirtilmiş [s. 8], hassas ekosistemler ve yerel biyolojik çeşitlilik açısından akademik ve mevsimsel tabana dayanan somut bir flora-fauna envanteri rapora dahil edilmemiştir.",
+          "pages": [
+            8
+          ]
+        }
+      ],
+      "recommended_bilirkisi_disciplines": [
+        "Çevre Mühendisi",
+        "Hidrojeoloji Mühendisi",
+        "Ziraat Mühendisi",
+        "Şehir ve Bölge Plancısı",
+        "Biyolog"
+      ],
+      "hkt_and_petition_questions": [
+        {
+          "question_tr": "Proje alanının tamamının tarım arazisi niteliğinde olduğu tapu kayıtlarıyla sabit iken [s. 6], 5403 sayılı Toprak Koruma ve Arazi Kullanım Kanunu uyarınca alınması zorunlu kesin tarım dışı kullanım izni ve toprak koruma projesi olmadan ÇED sürecinin başlatılması hangi hukuki gerekçeye dayanmaktadır?",
+          "pages": [
+            6,
+            7
+          ]
+        },
+        {
+          "question_tr": "ÇED alanının 20 metre güneydoğusunda yer alan Özdere deresi ve benzeri mevsimsel akışlı kuru derelerin taşkın riskleri ile olası yüzeysel akış kirliliğine karşı hangi mühendislik koruma yapılarının kurulacağı hidrolik modellemelerle hesaplanmış mıdır? DSİ 5. Bölge Müdürlüğü'nden alınmış resmi ve bağlayıcı bir taşkın uygunluk görüşü dosyada mevcut mudur?",
+          "pages": [
+            7,
+            15
+          ]
+        },
+        {
+          "question_tr": "Sahada yapıldığı belirtilen tek günlük arazi incelemesi dışında [s. 8], bölgedeki flora, fauna ve ekolojik hassasiyetleri ortaya koyacak çok mevsimli bilimsel bir envanter çalışması neden gerçekleştirilmemiştir?",
+          "pages": [
+            8
+          ]
+        }
+      ],
+      "data_limitations": "İncelenen dosya metninde harita koordinat özetleri, idari yazışmalar ve metin bölümleri yer almakta olup, taranmış ekler (Ek-2.1 - Ek-2.12 haritalar ve kurum görüşleri) görsel formatta ve metin dışı tarama olarak bulunduğundan eksiksiz harita tabanlı mekânsal analiz yapılamamıştır."
+    }
+  }
+}

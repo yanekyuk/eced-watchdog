@@ -1,0 +1,924 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>e-ÇED Ön Özet #60152 — BURDUR / KARAMANLI</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+:root {
+  --bg: #f8f9fb;
+  --surface: #ffffff;
+  --surface-subtle: #f2f4f7;
+  --border: #e4e7ec;
+  --border-strong: #cfd5df;
+  --text: #101828;
+  --text-secondary: #344054;
+  --muted: #667085;
+  --accent: #175cd3;
+  --accent-soft: #eff8ff;
+  --red: #b42318;
+  --red-soft: #fef3f2;
+  --red-border: #fecdca;
+  --amber: #b54708;
+  --amber-soft: #fffaeb;
+  --amber-border: #fedf89;
+  --green: #067647;
+  --green-soft: #ecfdf3;
+  --green-border: #abefc6;
+  --violet: #5925dc;
+  --violet-soft: #f4f3ff;
+  --violet-border: #d9d6fe;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f131a;
+    --surface: #161b24;
+    --surface-subtle: #1d2430;
+    --border: #273040;
+    --border-strong: #39465c;
+    --text: #eaedf2;
+    --text-secondary: #c5cdd9;
+    --muted: #8a95a6;
+    --accent: #6cb0ff;
+    --accent-soft: rgba(108, 176, 255, 0.14);
+    --red: #ff857a;
+    --red-soft: rgba(248, 81, 73, 0.13);
+    --red-border: rgba(248, 81, 73, 0.36);
+    --amber: #f0b849;
+    --amber-soft: rgba(210, 153, 34, 0.13);
+    --amber-border: rgba(210, 153, 34, 0.36);
+    --green: #4cc38a;
+    --green-soft: rgba(63, 185, 80, 0.13);
+    --green-border: rgba(63, 185, 80, 0.36);
+    --violet: #bda3ff;
+    --violet-soft: rgba(158, 119, 237, 0.15);
+    --violet-border: rgba(158, 119, 237, 0.38);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f131a;
+  --surface: #161b24;
+  --surface-subtle: #1d2430;
+  --border: #273040;
+  --border-strong: #39465c;
+  --text: #eaedf2;
+  --text-secondary: #c5cdd9;
+  --muted: #8a95a6;
+  --accent: #6cb0ff;
+  --accent-soft: rgba(108, 176, 255, 0.14);
+  --red: #ff857a;
+  --red-soft: rgba(248, 81, 73, 0.13);
+  --red-border: rgba(248, 81, 73, 0.36);
+  --amber: #f0b849;
+  --amber-soft: rgba(210, 153, 34, 0.13);
+  --amber-border: rgba(210, 153, 34, 0.36);
+  --green: #4cc38a;
+  --green-soft: rgba(63, 185, 80, 0.13);
+  --green-border: rgba(63, 185, 80, 0.36);
+  --violet: #bda3ff;
+  --violet-soft: rgba(158, 119, 237, 0.15);
+  --violet-border: rgba(158, 119, 237, 0.38);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Unified Sticky Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.topbar-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.96rem;
+  letter-spacing: -0.01em;
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+.brand-scope {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+.nav-link {
+  padding: 5px 10px;
+  border-radius: 7px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-link:hover { background: var(--surface-subtle); text-decoration: none; color: var(--text); }
+.nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.theme-btn {
+  margin-left: 4px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.79rem;
+  font-weight: 500;
+}
+.theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
+
+/* Layout */
+.wrap { max-width: 1120px; margin: 0 auto; padding: 22px 20px 72px; }
+.wrap.narrow { max-width: 900px; }
+h1 { margin: 0 0 6px; font-size: 1.5rem; line-height: 1.25; letter-spacing: -0.02em; }
+h2 { margin: 28px 0 10px; font-size: 1.15rem; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { margin: 16px 0 8px; font-size: 0.96rem; line-height: 1.35; }
+.sub { color: var(--muted); font-size: 0.91rem; margin: 0; }
+
+/* Compact Masthead */
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 20px;
+  margin-bottom: 16px;
+}
+.masthead-left { max-width: 720px; }
+.masthead-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.kpi-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 18px;
+  padding: 10px 16px;
+  margin-bottom: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.84rem;
+  color: var(--muted);
+  box-shadow: var(--shadow);
+}
+.kpi-item { display: inline-flex; align-items: baseline; gap: 5px; }
+.kpi-item strong {
+  color: var(--text);
+  font-size: 0.96rem;
+  font-variant-numeric: tabular-nums;
+}
+.kpi-item.accent strong { color: var(--accent); }
+.kpi-item.rev strong { color: var(--violet); }
+.kpi-sep { color: var(--border-strong); user-select: none; }
+
+/* Map Card */
+.map-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.map-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 14px;
+  padding: 9px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.map-box.collapsed .map-bar { border-bottom: none; }
+.map-box.collapsed #map { display: none; }
+.map-legend-inline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+#map { width: 100%; height: 320px; background: var(--surface-subtle); }
+#digest-map { width: 100%; height: 300px; background: var(--surface-subtle); }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+/* Streamlined Controls */
+.controls-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.controls-row + .controls-row {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.advanced-row { display: none; }
+.advanced-row.open { display: flex; }
+input[type="search"], select.filter-select {
+  padding: 7px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.87rem;
+}
+input[type="search"]:focus, select.filter-select:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+input[type="search"] { flex: 1 1 240px; }
+select.filter-select { min-width: 155px; }
+button.pill {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+button.pill:hover { background: var(--surface-subtle); color: var(--text); }
+button.pill.active { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 600; }
+button.pill.rev-pill.active { background: var(--violet); border-color: var(--violet); }
+.ctrl-right { margin-left: auto; display: flex; align-items: center; gap: 6px; }
+button.ghost-btn {
+  padding: 5px 9px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.79rem;
+  font-weight: 500;
+}
+button.ghost-btn:hover { color: var(--text); border-color: var(--border-strong); background: var(--surface-subtle); }
+
+/* Calm Two-Tier Cards */
+.list-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+.cards { display: flex; flex-direction: column; gap: 10px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 15px 18px;
+  box-shadow: var(--shadow);
+  transition: border-color 0.12s;
+}
+.card:hover { border-color: var(--border-strong); }
+.card.urgent-edge { border-left: 3px solid var(--red); }
+.card.ek1 { border-left: 3px solid var(--accent); }
+.card.has-rev { border-left: 3px solid var(--violet); }
+.card.urgent-edge.has-rev { border-left: 3px solid var(--red); }
+
+/* Tier 1: Quiet Metadata Context Row (zero boxes!) */
+.card-ctx {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 12px;
+  font-size: 0.79rem;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+.ctx-left { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.ctx-loc { color: var(--text-secondary); font-weight: 600; }
+.ctx-ek1 { color: var(--accent); font-weight: 600; }
+.ctx-geo { color: var(--green); font-weight: 500; }
+.ctx-sep { color: var(--border-strong); }
+.ctx-right { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.title { font-weight: 650; font-size: 1.01rem; line-height: 1.38; color: var(--text); margin: 0; }
+.title a { color: var(--text); }
+.title a:hover { color: var(--accent); text-decoration: none; }
+.owner-line { font-size: 0.82rem; color: var(--muted); margin: 3px 0 0; }
+
+/* Tier 2: Signal Pills (Status, Clock, Findings, Revision ONLY) */
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.badge.urgent { background: var(--red-soft); border-color: var(--red-border); color: var(--red); font-weight: 600; }
+.badge.warn { background: var(--amber-soft); border-color: var(--amber-border); color: var(--amber); font-weight: 600; }
+.badge.ok { background: var(--green-soft); border-color: var(--green-border); color: var(--green); font-weight: 600; }
+.badge.info { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
+.badge.rev { background: var(--violet-soft); border-color: var(--violet-border); color: var(--violet); font-weight: 600; }
+.badge.muted { color: var(--muted); }
+
+/* Calm 2-line Clamped Summary */
+.summary-clamp {
+  margin: 9px 0 0;
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+  line-height: 1.52;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.summary-clamp.muted { color: var(--muted); }
+
+.rev-inline {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--violet-soft);
+  border: 1px solid var(--violet-border);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+.rev-inline strong { color: var(--violet); }
+
+/* Quiet Action Row */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  font-size: 0.82rem;
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid var(--border);
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.81rem;
+}
+.btn-primary:hover { text-decoration: none; filter: brightness(1.06); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.81rem;
+  cursor: pointer;
+}
+.btn-secondary:hover { text-decoration: none; border-color: var(--border-strong); color: var(--text); }
+.quiet-link { color: var(--muted); font-weight: 500; }
+.quiet-link:hover { color: var(--accent); }
+
+/* Pagination Bar */
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.pager button {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pager button:hover { border-color: var(--accent); color: var(--accent); }
+.pager .pager-all {
+  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Digest & Guide Tables, Accordions, Callouts */
+table.kv {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.88rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+table.kv th, table.kv td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 13px;
+  text-align: left;
+  vertical-align: top;
+}
+table.kv tr:last-child th, table.kv tr:last-child td { border-bottom: none; }
+table.kv th { width: 240px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
+table.data-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.84rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+table.data-tbl th, table.data-tbl td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.data-tbl tr:last-child td { border-bottom: none; }
+code {
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.84em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+blockquote {
+  margin: 10px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface-subtle);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.89rem;
+  color: var(--text-secondary);
+}
+.callout {
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  margin: 14px 0;
+}
+.callout.rev { background: var(--violet-soft); border-color: var(--violet-border); }
+details.accordion {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 10px 0;
+  overflow: hidden;
+}
+details.accordion summary {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
+}
+details.accordion summary::-webkit-details-marker { display: none; }
+details.accordion summary::after {
+  content: "+";
+  font-size: 1.1rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+details.accordion[open] summary::after { content: "−"; }
+details.accordion[open] summary { border-bottom: 1px solid var(--border); background: var(--surface-subtle); }
+.accordion-body { padding: 14px 16px; }
+.timeline {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid var(--border-strong);
+}
+.timeline li { position: relative; margin: 0 0 9px; padding-left: 8px; font-size: 0.86rem; }
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+}
+.hit { margin: 8px 0; font-size: 0.87rem; line-height: 1.55; }
+.pno { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.notice {
+  margin-top: 32px;
+  padding: 13px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.toc-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 20px; }
+.toc-pills a {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.81rem;
+  font-weight: 500;
+}
+.toc-pills a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+.step-num {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+pre.template-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.section-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+@media (max-width: 700px) {
+  table.kv th { width: 140px; }
+  #map { height: 270px; }
+  .topbar-inner { padding: 9px 14px; }
+  .wrap { padding: 16px 14px 54px; }
+}
+@media print {
+  .topbar, .no-print, #digest-map, .map-box { display: none !important; }
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .card, table.kv, table.data-tbl, details.accordion { box-shadow: none; break-inside: avoid; }
+  details.accordion { border: 1px solid #ccc; }
+  a { color: #000000; text-decoration: underline; }
+}
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      <span>Türkiye e-ÇED İzleme</span>
+      <span class="brand-scope">81 İl</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link " href="../index.html">Duyurular</a>
+      <a class="nav-link " href="../rehber.html">Kullanım Rehberi</a>
+      <a class="nav-link" href="../feed.xml">RSS</a>
+      <a class="nav-link" href="https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml" target="_blank" rel="noopener">Resmi e-ÇED ↗</a>
+      <button id="theme-toggle" class="theme-btn" type="button">Tema</button>
+    </div>
+  </div>
+</nav>
+<div class="wrap narrow">
+  <header style="margin-bottom:16px;">
+    <div class="card-ctx no-print" style="margin-bottom:8px;">
+      <span><a href="../index.html">← Duyurulara dön</a> · <strong>BURDUR / KARAMANLI</strong> · Ek-2 · Enerji</span>
+      <span><code>#60152</code> · 19.11.2026</span>
+    </div>
+    <h1>GEPAT Depolamalı GES (GES Kurulu Güç:10 MWm/10 MWe-10,09 ha / Depolama Kurulu Güç: 40 MWh/10 MWe-0,23 ha)</h1>
+    <p class="sub">GEPAT Elektrik Enerjisi Tedarik A.Ş.</p>
+    <div class="badges" style="margin-top:10px;">
+      <span class="badge">ÇED Gerekli Değil/ÇED Olumlu</span>
+      <span class="badge ok">İYUK 20/A · 27 gün kaldı (2026-12-19)</span>
+      
+      
+    </div>
+    <div class="actions no-print" style="border-top:none;padding-top:4px;">
+      <a class="btn-primary" href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign8035654415019551933.pdf&amp;orjinalAd=e-imza.pdf&amp;yuklemeTarihi=2026-11-11" target="_blank" rel="noopener">Resmi PDF Dosyası ↗</a>
+      <a class="btn-secondary" href="http://eced.csb.gov.tr/jsp/ek1/60152" target="_blank" rel="noopener">e-ÇED Portal Kaydı ↗</a>
+      <a class="btn-secondary" href="60152.md">Markdown (.md)</a>
+      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF</button>
+    </div>
+  </header>
+
+  <table class="kv">
+    <tr><th>Hazırlayan Kuruluş</th><td>BİLGİR MÜHENDİSLİK DANIŞMANLIK ÇEVRE TEKNOLOJİLERİ İNŞAAT SANAYİ TİCARET LİMİTED ŞİRKETİ</td></tr>
+    <tr><th>Sektör / Alt Sektör</th><td>Enerji / Güneş Enerji Santralleri</td></tr>
+    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>19.11.2026</code> · Yükleme: <code>11/06/2026 02:30:36</code></td></tr>
+    <tr><th>PDF Kapsamı</th><td>100.80 MB · 461 sayfa (414 metin / 47 taranmış) · <a href="https://www.openstreetmap.org/?mlat=37.45182&amp;mlon=29.95352#map=12/37.45182/29.95352" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=37.45182,29.95352" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
+  </table>
+
+  <div class="card" style="padding:11px 15px;margin:14px 0;font-size:0.84rem;color:var(--text-secondary);"><span class="badge ok">v1 Arşivlendi</span> &nbsp;SHA-256: <code>183c8efbec552033…</code> · Yükleme: <code>2026-11-11</code> · <span style="color:var(--muted);">Rapor değiştirilirse sürümler arası fark (v1→v2) otomatik kaydedilir.</span></div>
+
+  
+  <h2>Bilimsel Ön Değerlendirme <span class="badge">gemini-3.5-flash-lite</span></h2>
+  <p class="sub">Resmi PDF'ten seçilen 24 sayfa (s.1, s.2, s.3, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14, s.15, s.16, s.19, s.20, s.58, s.59, s.79, s.80, s.85, s.86, s.105, s.106) üzerinden üretilmiştir; her bulguyu <code>[s. N]</code> kaynağından doğrulayınız.</p>
+  <section class="card ek1" style="margin-top:10px;">
+    <p style="margin-top:0;"><strong>Özet:</strong> Burdur ili, Karamanlı ilçesi, Mürseller köyü 162 ada 38 parsel sınırları içerisinde GEPAT Elektrik Enerjisi Tedarik A.Ş. tarafından planlanan GEPAT Depolamalı GES projesi, 10,09 hektarlık alanda 10 MWm/10 MWe güneş enerji santrali ile 0,23 hektarlık alanda 40 MWh/10 MWe lityum iyon batarya enerji depolama sistemini kapsamaktadır. Proje alanı ham toprak vasfında olup Antalya-Burdur-Isparta 1/100.000 Ölçekli Çevre Düzeni Planı&#x27;na göre tarım ve çayır-mera kullanımında kalmaktadır. Faaliyet için Valilikçe ÇED Olumlu (Ek-2) kararı verilmiş olup tarım dışı kullanım izinleri ve Mera Kanunu hükümlerine riayet edilmesi şartları getirilmiştir.</p>
+    <details style="margin-top:10px;font-size:0.85rem;color:var(--muted);"><summary style="cursor:pointer;">English summary</summary><p style="margin:6px 0 0;">The proposed GEPAT Storage GES project by GEPAT Elektrik Enerjisi Tedarik A.Ş., located in Burdur province, Karamanlı district, Mürseller village (Parcel 162/38), encompasses a 10 MWm/10 MWe solar power plant spanning 10.09 hectares and a 40 MWh/10 MWe lithium-ion battery energy storage system covering 0.23 hectares. The project site is classified as raw land and falls under agricultural and pasture designations according to the 1/100,000 scale Environmental Plan. An Environmental Impact Assessment (EIA) Waiver / Approval (Annex-2 Positive) decision was issued by the local governorate, subject to future non-agricultural land use permits and compliance with Pasture Law provisions.</p></details>
+    <div class="badges" style="margin-top:10px;">
+      <span class="badge">Saha: Yalnızca literatür taramasına dayalı</span>
+      <span class="badge">Mevsimsellik: İncelenen sayfalarda tespit edilemedi</span>
+      <span class="badge">Kümülatif: Eksik veya tespit edilemedi</span>
+    </div>
+    <p class="sub" style="margin-top:10px;color:var(--text-secondary);"><strong>Zeytinlik ve Korunan Alanlar:</strong> Proje alanında ve yakın çevresinde 3573 sayılı Zeytincilik Kanunu kapsamında zeytinlik bulunmadığı belirtilmiş; ancak alanın tarım ve çayır-mera vasıflı araziler ile çevrili olduğu, mera parsellerine sınır teşkil ettiği ifade edilmiştir [s. 10, 79].<br/>Proje tanıtım dosyasında flora ve fauna bileşenleri yalnızca literatür taramaları ve genel zoocoğrafi kaynaklara dayanmakta olup, alan bazlı çok mevsimli ve yasal zorunluluk arz eden ekolojik saha çalışmaları belgelenmemiştir. Birikimli (kumulatif) bölgesel etki değerlendirmesi idari ve teknik boyutta ele alınmamıştır.</p>
+  </section>
+  <h3>Danıştay Ölçütlerine Göre Bilimsel ve Hukuki Bulgular</h3><section class="card"><div class="hit"><span class="badge urgent">YÜKSEK</span> <span class="badge">5403 / Orman / Korunan Alan</span> <strong>5403 Sayılı Kanun Kapsamında Tarım Dışı Kullanım İzninin Eksikliği</strong> <span class="pno">[s. 10, s. 58]</span> — Proje sahası tarım ve çayır-mera alanında kalmakta olup, İl Tarım ve Orman Müdürlüğü görüşünde ham toprak vasıflı taşınmaz için faaliyete başlanılmadan önce 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu kapsamında tarım dışı amaçla kullanım izninin alınması zorunlu tutulmuştur [s. 10].</div>
+<div class="hit"><span class="badge urgent">YÜKSEK</span> <span class="badge">Flora / Fauna &amp; Mevsimsellik</span> <strong>Saha Özelinde Eksik Flora ve Fauna Envanteri</strong> <span class="pno">[s. 106]</span> — Dosyada yer alan biyolojik çeşitlilik değerlendirmeleri yalnızca genel literatür kaynaklarına (KİZİROĞLU, DEMİRSOY, Flora of Turkey vb.) dayandırılmış olup, proje alanında gerçekleştirilmiş mevsimsel arazi gözlem ve örnekleme verileri sunulmamıştır [s. 106].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Kümülatif Etki</span> <strong>Bölgesel Birikimli Etki Değerlendirmesinin Bulunmaması</strong> <span class="pno">[s. 51]</span> — Burdur Gölü havzasında ve çevrede planlanan diğer yenilenebilir enerji projeleri ile tarımsal/hayvancılık faaliyetlerinin oluşturacağı kümülatif ekolojik ve hidrojeolojik baskılar raporda incelenmemiştir [s. 51].</div></section>
+  <h3>Öne Çıkan Sayısal Bulgular</h3><table class="kv"><tr><th>GES Kurulu Güç</th><td>10 MWm / 10 MWe <span class="pno">[s. 2]</span></td></tr>
+<tr><th>Depolama Kurulu Güç</th><td>40 MWh / 10 MWe <span class="pno">[s. 2]</span></td></tr>
+<tr><th>GES Alanı</th><td>10,09 ha (100.917,12 m2) <span class="pno">[s. 2]</span></td></tr>
+<tr><th>Depolama Alanı</th><td>0,23 ha (2.300 m2) <span class="pno">[s. 2]</span></td></tr>
+<tr><th>Toplam Proje Bedeli</th><td>97.870.000 TL <span class="pno">[s. 2]</span></td></tr>
+<tr><th>Güneş Paneli Sayısı ve Gücü</th><td>20.000 adet, her biri 500 Wp <span class="pno">[s. 8]</span></td></tr>
+<tr><th>Evirici (İnverter) Sayısı ve Gücü</th><td>100 adet, her biri 100 kW <span class="pno">[s. 8]</span></td></tr>
+<tr><th>En Yakın Yerleşim Birimi</th><td>Mürseller Köyü (kuş uçuşu ~1.230 m) <span class="pno">[s. 8]</span></td></tr>
+<tr><th>En Yakın Yapı / Tesis</th><td>Hayvancılık tesisi (~570 m güneybatı) <span class="pno">[s. 8]</span></td></tr>
+<tr><th>Fosseptik Kapasitesi</th><td>55 m3 (5x2,2x5 m) <span class="pno">[s. 85]</span></td></tr></table>
+  
+  
+  <h3>Keşif ve Bilirkişi Heyeti İçin Önerilen Uzmanlık Alanları</h3><section class="card"><div class="badges" style="margin-top:0;"><span class="badge info">Çevre Mühendisi</span> <span class="badge info">Ziraat Mühendisi</span> <span class="badge info">Hidrojeoloji Mühendisi</span> <span class="badge info">Biyolog</span> <span class="badge info">Şehir ve Bölge Plancısı</span></div><p class="sub" style="margin-top:8px;">Bilirkişi heyetinin tek sayıda uzmandan oluşması, proje niteliğine uygun tüm disiplinleri içermesi ve plan kararlarıyla ilişkili davalarda Şehir ve Bölge Plancısına yer verilmesi gerekmektedir.</p></section>
+  <div class="section-head-row" style="margin-top:16px;"><h3 style="margin:0;">HKT Tutanakları ve Bilirkişi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card" style="margin-top:8px;"><ul style="margin:0;padding-left:20px;"><li>Proje alanının tarım ve mera niteliği taşıyan 162 ada 38 parsel üzerinde kurulması planlanan GES ve depolama tesisleri için 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu uyarınca henüz alınmamış olan tarım dışı kullanım izinleri tamamlanmadan ÇED Olumlu kararının verilmesi hangi hukuki gerekçeye dayanmaktadır? <span class="pno">[s. 10, s. 58]</span></li>
+<li>Bölgede yapılması öngörülen Lityum-İyon batarya enerji depolama sistemlerinin (BEDS) olası termal kaçak, yangın ve kimyasal sızıntı risklerine karşı yer altı ve yer üstü su kaynakları ile tarım toprakları üzerinde yaratacağı olumsuz etkiler hangi bilimsel modellemelerle hesaplanmıştır? <span class="pno">[s. 19, s. 20]</span></li>
+<li>Proje sahası için gerçekleştirildiği iddia edilen ekolojik değerlendirmelerin tamamının ikincil literatür kaynaklarına dayandığı, arazi üzerinde herhangi bir vejetasyon ve faunistik saha çalışması yapılmadığı, bu durumun ÇED mevzuatına ve bilimsel esaslara aykırılık teşkil ettiği hususu nasıl açıklanacaktır? <span class="pno">[s. 106]</span></li></ul><textarea id="qs-plain" style="display:none;">1. Proje alanının tarım ve mera niteliği taşıyan 162 ada 38 parsel üzerinde kurulması planlanan GES ve depolama tesisleri için 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu uyarınca henüz alınmamış olan tarım dışı kullanım izinleri tamamlanmadan ÇED Olumlu kararının verilmesi hangi hukuki gerekçeye dayanmaktadır? [s. 10, s. 58]
+2. Bölgede yapılması öngörülen Lityum-İyon batarya enerji depolama sistemlerinin (BEDS) olası termal kaçak, yangın ve kimyasal sızıntı risklerine karşı yer altı ve yer üstü su kaynakları ile tarım toprakları üzerinde yaratacağı olumsuz etkiler hangi bilimsel modellemelerle hesaplanmıştır? [s. 19, s. 20]
+3. Proje sahası için gerçekleştirildiği iddia edilen ekolojik değerlendirmelerin tamamının ikincil literatür kaynaklarına dayandığı, arazi üzerinde herhangi bir vejetasyon ve faunistik saha çalışması yapılmadığı, bu durumun ÇED mevzuatına ve bilimsel esaslara aykırılık teşkil ettiği hususu nasıl açıklanacaktır? [s. 106]</textarea></section>
+  <p class="sub" style="margin-top:10px;"><em>İnceleme sınırları:</em> İncelenen dosya kapsamında Ek-7 altında yer alan kurum görüşü yazılarının tam metinleri, DKMP GES Projeleri Değerlendirme Raporu ve Sürdürülebilirlik Planı gibi detay ek dokümanlar taranmış veya harici dosya formatında olduğundan metinsel alıntılar yalnızca ana dosya içerisindeki özet ifadelerle sınırlı kalmıştır.</p>
+
+
+  <h2>Konum Haritası ve 3 km Çevre Taraması</h2>
+  <div class="map-box">
+    <div id="digest-map"></div>
+    <div class="map-bar"><span>PDF metninden çıkarılan kesin proje koordinatları (74 nokta, datum: UTM-Z35/ED50, sayfa: s.25, s.109, s.128, s.130, s.271).</span></div>
+  </div>
+  
+
+  <h2>Ham Kayıt ve Derin Teknik Ekler</h2>
+  <details class="accordion">
+    <summary>Resmi Duyuru Metni (Bakanlık İlanı)</summary>
+    <div class="accordion-body"><blockquote>BURDUR ili KARAMANLI,  ilcesinde BURDUR ili KARAMANLI,  ilcesi Mürseller Köyü, 162 Ada, 38 Parsel mevkiindeki GEPAT Elektrik Enerjisi Tedarik A.Ş. tarafından yapılması planlanan GEPAT Depolamalı GES (GES Kurulu Güç:10 MWm/10 MWe-10,09 ha / Depolama Kurulu Güç: 40 MWh/10 MWe-0,23 ha) projesi ile ilgili olarak Bakanlığımıza sunulan PTD Dosyası incelenmiş ve değerlendirilmiştir  ÇED Yönetmeliği&#x27;nin 17. maddesi gereğince GEPAT Depolamalı GES (GES Kurulu Güç:10 MWm/10 MWe-10,09 ha / Depolama Kurulu Güç: 40 MWh/10 MWe-0,23 ha) projesi&#x27;ne Valiliğimizce &#x27;ÇED Olumlu (Kapsam Ek-2)&#x27; kararı verilmiştir.</blockquote></div>
+  </details>
+  <details class="accordion">
+    <summary>Otomatik Metin Taraması (9 Deterministik Kontrol)</summary>
+    <div class="accordion-body">
+      <table class="kv" style="margin-top:0;"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Literatür taraması ifadesi</th><td><span class="badge warn">Literatür ifadesi mevcut</span></td></tr>
+<tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kümülatif etki değerlendirmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Yeraltı suyu, akifer veya hidrojeoloji ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge warn">Metinde geçmektedir — parçalama / 2009/7 kontrolü</span></td></tr>
+<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
+<tr><th>Kurum görüşleri (DSİ, İl Tarım, OGM, MAPEG)</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Deprem, fay hattı veya jeoteknik stabilite ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr></table>
+      <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik taramaya dahil edilmemiştir.</p>
+    </div>
+  </details>
+  <details class="accordion">
+    <summary>Sayfa Kaynaklı Ham Alıntılar (7 Teknik Başlık)</summary>
+    <div class="accordion-body"><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(122 sayfa: s.1, s.2, s.6, s.8, s.9, s.10, s.11, s.12, s.14, s.15, s.16, s.21, s.24, s.25 (+108 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>10,09 HA</code> — …slik.com BURDUR - 2026 GEPAT ELEKTRİK ENERJİSİ TEDARİK A.Ş. GEPAT DEPOLAMALI GES (GES KURULU GÜÇ:10 MWM/10 MWE-10,09 HA / DEPOLAMA KURULU GÜÇ: 40 MWH/10 MWE-0,23 HA) BURDUR İLİ, KARAMANLI İLÇESİ, MÜRSELLER KÖYÜ (162 ADA, 38 PARSEL)</div>
+<div class="hit"><span class="pno">[s. 1]</span> <code>0,23 HA</code> — …Sİ TEDARİK A.Ş. GEPAT DEPOLAMALI GES (GES KURULU GÜÇ:10 MWM/10 MWE-10,09 HA / DEPOLAMA KURULU GÜÇ: 40 MWH/10 MWE-0,23 HA) BURDUR İLİ, KARAMANLI İLÇESİ, MÜRSELLER KÖYÜ (162 ADA, 38 PARSEL)</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>10,09 ha</code> — …539 939 34 88 E-Posta: b.goksu@dbeenergy.com Projenin Adı: GEPAT Depolamalı GES (GES Kurulu Güç: 10 MWm / 10 MWe - 10,09 ha / Depolama Kurulu Güç: 40 MWh / 10 MWe - 0,23 ha) Proje Bedeli: 97.870.000 TL Proje İçin Seçilen Yerin Açık Adresi…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>0,23 ha</code> — …jenin Adı: GEPAT Depolamalı GES (GES Kurulu Güç: 10 MWm / 10 MWe - 10,09 ha / Depolama Kurulu Güç: 40 MWh / 10 MWe - 0,23 ha) Proje Bedeli: 97.870.000 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii): Burdur ili, Karamanlı İl…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>7,5 hektar</code> — …eme ve Değerlendirmeye Tabi Projeler, 41-(Değişik:RG-5/3/2026-33187) Güneş enerji santralleri; a) Proje alanı 7,5 hektar ve üzerinde olan arazi güneş enerji santralleri (çatı ve cephe sistemleri hariç), Projenin Ana NACE Kodu: 35.11.19…</div>
+<div class="hit"><span class="pno">[s. 6]</span> <code>KOORDİNAT</code> — …olama Kurulu Güç: 40 MWh/10 MWe-0,23 ha) PROJE TANITIM DOSYASI IV EKLER DİZİNİ EK-1 PROJE İÇİN SEÇİLEN YERİN KOORDİNATLARI EK-2 PROJE ALANI VE YAKIN ÇEVRESİNİN MEVCUT ARAZİ KULLANIMINI DEĞERLENDİRMEK İÇİN; YERLEŞİM ALANLARININ…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(31 sayfa: s.9, s.11, s.12, s.19, s.20, s.21, s.31, s.32, s.34, s.35, s.75, s.80, s.81, s.85 (+17 sayfa))</span></h3><div class="hit"><span class="pno">[s. 9]</span> <code>atıksu</code> — …letme aşamasında ise yaklaşık 5 kişinin istihdam edilmesi planlanmaktadır. Çalışacak personelin içme ve kullanma suyu, atıksu, sosyal ihtiyaçlar ve diğer günlük gereksinimleri, proje sahası içerisinde kurulacak mobil şantiye alanı vasıtasıyla…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>deşarj</code> — …k, yüzeyde göllendirilerek, fosseptik çukuru açılarak yeraltına veya dere yataklarına atık su deşarjı yapılmamalı veya deşarj standartlarına uygun deşarj yapılması gerekmektedir. İşletme çalışmaları esnasında, dere yataklarındaki akışa enge…</div>
+<div class="hit"><span class="pno">[s. 12]</span> <code>sulak alan</code> — …unması, • Ulaşım açısından erişilebilir olması, • Yerleşim alanlarına belirli bir mesafede bulunması, • Orman, sulak alan, milli park, tabiat parkı ve benzeri koruma statülü alanlar üzerinde yer almaması, • Projenin uygulanmasına engel t…</div>
+<div class="hit"><span class="pno">[s. 19]</span> <code>deşarj</code> — …en enerji talep profillerine hızlı şekilde uyum sağlayabilmektedir. Enerji arz ve talebindeki değişimlere göre şarj ve deşarj işlemlerini optimize ederek sistemin ihtiyaçlarına uygun şekilde çalışmaktadır. ➢ Yenilenebilir Enerji Kaynakları i…</div>
+<div class="hit"><span class="pno">[s. 20]</span> <code>deşarj</code> — …dilmesi öngörülmektedir. ➢ Anot (-): Genellikle grafit esaslı malzemelerden üretilen negatif elektrottur. Şarj ve deşarj süreçlerinde lityum iyonlarının depolanmasını sağlamaktadır. ➢ Separatör: Anot ve katot arasında fiziksel teması…</div>
+<div class="hit"><span class="pno">[s. 21]</span> <code>deşarj</code> — …. Proje kapsamında kurulacak elektrik depolama sisteminde kullanılacak lityum iyon bataryaların kullanım ömrü; şarj-deşarj çevrim sayısı, işletme koşulları ve bakım uygulamalarına bağlı olarak değişmekle birlikte, üretici firma kriterleri do…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(28 sayfa: s.3, s.10, s.12, s.58, s.75, s.79, s.80, s.93, s.180, s.182, s.192, s.228, s.235, s.255 (+14 sayfa))</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>orman alanı</code> — …47 BÖLÜM II. PROJENİN YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ: 51 a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri. ..............................…</div>
+<div class="hit"><span class="pno">[s. 10]</span> <code>3573 Sayılı</code> — …olarak, 4342 Sayılı Mera Kanununun 4 ve 14 üncü maddelerine riayet edilmesi gerekmektedir. Söz konusu proje için 3573 Sayılı Zeytinciliğin Islahı ve Yabanilerin Aşılattırılması Hakkındaki Kanun gereğince bir sakınca bulunmamakta ve belirtilen…</div>
+<div class="hit"><span class="pno">[s. 12]</span> <code>sulak alan</code> — …unması, • Ulaşım açısından erişilebilir olması, • Yerleşim alanlarına belirli bir mesafede bulunması, • Orman, sulak alan, milli park, tabiat parkı ve benzeri koruma statülü alanlar üzerinde yer almaması, • Projenin uygulanmasına engel t…</div>
+<div class="hit"><span class="pno">[s. 12]</span> <code>milli park</code> — …Ulaşım açısından erişilebilir olması, • Yerleşim alanlarına belirli bir mesafede bulunması, • Orman, sulak alan, milli park, tabiat parkı ve benzeri koruma statülü alanlar üzerinde yer almaması, • Projenin uygulanmasına engel teşkil edecek…</div>
+<div class="hit"><span class="pno">[s. 12]</span> <code>tabiat parkı</code> — …ından erişilebilir olması, • Yerleşim alanlarına belirli bir mesafede bulunması, • Orman, sulak alan, milli park, tabiat parkı ve benzeri koruma statülü alanlar üzerinde yer almaması, • Projenin uygulanmasına engel teşkil edecek doğal veya ya…</div>
+<div class="hit"><span class="pno">[s. 58]</span> <code>milli park</code> — …ş olmakla birlikte kırsal ekosistem özelliklerini sürdürmektedir. Proje alanının etki alanı içerisinde herhangi bir milli park, tabiat parkı, tabiatı koruma alanı, yaban hayatı geliştirme sahası veya benzeri koruma statüsüne sahip alanlar bulunm…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(115 sayfa: s.19, s.58, s.79, s.80, s.81, s.82, s.83, s.84, s.93, s.94, s.106, s.186, s.199, s.202 (+101 sayfa))</span></h3><div class="hit"><span class="pno">[s. 19]</span> <code>mevsimsel</code> — …avantajları aşağıda özetlenmiştir: ➢ Yük Takibine Uyum ve Esneklik Elektrik depolama sistemi, günlük, haftalık ve mevsimsel olarak değişen enerji talep profillerine hızlı şekilde uyum sağlayabilmektedir. Enerji arz ve talebindeki değişimlere…</div>
+<div class="hit"><span class="pno">[s. 58]</span> <code>mevsimsel</code> — …göstermektedir. Yaz ayları sıcak ve kurak, kış ayları ise soğuk ve yağışlı geçmektedir. Bölgedeki hâkim rüzgâr yönleri mevsimsel değişiklik göstermekle birlikte genel olarak kuzey ve kuzeybatı yönlerinden esmektedir. Yıllık yağışlar büyük ölçüde…</div>
+<div class="hit"><span class="pno">[s. 79]</span> <code>BERN Sözleşmesi</code> — …özleşmeler uyarınca korunması gerekli alanlar a) &quot;Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi&quot; (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan &quot;Önemli Deniz Kaplumbağası Üreme Alanlarında belirtilen I. ve II. Koruma Bö…</div>
+<div class="hit"><span class="pno">[s. 80]</span> <code>endemik</code> — …. d) Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…</div>
+<div class="hit"><span class="pno">[s. 81]</span> <code>FLORA VE FAUNA</code> — …nı içerisinde kalan alanlar. Proje alanı dahilinde ve yakın çevresinde başlıkta anılan alanlar bulunmamaktadır. FLORA VE FAUNA BİLGİLERİ GEPAT Elektrik Enerjisi Tedarik A.Ş. tarafından Burdur İli, Karamanlı İlçesi, Mürseller Köyü dahilinde 16…</div>
+<div class="hit"><span class="pno">[s. 81]</span> <code>Endemik</code> — …hareketlilikleri, uçuş koridorları, toplanma bölgelerini belirlemek, kapsamlı ornitolojik değerlendirme yapabilmek, ➢ Endemik, nadir veya nesli tehlike altındaki taksonları/türleri belirlemek, ➢ Tespit edilen taksonların/türlerin ulusal veya ul…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(56 sayfa: s.7, s.9, s.16, s.20, s.34, s.39, s.40, s.42, s.44, s.45, s.46, s.47, s.48, s.49 (+42 sayfa))</span></h3><div class="hit"><span class="pno">[s. 7]</span> <code>CO2</code> — …-0,23 ha) PROJE TANITIM DOSYASI V KISALTMALAR ADNKS Adrese Dayalı Nüfus Kayıt Sistemi CO Karbonmonoksit CO2 Karbondioksit ÇED Çevresel Etki Değerlendirmesi ÇGDY Çevresel Gürültü Kontrol Yönetmeliği DSİ Devlet Su İ…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>Karbondioksit</code> — …a) PROJE TANITIM DOSYASI V KISALTMALAR ADNKS Adrese Dayalı Nüfus Kayıt Sistemi CO Karbonmonoksit CO2 Karbondioksit ÇED Çevresel Etki Değerlendirmesi ÇGDY Çevresel Gürültü Kontrol Yönetmeliği DSİ Devlet Su İşleri Genel Müdür…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>Gürültü</code> — …Nüfus Kayıt Sistemi CO Karbonmonoksit CO2 Karbondioksit ÇED Çevresel Etki Değerlendirmesi ÇGDY Çevresel Gürültü Kontrol Yönetmeliği DSİ Devlet Su İşleri Genel Müdürlüğü Ha Hektar Km Kilometre m Metre m3 Metreküp…</div>
+<div class="hit"><span class="pno">[s. 9]</span> <code>gürültü</code> — …arak evsel nitelikli atıksu ve evsel nitelikli katı atık; kullanılacak ekipmandan kaynaklı olarak egzoz emisyonları ve gürültü oluşacaktır. İşletme aşamasında ise alanda bulunacak personelden kaynaklı olarak evsel nitelikli atıksu ve evsel nitel…</div>
+<div class="hit"><span class="pno">[s. 16]</span> <code>Gürültü</code> — …Ünitelerinin Kurulması Elektrik Enerjisi Üretimi Evirici (DC/AC invertör) Elektrik Panosu Trafo Depolama Ünitesi Gürültü ve Toz Sisteme Bağlantı</div>
+<div class="hit"><span class="pno">[s. 20]</span> <code>gürültü</code> — …asında yakıt tüketimi gerektirmemesi, • Elektrik üretimi sırasında doğrudan sera gazı emisyonu oluşturmaması, • Düşük gürültü seviyesinde çalışması, • Düşük bakım ve işletme maliyetine sahip olması, • Hızlı şarj ve deşarj kabiliyeti sayesinde…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(62 sayfa: s.1, s.2, s.3, s.8, s.10, s.11, s.14, s.15, s.21, s.22, s.23, s.30, s.44, s.45 (+48 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>KURULU GÜÇ</code> — ….com • info@bilgirmuhendislik.com BURDUR - 2026 GEPAT ELEKTRİK ENERJİSİ TEDARİK A.Ş. GEPAT DEPOLAMALI GES (GES KURULU GÜÇ:10 MWM/10 MWE-10,09 HA / DEPOLAMA KURULU GÜÇ: 40 MWH/10 MWE-0,23 HA) BURDUR İLİ, KARAMANLI İLÇESİ, MÜRSELLER KÖYÜ (…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>Kurulu Güç</code> — …0 (216) 323 13 33 F: - GSM: 0539 939 34 88 E-Posta: b.goksu@dbeenergy.com Projenin Adı: GEPAT Depolamalı GES (GES Kurulu Güç: 10 MWm / 10 MWe - 10,09 ha / Depolama Kurulu Güç: 40 MWh / 10 MWe - 0,23 ha) Proje Bedeli: 97.870.000 TL Proje İç…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>Proje Bedeli</code> — …GEPAT Depolamalı GES (GES Kurulu Güç: 10 MWm / 10 MWe - 10,09 ha / Depolama Kurulu Güç: 40 MWh / 10 MWe - 0,23 ha) Proje Bedeli: 97.870.000 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii): Burdur ili, Karamanlı İlçesi, Mürseller…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>97.870.000 TL</code> — …alı GES (GES Kurulu Güç: 10 MWm / 10 MWe - 10,09 ha / Depolama Kurulu Güç: 40 MWh / 10 MWe - 0,23 ha) Proje Bedeli: 97.870.000 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii): Burdur ili, Karamanlı İlçesi, Mürseller Köyü, 162 Ada…</div>
+<div class="hit"><span class="pno">[s. 3]</span> <code>kapasite</code> — …....................................................................................... 5 b) Projenin iş akım şeması, kapasitesi, kapladığı alan, yatırım bedeli, teknolojisi, çalışacak personel sayısı. ...........................................…</div>
+<div class="hit"><span class="pno">[s. 8]</span> <code>Kurulu Güç</code> — …öyü dahilinde 162 Ada, 38 Parsel içerisinde GEPAT Elektrik Enerjisi Tedarik A.Ş. tarafından “GEPAT Depolamalı GES (GES Kurulu Güç: 10 MWm / 10 MWe - 10,09 Ha / Depolama Kurulu Güç: 40 MWh / 10 MWe - 0,23 Ha)” projesi planlanmaktadır. 10,32 ha’lı…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Proje Parçalama, Kapasite Artışı ve Eşik Değerler <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(32 sayfa: s.8, s.9, s.10, s.24, s.25, s.30, s.31, s.58, s.75, s.79, s.80, s.94, s.95, s.97 (+18 sayfa))</span></h3><div class="hit"><span class="pno">[s. 8]</span> <code>ÇED alanı</code> — …38 Parsel ham toprak vasıflıdır. Antalya-Burdur-Isparta Planlama Bölgesi 1/100.000 Ölçekli Çevre Düzeni Planı&#x27;na göre ÇED alanı Tarım alanı ve Çayır- Mera kullanımında kalmaktadır. Proje alanının üzerine işlendiği Çevre Düzeni Planı Ek-2.4’te sun…</div>
+<div class="hit"><span class="pno">[s. 9]</span> <code>ÇED alanı</code> — …ürlüğüne gerekli başvurular faaliyet sahibince yapılacaktır. Planlanan GES faaliyeti kapsamında 162 Ada, 38 Parsel ÇED alanı olarak belirlenmiştir. Güneş enerji santrali kurulum aşamasında, belirlenen proje alanının topoğrafik yapısı oldukça d…</div>
+<div class="hit"><span class="pno">[s. 10]</span> <code>ÇED alanı</code> — …nunu kapsamındaki 162 ada 1 parsel nolu ve 162 ada 6 parsel nolu &quot;Mera&quot; vasıflı taşınmazlar bulunmakta olup söz konusu ÇED alanı ile ilgili olarak, 4342 Sayılı Mera Kanununun 4 ve 14 üncü maddelerine riayet edilmesi gerekmektedir. Söz konusu…</div>
+<div class="hit"><span class="pno">[s. 10]</span> <code>5403 Sayılı</code> — …spit edilmiştir. &quot;Ham Toprak&quot; vasıflı taşınmazların ise tarım dışı amaçla kullanımı için, faaliyete başlanılmadan önce 5403 Sayılı Toprak Koruma ve Arazi Kullanımı Kanunu kapsamında tarım dışı amaçla kullanım izni alınması gerekli ve zorunludur. ÇE…</div>
+<div class="hit"><span class="pno">[s. 24]</span> <code>ÇED alanı</code> — …Projenin Kapladığı Alan GEPAT Depolamalı Güneş Enerji Santrali projesi kapsamında toplam 10,32 ha büyüklüğündeki ÇED alanı içerisinde güneş enerji santrali üniteleri, enerji depolama sistemi, işletme ve bakım alanları ile proje kapsamında ge…</div>
+<div class="hit"><span class="pno">[s. 25]</span> <code>ÇED ALANI</code> — …DATUM: ED-50 DOM: 27 - ZON: 35 COĞRAFİK DATUM: WGS-84 PAFTA NO ALAN Y (Sağa) X (Yukarı) Y (Boylam) X (Enlem) ÇED ALANI K1 761377.910 4149393.380 29.954334 37.452901 N23-B2 10,32 HA K2 761399.330 4149375.300 29.954570 37.452732…</div></div></div>
+  </details>
+  <details class="accordion">
+    <summary>Belge Bölüm Haritası (25 başlık)</summary>
+    <div class="accordion-body"><ul style="margin:0;padding-left:20px;"><li><span class="pno">[s. 4]</span> TABLOLAR DİZİNİ</li>
+<li><span class="pno">[s. 5]</span> ŞEKİLLER DİZİNİ</li>
+<li><span class="pno">[s. 6]</span> EKLER DİZİNİ</li>
+<li><span class="pno">[s. 8]</span> PROJENİN TEKNİK OLMAYAN ÖZETİ</li>
+<li><span class="pno">[s. 12]</span> BÖLÜM I. PROJENİN ÖZELLİKLERİ</li>
+<li><span class="pno">[s. 12]</span> a) Projenin ve Yerin Alternatifleri (Proje Teknolojisinin ve Proje Alanının Seçilme Nedenleri)</li>
+<li><span class="pno">[s. 14]</span> b) Projenin iş akım şeması, kapasitesi, kapladığı alan, yatırım bedeli, teknolojisi, çalışacak personel sayısı.</li>
+<li><span class="pno">[s. 30]</span> c) Doğal Kaynakların Kullanımı (arazi kullanımı, su kullanımı, kullanılan enerji türü vb.),</li>
+<li><span class="pno">[s. 34]</span> ç)  Projenin İnşaat ve İşletme Aşamasında Oluşan Her Türlü Atığın Özelliği (cinsi, türü, miktarı vb.)  Bertarafı ve Geri Kazanımına Yönelik Değerlendirmeler</li>
+<li><span class="pno">[s. 54]</span> d) Kullanılan Teknoloji ve Malzemelerden Kaynaklanabilecek Kaza Riski.</li>
+<li><span class="pno">[s. 58]</span> BÖLÜM II. PROJENİN YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ:</li>
+<li><span class="pno">[s. 75]</span> a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri.</li>
+<li><span class="pno">[s. 78]</span> b) EK-5’deki Duyarlı Yöreler Listesi Dikkate Alınarak Korunması Gereken Alanlar.</li>
+<li><span class="pno">[s. 85]</span> BÖLÜM III: PROJENIN İNŞAAT VE İŞLETME AŞAMASINDA ÇEVRESEL ETKILERI, ÖNCELİKLİ ETKİLERİN BELİRLENMESİ VE ALINACAK ÖNLEMLER</li>
+<li><span class="pno">[s. 97]</span> BÖLÜM IV: KÜMÜLATİF ETKİ DEĞERLENDİRME</li>
+<li><span class="pno">[s. 99]</span> BÖLÜM V:ÇEVRESEL SOSYAL EYLEM PLANI</li>
+<li><span class="pno">[s. 99]</span> V-1: Çevre İzleme Planı</li>
+<li><span class="pno">[s. 105]</span> V-2: Sürdürülebilirlik Planı (Sıfır Atık Planı, Trafik yönetim planı, Sera Gazı Azaltım Planı, Çevresel Ve Sosyal Yönetim Planı Vb.)</li>
+<li><span class="pno">[s. 106]</span> BÖLÜM VI: NOTLAR, KAYNAKLAR VE EKLER</li>
+<li><span class="pno">[s. 1]</span> 4_GEPAT DGES_GPDR_9.11.26_V1.pdf</li></ul></div>
+  </details>
+
+  <div class="notice">
+    Bu sayfa, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın kamuya açık <code>eced-duyuru.csb.gov.tr</code> duyuru portalındaki kayıtlar esas alınarak bilgilendirme amacıyla hazırlanmıştır. Alıntıların tamamı 1 tabanlı PDF sayfa numarasıyla (<code>[s. N]</code>) gösterilmektedir. Yasal sürelerin ve hukuki başvuru yollarının yetkili hukukçular tarafından teyit edilmesi gerekir.
+  </div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+
+(() => {
+  const root = document.documentElement;
+  const saved = localStorage.getItem('eced_theme');
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  function isDarkNow() {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return cur ? cur === 'dark' : prefersDark;
+  }
+  window.__ecedIsDark = isDarkNow;
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function syncLabel() {
+    btn.textContent = isDarkNow() ? 'Açık Tema' : 'Koyu Tema';
+  }
+  syncLabel();
+  btn.addEventListener('click', () => {
+    const next = isDarkNow() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('eced_theme', next);
+    syncLabel();
+    window.dispatchEvent(new CustomEvent('eced-theme-change', { detail: { dark: next === 'dark' } }));
+  });
+})();
+
+
+function createCartoTileLayer(isDark) {
+  const style = isDark ? 'dark_all' : 'light_all';
+  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+    maxZoom: 19,
+    subdomains: 'abcd',
+    attribution: '&copy; OpenStreetMap &copy; CARTO'
+  });
+}
+
+(() => {
+  const copyBtn = document.getElementById('copy-qs-btn');
+  const qsTxt = document.getElementById('qs-plain');
+  if (copyBtn && qsTxt) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(qsTxt.value);
+        copyBtn.textContent = 'Kopyalandı ✓';
+        setTimeout(() => (copyBtn.textContent = 'Soruları Kopyala'), 2200);
+      } catch (e) {
+        copyBtn.textContent = 'Kopyalanamadı';
+      }
+    });
+  }
+  if (typeof L === 'undefined') return;
+  const g = {"lat": 37.45182, "lon": 29.95352, "zoom": 12, "precision": "exact_pdf", "points": [[37.45354, 29.95391], [37.45337, 29.95414], [37.45342, 29.95454], [37.45333, 29.9548], [37.45309, 29.95522], [37.45294, 29.95544], [37.4527, 29.95562], [37.45267, 29.95571], [37.45262, 29.9559], [37.45262, 29.95628], [37.45246, 29.95645], [37.4524, 29.95636], [37.45225, 29.95613], [37.45214, 29.95597], [37.45204, 29.95584], [37.45193, 29.95567], [37.45186, 29.95553], [37.45177, 29.95539], [37.45171, 29.95521], [37.45156, 29.95493], [37.4514, 29.95455], [37.45109, 29.9548], [37.45063, 29.95515], [37.45044, 29.95484], [37.45023, 29.95454], [37.44991, 29.95403], [37.44931, 29.953], [37.44914, 29.95271], [37.44926, 29.95267], [37.4494, 29.95258], [37.44955, 29.95248], [37.44972, 29.95238], [37.44984, 29.95233], [37.45002, 29.95224], [37.45026, 29.95212], [37.4505, 29.95201], [37.45063, 29.95197], [37.45072, 29.95195], [37.45084, 29.95197], [37.45095, 29.95198]], "gis_markers": [], "label": "BURDUR / KARAMANLI — GEPAT Depolamalı GES (GES Kurulu Güç:10 MWm/10 MWe-10,09 ha / Depolama Kurulu Güç: 40 MWh/"};
+  const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
+  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
+  window.addEventListener('eced-theme-change', (ev) => {
+    map.removeLayer(tileLayer);
+    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
+  });
+  if (g.precision === 'exact_pdf') {
+    L.circle([g.lat, g.lon], {
+      radius: 3000,
+      color: '#d97706',
+      weight: 1.5,
+      dashArray: '6 5',
+      fillColor: '#d97706',
+      fillOpacity: 0.04
+    }).bindTooltip('3 km yasal referans çemberi (3573 m.20)').addTo(map);
+    for (const gm of (g.gis_markers || [])) {
+      L.circleMarker([gm.lat, gm.lon], {
+        radius: 5,
+        color: '#ffffff',
+        fillColor: gm.color,
+        fillOpacity: 0.9,
+        weight: 1.5
+      }).bindPopup(gm.label).addTo(map);
+    }
+  }
+  if (g.precision === 'exact_pdf' && g.points.length > 1) {
+    const latlngs = g.points.map(p => [p[0], p[1]]);
+    const poly = L.polyline(latlngs, { color: '#175cd3', weight: 3, opacity: 0.85 }).addTo(map);
+    for (const ll of latlngs.slice(0, 30)) {
+      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#d92d20', fillOpacity: 0.9, weight: 1 }).addTo(map);
+    }
+    map.fitBounds(poly.getBounds().pad(0.25));
+  } else {
+    L.circleMarker([g.lat, g.lon], {
+      radius: g.precision === 'exact_pdf' ? 8 : 11,
+      color: '#ffffff',
+      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#175cd3',
+      fillOpacity: g.precision === 'exact_pdf' ? 0.9 : 0.45,
+      weight: 2
+    }).bindPopup(g.label).addTo(map).openPopup();
+  }
+})();
+</script>
+</body>
+</html>

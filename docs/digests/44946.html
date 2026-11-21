@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>e-ÇED Ön Özet #44946 — ADANA / SARIÇAM</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+:root {
+  --bg: #f8f9fb;
+  --surface: #ffffff;
+  --surface-subtle: #f2f4f7;
+  --border: #e4e7ec;
+  --border-strong: #cfd5df;
+  --text: #101828;
+  --text-secondary: #344054;
+  --muted: #667085;
+  --accent: #175cd3;
+  --accent-soft: #eff8ff;
+  --red: #b42318;
+  --red-soft: #fef3f2;
+  --red-border: #fecdca;
+  --amber: #b54708;
+  --amber-soft: #fffaeb;
+  --amber-border: #fedf89;
+  --green: #067647;
+  --green-soft: #ecfdf3;
+  --green-border: #abefc6;
+  --violet: #5925dc;
+  --violet-soft: #f4f3ff;
+  --violet-border: #d9d6fe;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f131a;
+    --surface: #161b24;
+    --surface-subtle: #1d2430;
+    --border: #273040;
+    --border-strong: #39465c;
+    --text: #eaedf2;
+    --text-secondary: #c5cdd9;
+    --muted: #8a95a6;
+    --accent: #6cb0ff;
+    --accent-soft: rgba(108, 176, 255, 0.14);
+    --red: #ff857a;
+    --red-soft: rgba(248, 81, 73, 0.13);
+    --red-border: rgba(248, 81, 73, 0.36);
+    --amber: #f0b849;
+    --amber-soft: rgba(210, 153, 34, 0.13);
+    --amber-border: rgba(210, 153, 34, 0.36);
+    --green: #4cc38a;
+    --green-soft: rgba(63, 185, 80, 0.13);
+    --green-border: rgba(63, 185, 80, 0.36);
+    --violet: #bda3ff;
+    --violet-soft: rgba(158, 119, 237, 0.15);
+    --violet-border: rgba(158, 119, 237, 0.38);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f131a;
+  --surface: #161b24;
+  --surface-subtle: #1d2430;
+  --border: #273040;
+  --border-strong: #39465c;
+  --text: #eaedf2;
+  --text-secondary: #c5cdd9;
+  --muted: #8a95a6;
+  --accent: #6cb0ff;
+  --accent-soft: rgba(108, 176, 255, 0.14);
+  --red: #ff857a;
+  --red-soft: rgba(248, 81, 73, 0.13);
+  --red-border: rgba(248, 81, 73, 0.36);
+  --amber: #f0b849;
+  --amber-soft: rgba(210, 153, 34, 0.13);
+  --amber-border: rgba(210, 153, 34, 0.36);
+  --green: #4cc38a;
+  --green-soft: rgba(63, 185, 80, 0.13);
+  --green-border: rgba(63, 185, 80, 0.36);
+  --violet: #bda3ff;
+  --violet-soft: rgba(158, 119, 237, 0.15);
+  --violet-border: rgba(158, 119, 237, 0.38);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Unified Sticky Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.topbar-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.96rem;
+  letter-spacing: -0.01em;
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+.brand-scope {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+.nav-link {
+  padding: 5px 10px;
+  border-radius: 7px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-link:hover { background: var(--surface-subtle); text-decoration: none; color: var(--text); }
+.nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.theme-btn {
+  margin-left: 4px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.79rem;
+  font-weight: 500;
+}
+.theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
+
+/* Layout */
+.wrap { max-width: 1120px; margin: 0 auto; padding: 22px 20px 72px; }
+.wrap.narrow { max-width: 900px; }
+h1 { margin: 0 0 6px; font-size: 1.5rem; line-height: 1.25; letter-spacing: -0.02em; }
+h2 { margin: 28px 0 10px; font-size: 1.15rem; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { margin: 16px 0 8px; font-size: 0.96rem; line-height: 1.35; }
+.sub { color: var(--muted); font-size: 0.91rem; margin: 0; }
+
+/* Compact Masthead */
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 20px;
+  margin-bottom: 16px;
+}
+.masthead-left { max-width: 720px; }
+.masthead-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.kpi-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 18px;
+  padding: 10px 16px;
+  margin-bottom: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.84rem;
+  color: var(--muted);
+  box-shadow: var(--shadow);
+}
+.kpi-item { display: inline-flex; align-items: baseline; gap: 5px; }
+.kpi-item strong {
+  color: var(--text);
+  font-size: 0.96rem;
+  font-variant-numeric: tabular-nums;
+}
+.kpi-item.accent strong { color: var(--accent); }
+.kpi-item.rev strong { color: var(--violet); }
+.kpi-sep { color: var(--border-strong); user-select: none; }
+
+/* Map Card */
+.map-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.map-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 14px;
+  padding: 9px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.map-box.collapsed .map-bar { border-bottom: none; }
+.map-box.collapsed #map { display: none; }
+.map-legend-inline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+#map { width: 100%; height: 320px; background: var(--surface-subtle); }
+#digest-map { width: 100%; height: 300px; background: var(--surface-subtle); }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+/* Streamlined Controls */
+.controls-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.controls-row + .controls-row {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.advanced-row { display: none; }
+.advanced-row.open { display: flex; }
+input[type="search"], select.filter-select {
+  padding: 7px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.87rem;
+}
+input[type="search"]:focus, select.filter-select:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+input[type="search"] { flex: 1 1 240px; }
+select.filter-select { min-width: 155px; }
+button.pill {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+button.pill:hover { background: var(--surface-subtle); color: var(--text); }
+button.pill.active { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 600; }
+button.pill.rev-pill.active { background: var(--violet); border-color: var(--violet); }
+.ctrl-right { margin-left: auto; display: flex; align-items: center; gap: 6px; }
+button.ghost-btn {
+  padding: 5px 9px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.79rem;
+  font-weight: 500;
+}
+button.ghost-btn:hover { color: var(--text); border-color: var(--border-strong); background: var(--surface-subtle); }
+
+/* Calm Two-Tier Cards */
+.list-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+.cards { display: flex; flex-direction: column; gap: 10px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 15px 18px;
+  box-shadow: var(--shadow);
+  transition: border-color 0.12s;
+}
+.card:hover { border-color: var(--border-strong); }
+.card.urgent-edge { border-left: 3px solid var(--red); }
+.card.ek1 { border-left: 3px solid var(--accent); }
+.card.has-rev { border-left: 3px solid var(--violet); }
+.card.urgent-edge.has-rev { border-left: 3px solid var(--red); }
+
+/* Tier 1: Quiet Metadata Context Row (zero boxes!) */
+.card-ctx {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 12px;
+  font-size: 0.79rem;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+.ctx-left { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.ctx-loc { color: var(--text-secondary); font-weight: 600; }
+.ctx-ek1 { color: var(--accent); font-weight: 600; }
+.ctx-geo { color: var(--green); font-weight: 500; }
+.ctx-sep { color: var(--border-strong); }
+.ctx-right { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.title { font-weight: 650; font-size: 1.01rem; line-height: 1.38; color: var(--text); margin: 0; }
+.title a { color: var(--text); }
+.title a:hover { color: var(--accent); text-decoration: none; }
+.owner-line { font-size: 0.82rem; color: var(--muted); margin: 3px 0 0; }
+
+/* Tier 2: Signal Pills (Status, Clock, Findings, Revision ONLY) */
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.badge.urgent { background: var(--red-soft); border-color: var(--red-border); color: var(--red); font-weight: 600; }
+.badge.warn { background: var(--amber-soft); border-color: var(--amber-border); color: var(--amber); font-weight: 600; }
+.badge.ok { background: var(--green-soft); border-color: var(--green-border); color: var(--green); font-weight: 600; }
+.badge.info { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
+.badge.rev { background: var(--violet-soft); border-color: var(--violet-border); color: var(--violet); font-weight: 600; }
+.badge.muted { color: var(--muted); }
+
+/* Calm 2-line Clamped Summary */
+.summary-clamp {
+  margin: 9px 0 0;
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+  line-height: 1.52;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.summary-clamp.muted { color: var(--muted); }
+
+.rev-inline {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--violet-soft);
+  border: 1px solid var(--violet-border);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+.rev-inline strong { color: var(--violet); }
+
+/* Quiet Action Row */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  font-size: 0.82rem;
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid var(--border);
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.81rem;
+}
+.btn-primary:hover { text-decoration: none; filter: brightness(1.06); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.81rem;
+  cursor: pointer;
+}
+.btn-secondary:hover { text-decoration: none; border-color: var(--border-strong); color: var(--text); }
+.quiet-link { color: var(--muted); font-weight: 500; }
+.quiet-link:hover { color: var(--accent); }
+
+/* Pagination Bar */
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.pager button {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pager button:hover { border-color: var(--accent); color: var(--accent); }
+.pager .pager-all {
+  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Digest & Guide Tables, Accordions, Callouts */
+table.kv {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.88rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+table.kv th, table.kv td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 13px;
+  text-align: left;
+  vertical-align: top;
+}
+table.kv tr:last-child th, table.kv tr:last-child td { border-bottom: none; }
+table.kv th { width: 240px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
+table.data-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.84rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+table.data-tbl th, table.data-tbl td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.data-tbl tr:last-child td { border-bottom: none; }
+code {
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.84em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+blockquote {
+  margin: 10px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface-subtle);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.89rem;
+  color: var(--text-secondary);
+}
+.callout {
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  margin: 14px 0;
+}
+.callout.rev { background: var(--violet-soft); border-color: var(--violet-border); }
+details.accordion {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 10px 0;
+  overflow: hidden;
+}
+details.accordion summary {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
+}
+details.accordion summary::-webkit-details-marker { display: none; }
+details.accordion summary::after {
+  content: "+";
+  font-size: 1.1rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+details.accordion[open] summary::after { content: "−"; }
+details.accordion[open] summary { border-bottom: 1px solid var(--border); background: var(--surface-subtle); }
+.accordion-body { padding: 14px 16px; }
+.timeline {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid var(--border-strong);
+}
+.timeline li { position: relative; margin: 0 0 9px; padding-left: 8px; font-size: 0.86rem; }
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+}
+.hit { margin: 8px 0; font-size: 0.87rem; line-height: 1.55; }
+.pno { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.notice {
+  margin-top: 32px;
+  padding: 13px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.toc-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 20px; }
+.toc-pills a {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.81rem;
+  font-weight: 500;
+}
+.toc-pills a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+.step-num {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+pre.template-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.section-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+@media (max-width: 700px) {
+  table.kv th { width: 140px; }
+  #map { height: 270px; }
+  .topbar-inner { padding: 9px 14px; }
+  .wrap { padding: 16px 14px 54px; }
+}
+@media print {
+  .topbar, .no-print, #digest-map, .map-box { display: none !important; }
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .card, table.kv, table.data-tbl, details.accordion { box-shadow: none; break-inside: avoid; }
+  details.accordion { border: 1px solid #ccc; }
+  a { color: #000000; text-decoration: underline; }
+}
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      <span>Türkiye e-ÇED İzleme</span>
+      <span class="brand-scope">81 İl</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link " href="../index.html">Duyurular</a>
+      <a class="nav-link " href="../rehber.html">Kullanım Rehberi</a>
+      <a class="nav-link" href="../feed.xml">RSS</a>
+      <a class="nav-link" href="https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml" target="_blank" rel="noopener">Resmi e-ÇED ↗</a>
+      <button id="theme-toggle" class="theme-btn" type="button">Tema</button>
+    </div>
+  </div>
+</nav>
+<div class="wrap narrow">
+  <header style="margin-bottom:16px;">
+    <div class="card-ctx no-print" style="margin-bottom:8px;">
+      <span><a href="../index.html">← Duyurulara dön</a> · <strong>ADANA / SARIÇAM</strong> · Ek-2 · Hayvancılık</span>
+      <span><code>#44946</code> · 19.11.2026</span>
+    </div>
+    <h1>ETLİK PİLİÇ YETİŞTİRİCİLİĞİ</h1>
+    <p class="sub">ŞEYMA DOĞRU</p>
+    <div class="badges" style="margin-top:10px;">
+      <span class="badge">ÇED Gerekli Değil/ÇED Olumlu</span>
+      <span class="badge ok">İYUK 20/A · 27 gün kaldı (2026-12-19)</span>
+      <span class="badge warn">Eski Dosya (1+ yıl)</span>
+      
+    </div>
+    <div class="actions no-print" style="border-top:none;padding-top:4px;">
+      <a class="btn-primary" href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign1053791594627068340.pdf&amp;orjinalAd=e-imza.pdf&amp;yuklemeTarihi=2026-11-18" target="_blank" rel="noopener">Resmi PDF Dosyası ↗</a>
+      <a class="btn-secondary" href="http://eced.csb.gov.tr/jsp/ek1/44946" target="_blank" rel="noopener">e-ÇED Portal Kaydı ↗</a>
+      <a class="btn-secondary" href="44946.md">Markdown (.md)</a>
+      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF</button>
+    </div>
+  </header>
+
+  <table class="kv">
+    <tr><th>Hazırlayan Kuruluş</th><td>M.O.S.K. ÇEVRE ARITIM SİS. ÜRETİMİ İNŞ. EMLAK MAD. İŞ SAĞ. VE GÜV. ÇELİK KONS. END. ÜRÜN. MÜH. MÜŞ. TURİZM ÖZEL EĞİTİM ELEK. KUAFÖR. HİZ. TIBBİ MALZ. P.AZ. TAAHHÜT TİC. VE SAN. LTD. ŞTİ.</td></tr>
+    <tr><th>Sektör / Alt Sektör</th><td>Hayvancılık / Kümes Hayvanları  Yetiştirme Tesisleri</td></tr>
+    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>19.11.2026</code> · Yükleme: <code>17/09/2026 02:54:07</code></td></tr>
+    <tr><th>PDF Kapsamı</th><td>56.26 MB · 279 sayfa (249 metin / 30 taranmış) · <a href="https://www.openstreetmap.org/?mlat=37.11634&amp;mlon=35.62081#map=12/37.11634/35.62081" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=37.11634,35.62081" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
+  </table>
+
+  <div class="card" style="padding:11px 15px;margin:14px 0;font-size:0.84rem;color:var(--text-secondary);"><span class="badge ok">v1 Arşivlendi</span> &nbsp;SHA-256: <code>3105219ddc75a04f…</code> · Yükleme: <code>2026-11-18</code> · <span style="color:var(--muted);">Rapor değiştirilirse sürümler arası fark (v1→v2) otomatik kaydedilir.</span></div>
+
+  
+  <h2>Bilimsel Ön Değerlendirme <span class="badge">gemini-3.5-flash-lite</span></h2>
+  <p class="sub">Resmi PDF'ten seçilen 24 sayfa (s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14, s.15, s.18, s.28, s.29, s.30, s.37, s.39, s.81, s.82, s.83) üzerinden üretilmiştir; her bulguyu <code>[s. N]</code> kaynağından doğrulayınız.</p>
+  <section class="card ek1" style="margin-top:10px;">
+    <p style="margin-top:0;"><strong>Özet:</strong> Şeyma Doğru tarafından Adana ili, Sarıçam ilçesi, Avcılar Mahallesi, 18212 ada, 15 numaralı parselde planlanan Etlik Piliç Yetiştiriciliği Tesisi projesi için Valilikçe &#x27;ÇED Gerekli Değil/ÇED Olumlu (Ek-2)&#x27; kararı verilmiştir. Tesis, toplam 63.131,12 metrekarelik tapulu alan içerisinde, 3.300 metrekare kapalı alana sahip 2 katlı tek blok kümes yapısında 59.400 adet/periyot kapasiteyle yılda 6 dönem olmak üzere toplam 356.400 adet etlik piliç yetiştirmeyi hedeflemektedir. Proje alanının tarım arazisi vasfında olması, yeraltı suyu ve taşkın riskleri ile en yakın konutlara ve dere yataklarına olan mesafeleri nedeniyle çevresel ve hukuki denetime tabidir.</p>
+    <details style="margin-top:10px;font-size:0.85rem;color:var(--muted);"><summary style="cursor:pointer;">English summary</summary><p style="margin:6px 0 0;">An Environmental Impact Assessment (EIA) approval decision has been issued by the Governorate for the Broiler Chicken Breeding Facility project planned by Şeyma Doğru in Adana Province, Sarıçam District, Avcılar Village, plot 18212, parcel 15. The facility is designed to rear 59,400 broilers per production period across a 3,300 square meter two-story poultry house within a 63,131.12 square meter plot, operating 6 periods annually for a total annual production of 356,400 birds. The project site&#x27;s agricultural land designation, groundwater utilization, flood risks, and proximity to residential dwellings and seasonal streams require rigorous environmental and legal scrutiny.</p></details>
+    <div class="badges" style="margin-top:10px;">
+      <span class="badge">Saha: Yalnızca literatür taramasına dayalı</span>
+      <span class="badge">Mevsimsellik: İncelenen sayfalarda tespit edilemedi</span>
+      <span class="badge">Kümülatif: Yüzeysel veya şablon düzeyinde</span>
+    </div>
+    <p class="sub" style="margin-top:10px;color:var(--text-secondary);"><strong>Zeytinlik ve Korunan Alanlar:</strong> Proje alanı 3573 sayılı Zeytincilik Kanunu kapsamında zeytinlik alanlarda kalmamaktadır [s. 82]. ÇED Yönetmeliği EK-5 duyarlı yöreler listesinde yer alan milli park, tabiat parkı, sulak alan ve korunan sahalarda kalmayıp genel avlak sahası içerisindedir [s. 81, 83].<br/>Proje tanıtım dosyasında flora, fauna ve ekolojik hassasiyetlere ilişkin gerçek bir arazi ve mevsimsel saha çalışmasına yer verilmemiş, yalnızca literatür taraması ve resmi kurum görüşleri ile yetinilmiştir [s. 74-77, 81-83]. Yeraltı suyu ve taşkın riski taşıyan tarım arazisi konumundaki bölge için kümülatif çevresel etki değerlendirmesi yüzeysel ve kalıp ifadelerle geçiştirilmiştir [s. 10, 74].</p>
+  </section>
+  <h3>Danıştay Ölçütlerine Göre Bilimsel ve Hukuki Bulgular</h3><section class="card"><div class="hit"><span class="badge urgent">YÜKSEK</span> <span class="badge">Su / Hidrojeoloji</span> <strong>Yeraltı Suyu ve Kuyu Ruhsatı Kullanım Amacı Uygunluğu Eksikliği</strong> <span class="pno">[s. 11]</span> — Tesiste günlük 24,36 m³ su ihtiyacının karşılanacağı belirtilen K-30053 numaralı yeraltı suyu kuyu ruhsatının 167 sayılı Kanun gereğince kullanım amacının tarımsal/işletme amaçlı olarak değiştirilmesi gerektiği DSİ görüşünde vurgulanmış olup, dosya sunum aşamasında bu iznin kesinleştiğine dair yasal tahsis belgesinin eksik olduğu görülmektedir [s. 11].</div>
+<div class="hit"><span class="badge urgent">YÜKSEK</span> <span class="badge">5403 / Orman / Korunan Alan</span> <strong>Tarımsal Arazide Yapılaşma ve Toprak Koruma Kurulu Değerlendirmesi</strong> <span class="pno">[s. 10, s. 11]</span> — Proje alanı DSİ projeleri içerisinde kaldığından sulanabilir tarım arazisi niteliğindedir ve faaliyetin 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu kapsamında Toprak Koruma Kurulu&#x27;nda değerlendirilerek tarım dışı kullanım izninin alınması zorunludur [s. 10, 11].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Su / Hidrojeoloji</span> <strong>Taşkın ve Rüsubat Kontrolü Yönetmeliği Tedbirlerinin Belirsizliği</strong> <span class="pno">[s. 9, s. 10]</span> — Proje alanının içinde veya mücavirinde bulunan mevsimsel akışa sahip dere yatakları ile ilgili sağlı sollu asgari 6&#x27;şar metre şeritvari sahanın yapılaşma dışı bırakılması gerektiği DSİ tarafından bildirilmiş olmasına rağmen, vaziyet planında bu taşkın emniyet mesafelerinin ihlal edilme riski bulunmaktadır [s. 9, 10].</div>
+<div class="hit"><span class="badge urgent">YÜKSEK</span> <span class="badge">Flora / Fauna &amp; Mevsimsellik</span> <strong>Flora ve Fauna İçin Yerinde Mevsimsel Saha Çalışması Yapılmaması</strong> <span class="pno">[s. 74, s. 75, s. 76, s. 77]</span> — Hassas ekosistemler ve tarım havzası içerisinde yer alan proje sahası için çok mevsimli ve uzman biyologlarca gerçekleştirilmiş bir flora-fauna envanter çalışması yapılmamış, yalnızca standart mevzuat listeleri kopyalanmıştır [s. 74-77, 81-83].</div></section>
+  <h3>Öne Çıkan Sayısal Bulgular</h3><table class="kv"><tr><th>Proje Bedeli</th><td>31.408.900 TL <span class="pno">[s. 2]</span></td></tr>
+<tr><th>Toplam Tapulu Alan</th><td>63.131,12 m² <span class="pno">[s. 8]</span></td></tr>
+<tr><th>Net Kümes Alanı</th><td>3.300,00 m² <span class="pno">[s. 8]</span></td></tr>
+<tr><th>Tek Periyot Kapasite</th><td>59.400 adet/periyot <span class="pno">[s. 8]</span></td></tr>
+<tr><th>Yıllık Üretim Dönemi ve Miktarı</th><td>6 dönem / 356.400 adet <span class="pno">[s. 8]</span></td></tr>
+<tr><th>En Yakın Konut Mesafesi</th><td>Kuş uçuşu yaklaşık 560 m <span class="pno">[s. 8]</span></td></tr>
+<tr><th>İnşaat Yatırım Maliyeti</th><td>28.908.900,00 TL <span class="pno">[s. 18]</span></td></tr>
+<tr><th>Toplam Su İhtiyacı</th><td>24,3625 m³/gün <span class="pno">[s. 23]</span></td></tr>
+<tr><th>Fosseptik Hacmi</th><td>22,5 m³ <span class="pno">[s. 11]</span></td></tr>
+<tr><th>Toplam İnşaat Alanı</th><td>3.569 m² <span class="pno">[s. 18]</span></td></tr></table>
+  
+  
+  <h3>Keşif ve Bilirkişi Heyeti İçin Önerilen Uzmanlık Alanları</h3><section class="card"><div class="badges" style="margin-top:0;"><span class="badge info">Çevre Mühendisi</span> <span class="badge info">Hidrojeoloji Mühendisi</span> <span class="badge info">Ziraat Mühendisi</span> <span class="badge info">Biyolog</span> <span class="badge info">Şehir ve Bölge Plancısı</span></div><p class="sub" style="margin-top:8px;">Bilirkişi heyetinin tek sayıda uzmandan oluşması, proje niteliğine uygun tüm disiplinleri içermesi ve plan kararlarıyla ilişkili davalarda Şehir ve Bölge Plancısına yer verilmesi gerekmektedir.</p></section>
+  <div class="section-head-row" style="margin-top:16px;"><h3 style="margin:0;">HKT Tutanakları ve Bilirkişi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card" style="margin-top:8px;"><ul style="margin:0;padding-left:20px;"><li>Tesiste kullanılacağı belirtilen K-30053 nolu yeraltı suyu kuyusunun 167 sayılı Yeraltısuları Hakkında Kanun uyarınca kümes hayvancılığı faaliyetine yönelik resmi su tahsis belgesi ve tadilat ruhsatı alınmış mıdır? Alınmadıysa günlük 24,36 m³&#x27;lük su ihtiyacı hangi yasal kaynaktan karşılanacaktır? <span class="pno">[s. 11, s. 23]</span></li>
+<li>Proje alanının DSİ sulanabilir tarım arazisi envanterinde yer aldığı belirtilmesine rağmen, 5403 sayılı Kanun uyarınca Toprak Koruma Kurulu&#x27;ndan alınan tarım dışı kullanım izninin nihai tapu şerhi ve yetkili kurul kararı dosyada yer almakta mıdır? <span class="pno">[s. 10, s. 11]</span></li>
+<li>Proje sahası yakınındaki mevsimsel dere yatakları için DSİ görüşünde talep edilen sağlı sollu 6&#x27;şar metrelik yapılaşma ve müdahale yasağı şeritleri vaziyet planına tam olarak işlenmiş midir? <span class="pno">[s. 9, s. 10]</span></li>
+<li>Yılda 356.400 adet etlik piliç kapasitesine sahip tesisin üreteceği yoğun katı gübre ve atıkların bertarafı sırasında yer altı sularına ve komşu tarım arazilerine sızıntı riskine karşı hangi somut mühendislik önlemleri alınmıştır? <span class="pno">[s. 14, s. 15, s. 24]</span></li></ul><textarea id="qs-plain" style="display:none;">1. Tesiste kullanılacağı belirtilen K-30053 nolu yeraltı suyu kuyusunun 167 sayılı Yeraltısuları Hakkında Kanun uyarınca kümes hayvancılığı faaliyetine yönelik resmi su tahsis belgesi ve tadilat ruhsatı alınmış mıdır? Alınmadıysa günlük 24,36 m³&#x27;lük su ihtiyacı hangi yasal kaynaktan karşılanacaktır? [s. 11, s. 23]
+2. Proje alanının DSİ sulanabilir tarım arazisi envanterinde yer aldığı belirtilmesine rağmen, 5403 sayılı Kanun uyarınca Toprak Koruma Kurulu&#x27;ndan alınan tarım dışı kullanım izninin nihai tapu şerhi ve yetkili kurul kararı dosyada yer almakta mıdır? [s. 10, s. 11]
+3. Proje sahası yakınındaki mevsimsel dere yatakları için DSİ görüşünde talep edilen sağlı sollu 6&#x27;şar metrelik yapılaşma ve müdahale yasağı şeritleri vaziyet planına tam olarak işlenmiş midir? [s. 9, s. 10]
+4. Yılda 356.400 adet etlik piliç kapasitesine sahip tesisin üreteceği yoğun katı gübre ve atıkların bertarafı sırasında yer altı sularına ve komşu tarım arazilerine sızıntı riskine karşı hangi somut mühendislik önlemleri alınmıştır? [s. 14, s. 15, s. 24]</textarea></section>
+  <p class="sub" style="margin-top:10px;"><em>İnceleme sınırları:</em> Dosya eklerinde yer alan bazı uygulama projeleri, tapu kayıtları, kurum görüşü yazılarının taranmış kısımları ve detaylı harita ekleri metin olarak tam okunamamış, yalnızca ana raporda alıntılanan kısımlar üzerinden değerlendirme yapılmıştır.</p>
+
+
+  <h2>Konum Haritası ve 3 km Çevre Taraması</h2>
+  <div class="map-box">
+    <div id="digest-map"></div>
+    <div class="map-bar"><span>PDF metninden çıkarılan kesin proje koordinatları (81 nokta, datum: UTM-Z36/ED50, sayfa: s.19, s.20, s.21).</span></div>
+  </div>
+  <h3>Bağımsız Mekânsal Doğrulama (3 km · OpenStreetMap)</h3><table class="kv"><tr><th>Zeytinlik / Meyve Bahçesi (3573 m.20)</th><td><span style="color:var(--muted)">3 km içinde kayıt tespit edilmedi</span></td></tr><tr><th>Akarsu / Sulak Alan / Su Kaynağı</th><td><strong>2 kayıt</strong> · en yakın <code>~2084 m</code> — Su kütlesi / gölet (~2084 m), Su kütlesi / gölet (~2942 m)</td></tr><tr><th>Korunan Alan / Orman</th><td><span style="color:var(--muted)">3 km içinde kayıt tespit edilmedi</span></td></tr><tr><th>En Yakın Yerleşimler (Yöre Sakinleri)</th><td><strong>3 kayıt</strong> · en yakın <code>~1174 m</code> — Avcılar (~1174 m), Küçükiniş (~1583 m), Karcılar (~2173 m)</td></tr><tr><th>Okul / Sağlık Tesisleri</th><td><span style="color:var(--muted)">3 km içinde kayıt tespit edilmedi</span></td></tr></table><p class="sub"><em>Not:</em> OpenStreetMap gönüllü harita verisidir; haritada eksik veya eski kayıtlar olabilir. Kesin mesafe ve zeytinlik/korunan alan tespiti için uydu görüntüsü, İlçe Tarım kayıtları ve mahallinde keşif esas alınmalıdır.</p>
+
+  <h2>Ham Kayıt ve Derin Teknik Ekler</h2>
+  <details class="accordion">
+    <summary>Resmi Duyuru Metni (Bakanlık İlanı)</summary>
+    <div class="accordion-body"><blockquote>ADANA ili SARIÇAM,  ilcesinde ADANA ili SARIÇAM,  ilcesi AVCILAR MAHALLESİ, HAVUZ MEVKİİ, 18212 ADA, 15 NUMARALI PARSEL  mevkiindeki ŞEYMA DOĞRU tarafından yapılması planlanan ETLİK PİLİÇ YETİŞTİRİCİLİĞİ projesi ile ilgili olarak Bakanlığımıza sunulan PTD Dosyası incelenmiş ve değerlendirilmiştir  ÇED Yönetmeliği&#x27;nin 17. maddesi gereğince ETLİK PİLİÇ YETİŞTİRİCİLİĞİ projesi&#x27;ne Valiliğimizce &#x27;ÇED Olumlu (Kapsam Ek-2)&#x27; kararı verilmiştir.</blockquote></div>
+  </details>
+  <details class="accordion">
+    <summary>Otomatik Metin Taraması (9 Deterministik Kontrol)</summary>
+    <div class="accordion-body">
+      <table class="kv" style="margin-top:0;"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Literatür taraması ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
+<tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kümülatif etki değerlendirmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Yeraltı suyu, akifer veya hidrojeoloji ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge warn">Metinde geçmektedir — parçalama / 2009/7 kontrolü</span></td></tr>
+<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
+<tr><th>Kurum görüşleri (DSİ, İl Tarım, OGM, MAPEG)</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Deprem, fay hattı veya jeoteknik stabilite ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr></table>
+      <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik taramaya dahil edilmemiştir.</p>
+    </div>
+  </details>
+  <details class="accordion">
+    <summary>Sayfa Kaynaklı Ham Alıntılar (7 Teknik Başlık)</summary>
+    <div class="accordion-body"><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(52 sayfa: s.8, s.11, s.14, s.18, s.19, s.20, s.21, s.22, s.28, s.29, s.30, s.36, s.57, s.58 (+38 sayfa))</span></h3><div class="hit"><span class="pno">[s. 8]</span> <code>131,12 m2</code> — …ndan Adana İli, Sarıçam İlçesi, Avcılar Mahallesi, Havuz Mevkii, 18212 Ada, 15 Numaralı Parsel sınırları dahilinde, 63.131,12 m2’lik tapulu alan içerisinde 1 blok halinde 2 katlı kümes olmak üzere toplam 3.300,00 m²’lik kümes alanında 59.400 adet…</div>
+<div class="hit"><span class="pno">[s. 8]</span> <code>300,00 m²</code> — …Parsel sınırları dahilinde, 63.131,12 m2’lik tapulu alan içerisinde 1 blok halinde 2 katlı kümes olmak üzere toplam 3.300,00 m²’lik kümes alanında 59.400 adet/periyot kapasite ile “Etlik Piliç Yetiştiriciliği Tesisi” faaliyeti planlanmaktadır.…</div>
+<div class="hit"><span class="pno">[s. 8]</span> <code>650,00 m²</code> — …ştiriciliği Tesisi” faaliyeti planlanmaktadır. EK-2.3_b’de sunulan vaziyet planında görüleceği üzere; zemin katta 1.650,00 m² ve 1. katta 1.650,00 m² olmak üzere toplam 3.300,00 m² net kümes alanı bulunmaktadır. Kümeslerde m²’ye yaklaşık 18 ad…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>Ada 15 Parsel</code> — …de; “İl Müdürlüğümüz arşiv kayıtlarında yapılan inceleme sonucunda; Adana ili Sarıçam ilçesi, Avcılar Mahallesi 18212 Ada 15 Parsel numaralı taşınmaz üzerinde Şeyma DOĞRU tarafından &quot;Etlik Tavuk Kümesi ve Müştemilatı&quot; yapılması ile ilgili olarak kuru…</div>
+<div class="hit"><span class="pno">[s. 14]</span> <code>300,00 m²</code> — …te 1 m2’lik alana 5 cm kalınlıkta altlık döşenmesi için ortalama 5 kg malzemeye ihtiyaç vardır. Bu durumda toplam 3.300,00 m² ’lik kümes alanında 1 m2’lik alana 5 cm kalınlıkta altlık döşeneceği planlanarak; (3.300,00 m² x 5 kg) 16.500 kg/peri…</div>
+<div class="hit"><span class="pno">[s. 18]</span> <code>1.650 m2</code> — …örülen yapı birim maliyeti 8.100 TL/m2’dir. Kurulması planlanan kümes yapıları; Tek Blokta 2 katlı (brüt taban alanı:1.650 m2 olan) olmak üzere toplam 3.300 m2’dir. Tesiste zemin oturumu 75 m² olan 1 adet Bakıcı Evi (2 katlı yapının zemin ka…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(23 sayfa: s.11, s.28, s.29, s.30, s.32, s.35, s.36, s.63, s.67, s.83, s.87, s.88, s.102, s.104 (+9 sayfa))</span></h3><div class="hit"><span class="pno">[s. 11]</span> <code>1,15 m3/gün</code> — …ey suları kesinlikle kullanılmamalıdır. PTD&#x27;da, projenin inşaat aşamasında personelin içme kullanma suyu ihtiyacının 1,15 m3/gün, işletme aşamasında personelin içme kullanma suyu ihtiyacı için 0,46 m3/gün olduğu belirtilmiştir. Proje kapsamında…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>0,46 m3/gün</code> — …personelin içme kullanma suyu ihtiyacının 1,15 m3/gün, işletme aşamasında personelin içme kullanma suyu ihtiyacı için 0,46 m3/gün olduğu belirtilmiştir. Proje kapsamında evsel nitelikli inşaat aşamasında 0,835 m3/gün, işletme aşamasında 0,334 m…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>0,835 m3/gün</code> — …e kullanma suyu ihtiyacı için 0,46 m3/gün olduğu belirtilmiştir. Proje kapsamında evsel nitelikli inşaat aşamasında 0,835 m3/gün, işletme aşamasında 0,334 m3/gün evsel toplam olarak 3,226 m3/gün kullanımdan kaynaklı atık su oluşacağı bu atık sula…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>0,334 m3/gün</code> — …m3/gün olduğu belirtilmiştir. Proje kapsamında evsel nitelikli inşaat aşamasında 0,835 m3/gün, işletme aşamasında 0,334 m3/gün evsel toplam olarak 3,226 m3/gün kullanımdan kaynaklı atık su oluşacağı bu atık suların 22,5 m3&#x27;lük fosseptik çukurda…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>3,226 m3/gün</code> — …Proje kapsamında evsel nitelikli inşaat aşamasında 0,835 m3/gün, işletme aşamasında 0,334 m3/gün evsel toplam olarak 3,226 m3/gün kullanımdan kaynaklı atık su oluşacağı bu atık suların 22,5 m3&#x27;lük fosseptik çukurda depolanarak SKKY&#x27;ne göre ASKİ ta…</div>
+<div class="hit"><span class="pno">[s. 28]</span> <code>Atıksu</code> — …için 230 L/(kişi-gün) (Kaynak: 13.12.2023 tarih ve 490607 sayılı TÜİK Bülteni ile yayımlanan en güncel 2022 yılı Su ve Atıksu İstatistikleri) olarak kabul edilmiştir.  İnşaat Aşaması: Çalışacak personel için gerekli içme ve kullanma ihti…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(7 sayfa: s.3, s.12, s.81, s.82, s.83, s.102, s.256)</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>Orman Alanı</code> — …........................................................................... 68 a) Mevcut Arazi Kullanımı (Tarım Alanı, Orman Alanı, Planlı Alan, Su Yüzeyi ve Benzeri) ve Kalitesi, Jeolojik ve Hidrojeolojik Özellikleri ................................…</div>
+<div class="hit"><span class="pno">[s. 12]</span> <code>mutlak tarım</code> — …ruluşlarca sulama projesi kapsamında olan alanlar hariç) yapılacak olan tarım ve hayvancılık amaçlı yapılara ilişkin; -mutlak tarım arazilerinde e = 0,20&#x27;yi, marjinal tarım arazilerinde e = 0,30&#x27;u geçmemek, ilgili kurum ve kuruluşların görüşlerine u…</div>
+<div class="hit"><span class="pno">[s. 81]</span> <code>Orman Alanı</code> — …U ETLİK PİLİÇ YETİŞTİRİCİLİĞİ TESİSİ NİHAİ PROJE TANITIM DOSYASI 74 a) Mevcut Arazi Kullanımı (Tarım Alanı, Orman Alanı, Planlı Alan, Su Yüzeyi ve Benzeri) ve Kalitesi, Jeolojik ve Hidrojeolojik Özellikleri Proje alanı; Mersin-Adana Pl…</div>
+<div class="hit"><span class="pno">[s. 81]</span> <code>zeytinlik</code> — …n Hükümleri). Bölgenin Genel Durumu ve Lokal İklim Yapısı Proje alanının etrafı ağırlıklı olarak tarım arazileri, zeytinlik/meyve bahçeleri, çiftlik yapıları ve yer yer ağaçlık/çalılık alanlar ile çevrilidir. Tesis sahası yakın çevresinde mü…</div>
+<div class="hit"><span class="pno">[s. 82]</span> <code>Özel Çevre Koruma</code> — …OĞRU ETLİK PİLİÇ YETİŞTİRİCİLİĞİ TESİSİ NİHAİ PROJE TANITIM DOSYASI 75 uyarınca Bakanlar Kurulu tarafından “Özel Çevre Koruma Bölgeleri” olarak tespit ve ilan edilen alanlar g) 18/11/1983 tarihli ve 2960 sayılı Boğaziçi Kanunu’na göre koruma…</div>
+<div class="hit"><span class="pno">[s. 82]</span> <code>orman alanı</code> — …Kanunu’na göre koruma altına alınan alanlar KALMAMAKTADIR ğ) 31/8/1956 tarihli ve 6831 sayılı Orman Kanunu uyarınca orman alanı sayılan yerler KALMAMAKTADIR h) 4/4/1990 tarihli ve 3621 sayılı Kıyı Kanunu gereğince yapı yasağı getirilen alanlar…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(7 sayfa: s.9, s.10, s.82, s.83, s.224, s.227, s.228)</span></h3><div class="hit"><span class="pno">[s. 9]</span> <code>mevsimsel</code> — …4.11.2026 Tarih ve E-38292074-611.02-7780906 Sayılı kurum görüşünde; “Söz konusu ÇED alanın içinde/mücavirinde bulunan mevsimsel akışa sahip dere ile ilgili sağlı sollu olmak üzere asgari 6&#x27;şar metre şeritvari sahanın yapılaşma ve faaliyet dışı b…</div>
+<div class="hit"><span class="pno">[s. 10]</span> <code>mevsimsel</code> — …trolü Yönetmeliği&quot; ve 2006/27 sayılı Başbakanlık Genelgesi hükümlerine uyulmalıdır. Proje alanı çevresinde yer alan mevsimsel akışlı ve/veya akar dereler vb. üzerinden yol geçişi sağlanmasının planlanması durumunda Bölge Müdürlüğümüzden hidroli…</div>
+<div class="hit"><span class="pno">[s. 82]</span> <code>BERN Sözleşmesi</code> — …sayılı Resmî Gazetede yayımlanarak yürürlüğe giren “Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi” (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan “Önemli Deniz Kaplumbağası Üreme Alanları”nda belirtilen I. ve II. Ko…</div>
+<div class="hit"><span class="pno">[s. 83]</span> <code>endemik</code> — …ADIR d) Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, Biyotoplar, biyogenetik rezerv alanları, benzersiz özelli…</div>
+<div class="hit"><span class="pno">[s. 224]</span> <code>Biyoçeşitlilik</code> — …Faaliyetin tüm aşamalarında yıllık olarak gözden geçirilmesi ve gerekli revizyonların yapılması 11 Ormanlar ve Biyoçeşitlilik Çevre Kirliliği Bitkisel toprak alt topraktan ayrı olarak toplanacak ve yeniden kullanılmak üzere panel serilerinin…</div>
+<div class="hit"><span class="pno">[s. 227]</span> <code>mevsimsel</code> — …usu faaliyet sahasının İmamoğlu Ek Sahalar Projesi Sulama Sahası içerisinde bulunduğu, içerisinden ve mücavirinden mevsimsel akışlı Havuz Deresi&#x27;nin geçtiği tespit edilmiştir. Söz konusu ÇED alanın bulunan mevsimsel akışa sahip dere ile…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(48 sayfa: s.4, s.5, s.37, s.39, s.40, s.41, s.43, s.44, s.45, s.46, s.47, s.48, s.49, s.50 (+34 sayfa))</span></h3><div class="hit"><span class="pno">[s. 4]</span> <code>Gürültü</code> — …ı Olarak Hesaplanan Atmosferik Yutuş Değerleri ................... 36 Tablo 24. Faaliyet Alanında Kullanılacak Her Bir Gürültü Kaynağının Atmosferik Yutuş Değerlerine Göre Mesafeye Bağlı Net Ses Düzeyleri ........................................…</div>
+<div class="hit"><span class="pno">[s. 5]</span> <code>Deprem</code> — ….................................................... 71 Şekil 14. Proje Alanı ve Çevresindeki Heyelan Durumunu, Oluşan Deprem Büyüklüklerini, Fayları ve Diri Fayları Gösterir Harita .................................................. 73 Şekil 1…</div>
+<div class="hit"><span class="pno">[s. 37]</span> <code>Tehlikeli Atık</code> — ŞEYMA DOĞRU ETLİK PİLİÇ YETİŞTİRİCİLİĞİ TESİSİ NİHAİ PROJE TANITIM DOSYASI 30  Tehlikeli Atık:  İnşaat Aşaması: İnşaat aşamasında meydana gelecek kontamine olmuş malzeme parçaları, hasar görmüş malzemeler,…</div>
+<div class="hit"><span class="pno">[s. 39]</span> <code>Gürültü</code> — …0.03.2010-27537, RG-31.07.2009- 27305, RG-03.03.2005-25744, RG-31.08.2004-25569) belirtilen hükümlere uyulacaktır.  Gürültü:  İnşaat Aşaması: Söz konusu proje için 30.11.2022 tarihli ve 32029 sayılı Resmi Gazete’de yayımlanarak yürürlü…</div>
+<div class="hit"><span class="pno">[s. 40]</span> <code>Gürültü</code> — …Dizel Motorlu Ekskavatör 1 105 Arazöz 1 88 Kaynak: Açık Alanda Kullanılan Teçhizat Tarafından Oluşturulan Çevredeki Gürültü Emisyonu İle İlgili Yönetmelik ve Economopoulo, 1993 Sahadaki tüm makine ve teçhizatın aynı anda çalışması durumund…</div>
+<div class="hit"><span class="pno">[s. 41]</span> <code>gürültü</code> — …eşit olarak dağıldığı varsayılmaktadır. Lp = Lw + 10 Log ൬Q 4πr2൰ Lpi = Kaynakların r mesafedeki serbest alanda gürültü basınç düzeyleri (dB) Lw = Kaynağın ses gücü düzeyi (dB) Q = Yönelme katsayısı (2 alınmıştır) r = Kaynaktan olan…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(28 sayfa: s.2, s.3, s.8, s.9, s.12, s.13, s.14, s.17, s.18, s.19, s.32, s.34, s.36, s.40 (+14 sayfa))</span></h3><div class="hit"><span class="pno">[s. 2]</span> <code>PROJE BEDELİ</code> — …GSM VE FAKS NUMARASI 05070172612 e-POSTA seymadogru1@hotmail.com PROJENİN ADI ETLİK PİLİÇ YETİŞTİRİCİLİĞİ TESİSİ PROJE BEDELİ 31.408.900 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRSİ (İLİ, İLÇESİ, MEVKİ) Adana İli, Sarıçam İlçesi, Avcılar Mahall…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>31.408.900 TL</code> — …UMARASI 05070172612 e-POSTA seymadogru1@hotmail.com PROJENİN ADI ETLİK PİLİÇ YETİŞTİRİCİLİĞİ TESİSİ PROJE BEDELİ 31.408.900 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRSİ (İLİ, İLÇESİ, MEVKİ) Adana İli, Sarıçam İlçesi, Avcılar Mahallesi, Havuz Me…</div>
+<div class="hit"><span class="pno">[s. 3]</span> <code>Kapasite</code> — …........................................................................................ 6 b) Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Yatırım Bedeli, Teknolojisi, Çalışacak Personel Sayısı .............................................…</div>
+<div class="hit"><span class="pno">[s. 8]</span> <code>kapasite</code> — …lu alan içerisinde 1 blok halinde 2 katlı kümes olmak üzere toplam 3.300,00 m²’lik kümes alanında 59.400 adet/periyot kapasite ile “Etlik Piliç Yetiştiriciliği Tesisi” faaliyeti planlanmaktadır. EK-2.3_b’de sunulan vaziyet planında görüleceği…</div>
+<div class="hit"><span class="pno">[s. 9]</span> <code>kapasite</code> — …el Formatı” doğrultusunda Proje Tanıtım Dosyası hazırlanmıştır. Günümüzde ve teknik anlamda tavukçuluk, belirli bir kapasitenin üzerinde, bilimsel yöntemler uygulanarak ve karlılık amacıyla üretim yapılan, ekonomik bir uğraşı alanı olarak kab…</div>
+<div class="hit"><span class="pno">[s. 12]</span> <code>kapasite</code> — …projesi kapsamında uygulanacak projeler gibi) ile destekleme projeleri ile en az 100 büyükbaş, 200 küçükbaş ve üzeri kapasiteli hayvancılık veya 50.000 adet ve üzeri kapasiteli kanatlı hayvancılık yatırımlarında yukarıda belirtilen yapılaşma em…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Proje Parçalama, Kapasite Artışı ve Eşik Değerler <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(9 sayfa: s.8, s.11, s.12, s.19, s.81, s.108, s.114, s.231, s.256)</span></h3><div class="hit"><span class="pno">[s. 8]</span> <code>kapasite artışı</code> — …cilik ve İklim Değişikliği İl Müdürlüğü’ne bilgi verileceğini, bilgi verilmeden herhangi bir alansal ve/veya üretimsel kapasite artışı yapılmayacağını, yapılması halinde Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğünce İlgili Çevre Kanunu ve Çevr…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>5403 sayılı</code> — …ması ile ilgili olarak kurum görüşümüzün bildirilmesi istenmiştir. Söz konusu müracaata ait işlemler tamamlanmış olup, 5403 sayılı Toprak Koruma ve Arazı Kullanımı Kanunu kapsamında tarımsal yapı hakkında kurumumuz tarafından verilen izinler yazımı…</div>
+<div class="hit"><span class="pno">[s. 12]</span> <code>5403 SAYILI</code> — …geçen hususlarla ilgili olarak Mersin Adana 1/100000 Ölçekli Çevre Düzeni Planının Plan Hükümleri kısmında; 8.25.1- 5403 SAYILI TOPRAK KORUMA VE ARAZİ KULLANIMI KANUNU&#x27;NA TABİ ARAZİLER: Bu alanlardaki tarımsal amaçlı yapılaşmalar, tarım arazil…</div>
+<div class="hit"><span class="pno">[s. 12]</span> <code>5403 sayılı</code> — …, tarım arazileri sınıflamalarına göre aşağıda belirlenen koşullara göre gerçekleştirilecektir: 8.25.1.1- bu planda 5403 sayılı &quot;Toprak Koruma ve Arazi Kullanımı Kanunu&quot; kapsamındaki tarım arazilerinde (özel ürün arazileri, dikili tarım arazileri…</div>
+<div class="hit"><span class="pno">[s. 12]</span> <code>dikili tarım</code> — …bu planda 5403 sayılı &quot;Toprak Koruma ve Arazi Kullanımı Kanunu&quot; kapsamındaki tarım arazilerinde (özel ürün arazileri, dikili tarım arazileri, örtü altı tarım alanları, fiilen sulanan veya ilgili kurum ve kuruluşlarca sulama projesi kapsamında olan…</div>
+<div class="hit"><span class="pno">[s. 12]</span> <code>mutlak tarım</code> — …ruluşlarca sulama projesi kapsamında olan alanlar hariç) yapılacak olan tarım ve hayvancılık amaçlı yapılara ilişkin; -mutlak tarım arazilerinde e = 0,20&#x27;yi, marjinal tarım arazilerinde e = 0,30&#x27;u geçmemek, ilgili kurum ve kuruluşların görüşlerine u…</div></div></div>
+  </details>
+  <details class="accordion">
+    <summary>Belge Bölüm Haritası (25 başlık)</summary>
+    <div class="accordion-body"><ul style="margin:0;padding-left:20px;"><li><span class="pno">[s. 145]</span> 1 MADDENİN/KARIŞIMIN VE ŞİRKETİN/DAĞITICININ KİMLİĞİ</li>
+<li><span class="pno">[s. 145]</span> 1.1. Madde /Karışımın kimliği</li>
+<li><span class="pno">[s. 145]</span> 1.2. Madde veya karışımın belirlenmiş kullanımları ve tavsiye edilmeyen kullanımları</li>
+<li><span class="pno">[s. 145]</span> 1.3. Güvenlik bilgi formu tedarikçisinin bilgileri</li>
+<li><span class="pno">[s. 145]</span> 1.4. Acil durum telefon numarası</li>
+<li><span class="pno">[s. 145]</span> 2 ZARARLILIK TANIMLANMASI</li>
+<li><span class="pno">[s. 145]</span> 2.1 Madde ve karışımın sınıflandırılması</li>
+<li><span class="pno">[s. 145]</span> 2.2. Etiket unsurları</li>
+<li><span class="pno">[s. 145]</span> 2.3 Diğer zararlar</li>
+<li><span class="pno">[s. 145]</span> 3 BİLEŞİMİ/İÇİNDEKİLER HAKKINDA BİLGİ</li>
+<li><span class="pno">[s. 145]</span> 3.1. Maddeler</li>
+<li><span class="pno">[s. 145]</span> 3.2. Karışımlar</li>
+<li><span class="pno">[s. 146]</span> 4 İLK YARDIM ÖNLEMLERİ</li>
+<li><span class="pno">[s. 146]</span> 4.1.İlk yardım önlemlerinin açıklaması</li>
+<li><span class="pno">[s. 146]</span> 4.2. Akut ve sonradan görülen önemli belirtiler ve etkiler</li>
+<li><span class="pno">[s. 146]</span> 4.3.Tıbbi müdahale ve özel tedavi gereği için ilk işaretler</li>
+<li><span class="pno">[s. 146]</span> 5 YANGINLA MÜCADELE ÖNLEMLERİ</li>
+<li><span class="pno">[s. 146]</span> 5.1. Yangın söndürücüler</li>
+<li><span class="pno">[s. 146]</span> 5.2. Madde veya karışımdan kaynaklanan özel zararlar</li>
+<li><span class="pno">[s. 146]</span> 5.3. Yangın söndürme ekipleri için tavsiyeler</li></ul></div>
+  </details>
+
+  <div class="notice">
+    Bu sayfa, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın kamuya açık <code>eced-duyuru.csb.gov.tr</code> duyuru portalındaki kayıtlar esas alınarak bilgilendirme amacıyla hazırlanmıştır. Alıntıların tamamı 1 tabanlı PDF sayfa numarasıyla (<code>[s. N]</code>) gösterilmektedir. Yasal sürelerin ve hukuki başvuru yollarının yetkili hukukçular tarafından teyit edilmesi gerekir.
+  </div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+
+(() => {
+  const root = document.documentElement;
+  const saved = localStorage.getItem('eced_theme');
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  function isDarkNow() {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return cur ? cur === 'dark' : prefersDark;
+  }
+  window.__ecedIsDark = isDarkNow;
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function syncLabel() {
+    btn.textContent = isDarkNow() ? 'Açık Tema' : 'Koyu Tema';
+  }
+  syncLabel();
+  btn.addEventListener('click', () => {
+    const next = isDarkNow() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('eced_theme', next);
+    syncLabel();
+    window.dispatchEvent(new CustomEvent('eced-theme-change', { detail: { dark: next === 'dark' } }));
+  });
+})();
+
+
+function createCartoTileLayer(isDark) {
+  const style = isDark ? 'dark_all' : 'light_all';
+  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+    maxZoom: 19,
+    subdomains: 'abcd',
+    attribution: '&copy; OpenStreetMap &copy; CARTO'
+  });
+}
+
+(() => {
+  const copyBtn = document.getElementById('copy-qs-btn');
+  const qsTxt = document.getElementById('qs-plain');
+  if (copyBtn && qsTxt) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(qsTxt.value);
+        copyBtn.textContent = 'Kopyalandı ✓';
+        setTimeout(() => (copyBtn.textContent = 'Soruları Kopyala'), 2200);
+      } catch (e) {
+        copyBtn.textContent = 'Kopyalanamadı';
+      }
+    });
+  }
+  if (typeof L === 'undefined') return;
+  const g = {"lat": 37.11634, "lon": 35.62081, "zoom": 12, "precision": "exact_pdf", "points": [[37.1151, 35.61606], [37.116, 35.61766], [37.11617, 35.61798], [37.11634, 35.61828], [37.11632, 35.61834], [37.1164, 35.61898], [37.11645, 35.61952], [37.11676, 35.62278], [37.11679, 35.62317], [37.11667, 35.62298], [37.11664, 35.62287], [37.11659, 35.62269], [37.11655, 35.62251], [37.11572, 35.61547], [37.11662, 35.61707], [37.11679, 35.61739], [37.11696, 35.61769], [37.11694, 35.61775], [37.11702, 35.61839], [37.11707, 35.61893], [37.11738, 35.62219], [37.11741, 35.62258], [37.11729, 35.62239], [37.11726, 35.62228], [37.11721, 35.6221], [37.11717, 35.62192], [37.11645, 35.62228], [37.11632, 35.62207], [37.11614, 35.62184], [37.11594, 35.62163], [37.11567, 35.62138], [37.11545, 35.62121], [37.11529, 35.6211], [37.11514, 35.62103], [37.11506, 35.621], [37.115, 35.62098], [37.11475, 35.62088], [37.11507, 35.62013], [37.11594, 35.62115], [37.1161, 35.62132]], "gis_markers": [{"lat": 37.1156, "lon": 35.59732, "color": "#0284c7", "label": "Su kütlesi / gölet: Adsız (~2084 m)"}, {"lat": 37.09147, "lon": 35.60948, "color": "#0284c7", "label": "Su kütlesi / gölet: Adsız (~2942 m)"}, {"lat": 37.12289, "lon": 35.61042, "color": "#7c3aed", "label": "Köy: Avcılar (~1174 m)"}, {"lat": 37.10219, "lon": 35.61883, "color": "#7c3aed", "label": "Mahalle: Küçükiniş (~1583 m)"}], "label": "ADANA / SARIÇAM — ETLİK PİLİÇ YETİŞTİRİCİLİĞİ"};
+  const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
+  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
+  window.addEventListener('eced-theme-change', (ev) => {
+    map.removeLayer(tileLayer);
+    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
+  });
+  if (g.precision === 'exact_pdf') {
+    L.circle([g.lat, g.lon], {
+      radius: 3000,
+      color: '#d97706',
+      weight: 1.5,
+      dashArray: '6 5',
+      fillColor: '#d97706',
+      fillOpacity: 0.04
+    }).bindTooltip('3 km yasal referans çemberi (3573 m.20)').addTo(map);
+    for (const gm of (g.gis_markers || [])) {
+      L.circleMarker([gm.lat, gm.lon], {
+        radius: 5,
+        color: '#ffffff',
+        fillColor: gm.color,
+        fillOpacity: 0.9,
+        weight: 1.5
+      }).bindPopup(gm.label).addTo(map);
+    }
+  }
+  if (g.precision === 'exact_pdf' && g.points.length > 1) {
+    const latlngs = g.points.map(p => [p[0], p[1]]);
+    const poly = L.polyline(latlngs, { color: '#175cd3', weight: 3, opacity: 0.85 }).addTo(map);
+    for (const ll of latlngs.slice(0, 30)) {
+      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#d92d20', fillOpacity: 0.9, weight: 1 }).addTo(map);
+    }
+    map.fitBounds(poly.getBounds().pad(0.25));
+  } else {
+    L.circleMarker([g.lat, g.lon], {
+      radius: g.precision === 'exact_pdf' ? 8 : 11,
+      color: '#ffffff',
+      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#175cd3',
+      fillOpacity: g.precision === 'exact_pdf' ? 0.9 : 0.45,
+      weight: 2
+    }).bindPopup(g.label).addTo(map).openPopup();
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,951 @@
+{
+  "filing": {
+    "province": "AYDIN",
+    "district": "KOÇARLI",
+    "project_name": "Güneş Enerjisine Dayalı Elektrik Üretim Santrali (130.636,74 m2 Yüzölçümlü, 12,771 MWm / 11 MWe Kapasiteli)",
+    "project_owner": "Zorlu Tesis Yönetim Anonim Şirketi",
+    "sector": "Enerji",
+    "sub_sector": "Güneş Enerji Santralleri",
+    "decision_type": "ÇED Gerekli Değil/ÇED Olumlu",
+    "announcement_date_tr": "13.11.2026",
+    "project_type": "Ek-2",
+    "detail_text": "AYDIN ili KOÇARLI,  ilcesinde AYDIN ili KOÇARLI,  ilcesi Karaağaç Mahallesi, Kayalık Mevki,127 Ada, 5, 6, 7, 8, 9 Numaralı Parseller Toplam130.636,74 m2 Yüzölçümlü mevkiindeki Zorlu Tesis Yönetim Anonim Şirketi tarafından yapılması planlanan Güneş Enerjisine Dayalı Elektrik Üretim Santrali (130.636,74 m2 Yüzölçümlü, 12,771 MWm / 11 MWe Kapasiteli) projesi ile ilgili olarak Bakanlığımıza sunulan PTD Dosyası incelenmiş ve değerlendirilmiştir  ÇED Yönetmeliği'nin 17. maddesi gereğince Güneş Enerjisine Dayalı Elektrik Üretim Santrali (130.636,74 m2 Yüzölçümlü, 12,771 MWm / 11 MWe Kapasiteli) projesi'ne Valiliğimizce 'ÇED Olumlu (Kapsam Ek-2)' kararı verilmiştir.",
+    "detail_links": [
+      {
+        "text": "PTD Dosyası",
+        "href": "http://eced.csb.gov.tr/jsp/ek1/57941"
+      }
+    ],
+    "documents": [
+      {
+        "portal_doc_url": "http://eced.csb.gov.tr/jsp/ek1/57941",
+        "filing_id": "57941",
+        "consulting_firm": "KEREM İŞ SAĞLIĞI VE GÜVENLİĞİ DAN. MÜH. SAN. VE TİC. LTD. ŞTİ.",
+        "submitted_at": "10/04/2026 07:36:10",
+        "pdf_urls": [
+          {
+            "label": "Dosya Göster",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign186259136119385177.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-12"
+          }
+        ]
+      }
+    ],
+    "announcement_date": "2026-11-13",
+    "statutory_clocks": [
+      {
+        "code": "iyuk_20a",
+        "kind": "İYUK Madde 20/A iptal davası süresi (30 takvim günü; İYUK 11 süreyi durdurmaz)",
+        "deadline": "2026-12-13",
+        "days_remaining": 21
+      }
+    ],
+    "filing_key": "57941:13.11.2026:ÇED Gerekli Değil/ÇED Olumlu",
+    "first_seen_at": "2026-11-20T09:02:17"
+  },
+  "pdf_info": {
+    "filename": "57941.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign186259136119385177.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-12",
+    "bytes": 28102668,
+    "sha256": "b97052b3f32c1ba5cf5142ad619ba001b4eb51f83f3821b64a415c2baead3485",
+    "cached": false
+  },
+  "analysis": {
+    "page_count": 184,
+    "total_chars": 316566,
+    "text_pages": 161,
+    "scanned_or_blank_pages": 23,
+    "scanned_page_sample": [
+      99,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      120,
+      121,
+      131,
+      138,
+      139,
+      140,
+      141
+    ],
+    "headings": [
+      [
+        3,
+        "BÖLÜM II: PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL"
+      ],
+      [
+        3,
+        "BÖLÜM III:PROJENIN İNŞAAT VE İŞLETME AŞAMASINDA ÇEVRESEL"
+      ],
+      [
+        5,
+        "PROJENİN TEKNİK OLMAYAN ÖZETİ"
+      ],
+      [
+        8,
+        "BÖLÜM I: PROJENİN ÖZELLİKLERİ"
+      ],
+      [
+        72,
+        "BÖLÜM IV: KÜMÜLATIF ETKI DEĞERLENDIRME"
+      ],
+      [
+        73,
+        "BÖLÜM V: ÇEVRESEL VE SOSYAL EYLEM PLANI"
+      ],
+      [
+        86,
+        "BÖLÜM VI: NOTLAR, KAYNAKLAR VE EKLER"
+      ],
+      [
+        88,
+        "ÇEVRESEL VE SOSYAL YÖNETİM PLANI"
+      ],
+      [
+        152,
+        "ÇEVRESEL VE SOSYAL YÖNETİM"
+      ]
+    ],
+    "geo": {
+      "precision": "exact_pdf",
+      "lat": 37.63205,
+      "lon": 27.77316,
+      "point_count": 81,
+      "points": [
+        [
+          37.63268,
+          27.7724
+        ],
+        [
+          37.63052,
+          27.77356
+        ],
+        [
+          37.63043,
+          27.77344
+        ],
+        [
+          37.63037,
+          27.77338
+        ],
+        [
+          37.63024,
+          27.77335
+        ],
+        [
+          37.63009,
+          27.77324
+        ],
+        [
+          37.63003,
+          27.77318
+        ],
+        [
+          37.63333,
+          27.77191
+        ],
+        [
+          37.63117,
+          27.77307
+        ],
+        [
+          37.63108,
+          27.77295
+        ],
+        [
+          37.63102,
+          27.77289
+        ],
+        [
+          37.63089,
+          27.77285
+        ],
+        [
+          37.63074,
+          27.77275
+        ],
+        [
+          37.63068,
+          27.7727
+        ],
+        [
+          37.6326,
+          27.77215
+        ],
+        [
+          37.63264,
+          27.77253
+        ],
+        [
+          37.63262,
+          27.77265
+        ],
+        [
+          37.63262,
+          27.77294
+        ],
+        [
+          37.6326,
+          27.77299
+        ],
+        [
+          37.63254,
+          27.77315
+        ],
+        [
+          37.6325,
+          27.77324
+        ],
+        [
+          37.63248,
+          27.77335
+        ],
+        [
+          37.6325,
+          27.7735
+        ],
+        [
+          37.63256,
+          27.77359
+        ],
+        [
+          37.63261,
+          27.77386
+        ],
+        [
+          37.63239,
+          27.77407
+        ],
+        [
+          37.63238,
+          27.77408
+        ],
+        [
+          37.6323,
+          27.77401
+        ],
+        [
+          37.63222,
+          27.77397
+        ],
+        [
+          37.63213,
+          27.77395
+        ],
+        [
+          37.632,
+          27.77394
+        ],
+        [
+          37.6319,
+          27.77394
+        ],
+        [
+          37.63192,
+          27.77384
+        ],
+        [
+          37.63192,
+          27.77373
+        ],
+        [
+          37.6319,
+          27.77365
+        ],
+        [
+          37.63185,
+          27.77355
+        ],
+        [
+          37.63179,
+          27.7735
+        ],
+        [
+          37.63172,
+          27.77346
+        ],
+        [
+          37.63162,
+          27.7734
+        ],
+        [
+          37.6315,
+          27.77334
+        ]
+      ],
+      "datum": "UTM-Z35/ED50",
+      "pages": [
+        13,
+        16,
+        17
+      ]
+    },
+    "signals": {
+      "coordinates_and_footprint": {
+        "label": "Coordinates, Parcel & Footprint",
+        "page_count": 41,
+        "pages": [
+          5,
+          8,
+          9,
+          10,
+          13,
+          16,
+          17,
+          18,
+          24,
+          25,
+          26,
+          34,
+          36,
+          37,
+          50,
+          57,
+          68,
+          80,
+          82,
+          88,
+          89,
+          90,
+          92,
+          93,
+          94
+        ],
+        "samples": [
+          {
+            "page": 5,
+            "match": "ada 5 numaralı parsel",
+            "snippet": "…“Güneş Enerjisine Dayalı Elektrik Üretim Santrali” projesini kapsamaktadır. (Bkz. Ek-1 ve Ek-2) Proje alanı; 127 ada 5 numaralı parsel 43.644,18 m2, 6 numaralı parsel 20.152,03 m2, 7 numaralı parsel 15.126,79 m2, 8 numaralı parsel 20.595,31 m2, 9 numara…"
+          },
+          {
+            "page": 5,
+            "match": "644,18 m2",
+            "snippet": "…ı Elektrik Üretim Santrali” projesini kapsamaktadır. (Bkz. Ek-1 ve Ek-2) Proje alanı; 127 ada 5 numaralı parsel 43.644,18 m2, 6 numaralı parsel 20.152,03 m2, 7 numaralı parsel 15.126,79 m2, 8 numaralı parsel 20.595,31 m2, 9 numaralı parsel 31…"
+          },
+          {
+            "page": 5,
+            "match": "152,03 m2",
+            "snippet": "…esini kapsamaktadır. (Bkz. Ek-1 ve Ek-2) Proje alanı; 127 ada 5 numaralı parsel 43.644,18 m2, 6 numaralı parsel 20.152,03 m2, 7 numaralı parsel 15.126,79 m2, 8 numaralı parsel 20.595,31 m2, 9 numaralı parsel 31.173,95 m2 toplam 130.692,26 m2…"
+          },
+          {
+            "page": 5,
+            "match": "126,79 m2",
+            "snippet": "…e Ek-2) Proje alanı; 127 ada 5 numaralı parsel 43.644,18 m2, 6 numaralı parsel 20.152,03 m2, 7 numaralı parsel 15.126,79 m2, 8 numaralı parsel 20.595,31 m2, 9 numaralı parsel 31.173,95 m2 toplam 130.692,26 m2 (13,07 ha)’dir. Santral sahası yü…"
+          },
+          {
+            "page": 5,
+            "match": "595,31 m2",
+            "snippet": "…a 5 numaralı parsel 43.644,18 m2, 6 numaralı parsel 20.152,03 m2, 7 numaralı parsel 15.126,79 m2, 8 numaralı parsel 20.595,31 m2, 9 numaralı parsel 31.173,95 m2 toplam 130.692,26 m2 (13,07 ha)’dir. Santral sahası yüzölçümü 130.636,74 m2 (13,07 ha…"
+          },
+          {
+            "page": 5,
+            "match": "173,95 m2",
+            "snippet": "…6 numaralı parsel 20.152,03 m2, 7 numaralı parsel 15.126,79 m2, 8 numaralı parsel 20.595,31 m2, 9 numaralı parsel 31.173,95 m2 toplam 130.692,26 m2 (13,07 ha)’dir. Santral sahası yüzölçümü 130.636,74 m2 (13,07 ha) olacaktır. Yatırımcı firma bu p…"
+          },
+          {
+            "page": 5,
+            "match": "692,26 m2",
+            "snippet": "….152,03 m2, 7 numaralı parsel 15.126,79 m2, 8 numaralı parsel 20.595,31 m2, 9 numaralı parsel 31.173,95 m2 toplam 130.692,26 m2 (13,07 ha)’dir. Santral sahası yüzölçümü 130.636,74 m2 (13,07 ha) olacaktır. Yatırımcı firma bu parsellerde kiracı ola…"
+          },
+          {
+            "page": 5,
+            "match": "13,07 ha",
+            "snippet": "…7 numaralı parsel 15.126,79 m2, 8 numaralı parsel 20.595,31 m2, 9 numaralı parsel 31.173,95 m2 toplam 130.692,26 m2 (13,07 ha)’dir. Santral sahası yüzölçümü 130.636,74 m2 (13,07 ha) olacaktır. Yatırımcı firma bu parsellerde kiracı olarak faaliy…"
+          }
+        ]
+      },
+      "water_and_discharge": {
+        "label": "Water Use, Hydrogeology & Discharge",
+        "page_count": 14,
+        "pages": [
+          21,
+          22,
+          23,
+          24,
+          25,
+          47,
+          48,
+          50,
+          73,
+          74,
+          75,
+          76,
+          77,
+          154
+        ],
+        "samples": [
+          {
+            "page": 21,
+            "match": "5,85 m3/gün",
+            "snippet": "…Sayısı = 30 kişi Kişi Başına Düşen Günlük Su Miktarı = 195 L/gün.kişi Günlük Su Tüketimi =5.850 L/gün (5,85 m3/gün) Personellerin ihtiyaçları en yakın yerleşim yerinden karşılanacaktır.  Tozumanın Bastırılması İçin Gereken Su M…"
+          },
+          {
+            "page": 21,
+            "match": "0,585 m3/gün",
+            "snippet": "…i Sayısı = 3 kişi Kişi Başına Düşen Günlük Su Miktarı = 195 L/gün.kişi Günlük Su Tüketimi = 585 L/gün (0,585 m3/gün)"
+          },
+          {
+            "page": 22,
+            "match": "0,112 m3/gün",
+            "snippet": "…anellerinin belli aralıklarla su ile temizlenmesi gerekmektedir. Güneş panelleri yılda 1 defa, her temizlemede 40 m3 (0,112 m3/gün) su kullanılması ön görülmektedir. Tablo 10. Günlük Su Tüketimi Su Tüketim Kaynakları Günlük Su Tüketim Miktarı…"
+          },
+          {
+            "page": 23,
+            "match": "Atıksu",
+            "snippet": "…mlerine uyulacak ve toprakta herhangi bir kirliliğe neden olunmayacaktır. Sıvı Atıklar İnşaat Döneminde Oluşacak Atıksu Miktarı: Projenin inşaat döneminde 30 personel görev alacaktır. Tüketilen suyun tamamının atıksuya dönüştüğü kabulü…"
+          },
+          {
+            "page": 23,
+            "match": "5,85 m3/gün",
+            "snippet": "…inşaat döneminde 30 personel görev alacaktır. Tüketilen suyun tamamının atıksuya dönüştüğü kabulüyle, inşaat döneminde 5,85 m3/gün evsel nitelikli atıksu oluşacağı öngörülmektedir. Tesviye işlemi esnasında tozumanın bastırılması için kullanılaca…"
+          },
+          {
+            "page": 24,
+            "match": "0,585 m3/gün",
+            "snippet": "…Güneş Enerjisine Dayalı Elektrik Üretim Santrali 20 atıksuya dönüştüğü kabulüyle, işletme döneminde 0,585 m3/gün evsel nitelikli atıksu oluşacağı öngörülmektedir. Güneş panellerinin temizliği suyun püskürtülmesi ve panellerin si…"
+          },
+          {
+            "page": 24,
+            "match": "atıksu",
+            "snippet": "…Elektrik Üretim Santrali 20 atıksuya dönüştüğü kabulüyle, işletme döneminde 0,585 m3/gün evsel nitelikli atıksu oluşacağı öngörülmektedir. Güneş panellerinin temizliği suyun püskürtülmesi ve panellerin silinmesi şeklinde olaca…"
+          },
+          {
+            "page": 25,
+            "match": "145,12 ton/gün",
+            "snippet": "…= 20.901,88 ton / 1.152 saat = 18,14 ton/saat Bir Günde Çıkarılacak Hafriyat Miktarı = 18,14 ton /saat x 8 saat/gün = 145,12 ton/gün Bir Günde Yapılacak Sefer Sayısı = 145,12 ton/gün /25 ton/sefer = 5,8 sefer/gün Alanın tesviye edilmesi ile olu…"
+          }
+        ]
+      },
+      "protected_land_and_olive": {
+        "label": "Protected Zones, Forests & Olive Groves",
+        "page_count": 12,
+        "pages": [
+          3,
+          36,
+          38,
+          46,
+          47,
+          57,
+          68,
+          70,
+          113,
+          165,
+          172,
+          173
+        ],
+        "samples": [
+          {
+            "page": 3,
+            "match": "ORMAN ALANI",
+            "snippet": "…........................................................................... 32 A) MEVCUT ARAZİ KULLANIMI (TARIM ALANI, ORMAN ALANI, PLANLI ALAN, SU YÜZEYİ VE BENZERİ) VE KALİTESİ, JEOLOJİK VE HİDROJEOLOJİK ÖZELLİKLERİ ...............................…"
+          },
+          {
+            "page": 36,
+            "match": "Orman Alanı",
+            "snippet": "…ÜM II: PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ a) Mevcut Arazi Kullanımı (Tarım Alanı, Orman Alanı, Planlı Alan, Su Yüzeyi ve benzeri) ve Kalitesi, Jeolojik ve Hidrojeolojik Özellikleri Proje; Aydın ili, Koçarlı il…"
+          },
+          {
+            "page": 38,
+            "match": "Milli park",
+            "snippet": "…eşitliliği merkezleri; Dilek Yarımadası ve Büyük Menderes Deltası Milli Parkı ve Aydın Dağlarıdır. Dilek Yarımadasının Milli park olarak korunuyor olması Aydın ve Türkiye ölçeğinde çok önemlidir. Bu nokta flora ve fauna bağlamında pek çok Avrupa-B…"
+          },
+          {
+            "page": 38,
+            "match": "Tabiat Parkı",
+            "snippet": "…ektedir. Kum Zambağı (Pancratium maritimum), Dilek yarımadasında Milli Park içinde Dipburun da ve Didim Tavşanburnu Tabiat Parkı içindeki kıyı kumullarında görülmektedir. Özçakşır (Ferula anatolica) Aydın Dağlarında Köşk-Nazilli arasında az sayıda…"
+          },
+          {
+            "page": 46,
+            "match": "Özel Çevre Koruma",
+            "snippet": "…mlanan alanlar.” kapsamı içine girmemektedir. f) “Çevre Kanununun 9 uncu maddesi uyarınca Cumhurbaşkanı tarafından \"Özel Çevre Koruma Bölgeleri\" olarak tespit ve ilan edilen alanlar.” dışında yer almaktadır. g) “Boğaziçi Kanununa göre koruma altına…"
+          },
+          {
+            "page": 46,
+            "match": "orman alanı",
+            "snippet": "…ktadır. g) “Boğaziçi Kanununa göre koruma altına alınan alanlar.” dışında kalmaktadır. ğ) “Orman Kanunu uyarınca orman alanı sayılan yerler.” kapsamı içine girmemektedir. h) “Kıyı Kanunu gereğince yapı yasağı getirilen alanlar.” kapsamı iç…"
+          },
+          {
+            "page": 47,
+            "match": "kıyı kenar",
+            "snippet": "…ı olmak üzere canlıların yaşama ortamı olarak önem taşıyan bütün sular, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler.” içerisinde yer almamaktadır."
+          },
+          {
+            "page": 47,
+            "match": "sulak alan",
+            "snippet": "…ar, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler.” içerisinde yer almamaktadır."
+          }
+        ]
+      },
+      "ecology_and_baseline": {
+        "label": "Flora, Fauna & Baseline Methodology",
+        "page_count": 6,
+        "pages": [
+          38,
+          47,
+          48,
+          54,
+          118,
+          161
+        ],
+        "samples": [
+          {
+            "page": 38,
+            "match": "endemik",
+            "snippet": "…yol açmaktadır. Aydın ilinde toplam damarlı bitki takson sayısı 1666 olarak belirlenmiştir. Toplam florada 112 takson endemik olup, endemizm oranı % 6.7 ‘dir. Ülkemize göre düşük bir oran olup bunun nedeni tarım alanlarının fazlalığına bağlanma…"
+          },
+          {
+            "page": 38,
+            "match": "flora ve fauna",
+            "snippet": "…Dağlarıdır. Dilek Yarımadasının Milli park olarak korunuyor olması Aydın ve Türkiye ölçeğinde çok önemlidir. Bu nokta flora ve fauna bağlamında pek çok Avrupa-Balkan taksonunun ülkeye giriş kapısıdır. Aydın dağlarının önemi ise, ege bölgesinde buzul…"
+          },
+          {
+            "page": 47,
+            "match": "BERN Sözleşmesi",
+            "snippet": "…leşmeler Uyarınca Korunması Gerekli Alanlar; a) \"Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi\" (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan \"Önemli Deniz Kaplumbağası Üreme Alanlarında belirtilen I. ve II. Koruma Bö…"
+          },
+          {
+            "page": 48,
+            "match": "endemik",
+            "snippet": "…d) “Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…"
+          },
+          {
+            "page": 54,
+            "match": "mevsimsel",
+            "snippet": "…çekli standart topoğrafik harita kullanılarak yapılan teknik inceleme neticesinde, talep konusu alanların içerisinden mevsimsel akışlı dere yataklarının geçtiği tespit edilmiştir. Söz konusu dere yatağının sağından 10 metre, solundan 10 metre çek…"
+          },
+          {
+            "page": 118,
+            "match": "örnekleme",
+            "snippet": "…Enerji kalite analizörü 4 gerilim ölçüm girişi, 4 akım ölçüm girişine sahip olmalıdır. Akım ve gerilim girişleri için örnekleme frekansı en az 20kHz olmalıdır. 5. Köşk tipi olmayan santrallerde bir adet açma ve bir adet kapama sinyali göndermek…"
+          },
+          {
+            "page": 161,
+            "match": "mevsimsel",
+            "snippet": "…ölçekli standart topoğrafik harita kullanılarak yapılan teknik inceleme neticesinde, talep konusu alanların içerisinden mevsimsel akışlı dere yataklarının geçtiği tespit edilmiştir. Söz konusu dere yatağının sağından 10 metre, solundan 10 metre çekm…"
+          }
+        ]
+      },
+      "pollutants_and_hazards": {
+        "label": "Emissions, Geochemistry & Waste",
+        "page_count": 25,
+        "pages": [
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          33,
+          35,
+          43,
+          44,
+          45,
+          51,
+          52,
+          64,
+          72,
+          73,
+          76,
+          77,
+          79,
+          84,
+          117,
+          148,
+          153,
+          154,
+          170
+        ],
+        "samples": [
+          {
+            "page": 26,
+            "match": "Toz Emisyon",
+            "snippet": "…Güneş Enerjisine Dayalı Elektrik Üretim Santrali 22 Tablo 12. Kontrollü Toz Emisyon Faktörleri ve Emisyon Oluşumu Toz Faktörleri Kontrollü Emisyon Değerleri Emisyon Debileri Sökme 0,0125 kg/ton 18…"
+          },
+          {
+            "page": 27,
+            "match": "Gürültü",
+            "snippet": "…Anonim Şirketi Güneş Enerjisine Dayalı Elektrik Üretim Santrali 23 Gürültü Kirliliği İnşaat Dönemi İnşaat döneminde proje alanında oluşacak gürültü 1 adet kamyon, 1 adet ekskavatör, 1 ade…"
+          },
+          {
+            "page": 28,
+            "match": "gürültü",
+            "snippet": "…çalışması söz konusu değildir. Ancak en kötü duruma göre, makine-ekipmanların aynı anda çalışacağı varsayımı yapılarak gürültü düzeyleri hesaplanmıştır. Belirli bir mesafeye ulaşan gürültü seviyesinin (Lpt) hesaplanması için aşağıda sunulan…"
+          },
+          {
+            "page": 29,
+            "match": "Gürültü",
+            "snippet": "…Güneş Enerjisine Dayalı Elektrik Üretim Santrali 25 Aatm= 7,4 x 10-8 x [(f2) x r/Φ] f = Gürültü kaynağının frekansı = 1000 Hz alınmıştır. r = Kaynaktan olan uzaklık (m) Φ = Bağıl nem = % 60 alınmıştır. Q = İndirg…"
+          },
+          {
+            "page": 30,
+            "match": "Gürültü",
+            "snippet": "…Güneş Enerjisine Dayalı Elektrik Üretim Santrali 26 Proje alanı, “Çevresel Gürültü Kontrol Yönetmeliği” Ek-2, Tablo-1 Çevresel Gürültü Düzeyi Sınır Değerleri’nde belirtilen “Endüstri tesisleri, ulaşım…"
+          },
+          {
+            "page": 31,
+            "match": "tehlikeli atık",
+            "snippet": "…klarının Kontrolü Yönetmeliği” hükümlerine uyulacaktır. Tehlikeli Atıklar Projenin inşaat ve işletme dönemlerinde tehlikeli atık oluşması durumunda geçici atık deposunda, sızdırmasız kaplarda biriktirilecek ve lisanslı araçlar ile Çevre Lisansı ol…"
+          },
+          {
+            "page": 33,
+            "match": "Deprem",
+            "snippet": "…en durumlardır. Bunlar;  Ciddi yaralanmalar ve ölümler, (İş kazası vb.)  Malın/malzemenin uğradığı büyük hasarlar, (Deprem vb.)  Saha dışındaki ciddi hasarlar, (Trafik kazası vb.)  İşin devamlılığına tehdit oluşturan unsurlar, (Fırtına vb…"
+          },
+          {
+            "page": 35,
+            "match": "Deprem",
+            "snippet": "…izleme işini yapın,  Kimyasalın kontrol altına alınamaması veya temizlenememesi durumunda itfaiyeye haber verin. Deprem Anında Yapılması Gerekenler  Deprem olduğunu anladığınızda bina içerisinde bulunuyorsanız ve çıkışa çok yakın bir…"
+          }
+        ]
+      },
+      "cost_and_capacity": {
+        "label": "Proje Bedeli, Güç ve Kapasite",
+        "page_count": 21,
+        "pages": [
+          2,
+          3,
+          8,
+          9,
+          10,
+          11,
+          27,
+          28,
+          45,
+          68,
+          80,
+          155,
+          156,
+          160,
+          161,
+          164,
+          165,
+          169,
+          170,
+          172,
+          173
+        ],
+        "samples": [
+          {
+            "page": 2,
+            "match": "Kapasite",
+            "snippet": "…kale/Den 72 / 0 (258 280 0.11.2025 2.11.2026 NONİM Ş u Center N ş/İstanbul 438 38 08 ji.net ne Dayalı E m2 Yüzölç Kapasite TL ilçesi, yalık Mev maralı Pars nceleme V ler (Ek-2) zerinde ola e sistemle si üretim jisi üretim Dan. Müh ak N…"
+          },
+          {
+            "page": 3,
+            "match": "KAPASİTE",
+            "snippet": "…........................................................................................ 4 B) PROJENİN İŞ AKIM ŞEMASI, KAPASİTESİ, KAPLADIĞI ALAN, YATIRIM BEDELİ, TEKNOLOJİSİ, ÇALIŞACAK PERSONEL SAYISI ............................................…"
+          },
+          {
+            "page": 8,
+            "match": "Kapasite",
+            "snippet": "…nerjisine Dayalı Elektrik Üretim Santrali için yer alternatifi düşünülmemiştir. b) Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Yatırım Bedeli, Teknolojisi, Çalışacak Personel Sayısı Projenin İş Akım Şeması Fotovoltaik p…"
+          },
+          {
+            "page": 9,
+            "match": "Kapasite",
+            "snippet": "…f Akım Şekil 3. Güneş Enerjisine Dayalı Elektrik Üretim Santrali İş Akış Diyagramı Projenin Kapasitesi ÇED alanı için 12.06.2024 tarihli 45788 sayılı Adm Elektrik Dağıtım’dan bağlantı görüşü ve bağlantı anlaşması çağ…"
+          },
+          {
+            "page": 10,
+            "match": "Proje Bedeli",
+            "snippet": "…lda 12 ay, ayda 30 gün, günde 24 saat (3 vardiya) çalışılacaktır. Çalışan sayısının 3 kişi olması planlanmaktadır. Proje Bedeli Söz konusu proje ait proje bedeli hesabı aşağıdaki tabloda ayrıntılı olarak verilmiş olup; Proje bedeli=229.142.50…"
+          },
+          {
+            "page": 10,
+            "match": "229.142.500 TL",
+            "snippet": "…oje Bedeli Söz konusu proje ait proje bedeli hesabı aşağıdaki tabloda ayrıntılı olarak verilmiş olup; Proje bedeli=229.142.500 TL olacaktır. Tablo 2.Proje Bedeli MALZEME VE İŞ KALEMLERİ MIKTAR BIRIM BİRİM FİYAT (TL) TOPLAM FİYAT (TL) HA…"
+          },
+          {
+            "page": 10,
+            "match": "PROJE BEDELİ",
+            "snippet": "…A VE TEL ÇİT SİSTEMLERİ 1 SET 390.000 390.000 ARAZİ EDİNİM BEDELLERİ 1 SET 15.600.000 15.600.000 TOPLAM PROJE BEDELİ 229.142.500 Projenin Kapladığı Alan Proje alanı; 127 ada 5 numaralı parsel 43.644,18 m2, 6 numaralı parsel 20.…"
+          },
+          {
+            "page": 11,
+            "match": "kapasite",
+            "snippet": "…yıllık toplam ışınım değeri 1527,46 kWh/m2 olarak hesaplanmıştır. Mülga Elektrik İşleri Etüt İdaresi tarafından teknik kapasitesi 405 milyar kWh/yıl, ekonomik potansiyeli 380 milyar kWh/yıl olarak tahmin edilen güneşe dayalı elektrik üretim kapa…"
+          }
+        ]
+      },
+      "splitting_and_thresholds": {
+        "label": "Proje Parçalama, Kapasite Artışı ve Eşik Değerler",
+        "page_count": 13,
+        "pages": [
+          5,
+          7,
+          8,
+          9,
+          36,
+          48,
+          75,
+          77,
+          80,
+          83,
+          100,
+          153,
+          155
+        ],
+        "samples": [
+          {
+            "page": 5,
+            "match": "ÇED alanı",
+            "snippet": "…eticesinde Kuru Marjinal Tarım Arazisi (KTA) niteliğinde olduğu belirlenmiş…” şeklinde belirtilmiştir. (Bkz. Ek-3) ÇED alanı için 12.06.2024 tarihli 45788 sayılı Adm Elektrik Dağıtım’dan bağlantı görüşü ve bağlantı anlaşması çağrı mektubu bulu…"
+          },
+          {
+            "page": 7,
+            "match": "ÇED Alanı",
+            "snippet": "…bulunan tarım arazilerine zarar verilmesi durumda, zararın proje sahibi tarafından karşılanacağını taahhüt ederiz. ÇED Alanı içinde yapılacak kazı, arazi hazırlanması, tesfiye, panel yerleştirme, sondaj v.b. çalışmalar sırasında 3386 ve 5226 S…"
+          },
+          {
+            "page": 8,
+            "match": "ÇED alanı",
+            "snippet": "…eticesinde Kuru Marjinal Tarım Arazisi (KTA) niteliğinde olduğu belirlenmiş…” şeklinde belirtilmiştir. (Bkz. Ek-3) ÇED alanı için 12.06.2024 tarihli 45788 sayılı Adm Elektrik Dağıtım’dan bağlantı görüşü ve bağlantı anlaşması çağrı mektubu bulu…"
+          },
+          {
+            "page": 9,
+            "match": "ÇED alanı",
+            "snippet": "…Şekil 3. Güneş Enerjisine Dayalı Elektrik Üretim Santrali İş Akış Diyagramı Projenin Kapasitesi ÇED alanı için 12.06.2024 tarihli 45788 sayılı Adm Elektrik Dağıtım’dan bağlantı görüşü ve bağlantı anlaşması çağrı mektubu bulu…"
+          },
+          {
+            "page": 36,
+            "match": "ÇED alanı",
+            "snippet": "…eticesinde Kuru Marjinal Tarım Arazisi (KTA) niteliğinde olduğu belirlenmiş…” şeklinde belirtilmiştir. (Bkz. Ek-3) ÇED alanı için 12.06.2024 tarihli 45788 sayılı Adm Elektrik Dağıtım’dan bağlantı görüşü ve bağlantı anlaşması çağrı mektubu bulu…"
+          },
+          {
+            "page": 48,
+            "match": "ÇED Alanı",
+            "snippet": "…yerüstü ve yeraltı suyu kaynaklarının tabii su toplama alanı içerisinde kalan alanlar.” kapsamı dahilinde değildir. ÇED Alanı içinde yapılacak kazı, arazi hazırlanması, tesfiye, panel yerleştirme, sondaj v.b. çalışmalar sırasında 3386 ve 5226 S…"
+          },
+          {
+            "page": 75,
+            "match": "ÇED Alanı",
+            "snippet": "…asın tahrip edilmesi.  3386 ve 5226 Sayılı Kanunla değişik 2863 Sayılı Kültür Varlıklarını Koruma Kanunu  ÇED Alanı içinde yapılacak kazı, arazi hazırlanması, tesfiye, panel yerleştirme, sondaj v.b. çalışmalar kapsamına giren h…"
+          },
+          {
+            "page": 77,
+            "match": "ÇED Alanı",
+            "snippet": "…asın tahrip edilmesi.  3386 ve 5226 Sayılı Kanunla değişik 2863 Sayılı Kültür Varlıklarını Koruma Kanunu  ÇED Alanı içinde yapılacak kazı, arazi hazırlanması, tesfiye, panel yerleştirme, sondaj v.b. çalışmalar kapsamına giren h…"
+          }
+        ]
+      }
+    },
+    "audit_checks": {
+      "mentions_field_survey": false,
+      "mentions_literature_only_cue": false,
+      "mentions_seasonal_sampling": true,
+      "mentions_cumulative_impact": true,
+      "mentions_olive_law_3573": true,
+      "mentions_groundwater_or_aquifer": true,
+      "mentions_iucn_or_endemic": true,
+      "mentions_capacity_or_splitting": true,
+      "mentions_circular_2009_7_or_revision": false
+    }
+  },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-22T00:53:55",
+      "decision_type": "ÇED Gerekli Değil/ÇED Olumlu",
+      "announcement_date": "2026-11-13",
+      "announcement_date_tr": "13.11.2026",
+      "submitted_at": "10/04/2026 07:36:10",
+      "consulting_firm": "KEREM İŞ SAĞLIĞI VE GÜVENLİĞİ DAN. MÜH. SAN. VE TİC. LTD. ŞTİ.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign186259136119385177.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-12",
+      "pdf_temp_ad": "sign186259136119385177.pdf",
+      "pdf_original_name": "e-imza.pdf",
+      "pdf_upload_date": "2026-11-12",
+      "sha256": "b97052b3f32c1ba5cf5142ad619ba001b4eb51f83f3821b64a415c2baead3485",
+      "bytes": 28102668,
+      "page_count": 184,
+      "text_pages": 161,
+      "scanned_or_blank_pages": 23,
+      "audit_checks": {
+        "mentions_field_survey": false,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": true,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": true,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true,
+        "mentions_capacity_or_splitting": true,
+        "mentions_circular_2009_7_or_revision": false
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 41,
+        "water_and_discharge": 14,
+        "protected_land_and_olive": 12,
+        "ecology_and_baseline": 6,
+        "pollutants_and_hazards": 25,
+        "cost_and_capacity": 21,
+        "splitting_and_thresholds": 13
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 37.63205,
+      "geo_lon": 27.77316,
+      "geo_point_count": 81,
+      "detail_text_sha256": "0743559319ce807d"
+    }
+  ],
+  "llm_synthesis": {
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-11-22T00:54:01",
+    "pages_sent": [
+      1,
+      2,
+      3,
+      4,
+      8,
+      9,
+      21,
+      22,
+      23,
+      24,
+      26,
+      27,
+      28,
+      36,
+      38,
+      46,
+      47,
+      48,
+      54,
+      72,
+      73,
+      74,
+      88,
+      89,
+      152,
+      153
+    ],
+    "usage": {
+      "prompt_tokens": 23163,
+      "output_tokens": 2039,
+      "thoughts_tokens": null,
+      "total_tokens": 25202
+    },
+    "result": {
+      "executive_summary_tr": "Zorlu Tesis Yönetim A.Ş. tarafından Aydın ili Koçarlı ilçesi Karaağaç Mahallesi Karaağaç Mevkii 127 ada 5, 6, 7, 8 ve 9 numaralı parsellerde 130.636,74 m2 yüzölçümlü alanda 12,771 MWm / 11 MWe kapasiteli Güneş Enerjisine Dayalı Elektrik Üretim Santrali (GES) projesi planlanmış olup Valilikçe ÇED Gerekli Değil/ÇED Olumlu kararı verilmiştir. Proje alanı tarla vasfında olup İl Tarım ve Orman Müdürlüğünce kuru marjinal tarım arazisi olarak sınıflandırılmıştır. Ancak 1/100.000 ölçekli Çevre Düzeni Planında tarım ve çayır-mera alanında kalmakta olup DSİ görüşü kapsamında saha içerisinden geçen mevsimsel akışlı dere yataklarına yönelik yasal taşkın emniyet mesafelerinin bırakılması zorunludur.",
+      "executive_summary_en": "Zorlu Tesis Yönetim A.Ş. has been granted an EIA Positive / Not Required decision for a 12.771 MWm / 11 MWe Solar Power Plant spanning 130,636.74 m2 across parcels 5, 6, 7, 8, and 9 in Block 127, Karaağaç Neighborhood, Koçarlı District, Aydın Province. The project site is classified as dry marginal agricultural land by the Provincial Directorate of Agriculture and Forestry, while designated as agricultural and pasture land in the 1/100,000 scale Environmental Plan. Based on DSİ institutional comments, mandatory buffer zones must be kept along seasonal stream beds crossing the project area.",
+      "key_facts": [
+        {
+          "label": "Proje Alanı Yüzölçümü",
+          "value": "130.636,74 m2",
+          "page": 2
+        },
+        {
+          "label": "Kurulu Güç",
+          "value": "12,771 MWm / 11 MWe",
+          "page": 2
+        },
+        {
+          "label": "Yatırım Bedeli",
+          "value": "142.500 TL",
+          "page": 2
+        },
+        {
+          "label": "En Yakın Yerleşim Yeri",
+          "value": "1324 m (Karaağaç Mahallesi)",
+          "page": 36
+        },
+        {
+          "label": "İnşaat Dönemi Personel Sayısı",
+          "value": "30 kişi",
+          "page": 21
+        },
+        {
+          "label": "İşletme Dönemi Personel Sayısı",
+          "value": "3 kişi",
+          "page": 21
+        },
+        {
+          "label": "Toplam Hafriyat Miktarı",
+          "value": "20.901,88 ton (13.063,674 m3)",
+          "page": 24
+        },
+        {
+          "label": "İnşaat Dönemi Su Tüketimi",
+          "value": "8,85 m3/gün",
+          "page": 21
+        },
+        {
+          "label": "İşletme Dönemi Su Tüketimi",
+          "value": "0,697 m3/gün",
+          "page": 22
+        },
+        {
+          "label": "Fotovoltaik Panel Sayısı",
+          "value": "21.500 adet",
+          "page": 9
+        }
+      ],
+      "baseline_assessment": {
+        "field_survey_status": "literature_only",
+        "seasonal_sampling_status": "not_found",
+        "cumulative_impact_status": "omitted_or_not_found",
+        "olive_and_protected_status": "Proje alanı 3573 sayılı Zeytincilik Kanunu kapsamında zeytinlik sahalarında kalmamakla birlikte, 1/100.000 ölçekli Çevre Düzeni Planında tarım alanı ve çayır-mera olarak planlanmıştır [s. 36, 46].",
+        "explanation": "Proje tanıtım dosyasında yer alan flora ve fauna bilgileri yerinde yapılan çok mevsimli arazi gözlemlerine dayanmamakta, tamamen genel literatür bilgilerine ve Aydın ili geneline ait ikincil verilere dayanmaktadır [s. 38]. Proje etki alanının 500 metre yarıçapla sınırlandırılarak başka tesis bulunmadığı gerekçesiyle kümülatif etki değerlendirmesinin yapılmamış olması bölgesel etkilerin göz ardı edilmesine yol açmaktadır [s. 72]."
+      },
+      "red_flags": [
+        {
+          "category": "kumulatif_etki",
+          "severity": "high",
+          "title": "Kümülatif Etki Değerlendirmesinin 500 Metre Yarıçapla Sınırlı Tutularak Yetersiz Bırakılması",
+          "detail": "Proje etki alanı yalnızca 500 m yarıçaplı daire ile sınırlandırılmış ve bu alanda üretim yapan tesis bulunmadığı gerekçesiyle kümülatif değerlendirme yapılmamıştır; bu durum bölgedeki diğer enerji ve tarımsal faaliyetlerin birikimli etkilerinin analiz edilmesini engellemektedir [s. 72].",
+          "pages": [
+            72
+          ]
+        },
+        {
+          "category": "flora_fauna_mevsimsel",
+          "severity": "high",
+          "title": "Gerçek Saha Araştırmasına Dayanmayan Literatür İncelemesi",
+          "detail": "Dosyada sunulan flora ve fauna bilgileri somut ve dönemsel saha çalışmalarına değil, genel literatür derlemelerine dayanmakta olup hassas ekosistemler üzerindeki olası etkilerin tespiti açısından yetersizdir [s. 38].",
+          "pages": [
+            38
+          ]
+        },
+        {
+          "category": "su_hidrojeoloji",
+          "severity": "medium",
+          "title": "Mevsimsel Dere Yataklarına Yönelik Taşkın ve Emniyet Şeridi Belirsizlikleri",
+          "detail": "DSİ 21. Bölge Müdürlüğü görüşünde alan içerisinden mevsimsel akışlı dere yataklarının geçtiği belirtilmiş ve 10'ar metre çekme mesafesi verilmiş olmasına rağmen, bu hatların proje uygulama projelerinde nasıl korunacağı yeterince detaylandırılmamıştır [s. 54].",
+          "pages": [
+            54
+          ]
+        }
+      ],
+      "recommended_bilirkisi_disciplines": [
+        "Çevre Mühendisi",
+        "Hidrojeoloji Mühendisi",
+        "Ziraat Mühendisi",
+        "Biyolog",
+        "Şehir ve Bölge Plancısı"
+      ],
+      "hkt_and_petition_questions": [
+        {
+          "question_tr": "Proje alanının 1/100.000 ölçekli Çevre Düzeni Planında tarım ve çayır-mera alanı olarak belirlenmiş olmasına rağmen GES yatırımına açılmasının üst ölçekli plan kararları ve bölgenin tarımsal bütünlüğü açısından hukuka ve şehircilik ilkelerine uyumu nedir?",
+          "pages": [
+            36,
+            153
+          ]
+        },
+        {
+          "question_tr": "Proje sahası ve yakın çevresinde gerçekleştirilmesi gereken flora ve fauna envanter çalışmasının neden dört mevsim saha araştırması yerine yalnızca literatür taramasına dayandırıldığı bilimsel olarak nasıl gerekçelendirilmektedir?",
+          "pages": [
+            38
+          ]
+        },
+        {
+          "question_tr": "DSİ 21. Bölge Müdürlüğü görüşünde belirtilen ve saha içinden geçen mevsimsel dere yataklarının 10'ar metre koruma kuşağı içinde kalacak panel ve konstrüksiyon ayaklarının taşkın riskine ve akış rejimine olası etkileri hidrolik açıdan nasıl hesaplanmıştır?",
+          "pages": [
+            54
+          ]
+        }
+      ],
+      "data_limitations": "İncelenen dosya metninde bazı ekler ve kurum görüşü yazılarının tam metinleri yerine özet ifadelerine yer verilmiş olup, taranmış harita ve kroki eklerinin bir kısmı metin içerisinden doğrudan okunamamıştır."
+    }
+  }
+}

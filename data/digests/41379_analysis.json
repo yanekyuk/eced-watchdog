@@ -1,0 +1,977 @@
+{
+  "filing": {
+    "province": "İSTANBUL",
+    "district": "BAŞAKŞEHİR",
+    "project_name": "Toplu Konut Projesi(307 Konut + 4 Ticari Alan)",
+    "project_owner": "UZM GROUP İŞ ORTAKLIĞI",
+    "sector": "Konut",
+    "sub_sector": "Toplu Konut Projeleri",
+    "decision_type": "ÇED Gerekli Değil/ÇED Olumlu",
+    "announcement_date_tr": "18.11.2026",
+    "project_type": "Ek-2",
+    "detail_text": "İSTANBUL ili BAŞAKŞEHİR,  ilcesinde İSTANBUL ili BAŞAKŞEHİR,  ilcesi 125 ada 21 parsel mevkiindeki UZM GROUP İŞ ORTAKLIĞI tarafından yapılması planlanan Toplu Konut Projesi(307 Konut + 4 Ticari Alan)  projesi ile ilgili olarak Bakanlığımıza sunulan PTD Dosyası incelenmiş ve değerlendirilmiştir  ÇED Yönetmeliği'nin 17. maddesi gereğince Toplu Konut Projesi(307 Konut + 4 Ticari Alan)  projesi'ne Valiliğimizce 'ÇED Olumlu (Kapsam Ek-2)' kararı verilmiştir.",
+    "detail_links": [
+      {
+        "text": "PTD Dosyası",
+        "href": "http://eced.csb.gov.tr/jsp/ek1/41379"
+      }
+    ],
+    "documents": [
+      {
+        "portal_doc_url": "http://eced.csb.gov.tr/jsp/ek1/41379",
+        "filing_id": "41379",
+        "consulting_firm": "AKYA PROJE ETÜD MÜH. DAN. LTD. ŞTİ.",
+        "submitted_at": "21/09/2026 02:39:09",
+        "pdf_urls": [
+          {
+            "label": "Dosya Göster",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign2599342387972164503.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-10"
+          }
+        ]
+      }
+    ],
+    "announcement_date": "2026-11-18",
+    "statutory_clocks": [
+      {
+        "code": "iyuk_20a",
+        "kind": "İYUK Madde 20/A iptal davası süresi (30 takvim günü; İYUK 11 süreyi durdurmaz)",
+        "deadline": "2026-12-18",
+        "days_remaining": 26
+      }
+    ],
+    "filing_key": "41379:18.11.2026:ÇED Gerekli Değil/ÇED Olumlu",
+    "first_seen_at": "2026-11-20T02:10:57"
+  },
+  "pdf_info": {
+    "filename": "41379.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign2599342387972164503.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-10",
+    "bytes": 132896251,
+    "sha256": "0d5dcece56b02568e8114a8d333f492fba94728c543c8a12e921eaa60bfd1ba6",
+    "cached": false
+  },
+  "analysis": {
+    "page_count": 835,
+    "total_chars": 810323,
+    "text_pages": 757,
+    "scanned_or_blank_pages": 78,
+    "scanned_page_sample": [
+      116,
+      117,
+      119,
+      120,
+      123,
+      124,
+      125,
+      126,
+      731,
+      733,
+      734,
+      735,
+      736,
+      737,
+      738
+    ],
+    "headings": [
+      [
+        4,
+        "TABLOLAR DİZİNİ"
+      ],
+      [
+        5,
+        "ŞEKİLLER DİZİNİ"
+      ],
+      [
+        6,
+        "EKLER"
+      ],
+      [
+        7,
+        "PROJENİN TEKNİK OLMAYAN ÖZETİ"
+      ],
+      [
+        10,
+        "BÖLÜM ı: PROJENİN ÖZELLİKLERİ"
+      ],
+      [
+        10,
+        "a) Projenin ve yerin alternatifleri (proje teknolojisinin ve proje alanının seçilme nedenleri)"
+      ],
+      [
+        10,
+        "b) Projenin iş akım şeması, kapasitesi, kapladığı alan, yatırım bedeli, teknolojisi, çalışacak personel sayısı,"
+      ],
+      [
+        18,
+        "c) Doğal kaynakların kullanımı (arazi kullanımı, su kullanımı, kullanılan enerji türü vb.)"
+      ],
+      [
+        24,
+        "ç) Projenin inşaat ve işletme aşamasında oluşan her türlü atığın özelliği (cinsi, türü, miktarı vb.)  bertarafı ve geri kazanımına yönelik değerlendirmeler."
+      ],
+      [
+        62,
+        "d) Kullanılan teknoloji ve malzemelerden kaynaklanabilecek kaza riski,"
+      ],
+      [
+        70,
+        "BÖLÜM II. PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ"
+      ],
+      [
+        70,
+        "a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri."
+      ],
+      [
+        74,
+        "b) EK-5’deki Duyarlı Yöreler Listesi dikkate alınarak korunması gereken alanlar"
+      ],
+      [
+        79,
+        "BÖLÜM III. PROJENİN İNŞAAT VE İŞLETME AŞAMASINDA ÇEVRESEL ETKİLERİ, ÖNCELİKLİ ETKİLERİN BELİRLENMESİ VE ALINACAK ÖNLEMLER"
+      ],
+      [
+        94,
+        "BÖLÜM IV. KÜMÜLATİF ETKİ DEĞERLENDİRME"
+      ],
+      [
+        95,
+        "BÖLÜM V. ÇEVRESEL VE SOSYAL EYLEM PLANI"
+      ],
+      [
+        95,
+        "V-1: Çevre İzleme Planı."
+      ],
+      [
+        105,
+        "V-2: Sürdürülebilirlik Planı (Sıfır Atık Planı, Trafik Yönetim Planı, Sera Gazı Azaltım Planı, Çevresel ve Sosyal Yönetim Planı vb.)."
+      ],
+      [
+        105,
+        "a) Sıfır Atık Planı"
+      ],
+      [
+        105,
+        "b) Trafik Yönetim Planı"
+      ],
+      [
+        106,
+        "c) Sera Gazı Azaltım Planı"
+      ],
+      [
+        106,
+        "d) Çevresel ve Sosyal Yönetim Planı"
+      ],
+      [
+        109,
+        "BÖLÜM VI. NOTLAR, KAYNAKLAR VE EKLER:"
+      ],
+      [
+        109,
+        "Notlar Ve Kaynaklar"
+      ],
+      [
+        110,
+        "EKLER"
+      ]
+    ],
+    "geo": {
+      "precision": "exact_pdf",
+      "lat": 41.10348,
+      "lon": 28.68393,
+      "point_count": 80,
+      "points": [
+        [
+          41.10644,
+          28.68543
+        ],
+        [
+          41.10589,
+          28.68565
+        ],
+        [
+          41.10494,
+          28.68461
+        ],
+        [
+          41.10464,
+          28.68426
+        ],
+        [
+          41.1043,
+          28.684
+        ],
+        [
+          41.10407,
+          28.68405
+        ],
+        [
+          41.10386,
+          28.68409
+        ],
+        [
+          41.10366,
+          28.68419
+        ],
+        [
+          41.10361,
+          28.68422
+        ],
+        [
+          41.10349,
+          28.68429
+        ],
+        [
+          41.10338,
+          28.68447
+        ],
+        [
+          41.10323,
+          28.68462
+        ],
+        [
+          41.10307,
+          28.68478
+        ],
+        [
+          41.10291,
+          28.68493
+        ],
+        [
+          41.1027,
+          28.68503
+        ],
+        [
+          41.10262,
+          28.68503
+        ],
+        [
+          41.10247,
+          28.68504
+        ],
+        [
+          41.10235,
+          28.68513
+        ],
+        [
+          41.10241,
+          28.68413
+        ],
+        [
+          41.10242,
+          28.68395
+        ],
+        [
+          41.10242,
+          28.68391
+        ],
+        [
+          41.10243,
+          28.68391
+        ],
+        [
+          41.10246,
+          28.68391
+        ],
+        [
+          41.10248,
+          28.6839
+        ],
+        [
+          41.10251,
+          28.6839
+        ],
+        [
+          41.10254,
+          28.68389
+        ],
+        [
+          41.10256,
+          28.68388
+        ],
+        [
+          41.10259,
+          28.68386
+        ],
+        [
+          41.10261,
+          28.68385
+        ],
+        [
+          41.10264,
+          28.68383
+        ],
+        [
+          41.10266,
+          28.68381
+        ],
+        [
+          41.10268,
+          28.68379
+        ],
+        [
+          41.1027,
+          28.68377
+        ],
+        [
+          41.10272,
+          28.68375
+        ],
+        [
+          41.10274,
+          28.68372
+        ],
+        [
+          41.10276,
+          28.6837
+        ],
+        [
+          41.10278,
+          28.68367
+        ],
+        [
+          41.10288,
+          28.68349
+        ],
+        [
+          41.10292,
+          28.68343
+        ],
+        [
+          41.10296,
+          28.68338
+        ]
+      ],
+      "datum": "UTM-Z35/ED50",
+      "pages": [
+        113
+      ]
+    },
+    "signals": {
+      "coordinates_and_footprint": {
+        "label": "Coordinates, Parcel & Footprint",
+        "page_count": 138,
+        "pages": [
+          6,
+          7,
+          10,
+          13,
+          16,
+          17,
+          19,
+          20,
+          36,
+          39,
+          40,
+          41,
+          42,
+          61,
+          70,
+          92,
+          94,
+          100,
+          103,
+          110,
+          112,
+          113,
+          114,
+          121,
+          127
+        ],
+        "samples": [
+          {
+            "page": 6,
+            "match": "Koordinat",
+            "snippet": "…ORTAKLIĞI Toplu Konut Projesi(307 Konut + 4 Adet Ticari Alan) PROJE TANITIM DOSYASI 5 EKLER Ek: 1 Proje Alanına Ait Koordinatlar Ek: 2 Proje alanı ve yakın çevresinin mevcut arazi kullanımını değerlendirmek için; yerleşim alanlarının, ulaşım…"
+          },
+          {
+            "page": 7,
+            "match": "039,37 m2",
+            "snippet": "…, su deposu, ısıtma sistemleri, sığınak vb. alanları kapsayan konut projesi planlanmaktadır. Plan- lanan arsa alanı 52.039,37 m2 olup, arsa alanının tamamı ÇED alanıdır. Proje, 52.039,37 m2’lik arsa (ÇED) alanında, 84077,98 m2'lik toplam inşaa…"
+          },
+          {
+            "page": 7,
+            "match": "84077,98 m2",
+            "snippet": "…anan arsa alanı 52.039,37 m2 olup, arsa alanının tamamı ÇED alanıdır. Proje, 52.039,37 m2’lik arsa (ÇED) alanında, 84077,98 m2'lik toplam inşaat alanına sahip A1, A2, A3, A4, C, B1, B2, V, İ, M1, M2 ve M3 Blok’tan oluşmaktadır. Tüm alanlarda ön…"
+          },
+          {
+            "page": 7,
+            "match": "919,29 m2",
+            "snippet": "…apılmıştır. Proje kapsamında kapıcı dairesi planlanmamış olup site yönetimine alan ayrılacaktır. Projede yak- laşık 23.919,29 m2’lik alan yeşil alan olarak ayrılmıştır. Ayrıca yangın ekipmanları yangın merdivenleri tüm konutlara yerleştirilecektir…"
+          },
+          {
+            "page": 10,
+            "match": "039,37 m2",
+            "snippet": "…a, 21No’lu parsel sınırları içerisinde Toplu Konut Projesi(307 Konut + 4 Ticari Alan) planlanmaktadır. Proje, 52.039,37 m2’lik arsa (ÇED) alanında, 84077,98 m2'lik toplam inşaat alanına sahip A1, A2, A3, A4, C, B1, B2, V, İ, M1, M2 ve M3 Blo…"
+          },
+          {
+            "page": 10,
+            "match": "84077,98 m2",
+            "snippet": "…nde Toplu Konut Projesi(307 Konut + 4 Ticari Alan) planlanmaktadır. Proje, 52.039,37 m2’lik arsa (ÇED) alanında, 84077,98 m2'lik toplam inşaat alanına sahip A1, A2, A3, A4, C, B1, B2, V, İ, M1, M2 ve M3 Blok’tan oluşmaktadır. Tüm alanlarda ön…"
+          },
+          {
+            "page": 10,
+            "match": "23919,29 m2",
+            "snippet": "…lar yapılmıştır. Proje kapsamında kapıcı dairesi planlanmamış olup site yönetimi alan ayrılacaktır. Projede yakla- şık 23919,29 m2’lik alan yeşil alan olarak ayrılmıştır. Ayrıca yangın ekipmanları yangın"
+          },
+          {
+            "page": 13,
+            "match": "2100,82 m2",
+            "snippet": "…et Ticari Alan) PROJE TANITIM DOSYASI 12 Tablo 1. TAKS HESABI Blok Adı Taban Alanı TAKS Alan Hesabı A1-A2 2100,82 m2 Parsel Alanı = 52.039,37 m² TAKS Oranı = min0.20 - maks0.40 = Parsel Alanı x TAKS Oranı =52.039,37 m² x 0.40 =20.8…"
+          }
+        ]
+      },
+      "water_and_discharge": {
+        "label": "Water Use, Hydrogeology & Discharge",
+        "page_count": 22,
+        "pages": [
+          8,
+          11,
+          22,
+          23,
+          24,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          46,
+          47,
+          72,
+          77,
+          80,
+          97,
+          101,
+          102,
+          771,
+          785
+        ],
+        "samples": [
+          {
+            "page": 8,
+            "match": "dere yatağı",
+            "snippet": "…th Ekran Görüntüleri Ek-7.5’te verilmiştir. Proje alanının batı yönünde yaklaşık 6 metre mesafede Karadere adlı kuru dere yatağı bulunduğu İSKİ kanal inşaat çalışmalarının devam ettiği görülmüştür. Hidroloji Haritası Ek:2.10’da ve Hidrojeoloji Ha…"
+          },
+          {
+            "page": 11,
+            "match": "Atıksu",
+            "snippet": "…Hazırlanması; - İnşaat Ruhsatı ve Diğer İdari İzinlerin Alınması - Geçici Yolların Tanzimi, Altyapı Çalışmaları - (Atıksu Kanalizasyonu; İçme Suyu Şebekesi Bu Sırada Yapılacak.) İnşaat Öncesi Hazırlık Aşaması İnşaat Aşaması Temel Ka…"
+          },
+          {
+            "page": 22,
+            "match": "20 m3/gün",
+            "snippet": "…iyacı x günlük spreyleme sayısı Spreyleme Suyu Miktarı = 2500 m2 x 2 lt/m2 x 4 (sefer/gün) = 20.000 lt/gün = 20 m3/gün sulama suyuna ihtiyaç duyulacaktır. Toplam Su Kullanımı (İnşaat Aşaması) Toplam Su Kullanımı = İçme ve Kullanma…"
+          },
+          {
+            "page": 22,
+            "match": "22,8 m3/gün",
+            "snippet": "…yulacaktır. Toplam Su Kullanımı (İnşaat Aşaması) Toplam Su Kullanımı = İçme ve Kullanma Suyu + Sulama Suyu = 22,8 m3/gün + 20 m3/gün = 42,8 m3/gün Projenin inşaat aşamasında ihtiyaç duyulacak içme ve kullanma suyu şebeke suyun- dan ka…"
+          },
+          {
+            "page": 22,
+            "match": "42,8 m3/gün",
+            "snippet": "…llanımı (İnşaat Aşaması) Toplam Su Kullanımı = İçme ve Kullanma Suyu + Sulama Suyu = 22,8 m3/gün + 20 m3/gün = 42,8 m3/gün Projenin inşaat aşamasında ihtiyaç duyulacak içme ve kullanma suyu şebeke suyun- dan karşılanacaktır. 2- İşletme…"
+          },
+          {
+            "page": 22,
+            "match": "285,9 m3/gün",
+            "snippet": "…020) İçme ve Kullanma Suyu İhtiyacı = 228 lt/kişi-gün x 1254 kişi İçme ve Kullanma Suyu İhtiyacı = 285.912 lt/gün = 285,9 m3/gün"
+          },
+          {
+            "page": 23,
+            "match": "20 m3/gün",
+            "snippet": "…lan bü- yüklükleri ve mevsim şartları doğrultusunda değişkenlik göstereceği göz önünde bulundu- rularak yaklaşık olarak 20 m3/gün olacağı planlanmaktadır. Havuzda Su Kullanımı: Proje kapsamında 1 adet 101,25 m3 hacimli kapalı havuz yer ala- caktı…"
+          },
+          {
+            "page": 23,
+            "match": "101,25 m3/yıl",
+            "snippet": "…ebeke suyundan takviye edilecektir. Bahse konu havuzda kullanılacak su miktarı yılda 1 doldurulduğu varsayılarak; = 101,25 m3/yıl / 360 gün/yıl = 1,7 m3/gün Toplam Su Kullanımı (İşletme Aşaması) Toplam Su Kullanımı = İçme ve Kullanma Suyu + P…"
+          }
+        ]
+      },
+      "protected_land_and_olive": {
+        "label": "Protected Zones, Forests & Olive Groves",
+        "page_count": 4,
+        "pages": [
+          3,
+          70,
+          75,
+          77
+        ],
+        "samples": [
+          {
+            "page": 3,
+            "match": "ORMAN ALANI",
+            "snippet": "…PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ ................... 69 A) MEVCUT ARAZİ KULLANIMI (TARIM ALANI, ORMAN ALANI, PLANLI ALAN, SU YÜZEYİ VE BENZERİ) VE KALİTESİ, JEOLOJİK VE HİDROJEOLOJİK ÖZELLİKLERİ. ..............................…"
+          },
+          {
+            "page": 70,
+            "match": "orman alanı",
+            "snippet": "…69 BÖLÜM II. PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri. UZM GROUP İŞ ORTAKLIĞI tara…"
+          },
+          {
+            "page": 75,
+            "match": "Özel Çevre Koruma",
+            "snippet": "…melikte tanımlanan alanlar yer almamaktadır. f Çevre Kanunu’nun 9 uncu maddesi uyarınca Cumhurbaşkanı tarafından \"Özel Çevre Koruma Bölgeleri\" olarak tespit ve ilan edilen alanlar, Proje alanı içerisinde tanımlanan alanlar yer almamaktadır. g Boğ…"
+          },
+          {
+            "page": 75,
+            "match": "orman alanı",
+            "snippet": "…ma altına alınan alanlar, Proje alanı Boğaziçi Kanunu’na tabi lokasyonda yer almamaktadır. ğ Orman Kanunu uyarınca orman alanı sayılan yerler, Proje alanında, 6831 sayılı Orman Kanunu uyarınca orman alanı sayılan alanlar bulunmamaktadır. h…"
+          },
+          {
+            "page": 77,
+            "match": "kıyı kenar",
+            "snippet": "…k üzere canlıların yaşama ortamı olarak önem taşıyan bütün sular, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler. Proje sahası bu kapsamda kalmamakt…"
+          },
+          {
+            "page": 77,
+            "match": "sulak alan",
+            "snippet": "…aklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler. Proje sahası bu kapsamda kalmamaktadır. ç Göller, akarsular, yeraltı suyu işletme sahaları. Proje sah…"
+          }
+        ]
+      },
+      "ecology_and_baseline": {
+        "label": "Flora, Fauna & Baseline Methodology",
+        "page_count": 7,
+        "pages": [
+          72,
+          75,
+          77,
+          78,
+          89,
+          211,
+          292
+        ],
+        "samples": [
+          {
+            "page": 72,
+            "match": "mevsimsel",
+            "snippet": "…r. Temel kazısı sonrası temel altındaki birim kil ya da marn olacağından geçirimsiz olacaktır. Yüzey suyu seviyesinin mevsimsel olarak yağışlar neticesinde yükselmesi ve temel seviyesine ulaşması söz konusu olabilir. Bu nedenle yüzey suyunun stat…"
+          },
+          {
+            "page": 75,
+            "match": "BERN Sözleşmesi",
+            "snippet": "…eşmeler Uyarınca Korunması Gerekli Alanlar a \"Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi\" (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan \"Önemli Deniz Kaplumbağası Üreme Alanlarında belirtilen I. ve II. Koruma…"
+          },
+          {
+            "page": 77,
+            "match": "endemik",
+            "snippet": "…ır. d Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz ö…"
+          },
+          {
+            "page": 78,
+            "match": "Flora ve Fauna",
+            "snippet": "UZM GROUP İŞ ORTAKLIĞI Toplu Konut Projesi(307 Konut + 4 Adet Ticari Alan) PROJE TANITIM DOSYASI 77 Flora ve Fauna Söz konusu proje alanının antropejen etkilere açık bir alanda olması doğal flora örtüsünün kaybolmasına neden olmuş…"
+          },
+          {
+            "page": 89,
+            "match": "mevsimsel",
+            "snippet": "…malar süresince aşağıdaki önlemler alınarak toz oluşumu en az seviyeye indirilecektir. • Alandaki yol güzergahları mevsimsel koşullara bağlı olarak su ile nemlendirilecek • Malzeme boşaltma ve doldurma işlemleri savrulmadan yapılacak, • Ka…"
+          },
+          {
+            "page": 211,
+            "match": "mevsimsel",
+            "snippet": "…ır. Temel kazısı sonrası temel altındaki birim kil ya da marn olacağından geçirimsiz olacaktır. Yüzey suyu seviyesinin mevsimsel olarak yağışlar neticesinde yükselmesi ve temel seviyesine ulaşması söz konusu olabilir. Bu nedenle yüzey suyunun stat…"
+          },
+          {
+            "page": 292,
+            "match": "mevsimsel",
+            "snippet": "…ır. Temel kazısı sonrası temel altındaki birim kil ya da marn olacağından geçirimsiz olacaktır. Yüzey suyu seviyesinin mevsimsel olarak yağışlar neticesinde yükselmesi ve temel seviyesine ulaşması söz konusu olabilir. Bu nedenle yüzey suyunun stat…"
+          }
+        ]
+      },
+      "pollutants_and_hazards": {
+        "label": "Emissions, Geochemistry & Waste",
+        "page_count": 48,
+        "pages": [
+          11,
+          14,
+          31,
+          37,
+          38,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          61,
+          62,
+          66,
+          67,
+          69,
+          72,
+          73,
+          79,
+          84
+        ],
+        "samples": [
+          {
+            "page": 11,
+            "match": "Gürültü",
+            "snippet": "…(Binaların Kaba ve İnce İnşaat İşleri) Nihai Yollar ve Peyzaj Düzenleme Projenin Yerleşime Açılması - Emisyon - Gürültü - Hafriyat Atığı - İnşaat Malzemesi - Ambalaj Atığı - Gürültü - Atık Yağ - Tehlikeli Atık - Bitkisel Atık Yağlar…"
+          },
+          {
+            "page": 11,
+            "match": "Tehlikeli Atık",
+            "snippet": "…rleşime Açılması - Emisyon - Gürültü - Hafriyat Atığı - İnşaat Malzemesi - Ambalaj Atığı - Gürültü - Atık Yağ - Tehlikeli Atık - Bitkisel Atık Yağlar - Evsel Katı Atıklar - Evsel Sıvı Atıklar - Ambalaj Atığı - Atık Yağ"
+          },
+          {
+            "page": 14,
+            "match": "Deprem",
+            "snippet": "…r. Yerleşime uygunluk çalışmasında Önlemli Alan(ÖA) olarak tespit edilmiştir. (Bkz: EK-7.4) 2018 yılında Türkiye Bina Deprem Yönetmeliği (TBDY) yapıların daha güvenli ve dayanımlı olmalarını sağlamak açısından geliştirilerek güncellenmiştir. B…"
+          },
+          {
+            "page": 31,
+            "match": "tehlikeli atık",
+            "snippet": "…4 Adet Ticari Alan) PROJE TANITIM DOSYASI 30 içerisinde geçici olarak muhafaza edilecek, konteynırların üzerinde tehlikeli atık ibaresine yer verilecek, depolanan maddenin miktarı ve depolama tarihi konteynırlar üzerinde belirtilecek, konteynırl…"
+          },
+          {
+            "page": 37,
+            "match": "toz emisyon",
+            "snippet": "…n/gün 238,12 ton/gün / 8 saat/gün = 29,8 ton/saat hafriyat atığı açığa çıkacaktır. İnşaat faaliyetlerinde kontrollü toz emisyon oluşumu için, su ile ıslatılmak suretiyle gerekli önlemler alınacaktır. Ayrıca18.03.2004 Tarih ve 25406 Sayılı Resmi G…"
+          },
+          {
+            "page": 38,
+            "match": "Toz Emisyon",
+            "snippet": "…UZM GROUP İŞ ORTAKLIĞI Toplu Konut Projesi(307 Konut + 4 Adet Ticari Alan) PROJE TANITIM DOSYASI 37 Emisyon; Toz Emisyon Miktarı: İnşaat Aşamasında Meydana Gelen Toz Emisyon Miktarları Temel Kazının Sıyrılması Sırasında Meydana Gelebilec…"
+          },
+          {
+            "page": 48,
+            "match": "Gürültü",
+            "snippet": "…yayımlana- rak yürürlüğe giren Isınmadan Kaynaklı Hava Kirliliğinin Kontrolü Yönetmeliği hükümle- rine uyulacaktır. Gürültü Miktarı: İnşaat Aşamasında Meydana Gelebilecek Gürültü İnşaat süresince iş makinelerinin çalışması esnasında gü…"
+          },
+          {
+            "page": 49,
+            "match": "gürültü",
+            "snippet": "…onut + 4 Adet Ticari Alan) PROJE TANITIM DOSYASI 48 İnşaat süresince açık alanda kullanılacak iş makinelerinin gürültü kaynaklarının ses gücü düzeylerinin hesaplanması için, 30.12.2006 tarih ve 26392 sayılı Resmî Gazetede ya- yımlanan “A…"
+          }
+        ]
+      },
+      "cost_and_capacity": {
+        "label": "Proje Bedeli, Güç ve Kapasite",
+        "page_count": 14,
+        "pages": [
+          2,
+          3,
+          10,
+          13,
+          17,
+          28,
+          39,
+          41,
+          42,
+          49,
+          64,
+          79,
+          85,
+          121
+        ],
+        "samples": [
+          {
+            "page": 2,
+            "match": "PROJE BEDELİ",
+            "snippet": "…62 73 Faks : --- E-POSTA info@uzmgroup.com.tr PROJENİN ADI TOPLU KONUT PROJESİ(307 KONUT + 4 ADET TİCARİ ALAN) PROJE BEDELİ 4.976.316.184,6 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) Tatarcık Mahallesi 125 Ada, 21 No’lu…"
+          },
+          {
+            "page": 3,
+            "match": "KAPASİTE",
+            "snippet": "…E YERİN ALTERNATİFLERİ (PROJE TEKNOLOJİSİNİN VE PROJE ALANININ SEÇİLME NEDENLERİ) ...... 9 B) PROJENİN İŞ AKIM ŞEMASI, KAPASİTESİ, KAPLADIĞI ALAN, YATIRIM BEDELİ, TEKNOLOJİSİ, ÇALIŞACAK PERSONEL SAYISI, ...........................................…"
+          },
+          {
+            "page": 10,
+            "match": "kapasite",
+            "snippet": "…olayı, proje için herhangi bir alternatif önerisinin yapılmasına gerek görülmemektedir. b) Projenin iş akım şeması, kapasitesi, kapladığı alan, yatırım bedeli, teknolojisi, çalışacak personel sayısı, Projenin İş Akım Şeması, Kapasitesi, Kap…"
+          },
+          {
+            "page": 13,
+            "match": "kapasite",
+            "snippet": "…ında verilmiştir. (Bknz: Ek-2.3) Projenin Teknolojisi: Projesi kapsamında kurulacak yerleşim alanının işlev ve kapasite açısından hizmet ömrü sınırsızdır. Proje kapsamında inşa edilecek konutlar mevcut inşaat teknolojileri ile en üst düz…"
+          },
+          {
+            "page": 17,
+            "match": "50.000 TL",
+            "snippet": "…)) = 2.374.347.684,6 olarak hesaplanmıştır. Arazi edinim bedeli; Projenin yapılacağı parselin m2 rayiç değeri 50.000 TL olup E-devlet üzerinden alınan Sorgulama Evrakı Ek-7.6’da verilmiştir. Buna göre Arsa edinim bedeli; 52.039,37 m2…"
+          },
+          {
+            "page": 28,
+            "match": "kapasite",
+            "snippet": "…e kamyonların bakım ve yağ değişimleri esnasında atık yağların oluşması muhtemeldir. Her bir aracın ortalama 5 lt yağ kapasitesi olduğu ve bu yağın ortalama 6 ayda bir değiştiği kabul edilirse, 48 aylık süre bo- yunca yaklaşık 4 sefer değişim yap…"
+          },
+          {
+            "page": 39,
+            "match": "346,793 ton/yıl",
+            "snippet": "…= 87346,793 ton) temel kazı miktarı Başakşehir Belediyesinin göstereceği izinli döküm alanlarına gönderilecektir. 87346,793 ton/yıl /360 gün= 242,63 ton/gün 242,63 ton/gün/30 ton (kamyon kapasitesi) = ortalama 8 sefer Taşıma Emisyon Toz Faktörü (kg/…"
+          },
+          {
+            "page": 39,
+            "match": "kapasite",
+            "snippet": "…eği izinli döküm alanlarına gönderilecektir. 87346,793 ton/yıl /360 gün= 242,63 ton/gün 242,63 ton/gün/30 ton (kamyon kapasitesi) = ortalama 8 sefer Taşıma Emisyon Toz Faktörü (kg/ton) x Sefer Sayısı (sefer/saat)x Taşıma Mesafesi (km) Kontrols…"
+          }
+        ]
+      },
+      "splitting_and_thresholds": {
+        "label": "Proje Parçalama, Kapasite Artışı ve Eşik Değerler",
+        "page_count": 2,
+        "pages": [
+          94,
+          107
+        ],
+        "samples": [
+          {
+            "page": 94,
+            "match": "ÇED alanı",
+            "snippet": "…renin ortasında olmak üzere bir kenar uzunluğu 2 km olan kare şeklindeki alan olarak tanım- lanmıştır. Tesis etki alanı ÇED alanı köşe noktaları bir kenar uzunluğu 2 km olan alanın orta noktası kabul edilerek genişletilmiştir. Bu alan aşağıda yer a…"
+          },
+          {
+            "page": 107,
+            "match": "5403 sayılı",
+            "snippet": "…arayolları Trafik Kanunu” ➢ 1593 sayılı “Umumi Hıfzıssıhha Kanunu\", ➢ 6331 sayılı \"İş Sağlığı ve Güvenliği Kanunu” ➢ 5403 sayılı “Toprak Koruma ve Arazi Kullanım Kanunu” ➢ 29.07.2022 tarih ve 31907 sayılı Resmî Gazetede yayımlanarak yürürlüğe gire…"
+          }
+        ]
+      }
+    },
+    "audit_checks": {
+      "mentions_field_survey": true,
+      "mentions_literature_only_cue": false,
+      "mentions_seasonal_sampling": true,
+      "mentions_cumulative_impact": true,
+      "mentions_olive_law_3573": false,
+      "mentions_groundwater_or_aquifer": true,
+      "mentions_iucn_or_endemic": true,
+      "mentions_capacity_or_splitting": false,
+      "mentions_circular_2009_7_or_revision": false
+    }
+  },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-22T00:56:25",
+      "decision_type": "ÇED Gerekli Değil/ÇED Olumlu",
+      "announcement_date": "2026-11-18",
+      "announcement_date_tr": "18.11.2026",
+      "submitted_at": "21/09/2026 02:39:09",
+      "consulting_firm": "AKYA PROJE ETÜD MÜH. DAN. LTD. ŞTİ.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign2599342387972164503.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-10",
+      "pdf_temp_ad": "sign2599342387972164503.pdf",
+      "pdf_original_name": "e-imza.pdf",
+      "pdf_upload_date": "2026-11-10",
+      "sha256": "0d5dcece56b02568e8114a8d333f492fba94728c543c8a12e921eaa60bfd1ba6",
+      "bytes": 132896251,
+      "page_count": 835,
+      "text_pages": 757,
+      "scanned_or_blank_pages": 78,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": true,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": false,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true,
+        "mentions_capacity_or_splitting": false,
+        "mentions_circular_2009_7_or_revision": false
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 138,
+        "water_and_discharge": 22,
+        "protected_land_and_olive": 4,
+        "ecology_and_baseline": 7,
+        "pollutants_and_hazards": 48,
+        "cost_and_capacity": 14,
+        "splitting_and_thresholds": 2
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 41.10348,
+      "geo_lon": 28.68393,
+      "geo_point_count": 80,
+      "detail_text_sha256": "b48154ae82663ac9"
+    }
+  ],
+  "llm_synthesis": {
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-11-22T00:56:32",
+    "pages_sent": [
+      1,
+      2,
+      3,
+      6,
+      7,
+      8,
+      10,
+      11,
+      14,
+      22,
+      23,
+      31,
+      37,
+      70,
+      71,
+      72,
+      75,
+      77,
+      78,
+      79,
+      80,
+      95,
+      96,
+      105,
+      106,
+      107
+    ],
+    "usage": {
+      "prompt_tokens": 18752,
+      "output_tokens": 2211,
+      "thoughts_tokens": null,
+      "total_tokens": 20963
+    },
+    "result": {
+      "executive_summary_tr": "Uzm Grup İş Ortaklığı tarafından İstanbul ili, Başakşehir ilçesi, Tatarcık Mahallesi 125 ada 21 parsel sınırları içinde 307 konut ve 4 ticari alandan oluşan Toplu Konut Projesi planlanmaktadır. Toplam 52.039,37 m2 arsa alanına sahip projede 84.077,98 m2 inşaat alanı öngörülmüş olup, III. sınıf tarım arazisinde yer alan saha Sazlıdere Barajı'na 1500 m mesafededir. Dosyada antantropojen etkiler gerekçe gösterilerek flora ve fauna listelerine yer verilmemiş, Karadere kuru dere yatağının hemen yanında yer alan proje için altyapı ve kurum görüşleri taahhüt aşamasında bırakılmıştır.",
+      "executive_summary_en": "Uzm Group Business Partnership plans a mass housing project consisting of 307 residences and 4 commercial areas on plot 125, parcel 21 in Tatarcık Neighborhood, Başakşehir District, Istanbul. The project spans a 52,039.37 m2 land area with a total construction area of 84,077.98 m2, located on a Class III agricultural land approximately 1,500 meters from the Sazlıdere Dam. Citing anthropogenic impacts, the file omits flora and fauna inventories entirely, while baseline hydrological risks and agency consents regarding the adjacent Karadere dry stream bed are deferred to the post-approval stage.",
+      "key_facts": [
+        {
+          "label": "Arsa (ÇED) Alanı",
+          "value": "52.039,37 m2",
+          "page": 7
+        },
+        {
+          "label": "Toplam İnşaat Alanı",
+          "value": "84.077,98 m2",
+          "page": 7
+        },
+        {
+          "label": "Proje Bedeli",
+          "value": "4.976.316.184,6 TL",
+          "page": 2
+        },
+        {
+          "label": "Konut ve Ticari Birim Sayısı",
+          "value": "307 Konut + 4 Ticari Alan",
+          "page": 7
+        },
+        {
+          "label": "İnşaat Süresi ve Personel",
+          "value": "4 yıl, 100 personel",
+          "page": 7
+        },
+        {
+          "label": "Fore Kazık ve Zemin İyileştirme",
+          "value": "2986 adet kazık (1346 fore kazık, 1204 jetgrout, 436 plastik kazık)",
+          "page": 8
+        },
+        {
+          "label": "İşletme Aşaması Nüfusu",
+          "value": "1254 kişi",
+          "page": 22
+        },
+        {
+          "label": "İşletme Suyu İhtiyacı",
+          "value": "307,6 m3/gün",
+          "page": 23
+        },
+        {
+          "label": "Tarım Arazisi Sınıfı",
+          "value": "III. Sınıf Tarım Arazisi",
+          "page": 70
+        },
+        {
+          "label": "Sazlıdere Barajı Mesafesi",
+          "value": "1500 m",
+          "page": 71
+        }
+      ],
+      "baseline_assessment": {
+        "field_survey_status": "literature_only",
+        "seasonal_sampling_status": "not_found",
+        "cumulative_impact_status": "omitted_or_not_found",
+        "olive_and_protected_status": "Proje alanı III. Sınıf tarım arazisi üzerinde yer almakta olup, 6831 sayılı Orman Kanunu ve 3573 sayılı Zeytincilik Kanunu kapsamında korunan alanlarda kalmamaktadır [s. 70, 75]. Sazlıdere Barajı'na 1500 metre mesafede konumlanmaktadır [s. 75].",
+        "explanation": "Proje tanıtım dosyasında, alanın antantropojen etkilere açık olduğu gerekçesiyle herhangi bir flora ve fauna sahası çalışması yapılmamış, canlı türlerinin bulunmadığı iddia edilerek çalışma tamamen dışlanmıştır [s. 78]. Bölgesel birikimli etkiler değerlendirilmemiş, hidrojeolojik incelemeler ise sondaj verileriyle sınırlı tutulmuştur."
+      },
+      "red_flags": [
+        {
+          "category": "flora_fauna_mevsimsel",
+          "severity": "high",
+          "title": "Flora ve Fauna Envanterinin Tamamen İhmal Edilmesi",
+          "detail": "Proje alanının antropojen etkilere açık olduğu iddiasıyla hiçbir flora ve fauna envanteri ve mevsimsel gözlem çalışması yapılmamış, alanın ekolojik özellikleri bilimsel dayanaktan yoksun şekilde göz ardı edilmiştir [s. 78].",
+          "pages": [
+            78
+          ]
+        },
+        {
+          "category": "su_hidrojeoloji",
+          "severity": "high",
+          "title": "Dere Yatağına Yakınlık ve Altyapı/Kurum Görüşlerinin Eksikliği",
+          "detail": "Proje alanının batı yönünde yaklaşık 6 metre mesafede Karadere adlı kuru dere yatağı bulunmasına ve İSKİ kanal çalışmalarının sürmesine rağmen, gerekli taahhütlerin ve kurum görüşlerinin proje sonrasına bırakıldığı ifade edilmiştir [s. 8, 72].",
+          "pages": [
+            8,
+            72,
+            77
+          ]
+        },
+        {
+          "category": "tarim_orman_korunan_alan",
+          "severity": "medium",
+          "title": "III. Sınıf Tarım Arazisinde Yapılaşma ve Toprak Koruma",
+          "detail": "Proje sahasının III. Sınıf tarım arazisi niteliğinde olmasına rağmen, 5403 sayılı Toprak Koruma ve Arazi Kullanım Kanunu kapsamında İl Tarım ve Orman Müdürlüğü'nden alınması zorunlu tarım dışı amaçlı kullanım izin belgelerinin dosyada sunulmadığı görülmektedir [s. 70].",
+          "pages": [
+            70
+          ]
+        },
+        {
+          "category": "kumulatif_etki",
+          "severity": "high",
+          "title": "Bölgesel Kumülatif Etki Değerlendirmesinin Bulunmaması",
+          "detail": "Başakşehir bölgesindeki yoğun yapılaşma ve yakın çevredeki hafriyat döküm geçmişi dikkate alınmasına rağmen, bölgedeki diğer projelerle birlikte yaratacağı kümülatif çevresel ve trafik etkileri raporda nicel olarak değerlendirilmemiştir [s. 8, 93].",
+          "pages": [
+            8,
+            93
+          ]
+        }
+      ],
+      "recommended_bilirkisi_disciplines": [
+        "Çevre Mühendisi",
+        "Hidrojeoloji Mühendisi",
+        "Biyolog",
+        "Ziraat Mühendisi",
+        "Şehir ve Bölge Plancısı"
+      ],
+      "hkt_and_petition_questions": [
+        {
+          "question_tr": "Proje alanına 6 metre mesafede yer alan Karadere kuru dere yatağının olası taşkın riskleri ve Sazlıdere Barajı su toplama havzasındaki su kalitesine etkileri açısından hangi hidrolojik modellemeler yapılmıştır?",
+          "pages": [
+            8,
+            72,
+            77
+          ]
+        },
+        {
+          "question_tr": "Antropojen etki gerekçesiyle flora ve fauna envanteri çalışması yapılmamasının dayanağı nedir; alandaki olası ekosistem unsurları hangi bilimsel yöntemle taranmıştır?",
+          "pages": [
+            78
+          ]
+        },
+        {
+          "question_tr": "III. sınıf tarım arazisi vasfındaki 125 ada 21 parsel için 5403 sayılı Kanun uyarınca İl Tarım ve Orman Müdürlüğü'nden alınmış nihai tarım dışı kullanım izni var mıdır?",
+          "pages": [
+            70,
+            75
+          ]
+        },
+        {
+          "question_tr": "Geçmişte izinsiz hafriyat dökümü yapıldığı belediye tarafından tespit edilen sahada [s. 8], zemin iyileştirmesi kapsamında yapılacak 2986 adet kazık uygulamasının yer altı suyu ve zemin kararlılığına etkileri nasıl denetlenecektir?",
+          "pages": [
+            8,
+            14
+          ]
+        }
+      ],
+      "data_limitations": "İncelenen dosya metninde bazı Ekler (Zemin Etüt Raporu, İmar Durum Belgeleri, İSKİ görüşleri ve Harita ekleri) metin içinde atıf yapılarak geçilmiş ancak tam metin veya taranmış orijinal ek dokümanların bir kısmı sunulan örnek sayfalarda yer almamıştır."
+    }
+  }
+}

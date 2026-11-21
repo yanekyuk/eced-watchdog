@@ -144,6 +144,8 @@ journalctl --user -u eced-watchdog.service -n 50 --no-pager
 | `--days N` | `7` | Lookback window in days |
 | `--provinces CODE:LABEL ...` | *(all 81)* | Optional province restriction (omit for nationwide Türkiye) |
 | `--check-revisions` | `false` | Re-check portal document pages on already-cached rows to detect silent PDF/metadata edits |
+| `--enrich-gis` | `false` | Query OpenStreetMap/Overpass (3 km bbox, cached in `data/gis_cache.json`) to detect omitted olive groves, streams, protected areas & settlements |
+| `--max-gis N` | `15` | Max new Overpass GIS lookups per run when `--enrich-gis` is enabled |
 | `--max-digests N` | `5` | Max newly downloaded & synthesized PDFs per run |
 | `--workers N` | `4` | Parallel workers for PDF parsing & Gemini synthesis (portal downloads stay capped at 2 concurrent) |
 | `--drop-pdfs` | `false` | Delete raw PDFs after extraction/synthesis |

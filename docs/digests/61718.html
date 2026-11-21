@@ -7,20 +7,20 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
 :root {
-  --bg: #f6f8fa;
+  --bg: #f8f9fb;
   --surface: #ffffff;
-  --surface-subtle: #f1f4f8;
-  --border: #d8dee6;
-  --border-strong: #bcc6d4;
-  --text: #161b22;
-  --text-secondary: #424a53;
-  --muted: #5c6670;
-  --accent: #0b5ed7;
-  --accent-soft: #e7f1ff;
+  --surface-subtle: #f2f4f7;
+  --border: #e4e7ec;
+  --border-strong: #cfd5df;
+  --text: #101828;
+  --text-secondary: #344054;
+  --muted: #667085;
+  --accent: #175cd3;
+  --accent-soft: #eff8ff;
   --red: #b42318;
   --red-soft: #fef3f2;
   --red-border: #fecdca;
-  --amber: #9a5b00;
+  --amber: #b54708;
   --amber-soft: #fffaeb;
   --amber-border: #fedf89;
   --green: #067647;
@@ -29,60 +29,60 @@
   --violet: #5925dc;
   --violet-soft: #f4f3ff;
   --violet-border: #d9d6fe;
-  --shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
   --radius: 10px;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0d1117;
-    --surface: #161b22;
-    --surface-subtle: #1c222b;
-    --border: #2b333e;
-    --border-strong: #3d4756;
-    --text: #e6edf3;
-    --text-secondary: #c9d1d9;
-    --muted: #8b949e;
-    --accent: #58a6ff;
-    --accent-soft: rgba(88, 166, 255, 0.14);
-    --red: #ff7b72;
-    --red-soft: rgba(248, 81, 73, 0.14);
-    --red-border: rgba(248, 81, 73, 0.4);
-    --amber: #e3b341;
-    --amber-soft: rgba(210, 153, 34, 0.14);
-    --amber-border: rgba(210, 153, 34, 0.4);
-    --green: #3fb950;
-    --green-soft: rgba(63, 185, 80, 0.14);
-    --green-border: rgba(63, 185, 80, 0.4);
-    --violet: #b692f6;
-    --violet-soft: rgba(158, 119, 237, 0.16);
-    --violet-border: rgba(158, 119, 237, 0.42);
-    --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    --bg: #0f131a;
+    --surface: #161b24;
+    --surface-subtle: #1d2430;
+    --border: #273040;
+    --border-strong: #39465c;
+    --text: #eaedf2;
+    --text-secondary: #c5cdd9;
+    --muted: #8a95a6;
+    --accent: #6cb0ff;
+    --accent-soft: rgba(108, 176, 255, 0.14);
+    --red: #ff857a;
+    --red-soft: rgba(248, 81, 73, 0.13);
+    --red-border: rgba(248, 81, 73, 0.36);
+    --amber: #f0b849;
+    --amber-soft: rgba(210, 153, 34, 0.13);
+    --amber-border: rgba(210, 153, 34, 0.36);
+    --green: #4cc38a;
+    --green-soft: rgba(63, 185, 80, 0.13);
+    --green-border: rgba(63, 185, 80, 0.36);
+    --violet: #bda3ff;
+    --violet-soft: rgba(158, 119, 237, 0.15);
+    --violet-border: rgba(158, 119, 237, 0.38);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0d1117;
-  --surface: #161b22;
-  --surface-subtle: #1c222b;
-  --border: #2b333e;
-  --border-strong: #3d4756;
-  --text: #e6edf3;
-  --text-secondary: #c9d1d9;
-  --muted: #8b949e;
-  --accent: #58a6ff;
-  --accent-soft: rgba(88, 166, 255, 0.14);
-  --red: #ff7b72;
-  --red-soft: rgba(248, 81, 73, 0.14);
-  --red-border: rgba(248, 81, 73, 0.4);
-  --amber: #e3b341;
-  --amber-soft: rgba(210, 153, 34, 0.14);
-  --amber-border: rgba(210, 153, 34, 0.4);
-  --green: #3fb950;
-  --green-soft: rgba(63, 185, 80, 0.14);
-  --green-border: rgba(63, 185, 80, 0.4);
-  --violet: #b692f6;
-  --violet-soft: rgba(158, 119, 237, 0.16);
-  --violet-border: rgba(158, 119, 237, 0.42);
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --bg: #0f131a;
+  --surface: #161b24;
+  --surface-subtle: #1d2430;
+  --border: #273040;
+  --border-strong: #39465c;
+  --text: #eaedf2;
+  --text-secondary: #c5cdd9;
+  --muted: #8a95a6;
+  --accent: #6cb0ff;
+  --accent-soft: rgba(108, 176, 255, 0.14);
+  --red: #ff857a;
+  --red-soft: rgba(248, 81, 73, 0.13);
+  --red-border: rgba(248, 81, 73, 0.36);
+  --amber: #f0b849;
+  --amber-soft: rgba(210, 153, 34, 0.13);
+  --amber-border: rgba(210, 153, 34, 0.36);
+  --green: #4cc38a;
+  --green-soft: rgba(63, 185, 80, 0.13);
+  --green-border: rgba(63, 185, 80, 0.36);
+  --violet: #bda3ff;
+  --violet-soft: rgba(158, 119, 237, 0.15);
+  --violet-border: rgba(158, 119, 237, 0.38);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -105,30 +105,29 @@ a:hover { text-decoration: underline; }
   z-index: 900;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
-  box-shadow: var(--shadow);
 }
 .topbar-inner {
-  max-width: 1220px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 11px 20px;
+  padding: 10px 20px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 10px;
 }
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
   color: var(--text);
   font-weight: 700;
-  font-size: 0.98rem;
+  font-size: 0.96rem;
   letter-spacing: -0.01em;
 }
 .brand:hover { text-decoration: none; color: var(--accent); }
 .brand-scope {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: var(--accent);
   background: var(--accent-soft);
@@ -139,130 +138,114 @@ a:hover { text-decoration: underline; }
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
 }
 .nav-link {
-  padding: 5px 11px;
+  padding: 5px 10px;
   border-radius: 7px;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   font-weight: 500;
   color: var(--text-secondary);
 }
 .nav-link:hover { background: var(--surface-subtle); text-decoration: none; color: var(--text); }
 .nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
 .theme-btn {
+  margin-left: 4px;
   padding: 5px 10px;
   border-radius: 7px;
   border: 1px solid var(--border);
-  background: var(--surface-subtle);
-  color: var(--text-secondary);
+  background: transparent;
+  color: var(--muted);
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.79rem;
   font-weight: 500;
 }
 .theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
 
 /* Layout */
-.wrap { max-width: 1220px; margin: 0 auto; padding: 24px 20px 68px; }
-.wrap.narrow { max-width: 960px; }
-header.page-head { margin-bottom: 20px; }
-h1 { margin: 0 0 8px; font-size: 1.62rem; line-height: 1.25; letter-spacing: -0.02em; }
-h2 { margin: 28px 0 12px; font-size: 1.2rem; line-height: 1.3; letter-spacing: -0.01em; }
-h3 { margin: 16px 0 8px; font-size: 0.98rem; line-height: 1.35; }
-.sub { color: var(--muted); font-size: 0.93rem; margin: 0; }
-.meta-bar {
+.wrap { max-width: 1120px; margin: 0 auto; padding: 22px 20px 72px; }
+.wrap.narrow { max-width: 900px; }
+h1 { margin: 0 0 6px; font-size: 1.5rem; line-height: 1.25; letter-spacing: -0.02em; }
+h2 { margin: 28px 0 10px; font-size: 1.15rem; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { margin: 16px 0 8px; font-size: 0.96rem; line-height: 1.35; }
+.sub { color: var(--muted); font-size: 0.91rem; margin: 0; }
+
+/* Compact Masthead */
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 20px;
+  margin-bottom: 16px;
+}
+.masthead-left { max-width: 720px; }
+.masthead-right {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px 16px;
-  margin-top: 12px;
-  font-size: 0.84rem;
+  gap: 10px;
+  font-size: 0.82rem;
   color: var(--muted);
 }
-
-/* Orientation Banner */
-.hero-strip {
+.kpi-line {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px 18px;
+  gap: 6px 18px;
+  padding: 10px 16px;
+  margin-bottom: 14px;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-left: 4px solid var(--accent);
   border-radius: var(--radius);
-  padding: 14px 18px;
-  margin-bottom: 18px;
-  box-shadow: var(--shadow);
-}
-.hero-strip p { margin: 0; font-size: 0.9rem; color: var(--text-secondary); max-width: 820px; }
-.hero-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 13px;
-  border-radius: 7px;
-  background: var(--accent);
-  color: #ffffff;
   font-size: 0.84rem;
-  font-weight: 600;
-  white-space: nowrap;
-}
-.hero-cta:hover { text-decoration: none; filter: brightness(1.06); }
-
-/* KPI Stats */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
-  gap: 12px;
-  margin: 0 0 18px;
-}
-.stat {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 13px 16px;
+  color: var(--muted);
   box-shadow: var(--shadow);
 }
-.stat .num {
-  font-size: 1.5rem;
-  font-weight: 700;
+.kpi-item { display: inline-flex; align-items: baseline; gap: 5px; }
+.kpi-item strong {
+  color: var(--text);
+  font-size: 0.96rem;
   font-variant-numeric: tabular-nums;
-  line-height: 1.2;
 }
-.stat .lbl { font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
-.stat.accent .num { color: var(--accent); }
-.stat.rev .num { color: var(--violet); }
+.kpi-item.accent strong { color: var(--accent); }
+.kpi-item.rev strong { color: var(--violet); }
+.kpi-sep { color: var(--border-strong); user-select: none; }
 
-/* Map */
+/* Map Card */
 .map-box {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   box-shadow: var(--shadow);
 }
-#map { width: 100%; height: 400px; background: var(--surface-subtle); }
-#digest-map { width: 100%; height: 320px; background: var(--surface-subtle); }
-.map-legend {
+.map-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 16px;
-  padding: 10px 16px;
-  font-size: 0.79rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 14px;
+  padding: 9px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
   color: var(--muted);
-  border-top: 1px solid var(--border);
-  background: var(--surface-subtle);
 }
-.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+.map-box.collapsed .map-bar { border-bottom: none; }
+.map-box.collapsed #map { display: none; }
+.map-legend-inline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+#map { width: 100%; height: 320px; background: var(--surface-subtle); }
+#digest-map { width: 100%; height: 300px; background: var(--surface-subtle); }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
 
-/* Controls */
+/* Streamlined Controls */
 .controls-panel {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 14px 16px;
+  padding: 12px 14px;
   margin-bottom: 14px;
   box-shadow: var(--shadow);
 }
@@ -272,76 +255,104 @@ h3 { margin: 16px 0 8px; font-size: 0.98rem; line-height: 1.35; }
   gap: 8px;
   align-items: center;
 }
-.controls-row + .controls-row { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+.controls-row + .controls-row {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.advanced-row { display: none; }
+.advanced-row.open { display: flex; }
 input[type="search"], select.filter-select {
-  padding: 8px 12px;
+  padding: 7px 11px;
   border-radius: 7px;
   border: 1px solid var(--border);
   background: var(--bg);
   color: var(--text);
-  font-size: 0.88rem;
+  font-size: 0.87rem;
 }
 input[type="search"]:focus, select.filter-select:focus {
   outline: 2px solid var(--accent-soft);
   border-color: var(--accent);
 }
-input[type="search"] { flex: 1 1 250px; }
-select.filter-select { min-width: 165px; }
+input[type="search"] { flex: 1 1 240px; }
+select.filter-select { min-width: 155px; }
 button.pill {
-  padding: 6px 12px;
+  padding: 5px 11px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: var(--surface-subtle);
+  background: transparent;
   color: var(--text-secondary);
   cursor: pointer;
-  font-size: 0.81rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  transition: background 0.12s, border-color 0.12s;
 }
-button.pill:hover { border-color: var(--border-strong); color: var(--text); }
+button.pill:hover { background: var(--surface-subtle); color: var(--text); }
 button.pill.active { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 600; }
 button.pill.rev-pill.active { background: var(--violet); border-color: var(--violet); }
-button.reset-btn {
-  margin-left: auto;
-  padding: 5px 10px;
+.ctrl-right { margin-left: auto; display: flex; align-items: center; gap: 6px; }
+button.ghost-btn {
+  padding: 5px 9px;
   border-radius: 7px;
   border: 1px solid var(--border);
   background: transparent;
   color: var(--muted);
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.79rem;
+  font-weight: 500;
 }
-button.reset-btn:hover { color: var(--text); border-color: var(--border-strong); }
+button.ghost-btn:hover { color: var(--text); border-color: var(--border-strong); background: var(--surface-subtle); }
 
-/* Cards & Badges */
-.cards { display: flex; flex-direction: column; gap: 11px; }
+/* Calm Two-Tier Cards */
+.list-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+.cards { display: flex; flex-direction: column; gap: 10px; }
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 16px 18px;
+  padding: 15px 18px;
   box-shadow: var(--shadow);
+  transition: border-color 0.12s;
 }
-.card.ek1 { border-left: 4px solid var(--accent); }
-.card.has-rev { border-left: 4px solid var(--violet); }
-.card.ek1.has-rev { border-left: 4px solid var(--violet); }
-.row-top {
+.card:hover { border-color: var(--border-strong); }
+.card.urgent-edge { border-left: 3px solid var(--red); }
+.card.ek1 { border-left: 3px solid var(--accent); }
+.card.has-rev { border-left: 3px solid var(--violet); }
+.card.urgent-edge.has-rev { border-left: 3px solid var(--red); }
+
+/* Tier 1: Quiet Metadata Context Row (zero boxes!) */
+.card-ctx {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 8px 14px;
-  align-items: flex-start;
+  align-items: baseline;
+  gap: 4px 12px;
+  font-size: 0.79rem;
+  color: var(--muted);
+  margin-bottom: 5px;
 }
-.title { font-weight: 650; font-size: 1rem; line-height: 1.38; color: var(--text); flex: 1 1 320px; }
+.ctx-left { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.ctx-loc { color: var(--text-secondary); font-weight: 600; }
+.ctx-ek1 { color: var(--accent); font-weight: 600; }
+.ctx-geo { color: var(--green); font-weight: 500; }
+.ctx-sep { color: var(--border-strong); }
+.ctx-right { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.title { font-weight: 650; font-size: 1.01rem; line-height: 1.38; color: var(--text); margin: 0; }
 .title a { color: var(--text); }
 .title a:hover { color: var(--accent); text-decoration: none; }
-.date-meta {
-  font-size: 0.8rem;
-  color: var(--muted);
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums;
-}
-.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.owner-line { font-size: 0.82rem; color: var(--muted); margin: 3px 0 0; }
+
+/* Tier 2: Signal Pills (Status, Clock, Findings, Revision ONLY) */
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
 .badge {
   display: inline-flex;
   align-items: center;
@@ -360,30 +371,40 @@ button.reset-btn:hover { color: var(--text); border-color: var(--border-strong);
 .badge.info { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
 .badge.rev { background: var(--violet-soft); border-color: var(--violet-border); color: var(--violet); font-weight: 600; }
 .badge.muted { color: var(--muted); }
-.detail { font-size: 0.88rem; color: var(--text-secondary); margin: 9px 0 0; }
-.detail.muted { color: var(--muted); }
 
-/* Revision inline strip on cards */
-.rev-strip {
-  margin-top: 10px;
-  padding: 8px 11px;
-  border-radius: 7px;
+/* Calm 2-line Clamped Summary */
+.summary-clamp {
+  margin: 9px 0 0;
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+  line-height: 1.52;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.summary-clamp.muted { color: var(--muted); }
+
+.rev-inline {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
   background: var(--violet-soft);
   border: 1px solid var(--violet-border);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
 }
-.rev-strip strong { color: var(--violet); }
+.rev-inline strong { color: var(--violet); }
 
-/* Action Buttons */
+/* Quiet Action Row */
 .actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px 12px;
-  font-size: 0.83rem;
-  margin-top: 11px;
-  padding-top: 10px;
+  gap: 10px 14px;
+  font-size: 0.82rem;
+  margin-top: 10px;
+  padding-top: 9px;
   border-top: 1px solid var(--border);
 }
 .btn-primary {
@@ -395,7 +416,7 @@ button.reset-btn:hover { color: var(--text); border-color: var(--border-strong);
   background: var(--accent);
   color: #ffffff;
   font-weight: 600;
-  font-size: 0.82rem;
+  font-size: 0.81rem;
 }
 .btn-primary:hover { text-decoration: none; filter: brightness(1.06); }
 .btn-secondary {
@@ -408,17 +429,46 @@ button.reset-btn:hover { color: var(--text); border-color: var(--border-strong);
   background: var(--surface-subtle);
   color: var(--text-secondary);
   font-weight: 500;
-  font-size: 0.82rem;
+  font-size: 0.81rem;
   cursor: pointer;
 }
 .btn-secondary:hover { text-decoration: none; border-color: var(--border-strong); color: var(--text); }
+.quiet-link { color: var(--muted); font-weight: 500; }
+.quiet-link:hover { color: var(--accent); }
 
-/* Tables, Code, Callouts, Timeline */
+/* Pagination Bar */
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.pager button {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pager button:hover { border-color: var(--accent); color: var(--accent); }
+.pager .pager-all {
+  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Digest & Guide Tables, Accordions, Callouts */
 table.kv {
   width: 100%;
   border-collapse: collapse;
   margin: 12px 0;
-  font-size: 0.89rem;
+  font-size: 0.88rem;
   background: var(--surface);
   border-radius: var(--radius);
   overflow: hidden;
@@ -431,12 +481,12 @@ table.kv th, table.kv td {
   vertical-align: top;
 }
 table.kv tr:last-child th, table.kv tr:last-child td { border-bottom: none; }
-table.kv th { width: 250px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
+table.kv th { width: 240px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
 table.data-tbl {
   width: 100%;
   border-collapse: collapse;
   margin: 10px 0;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -448,7 +498,7 @@ table.data-tbl th, table.data-tbl td {
   text-align: left;
   vertical-align: top;
 }
-table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.03em; }
 table.data-tbl tr:last-child td { border-bottom: none; }
 code {
   background: var(--surface-subtle);
@@ -462,9 +512,9 @@ blockquote {
   margin: 10px 0;
   padding: 12px 16px;
   border-left: 3px solid var(--accent);
-  background: var(--surface);
+  background: var(--surface-subtle);
   border-radius: 0 8px 8px 0;
-  font-size: 0.9rem;
+  font-size: 0.89rem;
   color: var(--text-secondary);
 }
 .callout {
@@ -474,26 +524,43 @@ blockquote {
   background: var(--surface);
   margin: 14px 0;
 }
-.callout.rev {
-  background: var(--violet-soft);
-  border-color: var(--violet-border);
+.callout.rev { background: var(--violet-soft); border-color: var(--violet-border); }
+details.accordion {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 10px 0;
+  overflow: hidden;
 }
-.callout.warn {
-  background: var(--amber-soft);
-  border-color: var(--amber-border);
+details.accordion summary {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
 }
+details.accordion summary::-webkit-details-marker { display: none; }
+details.accordion summary::after {
+  content: "+";
+  font-size: 1.1rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+details.accordion[open] summary::after { content: "−"; }
+details.accordion[open] summary { border-bottom: 1px solid var(--border); background: var(--surface-subtle); }
+.accordion-body { padding: 14px 16px; }
 .timeline {
   list-style: none;
   margin: 10px 0 0;
   padding: 0 0 0 18px;
   border-left: 2px solid var(--border-strong);
 }
-.timeline li {
-  position: relative;
-  margin: 0 0 10px;
-  padding-left: 8px;
-  font-size: 0.87rem;
-}
+.timeline li { position: relative; margin: 0 0 9px; padding-left: 8px; font-size: 0.86rem; }
 .timeline li::before {
   content: "";
   position: absolute;
@@ -505,15 +572,15 @@ blockquote {
   background: var(--accent);
   border: 2px solid var(--surface);
 }
-.hit { margin: 8px 0; font-size: 0.88rem; line-height: 1.55; }
+.hit { margin: 8px 0; font-size: 0.87rem; line-height: 1.55; }
 .pno { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
 .notice {
   margin-top: 32px;
-  padding: 14px 16px;
+  padding: 13px 16px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface-subtle);
-  font-size: 0.83rem;
+  font-size: 0.82rem;
   color: var(--muted);
 }
 .toc-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 20px; }
@@ -559,17 +626,18 @@ pre.template-box {
   justify-content: space-between;
   gap: 10px;
 }
-.leaflet-popup-content { color: #161b22; font-size: 0.85rem; line-height: 1.45; }
+.leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
 @media (max-width: 700px) {
-  table.kv th { width: 145px; }
-  #map { height: 320px; }
-  .topbar-inner { padding: 10px 14px; }
-  .wrap { padding: 18px 14px 54px; }
+  table.kv th { width: 140px; }
+  #map { height: 270px; }
+  .topbar-inner { padding: 9px 14px; }
+  .wrap { padding: 16px 14px 54px; }
 }
 @media print {
   .topbar, .no-print, #digest-map, .map-box { display: none !important; }
   body { background: #ffffff; color: #000000; font-size: 11pt; }
-  .card, table.kv, table.data-tbl { box-shadow: none; break-inside: avoid; }
+  .card, table.kv, table.data-tbl, details.accordion { box-shadow: none; break-inside: avoid; }
+  details.accordion { border: 1px solid #ccc; }
   a { color: #000000; text-decoration: underline; }
 }
 </style>
@@ -578,72 +646,69 @@ pre.template-box {
 <nav class="topbar">
   <div class="topbar-inner">
     <a class="brand" href="../index.html">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
       <span>Türkiye e-ÇED İzleme</span>
       <span class="brand-scope">81 İl</span>
     </a>
     <div class="nav-links">
-      <a class="nav-link " href="../index.html">Duyurular ve Harita</a>
+      <a class="nav-link " href="../index.html">Duyurular</a>
       <a class="nav-link " href="../rehber.html">Kullanım Rehberi</a>
-      <a class="nav-link" href="../feed.xml">RSS 2.0</a>
+      <a class="nav-link" href="../feed.xml">RSS</a>
       <a class="nav-link" href="https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml" target="_blank" rel="noopener">Resmi e-ÇED ↗</a>
       <button id="theme-toggle" class="theme-btn" type="button">Tema</button>
     </div>
   </div>
 </nav>
 <div class="wrap narrow">
-  <header class="page-head">
-    <div style="font-size:0.84rem;color:var(--muted);margin-bottom:8px;" class="no-print">
-      <a href="../index.html">← Duyurular listesine dön</a> · Dosya <code>#61718</code>
+  <header style="margin-bottom:16px;">
+    <div class="card-ctx no-print" style="margin-bottom:8px;">
+      <span><a href="../index.html">← Duyurulara dön</a> · <strong>ANTALYA / KALE(DEMRE)</strong> · Ek-1 · I., II. ve V. Grup Madenler</span>
+      <span><code>#61718</code> · 13.11.2026</span>
     </div>
     <h1>201700280 (ER:3339342) Ruhsat Numaralı Mermer Ocağı Kapasite Artışı</h1>
-    <p class="sub">ANTALYA / KALE(DEMRE) · Ctm Mermer İç Ve  Dış Ticaret Limited Şirketi</p>
-    <div class="badges" style="margin-top:11px;">
+    <p class="sub">Ctm Mermer İç Ve  Dış Ticaret Limited Şirketi</p>
+    <div class="badges" style="margin-top:10px;">
       <span class="badge">ÇED Süreci Başlayan</span>
-      <span class="badge info">Ek-1</span>
-      <span class="badge info">Karar Öncesi İnceleme (m. 8/16)</span>
+      <span class="badge info">Karar Öncesi (m. 8/16)</span>
+      
       
     </div>
     <div class="actions no-print" style="border-top:none;padding-top:4px;">
       <a class="btn-primary" href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign3410074410049567359.pdf&amp;orjinalAd=CEDBASDOSYASI..pdf&amp;yuklemeTarihi=2026-11-09" target="_blank" rel="noopener">Resmi PDF Dosyası ↗</a>
       <a class="btn-secondary" href="http://eced.csb.gov.tr/jsp/ek1/61718" target="_blank" rel="noopener">e-ÇED Portal Kaydı ↗</a>
-      <a class="btn-secondary" href="61718.md">Ham Markdown (.md)</a>
-      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF Kaydet</button>
+      <a class="btn-secondary" href="61718.md">Markdown (.md)</a>
+      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF</button>
     </div>
   </header>
 
   <table class="kv">
-    <tr><th>Proje Sahibi</th><td>Ctm Mermer İç Ve  Dış Ticaret Limited Şirketi</td></tr>
     <tr><th>Hazırlayan Kuruluş</th><td>ÖZDEMİR ÇEVRE ARIT. MÜH. MÜŞ. ORM. MAD. İNŞ. TAŞ. TEM. HİZ. TUR. SAN. VE TİC. LTD. ŞTİ.</td></tr>
     <tr><th>Sektör / Alt Sektör</th><td>I., II. ve V. Grup Madenler / II. Grup Madenler</td></tr>
-    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>13.11.2026</code> · Belge yükleme: <code>09/11/2026 01:08:51</code></td></tr>
-    <tr><th>PDF Kapsamı ve Bütünlük</th><td>89.46 MB · 267 sayfa (231 metin / 36 taranmış) · SHA-256 <code>b0e1416778c60c36…</code></td></tr>
-    <tr><th>Harita Bağlantıları</th><td><a href="https://www.openstreetmap.org/?mlat=36.8969&amp;mlon=30.7133#map=8/36.8969/30.7133" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=36.8969,30.7133" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
+    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>13.11.2026</code> · Yükleme: <code>09/11/2026 01:08:51</code></td></tr>
+    <tr><th>PDF Kapsamı</th><td>89.46 MB · 267 sayfa (231 metin / 36 taranmış) · <a href="https://www.openstreetmap.org/?mlat=36.8969&amp;mlon=30.7133#map=8/36.8969/30.7133" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=36.8969,30.7133" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
   </table>
 
-  <h2>Belge Bütünlüğü, Revizyon ve Süreç Geçmişi</h2>
-<p class="sub">Her PDF dosyasının SHA-256 özeti, yükleme tarihi ve teknik göstergeleri arşivlenir. Bakanlık portalında rapor değiştirildiğinde veya 2009/7 Genelgesi kapsamında yeniden yüklendiğinde sürümler arası fark (v1 → v2) otomatik olarak kaydedilir.</p>
-<table class="data-tbl"><thead><tr><th>Sürüm</th><th>Arşiv Tarihi</th><th>Aşama</th><th>Yükleme Tarihi</th><th>Sayfa</th><th>SHA-256</th></tr></thead><tbody><tr><td><code>v1</code></td><td><code>2026-11-20T09:02:28</code></td><td>ÇED Süreci Başlayan</td><td><code>2026-11-09</code></td><td>267</td><td><code>b0e1416778c60c36…</code></td></tr></tbody></table>
-
-  <h2>Konum Haritası</h2>
-  <div class="map-box">
-    <div id="digest-map"></div>
-    <div class="map-legend"><span>PDF dosyasında metin olarak okunabilir koordinat tablosu tespit edilemediği için il merkezi yaklaşık konum olarak gösterilmektedir.</span></div>
-  </div>
+  <div class="card" style="padding:11px 15px;margin:14px 0;font-size:0.84rem;color:var(--text-secondary);"><span class="badge ok">v1 Arşivlendi</span> &nbsp;SHA-256: <code>b0e1416778c60c36…</code> · Yükleme: <code>2026-11-09</code> · <span style="color:var(--muted);">Rapor değiştirilirse sürümler arası fark (v1→v2) otomatik kaydedilir.</span></div>
 
   
-  <h2>Yapay Zeka Destekli Bilimsel Ön Değerlendirme <span class="badge">gemini-4-hydrogen</span></h2>
-  <p class="sub">Bu değerlendirme, resmi PDF dosyasından seçilen 20 sayfa (s.1, s.2, s.3, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14, s.15, s.20, s.23, s.37, s.38, s.39, s.50) esas alınarak hazırlanmıştır. Tüm sayısal verilerin ve tespitlerin resmi PDF belgesindeki ilgili <code>[s. N]</code> sayfalarından doğrulanması gerekir.</p>
+  <h2>Bilimsel Ön Değerlendirme <span class="badge">gemini-4-hydrogen</span></h2>
+  <p class="sub">Resmi PDF'ten seçilen 20 sayfa (s.1, s.2, s.3, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14, s.15, s.20, s.23, s.37, s.38, s.39, s.50) üzerinden üretilmiştir; her bulguyu <code>[s. N]</code> kaynağından doğrulayınız.</p>
   <section class="card ek1" style="margin-top:10px;">
     <p style="margin-top:0;"><strong>Özet:</strong> CTM Mermer İç ve Dış Ticaret Limited Şirketi tarafından Antalya ili, Demre (Kale) ilçesi, Belören Mahallesi mevkiindeki 201700280 (ER:3339342) ruhsat numaralı sahada mevcut mermer ocağı için kapasite ve alan artışı planlanmaktadır [s. 1, 3, 10]. ÇED Başvuru Dosyası aşamasındaki projede, 27.07.2026 tarihinde ÇED Olumlu kararı alınan 24,95 hektarlık ÇED alanının 53,72 hektara çıkarılması ve yıllık üretim kapasitesinin 250.000 m³&#x27;ten 300.000 m³&#x27;e yükseltilmesi öngörülmektedir [s. 10, 12]. Üretimin %85&#x27;inin (255.000 m³/yıl) pasa malzemeden oluşması planlanmakta olup, 53,72 hektarlık ÇED alanının tamamı ormanlık alan içinde kalmakta, mevcut sahanın 1.388,33 m²&#x27;si Doğal Sit alanıyla çakışmakta ve kuzeydoğu-kuzey sınırı 1. Derece Arkeolojik Sit sınırına komşuluk etmektedir [s. 11, 12, 13, 15]. Batı Akdeniz Havzası Demre-Akçay Alt Havzası&#x27;nda yer alan sahanın en yakın meskene kuşuçumu uzaklığı 540 metre olup, güneybatı-güney sınırında aynı şirkete ait yeni bir ruhsat müracaatı bulunduğu gerekçesiyle sağlık koruma bandı bırakılmamıştır [s. 13, 14, 50].</p>
-    <details style="margin-top:10px;font-size:0.86rem;color:var(--muted);"><summary style="cursor:pointer;">İngilizce özet (English summary)</summary><p style="margin:6px 0 0;">CTM Mermer İç ve Dış Ticaret Limited Şirketi proposes an area and capacity expansion for its existing marble quarry under license 201700280 (ER:3339342) in Belören Mahallesi, Demre (Kale) district, Antalya [s. 1, 3, 10]. At this EIA Application File stage, the project seeks to expand the EIA footprint from 24.95 hectares—which received a positive EIA decision on 27.07.2026—to 53.72 hectares and raise annual production from 250,000 m³ to 300,000 m³ [s. 10, 12]. Approximately 85% of extracted volume (255,000 m³/year) will constitute waste rock (pasa), while the entire 53.72 ha EIA area is forest land, 1,388.33 m² of the existing footprint overlaps a Natural Protected Area (Doğal Sit), and the northeast-north perimeter borders a 1st Degree Archaeological Site [s. 11, 12, 13, 15]. Located in the Demre-Akçay Sub-basin of the Western Mediterranean Basin, the quarry lies 540 m from the nearest dwelling and omits a health protection buffer along its southwest-south border due to another pending license application by the same company [s. 13, 14, 50].</p></details>
+    <details style="margin-top:10px;font-size:0.85rem;color:var(--muted);"><summary style="cursor:pointer;">English summary</summary><p style="margin:6px 0 0;">CTM Mermer İç ve Dış Ticaret Limited Şirketi proposes an area and capacity expansion for its existing marble quarry under license 201700280 (ER:3339342) in Belören Mahallesi, Demre (Kale) district, Antalya [s. 1, 3, 10]. At this EIA Application File stage, the project seeks to expand the EIA footprint from 24.95 hectares—which received a positive EIA decision on 27.07.2026—to 53.72 hectares and raise annual production from 250,000 m³ to 300,000 m³ [s. 10, 12]. Approximately 85% of extracted volume (255,000 m³/year) will constitute waste rock (pasa), while the entire 53.72 ha EIA area is forest land, 1,388.33 m² of the existing footprint overlaps a Natural Protected Area (Doğal Sit), and the northeast-north perimeter borders a 1st Degree Archaeological Site [s. 11, 12, 13, 15]. Located in the Demre-Akçay Sub-basin of the Western Mediterranean Basin, the quarry lies 540 m from the nearest dwelling and omits a health protection buffer along its southwest-south border due to another pending license application by the same company [s. 13, 14, 50].</p></details>
     <div class="badges" style="margin-top:10px;">
-      <span class="badge">Saha çalışması: İncelenen sayfalarda tespit edilemedi</span>
-      <span class="badge">Mevsimsel örnekleme: İncelenen sayfalarda tespit edilemedi</span>
-      <span class="badge">Kümülatif etki: Eksik veya tespit edilemedi</span>
+      <span class="badge">Saha: İncelenen sayfalarda tespit edilemedi</span>
+      <span class="badge">Mevsimsellik: İncelenen sayfalarda tespit edilemedi</span>
+      <span class="badge">Kümülatif: Eksik veya tespit edilemedi</span>
     </div>
-    <p class="detail" style="margin-top:10px;"><strong>Zeytinlik ve Korunan Alanlar:</strong> Sunulan sayfalarda zeytinliklere (3573 sayılı Kanun) ve ÖÇK veya sulak alan statüsüne ilişkin bir bilgi yer almamaktadır. Proje alanının 53,72 hektarlık kısmının tamamı ormanlık alandır [s. 15, 23]. Mevcut 24,95 hektarlık ÇED alanının 1.388,33 m²&#x27;si Doğal Sit alanında kalmakta olup çalışma yapılmayacak alan olarak ayrılmıştır [s. 11, 15]; ayrıca sahanın kuzeydoğu-kuzey sınırında 1. Derece Arkeolojik Sit sınırı bulunmaktadır [s. 13]. İnceleme alanı Batı Akdeniz Havzası Demre-Akçay Alt Havzası içinde yer almakta olup sahadaki derelerin çoğunlukla mevsimsel akışlı kuru dereler olduğu belirtilmiştir [s. 50].<br/>İncelenen Bölüm II.2 kapsamında proje sahasına ait tamamlanmış bir arazi çalışması veya flora-fauna tür listesi sunulmamış; bitki ve hayvan tür listelerinin kapsamlaştırma sonrasında hazırlanacak ÇED Raporu&#x27;nda yer alacağı ifade edilmiştir [s. 37, 38]. Mevsimsel örnekleme verilerine de sunulan sayfalarda rastlanmamıştır [s. 37, 38]. Kümülatif etki değerlendirmesi açısından s. 13&#x27;te ÇED Yönetmeliği Madde 20(2) hükmüne yer verilmiş olmakla birlikte, içindekiler dizininde raporun 105. sayfasında göründüğü belirtilen Bölüm IV Kümülatif Çevresel Etki Değerlendirme kısmı sunulan sayfalarda yer almamaktadır [s. 5, 13].</p>
+    <p class="sub" style="margin-top:10px;color:var(--text-secondary);"><strong>Zeytinlik ve Korunan Alanlar:</strong> Sunulan sayfalarda zeytinliklere (3573 sayılı Kanun) ve ÖÇK veya sulak alan statüsüne ilişkin bir bilgi yer almamaktadır. Proje alanının 53,72 hektarlık kısmının tamamı ormanlık alandır [s. 15, 23]. Mevcut 24,95 hektarlık ÇED alanının 1.388,33 m²&#x27;si Doğal Sit alanında kalmakta olup çalışma yapılmayacak alan olarak ayrılmıştır [s. 11, 15]; ayrıca sahanın kuzeydoğu-kuzey sınırında 1. Derece Arkeolojik Sit sınırı bulunmaktadır [s. 13]. İnceleme alanı Batı Akdeniz Havzası Demre-Akçay Alt Havzası içinde yer almakta olup sahadaki derelerin çoğunlukla mevsimsel akışlı kuru dereler olduğu belirtilmiştir [s. 50].<br/>İncelenen Bölüm II.2 kapsamında proje sahasına ait tamamlanmış bir arazi çalışması veya flora-fauna tür listesi sunulmamış; bitki ve hayvan tür listelerinin kapsamlaştırma sonrasında hazırlanacak ÇED Raporu&#x27;nda yer alacağı ifade edilmiştir [s. 37, 38]. Mevsimsel örnekleme verilerine de sunulan sayfalarda rastlanmamıştır [s. 37, 38]. Kümülatif etki değerlendirmesi açısından s. 13&#x27;te ÇED Yönetmeliği Madde 20(2) hükmüne yer verilmiş olmakla birlikte, içindekiler dizininde raporun 105. sayfasında göründüğü belirtilen Bölüm IV Kümülatif Çevresel Etki Değerlendirme kısmı sunulan sayfalarda yer almamaktadır [s. 5, 13].</p>
   </section>
+  <h3>Danıştay Ölçütlerine Göre Bilimsel ve Hukuki Bulgular</h3><section class="card"><div class="hit"><span class="badge urgent">YÜKSEK</span> <strong>Flora-Fauna Envanteri Sunulmadan Etki Yokluğu Sonucuna Varılması</strong> <span class="pno">[s. 37, s. 38]</span> — Bölüm II.2&#x27;de arazi çalışmasının, literatür taramasının ve endemik türler ile fauna listelerinin kapsamlaştırma sonrası hazırlanacak ÇED Raporu&#x27;nda yer alacağı gelecek zaman kipiyle belirtilmesine karşın [s. 37, 38], herhangi bir tür envanteri veya saha verisi sunulmadan aynı bölümde mevcut flora üzerindeki etkinin &#x27;tahripkâr düzeyde olmayacağının tespit edildiği&#x27; sonucuna varılmıştır [s. 38].</div>
+<div class="hit"><span class="badge urgent">YÜKSEK</span> <strong>Güneybatı-Güney Sınırında Sağlık Koruma Bandı Bırakılmaması</strong> <span class="pno">[s. 13]</span> — Sahanın güneybatı-güney sınırında aynı firmaya ait yeni bir ruhsat müracaatı bulunduğu belirtilerek &#x27;ilerde tehlikeye neden olmaması&#x27; gerekçesiyle bu yönde sağlık koruma bandı bırakılmadığı, kuzeydoğu-kuzeydeki 1. Derece Arkeolojik Sit sınırına ise önceden mesafe bırakıldığı için yeniden bant belirlenmediği ifade edilmiştir [s. 13]. Bitişik ruhsat müracaatına doğru koruma bandının kaldırılması ve mesafe değerlerinin sayısal olarak verilmemesi kümülatif genişleme ve koruma sınırı belirsizliği yaratmaktadır [s. 13].</div>
+<div class="hit"><span class="badge urgent">YÜKSEK</span> <strong>ÇED Alanının Tamamının Ormanlık Olması ve Sit Alanlarına Komşuluk</strong> <span class="pno">[s. 11, s. 13, s. 15, s. 23, s. 38]</span> — 53,72 hektarlık nihai ÇED alanının tamamı ormanlık alan niteliğindedir [s. 15, 23]. Ayrıca mevcut alanın 1.388,33 m²&#x27;si Doğal Sit alanı içinde kalmakta [s. 11, 15] ve saha kuzeydoğu-kuzeyden 1. Derece Arkeolojik Sit sınırına bitişmektedir [s. 13]; buna karşın orman parçalanması, toz çökelmesi veya titreşim/kazı etkilerine yönelik sayısal tampon analizi sunulan sayfalarda bulunmamaktadır [s. 11, 13, 15, 38].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <strong>Yüksek Pasa Oranı (%85) ve 90° Dik Basamak Şevleri</strong> <span class="pno">[s. 12, s. 14, s. 15, s. 39, s. 50]</span> — Yıllık 300.000 m³ üretimin %85&#x27;i (255.000 m³/yıl) pasa olarak ayrılacak ve 243.658,19 m² (24,37 ha) pasa döküm alanı kullanılacaktır [s. 12, 15]. Saha &#x27;engebeli-çok engebeli&#x27; topografyada ve mevsimsel kuru derelerin bulunduğu bir alt havzada yer alırken, ocakta basamaklar 90° açıyla oluşturulacaktır [s. 14, 50]; sunulan sayfalarda şev stabilitesi, pasa sızıntısı ve rüsubat kontrolüne dair nicel mühendislik verisi yer almamaktadır [s. 14, 39, 50].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <strong>En Yakın Meskene Yakınlık (540 m) ve Sayısal Toz/Gürültü/Su Verisi Eksikliği</strong> <span class="pno">[s. 14, s. 20, s. 38]</span> — Belören Mahallesi sınırlarındaki en yakın mesken sahaya kuşuçumu 540 m uzaklıktadır [s. 14]. İş akım şeması ve metinde gürültü ile toz emisyonları kabul edilip sulama yapılacağı belirtilse de [s. 20, 38], sunulan sayfalarda PM10/çöken toz modellemesi, akustik hesap veya toz bastırma için gereken su miktarı ile su kaynağına ilişkin veri bulunmamaktadır [s. 14, 20, 38].</div>
+<div class="hit"><span class="badge muted">DÜŞÜK</span> <strong>Kısa Sürede Ardışık Kapasite ve Alan Artışı Başvurusu</strong> <span class="pno">[s. 1, s. 10, s. 11, s. 12]</span> — Aynı ruhsat sahasında 21.03.2023 tarihinde 24,95 ha ve 200.000 m³/yıl için &#x27;ÇED Gerekli Değildir&#x27;, 27.07.2026 tarihinde ise 24,95 ha ve 250.000 m³/yıl için &#x27;ÇED Olumlu&#x27; kararı alınmış olup, Kasım 2026&#x27;da ÇED alanının iki katını aşacak şekilde 53,72 hektara ve 300.000 m³/yıl&#x27;a çıkarılması için yeniden başvuru yapılmıştır [s. 1, 10, 11, 12].</div></section>
   <h3>Öne Çıkan Sayısal Bulgular</h3><table class="kv"><tr><th>Ruhsat Alanı ve Numarası</th><td>99,98 ha (201700280 / ER:3339342, geçerlilik: 17.07.2019 - 17.07.2029) <span class="pno">[s. 10]</span></td></tr>
 <tr><th>Proje Bedeli</th><td>64.216.348,16 (tabloda para birimi belirtilmemiş; makine-teçhizat toplamı ayrıca 37.900.000 TL) <span class="pno">[s. 3]</span></td></tr>
 <tr><th>Mevcut ve Planlanan ÇED Alanı</th><td>24,95 ha&#x27;dan 53,72 ha&#x27;ya artış (+28,77 ha: Talep ÇED 1: 8,57 ha, Talep ÇED 2: 20,20 ha) <span class="pno">[s. 15]</span></td></tr>
@@ -654,14 +719,10 @@ pre.template-box {
 <tr><th>Orman Ağaçlandırma Bedeli</th><td>316.584,33 m² maden işletme izni için 10.247.834,76 TL <span class="pno">[s. 23]</span></td></tr>
 <tr><th>Doğal Sit Alanı Çakışması</th><td>Mevcut 24,95 ha ÇED alanının 1.388,33 m²&#x27;si Doğal Sit alanında (çalışma yapılmayacak alan) <span class="pno">[s. 11]</span></td></tr>
 <tr><th>En Yakın Mesken ve Çalışma Düzeni</th><td>Belören Mahallesi sınırlarında kuşuçumu 540 m; 12 ay/yıl, 25 gün/ay, 8 saat/gün, 30 personel <span class="pno">[s. 14]</span></td></tr></table>
-  <h3>Danıştay Ölçütlerine Göre Bilimsel ve Hukuki Bulgular</h3><section class="card"><div class="hit"><span class="badge urgent">YÜKSEK</span> <strong>Flora-Fauna Envanteri Sunulmadan Etki Yokluğu Sonucuna Varılması</strong> <span class="pno">[s. 37, s. 38]</span> — Bölüm II.2&#x27;de arazi çalışmasının, literatür taramasının ve endemik türler ile fauna listelerinin kapsamlaştırma sonrası hazırlanacak ÇED Raporu&#x27;nda yer alacağı gelecek zaman kipiyle belirtilmesine karşın [s. 37, 38], herhangi bir tür envanteri veya saha verisi sunulmadan aynı bölümde mevcut flora üzerindeki etkinin &#x27;tahripkâr düzeyde olmayacağının tespit edildiği&#x27; sonucuna varılmıştır [s. 38].</div>
-<div class="hit"><span class="badge urgent">YÜKSEK</span> <strong>Güneybatı-Güney Sınırında Sağlık Koruma Bandı Bırakılmaması</strong> <span class="pno">[s. 13]</span> — Sahanın güneybatı-güney sınırında aynı firmaya ait yeni bir ruhsat müracaatı bulunduğu belirtilerek &#x27;ilerde tehlikeye neden olmaması&#x27; gerekçesiyle bu yönde sağlık koruma bandı bırakılmadığı, kuzeydoğu-kuzeydeki 1. Derece Arkeolojik Sit sınırına ise önceden mesafe bırakıldığı için yeniden bant belirlenmediği ifade edilmiştir [s. 13]. Bitişik ruhsat müracaatına doğru koruma bandının kaldırılması ve mesafe değerlerinin sayısal olarak verilmemesi kümülatif genişleme ve koruma sınırı belirsizliği yaratmaktadır [s. 13].</div>
-<div class="hit"><span class="badge urgent">YÜKSEK</span> <strong>ÇED Alanının Tamamının Ormanlık Olması ve Sit Alanlarına Komşuluk</strong> <span class="pno">[s. 11, s. 13, s. 15, s. 23, s. 38]</span> — 53,72 hektarlık nihai ÇED alanının tamamı ormanlık alan niteliğindedir [s. 15, 23]. Ayrıca mevcut alanın 1.388,33 m²&#x27;si Doğal Sit alanı içinde kalmakta [s. 11, 15] ve saha kuzeydoğu-kuzeyden 1. Derece Arkeolojik Sit sınırına bitişmektedir [s. 13]; buna karşın orman parçalanması, toz çökelmesi veya titreşim/kazı etkilerine yönelik sayısal tampon analizi sunulan sayfalarda bulunmamaktadır [s. 11, 13, 15, 38].</div>
-<div class="hit"><span class="badge warn">ORTA</span> <strong>Yüksek Pasa Oranı (%85) ve 90° Dik Basamak Şevleri</strong> <span class="pno">[s. 12, s. 14, s. 15, s. 39, s. 50]</span> — Yıllık 300.000 m³ üretimin %85&#x27;i (255.000 m³/yıl) pasa olarak ayrılacak ve 243.658,19 m² (24,37 ha) pasa döküm alanı kullanılacaktır [s. 12, 15]. Saha &#x27;engebeli-çok engebeli&#x27; topografyada ve mevsimsel kuru derelerin bulunduğu bir alt havzada yer alırken, ocakta basamaklar 90° açıyla oluşturulacaktır [s. 14, 50]; sunulan sayfalarda şev stabilitesi, pasa sızıntısı ve rüsubat kontrolüne dair nicel mühendislik verisi yer almamaktadır [s. 14, 39, 50].</div>
-<div class="hit"><span class="badge warn">ORTA</span> <strong>En Yakın Meskene Yakınlık (540 m) ve Sayısal Toz/Gürültü/Su Verisi Eksikliği</strong> <span class="pno">[s. 14, s. 20, s. 38]</span> — Belören Mahallesi sınırlarındaki en yakın mesken sahaya kuşuçumu 540 m uzaklıktadır [s. 14]. İş akım şeması ve metinde gürültü ile toz emisyonları kabul edilip sulama yapılacağı belirtilse de [s. 20, 38], sunulan sayfalarda PM10/çöken toz modellemesi, akustik hesap veya toz bastırma için gereken su miktarı ile su kaynağına ilişkin veri bulunmamaktadır [s. 14, 20, 38].</div>
-<div class="hit"><span class="badge muted">DÜŞÜK</span> <strong>Kısa Sürede Ardışık Kapasite ve Alan Artışı Başvurusu</strong> <span class="pno">[s. 1, s. 10, s. 11, s. 12]</span> — Aynı ruhsat sahasında 21.03.2023 tarihinde 24,95 ha ve 200.000 m³/yıl için &#x27;ÇED Gerekli Değildir&#x27;, 27.07.2026 tarihinde ise 24,95 ha ve 250.000 m³/yıl için &#x27;ÇED Olumlu&#x27; kararı alınmış olup, Kasım 2026&#x27;da ÇED alanının iki katını aşacak şekilde 53,72 hektara ve 300.000 m³/yıl&#x27;a çıkarılması için yeniden başvuru yapılmıştır [s. 1, 10, 11, 12].</div></section>
   
-  <div class="section-head-row"><h3>HKT Tutanakları ve Bilirkişi İncelemesi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card"><ul style="margin:0;padding-left:20px;"><li>Bölüm II.2&#x27;de flora-fauna arazi çalışması ve tür listelerinin kapsamlaştırma sonrası hazırlanacak ÇED Raporu&#x27;nda sunulacağı belirtilmesine rağmen, herhangi bir tür listesi verilmeden mevcut flora üzerindeki etkinin &#x27;tahripkâr düzeyde olmayacağının tespit edildiği&#x27; sonucuna hangi bilimsel saha verilerine dayanılarak ulaşılmıştır? <span class="pno">[s. 37, s. 38]</span></li>
+  
+  
+  <div class="section-head-row" style="margin-top:16px;"><h3 style="margin:0;">HKT Tutanakları ve Bilirkişi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card" style="margin-top:8px;"><ul style="margin:0;padding-left:20px;"><li>Bölüm II.2&#x27;de flora-fauna arazi çalışması ve tür listelerinin kapsamlaştırma sonrası hazırlanacak ÇED Raporu&#x27;nda sunulacağı belirtilmesine rağmen, herhangi bir tür listesi verilmeden mevcut flora üzerindeki etkinin &#x27;tahripkâr düzeyde olmayacağının tespit edildiği&#x27; sonucuna hangi bilimsel saha verilerine dayanılarak ulaşılmıştır? <span class="pno">[s. 37, s. 38]</span></li>
 <li>Güneybatı-güney sınırında aynı şirkete ait yeni ruhsat müracaatı bulunduğu gerekçesiyle sağlık koruma bandı bırakılmamasının yasal ve teknik dayanağı nedir; kuzeydoğu-kuzeydeki 1. Derece Arkeolojik Sit sınırı ile mevcut alandaki 1.388,33 m²&#x27;lik Doğal Sit alanına bırakılan tampon mesafeler metre cinsinden nedir? <span class="pno">[s. 11, s. 13, s. 15]</span></li>
 <li>27.07.2026 tarihli &#x27;ÇED Olumlu&#x27; kararının hemen ardından ÇED alanının 24,95 hektardan 53,72 hektara çıkarılması ve güneybatı-güney sınırındaki yeni ruhsat müracaatı birlikte değerlendirildiğinde, tamamen ormanlık olan bölgedeki kümülatif orman kaybı, habitat bütünlüğü ve toz-gürültü etkileri nasıl modellenecektir? <span class="pno">[s. 10, s. 12, s. 13, s. 15]</span></li>
 <li>Engebeli-çok engebeli topografyada açılacak 90° basamak şevleri ile yıllık 255.000 m³ (%85) pasa malzemenin depolanacağı 243.658,19 m²&#x27;lik alanın duraylılığı ve Demre-Akçay Alt Havzası&#x27;ndaki mevsimsel derelere yağış dönemlerinde olası pasa/rüsubat taşınımı hangi hesaplamalarla önlenecektir? <span class="pno">[s. 12, s. 14, s. 15, s. 50]</span></li>
@@ -673,56 +734,72 @@ pre.template-box {
   <p class="sub" style="margin-top:10px;"><em>İnceleme sınırları:</em> Toplam 267 sayfalık dosyanın 231 sayfası metin, 36 sayfası taralı/görüntü niteliğinde olup bu incelemede yalnızca 20 sayfa ([1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 20, 23, 37, 38, 39, 50]) sağlanmıştır. İçindekiler dizininde yer alan Bölüm II.1 Nüfus, Bölüm II.4-II.12 (hidrojeoloji devamı, doğal afet, toprak ve arazi kullanımı, su özellikleri, mülkiyet, sit ve duyarlı yöreler), Bölüm III Çevresel Etkiler ve Su Miktarı (Tablo 56), Bölüm IV Kümülatif Çevresel Etki Değerlendirme, Bölüm V Çevre İzleme/Sürdürülebilirlik Planları ile Ek-1..Ek-8 belgeleri (koordinatlar, haritalar, Ek-4 yer inceleme raporu) inceleme kapsamı dışındadır; bu nedenle zeytinlik varlığı, su bütçesi ve kümülatif etki analizleri doğrulanamamıştır.</p>
 
 
-  <h2>Resmi Duyuru Metni</h2>
-  <blockquote>ANTALYA ili KALE(DEMRE) ,  ilcesinde ANTALYA il KALE(DEMRE) ,  ilce Belören Mahallesi mevkiinde Ctm Mermer İç Ve  Dış Ticaret Limited Şirketi tarafından yapılması planlanan 201700280 (ER:3339342) Ruhsat Numaralı Mermer Ocağı Kapasite Artışı projesi ile ilgili olarak Bakanlığımıza sunulan ÇED Başvuru Dosyası Çevresel Etki Değerlendirmesi Yönetmeliği&#x27;nin 8. maddesi doğrultusunda incelenmiş ve başvurunun ÇED Genel Formatına uygun hazırlandığı anlaşılmış olup, projeye ilişkin ÇED Süreci başlatılmıştır. Çevresel Etki Değerlendirmesi süreci tamamlanana kadar, süreç ile ilgili her türlü bilgiler ve projeye ilişkin görüş, soru ve öneriler ANTALYA Valiliğine (Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü) veya Çevre, Şehircilik ve İklim Değişikliği Bakanlığına gönderilebilir.İlgililere ve kamuoyuna duyurulur.</blockquote>
+  <h2>Konum Haritası ve 3 km Çevre Taraması</h2>
+  <div class="map-box">
+    <div id="digest-map"></div>
+    <div class="map-bar"><span>PDF dosyasında metin olarak okunabilir koordinat tablosu tespit edilemediği için il merkezi yaklaşık konum olarak gösterilmektedir.</span></div>
+  </div>
+  
 
-  <h2>Otomatik Metin Taraması (Deterministik)</h2>
-  <table class="kv"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
-<tr><th>Literatür taraması ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr>
+  <h2>Ham Kayıt ve Derin Teknik Ekler</h2>
+  <details class="accordion">
+    <summary>Resmi Duyuru Metni (Bakanlık İlanı)</summary>
+    <div class="accordion-body"><blockquote>ANTALYA ili KALE(DEMRE) ,  ilcesinde ANTALYA il KALE(DEMRE) ,  ilce Belören Mahallesi mevkiinde Ctm Mermer İç Ve  Dış Ticaret Limited Şirketi tarafından yapılması planlanan 201700280 (ER:3339342) Ruhsat Numaralı Mermer Ocağı Kapasite Artışı projesi ile ilgili olarak Bakanlığımıza sunulan ÇED Başvuru Dosyası Çevresel Etki Değerlendirmesi Yönetmeliği&#x27;nin 8. maddesi doğrultusunda incelenmiş ve başvurunun ÇED Genel Formatına uygun hazırlandığı anlaşılmış olup, projeye ilişkin ÇED Süreci başlatılmıştır. Çevresel Etki Değerlendirmesi süreci tamamlanana kadar, süreç ile ilgili her türlü bilgiler ve projeye ilişkin görüş, soru ve öneriler ANTALYA Valiliğine (Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü) veya Çevre, Şehircilik ve İklim Değişikliği Bakanlığına gönderilebilir.İlgililere ve kamuoyuna duyurulur.</blockquote></div>
+  </details>
+  <details class="accordion">
+    <summary>Otomatik Metin Taraması (9 Deterministik Kontrol)</summary>
+    <div class="accordion-body">
+      <table class="kv" style="margin-top:0;"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Literatür taraması ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
 <tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
 <tr><th>Kümülatif etki değerlendirmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
-<tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge urgent">Metinde tespit edilemedi — doğrudan PDF üzerinden kontrol ediniz</span></td></tr>
+<tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
 <tr><th>Yeraltı suyu, akifer veya hidrojeoloji ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
 <tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
-<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr>
-<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr></table>
-  <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik metin taramasına dahil edilmemiştir.</p>
-
-  <h2>Sayfa Kaynaklı Çıkarılan Bulgular</h2>
-  <div class="cards"><section class="card"><h3>Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(56 sayfa: s.5, s.8, s.10, s.11, s.12, s.15, s.16, s.21, s.22, s.24, s.25, s.26, s.27, s.28 (+42 sayfa))</span></h3><div class="hit"><span class="pno">[s. 5]</span> <code>Koordinat</code> — …............................................... 6 b) Projenin Yer ve Teknoloji Alternatifleri, Proje İçin Seçilen Yerin Koordinatları. 17 BÖLÜM II: PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ..............................................…</div>
+<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
+<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
+<tr><th>Kurum görüşleri (DSİ, İl Tarım, OGM, MAPEG)</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Deprem, fay hattı veya jeoteknik stabilite ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr></table>
+      <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik taramaya dahil edilmemiştir.</p>
+    </div>
+  </details>
+  <details class="accordion">
+    <summary>Sayfa Kaynaklı Ham Alıntılar (7 Teknik Başlık)</summary>
+    <div class="accordion-body"><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(56 sayfa: s.5, s.8, s.10, s.11, s.12, s.15, s.16, s.21, s.22, s.24, s.25, s.26, s.27, s.28 (+42 sayfa))</span></h3><div class="hit"><span class="pno">[s. 5]</span> <code>Koordinat</code> — …............................................... 6 b) Projenin Yer ve Teknoloji Alternatifleri, Proje İçin Seçilen Yerin Koordinatları. 17 BÖLÜM II: PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ..............................................…</div>
 <div class="hit"><span class="pno">[s. 8]</span> <code>Koordinat</code> — …lerden Rapor Metninde Sunulamayan Belgeler.(Maden İşletme Ruhsatı, Mevcut ÇED Kararı vb.) Ek–2:Proje İçin Seçilen Yerin Koordinatları Ek–3:Proje İçin Belirlenen Yer Ve Alternatiflerinin Varsa; Çevre Düzeni, Nazım, Uygulama İmar Planı, Vaziyet Planı…</div>
 <div class="hit"><span class="pno">[s. 10]</span> <code>99,98 hektar</code> — …Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü’nün 21.03.2023 tarih ve E-23822202-220.02-6012612 sayılı yazısı ile 99,98 hektarlık sahanın 24,95 hektarlık kısmında 200.000 m3/yıl kapasiteli Mermer Ocağı için CTM Mermer İç ve Dış Tic. Ltd. Şti. adı…</div>
 <div class="hit"><span class="pno">[s. 10]</span> <code>24,95 hektar</code> — …im Değişikliği İl Müdürlüğü’nün 21.03.2023 tarih ve E-23822202-220.02-6012612 sayılı yazısı ile 99,98 hektarlık sahanın 24,95 hektarlık kısmında 200.000 m3/yıl kapasiteli Mermer Ocağı için CTM Mermer İç ve Dış Tic. Ltd. Şti. adına “ÇED Gerekli Değildir…</div>
 <div class="hit"><span class="pno">[s. 11]</span> <code>99,98 ha</code> — …marası Ruhsat Alanı ÇED Alanı Kapasitesi Kurum Karara Ait Tarih ve Sayı ÇED Kararları Faaliyet Başlama Tarihi 201700280 99,98 ha 24,95 ha. 200.000 m3/yıl Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü 21.03.2023 Tarih ve SayıE- 23822202-220.0…</div>
-<div class="hit"><span class="pno">[s. 11]</span> <code>24,95 ha</code> — …hsat Alanı ÇED Alanı Kapasitesi Kurum Karara Ait Tarih ve Sayı ÇED Kararları Faaliyet Başlama Tarihi 201700280 99,98 ha 24,95 ha. 200.000 m3/yıl Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü 21.03.2023 Tarih ve SayıE- 23822202-220.02- 601261…</div></section><section class="card"><h3>Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(31 sayfa: s.10, s.11, s.12, s.15, s.16, s.21, s.25, s.41, s.42, s.48, s.53, s.74, s.93, s.97 (+17 sayfa))</span></h3><div class="hit"><span class="pno">[s. 10]</span> <code>200.000 m3/yıl</code> — …ğü’nün 21.03.2023 tarih ve E-23822202-220.02-6012612 sayılı yazısı ile 99,98 hektarlık sahanın 24,95 hektarlık kısmında 200.000 m3/yıl kapasiteli Mermer Ocağı için CTM Mermer İç ve Dış Tic. Ltd. Şti. adına “ÇED Gerekli Değildir” kararı alınmıştır. Antaly…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>24,95 ha</code> — …hsat Alanı ÇED Alanı Kapasitesi Kurum Karara Ait Tarih ve Sayı ÇED Kararları Faaliyet Başlama Tarihi 201700280 99,98 ha 24,95 ha. 200.000 m3/yıl Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü 21.03.2023 Tarih ve SayıE- 23822202-220.02- 601261…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(31 sayfa: s.10, s.11, s.12, s.15, s.16, s.21, s.25, s.41, s.42, s.48, s.53, s.74, s.93, s.97 (+17 sayfa))</span></h3><div class="hit"><span class="pno">[s. 10]</span> <code>200.000 m3/yıl</code> — …ğü’nün 21.03.2023 tarih ve E-23822202-220.02-6012612 sayılı yazısı ile 99,98 hektarlık sahanın 24,95 hektarlık kısmında 200.000 m3/yıl kapasiteli Mermer Ocağı için CTM Mermer İç ve Dış Tic. Ltd. Şti. adına “ÇED Gerekli Değildir” kararı alınmıştır. Antaly…</div>
 <div class="hit"><span class="pno">[s. 10]</span> <code>250.000 m3/yıl</code> — …ü’nün 27.07.2026 tarih ve E-23822202-220.99-16283627 sayılı yazısı ile 99,98 hektarlık sahanın 24,95 hektarlık kısmında 250.000 m3/yıl kapasiteli Mermer Ocağı için CTM Mermer İç ve Dış Tic. Ltd. Şti. adına “Çevresel Etki Değerlendirme Olumlu ” kararı alı…</div>
 <div class="hit"><span class="pno">[s. 11]</span> <code>200.000 m3/yıl</code> — …ÇED Alanı Kapasitesi Kurum Karara Ait Tarih ve Sayı ÇED Kararları Faaliyet Başlama Tarihi 201700280 99,98 ha 24,95 ha. 200.000 m3/yıl Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü 21.03.2023 Tarih ve SayıE- 23822202-220.02- 6012612 ÇED Gerekli De…</div>
 <div class="hit"><span class="pno">[s. 11]</span> <code>250.000 m3/yıl</code> — …Değişikliği İl Müdürlüğü 21.03.2023 Tarih ve SayıE- 23822202-220.02- 6012612 ÇED Gerekli Değildir Faaliyete Başlandı. 250.000 m3/yıl 27.07.2026 Tarih ve Sayı E- 23822202-220.99- 16283627 ÇED Olumlu 24,95 hektarlık mevcut ÇED Alanının 1388,33 m2’si Do…</div>
 <div class="hit"><span class="pno">[s. 12]</span> <code>250.000 m3/yıl</code> — …ınmış olan 201700280 ruhsat numaralı sahada ÇED alanının 24,95 hektardan 53,72 hektara çıkarılması ve üretim kapasitesi 250.000 m3/yıl’dan 300.000 m3/yıl’ arttırılması planlanmaktadır. Ocak verimi blok mermer için % 10, moloz için %5 olup, geri kalan %85…</div>
-<div class="hit"><span class="pno">[s. 12]</span> <code>300.000 m3/yıl</code> — …0 ruhsat numaralı sahada ÇED alanının 24,95 hektardan 53,72 hektara çıkarılması ve üretim kapasitesi 250.000 m3/yıl’dan 300.000 m3/yıl’ arttırılması planlanmaktadır. Ocak verimi blok mermer için % 10, moloz için %5 olup, geri kalan %85’i pasa malzemedir.…</div></section><section class="card"><h3>Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(14 sayfa: s.11, s.13, s.15, s.23, s.24, s.59, s.67, s.68, s.91, s.92, s.93, s.112, s.118, s.254)</span></h3><div class="hit"><span class="pno">[s. 11]</span> <code>Doğal Sit</code> — …ıl 27.07.2026 Tarih ve Sayı E- 23822202-220.99- 16283627 ÇED Olumlu 24,95 hektarlık mevcut ÇED Alanının 1388,33 m2’si Doğal Sit alanında kalması nedeniyle vaziyet planında çalışma yapılmayacak alan olarak gösterilmiştir. Çevre İzin ve Lisans Yönet…</div>
+<div class="hit"><span class="pno">[s. 12]</span> <code>300.000 m3/yıl</code> — …0 ruhsat numaralı sahada ÇED alanının 24,95 hektardan 53,72 hektara çıkarılması ve üretim kapasitesi 250.000 m3/yıl’dan 300.000 m3/yıl’ arttırılması planlanmaktadır. Ocak verimi blok mermer için % 10, moloz için %5 olup, geri kalan %85’i pasa malzemedir.…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(14 sayfa: s.11, s.13, s.15, s.23, s.24, s.59, s.67, s.68, s.91, s.92, s.93, s.112, s.118, s.254)</span></h3><div class="hit"><span class="pno">[s. 11]</span> <code>Doğal Sit</code> — …ıl 27.07.2026 Tarih ve Sayı E- 23822202-220.99- 16283627 ÇED Olumlu 24,95 hektarlık mevcut ÇED Alanının 1388,33 m2’si Doğal Sit alanında kalması nedeniyle vaziyet planında çalışma yapılmayacak alan olarak gösterilmiştir. Çevre İzin ve Lisans Yönet…</div>
 <div class="hit"><span class="pno">[s. 13]</span> <code>Arkeolojik Sit</code> — …maya ait ruhsat müracaat başvuru yapılmış ve değerlendirme aşamasındadır. Kuzeydoğu-Kuzey sınırı tarafında da 1. Derece Arkeolojik Sit Sınırı bulunmaktadır. ÇED alanı belirlenirken ruhsat müracaat yapılan kısma ilerde tehlikeye neden olmaması sebebiyle s…</div>
 <div class="hit"><span class="pno">[s. 15]</span> <code>Doğal Sit</code> — …² lik toplanma alanı, 1388,33 çalışma yapılmayacak alan bulunacaktır. 24,95 hektarlık mevcut ÇED Alanının 1388,33 m2’si Doğal Sit alanında kalması nedeniyle vaziyet planında çalışma yapılmayacak alan olarak gösterilmiştir. 53,72 hektarlık ÇED alanın…</div>
 <div class="hit"><span class="pno">[s. 23]</span> <code>orman alanı</code> — ….karotmakine.com/urun/6-5-hp-4-zamanli-sondaj-makinasi-rayli-sistem) Ağaçlandırma Bedeli Hesabında; ÇED alanının tamamı orman alanı olması nedeniyle orman arazisi dikkate alınarak yapılmış olup, ağaçlandırma bedeli hesabı Tablo 10’da verilmiştir. Tabl…</div>
 <div class="hit"><span class="pno">[s. 24]</span> <code>orman alanı</code> — …faaliyet sahasında ÇED alanında; mevcut ÇED alanı içerisinde 220.345,67 m2 alanda orman izinleri bulunmaktadır. Tamamı orman alanı olan 537.200 m2 ÇED Alanından orman izni olan alanlar çıkarıldıktan sonra orman izni bulunmayan 316.854,33 m2’lik alan…</div>
-<div class="hit"><span class="pno">[s. 59]</span> <code>orman alanı</code> — …LİMİTED ŞİRKETİ Grafik 1: Antalya İli Arazi Kullanım Durumu Genel arazi dağılımının; 40564303.45 hektarını (%50,31) ile orman alanı, 34079354.82 hektarını (%42,26) ile tarım, çayır ve mera arazisi, 4013668.63 (%4,98) hektarını su kütleleri, 1565407.01…</div></section><section class="card"><h3>Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(10 sayfa: s.37, s.38, s.39, s.50, s.92, s.93, s.117, s.129, s.241, s.257)</span></h3><div class="hit"><span class="pno">[s. 37]</span> <code>arazi çalışması</code> — …eratür çalışması yapılacak, bu bölgede yapılmış araştırma, yayın, makale ve tez çalışmaları varsa araştırılarak yapılan arazi çalışması desteklenecektir. Flora listesinde bitki türlerinin Latince ve Türkçe adları, endemizm durumları, tehlike kategorileri,…</div>
+<div class="hit"><span class="pno">[s. 59]</span> <code>orman alanı</code> — …LİMİTED ŞİRKETİ Grafik 1: Antalya İli Arazi Kullanım Durumu Genel arazi dağılımının; 40564303.45 hektarını (%50,31) ile orman alanı, 34079354.82 hektarını (%42,26) ile tarım, çayır ve mera arazisi, 4013668.63 (%4,98) hektarını su kütleleri, 1565407.01…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(10 sayfa: s.37, s.38, s.39, s.50, s.92, s.93, s.117, s.129, s.241, s.257)</span></h3><div class="hit"><span class="pno">[s. 37]</span> <code>arazi çalışması</code> — …eratür çalışması yapılacak, bu bölgede yapılmış araştırma, yayın, makale ve tez çalışmaları varsa araştırılarak yapılan arazi çalışması desteklenecektir. Flora listesinde bitki türlerinin Latince ve Türkçe adları, endemizm durumları, tehlike kategorileri,…</div>
 <div class="hit"><span class="pno">[s. 37]</span> <code>endemik</code> — …, tehlike kategorileri, fitocoğrafik bölgeleri, habitatları belirtilecektir. Faaliyet alanı ve çevresinde bulunabilecek endemik bitki türlerinin belirlenmesinde, http://turkherb.ibu.edu.tr adresinde bulunan Türkiye Bitkileri Veri Servisinden, Ekim…</div>
 <div class="hit"><span class="pno">[s. 38]</span> <code>Bern Sözleşmesi</code> — …e kategorileri, habitatları vb., fauna türlerinden amfibi, sürüngen, kuş ve memeli türlerinin Latince ve Türkçe adları, Bern Sözleşmesi Ek-2 ve Ek-3 listelerinin hangisinde yer aldığı, habitatları, IUCN kategorileri, “2024-2025 Av Dönemi Merkez Av Komisyo…</div>
 <div class="hit"><span class="pno">[s. 38]</span> <code>IUCN</code> — …meli türlerinin Latince ve Türkçe adları, Bern Sözleşmesi Ek-2 ve Ek-3 listelerinin hangisinde yer aldığı, habitatları, IUCN kategorileri, “2024-2025 Av Dönemi Merkez Av Komisyonu Kararı” ek listelerine göre değerlendirilecektir. Flora-Fauna Üz…</div>
 <div class="hit"><span class="pno">[s. 39]</span> <code>Bern Sözleşmesi</code> — …ren “2024-2025 Av Dönemi Merkez Av Komisyon Kararı” kararlarında vurgulanan koruma tedbirlerine titizlikle uyulacaktır. Bern Sözleşmesi hükümlerine de uyulması sağlanacaktır. Gerek işletme, gerekse arazi hazırlık aşamasında 2872 sayılı Çevre Kanunu ve Yön…</div>
-<div class="hit"><span class="pno">[s. 50]</span> <code>mevsimsel</code> — …an Alt Havzası’ndan sonra ikinci büyük alt havzadır. Ruhsat sahasının yer aldığı inceleme alanındaki dereler çoğunlukla mevsimsel akış özelliğine sahip kuru derelerdir. Ruhsat sahası engebeli-çok engebeli bir topografya üzerinde yer almaktadır. İnce…</div></section><section class="card"><h3>Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(42 sayfa: s.3, s.7, s.13, s.20, s.46, s.47, s.57, s.94, s.99, s.104, s.105, s.106, s.112, s.113 (+28 sayfa))</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>kümülatif</code> — …ya genişletilmesinin planlanması halinde, planlanan projenin etkileri, mevcut karara esas çevresel etkiler ile birlikte kümülatif olarak değerlendirilir.’ kapsamında yer almaktadır. PROJENİN ANA NACE KODU 08 Diğer Madencilik ve Taş Ocakçılığı PROJEN…</div>
+<div class="hit"><span class="pno">[s. 50]</span> <code>mevsimsel</code> — …an Alt Havzası’ndan sonra ikinci büyük alt havzadır. Ruhsat sahasının yer aldığı inceleme alanındaki dereler çoğunlukla mevsimsel akış özelliğine sahip kuru derelerdir. Ruhsat sahası engebeli-çok engebeli bir topografya üzerinde yer almaktadır. İnce…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(42 sayfa: s.3, s.7, s.13, s.20, s.46, s.47, s.57, s.94, s.99, s.104, s.105, s.106, s.112, s.113 (+28 sayfa))</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>kümülatif</code> — …ya genişletilmesinin planlanması halinde, planlanan projenin etkileri, mevcut karara esas çevresel etkiler ile birlikte kümülatif olarak değerlendirilir.’ kapsamında yer almaktadır. PROJENİN ANA NACE KODU 08 Diğer Madencilik ve Taş Ocakçılığı PROJEN…</div>
 <div class="hit"><span class="pno">[s. 7]</span> <code>Gürültü</code> — …nelerinden Kaynaklanacak Kirletici Değerleri .................................................... 95 Tablo 55: Çevresel Gürültü Kontrol Yönetmeliği EK-2Tablo-1Çevresel Gürültü Düzeyi Sınır Değerleri.................................................…</div>
 <div class="hit"><span class="pno">[s. 13]</span> <code>kümülatif</code> — …ya genişletilmesinin planlanması halinde, planlanan projenin etkileri, mevcut karara esas çevresel etkiler ile birlikte kümülatif olarak değerlendirilir.</div>
 <div class="hit"><span class="pno">[s. 20]</span> <code>Gürültü</code> — 11 201700280 (ER:3339342) RUHSAT NUMARALI MERMER OCAĞI KAPASİTE ARTIŞI CTM MERMER İÇ VE DIŞ TİCARET LİMİTED ŞİRKETİ Gürültü Gürültü Gürültü Dış Mekân: Mermerlerin dış mekânlarda kullanımlarını sınırlayan en önemli parametreler, kristal boyutla…</div>
 <div class="hit"><span class="pno">[s. 46]</span> <code>Deprem</code> — …yük oranda CaCO3 (kalsiyum karbonat) olup daha düşük oranda ise MgCO3 (magnezyum karbonat) tır. a) Depremsellik Türkiye Deprem Tehlike Haritasına göre Antalya, batı ve güney kesiminde en büyük yer ivmesi 0,4 civarında yer almaktadır. Doğu ve kuze…</div>
-<div class="hit"><span class="pno">[s. 47]</span> <code>Deprem</code> — …İÇ VE DIŞ TİCARET LİMİTED ŞİRKETİ Harita 3: Antalya ve Çevresinin Depremselliğini Gösteren Harita (AFAD, 2023. Türkiye Deprem Tehlike Haritası) Proje alanı, Bakanlar Kurulunun 22.01.2018 tarih ve 20018/11275 sayılı kararı ile yürürlüğe giren “Tü…</div></section><section class="card"><h3>Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(163 sayfa: s.1, s.3, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14, s.15, s.16 (+149 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>KAPASİTE</code> — KASIM-2026 201700280 (ER:3339342) RUHSAT NUMARALI MERMER OCAĞI KAPASİTE ARTIŞI PROJESİ ANTALYA İLİ, DEMRE İLÇESİ, BELÖREN MAHALLESİ MEVKİİ RAPORU HAZIRLAYAN KURULUŞUN ADI: ÖZDEMİR ÇEVRE ARITM…</div>
+<div class="hit"><span class="pno">[s. 47]</span> <code>Deprem</code> — …İÇ VE DIŞ TİCARET LİMİTED ŞİRKETİ Harita 3: Antalya ve Çevresinin Depremselliğini Gösteren Harita (AFAD, 2023. Türkiye Deprem Tehlike Haritası) Proje alanı, Bakanlar Kurulunun 22.01.2018 tarih ve 20018/11275 sayılı kararı ile yürürlüğe giren “Tü…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(163 sayfa: s.1, s.3, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14, s.15, s.16 (+149 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>KAPASİTE</code> — KASIM-2026 201700280 (ER:3339342) RUHSAT NUMARALI MERMER OCAĞI KAPASİTE ARTIŞI PROJESİ ANTALYA İLİ, DEMRE İLÇESİ, BELÖREN MAHALLESİ MEVKİİ RAPORU HAZIRLAYAN KURULUŞUN ADI: ÖZDEMİR ÇEVRE ARITM…</div>
 <div class="hit"><span class="pno">[s. 3]</span> <code>Kapasite</code> — …1 14 59 0 242 424 83 14 E - POSTA arge@cetinmarble.com PROJENİN ADI 201700280 (ER:3339342) Ruhsat Numaralı Mermer Ocağı Kapasite Artışı PROJE BEDELİ 64.216.348,16 PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ: (İLİ, İLÇESİ, MEVKİİ) Belören Mahallesi, Demre/…</div>
 <div class="hit"><span class="pno">[s. 3]</span> <code>PROJE BEDELİ</code> — …4 83 14 E - POSTA arge@cetinmarble.com PROJENİN ADI 201700280 (ER:3339342) Ruhsat Numaralı Mermer Ocağı Kapasite Artışı PROJE BEDELİ 64.216.348,16 PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ: (İLİ, İLÇESİ, MEVKİİ) Belören Mahallesi, Demre/Antalya PROJENİN ÇED…</div>
 <div class="hit"><span class="pno">[s. 5]</span> <code>KAPASİTE</code> — I 201700280 (ER:3339342) RUHSAT NUMARALI MERMER OCAĞI KAPASİTE ARTIŞI CTM MERMER İÇ VE DIŞ TİCARET LİMİTED ŞİRKETİ TABLOLAR LİSTESİ ..................................................…</div>
 <div class="hit"><span class="pno">[s. 6]</span> <code>KAPASİTE</code> — II 201700280 (ER:3339342) RUHSAT NUMARALI MERMER OCAĞI KAPASİTE ARTIŞI CTM MERMER İÇ VE DIŞ TİCARET LİMİTED ŞİRKETİ BÖLÜM VI HALKIN BİLGİLENDİRİLMESİ VE SÜRECE KATILIMI İLE PAYDAŞ KAT…</div>
-<div class="hit"><span class="pno">[s. 7]</span> <code>KAPASİTE</code> — III 201700280 (ER:3339342) RUHSAT NUMARALI MERMER OCAĞI KAPASİTE ARTIŞI CTM MERMER İÇ VE DIŞ TİCARET LİMİTED ŞİRKETİ Tablo 43: Maksimum Kar Kalınlığı Tablosu ..........................…</div></section></div>
-
-  <h2>Belge Bölüm Haritası</h2>
-  <ul><li><span class="pno">[s. 1]</span> 0.KAPAK.pdf (p.1-2)</li>
+<div class="hit"><span class="pno">[s. 7]</span> <code>KAPASİTE</code> — III 201700280 (ER:3339342) RUHSAT NUMARALI MERMER OCAĞI KAPASİTE ARTIŞI CTM MERMER İÇ VE DIŞ TİCARET LİMİTED ŞİRKETİ Tablo 43: Maksimum Kar Kalınlığı Tablosu ..........................…</div></div></div>
+  </details>
+  <details class="accordion">
+    <summary>Belge Bölüm Haritası (25 başlık)</summary>
+    <div class="accordion-body"><ul style="margin:0;padding-left:20px;"><li><span class="pno">[s. 1]</span> 0.KAPAK.pdf (p.1-2)</li>
 <li><span class="pno">[s. 3]</span> 1.ÇED BAŞVURU DOSYASI CTM (Onarıldı).pdf (p.3-130)</li>
 <li><span class="pno">[s. 131]</span> EKLER06.11.2026.pdf (p.131-267)</li>
 <li><span class="pno">[s. 131]</span> Ek-1 Çevresel Etki Değerlendirmesi Başvuru Dosyasının Hazırlanmasında Kullanılan Bilgi ve Belgeler ile Raporda Sunulamayan Dokümanlar.pdf (p.1)</li>
@@ -741,10 +818,11 @@ pre.template-box {
 <li><span class="pno">[s. 154]</span> Ek-3.4 HİDROLOJİ HARİTASI.pdf (p.24)</li>
 <li><span class="pno">[s. 155]</span> Ek-3.4 JEOLOJİ HARİTASI.pdf (p.25)</li>
 <li><span class="pno">[s. 156]</span> Ek-3.5 DİRİ FAY HARİTASI.pdf (p.26)</li>
-<li><span class="pno">[s. 157]</span> Ek-3.6 VAZİYET NAKLİYE HARİTASI.pdf (p.27)</li></ul>
+<li><span class="pno">[s. 157]</span> Ek-3.6 VAZİYET NAKLİYE HARİTASI.pdf (p.27)</li></ul></div>
+  </details>
 
   <div class="notice">
-    Bu sayfa, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın kamuya açık <code>eced-duyuru.csb.gov.tr</code> duyuru portalındaki kayıtlar esas alınarak bilgilendirme amacıyla hazırlanmıştır. Alıntıların tamamı 1 tabanlı PDF sayfa numarasıyla (<code>[s. N]</code>) gösterilmektedir. Yasal süreler otomatik olarak hesaplanır; kesin sürelerin ve hukuki başvuru yollarının yetkili hukukçular tarafından teyit edilmesi gerekir.
+    Bu sayfa, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın kamuya açık <code>eced-duyuru.csb.gov.tr</code> duyuru portalındaki kayıtlar esas alınarak bilgilendirme amacıyla hazırlanmıştır. Alıntıların tamamı 1 tabanlı PDF sayfa numarasıyla (<code>[s. N]</code>) gösterilmektedir. Yasal sürelerin ve hukuki başvuru yollarının yetkili hukukçular tarafından teyit edilmesi gerekir.
   </div>
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -754,25 +832,36 @@ pre.template-box {
   const root = document.documentElement;
   const saved = localStorage.getItem('eced_theme');
   if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  function isDarkNow() {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return cur ? cur === 'dark' : prefersDark;
+  }
+  window.__ecedIsDark = isDarkNow;
   const btn = document.getElementById('theme-toggle');
   if (!btn) return;
   function syncLabel() {
-    const cur = root.getAttribute('data-theme');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isDark = cur ? cur === 'dark' : prefersDark;
-    btn.textContent = isDark ? 'Açık Tema' : 'Koyu Tema';
+    btn.textContent = isDarkNow() ? 'Açık Tema' : 'Koyu Tema';
   }
   syncLabel();
   btn.addEventListener('click', () => {
-    const cur = root.getAttribute('data-theme');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isDark = cur ? cur === 'dark' : prefersDark;
-    const next = isDark ? 'light' : 'dark';
+    const next = isDarkNow() ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
     localStorage.setItem('eced_theme', next);
     syncLabel();
+    window.dispatchEvent(new CustomEvent('eced-theme-change', { detail: { dark: next === 'dark' } }));
   });
 })();
+
+
+function createCartoTileLayer(isDark) {
+  const style = isDark ? 'dark_all' : 'light_all';
+  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+    maxZoom: 19,
+    subdomains: 'abcd',
+    attribution: '&copy; OpenStreetMap &copy; CARTO'
+  });
+}
 
 (() => {
   const copyBtn = document.getElementById('copy-qs-btn');
@@ -789,15 +878,35 @@ pre.template-box {
     });
   }
   if (typeof L === 'undefined') return;
-  const g = {"lat": 36.8969, "lon": 30.7133, "zoom": 8, "precision": "province_centroid", "points": [], "label": "ANTALYA / KALE(DEMRE) — 201700280 (ER:3339342) Ruhsat Numaralı Mermer Ocağı Kapasite Artışı"};
+  const g = {"lat": 36.8969, "lon": 30.7133, "zoom": 8, "precision": "province_centroid", "points": [], "gis_markers": [], "label": "ANTALYA / KALE(DEMRE) — 201700280 (ER:3339342) Ruhsat Numaralı Mermer Ocağı Kapasite Artışı"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 18,
-    attribution: '&copy; OpenStreetMap katkıda bulunanları'
-  }).addTo(map);
+  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
+  window.addEventListener('eced-theme-change', (ev) => {
+    map.removeLayer(tileLayer);
+    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
+  });
+  if (g.precision === 'exact_pdf') {
+    L.circle([g.lat, g.lon], {
+      radius: 3000,
+      color: '#d97706',
+      weight: 1.5,
+      dashArray: '6 5',
+      fillColor: '#d97706',
+      fillOpacity: 0.04
+    }).bindTooltip('3 km yasal referans çemberi (3573 m.20)').addTo(map);
+    for (const gm of (g.gis_markers || [])) {
+      L.circleMarker([gm.lat, gm.lon], {
+        radius: 5,
+        color: '#ffffff',
+        fillColor: gm.color,
+        fillOpacity: 0.9,
+        weight: 1.5
+      }).bindPopup(gm.label).addTo(map);
+    }
+  }
   if (g.precision === 'exact_pdf' && g.points.length > 1) {
     const latlngs = g.points.map(p => [p[0], p[1]]);
-    const poly = L.polyline(latlngs, { color: '#0b5ed7', weight: 3, opacity: 0.85 }).addTo(map);
+    const poly = L.polyline(latlngs, { color: '#175cd3', weight: 3, opacity: 0.85 }).addTo(map);
     for (const ll of latlngs.slice(0, 30)) {
       L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#d92d20', fillOpacity: 0.9, weight: 1 }).addTo(map);
     }
@@ -806,7 +915,7 @@ pre.template-box {
     L.circleMarker([g.lat, g.lon], {
       radius: g.precision === 'exact_pdf' ? 8 : 11,
       color: '#ffffff',
-      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#0b5ed7',
+      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#175cd3',
       fillOpacity: g.precision === 'exact_pdf' ? 0.9 : 0.45,
       weight: 2
     }).bindPopup(g.label).addTo(map).openPopup();

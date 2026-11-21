@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>e-ÇED Ön Özet #57503 — MANİSA / YUNUSEMRE</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+:root {
+  --bg: #f8f9fb;
+  --surface: #ffffff;
+  --surface-subtle: #f2f4f7;
+  --border: #e4e7ec;
+  --border-strong: #cfd5df;
+  --text: #101828;
+  --text-secondary: #344054;
+  --muted: #667085;
+  --accent: #175cd3;
+  --accent-soft: #eff8ff;
+  --red: #b42318;
+  --red-soft: #fef3f2;
+  --red-border: #fecdca;
+  --amber: #b54708;
+  --amber-soft: #fffaeb;
+  --amber-border: #fedf89;
+  --green: #067647;
+  --green-soft: #ecfdf3;
+  --green-border: #abefc6;
+  --violet: #5925dc;
+  --violet-soft: #f4f3ff;
+  --violet-border: #d9d6fe;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f131a;
+    --surface: #161b24;
+    --surface-subtle: #1d2430;
+    --border: #273040;
+    --border-strong: #39465c;
+    --text: #eaedf2;
+    --text-secondary: #c5cdd9;
+    --muted: #8a95a6;
+    --accent: #6cb0ff;
+    --accent-soft: rgba(108, 176, 255, 0.14);
+    --red: #ff857a;
+    --red-soft: rgba(248, 81, 73, 0.13);
+    --red-border: rgba(248, 81, 73, 0.36);
+    --amber: #f0b849;
+    --amber-soft: rgba(210, 153, 34, 0.13);
+    --amber-border: rgba(210, 153, 34, 0.36);
+    --green: #4cc38a;
+    --green-soft: rgba(63, 185, 80, 0.13);
+    --green-border: rgba(63, 185, 80, 0.36);
+    --violet: #bda3ff;
+    --violet-soft: rgba(158, 119, 237, 0.15);
+    --violet-border: rgba(158, 119, 237, 0.38);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f131a;
+  --surface: #161b24;
+  --surface-subtle: #1d2430;
+  --border: #273040;
+  --border-strong: #39465c;
+  --text: #eaedf2;
+  --text-secondary: #c5cdd9;
+  --muted: #8a95a6;
+  --accent: #6cb0ff;
+  --accent-soft: rgba(108, 176, 255, 0.14);
+  --red: #ff857a;
+  --red-soft: rgba(248, 81, 73, 0.13);
+  --red-border: rgba(248, 81, 73, 0.36);
+  --amber: #f0b849;
+  --amber-soft: rgba(210, 153, 34, 0.13);
+  --amber-border: rgba(210, 153, 34, 0.36);
+  --green: #4cc38a;
+  --green-soft: rgba(63, 185, 80, 0.13);
+  --green-border: rgba(63, 185, 80, 0.36);
+  --violet: #bda3ff;
+  --violet-soft: rgba(158, 119, 237, 0.15);
+  --violet-border: rgba(158, 119, 237, 0.38);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Unified Sticky Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.topbar-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.96rem;
+  letter-spacing: -0.01em;
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+.brand-scope {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+.nav-link {
+  padding: 5px 10px;
+  border-radius: 7px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-link:hover { background: var(--surface-subtle); text-decoration: none; color: var(--text); }
+.nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.theme-btn {
+  margin-left: 4px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.79rem;
+  font-weight: 500;
+}
+.theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
+
+/* Layout */
+.wrap { max-width: 1120px; margin: 0 auto; padding: 22px 20px 72px; }
+.wrap.narrow { max-width: 900px; }
+h1 { margin: 0 0 6px; font-size: 1.5rem; line-height: 1.25; letter-spacing: -0.02em; }
+h2 { margin: 28px 0 10px; font-size: 1.15rem; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { margin: 16px 0 8px; font-size: 0.96rem; line-height: 1.35; }
+.sub { color: var(--muted); font-size: 0.91rem; margin: 0; }
+
+/* Compact Masthead */
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 20px;
+  margin-bottom: 16px;
+}
+.masthead-left { max-width: 720px; }
+.masthead-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.kpi-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 18px;
+  padding: 10px 16px;
+  margin-bottom: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.84rem;
+  color: var(--muted);
+  box-shadow: var(--shadow);
+}
+.kpi-item { display: inline-flex; align-items: baseline; gap: 5px; }
+.kpi-item strong {
+  color: var(--text);
+  font-size: 0.96rem;
+  font-variant-numeric: tabular-nums;
+}
+.kpi-item.accent strong { color: var(--accent); }
+.kpi-item.rev strong { color: var(--violet); }
+.kpi-sep { color: var(--border-strong); user-select: none; }
+
+/* Map Card */
+.map-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.map-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 14px;
+  padding: 9px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.map-box.collapsed .map-bar { border-bottom: none; }
+.map-box.collapsed #map { display: none; }
+.map-legend-inline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+#map { width: 100%; height: 320px; background: var(--surface-subtle); }
+#digest-map { width: 100%; height: 300px; background: var(--surface-subtle); }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+/* Streamlined Controls */
+.controls-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.controls-row + .controls-row {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.advanced-row { display: none; }
+.advanced-row.open { display: flex; }
+input[type="search"], select.filter-select {
+  padding: 7px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.87rem;
+}
+input[type="search"]:focus, select.filter-select:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+input[type="search"] { flex: 1 1 240px; }
+select.filter-select { min-width: 155px; }
+button.pill {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+button.pill:hover { background: var(--surface-subtle); color: var(--text); }
+button.pill.active { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 600; }
+button.pill.rev-pill.active { background: var(--violet); border-color: var(--violet); }
+.ctrl-right { margin-left: auto; display: flex; align-items: center; gap: 6px; }
+button.ghost-btn {
+  padding: 5px 9px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.79rem;
+  font-weight: 500;
+}
+button.ghost-btn:hover { color: var(--text); border-color: var(--border-strong); background: var(--surface-subtle); }
+
+/* Calm Two-Tier Cards */
+.list-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+.cards { display: flex; flex-direction: column; gap: 10px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 15px 18px;
+  box-shadow: var(--shadow);
+  transition: border-color 0.12s;
+}
+.card:hover { border-color: var(--border-strong); }
+.card.urgent-edge { border-left: 3px solid var(--red); }
+.card.ek1 { border-left: 3px solid var(--accent); }
+.card.has-rev { border-left: 3px solid var(--violet); }
+.card.urgent-edge.has-rev { border-left: 3px solid var(--red); }
+
+/* Tier 1: Quiet Metadata Context Row (zero boxes!) */
+.card-ctx {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 12px;
+  font-size: 0.79rem;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+.ctx-left { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.ctx-loc { color: var(--text-secondary); font-weight: 600; }
+.ctx-ek1 { color: var(--accent); font-weight: 600; }
+.ctx-geo { color: var(--green); font-weight: 500; }
+.ctx-sep { color: var(--border-strong); }
+.ctx-right { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.title { font-weight: 650; font-size: 1.01rem; line-height: 1.38; color: var(--text); margin: 0; }
+.title a { color: var(--text); }
+.title a:hover { color: var(--accent); text-decoration: none; }
+.owner-line { font-size: 0.82rem; color: var(--muted); margin: 3px 0 0; }
+
+/* Tier 2: Signal Pills (Status, Clock, Findings, Revision ONLY) */
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.badge.urgent { background: var(--red-soft); border-color: var(--red-border); color: var(--red); font-weight: 600; }
+.badge.warn { background: var(--amber-soft); border-color: var(--amber-border); color: var(--amber); font-weight: 600; }
+.badge.ok { background: var(--green-soft); border-color: var(--green-border); color: var(--green); font-weight: 600; }
+.badge.info { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
+.badge.rev { background: var(--violet-soft); border-color: var(--violet-border); color: var(--violet); font-weight: 600; }
+.badge.muted { color: var(--muted); }
+
+/* Calm 2-line Clamped Summary */
+.summary-clamp {
+  margin: 9px 0 0;
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+  line-height: 1.52;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.summary-clamp.muted { color: var(--muted); }
+
+.rev-inline {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--violet-soft);
+  border: 1px solid var(--violet-border);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+.rev-inline strong { color: var(--violet); }
+
+/* Quiet Action Row */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  font-size: 0.82rem;
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid var(--border);
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.81rem;
+}
+.btn-primary:hover { text-decoration: none; filter: brightness(1.06); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.81rem;
+  cursor: pointer;
+}
+.btn-secondary:hover { text-decoration: none; border-color: var(--border-strong); color: var(--text); }
+.quiet-link { color: var(--muted); font-weight: 500; }
+.quiet-link:hover { color: var(--accent); }
+
+/* Pagination Bar */
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.pager button {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pager button:hover { border-color: var(--accent); color: var(--accent); }
+.pager .pager-all {
+  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Digest & Guide Tables, Accordions, Callouts */
+table.kv {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.88rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+table.kv th, table.kv td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 13px;
+  text-align: left;
+  vertical-align: top;
+}
+table.kv tr:last-child th, table.kv tr:last-child td { border-bottom: none; }
+table.kv th { width: 240px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
+table.data-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.84rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+table.data-tbl th, table.data-tbl td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.data-tbl tr:last-child td { border-bottom: none; }
+code {
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.84em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+blockquote {
+  margin: 10px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface-subtle);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.89rem;
+  color: var(--text-secondary);
+}
+.callout {
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  margin: 14px 0;
+}
+.callout.rev { background: var(--violet-soft); border-color: var(--violet-border); }
+details.accordion {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 10px 0;
+  overflow: hidden;
+}
+details.accordion summary {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
+}
+details.accordion summary::-webkit-details-marker { display: none; }
+details.accordion summary::after {
+  content: "+";
+  font-size: 1.1rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+details.accordion[open] summary::after { content: "−"; }
+details.accordion[open] summary { border-bottom: 1px solid var(--border); background: var(--surface-subtle); }
+.accordion-body { padding: 14px 16px; }
+.timeline {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid var(--border-strong);
+}
+.timeline li { position: relative; margin: 0 0 9px; padding-left: 8px; font-size: 0.86rem; }
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+}
+.hit { margin: 8px 0; font-size: 0.87rem; line-height: 1.55; }
+.pno { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.notice {
+  margin-top: 32px;
+  padding: 13px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.toc-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 20px; }
+.toc-pills a {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.81rem;
+  font-weight: 500;
+}
+.toc-pills a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+.step-num {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+pre.template-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.section-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+@media (max-width: 700px) {
+  table.kv th { width: 140px; }
+  #map { height: 270px; }
+  .topbar-inner { padding: 9px 14px; }
+  .wrap { padding: 16px 14px 54px; }
+}
+@media print {
+  .topbar, .no-print, #digest-map, .map-box { display: none !important; }
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .card, table.kv, table.data-tbl, details.accordion { box-shadow: none; break-inside: avoid; }
+  details.accordion { border: 1px solid #ccc; }
+  a { color: #000000; text-decoration: underline; }
+}
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      <span>Türkiye e-ÇED İzleme</span>
+      <span class="brand-scope">81 İl</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link " href="../index.html">Duyurular</a>
+      <a class="nav-link " href="../rehber.html">Kullanım Rehberi</a>
+      <a class="nav-link" href="../feed.xml">RSS</a>
+      <a class="nav-link" href="https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml" target="_blank" rel="noopener">Resmi e-ÇED ↗</a>
+      <button id="theme-toggle" class="theme-btn" type="button">Tema</button>
+    </div>
+  </div>
+</nav>
+<div class="wrap narrow">
+  <header style="margin-bottom:16px;">
+    <div class="card-ctx no-print" style="margin-bottom:8px;">
+      <span><a href="../index.html">← Duyurulara dön</a> · <strong>MANİSA / YUNUSEMRE</strong> · Ek-2 · Enerji</span>
+      <span><code>#57503</code> · 18.11.2026</span>
+    </div>
+    <h1>ÇOLAK-1 DEPOLAMALI GES  GÜNEŞ ENERJİ SANTRALİ (19 MWe/19 MWm)  VE ELEKTRİK DEPOLAMA TESİSİ (19 MWe/19 MWh)  (Santral Alanı: 21,41 Ha)</h1>
+    <p class="sub">ÇOLAK ENERJİ ANONİM ŞİRKETİ</p>
+    <div class="badges" style="margin-top:10px;">
+      <span class="badge">İptal/İade</span>
+      
+      <span class="badge warn">Eski Dosya (1+ yıl)</span>
+      
+    </div>
+    <div class="actions no-print" style="border-top:none;padding-top:4px;">
+      <a class="btn-primary" href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4965530792051384272.pdf&amp;orjinalAd=e-imza.pdf&amp;yuklemeTarihi=2026-09-01" target="_blank" rel="noopener">Resmi PDF Dosyası ↗</a>
+      <a class="btn-secondary" href="http://eced.csb.gov.tr/jsp/ek1/57503" target="_blank" rel="noopener">e-ÇED Portal Kaydı ↗</a>
+      <a class="btn-secondary" href="57503.md">Markdown (.md)</a>
+      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF</button>
+    </div>
+  </header>
+
+  <table class="kv">
+    <tr><th>Hazırlayan Kuruluş</th><td>LEORA ÇEVRE VE ENERJİ YATIRIMLARI A.Ş.</td></tr>
+    <tr><th>Sektör / Alt Sektör</th><td>Enerji / Güneş Enerji Santralleri</td></tr>
+    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>18.11.2026</code> · Yükleme: <code>21/10/2025 12:54:04</code></td></tr>
+    <tr><th>PDF Kapsamı</th><td>52.86 MB · 354 sayfa (339 metin / 15 taranmış) · <a href="https://www.openstreetmap.org/?mlat=38.6859&amp;mlon=27.21484#map=12/38.6859/27.21484" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=38.6859,27.21484" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
+  </table>
+
+  <div class="card" style="padding:11px 15px;margin:14px 0;font-size:0.84rem;color:var(--text-secondary);"><span class="badge ok">v1 Arşivlendi</span> &nbsp;SHA-256: <code>efa42065a3d389a8…</code> · Yükleme: <code>2026-09-01</code> · <span style="color:var(--muted);">Rapor değiştirilirse sürümler arası fark (v1→v2) otomatik kaydedilir.</span></div>
+
+  
+  <h2>Bilimsel Ön Değerlendirme <span class="badge">gemini-3.5-flash-lite</span></h2>
+  <p class="sub">Resmi PDF'ten seçilen 21 sayfa (s.1, s.2, s.3, s.4, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14, s.15, s.16, s.23, s.61, s.113, s.115, s.116, s.117) üzerinden üretilmiştir; her bulguyu <code>[s. N]</code> kaynağından doğrulayınız.</p>
+  <section class="card ek1" style="margin-top:10px;">
+    <p style="margin-top:0;"><strong>Özet:</strong> Manisa İli, Yunusemre İlçesi, Sarınasuhlar Mahallesi sınırları içerisinde Çolak Enerji A.Ş. tarafından yapılması planlanan 19 MWe/19 MWm gücündeki Çolak-1 Depolamalı Güneş Enerji Santrali ve Elektrik Depolama Tesisi projesi, 21,41 hektarlık bir alanı kapsamaktadır. Proje alanı 1/100.000 ölçekli İzmir-Manisa Çevre Düzeni Planı&#x27;nda tamamen tarım arazisi üzerinde kalmakta olup, sahada DSİ görüşüne göre tahsise kapalı yeraltı suyu işletme sahası ve tarım dışı kullanım izin zorunluluğu gibi önemli çevresel ve hukuki kısıtlar bulunmaktadır. Dosya kapsamında flora ve fauna değerlendirmelerinin tamamen literatür verilerine dayandırıldığı ve yerel kurum görüşlerinde (özellikle belediye ve DSİ) şehircilik ve taşkın riskleri açısından ciddi sakıncalar şerh düşüldüğü görülmektedir.</p>
+    <details style="margin-top:10px;font-size:0.85rem;color:var(--muted);"><summary style="cursor:pointer;">English summary</summary><p style="margin:6px 0 0;">The Çolak-1 Storage Solar Power Plant and Electrical Storage Facility project (19 MWe/19 MWm, 21.41 hectares), proposed by Çolak Energy Inc. in Sarınasuhlar Neighborhood, Yunusemre District, Manisa Province, has been reviewed. The project area is entirely designated as agricultural land on the 1/100.000 scale Izmir-Manisa Environmental Plan and intersects with closed groundwater operation zones according to DSİ statements. The file reveals that flora and fauna inventories rely strictly on literature reviews, and official institutional comments from local municipalities and water authorities highlight severe land-use conflicts, flood risks, and agricultural protection constraints.</p></details>
+    <div class="badges" style="margin-top:10px;">
+      <span class="badge">Saha: Yalnızca literatür taramasına dayalı</span>
+      <span class="badge">Mevsimsellik: İncelenen sayfalarda tespit edilemedi</span>
+      <span class="badge">Kümülatif: Eksik veya tespit edilemedi</span>
+    </div>
+    <p class="sub" style="margin-top:10px;color:var(--text-secondary);"><strong>Zeytinlik ve Korunan Alanlar:</strong> Proje alanı 2863 sayılı Kanun kapsamında doğal sit veya Özel Çevre Koruma Bölgesi dışında kalmaktadır [s. 16]; ancak tamamı 1/100.000 ölçekli Çevre Düzeni Planı&#x27;na göre tarım arazisi vasfındadır [s. 9]. Sahada tescilli tabiat varlığı bulunmadığı belirtilmiş [s. 16], fakat flora ve fauna çalışmalarının tamamen literatür, TÜBİVES ve eski projelerin verilerine dayandırıldığı açıkça itiraf edilmiştir [s. 117].<br/>Proje tanıtım dosyasında ekolojik taban etütleri, arazide gerçekleştirilen dört mevsimlik saha gözlemlerine dayanmamakta; tamamen masa başı literatür taraması, TÜBİVES ve ikincil kaynaklara dayandırılmıştır [s. 117]. Ayrıca DSİ 2. Bölge Müdürlüğü görüşüne göre alanın bir kısmı tahsise kapalı Alt Kuzey Ege Alt Havzası Yeraltısuyu İşletme Sahası içinde kalmaktadır [s. 11]. Yunusemre Belediyesi görüşünde ise sahanın kırsal yerleşik alan sınırı ile çakıştığı, iki adet gölet barındırdığı ve tarım-konut-yol kullanımlarıyla çatıştığı vurgulanmıştır [s. 15-16].</p>
+  </section>
+  <h3>Danıştay Ölçütlerine Göre Bilimsel ve Hukuki Bulgular</h3><section class="card"><div class="hit"><span class="badge urgent">YÜKSEK</span> <span class="badge">Flora / Fauna &amp; Mevsimsellik</span> <strong>Flora ve Fauna Envanterinin Yalnızca Literatür Taramasına Dayandırılması</strong> <span class="pno">[s. 117]</span> — Dosyada flora ve fauna bölümünün arazide yapılan gerçek mevsimsel gözlemlere değil, Davis&#x27;in Türkiye Florası, TÜBİVES ve geçmiş projelerin verileri gibi ikincil literatür çalışmalarına dayandırılarak oluşturulduğu açıkça ifade edilmiştir [s. 117]. Danıştay içtihatları uyarınca hassas ekosistemlerde ve tarım/kırsal alan karakterli bölgelerde tek mevsim veya literatüre dayalı eksik envanterler iptal gerekçesidir.</div>
+<div class="hit"><span class="badge urgent">YÜKSEK</span> <span class="badge">5403 / Orman / Korunan Alan</span> <strong>Üst Ölçek Çevre Düzeni Planı ve 5403 Sayılı Kanun Kapsamında Tarım Arazisi Çatışması</strong> <span class="pno">[s. 9, s. 15]</span> — Proje alanının tamamı 1/100.000 ölçekli İzmir-Manisa Çevre Düzeni Planı&#x27;na göre &#x27;Tarım Arazisi&#x27; vasfında kalmaktadır [s. 9]. Yunusemre Belediyesi Plan ve Proje Müdürlüğü görüşünde, alanın kırsal yerleşik alan sınırına çok yakın olduğu, tarım, konut ve yol alanlarıyla çeliştiği ve 5403 sayılı Kanun uyarınca tarımsal niteliğin kaybına yol açacak uygulamalara izin verilemeyeceği açıkça belirtilmiştir [s. 15].</div>
+<div class="hit"><span class="badge urgent">YÜKSEK</span> <span class="badge">Su / Hidrojeoloji</span> <strong>Tahsise Kapalı Yeraltısuyu İşletme Sahası ve Göletlerin Varlığı</strong> <span class="pno">[s. 11, s. 16]</span> — DSİ 2. Bölge Müdürlüğü görüşüne göre, proje alanının bir kısmı tahsise kapalı Alt Kuzey Ege Alt Havzası Yeraltısuyu İşletme Sahası içerisinde kalmakta olup bu alanda derin yeraltısuyu kuyusu açılmasına ve tahsis artırımına izin verilmemektedir [s. 11]. Ayrıca sahada iki adet göletin bulunduğu ve belediye görüşünde su kaynaklarının ekolojik ve hidrolojik bütünlüğünün korunması gerektiği vurgulanmıştır [s. 11, 16].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Kümülatif Etki</span> <strong>Bölgesel Birikimli (Kümülatif) Etki Değerlendirmesinin Bulunmaması</strong> <span class="pno">[s. 3]</span> — Manisa ve Yunusemre bölgesinde hızla artan GES projeleri ile ilgili olarak çevredeki diğer enerji yatırımlarının kümülatif etkileri dosyada hesaba katışmamıştır; kümülatif etki analizi yüzeysel ve yasal standart kalıplardan ibarettir.</div></section>
+  <h3>Öne Çıkan Sayısal Bulgular</h3><table class="kv"><tr><th>Proje Alanı (Santral Büyüklüğü)</th><td>21,41 Ha (214.080,48 m2) <span class="pno">[s. 9]</span></td></tr>
+<tr><th>Kurulu Güç (GES)</th><td>19 MWe / 19 MWm <span class="pno">[s. 1]</span></td></tr>
+<tr><th>Kurulu Güç (EDT)</th><td>19 MWe / 19 MWh <span class="pno">[s. 1]</span></td></tr>
+<tr><th>Proje Bedeli</th><td>250.800.000 TL <span class="pno">[s. 2]</span></td></tr>
+<tr><th>ÇED Yönetmeliği Kapsamı</th><td>Ek-2 Listesi Madde 41 <span class="pno">[s. 10]</span></td></tr>
+<tr><th>Çevre Düzeni Planı Statüsü</th><td>Tamamı Tarım Arazisi <span class="pno">[s. 9]</span></td></tr>
+<tr><th>EPDK Önlisans Tarihi/No</th><td>18.01.2024 tarih ve ÖN/12371-7/06085 sayılı <span class="pno">[s. 9]</span></td></tr>
+<tr><th>Yerinde İnceleme Tarihi</th><td>16.10.2025 <span class="pno">[s. 10]</span></td></tr>
+<tr><th>Spil Dağı Milli Parkı&#x27;na Mesafe</th><td>19,5 km <span class="pno">[s. 115]</span></td></tr>
+<tr><th>Osmancalı Fosil Ormanı&#x27;na Mesafe</th><td>10 km <span class="pno">[s. 115]</span></td></tr></table>
+  
+  
+  <h3>Keşif ve Bilirkişi Heyeti İçin Önerilen Uzmanlık Alanları</h3><section class="card"><div class="badges" style="margin-top:0;"><span class="badge info">Çevre Mühendisi</span> <span class="badge info">Hidrojeoloji Mühendisi</span> <span class="badge info">Ziraat Mühendisi</span> <span class="badge info">Biyolog</span> <span class="badge info">Şehir ve Bölge Plancısı</span></div><p class="sub" style="margin-top:8px;">Bilirkişi heyetinin tek sayıda uzmandan oluşması, proje niteliğine uygun tüm disiplinleri içermesi ve plan kararlarıyla ilişkili davalarda Şehir ve Bölge Plancısına yer verilmesi gerekmektedir.</p></section>
+  <div class="section-head-row" style="margin-top:16px;"><h3 style="margin:0;">HKT Tutanakları ve Bilirkişi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card" style="margin-top:8px;"><ul style="margin:0;padding-left:20px;"><li>Flora ve fauna çalışma raporunun arazide gerçekleştirilen dört mevsimlik orijinal saha çalışmalarına dayanmadığı, yalnızca literatür derlemesi olduğu anlaşıldığına göre, proje alanındaki endemik ve koruma altındaki türlerin tespiti için mahkeme huzurunda yeniden bilirkişi incelemesi yaptırılacak mıdır? <span class="pno">[s. 117]</span></li>
+<li>DSİ 2. Bölge Müdürlüğü görüşünde projenin bir kısmının tahsise kapalı yeraltısuyu işletme sahasında kaldığı ve sahada iki adet gölet bulunduğu belirtilmesine rağmen, inşaat ve işletme aşamasında yer altı ve yer üstü su kaynaklarının hidrolojik rejiminin nasıl korunacağı hangi somut teknik verilere dayanmaktadır? <span class="pno">[s. 11, s. 16]</span></li>
+<li>1/100.000 ölçekli Çevre Düzeni Planı&#x27;nda tamamen tarım arazisi ve kırsal yerleşik alan sınırları içinde kalan 21,41 hektarlık bu alanda, 5403 sayılı Kanun uyarınca henüz tarım dışı kullanım izni alınmadan ÇED sürecinin nihai duruma getirilmesi hukuka uygun mudur? <span class="pno">[s. 9, s. 15]</span></li></ul><textarea id="qs-plain" style="display:none;">1. Flora ve fauna çalışma raporunun arazide gerçekleştirilen dört mevsimlik orijinal saha çalışmalarına dayanmadığı, yalnızca literatür derlemesi olduğu anlaşıldığına göre, proje alanındaki endemik ve koruma altındaki türlerin tespiti için mahkeme huzurunda yeniden bilirkişi incelemesi yaptırılacak mıdır? [s. 117]
+2. DSİ 2. Bölge Müdürlüğü görüşünde projenin bir kısmının tahsise kapalı yeraltısuyu işletme sahasında kaldığı ve sahada iki adet gölet bulunduğu belirtilmesine rağmen, inşaat ve işletme aşamasında yer altı ve yer üstü su kaynaklarının hidrolojik rejiminin nasıl korunacağı hangi somut teknik verilere dayanmaktadır? [s. 11, s. 16]
+3. 1/100.000 ölçekli Çevre Düzeni Planı&#x27;nda tamamen tarım arazisi ve kırsal yerleşik alan sınırları içinde kalan 21,41 hektarlık bu alanda, 5403 sayılı Kanun uyarınca henüz tarım dışı kullanım izni alınmadan ÇED sürecinin nihai duruma getirilmesi hukuka uygun mudur? [s. 9, s. 15]</textarea></section>
+  <p class="sub" style="margin-top:10px;"><em>İnceleme sınırları:</em> İncelenen PDF dosyası 354 sayfalık ana metnin seçilen 21 sayfalık örneklemini (1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 23, 61, 113, 115, 116, 117) içermektedir. Ekler kısmındaki kurum görüşlerinin tam metinleri ve harita detayları sunulan alıntılarla sınırlı kalmıştır.</p>
+
+
+  <h2>Konum Haritası ve 3 km Çevre Taraması</h2>
+  <div class="map-box">
+    <div id="digest-map"></div>
+    <div class="map-bar"><span>PDF metninden çıkarılan kesin proje koordinatları (81 nokta, datum: UTM-Z35/ED50, sayfa: s.175, s.180).</span></div>
+  </div>
+  <h3>Bağımsız Mekânsal Doğrulama (3 km · OpenStreetMap)</h3><div class="callout rev" style="margin-top:10px;"><div class="hit"><span class="badge info">BİLGİ</span> <strong>1 km içinde yerleşim yeri (~482 m (Sarınasuhlar))</strong> — Yakın mahalle/köy sakinleri İYUK m.2 uyarınca doğrudan ve en güçlü dava ehliyetine sahiptir.</div></div><table class="kv"><tr><th>Zeytinlik / Meyve Bahçesi (3573 m.20)</th><td><span style="color:var(--muted)">3 km içinde kayıt tespit edilmedi</span></td></tr><tr><th>Akarsu / Sulak Alan / Su Kaynağı</th><td><strong>8 kayıt</strong> · en yakın <code>~1099 m</code> — Su kütlesi / gölet (~1099 m), Su kütlesi / gölet (~1982 m), Su kütlesi / gölet (~2074 m)</td></tr><tr><th>Korunan Alan / Orman</th><td><span style="color:var(--muted)">3 km içinde kayıt tespit edilmedi</span></td></tr><tr><th>En Yakın Yerleşimler (Yöre Sakinleri)</th><td><strong>4 kayıt</strong> · en yakın <code>~482 m</code> — Sarınasuhlar (~482 m), Bozalan (~2604 m), Telekler (~2638 m)</td></tr><tr><th>Okul / Sağlık Tesisleri</th><td><span style="color:var(--muted)">3 km içinde kayıt tespit edilmedi</span></td></tr></table><p class="sub"><em>Not:</em> OpenStreetMap gönüllü harita verisidir; haritada eksik veya eski kayıtlar olabilir. Kesin mesafe ve zeytinlik/korunan alan tespiti için uydu görüntüsü, İlçe Tarım kayıtları ve mahallinde keşif esas alınmalıdır.</p>
+
+  <h2>Ham Kayıt ve Derin Teknik Ekler</h2>
+  <details class="accordion">
+    <summary>Resmi Duyuru Metni (Bakanlık İlanı)</summary>
+    <div class="accordion-body"><blockquote>MANİSA ili YUNUSEMRE,  ilcesinde MANİSA ili YUNUSEMRE,  ilcesi Sarınasuhlar Mahallesi,  101 Ada-20 Parsel, 101 Ada-23 Parsel, 101 Ada-68 Parsel, 139 Ada-1 Parsel, 139 Ada-2 Parsel, 139 Ada-3 Parsel, 139 Ada-4 Parsel, 139 Ada-5 Parsel, 102 Ada-2 Parsel ve 115 Ada-3 Parsel sınırları içerisinde, ÇOLAK ENERJİ ANONİM ŞİRKETİ tarafından yapılması planlanan ÇOLAK-1 DEPOLAMALI GES  GÜNEŞ ENERJİ SANTRALİ (19 MWe/19 MWm)  VE ELEKTRİK DEPOLAMA TESİSİ (19 MWe/19 MWh)  (Santral Alanı: 21,41 Ha) projesi iptal edilmiştir. İptal Raporu: İptal Raporu</blockquote></div>
+  </details>
+  <details class="accordion">
+    <summary>Otomatik Metin Taraması (9 Deterministik Kontrol)</summary>
+    <div class="accordion-body">
+      <table class="kv" style="margin-top:0;"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Literatür taraması ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
+<tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kümülatif etki değerlendirmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Yeraltı suyu, akifer veya hidrojeoloji ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge warn">Metinde geçmektedir — parçalama / 2009/7 kontrolü</span></td></tr>
+<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
+<tr><th>Kurum görüşleri (DSİ, İl Tarım, OGM, MAPEG)</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Deprem, fay hattı veya jeoteknik stabilite ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr></table>
+      <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik taramaya dahil edilmemiştir.</p>
+    </div>
+  </details>
+  <details class="accordion">
+    <summary>Sayfa Kaynaklı Ham Alıntılar (7 Teknik Başlık)</summary>
+    <div class="accordion-body"><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(279 sayfa: s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14 (+265 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>21,41 Ha</code> — …DEPOLAMALI GES GÜNEŞ ENERJİ SANTRALİ (19 MWe/19 MWm) VE ELEKTRİK DEPOLAMA TESİSİ (19 MWe/19 MWh) (Santral Alanı: 21,41 Ha) Manisa İli, Yunusemre İlçesi, Sarınasuhlar Mahallesi, 101 Ada/20 Parsel, 101 Ada/23 Parsel, 101 Ada/68 Parsel, 13…</div>
+<div class="hit"><span class="pno">[s. 1]</span> <code>Ada/20 Parsel, 101 Ada/23 Parsel, 101 Ada/68 Parsel</code> — …OLAMA TESİSİ (19 MWe/19 MWh) (Santral Alanı: 21,41 Ha) Manisa İli, Yunusemre İlçesi, Sarınasuhlar Mahallesi, 101 Ada/20 Parsel, 101 Ada/23 Parsel, 101 Ada/68 Parsel, 139 Ada/1 Parsel, 139 Ada/2 parsel, 139 Ada/3 parsel, 139 Ada/4 parsel, 139 Ada/5 parsel, 102 Ada/2 Parsel ve 115 A…</div>
+<div class="hit"><span class="pno">[s. 1]</span> <code>Ada/1 Parsel</code> — …Manisa İli, Yunusemre İlçesi, Sarınasuhlar Mahallesi, 101 Ada/20 Parsel, 101 Ada/23 Parsel, 101 Ada/68 Parsel, 139 Ada/1 Parsel, 139 Ada/2 parsel, 139 Ada/3 parsel, 139 Ada/4 parsel, 139 Ada/5 parsel, 102 Ada/2 Parsel ve 115 Ada/3 Parsel P…</div>
+<div class="hit"><span class="pno">[s. 1]</span> <code>Ada/2 parsel, 139 Ada/3 parsel, 139 Ada/4 parsel</code> — …semre İlçesi, Sarınasuhlar Mahallesi, 101 Ada/20 Parsel, 101 Ada/23 Parsel, 101 Ada/68 Parsel, 139 Ada/1 Parsel, 139 Ada/2 parsel, 139 Ada/3 parsel, 139 Ada/4 parsel, 139 Ada/5 parsel, 102 Ada/2 Parsel ve 115 Ada/3 Parsel PROJE TANITIM DOSYASI NİHAİ PROJE TANITIM DOSYASI LE…</div>
+<div class="hit"><span class="pno">[s. 1]</span> <code>Ada/5 parsel</code> — …sel, 101 Ada/23 Parsel, 101 Ada/68 Parsel, 139 Ada/1 Parsel, 139 Ada/2 parsel, 139 Ada/3 parsel, 139 Ada/4 parsel, 139 Ada/5 parsel, 102 Ada/2 Parsel ve 115 Ada/3 Parsel PROJE TANITIM DOSYASI NİHAİ PROJE TANITIM DOSYASI LEORA ÇEVRE VE ENERJ…</div>
+<div class="hit"><span class="pno">[s. 1]</span> <code>Ada/2 Parsel ve 115 Ada/3 Parsel</code> — …el, 101 Ada/68 Parsel, 139 Ada/1 Parsel, 139 Ada/2 parsel, 139 Ada/3 parsel, 139 Ada/4 parsel, 139 Ada/5 parsel, 102 Ada/2 Parsel ve 115 Ada/3 Parsel PROJE TANITIM DOSYASI NİHAİ PROJE TANITIM DOSYASI LEORA ÇEVRE VE ENERJİ YATIRIMLARI A.Ş. Mustafa Kemal Mah.…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(31 sayfa: s.10, s.11, s.12, s.13, s.14, s.15, s.53, s.54, s.55, s.69, s.70, s.71, s.108, s.109 (+17 sayfa))</span></h3><div class="hit"><span class="pno">[s. 10]</span> <code>deşarj</code> — …. Enerji depolama sistemleri, enerji maliyetlerini düşürmek ve talep yükünü kontrol etmek adına kendi kendini şarj ve deşarj edebilmektedir. Proje konusu faaliyet; 29.07.2022 tarih ve 31907 sayılı Resmî Gazete’de yayımlanarak yürürlüğe gire…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>Yeraltısuyu</code> — …kısmı, 23.01.2025 tarih ve 5416021 sayılı Genel Müdürlüğümüz olurları ile tahsise kapatılan Alt Kuzey Ege Alt Havzası Yeraltısuyu İşletme Sahası içerisinde kalmaktadır. Bahsi geçen bu alanda yeraltısuyu tahsis artırımı ve derin yeraltısuyu kuyusu…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>yeraltı suyu</code> — …hsis yapılması mümkün değildir. Gereksinimlerin idaremiz sorumluluğunda bulunan yerüstü suyu ve tahsise kapalı olmayan yeraltı suyu kaynaklarından karşılanmak istenmesi durumunda kurumumuza başvuru ve izin işlemleri ÇED sürecinde tamamlanarak, faali…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>dere yatağı</code> — …ı geçmektedir. Dere yataklarının mevcut ve kadastral genişliği aynen korunmalı ve dere yataklarının her iki sahilinde dere yatağı üst şev çizgisinden itibaren 10,00&#x27;ar metre genişliğinde şeritvari alan kullanılmayarak boş bırakılmalıdır. x Kürese…</div>
+<div class="hit"><span class="pno">[s. 12]</span> <code>atıksu</code> — …dir. Dosyada söz konusu atıksuların, mevzuata uygun şekilde depolanması sağlanmalı, ayrıca işletmeden teslim alınarak atıksu arıtma sistemine kabul edileceğine ve mevzuata uygun şekilde bertarafının sağlanacağına dair ilgili kurumdan alınacak…</div>
+<div class="hit"><span class="pno">[s. 12]</span> <code>deşarj</code> — …etin tüm aşamalarında faaliyetten kaynaklanacak evsel atık/atıksu gibi her türlü atık/atıksuyun derelere ulaşması veya deşarj edilmesi önlenmeli, bu atıkların mevzuata uygun biçimde bertarafı sağlanmalıdır. Şalt sahası, fosseptik, atık/atıksu…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(18 sayfa: s.3, s.11, s.16, s.23, s.97, s.109, s.110, s.111, s.112, s.113, s.114, s.115, s.129, s.130 (+4 sayfa))</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>Orman Alanı</code> — …ut Çevresel Özellikleri ........................................77 a) Mevcut Arazi Kullanımı ve Kalitesi (Tarım Alanı, Orman Alanı, Planlı Alan, Su Yüzeyi ve Benzeri) ..................................................................................…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>Milli Park</code> — …x Yapılan inceleme sonucunda; söz konusu alan 2873 sayılı Milli Parklar Kanunu kapsamında yer alan korunan alanlarda (Milli Park, Tabiat Parkı, Tabiat Koruma Alanı, Tabiat Anıtı), 4915 sayılı Kara Avcılığı Kanunu kapsamındaki kısıtlı alanlarda (Y…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>Tabiat Parkı</code> — …nceleme sonucunda; söz konusu alan 2873 sayılı Milli Parklar Kanunu kapsamında yer alan korunan alanlarda (Milli Park, Tabiat Parkı, Tabiat Koruma Alanı, Tabiat Anıtı), 4915 sayılı Kara Avcılığı Kanunu kapsamındaki kısıtlı alanlarda (Yaban Hayatı Ko…</div>
+<div class="hit"><span class="pno">[s. 16]</span> <code>doğal sit</code> — …hli yazısı rapor ekinde sunulmuştur (Bkz.Ek-2.20). İlgili yazıda; x İl Müdürlüğümüzce tescilli tabiat varlıkları ve doğal sit envanterinde yapılan inceleme neticesinde; ilgi yazınız eki haritalarda sınırları gösterilen talep sahasının 2863 sayı…</div>
+<div class="hit"><span class="pno">[s. 16]</span> <code>Özel Çevre Koruma</code> — …t Varlıklarını Koruma Kanunu kapsamında ilan edilen doğal sit alanı ve 2872 sayılı Çevre Kanunu kapsamında ilan edilen Özel Çevre Koruma Bölgesi sınırları dışında kaldığı tespit edilmiş olup bahse konu talep sahası içerisinde tescilli tabiat varlığı bulu…</div>
+<div class="hit"><span class="pno">[s. 23]</span> <code>Milli Park</code> — …im bölgeleri ile mesafeleri ●Kara ve demir yolları ile mesafeleri, ●Havaalanları ile mesafeleri ●Duyarlı yörelere (Milli Park, Tabiat Parkı vb.) ●Göl, nehir, baraj gölü ile sulak alanlara mesafeleri gibi kriterlere uygun şekilde yer seçimi yap…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(20 sayfa: s.113, s.115, s.116, s.117, s.120, s.121, s.122, s.123, s.124, s.125, s.126, s.127, s.128, s.129 (+6 sayfa))</span></h3><div class="hit"><span class="pno">[s. 113]</span> <code>BERN Sözleşmesi</code> — …özleşmeler Uyarınca Korunması Gerekli Alanlar a) &quot;Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi&quot; (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan &quot;Önemli Deniz Kaplumbağası Üreme Alanlarında belirtilen I. ve II. Koruma Bö…</div>
+<div class="hit"><span class="pno">[s. 115]</span> <code>endemik</code> — …. d) Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…</div>
+<div class="hit"><span class="pno">[s. 116]</span> <code>Flora ve Fauna</code> — …(19 MWe/19 MWm) VE ELEKTRİK DEPOLAMA TESİSİ (19 MWe/19 MWh) (Santral Alanı: 21,41 Ha) PROJE TANITIM DOSYASI 96 Flora ve Fauna Planlanan proje alanı ve çevresinin flora ve fauna bilgileri aşağıda verilmiştir. Flora ve Fauna İçeren Sözleşmel…</div>
+<div class="hit"><span class="pno">[s. 116]</span> <code>IUCN</code> — …lanı ve çevresinin flora ve fauna bilgileri aşağıda verilmiştir. Flora ve Fauna İçeren Sözleşmeler ve Kategoriler IUCN Red List Kategorileri IUCN (The World Conservation Union: The International Union for the Conservation of Nature a…</div>
+<div class="hit"><span class="pno">[s. 117]</span> <code>IUCN</code> — …MWm) VE ELEKTRİK DEPOLAMA TESİSİ (19 MWe/19 MWh) (Santral Alanı: 21,41 Ha) PROJE TANITIM DOSYASI 97 Tablo 22. IUCN Red List Kategorileri ve Türkçe Karşılıkları, Kategori Türkçe Karşılığı Adequate data Yeterli data mevcut Evalua…</div>
+<div class="hit"><span class="pno">[s. 117]</span> <code>Bern Sözleşmesi</code> — …enüz tehlike altında değil Out of danger O Takson tehlike dışı Rare R Nadir Vulnerable V Zarar görebilir 1. Bern Sözleşmesi Bern Sözleşmesi, yaban hayatı ve yaşama ortamlarının korunmasına ilişkin bir sözleşmedir. Sözleşmede korunan türler…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(67 sayfa: s.12, s.13, s.15, s.61, s.63, s.71, s.77, s.79, s.80, s.81, s.82, s.83, s.85, s.86 (+53 sayfa))</span></h3><div class="hit"><span class="pno">[s. 12]</span> <code>tehlikeli atık</code> — …alınacak belge dosyaya eklenmelidir. x Proje kapsamında şalt ve trafo tesislerinde kullanıldığı bilinen trafo yağları tehlikeli atık oluşturmakta olup, depolanan tehlikeli maddeler ile oluşan tehlikeli atıkların yerüstü ve yeraltı su kaynaklarının kal…</div>
+<div class="hit"><span class="pno">[s. 13]</span> <code>tehlikeli atık</code> — …alışanları sorumlu tutulmayacaktır. Proje kapsamında şalt ve trafo tesislerinde kullanıldığı bilinen trafo yağları tehlikeli atık oluşturmakta olup, depolanan tehlikeli maddeler ile oluşan tehlikeli atıkların yerüstü ve yeraltı su kaynaklarının kal…</div>
+<div class="hit"><span class="pno">[s. 15]</span> <code>gürültü</code> — …ra izin verilmemesini hükme bağlamaktadır. Proje alanının Sarınasuhlar yerleşimine çok yakın olması; görsel bütünlük, gürültü, toz, hareketlilik, yaşam kalitesi ve kullanım çatışması açısından şehircilik ilkeleri ile bağdaşmamaktadır. 3194 sayı…</div>
+<div class="hit"><span class="pno">[s. 61]</span> <code>tehlikeli atık</code> — …ükümlerine uygun hareket edilecektir. Proje kapsamında şalt ve trafo tesislerinde kullanıldığı bilinen trafo yağları tehlikeli atık oluşturmakta olup, depolanan tehlikeli maddeler ile oluşan tehlikeli atıkların yerüstü ve yeraltı su kaynaklarının kal…</div>
+<div class="hit"><span class="pno">[s. 63]</span> <code>tehlikeli atık</code> — …şmaları sırasında oluşacak yağlı üstübü, boş yağlama yağı tenekeleri, yağlı eldiven vb. gibi kontamine olmuş atıklar, tehlikeli atık olarak sınıflandırılabilir. Proje kapsamında şalt ve trafo tesislerinde kullanıldığı bilinen trafo yağları tehlikeli…</div>
+<div class="hit"><span class="pno">[s. 71]</span> <code>tehlikeli atık</code> — …eya deşarj edilmesi önlenecek, bu atıkların mevzuata uygun bertarafı sağlanacaktır. Proje kapsamında ortaya çıkacak tehlikeli atık kapsamındaki atıklar cinslerine göre ayrılarak, sızdırmazlığı sağlanmış, üstü kapalı ve her atık türü için bölmeleri b…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(30 sayfa: s.2, s.3, s.10, s.23, s.25, s.27, s.31, s.33, s.42, s.43, s.47, s.48, s.65, s.67 (+16 sayfa))</span></h3><div class="hit"><span class="pno">[s. 2]</span> <code>Proje Bedeli</code> — …GES GÜNEŞ ENERJİ SANTRALİ (19 MWe/19 MWm) VE ELEKTRİK DEPOLAMA TESİSİ (19 MWe/19 MWh) (Santral Alanı: 21,41 Ha) Proje Bedeli: 250.800.000 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii): Manisa İli, Yunusemre İlçesi, Sarınasu…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>250.800.000 TL</code> — …ERJİ SANTRALİ (19 MWe/19 MWm) VE ELEKTRİK DEPOLAMA TESİSİ (19 MWe/19 MWh) (Santral Alanı: 21,41 Ha) Proje Bedeli: 250.800.000 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii): Manisa İli, Yunusemre İlçesi, Sarınasuhlar Mahallesi,…</div>
+<div class="hit"><span class="pno">[s. 3]</span> <code>Kapasite</code> — …........................................................................................ 1 b) Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Teknolojisi, Çalışacak Personel Sayısı ............................................................…</div>
+<div class="hit"><span class="pno">[s. 10]</span> <code>9.000.000 TL</code> — …un (EPDK) 26.12.2024 tarih ve 13134 sayılı kurul kararı esas alınmıştır. Belirtilen kurul kararında GES projeleri için 9.000.000 TL/MWm; EDT için ise 4.200.000 TL/MWh birim maliyetler belirlenmiştir. Bu doğrultuda planlanan depolamalı GES yatırımını…</div>
+<div class="hit"><span class="pno">[s. 10]</span> <code>4.200.000 TL</code> — …134 sayılı kurul kararı esas alınmıştır. Belirtilen kurul kararında GES projeleri için 9.000.000 TL/MWm; EDT için ise 4.200.000 TL/MWh birim maliyetler belirlenmiştir. Bu doğrultuda planlanan depolamalı GES yatırımının proje bedeli, 250.800.000 TL o…</div>
+<div class="hit"><span class="pno">[s. 10]</span> <code>proje bedeli</code> — …Wm; EDT için ise 4.200.000 TL/MWh birim maliyetler belirlenmiştir. Bu doğrultuda planlanan depolamalı GES yatırımının proje bedeli, 250.800.000 TL olarak hesaplanmıştır. Proje kapsamında inşaat çalışmaları gerçekleştirilecek olup tesis kurulumuyla…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Proje Parçalama, Kapasite Artışı ve Eşik Değerler <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(18 sayfa: s.9, s.15, s.16, s.17, s.23, s.43, s.44, s.47, s.77, s.97, s.114, s.115, s.145, s.263 (+4 sayfa))</span></h3><div class="hit"><span class="pno">[s. 9]</span> <code>5403 sayılı</code> — …asası Düzenleme Kurumu Kamulaştırma Dairesi Başkanlığı’na gerekli başvurular yapılacaktır. Ayrıca proje kapsamında 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu uyarınca tarım dışı kullanım izni alınacaktır. Gerekli izinler alınmadan inşaa…</div>
+<div class="hit"><span class="pno">[s. 15]</span> <code>5403 sayılı</code> — …anı, Konut Alanı ve Yol Alanı kullanımında kalmaktadır. Tarım alanlarında yapılacak her türlü amaç dışı kullanım için 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu uyarınca tarım dışı kullanım izni alınması zorunludur. İzmir Manisa Planlama B…</div>
+<div class="hit"><span class="pno">[s. 16]</span> <code>5403 sayılı</code> — …ünde belirtilen tüm taahhütlere uyulacak ve meri mevzuat çerçevesindeki hükümlere riayet edilecektir. Proje kapsamında 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu uyarınca tarım dışı kullanım izni alınacaktır. Yukarıda bahsi geçen Yunuse…</div>
+<div class="hit"><span class="pno">[s. 17]</span> <code>5403 sayılı</code> — …Mera Kanunu uyarınca gerekli tahsis amacı değişikliği işlemlerinin yapılması, ham toprak vasıflı taşınmazlar için ise 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunun uyarınca gerekli tarım dışı kullanım izinlerinin alınması şartıyla, ÇED süre…</div>
+<div class="hit"><span class="pno">[s. 23]</span> <code>5403 Sayılı</code> — …nmadığı belirtilmiştir. Söz konusu proje kapsamında, faaliyete başlanılmadan önce Tarım ve Orman Bakanlığı mevzuatı 5403 Sayılı Toprak Koruma ve Arazi Kullanımı Kanunu gereğince Manisa Valiliği, İl Tarım ve Orman Müdürlüğü’ne başvuruda bulunulaca…</div>
+<div class="hit"><span class="pno">[s. 43]</span> <code>5403 Sayılı</code> — …nmadığı belirtilmiştir. Söz konusu proje kapsamında, faaliyete başlanılmadan önce Tarım ve Orman Bakanlığı mevzuatı 5403 Sayılı Toprak Koruma ve Arazi Kullanımı Kanunu gereğince Manisa Valiliği, İl Tarım ve Orman Müdürlüğü’ne başvuruda bulunulaca…</div></div></div>
+  </details>
+  <details class="accordion">
+    <summary>Belge Bölüm Haritası (9 başlık)</summary>
+    <div class="accordion-body"><ul style="margin:0;padding-left:20px;"><li><span class="pno">[s. 201]</span> Model</li>
+<li><span class="pno">[s. 203]</span> Model</li>
+<li><span class="pno">[s. 261]</span> 1. DSİ 2. Bölge Md</li>
+<li><span class="pno">[s. 264]</span> 2. Manisa İl Tarım</li>
+<li><span class="pno">[s. 266]</span> 3. DKMP 4. Bölge</li>
+<li><span class="pno">[s. 267]</span> 4. Manisa BŞB</li>
+<li><span class="pno">[s. 270]</span> 5. MASKİ</li>
+<li><span class="pno">[s. 273]</span> 6. Yunusemre Belediye</li>
+<li><span class="pno">[s. 275]</span> 7. TVK</li></ul></div>
+  </details>
+
+  <div class="notice">
+    Bu sayfa, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın kamuya açık <code>eced-duyuru.csb.gov.tr</code> duyuru portalındaki kayıtlar esas alınarak bilgilendirme amacıyla hazırlanmıştır. Alıntıların tamamı 1 tabanlı PDF sayfa numarasıyla (<code>[s. N]</code>) gösterilmektedir. Yasal sürelerin ve hukuki başvuru yollarının yetkili hukukçular tarafından teyit edilmesi gerekir.
+  </div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+
+(() => {
+  const root = document.documentElement;
+  const saved = localStorage.getItem('eced_theme');
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  function isDarkNow() {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return cur ? cur === 'dark' : prefersDark;
+  }
+  window.__ecedIsDark = isDarkNow;
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function syncLabel() {
+    btn.textContent = isDarkNow() ? 'Açık Tema' : 'Koyu Tema';
+  }
+  syncLabel();
+  btn.addEventListener('click', () => {
+    const next = isDarkNow() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('eced_theme', next);
+    syncLabel();
+    window.dispatchEvent(new CustomEvent('eced-theme-change', { detail: { dark: next === 'dark' } }));
+  });
+})();
+
+
+function createCartoTileLayer(isDark) {
+  const style = isDark ? 'dark_all' : 'light_all';
+  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+    maxZoom: 19,
+    subdomains: 'abcd',
+    attribution: '&copy; OpenStreetMap &copy; CARTO'
+  });
+}
+
+(() => {
+  const copyBtn = document.getElementById('copy-qs-btn');
+  const qsTxt = document.getElementById('qs-plain');
+  if (copyBtn && qsTxt) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(qsTxt.value);
+        copyBtn.textContent = 'Kopyalandı ✓';
+        setTimeout(() => (copyBtn.textContent = 'Soruları Kopyala'), 2200);
+      } catch (e) {
+        copyBtn.textContent = 'Kopyalanamadı';
+      }
+    });
+  }
+  if (typeof L === 'undefined') return;
+  const g = {"lat": 38.6859, "lon": 27.21484, "zoom": 12, "precision": "exact_pdf", "points": [[38.68485, 27.2127], [38.68485, 27.21277], [38.6849, 27.21295], [38.68498, 27.21314], [38.68509, 27.21334], [38.68516, 27.21342], [38.68522, 27.21347], [38.68534, 27.21354], [38.6854, 27.2136], [38.68551, 27.2137], [38.68557, 27.21373], [38.68567, 27.21372], [38.68578, 27.2137], [38.68586, 27.21373], [38.68596, 27.21378], [38.68601, 27.21394], [38.68611, 27.21423], [38.68622, 27.21442], [38.68626, 27.21453], [38.68624, 27.21463], [38.68617, 27.21481], [38.68612, 27.21501], [38.68607, 27.21528], [38.68604, 27.21548], [38.68604, 27.21564], [38.68605, 27.21578], [38.68604, 27.21586], [38.686, 27.21592], [38.68595, 27.21596], [38.68584, 27.21598], [38.68564, 27.21601], [38.68525, 27.21614], [38.68504, 27.2162], [38.68494, 27.21683], [38.68502, 27.21714], [38.6851, 27.2172], [38.68518, 27.21726], [38.6853, 27.21734], [38.68539, 27.21739], [38.68545, 27.21742]], "gis_markers": [{"lat": 38.67606, "lon": 27.21606, "color": "#0284c7", "label": "Su kütlesi / gölet: Adsız (~1099 m)"}, {"lat": 38.70111, "lon": 27.20292, "color": "#0284c7", "label": "Su kütlesi / gölet: Adsız (~1982 m)"}, {"lat": 38.68307, "lon": 27.21905, "color": "#7c3aed", "label": "Köy: Sarınasuhlar (~482 m)"}, {"lat": 38.70389, "lon": 27.19563, "color": "#7c3aed", "label": "Köy: Bozalan (~2604 m)"}], "label": "MANİSA / YUNUSEMRE — ÇOLAK-1 DEPOLAMALI GES  GÜNEŞ ENERJİ SANTRALİ (19 MWe/19 MWm)  VE ELEKTRİK DEPOLAMA TESİSİ"};
+  const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
+  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
+  window.addEventListener('eced-theme-change', (ev) => {
+    map.removeLayer(tileLayer);
+    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
+  });
+  if (g.precision === 'exact_pdf') {
+    L.circle([g.lat, g.lon], {
+      radius: 3000,
+      color: '#d97706',
+      weight: 1.5,
+      dashArray: '6 5',
+      fillColor: '#d97706',
+      fillOpacity: 0.04
+    }).bindTooltip('3 km yasal referans çemberi (3573 m.20)').addTo(map);
+    for (const gm of (g.gis_markers || [])) {
+      L.circleMarker([gm.lat, gm.lon], {
+        radius: 5,
+        color: '#ffffff',
+        fillColor: gm.color,
+        fillOpacity: 0.9,
+        weight: 1.5
+      }).bindPopup(gm.label).addTo(map);
+    }
+  }
+  if (g.precision === 'exact_pdf' && g.points.length > 1) {
+    const latlngs = g.points.map(p => [p[0], p[1]]);
+    const poly = L.polyline(latlngs, { color: '#175cd3', weight: 3, opacity: 0.85 }).addTo(map);
+    for (const ll of latlngs.slice(0, 30)) {
+      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#d92d20', fillOpacity: 0.9, weight: 1 }).addTo(map);
+    }
+    map.fitBounds(poly.getBounds().pad(0.25));
+  } else {
+    L.circleMarker([g.lat, g.lon], {
+      radius: g.precision === 'exact_pdf' ? 8 : 11,
+      color: '#ffffff',
+      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#175cd3',
+      fillOpacity: g.precision === 'exact_pdf' ? 0.9 : 0.45,
+      weight: 2
+    }).bindPopup(g.label).addTo(map).openPopup();
+  }
+})();
+</script>
+</body>
+</html>

@@ -186,6 +186,43 @@ class TestRevisions(unittest.TestCase):
         self.assertEqual(len(e1["timeline"]), 2)
         self.assertEqual(e1["related_filings"][0]["filing_id"], "10002")
 
+    def test_coordinate_proximity_links_asset_handover(self) -> None:
+        filings = [
+            {
+                "filing_key": "20001:01.11.2026:İptal/İade",
+                "province": "ÇANAKKALE",
+                "district": "MERKEZ",
+                "project_name": "Eski Şirket Altın Projesi",
+                "project_owner": "Alamos Eski A.Ş.",
+                "decision_type": "İptal/İade",
+                "announcement_date": "2026-11-01",
+                "announcement_date_tr": "01.11.2026",
+                "detail_text": "İptal edildi.",
+                "documents": [{"filing_id": "20001", "submitted_at": "01/11/2026", "pdf_urls": []}],
+            },
+            {
+                "filing_key": "20002:18.11.2026:ÇED Süreci Başlayan",
+                "province": "ÇANAKKALE",
+                "district": "MERKEZ",
+                "project_name": "Yeni Marka Cevher Zenginleştirme",
+                "project_owner": "Yeni Holding Madencilik A.Ş.",
+                "decision_type": "ÇED Süreci Başlayan",
+                "announcement_date": "2026-11-18",
+                "announcement_date_tr": "18.11.2026",
+                "detail_text": "Yeni başvuru.",
+                "documents": [{"filing_id": "20002", "submitted_at": "18/11/2026", "pdf_urls": []}],
+            },
+        ]
+        digests_map = {
+            "20001": {"analysis": {"geo": {"precision": "exact_pdf", "lat": 40.0000, "lon": 26.6000}}},
+            "20002": {"analysis": {"geo": {"precision": "exact_pdf", "lat": 40.0040, "lon": 26.6010}}},
+        }
+        idx = build_revision_index(filings, digests_map)
+        rel = idx["by_filing_id"]["20002"]["related_filings"]
+        self.assertEqual(len(rel), 1)
+        self.assertEqual(rel[0]["filing_id"], "20001")
+        self.assertEqual(rel[0]["reason"], "coordinate_proximity")
+
 
 if __name__ == "__main__":
     unittest.main()

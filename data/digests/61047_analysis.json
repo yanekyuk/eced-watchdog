@@ -1,0 +1,284 @@
+{
+  "filing": {
+    "province": "MANİSA",
+    "district": "TURGUTLU",
+    "project_name": "2026/1 (ER:3550556) Ruhsat Numaralı I.(a) Grubu Kum-Çakıl Ocağı",
+    "project_owner": "İHSANOĞULALLARI HAFRİYAT NAKLİYAT İNŞAAT PETROL ÜRÜNLERİ OTO ALIM SATIM SANAYİ VE TİCARET ANONİM ŞİRKETİ",
+    "sector": "I., II. ve V. Grup Madenler",
+    "sub_sector": "Kum Ocakları",
+    "decision_type": "İptal/İade",
+    "announcement_date_tr": "13.11.2026",
+    "project_type": "Ek-2",
+    "detail_text": "MANİSA ili TURGUTLU,  ilcesinde MANİSA ili TURGUTLU,  ilcesi Çampınar Mahallesi, K19d3 Pafta sınırları içerisinde, İHSANOĞULALLARI HAFRİYAT NAKLİYAT İNŞAAT PETROL ÜRÜNLERİ OTO ALIM SATIM SANAYİ VE TİCARET ANONİM ŞİRKETİ tarafından yapılması planlanan 2026/1 (ER:3550556) Ruhsat Numaralı I.(a) Grubu Kum-Çakıl Ocağı projesi iptal edilmiştir. İptal Raporu: İptal Raporu",
+    "detail_links": [
+      {
+        "text": "İptal Raporu",
+        "href": "http://eced.csb.gov.tr/jsp/ek1/61047"
+      }
+    ],
+    "documents": [
+      {
+        "portal_doc_url": "http://eced.csb.gov.tr/jsp/ek1/61047",
+        "filing_id": "61047",
+        "consulting_firm": "ALTA ÇED PROJE MÜHENDİSLİK A.Ş.",
+        "submitted_at": "01/10/2026 11:40:25",
+        "pdf_urls": [
+          {
+            "label": "İptal Dosya Göster (ek2)",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=dosya_2561627205360535380.tmp&orjinalAd=61047_projeIptalDosya.pdf&yuklemeTarihi=2026-11-12"
+          },
+          {
+            "label": "Dosya Göster",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4968240417659320854.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-10-01"
+          }
+        ]
+      }
+    ],
+    "announcement_date": "2026-11-13",
+    "statutory_clocks": [],
+    "priority_district": true,
+    "filing_key": "61047:13.11.2026:İptal/İade",
+    "first_seen_at": "2026-11-20T00:44:14"
+  },
+  "pdf_info": {
+    "filename": "61047.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=dosya_2561627205360535380.tmp&orjinalAd=61047_projeIptalDosya.pdf&yuklemeTarihi=2026-11-12",
+    "bytes": 100322,
+    "sha256": "8ad67dbaeda055df3e86506237e00d61f777614daa6a67a9a8c3909f078c1b61",
+    "cached": false
+  },
+  "analysis": {
+    "page_count": 1,
+    "total_chars": 2142,
+    "text_pages": 1,
+    "scanned_or_blank_pages": 0,
+    "scanned_page_sample": [],
+    "headings": [],
+    "geo": {
+      "precision": "province_centroid",
+      "lat": 38.6191,
+      "lon": 27.4289,
+      "point_count": 0,
+      "points": [],
+      "datum": null,
+      "pages": []
+    },
+    "signals": {
+      "coordinates_and_footprint": {
+        "label": "Coordinates, Parcel & Footprint",
+        "page_count": 1,
+        "pages": [
+          1
+        ],
+        "samples": [
+          {
+            "page": 1,
+            "match": "5,13 Ha",
+            "snippet": "…RI HAFRİYAT NAKLİYAT İNŞAAT PETROL ÜRÜNLERİ OTO ALIM SATIM SAN. VE TİC. A.Ş. tarafından planlanan projesi ile ilgili \"5,13 Ha'lık alanda 100.000 ton/yıl kapasiteli Kum -Çakıl Ocağı\" olarak ÇED Yönetmeliği kapsamında hazırlanan Proje Tanıtım Dosy…"
+          }
+        ]
+      },
+      "water_and_discharge": {
+        "label": "Water Use, Hydrogeology & Discharge",
+        "page_count": 0,
+        "pages": [],
+        "samples": []
+      },
+      "protected_land_and_olive": {
+        "label": "Protected Zones, Forests & Olive Groves",
+        "page_count": 1,
+        "pages": [
+          1
+        ],
+        "samples": [
+          {
+            "page": 1,
+            "match": "3573 sayılı",
+            "snippet": "…üzce incelenmiş olup aşağıdaki hususlar tespit edilmiştir: 07.02.1939 tarihli ve 4126 sayılı Resmî Gazete'de yayımlanan 3573 sayılı Zeytinciliğin Islahı ve 'un 20.maddesinde; \"Zeytinlik sahaları içinde ve bu Yabanilerinin Aşılattırılması Hakkında Kanu…"
+          },
+          {
+            "page": 1,
+            "match": "Zeytinlik",
+            "snippet": "…r: 07.02.1939 tarihli ve 4126 sayılı Resmî Gazete'de yayımlanan 3573 sayılı Zeytinciliğin Islahı ve 'un 20.maddesinde; \"Zeytinlik sahaları içinde ve bu Yabanilerinin Aşılattırılması Hakkında Kanun sahalara en az 3 kilometre mesafede zeytinyağı fabri…"
+          }
+        ]
+      },
+      "ecology_and_baseline": {
+        "label": "Flora, Fauna & Baseline Methodology",
+        "page_count": 0,
+        "pages": [],
+        "samples": []
+      },
+      "pollutants_and_hazards": {
+        "label": "Emissions, Geochemistry & Waste",
+        "page_count": 0,
+        "pages": [],
+        "samples": []
+      },
+      "cost_and_capacity": {
+        "label": "Proje Bedeli, Güç ve Kapasite",
+        "page_count": 1,
+        "pages": [
+          1
+        ],
+        "samples": [
+          {
+            "page": 1,
+            "match": "100.000 ton/yıl",
+            "snippet": "…T İNŞAAT PETROL ÜRÜNLERİ OTO ALIM SATIM SAN. VE TİC. A.Ş. tarafından planlanan projesi ile ilgili \"5,13 Ha'lık alanda 100.000 ton/yıl kapasiteli Kum -Çakıl Ocağı\" olarak ÇED Yönetmeliği kapsamında hazırlanan Proje Tanıtım Dosyasına esas Kurum görüşümüz…"
+          },
+          {
+            "page": 1,
+            "match": "kapasite",
+            "snippet": "…ÜRÜNLERİ OTO ALIM SATIM SAN. VE TİC. A.Ş. tarafından planlanan projesi ile ilgili \"5,13 Ha'lık alanda 100.000 ton/yıl kapasiteli Kum -Çakıl Ocağı\" olarak ÇED Yönetmeliği kapsamında hazırlanan Proje Tanıtım Dosyasına esas Kurum görüşümüz talep edi…"
+          }
+        ]
+      },
+      "splitting_and_thresholds": {
+        "label": "Proje Parçalama, Kapasite Artışı ve Eşik Değerler",
+        "page_count": 0,
+        "pages": [],
+        "samples": []
+      }
+    },
+    "audit_checks": {
+      "mentions_field_survey": false,
+      "mentions_literature_only_cue": false,
+      "mentions_seasonal_sampling": false,
+      "mentions_cumulative_impact": false,
+      "mentions_olive_law_3573": true,
+      "mentions_groundwater_or_aquifer": false,
+      "mentions_iucn_or_endemic": false,
+      "mentions_capacity_or_splitting": false,
+      "mentions_circular_2009_7_or_revision": false
+    }
+  },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-22T01:20:38",
+      "decision_type": "İptal/İade",
+      "announcement_date": "2026-11-13",
+      "announcement_date_tr": "13.11.2026",
+      "submitted_at": "01/10/2026 11:40:25",
+      "consulting_firm": "ALTA ÇED PROJE MÜHENDİSLİK A.Ş.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=dosya_2561627205360535380.tmp&orjinalAd=61047_projeIptalDosya.pdf&yuklemeTarihi=2026-11-12",
+      "pdf_temp_ad": "dosya_2561627205360535380.tmp",
+      "pdf_original_name": "61047_projeIptalDosya.pdf",
+      "pdf_upload_date": "2026-11-12",
+      "sha256": "8ad67dbaeda055df3e86506237e00d61f777614daa6a67a9a8c3909f078c1b61",
+      "bytes": 100322,
+      "page_count": 1,
+      "text_pages": 1,
+      "scanned_or_blank_pages": 0,
+      "audit_checks": {
+        "mentions_field_survey": false,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": false,
+        "mentions_cumulative_impact": false,
+        "mentions_olive_law_3573": true,
+        "mentions_groundwater_or_aquifer": false,
+        "mentions_iucn_or_endemic": false,
+        "mentions_capacity_or_splitting": false,
+        "mentions_circular_2009_7_or_revision": false
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 1,
+        "water_and_discharge": 0,
+        "protected_land_and_olive": 1,
+        "ecology_and_baseline": 0,
+        "pollutants_and_hazards": 0,
+        "cost_and_capacity": 1,
+        "splitting_and_thresholds": 0
+      },
+      "geo_precision": "province_centroid",
+      "geo_lat": 38.6191,
+      "geo_lon": 27.4289,
+      "geo_point_count": 0,
+      "detail_text_sha256": "a7e737fbf69ff9ab"
+    }
+  ],
+  "llm_synthesis": {
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-11-22T01:20:42",
+    "pages_sent": [
+      1
+    ],
+    "usage": {
+      "prompt_tokens": 1700,
+      "output_tokens": 1362,
+      "thoughts_tokens": null,
+      "total_tokens": 3062
+    },
+    "result": {
+      "executive_summary_tr": "Manisa ili Turgutlu ilçesi Çampınar Mahallesi sınırları içerisinde İhsanoğulları Hafriyat A.Ş. tarafından planlanan 5,13 hektarlık alanda 100.000 ton/yıl kapasiteli I.(a) Grubu Kum-Çakıl Ocağı projesi için hazırlanan dosya, Manisa İl Tarım ve Orman Müdürlüğü'nün kurum görüşü doğrultusunda iptal edilmiştir. Yapılan incelemeler neticesinde, faaliyet sahasının 3 kilometrelik mesafe bandı içerisinde dikili zeytinlik alanların bulunduğu ve açık işletme madenciliğinin çıkaracağı toz ve dumanın zeytinliklerin gelişimine mani olacağı tespit edilmiştir. Bu durum 3573 sayılı Zeytinciliğin Islahı ve Yabanilerinin Aşılattırılması Hakkında Kanun'un 20. maddesine açıkça aykırılık teşkil etmektedir. ÇED süreci bu yasal engele istinaden sonlandırılmıştır.",
+      "executive_summary_en": "The proposed 5.13-hectare, 100,000 tons/year sand-gravel quarry project by İhsanoğulları Hafriyat A.Ş. in Manisa, Turgutlu, Çampınar Neighborhood, has been officially terminated following the institutional opinion of the Provincial Directorate of Agriculture and Forestry. Technical inspections and satellite image measurements revealed that the project site is located within a 3-kilometer buffer zone of cultivated olive groves. Since open-pit mining activities generate dust and emissions that impair the vegetative and generative growth of olive trees, the project violates Article 20 of Law No. 3573 on the Improvement of Olive Cultivation. Consequently, the Environmental Impact Assessment (EIA) process was deemed inappropriate and canceled.",
+      "key_facts": [
+        {
+          "label": "Faaliyet Alanı",
+          "value": "5,13 Ha",
+          "page": 1
+        },
+        {
+          "label": "Planlanan Kapasite",
+          "value": "100.000 ton/yıl",
+          "page": 1
+        },
+        {
+          "label": "Ruhsat Numarası",
+          "value": "2026/1 (ER:3550556)",
+          "page": 1
+        },
+        {
+          "label": "Proje Türü",
+          "value": "I.(a) Grubu Kum-Çakıl Ocağı",
+          "page": 1
+        },
+        {
+          "label": "Yasal Dayanak",
+          "value": "3573 sayılı Zeytinciliğin Islahı ve Yabanilerinin Aşılattırılması Hakkında Kanun Madde 20",
+          "page": 1
+        }
+      ],
+      "baseline_assessment": {
+        "field_survey_status": "not_found",
+        "seasonal_sampling_status": "not_found",
+        "cumulative_impact_status": "omitted_or_not_found",
+        "olive_and_protected_status": "Proje sahasının 3 kilometrelik mesafe bandı içerisinde dikili zeytinlik alanların bulunduğu İl Tarım ve Orman Müdürlüğü'nün uydu görüntüleri ve teknik incelemeleri ile tespit edilmiştir [s. 1].",
+        "explanation": "İl Tarım ve Orman Müdürlüğü tarafından gerçekleştirilen resmi incelemede, 3573 sayılı Kanun'un 20. maddesinde yer alan 3 kilometrelik koruma bandı kuralının ihlal edildiği ve açık işletme faaliyetlerinden kaynaklanacak toz ve dumanın zeytinliklerin gelişimini olumsuz yönde etkileyeceği saptanmıştır [s. 1]. Bu gerekçeyle ÇED sürecinin devam ettirilmesi uygun görülmeyerek iptal edilmiştir [s. 1]."
+      },
+      "red_flags": [
+        {
+          "category": "zeytinlik_3573",
+          "severity": "high",
+          "title": "3573 Sayılı Zeytincilik Kanunu 3 Kilometre Mesafe İhlali",
+          "detail": "Planlanan kum-çakıl ocağı faaliyet sahasının 3 kilometrelik mesafe bandı içerisinde dikili zeytinlik alanların bulunduğu tespit edilmiştir ve açık işletme toz/duman emisyonlarının zeytinliklerin gelişimine mani olacağı resmi kurum görüşüyle sabitlenmiştir [s. 1].",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "recommended_bilirkisi_disciplines": [
+        "Ziraat Mühendisi",
+        "Çevre Mühendisi",
+        "Maden Mühendisi",
+        "Şehir ve Bölge Plancısı"
+      ],
+      "hkt_and_petition_questions": [
+        {
+          "question_tr": "Faaliyet sahasının 3573 sayılı Kanun kapsamında kalan dikili zeytinlik sahalarına olan en kısa yatay mesafesi GPS koordinatları ile tam olarak nedir?",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "question_tr": "Açık işletme yöntemiyle yürütülecek kazı, yükleme ve nakliye faaliyetleri sırasında oluşacak toz emisyonlarının yakın çevredeki zeytinliklerin vegetatif ve generatif gelişimine olası olumsuz etkileri nasıl engellenecektir?",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "data_limitations": "Sunulan doküman yalnızca Manisa Valiliği İl Tarım ve Orman Müdürlüğü'nün kurum görüşü yazısından ibaret olup, Proje Tanıtım Dosyası'nın diğer teknik bölümleri, flora-fauna raporları ve hidrojeolojik etüt ekleri dosyada yer almamaktadır."
+    }
+  }
+}

@@ -1,0 +1,877 @@
+{
+  "filing": {
+    "province": "ADANA",
+    "district": "SEYHAN",
+    "project_name": "Bitkisel Atık Yağ Ara Depolama Tesisi Kapasite Artışı",
+    "project_owner": "Petra Atık Yönetimi A.Ş.",
+    "sector": "Atık",
+    "sub_sector": "Atık Bertaraf /Geri Kazanım/ Depolama Tesisi Projeleri",
+    "decision_type": "ÇED Gerekli Değil/ÇED Olumlu",
+    "announcement_date_tr": "19.11.2026",
+    "project_type": "Ek-2",
+    "detail_text": "ADANA ili SEYHAN,  ilcesinde ADANA ili SEYHAN,  ilcesi Yeşiloba Mahallesi, 2. Cad., Aydemirler Sitesi B/Blok No:18/1P (4443 Ada, 107 Parsel) mevkiindeki Petra Atık Yönetimi A.Ş.  tarafından yapılması planlanan Bitkisel Atık Yağ Ara Depolama Tesisi Kapasite Artışı projesi ile ilgili olarak Bakanlığımıza sunulan PTD Dosyası incelenmiş ve değerlendirilmiştir  ÇED Yönetmeliği'nin 17. maddesi gereğince Bitkisel Atık Yağ Ara Depolama Tesisi Kapasite Artışı projesi'ne Valiliğimizce 'ÇED Olumlu (Kapsam Ek-2)' kararı verilmiştir.",
+    "detail_links": [
+      {
+        "text": "PTD Dosyası",
+        "href": "http://eced.csb.gov.tr/jsp/ek1/59023"
+      }
+    ],
+    "documents": [
+      {
+        "portal_doc_url": "http://eced.csb.gov.tr/jsp/ek1/59023",
+        "filing_id": "59023",
+        "consulting_firm": "ANTALYA İŞ GÜVENLİĞİ ÇEVRE MÜH. ve DANŞ.HİZ.TİC.LTD.ŞTİ.",
+        "submitted_at": "29/03/2026 11:51:20",
+        "pdf_urls": [
+          {
+            "label": "Dosya Göster",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign5584550927635149947.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-06-01"
+          }
+        ]
+      }
+    ],
+    "announcement_date": "2026-11-19",
+    "statutory_clocks": [
+      {
+        "code": "iyuk_20a",
+        "kind": "İYUK Madde 20/A iptal davası süresi (30 takvim günü; İYUK 11 süreyi durdurmaz)",
+        "deadline": "2026-12-19",
+        "days_remaining": 27
+      }
+    ],
+    "filing_key": "59023:19.11.2026:ÇED Gerekli Değil/ÇED Olumlu",
+    "first_seen_at": "2026-11-20T02:10:50"
+  },
+  "pdf_info": {
+    "filename": "59023.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign5584550927635149947.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-06-01",
+    "bytes": 65074664,
+    "sha256": "9ab4225583605e346a36b7dc4f277882ff4e309e4983b1209d19eaae6fc78d30",
+    "cached": false
+  },
+  "analysis": {
+    "page_count": 203,
+    "total_chars": 282950,
+    "text_pages": 148,
+    "scanned_or_blank_pages": 55,
+    "scanned_page_sample": [
+      69,
+      71,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87
+    ],
+    "headings": [
+      [
+        1,
+        "KAPAK SAYFASI"
+      ],
+      [
+        2,
+        "PETRA NIHAI PTD METIN"
+      ],
+      [
+        65,
+        "EKLER NIHAI"
+      ],
+      [
+        65,
+        "EKLER NIHAI"
+      ],
+      [
+        65,
+        "EKLER NIHAI EKSİK"
+      ],
+      [
+        65,
+        "EKLER TAM"
+      ],
+      [
+        65,
+        "EKLER TAM"
+      ],
+      [
+        65,
+        "EKLER TAM"
+      ],
+      [
+        65,
+        "EKLER TAM"
+      ],
+      [
+        65,
+        "EKLER TAM"
+      ],
+      [
+        65,
+        "EKLER TAM"
+      ],
+      [
+        65,
+        "EKLER BOŞ"
+      ],
+      [
+        66,
+        "KOORDİNATLAR"
+      ],
+      [
+        67,
+        "EKLER BOŞ"
+      ],
+      [
+        68,
+        "topografik adana"
+      ],
+      [
+        69,
+        "EKLER BOŞ"
+      ],
+      [
+        70,
+        "5000 İMAR PLANI,LEJAT VE ONAY TAM"
+      ],
+      [
+        70,
+        "5000 LİK ÜST YAZI"
+      ],
+      [
+        72,
+        "5000 PLAN"
+      ],
+      [
+        73,
+        "5000 PLAN ONAYI"
+      ],
+      [
+        74,
+        "5000 LEJANT"
+      ],
+      [
+        75,
+        "5000 LEJANT ONAY"
+      ],
+      [
+        76,
+        "5000 HÜKÜMLERİ"
+      ],
+      [
+        77,
+        "5000 HÜKÜM ONAY"
+      ],
+      [
+        78,
+        "EKLER BOŞ"
+      ]
+    ],
+    "geo": {
+      "precision": "exact_pdf",
+      "lat": 36.99207,
+      "lon": 35.2476,
+      "point_count": 8,
+      "points": [
+        [
+          36.99178,
+          35.24785
+        ],
+        [
+          36.99178,
+          35.24802
+        ],
+        [
+          36.99168,
+          35.24802
+        ],
+        [
+          36.99168,
+          35.24785
+        ],
+        [
+          36.99246,
+          35.24718
+        ],
+        [
+          36.99247,
+          35.24735
+        ],
+        [
+          36.99236,
+          35.24735
+        ],
+        [
+          36.99237,
+          35.24718
+        ]
+      ],
+      "datum": "UTM-Z36/ED50",
+      "pages": [
+        16
+      ]
+    },
+    "signals": {
+      "coordinates_and_footprint": {
+        "label": "Coordinates, Parcel & Footprint",
+        "page_count": 20,
+        "pages": [
+          7,
+          15,
+          16,
+          17,
+          30,
+          40,
+          64,
+          66,
+          70,
+          133,
+          134,
+          137,
+          154,
+          159,
+          172,
+          176,
+          182,
+          192,
+          193,
+          201
+        ],
+        "samples": [
+          {
+            "page": 7,
+            "match": "11.781 m2",
+            "snippet": "…nu tapu fotokopisi ve kira sözleşmesi Ek-7’ de yer almaktadır. Sanayi Sitesi içerisinde bulunan tapulu arsa toplamda 11.781 m2 olup üzerinde mevcut 170 m2 taban alanına sahip, zemin kat ve asma kattan oluşan kapalı tesis binası içerisinde kapas…"
+          },
+          {
+            "page": 15,
+            "match": "11.781 m2",
+            "snippet": "…BİTKİSEL ATIK YAĞ ARA DEPOLAMA TESİSİ KAPASİTE ARTIŞI 13 Sanayi Sitesi içerisinde bulunan tapulu arsa toplamda 11.781 m2 olup üzerinde mevcut 170 m2 taban alanına sahip, zemin kat ve asma kattan oluşan kapalı tesis binası içerisinde kapas…"
+          },
+          {
+            "page": 15,
+            "match": "koordinat",
+            "snippet": "…an konutlardır. Proje alanına ait uydu görüntüleri Ek-2.7’ de yer almaktadır. ÇED alanı olarak belirlenen tesise ait koordinatlar aşağıda yer almaktadır."
+          },
+          {
+            "page": 16,
+            "match": "Koordinat",
+            "snippet": "PETRA ATIK YÖNETİMİ A.Ş. BİTKİSEL ATIK YAĞ ARA DEPOLAMA TESİSİ KAPASİTE ARTIŞI 14 Tablo 3:Tesis Alanı Koordinatları Datum : ED-50 (UTM) Ölçek : 6 DERECE Koor. Sırası : Sağa Yukarı DOM : 33 ZON…"
+          },
+          {
+            "page": 16,
+            "match": "ED-50",
+            "snippet": "….Ş. BİTKİSEL ATIK YAĞ ARA DEPOLAMA TESİSİ KAPASİTE ARTIŞI 14 Tablo 3:Tesis Alanı Koordinatları Datum : ED-50 (UTM) Ölçek : 6 DERECE Koor. Sırası : Sağa Yukarı DOM : 33 ZON : 36 Pafta No : O3…"
+          },
+          {
+            "page": 16,
+            "match": "UTM",
+            "snippet": "…TKİSEL ATIK YAĞ ARA DEPOLAMA TESİSİ KAPASİTE ARTIŞI 14 Tablo 3:Tesis Alanı Koordinatları Datum : ED-50 (UTM) Ölçek : 6 DERECE Koor. Sırası : Sağa Yukarı DOM : 33 ZON : 36 Pafta No : O34-a2…"
+          },
+          {
+            "page": 16,
+            "match": "WGS-84",
+            "snippet": "…: 6 DERECE Koor. Sırası : Sağa Yukarı DOM : 33 ZON : 36 Pafta No : O34-a2 Datum : WGS-84 (Coğrafik) Türü : Derece.Kesir Koor..Sırası : Enlem Boylam Nokta No: Y: X: Enlem Boylam Ç1 700070.5…"
+          },
+          {
+            "page": 17,
+            "match": "11.781 m2",
+            "snippet": "…nu tapu fotokopisi ve kira sözleşmesi Ek-7’ de yer almaktadır. Sanayi Sitesi içerisinde bulunan tapulu arsa toplamda 11.781 m2 olup üzerinde mevcut 170 m2 taban alanına sahip, zemin kat ve asma kattan oluşan kapalı tesis binası içerisinde kapas…"
+          }
+        ]
+      },
+      "water_and_discharge": {
+        "label": "Water Use, Hydrogeology & Discharge",
+        "page_count": 17,
+        "pages": [
+          9,
+          11,
+          12,
+          18,
+          19,
+          21,
+          22,
+          32,
+          36,
+          48,
+          57,
+          63,
+          93,
+          176,
+          192,
+          194,
+          196
+        ],
+        "samples": [
+          {
+            "page": 9,
+            "match": "atıksu",
+            "snippet": "…ısından işgücü kaynaklan, tesis faaliyetlerini ve personelin yaşantısını etkileyebilecek iklim koşulları, su temini ve atıksu bertaraf yöntemleri göz önünde bulundurulmuştur. Aynı zamanda faaliyet alanı için; öngörülen işletme yönteminin mevcu…"
+          },
+          {
+            "page": 11,
+            "match": "Atıksu",
+            "snippet": "…m Tesislerine Sevkiyat Ambalaj Atığı Bitkisel Atık Yağ Oluşan Tesis İle Sözleşme Tehlikeli Atık Bidon Yıkama Yağlı Atıksu Yıkama Ünitesi Su +Yağ Çözücü Çamur Lisanslı Bertaraf Tesisleri Atıksu Bidonların Boşaltılması (Elekli Boşaltma…"
+          },
+          {
+            "page": 12,
+            "match": "atıksu",
+            "snippet": "…r. Bidon yıkama işlemi sırasında yıkama ünitesinde yağ çözücü veya kostik kullanılacak olup oluşan kimyasal karışımlı atıksu ve dip çamuru lisanslı bertaraf tesislerine ulaştırılarak bertaraf edilmesi sağlanacaktır. Kirli bidonlar 2 m x 1,5 m…"
+          },
+          {
+            "page": 18,
+            "match": "Atıksu",
+            "snippet": "…tme aşamasında 10 personel çalışacaktır. Kişi başına kullanılacak su miktarı 255 lt/gün kabulü ile (TÜİK Belediye Su Atıksu Göstergeleri- Kişi Başı Çekilen Günlük Su Miktarı (Litre/Kişi-Gün) -2024) kullanılacak toplam su miktarı; Qpersonel =…"
+          },
+          {
+            "page": 18,
+            "match": "2,55 m3/gün",
+            "snippet": "…tiyacı) N = 10 kişi (Personel sayısı) Qpersonel = ( q ) x ( N ) Qpersonel = 255 lt/kişi.gün x 10 kişi = 2550 lt/gün= 2,55 m3/gün Proses Su İhtiyacı Tesiste günde ortalama 50 adet/gün bidon yıkanmakta olup kapasite artışı sonrası maksimum 100 ad…"
+          },
+          {
+            "page": 18,
+            "match": "0,25 m3/gün",
+            "snippet": "…başına su ihtiyacı) A = 50 adet (Bidon sayısı) Qproses = ( q ) x ( A ) Qproses = 5 lt/bidon x 50 adet = 500 lt/gün= 0,25 m3/gün Kapasite artışı sonrası günlük 100 adet bitkisel atık yağ bidonu yıkaması için gerekli proses su ihtiyacı; Qproses…"
+          },
+          {
+            "page": 18,
+            "match": "0,50 m3/gün",
+            "snippet": "…) A = 100 adet (Yıkama Yapılacak Bidon sayısı) Qproses = ( q ) x ( A ) Qproses = 5 lt/bidon x 100 adet = 500 lt/gün= 0,50 m3/gün Temizlik Su İhtiyacı Proje için kullanılacak üretim alanında haftalık olarak zemin yıkanması ve her üretim periyodu…"
+          },
+          {
+            "page": 19,
+            "match": "2,55 m3/gün",
+            "snippet": "…AĞ ARA DEPOLAMA TESİSİ KAPASİTE ARTIŞI 17 Mevcut Toplam Su İhtiyacı Qtoplam = Qpersonel + Qproses + Qtemizlik =2,55 m3/gün +0,25 m3/gün+ 0,1 m3 /gün =2,90 m3 /gün (2,90 ton /gün) Tablo 7:Mevcut Su Kullanım Miktarı Kaynak Kullanılan Su Mik…"
+          }
+        ]
+      },
+      "protected_land_and_olive": {
+        "label": "Protected Zones, Forests & Olive Groves",
+        "page_count": 6,
+        "pages": [
+          4,
+          30,
+          31,
+          35,
+          36,
+          199
+        ],
+        "samples": [
+          {
+            "page": 4,
+            "match": "orman alanı",
+            "snippet": "…. 26 BÖLÜM II: PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ: 28 II.a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri. ..............................…"
+          },
+          {
+            "page": 30,
+            "match": "orman alanı",
+            "snippet": "…28 BÖLÜM II: PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ: II.a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri. Petra Atık Yönetimi A.Ş. tara…"
+          },
+          {
+            "page": 31,
+            "match": "orman alanı",
+            "snippet": "…BİTKİSEL ATIK YAĞ ARA DEPOLAMA TESİSİ KAPASİTE ARTIŞI 29 II.a.1. Orman Alanları Yapılması planlanan tesis alanı orman alanı içerisinde kalmamaktadır. Bu nedenle orman alanları ile bir etkileşim söz konusu olmayacaktır. II.a.2. Tarım Alanları…"
+          },
+          {
+            "page": 35,
+            "match": "Özel Çevre Koruma",
+            "snippet": "…nde tanımlanan alanlar kapsamında değildir. f) Çevre Kanunu’nun 9 uncu maddesi uyarınca Cumhurbaşkanı tarafından \"Özel Çevre Koruma Bölgeleri\" olarak tespit ve ilan edilen alanlar kapsamında bulunmamaktadır. g) Boğaziçi Kanunu’na göre koruma altına a…"
+          },
+          {
+            "page": 35,
+            "match": "orman alanı",
+            "snippet": "…aktadır. g) Boğaziçi Kanunu’na göre koruma altına alınan alanlar kapsamında bulunmamaktadır. ğ) Orman Kanunu uyarınca orman alanı sayılan yerler, kapsamında değildir. h) Kıyı Kanunu gereğince yapı yasağı getirilen alanlar, kapsamında değildir.…"
+          },
+          {
+            "page": 36,
+            "match": "kıyı kenar",
+            "snippet": "…ı olmak üzere canlıların yaşama ortamı olarak önem taşıyan bütün sular, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler kapsamında bulunmamaktadır. ç) Gölle…"
+          },
+          {
+            "page": 36,
+            "match": "sulak alan",
+            "snippet": "…ar, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler kapsamında bulunmamaktadır. ç) Göller, akarsular, yeraltı suyu işletme sahaları, kapsamında tesis çevresi…"
+          },
+          {
+            "page": 199,
+            "match": "orman alanı",
+            "snippet": "…ulacaktır. 11. Ormanlar Ve Biyolojik Çeşitlilik Proje sahasının bulunduğu alan 6831 sayılı Orman Kanunu gereğince orman alanı sayılan yerlerden değildir. Proje alanı ve yakın çevresi; Muhafaza ormanları, gen koruma alanları, bilimsel çalışma…"
+          }
+        ]
+      },
+      "ecology_and_baseline": {
+        "label": "Flora, Fauna & Baseline Methodology",
+        "page_count": 11,
+        "pages": [
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          43,
+          44,
+          46,
+          47
+        ],
+        "samples": [
+          {
+            "page": 35,
+            "match": "BERN Sözleşmesi",
+            "snippet": "…sözleşmeler uyarınca korunması gerekli alanlar a) \"Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi\" (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan \"Önemli Deniz Kaplumbağası Üreme Alanları\"nda belirtilen I. ve II. Koruma B…"
+          },
+          {
+            "page": 36,
+            "match": "endemik",
+            "snippet": "…r. d) Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…"
+          },
+          {
+            "page": 36,
+            "match": "Arazi çalışması",
+            "snippet": "…iklerdeki jeolojik ve jeomorfolojik oluşumların bulunduğu alanlar, kapsamına yer almamaktadır. Flora -Fauna Flora: Arazi çalışması sırasında saptanan bitki türleri Davis’in “Flora of Turkey and East Aegean Islands/1-11 (1966-2001)” adlı eserinden ya…"
+          },
+          {
+            "page": 37,
+            "match": "IUCN",
+            "snippet": "…L ATIK YAĞ ARA DEPOLAMA TESİSİ KAPASİTE ARTIŞI 35 Tablo 13:Flora Tür Listesi Bilimsel Adı Türkçe Adı Endemizm IUCN CITES BERN Fitocoğrafik Bölge Apiaceae (Maydanozgiller) Eryngium campestre L. Kırsenet Endemik…"
+          },
+          {
+            "page": 37,
+            "match": "CITES",
+            "snippet": "…YAĞ ARA DEPOLAMA TESİSİ KAPASİTE ARTIŞI 35 Tablo 13:Flora Tür Listesi Bilimsel Adı Türkçe Adı Endemizm IUCN CITES BERN Fitocoğrafik Bölge Apiaceae (Maydanozgiller) Eryngium campestre L. Kırsenet Endemik değil…"
+          },
+          {
+            "page": 37,
+            "match": "Endemik",
+            "snippet": "…m IUCN CITES BERN Fitocoğrafik Bölge Apiaceae (Maydanozgiller) Eryngium campestre L. Kırsenet Endemik değil NE Liste Dışı Liste Dışı - Tordylium hasselquistiae DC. Ekindavulotu Endemik değil NE Liste Dışı Lis…"
+          },
+          {
+            "page": 38,
+            "match": "Endemik",
+            "snippet": "…ATIK YÖNETİMİ A.Ş. BİTKİSEL ATIK YAĞ ARA DEPOLAMA TESİSİ KAPASİTE ARTIŞI 36 Lotus corniculatus L. Gazalboynuzu Endemik değil NE Liste Dışı Liste Dışı - Medicago sativa L. Karayonca Endemik değil NE Liste Dışı Liste Dışı -…"
+          },
+          {
+            "page": 38,
+            "match": "Bern Sözleşmesi",
+            "snippet": "…Endemik değil NE Liste Dışı Liste Dışı - Avrupa’nın Yaban Hayatı ve Doğal Habitatlarının Korunması Sözleşmesi (Bern Sözleşmesi) Bern Sözleşmesi, yabani flora-fauna ve bunların yaşam alanlarını yani habitatlarını muhafaza etmek, nesli tehlikeye…"
+          }
+        ]
+      },
+      "pollutants_and_hazards": {
+        "label": "Emissions, Geochemistry & Waste",
+        "page_count": 29,
+        "pages": [
+          6,
+          7,
+          11,
+          22,
+          23,
+          24,
+          26,
+          27,
+          28,
+          32,
+          33,
+          34,
+          48,
+          51,
+          53,
+          54,
+          55,
+          56,
+          57,
+          62,
+          63,
+          163,
+          173,
+          174,
+          176
+        ],
+        "samples": [
+          {
+            "page": 6,
+            "match": "Gürültü",
+            "snippet": "…yıt Sistemi AEEE Atık Elektrik Elektronik Eşya A.Ş. Anonim Şirketi ÇED Çevresel Etki Değerlendirmesi ÇGKY Çevresel Gürültü Kontrol Yönetmeliği dBA A-ağırlıklı desibel Km kilometre HKKD Hava Kirlenmesi Katkı Değeri Hz Hertz İÇDR. İl Çevre…"
+          },
+          {
+            "page": 7,
+            "match": "Tehlikeli atık",
+            "snippet": "…nin yeni kapasitesi Ek-2’deki listede belirtilen projeler içerisinde yer alması nedeniyle EK– II Listesi, Madde 5- ç) Tehlikeli atık ara depolama tesisleri, kapsamında Proje Tanıtım Dosyası hazırlanması gereken faaliyetler içerisindedir. Bu kapsamda…"
+          },
+          {
+            "page": 11,
+            "match": "Tehlikeli Atık",
+            "snippet": "…nkerlere Dolum Lisanslı Geri Kazanım Tesislerine Sevkiyat Ambalaj Atığı Bitkisel Atık Yağ Oluşan Tesis İle Sözleşme Tehlikeli Atık Bidon Yıkama Yağlı Atıksu Yıkama Ünitesi Su +Yağ Çözücü Çamur Lisanslı Bertaraf Tesisleri Atıksu Bidonların Bo…"
+          },
+          {
+            "page": 22,
+            "match": "tehlikeli atık",
+            "snippet": "…luşması muhtemel diğer yağ ve atıksu ile karışması engellenecek olup bidon yıkaması sonucu oluşan atıksu ve dip çamuru tehlikeli atık niteliğinde bertaraf firmalarına ulaştırılması sağlanacaktır. Tesis içinde dökülme veya bidonlardan sızıntı sonucu ol…"
+          },
+          {
+            "page": 23,
+            "match": "tehlikeli atık",
+            "snippet": "…Tehlikeli Atıklar Tesisin işletilmesi sırasında tehlikeli atıkların oluşması söz konusudur. Tesiste oluşması muhtemel tehlikeli atık türleri ve kodları ile oluşması muhtemel miktarları benzer faaliyetler göz önünde bulundurularak aşağıdaki tabloda ver…"
+          },
+          {
+            "page": 24,
+            "match": "tehlikeli atık",
+            "snippet": "…ğ içeren atıklar 500 Lisanslı bertaraf/geri kazanım tesisine gönderilecektir. Tesiste oluşması muhtemel az miktarda tehlikeli atık yönetmelik hükümlerine uygun olarak lisanslı geri kazanım ve/veya bertaraf tesislerine gönderilmek üzere yapılacak geç…"
+          },
+          {
+            "page": 26,
+            "match": "PM10",
+            "snippet": "…ek miktar, yoğunluk ve sürede atmosferde bulunmasıdır. Hava kalitesi açısından en önemli kirleticiler partikül madde (PM10 ve PM2,5), kükürtdioksit (SO2), karbonmonoksit (CO), ozon (O3), azotoksitler, benzene, kurşun, ağır metaller ve PAH (…"
+          },
+          {
+            "page": 26,
+            "match": "PM2,5",
+            "snippet": "…r, yoğunluk ve sürede atmosferde bulunmasıdır. Hava kalitesi açısından en önemli kirleticiler partikül madde (PM10 ve PM2,5), kükürtdioksit (SO2), karbonmonoksit (CO), ozon (O3), azotoksitler, benzene, kurşun, ağır metaller ve PAH (poliaroma…"
+          }
+        ]
+      },
+      "cost_and_capacity": {
+        "label": "Proje Bedeli, Güç ve Kapasite",
+        "page_count": 83,
+        "pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "samples": [
+          {
+            "page": 1,
+            "match": "KAPASİTE",
+            "snippet": "PETRA ATIK YÖNETİMİ A.Ş. BİTKİSEL ATIK YAĞ ARA DEPOLAMA TESİSİ KAPASİTE ARTIŞI ADANA İLİ, SEYHAN İLÇESİ, YEŞİLOBA MAHALLESİ, 2. CAD., AYDEMİRLER SİTESİ B/BLOK NO:18/1P (4443 ADA, 107 P…"
+          },
+          {
+            "page": 2,
+            "match": "KAPASİTE",
+            "snippet": "PETRA ATIK YÖNETİMİ A.Ş. BİTKİSEL ATIK YAĞ ARA DEPOLAMA TESİSİ KAPASİTE ARTIŞI PROJE SAHİBİNİN ADI Petra Atık Yönetimi A.Ş. ADRESİ Çınar Mah.Rıfkı Tongsir Cad. Nidapark Küçükyalı B…"
+          },
+          {
+            "page": 2,
+            "match": "Kapasite",
+            "snippet": "…Faks: - GSM: 0 507 911 31 79 E-POSTA cevre@edessacompany.com PROJENİN ADI Bitkisel Atık Yağ Ara Depolama Tesisi Kapasite Artışı PROJE BEDELİ 915.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ(İLİ, İLÇESİ, BELDESİ, MEVKİ) Adana İli, Sey…"
+          },
+          {
+            "page": 2,
+            "match": "PROJE BEDELİ",
+            "snippet": "…507 911 31 79 E-POSTA cevre@edessacompany.com PROJENİN ADI Bitkisel Atık Yağ Ara Depolama Tesisi Kapasite Artışı PROJE BEDELİ 915.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ(İLİ, İLÇESİ, BELDESİ, MEVKİ) Adana İli, Seyhan İlçesi, Yeşiloba…"
+          },
+          {
+            "page": 2,
+            "match": "915.000 TL",
+            "snippet": "…E-POSTA cevre@edessacompany.com PROJENİN ADI Bitkisel Atık Yağ Ara Depolama Tesisi Kapasite Artışı PROJE BEDELİ 915.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ(İLİ, İLÇESİ, BELDESİ, MEVKİ) Adana İli, Seyhan İlçesi, Yeşiloba Mahallesi, 2…"
+          },
+          {
+            "page": 3,
+            "match": "KAPASİTE",
+            "snippet": "PETRA ATIK YÖNETİMİ A.Ş. BİTKİSEL ATIK YAĞ ARA DEPOLAMA TESİSİ KAPASİTE ARTIŞI 1 İÇİNDEKİLER TABLOLAR DİZİNİ ...........................................................................…"
+          },
+          {
+            "page": 3,
+            "match": "kapasite",
+            "snippet": "…...................................................................................... 8 I.b) Projenin iş akım şeması, kapasitesi, kapladığı alan, yatırım bedeli, teknolojisi, çalışacak personel sayısı. ...........................................…"
+          },
+          {
+            "page": 4,
+            "match": "KAPASİTE",
+            "snippet": "PETRA ATIK YÖNETİMİ A.Ş. BİTKİSEL ATIK YAĞ ARA DEPOLAMA TESİSİ KAPASİTE ARTIŞI 2 I.ç.9. Atık Elektrik ve Elektronik Eşya ................................................................…"
+          }
+        ]
+      },
+      "splitting_and_thresholds": {
+        "label": "Proje Parçalama, Kapasite Artışı ve Eşik Değerler",
+        "page_count": 82,
+        "pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "samples": [
+          {
+            "page": 1,
+            "match": "KAPASİTE ARTIŞI",
+            "snippet": "PETRA ATIK YÖNETİMİ A.Ş. BİTKİSEL ATIK YAĞ ARA DEPOLAMA TESİSİ KAPASİTE ARTIŞI ADANA İLİ, SEYHAN İLÇESİ, YEŞİLOBA MAHALLESİ, 2. CAD., AYDEMİRLER SİTESİ B/BLOK NO:18/1P (4443 ADA, 107 PARSEL)…"
+          },
+          {
+            "page": 2,
+            "match": "KAPASİTE ARTIŞI",
+            "snippet": "PETRA ATIK YÖNETİMİ A.Ş. BİTKİSEL ATIK YAĞ ARA DEPOLAMA TESİSİ KAPASİTE ARTIŞI PROJE SAHİBİNİN ADI Petra Atık Yönetimi A.Ş. ADRESİ Çınar Mah.Rıfkı Tongsir Cad. Nidapark Küçükyalı Burgaz B…"
+          },
+          {
+            "page": 2,
+            "match": "Kapasite Artışı",
+            "snippet": "…Faks: - GSM: 0 507 911 31 79 E-POSTA cevre@edessacompany.com PROJENİN ADI Bitkisel Atık Yağ Ara Depolama Tesisi Kapasite Artışı PROJE BEDELİ 915.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ(İLİ, İLÇESİ, BELDESİ, MEVKİ) Adana İli, Seyhan İlç…"
+          },
+          {
+            "page": 3,
+            "match": "KAPASİTE ARTIŞI",
+            "snippet": "PETRA ATIK YÖNETİMİ A.Ş. BİTKİSEL ATIK YAĞ ARA DEPOLAMA TESİSİ KAPASİTE ARTIŞI 1 İÇİNDEKİLER TABLOLAR DİZİNİ ..................................................................................…"
+          },
+          {
+            "page": 4,
+            "match": "KAPASİTE ARTIŞI",
+            "snippet": "PETRA ATIK YÖNETİMİ A.Ş. BİTKİSEL ATIK YAĞ ARA DEPOLAMA TESİSİ KAPASİTE ARTIŞI 2 I.ç.9. Atık Elektrik ve Elektronik Eşya .......................................................................…"
+          },
+          {
+            "page": 5,
+            "match": "KAPASİTE ARTIŞI",
+            "snippet": "PETRA ATIK YÖNETİMİ A.Ş. BİTKİSEL ATIK YAĞ ARA DEPOLAMA TESİSİ KAPASİTE ARTIŞI 3 TABLOLAR DİZİNİ Tablo 1:Tesis Mevcut Kapasitesi ..............................................................…"
+          },
+          {
+            "page": 6,
+            "match": "KAPASİTE ARTIŞI",
+            "snippet": "PETRA ATIK YÖNETİMİ A.Ş. BİTKİSEL ATIK YAĞ ARA DEPOLAMA TESİSİ KAPASİTE ARTIŞI 4 KISALTMALAR ADNKS. Adrese Dayalı Nüfus Kayıt Sistemi AEEE Atık Elektrik Elektronik Eşya A.Ş. Anonim Şirketi…"
+          },
+          {
+            "page": 7,
+            "match": "KAPASİTE ARTIŞI",
+            "snippet": "PETRA ATIK YÖNETİMİ A.Ş. BİTKİSEL ATIK YAĞ ARA DEPOLAMA TESİSİ KAPASİTE ARTIŞI 5 PROJENİN TEKNİK OLMAYAN ÖZETİ Adana İli, Seyhan İlçesi, Yeşiloba Mahallesi, 2. Cad., Aydemirler Sitesi B/Blok…"
+          }
+        ]
+      }
+    },
+    "audit_checks": {
+      "mentions_field_survey": true,
+      "mentions_literature_only_cue": false,
+      "mentions_seasonal_sampling": false,
+      "mentions_cumulative_impact": true,
+      "mentions_olive_law_3573": false,
+      "mentions_groundwater_or_aquifer": true,
+      "mentions_iucn_or_endemic": true,
+      "mentions_capacity_or_splitting": true,
+      "mentions_circular_2009_7_or_revision": false
+    }
+  },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-22T00:56:49",
+      "decision_type": "ÇED Gerekli Değil/ÇED Olumlu",
+      "announcement_date": "2026-11-19",
+      "announcement_date_tr": "19.11.2026",
+      "submitted_at": "29/03/2026 11:51:20",
+      "consulting_firm": "ANTALYA İŞ GÜVENLİĞİ ÇEVRE MÜH. ve DANŞ.HİZ.TİC.LTD.ŞTİ.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign5584550927635149947.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-06-01",
+      "pdf_temp_ad": "sign5584550927635149947.pdf",
+      "pdf_original_name": "e-imza.pdf",
+      "pdf_upload_date": "2026-06-01",
+      "sha256": "9ab4225583605e346a36b7dc4f277882ff4e309e4983b1209d19eaae6fc78d30",
+      "bytes": 65074664,
+      "page_count": 203,
+      "text_pages": 148,
+      "scanned_or_blank_pages": 55,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": false,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": false,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true,
+        "mentions_capacity_or_splitting": true,
+        "mentions_circular_2009_7_or_revision": false
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 20,
+        "water_and_discharge": 17,
+        "protected_land_and_olive": 6,
+        "ecology_and_baseline": 11,
+        "pollutants_and_hazards": 29,
+        "cost_and_capacity": 83,
+        "splitting_and_thresholds": 82
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 36.99207,
+      "geo_lon": 35.2476,
+      "geo_point_count": 8,
+      "detail_text_sha256": "318b086bdf61ee60"
+    }
+  ],
+  "llm_synthesis": {
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-11-22T00:56:54",
+    "pages_sent": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      22,
+      30,
+      31,
+      35,
+      36,
+      37,
+      38
+    ],
+    "usage": {
+      "prompt_tokens": 21485,
+      "output_tokens": 1589,
+      "thoughts_tokens": null,
+      "total_tokens": 23074
+    },
+    "result": {
+      "executive_summary_tr": "Adana ili, Seyhan ilçesi, Yeşiloba Mahallesi'nde Petra Atık Yönetimi A.Ş. tarafından işletilmekte olan bitkisel atık yağ ara depolama tesisinin kapasitesinin 60 ton/yıldan 120 ton/yıla çıkarılması planlanmaktadır [s. 7]. Mevcut 170 metrekarelik kapalı sanayi yapısı içinde gerçekleştirilecek kapasite artışı için herhangi bir yeni inşaat veya arazi hazırlık çalışması öngörülmemektedir [s. 7, 8]. Faaliyet kapsamında oluşabilecek atıksu ve sızıntı sularının yönetimi ile olası kaza risklerine karşı teknik önlemler dosyada ele alınmıştır [s. 8, 12].",
+      "executive_summary_en": "Petra Atık Yönetimi A.Ş. plans to increase the capacity of its vegetable waste oil interim storage facility located in Yeşiloba Neighborhood, Seyhan District, Adana Province, from 60 tons to 120 tons [s. 7]. The capacity increase will take place within an existing 170 square meter enclosed industrial building without requiring any new construction or land preparation works [s. 7, 8]. Technical measures regarding wastewater management, potential leakage control, and accident risks are evaluated within the file [s. 8, 12].",
+      "key_facts": [
+        {
+          "label": "Proje Bedeli",
+          "value": "915.000 TL",
+          "page": 2
+        },
+        {
+          "label": "Mevcut Depolama Kapasitesi",
+          "value": "60 ton",
+          "page": 7
+        },
+        {
+          "label": "Planlanan Toplam Depolama Kapasitesi",
+          "value": "120 ton",
+          "page": 7
+        },
+        {
+          "label": "Parsel Toplam Alanı",
+          "value": "11.781 m2",
+          "page": 7
+        },
+        {
+          "label": "Kapalı Tesis Alanı",
+          "value": "170 m2",
+          "page": 7
+        },
+        {
+          "label": "Çalışacak Personel Sayısı",
+          "value": "10 personel",
+          "page": 8
+        },
+        {
+          "label": "Toplam Atıksu Miktarı",
+          "value": "2,70 m3/gün",
+          "page": 22
+        },
+        {
+          "label": "En Yakın Konut Mesafesi",
+          "value": "350 m kuzeybatı ve 400 m güney",
+          "page": 13
+        }
+      ],
+      "baseline_assessment": {
+        "field_survey_status": "literature_only",
+        "seasonal_sampling_status": "not_found",
+        "cumulative_impact_status": "omitted_or_not_found",
+        "olive_and_protected_status": "Proje alanı 3573 sayılı Zeytincilik Kanunu kapsamında zeytinlik sahalarında veya Ek-5 duyarlı yöreler listesindeki korunan alanlarda yer almamaktadır [s. 29, 33].",
+        "explanation": "Dosyada sunulan flora ve fauna listeleri tamamen literatür taramalarına ve önceki akademik eserlere dayanmakta olup, tesisin bulunduğu küçük sanayi sitesi içerisinde mevsimsel saha gözlemleri gerçekleştirilmemiştir [s. 36]. Çevresel etki değerlendirmesinde birikimli (kumülatif) bölgesel etkiler ve yeraltı suyu akifer hassasiyetleri somut analizlerden yoksun, genel ifadelerle geçiştirilmiştir."
+      },
+      "red_flags": [
+        {
+          "category": "flora_fauna_mevsimsel",
+          "severity": "high",
+          "title": "Literatüre Dayalı ve Mevsimsel Olmayan Flora-Fauna Envanteri",
+          "detail": "Dosyada sunulan flora listesi ve ekosistem değerlendirmesi saha gözlemlerine değil, yalnızca Davis'in eserleri ve TÜBİVES gibi ikincil literatür kaynaklarına dayandırılmıştır [s. 36]. Danıştay içtihatlarına göre hassas ekosistemlerde ve yerleşim içi sanayi alanlarında tek sezonluk dahi olsa gerçek arazi verisi içermeyen envanterler eksik inceleme hükmündedir.",
+          "pages": [
+            36
+          ]
+        },
+        {
+          "category": "kumulatif_etki",
+          "severity": "medium",
+          "title": "Bölgesel Kumülatif Etki Değerlendirmesinin Yetersizliği",
+          "detail": "Küçük sanayi sitesi içerisinde yer alan ve tehlikeli atık ara depolama kapasitesini artıran tesisin çevresindeki diğer sanayi kollarının yarattığı kümülatif kirlilik yükü somut modellemelerle analiz edilmemiştir [s. 8, 29].",
+          "pages": [
+            8,
+            29
+          ]
+        }
+      ],
+      "recommended_bilirkisi_disciplines": [
+        "Çevre Mühendisi",
+        "Kimya Mühendisi",
+        "Hidrojeoloji Mühendisi",
+        "Şehir ve Bölge Plancısı"
+      ],
+      "hkt_and_petition_questions": [
+        {
+          "question_tr": "Tesiste depolanacak toplam bitkisel atık yağ kapasitesinin 120 tona çıkarılması durumunda, olası bir tank taşması veya sızıntı anında 120.000 litrelik güvenlik havuzu hacminin yönetmelik şartlarını tam olarak hangi mühendislik detaylarıyla karşılayacağı yerinde incelenmiş midir?",
+          "pages": [
+            12,
+            13
+          ]
+        },
+        {
+          "question_tr": "Bidon yıkama ünitesinden kaynaklanan ve tehlikeli atık niteliğindeki kimyasal karışımlı atıksu ile dip çamurunun kanalizasyon sistemine karışmayacağı ve lisanslı bertaraf tesisine nakledilene kadar sızdırmazlığının nasıl denetleneceği hangi ölçüm protokollerine dayanmaktadır?",
+          "pages": [
+            12,
+            22
+          ]
+        }
+      ],
+      "data_limitations": "Dosya kapsamında yer alan bazı ekler (tapu fotokopileri, imar planları, taahhütnameler ve kurum görüşleri) taranmış belge formatında olduğundan ve metin dışı bırakıldığından, bu eklerde yer alan koordinat ve imar koşulları detaylı olarak karşılaştırılamamıştır."
+    }
+  }
+}

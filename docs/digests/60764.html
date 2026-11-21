@@ -1,0 +1,921 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>e-ÇED Ön Özet #60764 — İZMİR / TİRE</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+:root {
+  --bg: #f8f9fb;
+  --surface: #ffffff;
+  --surface-subtle: #f2f4f7;
+  --border: #e4e7ec;
+  --border-strong: #cfd5df;
+  --text: #101828;
+  --text-secondary: #344054;
+  --muted: #667085;
+  --accent: #175cd3;
+  --accent-soft: #eff8ff;
+  --red: #b42318;
+  --red-soft: #fef3f2;
+  --red-border: #fecdca;
+  --amber: #b54708;
+  --amber-soft: #fffaeb;
+  --amber-border: #fedf89;
+  --green: #067647;
+  --green-soft: #ecfdf3;
+  --green-border: #abefc6;
+  --violet: #5925dc;
+  --violet-soft: #f4f3ff;
+  --violet-border: #d9d6fe;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f131a;
+    --surface: #161b24;
+    --surface-subtle: #1d2430;
+    --border: #273040;
+    --border-strong: #39465c;
+    --text: #eaedf2;
+    --text-secondary: #c5cdd9;
+    --muted: #8a95a6;
+    --accent: #6cb0ff;
+    --accent-soft: rgba(108, 176, 255, 0.14);
+    --red: #ff857a;
+    --red-soft: rgba(248, 81, 73, 0.13);
+    --red-border: rgba(248, 81, 73, 0.36);
+    --amber: #f0b849;
+    --amber-soft: rgba(210, 153, 34, 0.13);
+    --amber-border: rgba(210, 153, 34, 0.36);
+    --green: #4cc38a;
+    --green-soft: rgba(63, 185, 80, 0.13);
+    --green-border: rgba(63, 185, 80, 0.36);
+    --violet: #bda3ff;
+    --violet-soft: rgba(158, 119, 237, 0.15);
+    --violet-border: rgba(158, 119, 237, 0.38);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f131a;
+  --surface: #161b24;
+  --surface-subtle: #1d2430;
+  --border: #273040;
+  --border-strong: #39465c;
+  --text: #eaedf2;
+  --text-secondary: #c5cdd9;
+  --muted: #8a95a6;
+  --accent: #6cb0ff;
+  --accent-soft: rgba(108, 176, 255, 0.14);
+  --red: #ff857a;
+  --red-soft: rgba(248, 81, 73, 0.13);
+  --red-border: rgba(248, 81, 73, 0.36);
+  --amber: #f0b849;
+  --amber-soft: rgba(210, 153, 34, 0.13);
+  --amber-border: rgba(210, 153, 34, 0.36);
+  --green: #4cc38a;
+  --green-soft: rgba(63, 185, 80, 0.13);
+  --green-border: rgba(63, 185, 80, 0.36);
+  --violet: #bda3ff;
+  --violet-soft: rgba(158, 119, 237, 0.15);
+  --violet-border: rgba(158, 119, 237, 0.38);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Unified Sticky Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.topbar-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.96rem;
+  letter-spacing: -0.01em;
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+.brand-scope {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+.nav-link {
+  padding: 5px 10px;
+  border-radius: 7px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-link:hover { background: var(--surface-subtle); text-decoration: none; color: var(--text); }
+.nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.theme-btn {
+  margin-left: 4px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.79rem;
+  font-weight: 500;
+}
+.theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
+
+/* Layout */
+.wrap { max-width: 1120px; margin: 0 auto; padding: 22px 20px 72px; }
+.wrap.narrow { max-width: 900px; }
+h1 { margin: 0 0 6px; font-size: 1.5rem; line-height: 1.25; letter-spacing: -0.02em; }
+h2 { margin: 28px 0 10px; font-size: 1.15rem; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { margin: 16px 0 8px; font-size: 0.96rem; line-height: 1.35; }
+.sub { color: var(--muted); font-size: 0.91rem; margin: 0; }
+
+/* Compact Masthead */
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 20px;
+  margin-bottom: 16px;
+}
+.masthead-left { max-width: 720px; }
+.masthead-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.kpi-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 18px;
+  padding: 10px 16px;
+  margin-bottom: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.84rem;
+  color: var(--muted);
+  box-shadow: var(--shadow);
+}
+.kpi-item { display: inline-flex; align-items: baseline; gap: 5px; }
+.kpi-item strong {
+  color: var(--text);
+  font-size: 0.96rem;
+  font-variant-numeric: tabular-nums;
+}
+.kpi-item.accent strong { color: var(--accent); }
+.kpi-item.rev strong { color: var(--violet); }
+.kpi-sep { color: var(--border-strong); user-select: none; }
+
+/* Map Card */
+.map-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.map-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 14px;
+  padding: 9px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.map-box.collapsed .map-bar { border-bottom: none; }
+.map-box.collapsed #map { display: none; }
+.map-legend-inline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+#map { width: 100%; height: 320px; background: var(--surface-subtle); }
+#digest-map { width: 100%; height: 300px; background: var(--surface-subtle); }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+/* Streamlined Controls */
+.controls-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.controls-row + .controls-row {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.advanced-row { display: none; }
+.advanced-row.open { display: flex; }
+input[type="search"], select.filter-select {
+  padding: 7px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.87rem;
+}
+input[type="search"]:focus, select.filter-select:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+input[type="search"] { flex: 1 1 240px; }
+select.filter-select { min-width: 155px; }
+button.pill {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+button.pill:hover { background: var(--surface-subtle); color: var(--text); }
+button.pill.active { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 600; }
+button.pill.rev-pill.active { background: var(--violet); border-color: var(--violet); }
+.ctrl-right { margin-left: auto; display: flex; align-items: center; gap: 6px; }
+button.ghost-btn {
+  padding: 5px 9px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.79rem;
+  font-weight: 500;
+}
+button.ghost-btn:hover { color: var(--text); border-color: var(--border-strong); background: var(--surface-subtle); }
+
+/* Calm Two-Tier Cards */
+.list-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+.cards { display: flex; flex-direction: column; gap: 10px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 15px 18px;
+  box-shadow: var(--shadow);
+  transition: border-color 0.12s;
+}
+.card:hover { border-color: var(--border-strong); }
+.card.urgent-edge { border-left: 3px solid var(--red); }
+.card.ek1 { border-left: 3px solid var(--accent); }
+.card.has-rev { border-left: 3px solid var(--violet); }
+.card.urgent-edge.has-rev { border-left: 3px solid var(--red); }
+
+/* Tier 1: Quiet Metadata Context Row (zero boxes!) */
+.card-ctx {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 12px;
+  font-size: 0.79rem;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+.ctx-left { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.ctx-loc { color: var(--text-secondary); font-weight: 600; }
+.ctx-ek1 { color: var(--accent); font-weight: 600; }
+.ctx-geo { color: var(--green); font-weight: 500; }
+.ctx-sep { color: var(--border-strong); }
+.ctx-right { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.title { font-weight: 650; font-size: 1.01rem; line-height: 1.38; color: var(--text); margin: 0; }
+.title a { color: var(--text); }
+.title a:hover { color: var(--accent); text-decoration: none; }
+.owner-line { font-size: 0.82rem; color: var(--muted); margin: 3px 0 0; }
+
+/* Tier 2: Signal Pills (Status, Clock, Findings, Revision ONLY) */
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.badge.urgent { background: var(--red-soft); border-color: var(--red-border); color: var(--red); font-weight: 600; }
+.badge.warn { background: var(--amber-soft); border-color: var(--amber-border); color: var(--amber); font-weight: 600; }
+.badge.ok { background: var(--green-soft); border-color: var(--green-border); color: var(--green); font-weight: 600; }
+.badge.info { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
+.badge.rev { background: var(--violet-soft); border-color: var(--violet-border); color: var(--violet); font-weight: 600; }
+.badge.muted { color: var(--muted); }
+
+/* Calm 2-line Clamped Summary */
+.summary-clamp {
+  margin: 9px 0 0;
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+  line-height: 1.52;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.summary-clamp.muted { color: var(--muted); }
+
+.rev-inline {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--violet-soft);
+  border: 1px solid var(--violet-border);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+.rev-inline strong { color: var(--violet); }
+
+/* Quiet Action Row */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  font-size: 0.82rem;
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid var(--border);
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.81rem;
+}
+.btn-primary:hover { text-decoration: none; filter: brightness(1.06); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.81rem;
+  cursor: pointer;
+}
+.btn-secondary:hover { text-decoration: none; border-color: var(--border-strong); color: var(--text); }
+.quiet-link { color: var(--muted); font-weight: 500; }
+.quiet-link:hover { color: var(--accent); }
+
+/* Pagination Bar */
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.pager button {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pager button:hover { border-color: var(--accent); color: var(--accent); }
+.pager .pager-all {
+  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Digest & Guide Tables, Accordions, Callouts */
+table.kv {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.88rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+table.kv th, table.kv td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 13px;
+  text-align: left;
+  vertical-align: top;
+}
+table.kv tr:last-child th, table.kv tr:last-child td { border-bottom: none; }
+table.kv th { width: 240px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
+table.data-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.84rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+table.data-tbl th, table.data-tbl td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.data-tbl tr:last-child td { border-bottom: none; }
+code {
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.84em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+blockquote {
+  margin: 10px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface-subtle);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.89rem;
+  color: var(--text-secondary);
+}
+.callout {
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  margin: 14px 0;
+}
+.callout.rev { background: var(--violet-soft); border-color: var(--violet-border); }
+details.accordion {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 10px 0;
+  overflow: hidden;
+}
+details.accordion summary {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
+}
+details.accordion summary::-webkit-details-marker { display: none; }
+details.accordion summary::after {
+  content: "+";
+  font-size: 1.1rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+details.accordion[open] summary::after { content: "−"; }
+details.accordion[open] summary { border-bottom: 1px solid var(--border); background: var(--surface-subtle); }
+.accordion-body { padding: 14px 16px; }
+.timeline {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid var(--border-strong);
+}
+.timeline li { position: relative; margin: 0 0 9px; padding-left: 8px; font-size: 0.86rem; }
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+}
+.hit { margin: 8px 0; font-size: 0.87rem; line-height: 1.55; }
+.pno { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.notice {
+  margin-top: 32px;
+  padding: 13px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.toc-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 20px; }
+.toc-pills a {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.81rem;
+  font-weight: 500;
+}
+.toc-pills a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+.step-num {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+pre.template-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.section-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+@media (max-width: 700px) {
+  table.kv th { width: 140px; }
+  #map { height: 270px; }
+  .topbar-inner { padding: 9px 14px; }
+  .wrap { padding: 16px 14px 54px; }
+}
+@media print {
+  .topbar, .no-print, #digest-map, .map-box { display: none !important; }
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .card, table.kv, table.data-tbl, details.accordion { box-shadow: none; break-inside: avoid; }
+  details.accordion { border: 1px solid #ccc; }
+  a { color: #000000; text-decoration: underline; }
+}
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      <span>Türkiye e-ÇED İzleme</span>
+      <span class="brand-scope">81 İl</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link " href="../index.html">Duyurular</a>
+      <a class="nav-link " href="../rehber.html">Kullanım Rehberi</a>
+      <a class="nav-link" href="../feed.xml">RSS</a>
+      <a class="nav-link" href="https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml" target="_blank" rel="noopener">Resmi e-ÇED ↗</a>
+      <button id="theme-toggle" class="theme-btn" type="button">Tema</button>
+    </div>
+  </div>
+</nav>
+<div class="wrap narrow">
+  <header style="margin-bottom:16px;">
+    <div class="card-ctx no-print" style="margin-bottom:8px;">
+      <span><a href="../index.html">← Duyurulara dön</a> · <strong>İZMİR / TİRE</strong> · Ek-2 · Gıda</span>
+      <span><code>#60764</code> · 13.11.2026</span>
+    </div>
+    <h1>Tire Süt ve Süt Ürünleri Üretim Tesisi İlave Buhar Kazanı (15 MWt) ve İlave İndirekt Hava Isıtıcı (7,5 MWt)</h1>
+    <p class="sub">SÜTAŞ Süt Ürünleri A.Ş.</p>
+    <div class="badges" style="margin-top:10px;">
+      <span class="badge">ÇED Gerekli Değil/ÇED Olumlu</span>
+      <span class="badge ok">İYUK 20/A · 21 gün kaldı (2026-12-13)</span>
+      
+      
+    </div>
+    <div class="actions no-print" style="border-top:none;padding-top:4px;">
+      <a class="btn-primary" href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign5642539473485077420.pdf&amp;orjinalAd=e-imza.pdf&amp;yuklemeTarihi=2026-10-05" target="_blank" rel="noopener">Resmi PDF Dosyası ↗</a>
+      <a class="btn-secondary" href="http://eced.csb.gov.tr/jsp/ek1/60764" target="_blank" rel="noopener">e-ÇED Portal Kaydı ↗</a>
+      <a class="btn-secondary" href="60764.md">Markdown (.md)</a>
+      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF</button>
+    </div>
+  </header>
+
+  <table class="kv">
+    <tr><th>Hazırlayan Kuruluş</th><td>ALMER ÇEVRE DENETİM MÜŞ. İŞ. SAĞ. VE GÜV. PROJE TİC. LTD. ŞTİ.</td></tr>
+    <tr><th>Sektör / Alt Sektör</th><td>Gıda / Süt İşleme Tesisleri</td></tr>
+    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>13.11.2026</code> · Yükleme: <code>12/08/2026 02:44:50</code></td></tr>
+    <tr><th>PDF Kapsamı</th><td>41.06 MB · 227 sayfa (181 metin / 46 taranmış) · <a href="https://www.openstreetmap.org/?mlat=38.4237&amp;mlon=27.1428#map=8/38.4237/27.1428" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=38.4237,27.1428" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
+  </table>
+
+  <div class="card" style="padding:11px 15px;margin:14px 0;font-size:0.84rem;color:var(--text-secondary);"><span class="badge ok">v1 Arşivlendi</span> &nbsp;SHA-256: <code>850c8a2574d043ce…</code> · Yükleme: <code>2026-10-05</code> · <span style="color:var(--muted);">Rapor değiştirilirse sürümler arası fark (v1→v2) otomatik kaydedilir.</span></div>
+
+  
+  <h2>Bilimsel Ön Değerlendirme <span class="badge">gemini-3.5-flash-lite</span></h2>
+  <p class="sub">Resmi PDF'ten seçilen 26 sayfa (s.1, s.2, s.3, s.4, s.6, s.7, s.9, s.11, s.26, s.32, s.33, s.35, s.62, s.63, s.64, s.75, s.79, s.83, s.85, s.86, s.87, s.88, s.95, s.96, s.97, s.161) üzerinden üretilmiştir; her bulguyu <code>[s. N]</code> kaynağından doğrulayınız.</p>
+  <section class="card ek1" style="margin-top:10px;">
+    <p style="margin-top:0;"><strong>Özet:</strong> Sütaş Süt Ürünleri A.Ş. tarafından İzmir İli, Tire İlçesi, İbni Melek OSB Mahallesi&#x27;ndeki mevcut süt işleme tesisinde 15 MWt kapasiteli ilave buhar kazanı ve 7,5 MWt kapasiteli ilave indirekt hava ısıtıcı kurulması planlanmaktadır. Proje bedeli 91.031.862 TL olup, tesisin toplam kurulu gücünün 42,012 MWt seviyesine ulaşması öngörülmektedir. Dosya kapsamında tesise kabul edilen süt miktarında artış olmayacağı belirtilerek ÇED Yönetmeliği Ek-2 kapsamında ÇED Gerekli Değil/ÇED Olumlu kararı verilmiştir. Ancak OSB içinde yer alması gerekçesiyle flora ve fauna çalışmalarından kaçınıldığı ve Küçük Menderes Nehri&#x27;ne yakınlık gibi hidrojeolojik hassasiyetlerin bulunduğu görülmektedir.</p>
+    <details style="margin-top:10px;font-size:0.85rem;color:var(--muted);"><summary style="cursor:pointer;">English summary</summary><p style="margin:6px 0 0;">Sütaş Süt Ürünleri A.Ş. plans to install an additional 15 MWt steam boiler and a 7.5 MWt indirect air heater at its existing dairy processing plant in Tire, İzmir, with a total project cost of 91,031,862 TL, bringing the total installed thermal capacity to 42.012 MWt. Although the filing claims no increase in raw milk processing capacity, an &#x27;Environmental Impact Assessment (EIA) Not Required / Positive (Annex-2)&#x27; decision was issued. Key technical concerns include the complete omission of baseline flora and fauna field surveys under the assumption of an Organized Industrial Zone (OSB) location, alongside proximity to the Küçük Menderes River and significant cumulative capacity expansions.</p></details>
+    <div class="badges" style="margin-top:10px;">
+      <span class="badge">Saha: Yalnızca literatür taramasına dayalı</span>
+      <span class="badge">Mevsimsellik: İncelenen sayfalarda tespit edilemedi</span>
+      <span class="badge">Kümülatif: Yüzeysel veya şablon düzeyinde</span>
+    </div>
+    <p class="sub" style="margin-top:10px;color:var(--text-secondary);"><strong>Zeytinlik ve Korunan Alanlar:</strong> Proje alanı Organize Sanayi Bölgesi (OSB) sınırları içerisinde yer almakta olup, 3573 sayılı Zeytincilik Kanunu kapsamında zeytinlik sahalarına ve EK-5 duyarlı yöreler listesindeki korunan alanlara mesafeler irdelenmemiştir [s. 72, 85].<br/>Proje tanıtım dosyasında, faaliyet alanının organize sanayi bölgesi içinde yer aldığı gerekçesiyle hiçbir flora ve fauna saha çalışması veyamevsimsel örnekleme yapılmamıştır [s. 85]. Küçük Menderes Nehri kolunun 30 metre yakınından geçmesine rağmen yüzeysel ve yeraltı su kalitesine yönelik dönemsel başlangıç analizi sunulmamıştır [s. 75]. Kümülatif değerlendirmeler ise tesisin kendi içindeki kapasite bileşenlerinin toplanmasından ibaret bırakılmıştır.</p>
+  </section>
+  <h3>Danıştay Ölçütlerine Göre Bilimsel ve Hukuki Bulgular</h3><section class="card"><div class="hit"><span class="badge urgent">YÜKSEK</span> <span class="badge">Flora / Fauna &amp; Mevsimsellik</span> <strong>Flora ve Fauna Arazi Çalışmalarının OSB Gerekçesiyle Tümüyle Atlanması</strong> <span class="pno">[s. 85]</span> — Proje sahibinin OSB sınırları içinde bulunulduğunu öne sürerek hiçbir flora ve fauna envanteri, mevsime bağlı saha gözlemi veya literatür taraması yapmadığı açıkça ifade edilmiştir [s. 85]. Bu durum Danıştay içtihatlarına göre iptal gerekçesidir.</div>
+<div class="hit"><span class="badge urgent">YÜKSEK</span> <span class="badge">Su / Hidrojeoloji</span> <strong>Küçük Menderes Nehri Koluna 30 Metre Mesafede Olmasına Rağmen Hidrojeolojik Risk Analizinin Eksikliği</strong> <span class="pno">[s. 75, s. 87]</span> — Proje alanının 30 m doğusundan Küçük Menderes Nehrinin bir kolunun geçmesine [s. 75] ve günlük 16 m³ kazan blöf suyu [s. 87] ile yüksek su tüketimine rağmen, yeraltı aküferleri ve yüzeysel su kirlenmesine karşı detaylı hidrojeolojik etüt ve başlangıç su kalitesi analizi sunulmamıştır.</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Kümülatif Etki</span> <strong>Bölgesel ve Kümülatif Çevresel Etkilerin Sınırlı ve Yalnızca Tesis İçi Kapasitelerle Sınırlandırılması</strong> <span class="pno">[s. 6, s. 87]</span> — Tire Organize Sanayi Bölgesi&#x27;ndeki diğer endüstriyel tesislerin hava emisyonu, su çekimi ve atıksu yükleriyle birlikte oluşturduğu kümülatif havza baskısı, ÇED dosyasında yalnızca tesisin kendi geçmiş kararları ile karşılaştırılarak geçiştirilmiştir [s. 6, 87].</div></section>
+  <h3>Öne Çıkan Sayısal Bulgular</h3><table class="kv"><tr><th>Proje Bedeli</th><td>91.031.862 TL <span class="pno">[s. 2]</span></td></tr>
+<tr><th>İlave Buhar Kazanı Kapasitesi</th><td>15 MWt <span class="pno">[s. 2]</span></td></tr>
+<tr><th>İlave İndirekt Hava Isıtıcı Kapasitesi</th><td>7,5 MWt <span class="pno">[s. 2]</span></td></tr>
+<tr><th>Mevcut Tesis Kurulu Gücü</th><td>12,512 MWt <span class="pno">[s. 6]</span></td></tr>
+<tr><th>Toplam Kurulu Güç (Proje Sonrası)</th><td>42,012 MWt <span class="pno">[s. 6]</span></td></tr>
+<tr><th>Günlük Süt İşleme Kapasitesi</th><td>1.400 ton/gün <span class="pno">[s. 6]</span></td></tr>
+<tr><th>En Yakın Yerleşim Birimi (Yeni Mahalle)</th><td>1.000 m kuş uçuşu <span class="pno">[s. 7]</span></td></tr>
+<tr><th>İnşaat Alanı (Buhar Kazanı Binası)</th><td>626 m² <span class="pno">[s. 63]</span></td></tr>
+<tr><th>Hafriyat Miktarı</th><td>626 m³ (1.001,6 ton) <span class="pno">[s. 88]</span></td></tr>
+<tr><th>En Yakın Yüzeysel Su Kaynağı</th><td>30 m doğuda Küçük Menderes Nehri kolu <span class="pno">[s. 75]</span></td></tr></table>
+  
+  
+  <h3>Keşif ve Bilirkişi Heyeti İçin Önerilen Uzmanlık Alanları</h3><section class="card"><div class="badges" style="margin-top:0;"><span class="badge info">Çevre Mühendisi</span> <span class="badge info">Hidrojeoloji Mühendisi</span> <span class="badge info">Biyolog</span> <span class="badge info">Ziraat Mühendisi</span> <span class="badge info">Şehir ve Bölge Plancısı</span></div><p class="sub" style="margin-top:8px;">Bilirkişi heyetinin tek sayıda uzmandan oluşması, proje niteliğine uygun tüm disiplinleri içermesi ve plan kararlarıyla ilişkili davalarda Şehir ve Bölge Plancısına yer verilmesi gerekmektedir.</p></section>
+  <div class="section-head-row" style="margin-top:16px;"><h3 style="margin:0;">HKT Tutanakları ve Bilirkişi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card" style="margin-top:8px;"><ul style="margin:0;padding-left:20px;"><li>Proje alanının Küçük Menderes Nehri koluna yalnızca 30 metre mesafede yer aldığı belirtilmesine rağmen, tesisten kaynaklanacak günlük 16 m³ kazan blöf suyu [s. 87] ve evsel atıksuların alıcı ortama veya yeraltı sularına sızma riskine karşı hangi koruyucu mühendislik önlemleri alınmıştır? <span class="pno">[s. 75, s. 87]</span></li>
+<li>OSB sınırları içerisinde yer aldığı gerekçesiyle flora ve fauna çalışmalarının tamamen yapılmadığı ifade edilmiştir [s. 85]; ancak bölgedeki ekolojik habitatın ve hassas türlerin tespiti için neden mevsimsel saha çalışması gerçekleştirilmemiştir? <span class="pno">[s. 85]</span></li>
+<li>Mevcut tesisin kurulu gücü 12,512 MWt iken [s. 6], ilave buhar kazanı (15 MWt) ve ilave indirekt hava ısıtıcı (7,5 MWt) ile toplam kurulu gücün 42,012 MWt&#x27;e çıkacağı [s. 6] belirtilmiştir. Bu denli büyük bir ısıl güç artışının bölgedeki Sanayi Kaynaklı Hava Kirliliği (SKHKY) üzerindeki kümülatif emisyon etkisi niçin modelleme ile ayrıca gösterilmemiştir? <span class="pno">[s. 6, s. 37, s. 38]</span></li></ul><textarea id="qs-plain" style="display:none;">1. Proje alanının Küçük Menderes Nehri koluna yalnızca 30 metre mesafede yer aldığı belirtilmesine rağmen, tesisten kaynaklanacak günlük 16 m³ kazan blöf suyu [s. 87] ve evsel atıksuların alıcı ortama veya yeraltı sularına sızma riskine karşı hangi koruyucu mühendislik önlemleri alınmıştır? [s. 75, s. 87]
+2. OSB sınırları içerisinde yer aldığı gerekçesiyle flora ve fauna çalışmalarının tamamen yapılmadığı ifade edilmiştir [s. 85]; ancak bölgedeki ekolojik habitatın ve hassas türlerin tespiti için neden mevsimsel saha çalışması gerçekleştirilmemiştir? [s. 85]
+3. Mevcut tesisin kurulu gücü 12,512 MWt iken [s. 6], ilave buhar kazanı (15 MWt) ve ilave indirekt hava ısıtıcı (7,5 MWt) ile toplam kurulu gücün 42,012 MWt&#x27;e çıkacağı [s. 6] belirtilmiştir. Bu denli büyük bir ısıl güç artışının bölgedeki Sanayi Kaynaklı Hava Kirliliği (SKHKY) üzerindeki kümülatif emisyon etkisi niçin modelleme ile ayrıca gösterilmemiştir? [s. 6, s. 37, s. 38]</textarea></section>
+  <p class="sub" style="margin-top:10px;"><em>İnceleme sınırları:</em> İncelenen PDF dosyası 227 sayfa olup, bunlardan 181 sayfası metin tabanlı, 46 sayfası ise taranmış veya görsel ağırlıklı eklerdir. Dosya içerisinde atıf yapılan bazı EK belgeleri (ör. koordinat listeleri, detaylı kurum görüşleri ve harita ekleri) metin dışı tarama olduğundan tam olarak okunamamıştır.</p>
+
+
+  <h2>Konum Haritası ve 3 km Çevre Taraması</h2>
+  <div class="map-box">
+    <div id="digest-map"></div>
+    <div class="map-bar"><span>PDF dosyasında metin olarak okunabilir koordinat tablosu tespit edilemediği için il merkezi yaklaşık konum olarak gösterilmektedir.</span></div>
+  </div>
+  
+
+  <h2>Ham Kayıt ve Derin Teknik Ekler</h2>
+  <details class="accordion">
+    <summary>Resmi Duyuru Metni (Bakanlık İlanı)</summary>
+    <div class="accordion-body"><blockquote>İZMİR ili TİRE,  ilcesinde İZMİR ili TİRE,  ilcesi İbni Melek OSB Mahallesi, TOSBİ Yol 2 Sokak, No:12A (1272 Ada, 9 Numaralı Parsel) mevkiindeki SÜTAŞ Süt Ürünleri A.Ş.  tarafından yapılması planlanan Tire Süt ve Süt Ürünleri Üretim Tesisi İlave Buhar Kazanı (15 MWt) ve İlave İndirekt Hava Isıtıcı (7,5 MWt) projesi ile ilgili olarak Bakanlığımıza sunulan PTD Dosyası incelenmiş ve değerlendirilmiştir  ÇED Yönetmeliği&#x27;nin 17. maddesi gereğince Tire Süt ve Süt Ürünleri Üretim Tesisi İlave Buhar Kazanı (15 MWt) ve İlave İndirekt Hava Isıtıcı (7,5 MWt) projesi&#x27;ne Valiliğimizce &#x27;ÇED Olumlu (Kapsam Ek-2)&#x27; kararı verilmiştir.</blockquote></div>
+  </details>
+  <details class="accordion">
+    <summary>Otomatik Metin Taraması (9 Deterministik Kontrol)</summary>
+    <div class="accordion-body">
+      <table class="kv" style="margin-top:0;"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Literatür taraması ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
+<tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Kümülatif etki değerlendirmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Yeraltı suyu, akifer veya hidrojeoloji ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge warn">Metinde geçmektedir — parçalama / 2009/7 kontrolü</span></td></tr>
+<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
+<tr><th>Kurum görüşleri (DSİ, İl Tarım, OGM, MAPEG)</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Deprem, fay hattı veya jeoteknik stabilite ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr></table>
+      <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik taramaya dahil edilmemiştir.</p>
+    </div>
+  </details>
+  <details class="accordion">
+    <summary>Sayfa Kaynaklı Ham Alıntılar (7 Teknik Başlık)</summary>
+    <div class="accordion-body"><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(30 sayfa: s.6, s.7, s.9, s.11, s.12, s.19, s.20, s.23, s.24, s.42, s.63, s.66, s.74, s.98 (+16 sayfa))</span></h3><div class="hit"><span class="pno">[s. 6]</span> <code>ada 9 numaralı parsel</code> — …ar Kazanı (15 MWt) ve İlave İndirekt Hava Isıtıcı (7,5 MWt)” projesi planlanmaktadır. Projenin gerçekleşeceği 1272 ada 9 numaralı parsel üzerinde “Süt ve Süt Ürünleri Üretim Tesisi” işletilmekte olup mevcutta işletilen tesis için Mülga Çevre ve Şehircilik…</div>
+<div class="hit"><span class="pno">[s. 6]</span> <code>utm</code> — …etmektedir. Bu süreçte yapılan mühendislik çalışmaları kapsamında ÇED Muafiyet dosyasına esas kapasite değişmeden kurutma işleminin daha verimli olması için ilave indirekt hava ısıtıcı kurulması gerekliliği doğmuştur. Proje kapsamında ku…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>ada 2 numaralı parsel</code> — …arının konulmasında ÇED Yönetmeliği kapsamında yapılacak her hangi bir işlem bulunmamaktadır” denilmektedir. 1272 ada 2 numaralı parsel ifraz işleme sonrası 1272 ada 9 numaralı parsel olmuştur. Projenin inşaat aşaması 1 ay montaj aşamasının 2 ay sürece…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>ada 9 numaralı parsel</code> — …apılacak her hangi bir işlem bulunmamaktadır” denilmektedir. 1272 ada 2 numaralı parsel ifraz işleme sonrası 1272 ada 9 numaralı parsel olmuştur. Projenin inşaat aşaması 1 ay montaj aşamasının 2 ay sürecek (ilave indirekt hava ısıtıcı montajı Süt Tozu…</div>
+<div class="hit"><span class="pno">[s. 9]</span> <code>ada 9 numaralı parsel</code> — …e Organize Sanayi Bölgesi Müdürlüğü’nden alınan Numarataj Yazısı Ek-7.7’de verilmiştir. Projenin gerçekleşeceği 1272 ada 9 numaralı parsel üzerinde “Süt ve Süt Ürünleri Üretim Tesisi” işletilmekte olup mevcutta işletilen tesis için Mülga Çevre ve Şehircilik…</div>
+<div class="hit"><span class="pno">[s. 9]</span> <code>utm</code> — …etmektedir. Bu süreçte yapılan mühendislik çalışmaları kapsamında ÇED Muafiyet dosyasına esas kapasite değişmeden kurutma işleminin daha verimli olması için ilave indirekt hava ısıtıcı kurulması gerekliliği doğmuştur. Mevcut tesisin kapa…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(21 sayfa: s.6, s.9, s.11, s.26, s.27, s.28, s.42, s.75, s.84, s.85, s.87, s.88, s.100, s.142 (+7 sayfa))</span></h3><div class="hit"><span class="pno">[s. 6]</span> <code>1.400 ton/gün</code> — …işikliği İl Müdürlüğü’nden 14847763 sayılı yazı ile ÇED Muafiyet yazısı alınmıştır. Kapasite artışı yapılmaksızın (1.400 ton/gün üretim kapasitesi sınırları içerisinde kalarak) Süt ve Süt Ürünleri Üretimi Tesisine kurulacak ilave buhar kazanı, tes…</div>
+<div class="hit"><span class="pno">[s. 9]</span> <code>1.400 ton/gün</code> — …direkt hava ısıtıcının kurulmasıyla tesisin toplam kurulu gücü 42,012 MWt olacaktır. Kapasite artışı yapılmaksızın (1.400 ton/gün üretim kapasitesi sınırları içerisinde kalarak) Süt ve Süt Ürünleri Üretimi Tesisine kurulacak ilave buhar kazanı, tes…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>1.400 ton/gün</code> — …etmekte olup hali hazırda üretim olmadığı için kapasite raporunda bulunmamaktadır. Kapasite artışı yapılmaksızın (1.400 ton/gün üretim kapasitesi sınırları içerisinde kalarak) İlave buhar kazanı ve ilave indirekt hava ısıtıcı planlanmakta olup il…</div>
+<div class="hit"><span class="pno">[s. 26]</span> <code>4,2 m3/gün</code> — …nda toplam kullanılacak su miktarı; Personel su kullanım miktarı = 210 lt/kişi-gün x 20 kişi = 4.200 litre/gün = 4,2 m3/gün olacaktır. 1 Kaynak: İzmir iline ait kişi başı çekilen günlük su miktarı (TUİK-2022) 3.000 m 1.000 m Proje Alanı…</div>
+<div class="hit"><span class="pno">[s. 27]</span> <code>yeraltı suyu</code> — …p İzmir Çevre Şehircilik ve İklim Değişikliği İl Müdürlüğü ve ilgili kurumlardan gerekli izin alınmadan hiçbir suretle yeraltı suyu kullanılmayacaktır. İşletme Aşaması Planlanan projenin işletme aşamasında su personel için buhar kazanı için kull…</div>
+<div class="hit"><span class="pno">[s. 27]</span> <code>178,5 m3/gün</code> — …da toplam kullanılacak su miktarı; Personel su kullanım miktarı = 210 lt/kişi-gün x 850 kişi =178.500 litre/gün = 178,5 m3/gün olacaktır. Buhar Kazanı Su İhtiyacı: Buhar kazanı tesise kabul edilen sütün ısıtılması ve pastörizasyon işlemleri…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(7 sayfa: s.3, s.63, s.75, s.79, s.81, s.82, s.84)</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>orman alanı</code> — …PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ ................... 56 a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri ...............................…</div>
+<div class="hit"><span class="pno">[s. 63]</span> <code>orman alanı</code> — …56 BÖLÜM II. PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri İzmir İli, Tire İlçesi, İbni…</div>
+<div class="hit"><span class="pno">[s. 75]</span> <code>sulak alan</code> — …ekil 30. Proje Alanı ve Çevresini Gösteren Yüzeysel Su Haritası8 Proje sahası içerisinde herhangi göl, gölet, baraj, sulak alan, sulama sahası, koruma altına alınmış alan bulunmamaktadır. Projenin tüm aşamalarında yapılacak faaliye…</div>
+<div class="hit"><span class="pno">[s. 79]</span> <code>Özel Çevre Koruma</code> — …nları, Kültür Varlıkları, Tabiat Varlıkları, Sit ve Koruma Alanları, Biyogenetik Rezerv Alanları, Biyosfer Rezervleri, Özel Çevre Koruma Bölgeleri, Özel Koruma Alanları bulunmamaktadır. Faaliyet alanının da gösterildiği Korunan Alanlar Haritası Şekil 34‘d…</div>
+<div class="hit"><span class="pno">[s. 81]</span> <code>Özel Çevre Koruma</code> — …da hassas kirlenme bölgeleri bulunmamaktadır. f) Çevre Kanunu’nun 9 uncu maddesi uyarınca Cumhurbaşkanı tarafından &quot;Özel Çevre Koruma Bölgeleri&quot; olarak tespit ve ilan edilen alanlar</div>
+<div class="hit"><span class="pno">[s. 82]</span> <code>Özel Çevre Koruma</code> — …e Tanıtım Dosyası 75 Proje alanı yakınında Çevre Kanunu’nun 9 uncu maddesi uyarınca Cumhurbaşkanı tarafından &quot;Özel Çevre Koruma Bölgeleri&quot; olarak tespit ve ilan edilen alanlar bulunmamaktadır. Şekil 36. Türkiye&#x27;deki ÖÇK Alanları Proje a…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(6 sayfa: s.83, s.85, s.96, s.161, s.162, s.169)</span></h3><div class="hit"><span class="pno">[s. 83]</span> <code>BERN Sözleşmesi</code> — …özleşmeler uyarınca korunması gerekli alanlar a) &quot;Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi&quot; (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan &quot;Önemli Deniz Kaplumbağası Üreme Alanları&quot;nda belirtilen I. ve II. Koruma B…</div>
+<div class="hit"><span class="pno">[s. 85]</span> <code>endemik</code> — …r. d) Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…</div>
+<div class="hit"><span class="pno">[s. 85]</span> <code>FLORA VE FAUNA</code> — …lanı içerisinde kalan alanlar Proje alanı İçme-kullanma suyu havzaları koruma alanı içerisinde yer almamaktadır. FLORA VE FAUNA Faaliyetin planlandığı alan organize sanayi bölgesi olması sebebiyle flora-fauna çalışması yapılmamıştır. Proje ala…</div>
+<div class="hit"><span class="pno">[s. 96]</span> <code>Flora ve Fauna</code> — …ecektir. Proje Sahibi Gürültü Oluşumu Varsa/ Şikâyet İhtiyaca göre gürültüyle alakalı önemler artırılacaktır. Flora ve Fauna Bitki Ağaç ve Hayvan vb. Tarım ve Orman Bakanlığı İlgili Mevzuat Proje Sahibi Ayda Bir / Gözlem Mevcutta iş…</div>
+<div class="hit"><span class="pno">[s. 161]</span> <code>Flora ve Fauna</code> — …almış geri kazanım/geri dönüşüm firmasına verilerek bertaraf edilmesi sağlanacaktır. Yönetmeliği Ekoloji Karasal Flora ve Fauna Üzerindeki Etkiler Proje kapsamında oluşacak kazı fazlası malzeme ve bitkisel toprak ayrı ayrı depolanacak olup, bi…</div>
+<div class="hit"><span class="pno">[s. 162]</span> <code>Bern Sözleşmesi</code> — …minden önce görsel kontroller yapılarak fauna elemanlarının uygun yöntemlerle bu alandan ayrılmaları sağlanacaktır. Bern Sözleşmesi Ek-2 ve Ek-3’ter yer alan fauna türlerinin korunması için Bern Sözleşmesi’nin 6. ve 7. Maddelerinde belirtilen önlem…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(36 sayfa: s.4, s.32, s.33, s.35, s.36, s.37, s.38, s.39, s.40, s.41, s.42, s.43, s.45, s.53 (+22 sayfa))</span></h3><div class="hit"><span class="pno">[s. 4]</span> <code>Gürültü</code> — …13. Mesafelere Göre Her Frekansta Atmosferik Yutuş Değerleri ........................................... 31 Tablo 14. Gürültü Kaynaklarının Atmosferik Yutuş Düştükten Sonraki Değerleri ve Toplam Ses Düzeyleri ...................................…</div>
+<div class="hit"><span class="pno">[s. 32]</span> <code>Tehlikeli Atık</code> — …ekt hava ısıtıcı proseslerinde atık oluşumu olmayıp fosil yakıt ile çalışmadığı için cüruf oluşumu da olmayacaktır. Tehlikeli Atık Oluşumu Proje kapsamında çalışacak makine ve ekipmanlardan kaynaklı oluşması muhtemel yağlı üstüpler, araçlardan oluş…</div>
+<div class="hit"><span class="pno">[s. 32]</span> <code>Gürültü</code> — …amış Lastiklerin Kontrolü Yönetmeliği&quot; kapsamında ilgili lisanslı geri kazanım/bertaraf tesislerine gönderilecektir. Gürültü İnşaat ve Montaj Aşaması; Proje kapsamında kazan dairesi inşaat çalışmaları ve montaj sırasında iş makinelerinin k…</div>
+<div class="hit"><span class="pno">[s. 33]</span> <code>Gürültü</code> — …06 tarih ve 26392 sayılı Resmî Gazete ‘de yayımlanan “Açık Alanda Kullanılan Teçhizat Tarafından Oluşturulan Çevredeki Gürültü Emisyonu ile İlgili Yönetmelik” 5. maddesinde verilen “Teçhizat Tipi ve Bunların Net Güç Seviyesine Uygun Olarak Tanı…</div>
+<div class="hit"><span class="pno">[s. 35]</span> <code>Gürültü</code> — …ablo 10. Düzeltme Faktörleri Merkez Frekansı (Hz) Düzeltme Faktörü 500 -3,2 1000 0,0 2000 +1,2 4000 +1,0 Gürültü hesaplamalarında kullanılacak makine-ekipmanlara ait ses gücü düzeyleri Tablo 14’de, gürültü kaynaklarına mesafesine g…</div>
+<div class="hit"><span class="pno">[s. 36]</span> <code>gürültü</code> — …küresel dağılımı, Q =2) r = Kaynaktan uzaklık (m) Lwi = Her bir iş makinesinin ses gücü düzeyi (dB) Aşağıda tüm gürültü kaynakları için ses basınç düzeyleri mesafelere göre hesaplanmıştır. Tablo 12. Gürültü Kaynaklarının Mesafelere Göre…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(36 sayfa: s.2, s.3, s.6, s.7, s.9, s.10, s.11, s.23, s.25, s.28, s.31, s.33, s.34, s.42 (+22 sayfa))</span></h3><div class="hit"><span class="pno">[s. 2]</span> <code>Proje Bedeli</code> — …n Adı: Tire Süt ve Süt Ürünleri Üretim Tesisi İlave Buhar Kazanı (15 MWt) ve İlave İndirekt Hava Isıtıcı (7,5 MWt) Proje Bedeli: 91.031.862 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii): İzmir İli, Tire İlçesi, İbni Melek OSB…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>91.031.862 TL</code> — …t ve Süt Ürünleri Üretim Tesisi İlave Buhar Kazanı (15 MWt) ve İlave İndirekt Hava Isıtıcı (7,5 MWt) Proje Bedeli: 91.031.862 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii): İzmir İli, Tire İlçesi, İbni Melek OSB Mahallesi, TOSBİ…</div>
+<div class="hit"><span class="pno">[s. 3]</span> <code>Kapasite</code> — …Alternatifleri (proje teknolojisinin ve proje alanının seçilme nedenleri) .............. 3 b) Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Yatırım Bedeli, Teknolojisi, Çalışacak Personel Sayısı ............................................…</div>
+<div class="hit"><span class="pno">[s. 6]</span> <code>Kapasite</code> — ….2014 tarih ve 3627 sayılı Karar No ile “ÇED Olumlu” Kararı ve sonrasında 05.07.2018 tarih ve 5139 sayılı Karar No ile Kapasite Artışı için “ÇED Olumlu” Kararı alınmıştır. Ayrıca süt tozu ve kahve üretim tesisi için İzmir Çevre, Şehircilik ve İkl…</div>
+<div class="hit"><span class="pno">[s. 6]</span> <code>1.400 ton/gün</code> — …işikliği İl Müdürlüğü’nden 14847763 sayılı yazı ile ÇED Muafiyet yazısı alınmıştır. Kapasite artışı yapılmaksızın (1.400 ton/gün üretim kapasitesi sınırları içerisinde kalarak) Süt ve Süt Ürünleri Üretimi Tesisine kurulacak ilave buhar kazanı, tes…</div>
+<div class="hit"><span class="pno">[s. 6]</span> <code>3,256 MW</code> — …oje tesisin mevcut üretim kapasitesinde herhangi bir artışa neden olmayacaktır. Mevcutta işletilen tesiste her biri 3,256 MWt gücünde 2 adet buhar kazanı ve her biri 3 MWt gücünde sıcak su kazanı bulunmakta olup mevcut tesis 12,512 MWt kurulu…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Proje Parçalama, Kapasite Artışı ve Eşik Değerler <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(8 sayfa: s.6, s.9, s.11, s.46, s.75, s.139, s.140, s.142)</span></h3><div class="hit"><span class="pno">[s. 6]</span> <code>Kapasite Artışı</code> — ….2014 tarih ve 3627 sayılı Karar No ile “ÇED Olumlu” Kararı ve sonrasında 05.07.2018 tarih ve 5139 sayılı Karar No ile Kapasite Artışı için “ÇED Olumlu” Kararı alınmıştır. Ayrıca süt tozu ve kahve üretim tesisi için İzmir Çevre, Şehircilik ve İklim Deği…</div>
+<div class="hit"><span class="pno">[s. 9]</span> <code>Kapasite Artışı</code> — ….2014 tarih ve 3627 sayılı Karar No ile “ÇED Olumlu” Kararı ve sonrasında 05.07.2018 tarih ve 5139 sayılı Karar No ile Kapasite Artışı için “ÇED Olumlu” Kararı alınmıştır. Ayrıca süt tozu ve kahve üretim tesisi için İzmir Çevre, Şehircilik ve İklim Deği…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>Kapasite artışı</code> — …esisi kurulum çalışmaları devam etmekte olup hali hazırda üretim olmadığı için kapasite raporunda bulunmamaktadır. Kapasite artışı yapılmaksızın (1.400 ton/gün üretim kapasitesi sınırları içerisinde kalarak) İlave buhar kazanı ve ilave indirekt hava…</div>
+<div class="hit"><span class="pno">[s. 46]</span> <code>Kapasite Artışı</code> — …için 90 oC olarak kabül edilmiştir. (Mevcut tesis emisyon ölçüm sonuçları 05.07.2018 tarih ve 5139 sayılı Karar No ile Kapasite Artışı için “ÇED Olumlu” Kararından alınmıştır.) R = Mevcut tesiste bulunan buhar kazanlarında yapılan ölçümde yapılan Küt…</div>
+<div class="hit"><span class="pno">[s. 75]</span> <code>ÇED alanı</code> — …sırasında ve sonrasında; proje alanı civarında bulunan mevsimlik yağışlarla beslenen dere yataklarına, akar derelere, ÇED alanı dışında tutulan Sulama Havzalarına müdahale edilmeyecek, dere yataklarına herhangi bir atık bırakılmayacak, atık su d…</div>
+<div class="hit"><span class="pno">[s. 139]</span> <code>Kapasite Artışı</code> — …9 Nolu Parsel Mevkii&#x27;nde, Sütaş Süt Ürünleri A.Ş. tarafından yapılması planlanan Tire Süt ve Süt Ürünleri Üretim Tesisi Kapasite Artışı projesi ile ilgili olarak Bakanlığımıza Çevrimiçi ÇED süreci Yönetim Sisteminden sunulan ÇED Raporu, İnceleme Değerlend…</div></div></div>
+  </details>
+  <details class="accordion">
+    <summary>Belge Bölüm Haritası (17 başlık)</summary>
+    <div class="accordion-body"><ul style="margin:0;padding-left:20px;"><li><span class="pno">[s. 3]</span> BÖLÜM III. PROJENİN İNŞAAT VE İŞLETME AŞAMASINDA ÇEVRESEL ETKİLERİ, ÖNCELİKLİ</li>
+<li><span class="pno">[s. 6]</span> PROJENİN TEKNİK OLMAYAN ÖZETİ</li>
+<li><span class="pno">[s. 8]</span> BÖLÜM I</li>
+<li><span class="pno">[s. 9]</span> BÖLÜM I. PROJENİN ÖZELLİKLERİ</li>
+<li><span class="pno">[s. 62]</span> BÖLÜM II</li>
+<li><span class="pno">[s. 63]</span> BÖLÜM II. PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ</li>
+<li><span class="pno">[s. 85]</span> FLORA VE FAUNA</li>
+<li><span class="pno">[s. 86]</span> BÖLÜM III</li>
+<li><span class="pno">[s. 87]</span> BÖLÜM III. PROJENİN İNŞAAT VE İŞLETME AŞAMASINDA ÇEVRESEL ETKİLERİ,</li>
+<li><span class="pno">[s. 93]</span> BÖLÜM IV</li>
+<li><span class="pno">[s. 93]</span> KÜMÜLATİF ETKİ DEĞERLENDİRME</li>
+<li><span class="pno">[s. 94]</span> BÖLÜM IV. KÜMÜLATİF ETKİ DEĞERLENDİRME</li>
+<li><span class="pno">[s. 95]</span> BÖLÜM V</li>
+<li><span class="pno">[s. 95]</span> ÇEVRESEL VE SOSYAL EYLEM PLANI</li>
+<li><span class="pno">[s. 96]</span> BÖLÜM V. ÇEVRESEL VE SOSYAL EYLEM PLANI</li>
+<li><span class="pno">[s. 99]</span> BÖLÜM VI</li>
+<li><span class="pno">[s. 100]</span> BÖLÜM VI. NOTLAR, KAYNAKLAR VE EKLER</li></ul></div>
+  </details>
+
+  <div class="notice">
+    Bu sayfa, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın kamuya açık <code>eced-duyuru.csb.gov.tr</code> duyuru portalındaki kayıtlar esas alınarak bilgilendirme amacıyla hazırlanmıştır. Alıntıların tamamı 1 tabanlı PDF sayfa numarasıyla (<code>[s. N]</code>) gösterilmektedir. Yasal sürelerin ve hukuki başvuru yollarının yetkili hukukçular tarafından teyit edilmesi gerekir.
+  </div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+
+(() => {
+  const root = document.documentElement;
+  const saved = localStorage.getItem('eced_theme');
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  function isDarkNow() {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return cur ? cur === 'dark' : prefersDark;
+  }
+  window.__ecedIsDark = isDarkNow;
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function syncLabel() {
+    btn.textContent = isDarkNow() ? 'Açık Tema' : 'Koyu Tema';
+  }
+  syncLabel();
+  btn.addEventListener('click', () => {
+    const next = isDarkNow() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('eced_theme', next);
+    syncLabel();
+    window.dispatchEvent(new CustomEvent('eced-theme-change', { detail: { dark: next === 'dark' } }));
+  });
+})();
+
+
+function createCartoTileLayer(isDark) {
+  const style = isDark ? 'dark_all' : 'light_all';
+  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+    maxZoom: 19,
+    subdomains: 'abcd',
+    attribution: '&copy; OpenStreetMap &copy; CARTO'
+  });
+}
+
+(() => {
+  const copyBtn = document.getElementById('copy-qs-btn');
+  const qsTxt = document.getElementById('qs-plain');
+  if (copyBtn && qsTxt) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(qsTxt.value);
+        copyBtn.textContent = 'Kopyalandı ✓';
+        setTimeout(() => (copyBtn.textContent = 'Soruları Kopyala'), 2200);
+      } catch (e) {
+        copyBtn.textContent = 'Kopyalanamadı';
+      }
+    });
+  }
+  if (typeof L === 'undefined') return;
+  const g = {"lat": 38.4237, "lon": 27.1428, "zoom": 8, "precision": "province_centroid", "points": [], "gis_markers": [], "label": "İZMİR / TİRE — Tire Süt ve Süt Ürünleri Üretim Tesisi İlave Buhar Kazanı (15 MWt) ve İlave İndirekt Hava "};
+  const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
+  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
+  window.addEventListener('eced-theme-change', (ev) => {
+    map.removeLayer(tileLayer);
+    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
+  });
+  if (g.precision === 'exact_pdf') {
+    L.circle([g.lat, g.lon], {
+      radius: 3000,
+      color: '#d97706',
+      weight: 1.5,
+      dashArray: '6 5',
+      fillColor: '#d97706',
+      fillOpacity: 0.04
+    }).bindTooltip('3 km yasal referans çemberi (3573 m.20)').addTo(map);
+    for (const gm of (g.gis_markers || [])) {
+      L.circleMarker([gm.lat, gm.lon], {
+        radius: 5,
+        color: '#ffffff',
+        fillColor: gm.color,
+        fillOpacity: 0.9,
+        weight: 1.5
+      }).bindPopup(gm.label).addTo(map);
+    }
+  }
+  if (g.precision === 'exact_pdf' && g.points.length > 1) {
+    const latlngs = g.points.map(p => [p[0], p[1]]);
+    const poly = L.polyline(latlngs, { color: '#175cd3', weight: 3, opacity: 0.85 }).addTo(map);
+    for (const ll of latlngs.slice(0, 30)) {
+      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#d92d20', fillOpacity: 0.9, weight: 1 }).addTo(map);
+    }
+    map.fitBounds(poly.getBounds().pad(0.25));
+  } else {
+    L.circleMarker([g.lat, g.lon], {
+      radius: g.precision === 'exact_pdf' ? 8 : 11,
+      color: '#ffffff',
+      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#175cd3',
+      fillOpacity: g.precision === 'exact_pdf' ? 0.9 : 0.45,
+      weight: 2
+    }).bindPopup(g.label).addTo(map).openPopup();
+  }
+})();
+</script>
+</body>
+</html>

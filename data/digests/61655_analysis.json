@@ -1,0 +1,846 @@
+{
+  "filing": {
+    "province": "İSTANBUL",
+    "district": "BÜYÜKÇEKMECE",
+    "project_name": "TOPLU KONUT (417 KONUT + 7 TİCARET)",
+    "project_owner": "BAYIR AHMET ARSLAN",
+    "sector": "Konut",
+    "sub_sector": "Toplu Konut Projeleri",
+    "decision_type": "ÇED Süreci Başlayan",
+    "announcement_date_tr": "19.11.2026",
+    "project_type": "Ek-2",
+    "detail_text": "İSTANBUL ili BÜYÜKÇEKMECE,  ilcesinde İSTANBUL ili BÜYÜKÇEKMECE,  ilçesi Mimarsinan Mahallesi, Çöplüce Yolu Mevkii 0 Ada, 487 Parsel (18.914,15 m2) mevkiindeki BAYIR AHMET ARSLAN  tarafından yapılması planlanan TOPLU KONUT (417 KONUT + 7 TİCARET) projesi ile ilgili olarak İSTANBUL Valiliğimize sunulan P.T.D. Dosyası Çevresel Etki Değerlendirmesi Yönetmeliği'nin 16. maddesi doğrultusunda incelenmiş ve projeye ilişkin ÇED Süreci başlamıştır. İlgililere ve kamuoyuna duyurulur.",
+    "detail_links": [
+      {
+        "text": "P.T.D. Dosyası",
+        "href": "http://eced.csb.gov.tr/jsp/ek1/61655"
+      }
+    ],
+    "documents": [
+      {
+        "portal_doc_url": "http://eced.csb.gov.tr/jsp/ek1/61655",
+        "filing_id": "61655",
+        "consulting_firm": "ALYA ÇEVRE DANIŞMANLIK VE İŞ GÜVENLİĞİ HİZMETLERİ  LTD.ŞTİ.",
+        "submitted_at": "18/11/2026 01:32:35",
+        "pdf_urls": [
+          {
+            "label": "Dosya Göster",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign6280334381581634729.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-18"
+          }
+        ]
+      }
+    ],
+    "announcement_date": "2026-11-19",
+    "statutory_clocks": [
+      {
+        "code": "process_open",
+        "kind": "Karar öncesi inceleme süreci (ÇED Yönetmeliği m. 8/16; süreç boyunca yazılı görüş verilebilir)",
+        "deadline": null,
+        "days_remaining": null
+      }
+    ],
+    "filing_key": "61655:19.11.2026:ÇED Süreci Başlayan",
+    "first_seen_at": "2026-11-20T02:10:41"
+  },
+  "pdf_info": {
+    "filename": "61655.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign6280334381581634729.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-18",
+    "bytes": 74393803,
+    "sha256": "741ae3ee9afd729171383f3e13ff91126f7158bd89a14c0b637fc708773ced5c",
+    "cached": false
+  },
+  "analysis": {
+    "page_count": 336,
+    "total_chars": 707488,
+    "text_pages": 293,
+    "scanned_or_blank_pages": 43,
+    "scanned_page_sample": [
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      131
+    ],
+    "headings": [
+      [
+        126,
+        "Model"
+      ],
+      [
+        125,
+        "Model"
+      ],
+      [
+        124,
+        "Model"
+      ],
+      [
+        123,
+        "Model"
+      ],
+      [
+        122,
+        "Model"
+      ],
+      [
+        121,
+        "Model"
+      ],
+      [
+        120,
+        "Model"
+      ],
+      [
+        119,
+        "Model"
+      ],
+      [
+        250,
+        "1 GİRİŞ"
+      ],
+      [
+        250,
+        "1.1 Etüdün Amacı ve Kapsamı"
+      ],
+      [
+        250,
+        "1.2 İnceleme Alanının Tanıtılması"
+      ],
+      [
+        250,
+        "1.2.1. Jeomorfolojik ve çevresel bilgiler"
+      ],
+      [
+        252,
+        "1.2.2 İmar planı durumu"
+      ],
+      [
+        252,
+        "1.2.3 İklim"
+      ],
+      [
+        252,
+        "1.2.4 Doğal afet tehlikeleri"
+      ],
+      [
+        252,
+        "1.2.5 Yapı hakkında bilgiler"
+      ],
+      [
+        254,
+        "2 JEOLOJİ"
+      ],
+      [
+        254,
+        "2.1 Bölgesel jeoloji"
+      ],
+      [
+        261,
+        "2.1.1 Yapısal jeoloji ve aktif tektonik"
+      ],
+      [
+        262,
+        "3 ARAZİ ÇALIŞMALARI"
+      ],
+      [
+        263,
+        "3.1 Jeofizik Çalışmalar"
+      ],
+      [
+        264,
+        "3.1.1. Yapılan Jeofizik Çalışmalar"
+      ],
+      [
+        266,
+        "3.1.2. Ölçüm Sistemi ve Kullanılan Ekipman"
+      ],
+      [
+        267,
+        "3.1.3. Sismik Kırılma ve MASW Çalışması"
+      ],
+      [
+        277,
+        "3.1.4. Jeofizik Verilerin Yorumlanması"
+      ]
+    ],
+    "geo": {
+      "precision": "exact_pdf",
+      "lat": 41.01123,
+      "lon": 28.53826,
+      "point_count": 16,
+      "points": [
+        [
+          41.0111,
+          28.5374
+        ],
+        [
+          41.0104,
+          28.5374
+        ],
+        [
+          41.0101,
+          28.5388
+        ],
+        [
+          41.0101,
+          28.5389
+        ],
+        [
+          41.0114,
+          28.5399
+        ],
+        [
+          41.0114,
+          28.5398
+        ],
+        [
+          41.0112,
+          28.5384
+        ],
+        [
+          41.0112,
+          28.5375
+        ],
+        [
+          41.01183,
+          28.53689
+        ],
+        [
+          41.01113,
+          28.53689
+        ],
+        [
+          41.01083,
+          28.53829
+        ],
+        [
+          41.01083,
+          28.53839
+        ],
+        [
+          41.01213,
+          28.53939
+        ],
+        [
+          41.01213,
+          28.53929
+        ],
+        [
+          41.01193,
+          28.53789
+        ],
+        [
+          41.01193,
+          28.53699
+        ]
+      ],
+      "datum": "UTM-Z35/ED50",
+      "pages": [
+        96
+      ]
+    },
+    "signals": {
+      "coordinates_and_footprint": {
+        "label": "Coordinates, Parcel & Footprint",
+        "page_count": 59,
+        "pages": [
+          1,
+          2,
+          6,
+          8,
+          10,
+          12,
+          15,
+          16,
+          17,
+          18,
+          19,
+          22,
+          23,
+          25,
+          27,
+          28,
+          40,
+          41,
+          54,
+          62,
+          64,
+          65,
+          79,
+          82,
+          84
+        ],
+        "samples": [
+          {
+            "page": 1,
+            "match": "914,15 m2",
+            "snippet": "…7 TİCARET) PROJE TANITIM DOSYASI İSTANBUL İLİ, BÜYÜKÇEKMECE İLÇESİ, MİMARSİNAN MAHALLESİ, 0 ADA, 487 PARSEL (18.914,15 m2) PROJE TANITIM DOSYASI NİHAİ PROJE TANITIM DOSYASI ALYA ÇEVRE DANIŞMANLIK VE İŞ GÜVEN…"
+          },
+          {
+            "page": 2,
+            "match": "914,15 m2",
+            "snippet": "…Sİ, MEVKİİ) İstanbul İli, Büyükçekmece İlçesi, Mimarsinan Mahallesi, Çöplüce Yolu Mevkii 0 Ada, 487 Parsel (18.914,15 m2) PROJENİN ÇED YÖNETMELİĞİ KAPSAMINDAKİ YERİ (SEKTÖR, ALT SEKTÖR) 29.07.2022 tarih ve 31907 sayılı Resmî Gazete…"
+          },
+          {
+            "page": 6,
+            "match": "Koordinat",
+            "snippet": "…Gücü Düzeyi ...................................................................................... 58 EKLER EK-1 : Koordinatlar EK-2.a : 1/25.000 Ölçekli Topoğrafik Harita EK-2.b : 1/1000 Ölçekli Uygulama İmar Planı ve 1/5000 Ölçekli Nazım İm…"
+          },
+          {
+            "page": 8,
+            "match": "914,15 m2",
+            "snippet": "…K OLMAYAN ÖZETİ İstanbul İli, Büyükçekmece İlçesi, Mimarsinan Mahallesi, 0 Ada, 487 Parsel adresinde 18.914,15 m2 arazide, BAYIR AHMET ARSLAN tarafından 55.221,56 m2 inşaat alanına sahip “Konut Projesi (417 KONUT + 7 TİCARET)” yapı…"
+          },
+          {
+            "page": 8,
+            "match": "221,56 m2",
+            "snippet": "…kmece İlçesi, Mimarsinan Mahallesi, 0 Ada, 487 Parsel adresinde 18.914,15 m2 arazide, BAYIR AHMET ARSLAN tarafından 55.221,56 m2 inşaat alanına sahip “Konut Projesi (417 KONUT + 7 TİCARET)” yapılması planlanmaktadır. Proje bünyesinde; 8 adet…"
+          },
+          {
+            "page": 8,
+            "match": "781,46 m²",
+            "snippet": "…59 adet, ve H blokda 45 adet daire bulunmaktadır. Projede toplam inşaat alanı 55.221,56 m2 ve taban oturum alanı 5.781,46 m² olacaktır. Proje alanına ait tapular Ek-7’de, aplikasyon krokileri Ek-9 ’da verilmiştir. Tapu malikleri Ek-7…"
+          },
+          {
+            "page": 10,
+            "match": "914,15 m2",
+            "snippet": "…ın seçilme nedenleri). İstanbul İli, Büyükçekmece İlçesi, Mimarsinan Mahallesi, 0 Ada, 487 Parsel adresinde 18.914,15 m2 arazide, BAYIR AHMET ARSLAN tarafından 55.221,56 m2 inşaat alanına sahip “Konut Projesi (417 KONUT + 7 TİCARET)” yapı…"
+          },
+          {
+            "page": 10,
+            "match": "221,56 m2",
+            "snippet": "…kmece İlçesi, Mimarsinan Mahallesi, 0 Ada, 487 Parsel adresinde 18.914,15 m2 arazide, BAYIR AHMET ARSLAN tarafından 55.221,56 m2 inşaat alanına sahip “Konut Projesi (417 KONUT + 7 TİCARET)” yapılması planlanmaktadır. Proje alanına ait tapu…"
+          }
+        ]
+      },
+      "water_and_discharge": {
+        "label": "Water Use, Hydrogeology & Discharge",
+        "page_count": 23,
+        "pages": [
+          23,
+          24,
+          25,
+          26,
+          36,
+          37,
+          38,
+          39,
+          40,
+          43,
+          69,
+          71,
+          76,
+          81,
+          85,
+          86,
+          90,
+          93,
+          171,
+          181,
+          184,
+          185,
+          291
+        ],
+        "samples": [
+          {
+            "page": 23,
+            "match": "1 m3/gün",
+            "snippet": "…pılacaktır, firma taahhüt etmektedir. ➢ Tozumayı Önlemek Için Kullanılacak Su: Proje alanında tozumayı önlemek için 1 m3/gün su kullanılacağı öngörülmektedir. ➢ Sıva-Şap İşlemleri Için Kullanılacak Su: Proje Toplam İnşaat Alanı : 55.22…"
+          },
+          {
+            "page": 23,
+            "match": "1,168 m3/gün",
+            "snippet": "…nmıştır) olarak planlanmaktadır. Buradan gereken su miktarını günlük olarak hesapladığımızda; 364,46 m3 / 312 gün = 1,168 m3/gün su kullanımı olacaktır. ➢ Beton Sulama İşlemleri İçin Kullanılacak Su: 1 m2 beton alanın sulanması için gerekli su…"
+          },
+          {
+            "page": 23,
+            "match": "1,77 m3/gün",
+            "snippet": "…y (312 gün) boyunca kullanılacağından, günlük olarak hesaplandığında; 552.215,6 lt/gün / 312 gün = 1.769,92 lt/gün = 1,77 m3/gün olmaktadır. 1 (Kaynak:https://abs.firat.edu.tr/upload/user_68/4d65368626305e1f19410f80d57b94cee6d47cae_dosya_68.pd…"
+          },
+          {
+            "page": 24,
+            "match": "0,4 m3/gün",
+            "snippet": "…ecektir. Bu hususta literatürde bir hesaplama formülasyonu bulunmadığından tecrübelere ve öngörülere göre, yaklaşık 0,4 m3/gün su kullanımı olacağı tahmin edilmektedir. ➢ Kişisel Kullanım Amaçlı Harcanacak Su: İnşaat aşamasında çalışacak 220 iş…"
+          },
+          {
+            "page": 24,
+            "match": "44 m3/gün",
+            "snippet": "…aat aşamasında çalışacak 220 kişi tarafından kullanılacak su miktarı; 203 lt/kişi-Gün x 220 kişi.gün =44.660 lt/gün = 44 m3/gün olarak hesaplanmaktadır. Bu aşamada kullanılacak su İSKİ şebekesinden temin edilecek olup bölgede İSKİ şebekesi ve al…"
+          },
+          {
+            "page": 24,
+            "match": "48,34 m3/gün",
+            "snippet": "…aşaması süresince kullanılacak su miktarları tablo halinde aşağıda verilmiştir. Tabloya göre inşaat aşamasında, toplam 48,34 m3/gün su kullanımı söz konusu olacağı görülmektedir. Tablo 12:İnşaat Aşamasında Su Kullanım Miktarları AMAÇ MİKTAR Toz…"
+          },
+          {
+            "page": 24,
+            "match": "1 m3/gün",
+            "snippet": "…söz konusu olacağı görülmektedir. Tablo 12:İnşaat Aşamasında Su Kullanım Miktarları AMAÇ MİKTAR Tozumayı Önleme 1 m3/gün Sıva-Şap İşleri 1,168 m3 Beton Sulama İşleri 1.77 m3/gün Tekerlek Yıkama 0,4 m3/gün Çalışacak İşçiler 44 m3/gü…"
+          },
+          {
+            "page": 24,
+            "match": "1.77 m3/gün",
+            "snippet": "…ında Su Kullanım Miktarları AMAÇ MİKTAR Tozumayı Önleme 1 m3/gün Sıva-Şap İşleri 1,168 m3 Beton Sulama İşleri 1.77 m3/gün Tekerlek Yıkama 0,4 m3/gün Çalışacak İşçiler 44 m3/gün TOPLAM 48,34 m3/gün İskân-İşletme Aşamasında Kullanı…"
+          }
+        ]
+      },
+      "protected_land_and_olive": {
+        "label": "Protected Zones, Forests & Olive Groves",
+        "page_count": 5,
+        "pages": [
+          4,
+          64,
+          66,
+          68,
+          69
+        ],
+        "samples": [
+          {
+            "page": 4,
+            "match": "orman alanı",
+            "snippet": "…IR AHMET ARSLAN 4 KONUT PROJESİ (417 KONUT+ 7 TİCARET ) II.a) Mevcut arazi kullanımı ve kalitesi (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri). .................................................................................…"
+          },
+          {
+            "page": 64,
+            "match": "orman alanı",
+            "snippet": "…LÜM II: PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ II.a) Mevcut arazi kullanımı ve kalitesi (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri). İstanbul İli, Büyükçekmece İlçesi, Mimarsinan Mahallesi, 0 Ada, 487 Parsel a…"
+          },
+          {
+            "page": 66,
+            "match": "Orman Alanı",
+            "snippet": "…sahasına ait Yer Bulduru Haritası Şekil 5’de verilmiştir. Şekil 5:Yer Bulduru Haritası Tarım Alanı ve Orman Alanı Projenin gerçekleştirilmesi için; tarım, mera, orman alanı vb. alanlarının elden çıkarılması söz konusu değildir.…"
+          },
+          {
+            "page": 68,
+            "match": "Özel Çevre Koruma",
+            "snippet": "…e tanımlanan alanlar içerisinde bulunmamaktadır. f) Çevre Kanununun 9 uncu maddesi uyarınca Cumhurbaşkanı tarafından \"Özel Çevre Koruma Bölgeleri\" olarak tespit ve ilan edilen alanlar, içerisinde bulunmamaktadır. g) Boğaziçi Kanununa göre koruma altına a…"
+          },
+          {
+            "page": 68,
+            "match": "orman alanı",
+            "snippet": "…maktadır. g) Boğaziçi Kanununa göre koruma altına alınan alanlar içerisinde bulunmamaktadır. ğ) Orman Kanunu uyarınca orman alanı sayılan yerler içerisinde bulunmamaktadır. h) Kıyı Kanunu gereğince yapı yasağı getirilen alanlar, içerisinde bulunmam…"
+          },
+          {
+            "page": 69,
+            "match": "kıyı kenar",
+            "snippet": "…ı olmak üzere canlıların yaşama ortamı olarak önem taşıyan bütün sular, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler, kapsamında kalmamaktadır. ç) Göller…"
+          },
+          {
+            "page": 69,
+            "match": "sulak alan",
+            "snippet": "…ar, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler, kapsamında kalmamaktadır. ç) Göller, akarsular, yeraltı suyu işletme sahaları, kapsamında kalmamaktadır.…"
+          }
+        ]
+      },
+      "ecology_and_baseline": {
+        "label": "Flora, Fauna & Baseline Methodology",
+        "page_count": 4,
+        "pages": [
+          68,
+          69,
+          186,
+          264
+        ],
+        "samples": [
+          {
+            "page": 68,
+            "match": "BERN Sözleşmesi",
+            "snippet": "…sözleşmeler uyarınca korunması gerekli alanlar a) \"Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi\" (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan \"Önemli Deniz Kaplumbağası Üreme Alanlarında belirtilen I. ve II. Koruma Bö…"
+          },
+          {
+            "page": 69,
+            "match": "endemik",
+            "snippet": "…dır. d) Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…"
+          },
+          {
+            "page": 186,
+            "match": "flora ve fauna",
+            "snippet": "…iyolojik Çeşitlilik Toplu Konut Projesinin inşaat ve iskan-işletme aşamalarında; orman ve tabiat bütünlüğünü bozacak, flora ve fauna türlerine zarar verebilecek hiçbir etki söz konusu olmayacaktır, firma taahhüt etmektedir. 12. Görsel Etki Büy…"
+          },
+          {
+            "page": 264,
+            "match": "Örnekleme",
+            "snippet": "…unluğu 39,00 m olarak alınmıştır. Profil Jeofon Aralığı (m) Offset (m) Profil Uzunluğu (m) Kayıt Süresi (ms) Örnekleme Aralığı (ms) 1 3,00 3,00 39,00 1000 0,25 2 3,00 3,00 39,00 1000 0,25 3 3,00 3,00 39,00 1000 0,25…"
+          }
+        ]
+      },
+      "pollutants_and_hazards": {
+        "label": "Emissions, Geochemistry & Waste",
+        "page_count": 70,
+        "pages": [
+          7,
+          9,
+          11,
+          20,
+          33,
+          34,
+          37,
+          40,
+          41,
+          43,
+          44,
+          46,
+          48,
+          50,
+          51,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          62,
+          63
+        ],
+        "samples": [
+          {
+            "page": 7,
+            "match": "Gürültü",
+            "snippet": "…se Dayalı Nüfus Kayıt Sistemi A.Ş. :Anonim Şirketi Bkz. :bakınız ÇED: Çevresel Etki Değerlendirmesi ÇGKY: Çevresel Gürültü Kontrol Yönetmeliği dBA: A-ağırlıklı desibel GSM: Gayri Sıhhi Müessese Ha: hektar HKKD: Hava Kirlenmesi Katkı Değer…"
+          },
+          {
+            "page": 9,
+            "match": "gürültü",
+            "snippet": "…r, firma taahhüt etmektedir. Projenin en önemli çevresel etkileri olan atık sular, tehlikeli atıklar, emisyon ve gürültü ile ilgili olarak; tüm hesaplamalar ve önlemler ilgili bölümlerde yapılmış olup, inşaat ve iskan aşamalarında bu husu…"
+          },
+          {
+            "page": 11,
+            "match": "Gürültü",
+            "snippet": "…VRE DÜZENLEME İŞLETME-İSKANA AÇILIŞ 2026 2027 2028 2029 -Hafriyat Atıkları - Katı Atık ve Sıvı Atık - Ambalaj Atık - Gürültü - Toz, egzoz emisyonu - Personel Atıkları - İnşaat atıkları -Tehlikeli Atık (boya, çözücü, vernik ve solvent vb.…"
+          },
+          {
+            "page": 11,
+            "match": "Tehlikeli Atık",
+            "snippet": "…- Katı Atık ve Sıvı Atık - Ambalaj Atık - Gürültü - Toz, egzoz emisyonu - Personel Atıkları - İnşaat atıkları -Tehlikeli Atık (boya, çözücü, vernik ve solvent vb. kutuları) - Teklikesiz atık, - Tıbbi Atık, - Yağ Atıkları, - Atık Pil ve Akü…"
+          },
+          {
+            "page": 20,
+            "match": "deprem",
+            "snippet": "…lerin TSE normlarına uygun olması sağlanacaktır. --Proje konseptine uygun peyzaj düzenlemesi yapılacaktır. Projede, deprem kuşağında olan bölgeler için kullanılan, dayanıklılık açısından en uygun sistemler kullanılacaktır. Proje alanında zem…"
+          },
+          {
+            "page": 33,
+            "match": "tehlikeli atık",
+            "snippet": "…emeleri, elektrik ve aydınlatma aksamları gibi tehlikeli atıkların oluşması beklenmektedir. Beton üretiminden kaynaklı tehlikeli atık oluşumu söz konusu değildir.İnşaat aşamasında oluşacak tehlikeli atıkların miktarları, bertaraf yöntemleri ve atık kod…"
+          },
+          {
+            "page": 34,
+            "match": "tehlikeli atık",
+            "snippet": "…üoresan lamba, saç spreyi kutusu, saç boyası, solvent bazlı boyalar, deterjan ambalajları, dezenfektan ambalajları vb. tehlikeli atık oluşumu muhtemeldir. Tehlikeli atık miktarları aşağıdaki tablodan görüleceği üzere yaklaşık 0,174 kg/gün olacaktır.…"
+          },
+          {
+            "page": 37,
+            "match": "tehlikeli atık",
+            "snippet": "…aha sonra da ağzı kapaklı yağ toplama bidonunda biriktirilerek, üzerine atık madeni yağ ibaresi yazılacaktır. Bu bidon tehlikeli atık alanında depolanacaktır. Çevre ve insan sağlığına zarar oluşturmayacak şekilde atık yönetiminin sağlanması amacıyl…"
+          }
+        ]
+      },
+      "cost_and_capacity": {
+        "label": "Proje Bedeli, Güç ve Kapasite",
+        "page_count": 25,
+        "pages": [
+          2,
+          3,
+          9,
+          10,
+          12,
+          13,
+          14,
+          15,
+          16,
+          20,
+          21,
+          22,
+          23,
+          25,
+          26,
+          29,
+          40,
+          42,
+          45,
+          59,
+          65,
+          73,
+          81,
+          204,
+          205
+        ],
+        "samples": [
+          {
+            "page": 2,
+            "match": "PROJE BEDELİ",
+            "snippet": "…: GSM : 0 533 651 50 05 E-POSTA info@ekolgrupinsaat.com.tr PROJENİN ADI KONUT PROJESİ (417 KONUT + 7 TİCARET) PROJE BEDELİ 2.102.723.173,77 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ:(İLİ, İLÇESİ, BELDESİ, MEVKİİ) İstanbul İli, Büyükçe…"
+          },
+          {
+            "page": 3,
+            "match": "Kapasite",
+            "snippet": "…..................................................................................... 10 I.b) Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Teknolojisi, Çalışacak Personel Sayısı. ...........................................................…"
+          },
+          {
+            "page": 9,
+            "match": "2.800.000 TL",
+            "snippet": "…yeti hesaplamaları Bölüm I.b.2’de verilmiş olup, 2.102.723.173,77 TL olarak belirlenmiştir. Bu miktara göre yatırılan 2.800.000 TL Harç Dekontu Ek-5’de olarak verilmiştir. Firma sahibi ile tapu malikleri arasında yapılan Taşınmaz Satış Vaad…"
+          },
+          {
+            "page": 10,
+            "match": "Kapasite",
+            "snippet": "…âna ve işletmeye açılmadan gerekli tüm izinler alınacaktır, firma taahhüt etmektedir. I.b) Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Teknolojisi, Çalışacak Personel Sayısı. I.b.1. İş Akım Şeması Söz konusu proje; bir konut-ticare…"
+          },
+          {
+            "page": 12,
+            "match": "Kapasite",
+            "snippet": "BAYIR AHMET ARSLAN 12 KONUT PROJESİ (417 KONUT+ 7 TİCARET ) I.b.2. Kapasitesi ve Kapladığı Alan Kapasitesi: İstanbul İli, Büyükçekmece İlçesi, Mimarsinan Mahallesi, 0 Ada, 487 Parsel…"
+          },
+          {
+            "page": 13,
+            "match": "kapasite",
+            "snippet": "…aktır, imar durum belgesindeki hususlara aynen riayet edilecektir, firma taahhüt etmektedir. Projede; toplam 417 araç kapasiteli kapalı otopark yapılacaktır.Projeye ait sağlanması greken otopark hesapları aşağıda yer almaktadır.Projede 21 adet e…"
+          },
+          {
+            "page": 14,
+            "match": "Proje Bedeli",
+            "snippet": "…lamalara göre toplam 167 (yüz altmış yedi) adet otopark gerekmekte olup 417 otopark ihtiyacı yerinde sağlanmıştır. Proje Bedeli Hesabı: Proje bedeline dâhil olan inşaat giderleri hesabı yapılırken; 03.02.2026 tarih ve 33157 sayılı R.G.’de yayıml…"
+          },
+          {
+            "page": 15,
+            "match": "Proje Bedeli",
+            "snippet": "BAYIR AHMET ARSLAN 15 KONUT PROJESİ (417 KONUT+ 7 TİCARET ) Tablo 7: Proje Bedeli Hesabı Blok Adı B.B. Sayısı ve Tipi Bina Yükseklikleri Yapı Sınıfı Hesap Maliyet A BLOK 417 Konut + 7…"
+          }
+        ]
+      },
+      "splitting_and_thresholds": {
+        "label": "Proje Parçalama, Kapasite Artışı ve Eşik Değerler",
+        "page_count": 0,
+        "pages": [],
+        "samples": []
+      }
+    },
+    "audit_checks": {
+      "mentions_field_survey": true,
+      "mentions_literature_only_cue": false,
+      "mentions_seasonal_sampling": false,
+      "mentions_cumulative_impact": true,
+      "mentions_olive_law_3573": false,
+      "mentions_groundwater_or_aquifer": true,
+      "mentions_iucn_or_endemic": true,
+      "mentions_capacity_or_splitting": false,
+      "mentions_circular_2009_7_or_revision": false
+    }
+  },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-22T01:01:22",
+      "decision_type": "ÇED Süreci Başlayan",
+      "announcement_date": "2026-11-19",
+      "announcement_date_tr": "19.11.2026",
+      "submitted_at": "18/11/2026 01:32:35",
+      "consulting_firm": "ALYA ÇEVRE DANIŞMANLIK VE İŞ GÜVENLİĞİ HİZMETLERİ  LTD.ŞTİ.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign6280334381581634729.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-18",
+      "pdf_temp_ad": "sign6280334381581634729.pdf",
+      "pdf_original_name": "e-imza.pdf",
+      "pdf_upload_date": "2026-11-18",
+      "sha256": "741ae3ee9afd729171383f3e13ff91126f7158bd89a14c0b637fc708773ced5c",
+      "bytes": 74393803,
+      "page_count": 336,
+      "text_pages": 293,
+      "scanned_or_blank_pages": 43,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": false,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": false,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true,
+        "mentions_capacity_or_splitting": false,
+        "mentions_circular_2009_7_or_revision": false
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 59,
+        "water_and_discharge": 23,
+        "protected_land_and_olive": 5,
+        "ecology_and_baseline": 4,
+        "pollutants_and_hazards": 70,
+        "cost_and_capacity": 25,
+        "splitting_and_thresholds": 0
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 41.01123,
+      "geo_lon": 28.53826,
+      "geo_point_count": 16,
+      "detail_text_sha256": "e07bcae0d552c92d"
+    }
+  ],
+  "llm_synthesis": {
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-11-22T01:01:27",
+    "pages_sent": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      20,
+      23,
+      24,
+      25,
+      26,
+      64,
+      66,
+      68,
+      69,
+      186,
+      264
+    ],
+    "usage": {
+      "prompt_tokens": 23135,
+      "output_tokens": 1754,
+      "thoughts_tokens": null,
+      "total_tokens": 24889
+    },
+    "result": {
+      "executive_summary_tr": "İstanbul İli, Büyükçekmece İlçesi, Mimarsinan Mahallesi, 487 parsel üzerinde Bayır Ahmet Arslan tarafından yapılması planlanan Konut Projeleri kapsamında 417 konut ve 7 ticaret alanı inşa edilecektir. Proje bedeli 2.102.723.173,77 TL olup toplam inşaat alanı 55.221,56 metrekaredir. Yoğun kentsel doku içerisinde yer alan projede zemin ve temel etüdleri ile otopark ve altyapı planlamalarına yer verilmiştir.",
+      "executive_summary_en": "The proposed residential and commercial project by Bayır Ahmet Arslan in Istanbul, Büyükçekmece, consists of 417 residences and 7 commercial units on parcel 487, covering a total construction area of 55,221.56 square meters with an estimated project cost of 2,102,723,173.77 TRY. The filing outlines site capacities, geological surveys, and infrastructure plans within an established urban matrix.",
+      "key_facts": [
+        {
+          "label": "Proje Bedeli",
+          "value": "2.102.723.173,77 TL",
+          "page": 2
+        },
+        {
+          "label": "Parsel Alanı",
+          "value": "18.914,15 m2",
+          "page": 2
+        },
+        {
+          "label": "Toplam İnşaat Alanı",
+          "value": "55.221,56 m2",
+          "page": 8
+        },
+        {
+          "label": "Taban Oturum Alanı",
+          "value": "5.781,46 m2",
+          "page": 8
+        },
+        {
+          "label": "Konut ve Ticaret Sayısı",
+          "value": "417 Konut + 7 Ticaret",
+          "page": 8
+        },
+        {
+          "label": "İskan Aşamasında Nüfus",
+          "value": "840 kişi (konut) + 50 kişi (ticaret)",
+          "page": 8
+        },
+        {
+          "label": "İnşaat Personel Sayısı",
+          "value": "220 kişi",
+          "page": 8
+        },
+        {
+          "label": "Otopark Kapasitesi",
+          "value": "417 araç",
+          "page": 13
+        },
+        {
+          "label": "Yeşil Alan",
+          "value": "5.043,89 m2",
+          "page": 25
+        },
+        {
+          "label": "Jeneratör Gücü",
+          "value": "2 adet 1130 kVA",
+          "page": 9
+        }
+      ],
+      "baseline_assessment": {
+        "field_survey_status": "literature_only",
+        "seasonal_sampling_status": "not_found",
+        "cumulative_impact_status": "omitted_or_not_found",
+        "olive_and_protected_status": "Proje alanı kentsel yerleşim içinde kalmakta olup 3573 sayılı Zeytincilik Kanunu kapsamında zeytinlikler, orman alanları, Mera Kanunu sahaları veya ÖÇK/SİT alanları içinde bulunmadığı beyan edilmiştir [s. 68].",
+        "explanation": "Proje tanıtım dosyasında flora, fauna, su ve toprak kalitesine ilişkin gerçek zamanlı mevsimsel saha örneklemeleri gerçekleştirilmemiş; bunun yerine alanın halihazırda yapılaşmış kentsel bir bölgede yer aldığı gerekçesiyle literatür düzeyinde genel beyanlarla yetinilmiştir [s. 68]. Kümülatif bölgesel etki analizi dosyada yer almamaktadır."
+      },
+      "red_flags": [
+        {
+          "category": "kumulatif_etki",
+          "severity": "high",
+          "title": "Bölgesel Kümülatif Etki Değerlendirmesinin Bulunmaması",
+          "detail": "Büyükçekmece Mimarsinan bölgesinde hızla artan konut projelerine rağmen, yakın çevredeki diğer inşaat ve yapılaşmalarla birlikte oluşacak kümülatif trafik, altyapı, hava kalitesi ve nüfus yükü dosyada sayısal ve analitik olarak değerlendirilmemiştir.",
+          "pages": [
+            84
+          ]
+        },
+        {
+          "category": "flora_fauna_mevsimsel",
+          "severity": "high",
+          "title": "Gerçek Zamanlı Flora-Fauna Sahası Çalışmasının Eksikliği",
+          "detail": "Hassas ekosistemler ve yerel biyolojik çeşitlilik açısından zorunlu olan çok mevsimli ve arazi bazlı flora-fauna envanteri çıkarılmamış, alanın kentsel niteliği gerekçe gösterilerek saha verisi sunulmamıştır.",
+          "pages": [
+            68
+          ]
+        },
+        {
+          "category": "su_hidrojeoloji",
+          "severity": "medium",
+          "title": "Yeraltı Suyu ve Altyapı Entegrasyon Verilerinin Eksikliği",
+          "detail": "İnşaat aşamasında oluşacak yeraltı suyu drenajı ve bertarafı ile İSKİ altyapısının 417 konutluk ek yükü taşıyıp taşımadığına dair DSİ ve İSKİ ön izin veya kapasite uygunluk görüşleri raporda detaylandırılmamıştır.",
+          "pages": [
+            23,
+            24
+          ]
+        }
+      ],
+      "recommended_bilirkisi_disciplines": [
+        "Şehir ve Bölge Plancısı",
+        "Çevre Mühendisi",
+        "İnşaat Mühendisi",
+        "Jeoloji Mühendisi",
+        "Ziraat Mühendisi"
+      ],
+      "hkt_and_petition_questions": [
+        {
+          "question_tr": "Projenin inşaat ve işletme aşamasında bölgedeki mevcut altyapı (kanalizasyon, içme suyu, elektrik) kapasitesi üzerine getireceği ek yükler İSKİ ve BEDAŞ gibi kurumların güncel kapasite tahsisleri dikkate alınarak nasıl hesaplanmıştır?",
+          "pages": [
+            23,
+            25
+          ]
+        },
+        {
+          "question_tr": "Proje sahasında ve etki alanında herhangi bir flora ve fauna alan çalışması yapılmamasının gerekçesi nedir; bölgedeki olası ekolojik hassasiyetler hangi bilimsel verilere dayanarak göz ardı edilmiştir?",
+          "pages": [
+            68
+          ]
+        },
+        {
+          "question_tr": "Büyükçekmece ilçesindeki diğer konut projeleri ile birlikte değerlendirildiğinde, trafik yoğunluğu ve hava kalitesi açısından kümülatif etkiler neden sayısal modellemelerle ortaya konulmamıştır?",
+          "pages": [
+            84
+          ]
+        }
+      ],
+      "data_limitations": "Dosya kapsamında yer alan bazı uygulama projeleri, tapu senetleri ve noter sözleşmeleri gizlilik veya format kısıtları nedeniyle tam metin olarak incelenememiş olup, değerlendirme metinsel PDF alıntıları üzerinden yapılmıştır."
+    }
+  }
+}

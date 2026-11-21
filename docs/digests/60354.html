@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>e-ÇED Ön Özet #60354 — TEKİRDAĞ / ERGENE</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+:root {
+  --bg: #f8f9fb;
+  --surface: #ffffff;
+  --surface-subtle: #f2f4f7;
+  --border: #e4e7ec;
+  --border-strong: #cfd5df;
+  --text: #101828;
+  --text-secondary: #344054;
+  --muted: #667085;
+  --accent: #175cd3;
+  --accent-soft: #eff8ff;
+  --red: #b42318;
+  --red-soft: #fef3f2;
+  --red-border: #fecdca;
+  --amber: #b54708;
+  --amber-soft: #fffaeb;
+  --amber-border: #fedf89;
+  --green: #067647;
+  --green-soft: #ecfdf3;
+  --green-border: #abefc6;
+  --violet: #5925dc;
+  --violet-soft: #f4f3ff;
+  --violet-border: #d9d6fe;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f131a;
+    --surface: #161b24;
+    --surface-subtle: #1d2430;
+    --border: #273040;
+    --border-strong: #39465c;
+    --text: #eaedf2;
+    --text-secondary: #c5cdd9;
+    --muted: #8a95a6;
+    --accent: #6cb0ff;
+    --accent-soft: rgba(108, 176, 255, 0.14);
+    --red: #ff857a;
+    --red-soft: rgba(248, 81, 73, 0.13);
+    --red-border: rgba(248, 81, 73, 0.36);
+    --amber: #f0b849;
+    --amber-soft: rgba(210, 153, 34, 0.13);
+    --amber-border: rgba(210, 153, 34, 0.36);
+    --green: #4cc38a;
+    --green-soft: rgba(63, 185, 80, 0.13);
+    --green-border: rgba(63, 185, 80, 0.36);
+    --violet: #bda3ff;
+    --violet-soft: rgba(158, 119, 237, 0.15);
+    --violet-border: rgba(158, 119, 237, 0.38);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f131a;
+  --surface: #161b24;
+  --surface-subtle: #1d2430;
+  --border: #273040;
+  --border-strong: #39465c;
+  --text: #eaedf2;
+  --text-secondary: #c5cdd9;
+  --muted: #8a95a6;
+  --accent: #6cb0ff;
+  --accent-soft: rgba(108, 176, 255, 0.14);
+  --red: #ff857a;
+  --red-soft: rgba(248, 81, 73, 0.13);
+  --red-border: rgba(248, 81, 73, 0.36);
+  --amber: #f0b849;
+  --amber-soft: rgba(210, 153, 34, 0.13);
+  --amber-border: rgba(210, 153, 34, 0.36);
+  --green: #4cc38a;
+  --green-soft: rgba(63, 185, 80, 0.13);
+  --green-border: rgba(63, 185, 80, 0.36);
+  --violet: #bda3ff;
+  --violet-soft: rgba(158, 119, 237, 0.15);
+  --violet-border: rgba(158, 119, 237, 0.38);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Unified Sticky Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.topbar-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.96rem;
+  letter-spacing: -0.01em;
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+.brand-scope {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+.nav-link {
+  padding: 5px 10px;
+  border-radius: 7px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-link:hover { background: var(--surface-subtle); text-decoration: none; color: var(--text); }
+.nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.theme-btn {
+  margin-left: 4px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.79rem;
+  font-weight: 500;
+}
+.theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
+
+/* Layout */
+.wrap { max-width: 1120px; margin: 0 auto; padding: 22px 20px 72px; }
+.wrap.narrow { max-width: 900px; }
+h1 { margin: 0 0 6px; font-size: 1.5rem; line-height: 1.25; letter-spacing: -0.02em; }
+h2 { margin: 28px 0 10px; font-size: 1.15rem; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { margin: 16px 0 8px; font-size: 0.96rem; line-height: 1.35; }
+.sub { color: var(--muted); font-size: 0.91rem; margin: 0; }
+
+/* Compact Masthead */
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 20px;
+  margin-bottom: 16px;
+}
+.masthead-left { max-width: 720px; }
+.masthead-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.kpi-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 18px;
+  padding: 10px 16px;
+  margin-bottom: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.84rem;
+  color: var(--muted);
+  box-shadow: var(--shadow);
+}
+.kpi-item { display: inline-flex; align-items: baseline; gap: 5px; }
+.kpi-item strong {
+  color: var(--text);
+  font-size: 0.96rem;
+  font-variant-numeric: tabular-nums;
+}
+.kpi-item.accent strong { color: var(--accent); }
+.kpi-item.rev strong { color: var(--violet); }
+.kpi-sep { color: var(--border-strong); user-select: none; }
+
+/* Map Card */
+.map-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.map-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 14px;
+  padding: 9px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.map-box.collapsed .map-bar { border-bottom: none; }
+.map-box.collapsed #map { display: none; }
+.map-legend-inline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+#map { width: 100%; height: 320px; background: var(--surface-subtle); }
+#digest-map { width: 100%; height: 300px; background: var(--surface-subtle); }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+/* Streamlined Controls */
+.controls-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.controls-row + .controls-row {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.advanced-row { display: none; }
+.advanced-row.open { display: flex; }
+input[type="search"], select.filter-select {
+  padding: 7px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.87rem;
+}
+input[type="search"]:focus, select.filter-select:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+input[type="search"] { flex: 1 1 240px; }
+select.filter-select { min-width: 155px; }
+button.pill {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+button.pill:hover { background: var(--surface-subtle); color: var(--text); }
+button.pill.active { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 600; }
+button.pill.rev-pill.active { background: var(--violet); border-color: var(--violet); }
+.ctrl-right { margin-left: auto; display: flex; align-items: center; gap: 6px; }
+button.ghost-btn {
+  padding: 5px 9px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.79rem;
+  font-weight: 500;
+}
+button.ghost-btn:hover { color: var(--text); border-color: var(--border-strong); background: var(--surface-subtle); }
+
+/* Calm Two-Tier Cards */
+.list-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+.cards { display: flex; flex-direction: column; gap: 10px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 15px 18px;
+  box-shadow: var(--shadow);
+  transition: border-color 0.12s;
+}
+.card:hover { border-color: var(--border-strong); }
+.card.urgent-edge { border-left: 3px solid var(--red); }
+.card.ek1 { border-left: 3px solid var(--accent); }
+.card.has-rev { border-left: 3px solid var(--violet); }
+.card.urgent-edge.has-rev { border-left: 3px solid var(--red); }
+
+/* Tier 1: Quiet Metadata Context Row (zero boxes!) */
+.card-ctx {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 12px;
+  font-size: 0.79rem;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+.ctx-left { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.ctx-loc { color: var(--text-secondary); font-weight: 600; }
+.ctx-ek1 { color: var(--accent); font-weight: 600; }
+.ctx-geo { color: var(--green); font-weight: 500; }
+.ctx-sep { color: var(--border-strong); }
+.ctx-right { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.title { font-weight: 650; font-size: 1.01rem; line-height: 1.38; color: var(--text); margin: 0; }
+.title a { color: var(--text); }
+.title a:hover { color: var(--accent); text-decoration: none; }
+.owner-line { font-size: 0.82rem; color: var(--muted); margin: 3px 0 0; }
+
+/* Tier 2: Signal Pills (Status, Clock, Findings, Revision ONLY) */
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.badge.urgent { background: var(--red-soft); border-color: var(--red-border); color: var(--red); font-weight: 600; }
+.badge.warn { background: var(--amber-soft); border-color: var(--amber-border); color: var(--amber); font-weight: 600; }
+.badge.ok { background: var(--green-soft); border-color: var(--green-border); color: var(--green); font-weight: 600; }
+.badge.info { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
+.badge.rev { background: var(--violet-soft); border-color: var(--violet-border); color: var(--violet); font-weight: 600; }
+.badge.muted { color: var(--muted); }
+
+/* Calm 2-line Clamped Summary */
+.summary-clamp {
+  margin: 9px 0 0;
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+  line-height: 1.52;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.summary-clamp.muted { color: var(--muted); }
+
+.rev-inline {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--violet-soft);
+  border: 1px solid var(--violet-border);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+.rev-inline strong { color: var(--violet); }
+
+/* Quiet Action Row */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  font-size: 0.82rem;
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid var(--border);
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.81rem;
+}
+.btn-primary:hover { text-decoration: none; filter: brightness(1.06); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.81rem;
+  cursor: pointer;
+}
+.btn-secondary:hover { text-decoration: none; border-color: var(--border-strong); color: var(--text); }
+.quiet-link { color: var(--muted); font-weight: 500; }
+.quiet-link:hover { color: var(--accent); }
+
+/* Pagination Bar */
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.pager button {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pager button:hover { border-color: var(--accent); color: var(--accent); }
+.pager .pager-all {
+  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Digest & Guide Tables, Accordions, Callouts */
+table.kv {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.88rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+table.kv th, table.kv td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 13px;
+  text-align: left;
+  vertical-align: top;
+}
+table.kv tr:last-child th, table.kv tr:last-child td { border-bottom: none; }
+table.kv th { width: 240px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
+table.data-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.84rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+table.data-tbl th, table.data-tbl td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.data-tbl tr:last-child td { border-bottom: none; }
+code {
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.84em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+blockquote {
+  margin: 10px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface-subtle);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.89rem;
+  color: var(--text-secondary);
+}
+.callout {
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  margin: 14px 0;
+}
+.callout.rev { background: var(--violet-soft); border-color: var(--violet-border); }
+details.accordion {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 10px 0;
+  overflow: hidden;
+}
+details.accordion summary {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
+}
+details.accordion summary::-webkit-details-marker { display: none; }
+details.accordion summary::after {
+  content: "+";
+  font-size: 1.1rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+details.accordion[open] summary::after { content: "−"; }
+details.accordion[open] summary { border-bottom: 1px solid var(--border); background: var(--surface-subtle); }
+.accordion-body { padding: 14px 16px; }
+.timeline {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid var(--border-strong);
+}
+.timeline li { position: relative; margin: 0 0 9px; padding-left: 8px; font-size: 0.86rem; }
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+}
+.hit { margin: 8px 0; font-size: 0.87rem; line-height: 1.55; }
+.pno { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.notice {
+  margin-top: 32px;
+  padding: 13px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.toc-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 20px; }
+.toc-pills a {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.81rem;
+  font-weight: 500;
+}
+.toc-pills a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+.step-num {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+pre.template-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.section-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+@media (max-width: 700px) {
+  table.kv th { width: 140px; }
+  #map { height: 270px; }
+  .topbar-inner { padding: 9px 14px; }
+  .wrap { padding: 16px 14px 54px; }
+}
+@media print {
+  .topbar, .no-print, #digest-map, .map-box { display: none !important; }
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .card, table.kv, table.data-tbl, details.accordion { box-shadow: none; break-inside: avoid; }
+  details.accordion { border: 1px solid #ccc; }
+  a { color: #000000; text-decoration: underline; }
+}
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      <span>Türkiye e-ÇED İzleme</span>
+      <span class="brand-scope">81 İl</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link " href="../index.html">Duyurular</a>
+      <a class="nav-link " href="../rehber.html">Kullanım Rehberi</a>
+      <a class="nav-link" href="../feed.xml">RSS</a>
+      <a class="nav-link" href="https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml" target="_blank" rel="noopener">Resmi e-ÇED ↗</a>
+      <button id="theme-toggle" class="theme-btn" type="button">Tema</button>
+    </div>
+  </div>
+</nav>
+<div class="wrap narrow">
+  <header style="margin-bottom:16px;">
+    <div class="card-ctx no-print" style="margin-bottom:8px;">
+      <span><a href="../index.html">← Duyurulara dön</a> · <strong>TEKİRDAĞ / ERGENE</strong> · Ek-2 · Sanayi</span>
+      <span><code>#60354</code> · 13.11.2026</span>
+    </div>
+    <h1>Denim (Kot) Yıkama Ve Boyama Tesisi Kapasite Artışı</h1>
+    <p class="sub">MFG GİYİM SANAYİ ve TİC. LTD. ŞTİ.</p>
+    <div class="badges" style="margin-top:10px;">
+      <span class="badge">ÇED Gerekli Değil/ÇED Olumlu</span>
+      <span class="badge ok">İYUK 20/A · 21 gün kaldı (2026-12-13)</span>
+      <span class="badge rev">1 İlişkili</span>
+      
+    </div>
+    <div class="actions no-print" style="border-top:none;padding-top:4px;">
+      <a class="btn-primary" href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign5578993357321455855.pdf&amp;orjinalAd=e-imza.pdf&amp;yuklemeTarihi=2026-11-10" target="_blank" rel="noopener">Resmi PDF Dosyası ↗</a>
+      <a class="btn-secondary" href="http://eced.csb.gov.tr/jsp/ek1/60354" target="_blank" rel="noopener">e-ÇED Portal Kaydı ↗</a>
+      <a class="btn-secondary" href="60354.md">Markdown (.md)</a>
+      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF</button>
+    </div>
+  </header>
+
+  <table class="kv">
+    <tr><th>Hazırlayan Kuruluş</th><td>EMA GRUP DAN. MÜH. LTD. ŞTİ.</td></tr>
+    <tr><th>Sektör / Alt Sektör</th><td>Sanayi / Tekstil Tesisleri</td></tr>
+    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>13.11.2026</code> · Yükleme: <code>07/07/2026 10:30:19</code></td></tr>
+    <tr><th>PDF Kapsamı</th><td>83.66 MB · 340 sayfa (281 metin / 59 taranmış) · <a href="https://www.openstreetmap.org/?mlat=41.27497&amp;mlon=27.8051#map=12/41.27497/27.8051" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=41.27497,27.8051" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
+  </table>
+
+  <h2>Belge Bütünlüğü, Revizyon ve Süreç Geçmişi</h2>
+<p class="sub">Her PDF dosyasının SHA-256 özeti, yükleme tarihi ve teknik göstergeleri arşivlenir; 2009/7 Genelgesi kapsamındaki değişiklikler sürümler arası fark olarak kaydedilir.</p>
+<table class="data-tbl"><thead><tr><th>Sürüm</th><th>Arşiv Tarihi</th><th>Aşama</th><th>Yükleme Tarihi</th><th>Sayfa</th><th>SHA-256</th></tr></thead><tbody><tr><td><code>v1</code></td><td><code>2026-11-22T00:53:25</code></td><td>ÇED Gerekli Değil/ÇED Olumlu</td><td><code>2026-11-10</code></td><td>340</td><td><code>1296f17a3c9f0803…</code></td></tr></tbody></table>
+<h3>Aynı İlçede İlişkili / Tekrar veya Parçalı Başvurular</h3><table class="data-tbl"><thead><tr><th>Dosya</th><th>Tarih</th><th>Aşama</th><th>Proje ve Eşleşme Nedeni</th></tr></thead><tbody><tr><td><a href="61717.html"><strong>#61717 (Ön Özet)</strong></a></td><td>20.11.2026</td><td><span class='badge'>ÇED Süreci Başlayan</span></td><td>Kauçuk Esaslı Tüp, Boru Ve Hortum İmalatı Kapasite Artışı<br/><span class='sub'>Aynı saha / yakın koordinat (575 m — olası el değiştirme, kümülatif yük veya proje parçalama)</span></td></tr></tbody></table>
+
+  
+  <h2>Bilimsel Ön Değerlendirme <span class="badge">gemini-3.5-flash-lite</span></h2>
+  <p class="sub">Resmi PDF'ten seçilen 26 sayfa (s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.17, s.26, s.33, s.53, s.54, s.60, s.62, s.67, s.68, s.95, s.96, s.326, s.327, s.328, s.330) üzerinden üretilmiştir; her bulguyu <code>[s. N]</code> kaynağından doğrulayınız.</p>
+  <section class="card ek1" style="margin-top:10px;">
+    <p style="margin-top:0;"><strong>Özet:</strong> Tekirdağ ili Ergene ilçesi Karamehmet Mahallesi Avrupa Serbest Bölgesi&#x27;nde yer alan MFG Giyim Sanayi ve Tic. Ltd. Şti. tarafından yürütülen Denim Kot Yıkama ve Boyama Tesisi Kapasite Artışı projesi, mevcut durumda 3.926 m2 kapalı alanda faaliyet gösteren tesisin üretim kapasitesini önemli ölçüde artırmayı amaçlamaktadır. Proje kapsamında yıkama kapasitesi 1.467.000 kg/yıl&#x27;dan 3.987.000 kg/yıl&#x27;a, boyama kapasitesi ise 307.800 kg/yıl&#x27;dan 1.567.800 kg/yıl&#x27;a çıkarılacaktır. Faaliyet alanının Ergene Havzası içerisinde bulunması, yoğun kimyasal kullanımı, yüksek su tüketimi ve endüstriyel atıksu deşarjları nedeniyle bölgenin mevcut kümülatif kirlilik yükü üzerinde önemli çevresel riskler barındırdığı görülmektedir.</p>
+    <details style="margin-top:10px;font-size:0.85rem;color:var(--muted);"><summary style="cursor:pointer;">English summary</summary><p style="margin:6px 0 0;">The proposed capacity increase project for the Denim Washing and Dyeing Facility, operated by MFG Giyim Sanayi ve Tic. Ltd. Şti. within the European Free Zone in Ergene, Tekirdağ, aims to significantly scale up production within an existing 3,926 m2 indoor area. The washing capacity will increase from 1,467,000 kg/year to 3,987,000 kg/year, and the dyeing capacity from 307,800 kg/year to 1,567,800 kg/year. Located within the highly degraded Ergene River Basin, the facility entails intensive chemical use, high water consumption, and industrial wastewater generation, posing notable environmental and cumulative pressures.</p></details>
+    <div class="badges" style="margin-top:10px;">
+      <span class="badge">Saha: Yalnızca literatür taramasına dayalı</span>
+      <span class="badge">Mevsimsellik: İncelenen sayfalarda tespit edilemedi</span>
+      <span class="badge">Kümülatif: Yüzeysel veya şablon düzeyinde</span>
+    </div>
+    <p class="sub" style="margin-top:10px;color:var(--text-secondary);"><strong>Zeytinlik ve Korunan Alanlar:</strong> Proje alanı Avrupa Serbest Bölgesi sınırları içerisinde yer almakta olup, 3573 sayılı Zeytincilik Kanunu kapsamında zeytinlik alanlar, orman kanununa tabi yerler, milli parklar veya tescilli koruma bölgeleri ile çakışmamaktadır [s. 51, 67].<br/>Dosya genelinde flora, fauna, toprak ve hidrojeolojik başlangıç koşullarına ilişkin özgün saha ve mevsimsel örnekleme çalışmaları yer almamakta; veriler büyük ölçüde genel literatür bilgileri ve resmi kurum istatistik raporlarına dayandırılmaktadır [s. 53, 54]. Ergene Havzası&#x27;ndaki mevcut kümülatif kirlilik yükleri ve bölgesel su stresi, tesisin yoğun su tüketimi ve atıksu deşarjları bağlamında yüzeysel biçimde geçiştirilmiştir [s. 90]. Doğrudan arazi verilerine dayalı ekolojik risk değerlendirmesi eksiktir [s. 53].</p>
+  </section>
+  <h3>Danıştay Ölçütlerine Göre Bilimsel ve Hukuki Bulgular</h3><section class="card"><div class="hit"><span class="badge urgent">YÜKSEK</span> <span class="badge">Kümülatif Etki</span> <strong>Ergene Havzası&#x27;nda Kümülatif Etki Değerlendirmesinin Yetersizliği</strong> <span class="pno">[s. 3, s. 90]</span> — Proje, Türkiye&#x27;nin en ağır kirlilik baskısı altındaki hassas havzalarından biri olan Ergene Havzası&#x27;nda yer almasına rağmen, bölgesel sanayi yükleri ve kümülatif atıksu etkileri nicel bir modelleme yapılmaksızın sadece standart metinlerle geçiştirilmiştir [s. 90].</div>
+<div class="hit"><span class="badge urgent">YÜKSEK</span> <span class="badge">Su / Hidrojeoloji</span> <strong>Yüksek Su Tüketimi ve Atıksu Geri Kazanım Çelişkileri</strong> <span class="pno">[s. 8, s. 9]</span> — Tesiste günlük toplam 696,5 m3 su ihtiyacı olduğu belirtilmesine karşın, atıksu arıtma ve geri kazanım tesislerinin kapasitesinin gerçek debileri ve arıtma verimleri konusunda yeterli hidrojeolojik ve teknik altyapı doğrulaması bulunmamaktadır [s. 8, 9].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Flora / Fauna &amp; Mevsimsellik</span> <strong>Canlı Yaşamı ve Çevresel Özellikler İçin Saha Çalışması Eksikliği</strong> <span class="pno">[s. 53, s. 64]</span> — Proje tanıtım dosyasında ekolojik özellikler, flora ve fauna envanterleri için gerçek bir saha çalışması yapılmamış, veriler tamamen ikincil literatür kaynaklarına dayandırılmıştır [s. 53].</div></section>
+  <h3>Öne Çıkan Sayısal Bulgular</h3><table class="kv"><tr><th>Proje Bedeli</th><td>1.352.000 Euro (72.399.600 TL) <span class="pno">[s. 2]</span></td></tr>
+<tr><th>Toplam Kapalı Alan</th><td>3.926 m2 <span class="pno">[s. 7]</span></td></tr>
+<tr><th>Mevcut Yıkama Kapasitesi</th><td>1.467.000 kg/yıl <span class="pno">[s. 8]</span></td></tr>
+<tr><th>Planlanan Yıkama Kapasitesi</th><td>3.987.000 kg/yıl <span class="pno">[s. 8]</span></td></tr>
+<tr><th>Mevcut Boyama Kapasitesi</th><td>307.800 kg/yıl <span class="pno">[s. 8]</span></td></tr>
+<tr><th>Planlanan Boyama Kapasitesi</th><td>1.567.800 kg/yıl <span class="pno">[s. 8]</span></td></tr>
+<tr><th>Personel Sayısı</th><td>180 kişi (3 vardiya) <span class="pno">[s. 8]</span></td></tr>
+<tr><th>Toplam Su İhtiyacı</th><td>696,5 m3/gün <span class="pno">[s. 8]</span></td></tr>
+<tr><th>En Yakın Konuta Mesafe</th><td>3,3 km (Karamehmet Mahallesi) <span class="pno">[s. 26]</span></td></tr>
+<tr><th>Ergene Deresi&#x27;ne Mesafe</th><td>2,3 km <span class="pno">[s. 60]</span></td></tr></table>
+  
+  
+  <h3>Keşif ve Bilirkişi Heyeti İçin Önerilen Uzmanlık Alanları</h3><section class="card"><div class="badges" style="margin-top:0;"><span class="badge info">Çevre Mühendisi</span> <span class="badge info">Hidrojeoloji Mühendisi</span> <span class="badge info">Kimya Mühendisi</span> <span class="badge info">Ziraat Mühendisi</span> <span class="badge info">Şehir ve Bölge Plancısı</span></div><p class="sub" style="margin-top:8px;">Bilirkişi heyetinin tek sayıda uzmandan oluşması, proje niteliğine uygun tüm disiplinleri içermesi ve plan kararlarıyla ilişkili davalarda Şehir ve Bölge Plancısına yer verilmesi gerekmektedir.</p></section>
+  <div class="section-head-row" style="margin-top:16px;"><h3 style="margin:0;">HKT Tutanakları ve Bilirkişi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card" style="margin-top:8px;"><ul style="margin:0;padding-left:20px;"><li>Tesiste kapasite artışı sonrasında oluşacağı belirtilen 696,5 m3/gün toplam atıksuyun ne kadarının geri kazanılacağı ve arıtma tesisi çıkış suyunun Su Kirliliği Kontrolü Yönetmeliği ve ilgili serbest bölge deşarj standartlarını hangi parametrelerle sağladığına dair kütle denge hesaplamaları nelerdir? <span class="pno">[s. 8, s. 9, s. 82]</span></li>
+<li>Ergene Havzası&#x27;ndaki mevcut ekolojik ve hidrojeolojik kümülatif yükler dikkate alındığında, artan kimyasal ve su kullanımının yeraltı ve yüzeysel su kaynakları üzerindeki kümülatif etkileri niçin nicel bir modele dayandırılmamıştır? <span class="pno">[s. 54, s. 60, s. 90]</span></li>
+<li>Tesiste kullanılan kimyasal maddelerin depolandığı 300 m3 kapasiteli alanın sızdırmazlık kriterleri, olası bir kaza veya sızıntı durumunda toprak ve yeraltı suyu akiferlerine karşı alınan fiziksel önlemler nelerdir? <span class="pno">[s. 15, s. 51]</span></li></ul><textarea id="qs-plain" style="display:none;">1. Tesiste kapasite artışı sonrasında oluşacağı belirtilen 696,5 m3/gün toplam atıksuyun ne kadarının geri kazanılacağı ve arıtma tesisi çıkış suyunun Su Kirliliği Kontrolü Yönetmeliği ve ilgili serbest bölge deşarj standartlarını hangi parametrelerle sağladığına dair kütle denge hesaplamaları nelerdir? [s. 8, s. 9, s. 82]
+2. Ergene Havzası&#x27;ndaki mevcut ekolojik ve hidrojeolojik kümülatif yükler dikkate alındığında, artan kimyasal ve su kullanımının yeraltı ve yüzeysel su kaynakları üzerindeki kümülatif etkileri niçin nicel bir modele dayandırılmamıştır? [s. 54, s. 60, s. 90]
+3. Tesiste kullanılan kimyasal maddelerin depolandığı 300 m3 kapasiteli alanın sızdırmazlık kriterleri, olası bir kaza veya sızıntı durumunda toprak ve yeraltı suyu akiferlerine karşı alınan fiziksel önlemler nelerdir? [s. 15, s. 51]</textarea></section>
+  <p class="sub" style="margin-top:10px;"><em>İnceleme sınırları:</em> Dosya içerisinde yer alan bazı uygulama projeleri, vaziyet planları ve taahhütname ekleri taranmış veya dar formatlı görsellerden oluştuğu için bazı detaylı teknik koordinatlar ve mimari detaylar tam olarak incelenememiştir.</p>
+
+
+  <h2>Konum Haritası ve 3 km Çevre Taraması</h2>
+  <div class="map-box">
+    <div id="digest-map"></div>
+    <div class="map-bar"><span>PDF metninden çıkarılan kesin proje koordinatları (24 nokta, datum: UTM-Z35/WGS84, sayfa: s.18, s.104).</span></div>
+  </div>
+  
+
+  <h2>Ham Kayıt ve Derin Teknik Ekler</h2>
+  <details class="accordion">
+    <summary>Resmi Duyuru Metni (Bakanlık İlanı)</summary>
+    <div class="accordion-body"><blockquote>TEKİRDAĞ ili ERGENE,  ilcesinde TEKİRDAĞ ili ERGENE,  ilcesi Karamehmet Mahallesi, Avrupa Serbest Bölgesi, 2. Sokak No: 7 (108 Ada, 7 Parsel) Yüzölçümü:8.361,02 m2  mevkiindeki MFG GİYİM SANAYİ ve TİC. LTD. ŞTİ. tarafından yapılması planlanan Denim (Kot) Yıkama Ve Boyama Tesisi Kapasite Artışı projesi ile ilgili olarak Bakanlığımıza sunulan PTD Dosyası incelenmiş ve değerlendirilmiştir  ÇED Yönetmeliği&#x27;nin 17. maddesi gereğince Denim (Kot) Yıkama Ve Boyama Tesisi Kapasite Artışı projesi&#x27;ne Valiliğimizce &#x27;ÇED Olumlu (Kapsam Ek-2)&#x27; kararı verilmiştir.</blockquote></div>
+  </details>
+  <details class="accordion">
+    <summary>Otomatik Metin Taraması (9 Deterministik Kontrol)</summary>
+    <div class="accordion-body">
+      <table class="kv" style="margin-top:0;"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Literatür taraması ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
+<tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kümülatif etki değerlendirmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Yeraltı suyu, akifer veya hidrojeoloji ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge warn">Metinde geçmektedir — parçalama / 2009/7 kontrolü</span></td></tr>
+<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
+<tr><th>Kurum görüşleri (DSİ, İl Tarım, OGM, MAPEG)</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Deprem, fay hattı veya jeoteknik stabilite ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr></table>
+      <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik taramaya dahil edilmemiştir.</p>
+    </div>
+  </details>
+  <details class="accordion">
+    <summary>Sayfa Kaynaklı Ham Alıntılar (7 Teknik Başlık)</summary>
+    <div class="accordion-body"><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(63 sayfa: s.5, s.7, s.12, s.13, s.17, s.18, s.20, s.21, s.24, s.25, s.26, s.43, s.44, s.45 (+49 sayfa))</span></h3><div class="hit"><span class="pno">[s. 5]</span> <code>Koordinat</code> — …FG GİYİM SANAYİ ve TİC. LTD. ŞTİ. “Denim (Kot) Yıkama ve Boyama Tesisi Kapasite Artışı” 3 EKLER EK.1 Arazi Koordinatları ve Aplikasyon Krokisi EK.2 Tapu Örneği ve Kira Sözleşmesi EK.3 ÇED Kararları EK.4 Avrupa Serbest Bölgesi Uygunl…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>ada 7 no’lu parsel</code> — …Boyama Tesisi Kapasite Artışı” Projesidir. Kapasite artışına konu faaliyet, Avrupa Serbest Bölgesi içerisindeki 108 ada 7 no’lu parselin yüzölçümü toplam 8.361,02 m2 olup, Avrupa Serbest Bölgesi Kurucu ve İşleticisi A.Ş. adına tescillidir. 108 Ada, 7 n…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>361,02 m2</code> — …r. Kapasite artışına konu faaliyet, Avrupa Serbest Bölgesi içerisindeki 108 ada 7 no’lu parselin yüzölçümü toplam 8.361,02 m2 olup, Avrupa Serbest Bölgesi Kurucu ve İşleticisi A.Ş. adına tescillidir. 108 Ada, 7 nolu parselin Arazi Koordinatları…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>Koordinat</code> — …m 8.361,02 m2 olup, Avrupa Serbest Bölgesi Kurucu ve İşleticisi A.Ş. adına tescillidir. 108 Ada, 7 nolu parselin Arazi Koordinatları ve Aplikasyon Planı EK.1 olarak verilmiştir. Söz konusu parselde bulunan ve toplam 3.926 m2 kapalı alana sahi…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>3.926 m2</code> — …u parselin Arazi Koordinatları ve Aplikasyon Planı EK.1 olarak verilmiştir. Söz konusu parselde bulunan ve toplam 3.926 m2 kapalı alana sahip işyeri, Frederic Turkey Giyim San. ve Tic. A.Ş. tarafından kiralanmıştır. Taşınmaza ait Tapu Senedi…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>utm</code> — …enim kumaştan üretilen konfeksiyon ürünlerine efeklendirme (Ozon, 3D Efekt, Sprey ve Zımpara İşlemleri), fikseleme, kurutma gibi işlemler uygulanmaktadır. Faaliyetin gerçekleştirileceği kapalı alan, kurulu durumda olup bu alan içerisinde y…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(40 sayfa: s.5, s.6, s.8, s.9, s.10, s.26, s.30, s.31, s.32, s.36, s.40, s.41, s.42, s.56 (+26 sayfa))</span></h3><div class="hit"><span class="pno">[s. 5]</span> <code>Atıksu</code> — …Eylem Planı EK.18 1/25.000 Ölçekli Jeoloji Haritası EK.19 Hidrojeoloji Haritası EK.20 AAT Proje Onay Formları EK.21 Atıksu Geri Kazanım Tesisi Genel İş Akım Şeması EK.22 Sıfır Atık Planı EK.23 Trafik Yönetim Planı EK.24 Sera Gazı Azaltım P…</div>
+<div class="hit"><span class="pno">[s. 6]</span> <code>Atıksu</code> — …Denim (Kot) Yıkama ve Boyama Tesisi Kapasite Artışı” 4 KISALTMALAR ASB : Avrupa Serbest Bölgesi AAT : Atıksu Arıtma Tesisi ÇED : Çevresel Etki Değerlendirmesi ÇSYS : Çevresel Ve Sosyal Yönetim Sistemi EÇBS : Entegre…</div>
+<div class="hit"><span class="pno">[s. 8]</span> <code>696,5 m3/gün</code> — …, 3 vardiyada toplam 180 personel istihdam edilecektir. Tesiste evsel ve endüstriyel amaçlı su kullanımı için toplam 696,5 m3/gün su ihtiyacı belirlenmiştir. Su ihtiyacının maksimum 376,5 m3/gün’lük kısmı ASB’den, geriye kalan 320 m3/gün’lük kısmı…</div>
+<div class="hit"><span class="pno">[s. 8]</span> <code>376,5 m3/gün</code> — …evsel ve endüstriyel amaçlı su kullanımı için toplam 696,5 m3/gün su ihtiyacı belirlenmiştir. Su ihtiyacının maksimum 376,5 m3/gün’lük kısmı ASB’den, geriye kalan 320 m3/gün’lük kısmı ise tesiste bulunan Atıksu Geri Kazanım Tesisinden sağlanacaktır.…</div>
+<div class="hit"><span class="pno">[s. 8]</span> <code>320 m3/gün</code> — …n toplam 696,5 m3/gün su ihtiyacı belirlenmiştir. Su ihtiyacının maksimum 376,5 m3/gün’lük kısmı ASB’den, geriye kalan 320 m3/gün’lük kısmı ise tesiste bulunan Atıksu Geri Kazanım Tesisinden sağlanacaktır. Yasal su kullanımının ASB tarafından takip…</div>
+<div class="hit"><span class="pno">[s. 8]</span> <code>Atıksu</code> — …nmiştir. Su ihtiyacının maksimum 376,5 m3/gün’lük kısmı ASB’den, geriye kalan 320 m3/gün’lük kısmı ise tesiste bulunan Atıksu Geri Kazanım Tesisinden sağlanacaktır. Yasal su kullanımının ASB tarafından takip edileceğine dair Uygunluk Yazısı alı…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(6 sayfa: s.3, s.26, s.53, s.60, s.67, s.68)</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>ORMAN ALANI</code> — …BÖLÜM II. PROJE YERİ VE ETKİ ALANIN MEVCUT ÇEVRESEL ÖZELLİKLERİ ......... 51 A) MEVCUT ARAZİ KULLANIMI (TARIM ALANI, ORMAN ALANI, PLANLI ALAN, SU YÜZEYİ VE BENZERİ) VE KALİTESİ, JEOLOJİK VE HİDROJEOLOJİK ÖZELLİKLERİ. .............................…</div>
+<div class="hit"><span class="pno">[s. 26]</span> <code>orman alanı</code> — …a Serbest Bölgesi içinde yer almakta olup, bu alan içinde sanayi tesislerinin dışında herhangi bir arazi (tarım alanı, orman alanı vb.) kullanımı bulunmamaktadır. Faaliyet alanının bulunduğu bölgede; Karamehmet Mahallesi ve Velimeşe Mahallesi, gib…</div>
+<div class="hit"><span class="pno">[s. 53]</span> <code>ORMAN ALANI</code> — …51 BÖLÜM II. PROJE YERİ VE ETKİ ALANIN MEVCUT ÇEVRESEL ÖZELLİKLERİ A) MEVCUT ARAZİ KULLANIMI (TARIM ALANI, ORMAN ALANI, PLANLI ALAN, SU YÜZEYİ VE BENZERİ) VE KALİTESİ, JEOLOJİK VE HİDROJEOLOJİK ÖZELLİKLERİ. Faaliyet alanı, Serbest Böl…</div>
+<div class="hit"><span class="pno">[s. 53]</span> <code>orman alanı</code> — …İ) VE KALİTESİ, JEOLOJİK VE HİDROJEOLOJİK ÖZELLİKLERİ. Faaliyet alanı, Serbest Bölge sınırları içinde yer aldığından orman alanı, tarım alanı, planlı alan, su alanı gibi arazi kullanımları bulunmamaktadır. Faaliyet sahasının etki alanı içerisin…</div>
+<div class="hit"><span class="pno">[s. 53]</span> <code>Doğal Sit</code> — …t Parkları, Sulak Alanlar, Tabiat Anıtları, Tabiatı Koruma Alanları, Biyogenetik Rezerv Alanları, Biyosfer Rezervleri, Doğal Sit ve Anıtlar, Arkeolojik, Tarihi, Kültürel Sitler, Özel Çevre Koruma Bölgeleri, Özel Koruma Alanları, Turizm Bölgeleri…</div>
+<div class="hit"><span class="pno">[s. 53]</span> <code>Özel Çevre Koruma</code> — …Alanları, Biyogenetik Rezerv Alanları, Biyosfer Rezervleri, Doğal Sit ve Anıtlar, Arkeolojik, Tarihi, Kültürel Sitler, Özel Çevre Koruma Bölgeleri, Özel Koruma Alanları, Turizm Bölgeleri bulunmamaktadır. 08.09.1956 tarih ve 9402 Sayılı Resmi Gazete’ de…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(4 sayfa: s.62, s.67, s.68, s.330)</span></h3><div class="hit"><span class="pno">[s. 62]</span> <code>mevsimsel</code> — …yeraltı su kaynaklarının kirlenmesi önlenecektir. Faaliyet alanı yakınında bulunan tüm akarsuların, yan kolların ve mevsimsel akış gösteren kuru dere yataklarının faaliyet sırasında zarar görmemesi, dere yataklarına ve dere yataklarına ulaşmas…</div>
+<div class="hit"><span class="pno">[s. 67]</span> <code>BERN Sözleşmesi</code> — …sözleşmeler uyarınca korunması gerekli alanlar a) &quot;Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi&quot; (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan &quot;Önemli Deniz Kaplumbağası Üreme Alanlarında belirtilen I. ve II. Koruma Bö…</div>
+<div class="hit"><span class="pno">[s. 68]</span> <code>endemik</code> — …ı. d) Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…</div>
+<div class="hit"><span class="pno">[s. 330]</span> <code>örnekleme</code> — …boyutu veya miktarının göstergesi. İzleme: Ana hatları ve eğilimleri belirlemek için bilgi elde etmek üzere gözlem ve örnekleme. Zorunluluk: Mecburi gereksinimleri gösterir. Öneri: Bir hükmün zorunlu olmadığını ancak iyi bir uygulama olarak ö…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(46 sayfa: s.6, s.9, s.17, s.33, s.37, s.38, s.39, s.47, s.48, s.49, s.52, s.63, s.64, s.65 (+32 sayfa))</span></h3><div class="hit"><span class="pno">[s. 6]</span> <code>Gürültü</code> — …BEKRA : Büyük Endüstriyel Kaza Risklerinin Azaltılması MSDS : Malzeme Güvenlik Bilgi Formu ÇGKY : Çevresel Gürültü Kontrol Yönetmeliği TUİK : Türkiye İstatistik Kurumu GEKAP : Geri Kazanım Katılım Payı DSİ : Devlet Su İşle…</div>
+<div class="hit"><span class="pno">[s. 9]</span> <code>gürültü</code> — …birini içeren iplik, kumaş, halı ve benzeri fabrikaları1 kapsamında kalmaktadır. “1” işaretli tesisler çevresel gürültü konulu çevre izninden muaf olan tesisler ve “2” işaretli tesisler hava emisyonu konulu çevre izninden muaf olan tesisl…</div>
+<div class="hit"><span class="pno">[s. 17]</span> <code>deprem</code> — …açısından gerekli levhalar ve yakın noktalarda yangın söndürme tüpleri bulundurulmaktadır. Muhtemel kaza, yangın, deprem vs. gibi durumlara karşı alınacak önlem ve tedbirler, 02.03.2019 tarih ve 30702 sayılı Resmi Gazete’ de yayımlanarak y…</div>
+<div class="hit"><span class="pno">[s. 33]</span> <code>tehlikeli atık</code> — …arak plastik shirink ve ahşap ambalaj malzemleri de kullanılmaktadır. Kimyasal hammaddeler ile temas eden ambalajlar tehlikeli atık olarak, nakliye sırasında kullanılan ambalaj atıkları ise(kontamine olmayan) tehlikesiz ambalaj olarak değerlendirilme…</div>
+<div class="hit"><span class="pno">[s. 37]</span> <code>tehlikeli atık</code> — …tehlikeli atıklardır. A) işareti: Altı haneli atık kodu hizasında “Açıklama” sütununda yer alan işaret atığın kesin tehlikeli atık olduğunu belirtir. Bu şekilde işaretlenmiş olan atıklar analiz yapılmaksızın kesin tehlikeli olarak sınıflandırılır.…</div>
+<div class="hit"><span class="pno">[s. 38]</span> <code>Tehlikeli atık</code> — …eçici depolama izni bulunmamaktadır. Atık miktarının ayda 1000 kg’ı geçmesi halinde Geçici depolama İzni alınacaktır. Tehlikeli atık geçici depolama alanı için Mali Sorumluluk Sigortası yaptırılmıştır. Geçici Depolama Alanı Mali Sorumluluk Sigortası E…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(146 sayfa: s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14 (+132 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>KAPASİTE</code> — “DENİM (KOT) YIKAMA VE BOYAMA TESİSİ KAPASİTE ARTIŞI” Tekirdağ İli, Ergene İlçesi, Karamehmet Mahallesi, Avrupa Serbest Bölgesi, 2. Sokak No: 7 (108 Ada, 7 Pars…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>Kapasite</code> — MFG GİYİM SANAYİ ve TİC. LTD. ŞTİ. “Denim (Kot) Yıkama ve Boyama Tesisi Kapasite Artışı” 0 PROJE SAHİBİNİN ADI MFG GİYİM SANAYİ ve TİC. LTD. ŞTİ. ADRESİ Tekirdağ İli, Ergene İlçesi, Karame…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>PROJE BEDELİ</code> — …:0536 650 70 96 E-POSTA vkilercik@mfggiyim.com.tr PROJENİN ADI Denim (Kot) Yıkama Ve Boyama Tesisi Kapasite Artışı PROJE BEDELİ 1.352.000 Euro (72.399.600 TL) PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİ) Tekirdağ İli, Ergene…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>1.352.000 Euro</code> — …6 E-POSTA vkilercik@mfggiyim.com.tr PROJENİN ADI Denim (Kot) Yıkama Ve Boyama Tesisi Kapasite Artışı PROJE BEDELİ 1.352.000 Euro (72.399.600 TL) PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİ) Tekirdağ İli, Ergene İlçesi, Karamehm…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>72.399.600 TL</code> — …ercik@mfggiyim.com.tr PROJENİN ADI Denim (Kot) Yıkama Ve Boyama Tesisi Kapasite Artışı PROJE BEDELİ 1.352.000 Euro (72.399.600 TL) PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİ) Tekirdağ İli, Ergene İlçesi, Karamehmet Mahallesi, A…</div>
+<div class="hit"><span class="pno">[s. 3]</span> <code>Kapasite</code> — MFG GİYİM SANAYİ ve TİC. LTD. ŞTİ. “Denim (Kot) Yıkama ve Boyama Tesisi Kapasite Artışı” 1 İÇİNDEKİLER PROJENİN TEKNİK OLMAYAN ÖZETİ: .......................................................…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Proje Parçalama, Kapasite Artışı ve Eşik Değerler <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(135 sayfa: s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14 (+121 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>KAPASİTE ARTIŞI</code> — “DENİM (KOT) YIKAMA VE BOYAMA TESİSİ KAPASİTE ARTIŞI” Tekirdağ İli, Ergene İlçesi, Karamehmet Mahallesi, Avrupa Serbest Bölgesi, 2. Sokak No: 7 (108 Ada, 7 Parsel)…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>Kapasite Artışı</code> — MFG GİYİM SANAYİ ve TİC. LTD. ŞTİ. “Denim (Kot) Yıkama ve Boyama Tesisi Kapasite Artışı” 0 PROJE SAHİBİNİN ADI MFG GİYİM SANAYİ ve TİC. LTD. ŞTİ. ADRESİ Tekirdağ İli, Ergene İlçesi, Karamehmet Ma…</div>
+<div class="hit"><span class="pno">[s. 3]</span> <code>Kapasite Artışı</code> — MFG GİYİM SANAYİ ve TİC. LTD. ŞTİ. “Denim (Kot) Yıkama ve Boyama Tesisi Kapasite Artışı” 1 İÇİNDEKİLER PROJENİN TEKNİK OLMAYAN ÖZETİ: ..............................................................…</div>
+<div class="hit"><span class="pno">[s. 4]</span> <code>Kapasite Artışı</code> — MFG GİYİM SANAYİ ve TİC. LTD. ŞTİ. “Denim (Kot) Yıkama ve Boyama Tesisi Kapasite Artışı” 2 TABLOLAR DİZİNİ Tablo 1. ÇED Görüşüne Esas Üretim Kapasitesi ............................................…</div>
+<div class="hit"><span class="pno">[s. 5]</span> <code>Kapasite Artışı</code> — MFG GİYİM SANAYİ ve TİC. LTD. ŞTİ. “Denim (Kot) Yıkama ve Boyama Tesisi Kapasite Artışı” 3 EKLER EK.1 Arazi Koordinatları ve Aplikasyon Krokisi EK.2 Tapu Örneği ve Kira Sözleşmesi EK.3 ÇED Kara…</div>
+<div class="hit"><span class="pno">[s. 6]</span> <code>Kapasite Artışı</code> — MFG GİYİM SANAYİ ve TİC. LTD. ŞTİ. “Denim (Kot) Yıkama ve Boyama Tesisi Kapasite Artışı” 4 KISALTMALAR ASB : Avrupa Serbest Bölgesi AAT : Atıksu Arıtma Tesisi ÇED : Çevresel Etki Değerl…</div></div></div>
+  </details>
+  <details class="accordion">
+    <summary>Belge Bölüm Haritası (12 başlık)</summary>
+    <div class="accordion-body"><ul style="margin:0;padding-left:20px;"><li><span class="pno">[s. 3]</span> BÖLÜM III. PROJENİN İNŞAAT VE İŞLETME AŞAMASINDA ÇEVRESEL ETKİLERİ</li>
+<li><span class="pno">[s. 7]</span> PROJENİN TEKNİK OLMAYAN ÖZETİ:</li>
+<li><span class="pno">[s. 10]</span> BÖLÜM I: PROJENİN ÖZELLİKLERİ:</li>
+<li><span class="pno">[s. 53]</span> BÖLÜM II. PROJE YERİ VE ETKİ ALANIN MEVCUT ÇEVRESEL ÖZELLİKLERİ</li>
+<li><span class="pno">[s. 92]</span> BÖLÜM IV: KÜMÜLATİF ETKİ DEĞERLENDİRME</li>
+<li><span class="pno">[s. 95]</span> BÖLÜM V: ÇEVRESEL VE SOSYAL EYLEM PLANI</li>
+<li><span class="pno">[s. 101]</span> BÖLÜM VI: NOTLAR, KAYNAKLAR VE EKLER:</li>
+<li><span class="pno">[s. 228]</span> BÖLÜM 1.2. PLANl HAzlRLAYANLAR|N AD|, soYADl VE UNVANl</li>
+<li><span class="pno">[s. 228]</span> BÖLÜM 1.3. PLAN|N HAzlRLANDlĞlTARIH VE GEçERL|LiK TAR|Hi</li>
+<li><span class="pno">[s. 228]</span> BÖLÜM 1.4. AMAÇ, TAN|M VE KAPSAM</li>
+<li><span class="pno">[s. 326]</span> ÇEVRESEL VE SOSYAL YÖNETİM PLANI</li>
+<li><span class="pno">[s. 327]</span> ÇEVRESEL VE SOSYAL</li></ul></div>
+  </details>
+
+  <div class="notice">
+    Bu sayfa, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın kamuya açık <code>eced-duyuru.csb.gov.tr</code> duyuru portalındaki kayıtlar esas alınarak bilgilendirme amacıyla hazırlanmıştır. Alıntıların tamamı 1 tabanlı PDF sayfa numarasıyla (<code>[s. N]</code>) gösterilmektedir. Yasal sürelerin ve hukuki başvuru yollarının yetkili hukukçular tarafından teyit edilmesi gerekir.
+  </div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+
+(() => {
+  const root = document.documentElement;
+  const saved = localStorage.getItem('eced_theme');
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  function isDarkNow() {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return cur ? cur === 'dark' : prefersDark;
+  }
+  window.__ecedIsDark = isDarkNow;
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function syncLabel() {
+    btn.textContent = isDarkNow() ? 'Açık Tema' : 'Koyu Tema';
+  }
+  syncLabel();
+  btn.addEventListener('click', () => {
+    const next = isDarkNow() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('eced_theme', next);
+    syncLabel();
+    window.dispatchEvent(new CustomEvent('eced-theme-change', { detail: { dark: next === 'dark' } }));
+  });
+})();
+
+
+function createCartoTileLayer(isDark) {
+  const style = isDark ? 'dark_all' : 'light_all';
+  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+    maxZoom: 19,
+    subdomains: 'abcd',
+    attribution: '&copy; OpenStreetMap &copy; CARTO'
+  });
+}
+
+(() => {
+  const copyBtn = document.getElementById('copy-qs-btn');
+  const qsTxt = document.getElementById('qs-plain');
+  if (copyBtn && qsTxt) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(qsTxt.value);
+        copyBtn.textContent = 'Kopyalandı ✓';
+        setTimeout(() => (copyBtn.textContent = 'Soruları Kopyala'), 2200);
+      } catch (e) {
+        copyBtn.textContent = 'Kopyalanamadı';
+      }
+    });
+  }
+  if (typeof L === 'undefined') return;
+  const g = {"lat": 41.27497, "lon": 27.8051, "zoom": 12, "precision": "exact_pdf", "points": [[41.27376, 27.80388], [41.27451, 27.80562], [41.27479, 27.80483], [41.2748, 27.80488], [41.2748, 27.80493], [41.27479, 27.80498], [41.27456, 27.80549], [41.27406, 27.80383], [41.27423, 27.80381], [41.2743, 27.80369], [41.27453, 27.80421], [41.27475, 27.80473], [41.27471, 27.80493], [41.27546, 27.80667], [41.27574, 27.80588], [41.27575, 27.80593], [41.27575, 27.80598], [41.27574, 27.80603], [41.27551, 27.80654], [41.27501, 27.80488], [41.27518, 27.80485], [41.27526, 27.80474], [41.27548, 27.80526], [41.2757, 27.80578]], "gis_markers": [], "label": "TEKİRDAĞ / ERGENE — Denim (Kot) Yıkama Ve Boyama Tesisi Kapasite Artışı"};
+  const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
+  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
+  window.addEventListener('eced-theme-change', (ev) => {
+    map.removeLayer(tileLayer);
+    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
+  });
+  if (g.precision === 'exact_pdf') {
+    L.circle([g.lat, g.lon], {
+      radius: 3000,
+      color: '#d97706',
+      weight: 1.5,
+      dashArray: '6 5',
+      fillColor: '#d97706',
+      fillOpacity: 0.04
+    }).bindTooltip('3 km yasal referans çemberi (3573 m.20)').addTo(map);
+    for (const gm of (g.gis_markers || [])) {
+      L.circleMarker([gm.lat, gm.lon], {
+        radius: 5,
+        color: '#ffffff',
+        fillColor: gm.color,
+        fillOpacity: 0.9,
+        weight: 1.5
+      }).bindPopup(gm.label).addTo(map);
+    }
+  }
+  if (g.precision === 'exact_pdf' && g.points.length > 1) {
+    const latlngs = g.points.map(p => [p[0], p[1]]);
+    const poly = L.polyline(latlngs, { color: '#175cd3', weight: 3, opacity: 0.85 }).addTo(map);
+    for (const ll of latlngs.slice(0, 30)) {
+      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#d92d20', fillOpacity: 0.9, weight: 1 }).addTo(map);
+    }
+    map.fitBounds(poly.getBounds().pad(0.25));
+  } else {
+    L.circleMarker([g.lat, g.lon], {
+      radius: g.precision === 'exact_pdf' ? 8 : 11,
+      color: '#ffffff',
+      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#175cd3',
+      fillOpacity: g.precision === 'exact_pdf' ? 0.9 : 0.45,
+      weight: 2
+    }).bindPopup(g.label).addTo(map).openPopup();
+  }
+})();
+</script>
+</body>
+</html>

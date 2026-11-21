@@ -1,0 +1,732 @@
+{
+  "filing": {
+    "province": "İSTANBUL",
+    "district": "BAŞAKŞEHİR",
+    "project_name": "ELOKSAL KAPLAMA TESİSİ",
+    "project_owner": "KAFKAS ALÜMİNYUM SANAYİ TİCARET LTD. ŞTİ. İSTANBUL ŞUBESİ",
+    "sector": "Sanayi",
+    "sub_sector": "Kaplama/Yüzey Temizleme",
+    "decision_type": "ÇED Gerekli Değil/ÇED Olumlu",
+    "announcement_date_tr": "13.11.2026",
+    "project_type": "Ek-2",
+    "detail_text": "İSTANBUL ili BAŞAKŞEHİR,  ilcesinde İSTANBUL ili BAŞAKŞEHİR,  ilcesi  İkitelli Organize Sanayi Bölgesi Mahallesi, Galvanoteknik Sanayi Sitesi Bakır Sok G2 Blok No.37 mevkiindeki KAFKAS ALÜMİNYUM SANAYİ TİCARET LTD. ŞTİ. İSTANBUL ŞUBESİ tarafından yapılması planlanan ELOKSAL KAPLAMA TESİSİ projesi ile ilgili olarak Bakanlığımıza sunulan PTD Dosyası incelenmiş ve değerlendirilmiştir  ÇED Yönetmeliği'nin 17. maddesi gereğince ELOKSAL KAPLAMA TESİSİ projesi'ne Valiliğimizce 'ÇED Olumlu (Kapsam Ek-2)' kararı verilmiştir.",
+    "detail_links": [
+      {
+        "text": "PTD Dosyası",
+        "href": "http://eced.csb.gov.tr/jsp/ek1/39727"
+      }
+    ],
+    "documents": [
+      {
+        "portal_doc_url": "http://eced.csb.gov.tr/jsp/ek1/39727",
+        "filing_id": "39727",
+        "consulting_firm": "ÇİGEM ÇEVRE VE İŞ GÜVENLİĞİ TEKNOLOJİLERİ DANIŞMANLIĞI VE MÜ. Hİ. SAN. VE TİC. LTD. ŞTİ.",
+        "submitted_at": "26/07/2022 10:34:34",
+        "pdf_urls": [
+          {
+            "label": "Dosya Göster",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign8746778019388669244.pdf&orjinalAd=KAFKAS PTD nihai.pdf&yuklemeTarihi=2022-09-08"
+          }
+        ]
+      }
+    ],
+    "announcement_date": "2026-11-13",
+    "statutory_clocks": [
+      {
+        "code": "iyuk_20a",
+        "kind": "İYUK Madde 20/A iptal davası süresi (30 takvim günü; İYUK 11 süreyi durdurmaz)",
+        "deadline": "2026-12-13",
+        "days_remaining": 21
+      }
+    ],
+    "filing_key": "39727:13.11.2026:ÇED Gerekli Değil/ÇED Olumlu",
+    "first_seen_at": "2026-11-20T09:02:14"
+  },
+  "pdf_info": {
+    "filename": "39727.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign8746778019388669244.pdf&orjinalAd=KAFKAS PTD nihai.pdf&yuklemeTarihi=2022-09-08",
+    "bytes": 50627785,
+    "sha256": "166415994c79dd5fc08606b15abb673c239cb8fe06dc47bc23f56712bb7c4953",
+    "cached": false
+  },
+  "analysis": {
+    "page_count": 206,
+    "total_chars": 136345,
+    "text_pages": 96,
+    "scanned_or_blank_pages": 110,
+    "scanned_page_sample": [
+      45,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      61,
+      63,
+      64,
+      65,
+      66,
+      72,
+      73
+    ],
+    "headings": [
+      [
+        3,
+        "PROJENİN TEKNİK OLMAYAN ÖZETİ"
+      ],
+      [
+        33,
+        "BÖLÜM 3. PROJENİN İNŞAAT VE İŞLETME AŞAMASINDA ÇEVRESEL ETKİLERİ"
+      ]
+    ],
+    "geo": {
+      "precision": "exact_pdf",
+      "lat": 41.08294,
+      "lon": 28.80898,
+      "point_count": 19,
+      "points": [
+        [
+          41.0827,
+          28.809
+        ],
+        [
+          41.0823,
+          28.8091
+        ],
+        [
+          41.082,
+          28.8093
+        ],
+        [
+          41.082,
+          28.8094
+        ],
+        [
+          41.082,
+          28.8095
+        ],
+        [
+          41.082,
+          28.8096
+        ],
+        [
+          41.0821,
+          28.8096
+        ],
+        [
+          41.0822,
+          28.8096
+        ],
+        [
+          41.0825,
+          28.8094
+        ],
+        [
+          41.0829,
+          28.8092
+        ],
+        [
+          41.0832,
+          28.809
+        ],
+        [
+          41.0836,
+          28.8088
+        ],
+        [
+          41.0839,
+          28.8086
+        ],
+        [
+          41.084,
+          28.8085
+        ],
+        [
+          41.0841,
+          28.8084
+        ],
+        [
+          41.084,
+          28.8082
+        ],
+        [
+          41.0838,
+          28.8083
+        ],
+        [
+          41.0835,
+          28.8085
+        ],
+        [
+          41.0831,
+          28.8087
+        ]
+      ],
+      "datum": "WGS84",
+      "pages": [
+        29
+      ]
+    },
+    "signals": {
+      "coordinates_and_footprint": {
+        "label": "Coordinates, Parcel & Footprint",
+        "page_count": 15,
+        "pages": [
+          3,
+          4,
+          5,
+          8,
+          9,
+          13,
+          29,
+          32,
+          42,
+          43,
+          68,
+          91,
+          92,
+          100,
+          102
+        ],
+        "samples": [
+          {
+            "page": 3,
+            "match": "Koordinat",
+            "snippet": "…Tablo.19 Ç.G.D.Y.Y Ek-VII Tablo-4 Endüstri Tesisleri İçin Çevresel Gürültü Sınır Değerleri Tablo.20 Proje Alanı Koordinatları"
+          },
+          {
+            "page": 4,
+            "match": "Koordinat",
+            "snippet": "ELOKSAL KAPLAMA TESİSİ PROJESİ 3 EKLER Ek-1 Proje Alanına Ait Koordinatlar Ek-2.a Faaliyet Yeri İnceleme Dilekçesi Ek-2.b Ek-2.c Ek-2.ç Ek-2.d Ek-2.e Taahhütname Vekâletname Fi…"
+          },
+          {
+            "page": 5,
+            "match": "koordinat",
+            "snippet": "…alan üzerinde 160 m2 kapalı alanda “ELOKSAL KAPLAMA” projesi kapsamında faaliyet gösterilmektedir. Proje alanına ait koordinatlar Ek-1’ de verilmiştir. Müşterilerden Alüminyum Malzemeler Eloksal Kaplanmak üzere tedarik edilir. Gelen Malzemele…"
+          },
+          {
+            "page": 5,
+            "match": "utm",
+            "snippet": "…espit banyosunda 5-15 dk aralıklarında bekletilerek eloksalın kalitesi artırılır. Malzemeler askılarda bekletilerek kurutma işlemi gerçekleşir. Daha sonra askılardan sökülerek paketleme & sevkiyat işlemi yapılır. Alüminyum oksijen afinite…"
+          },
+          {
+            "page": 8,
+            "match": "utm",
+            "snippet": "…alın kalitesi artırılır. Tespit işlemi POLİTOKSAL CS 66 D ve POLİTOKSAL CS 66 F kimyasalları kullanılmaktadır. Kurutma: Malzemeler askılarda bekletilerek kurutma işlemi gerçekleşir. Paketleme-Sevkiyat: Daha sonra askılardan sökülerek…"
+          },
+          {
+            "page": 9,
+            "match": "utm",
+            "snippet": "…rofil) Yağ Alma Kimyasal Parlatma Durulama Durulama Eloksal Kaplama Durulama Durulama Sarı / Tespit Banyosu Kurutma Paketleme/ Sevkiyat"
+          },
+          {
+            "page": 13,
+            "match": "utm",
+            "snippet": "…su 310x80x95 cm 7 Sarı Banyosu 310x80x95 cm 1 Tespit Banyosu 310x80x95 cm 1 Redresör 2 Esanjör 1 Su soğutma 1 Kompresör 1 Tablo.7. Eklenmesi Planlanan Makine ve Ekipman Listesi ( Mevcut banyolar yerine eklenecekti…"
+          },
+          {
+            "page": 29,
+            "match": "koordinat",
+            "snippet": "ELOKSAL KAPLAMA TESİSİ PROJESİ 28 Proje alanına ait koordinatlar Tablo.19 ile verilmiştir. Tablo.19: Proje Alanı Koordinatları No UTM KOORDİNATLARI ÇOĞRAFİ KOORDİNATLAR ED 50,…"
+          }
+        ]
+      },
+      "water_and_discharge": {
+        "label": "Water Use, Hydrogeology & Discharge",
+        "page_count": 17,
+        "pages": [
+          3,
+          4,
+          15,
+          16,
+          17,
+          19,
+          20,
+          21,
+          33,
+          34,
+          35,
+          36,
+          39,
+          41,
+          102,
+          103,
+          198
+        ],
+        "samples": [
+          {
+            "page": 3,
+            "match": "Atıksu",
+            "snippet": "…vcut ve Plananan Durumda Kullanılan Su Tüketim Miktarı Tehlikesiz Atık Tablosu Tehlikeli Atık Tablosu Mevcut Durumda Atıksu Miktarı Tablosu Planlanan Durumda Atıksu Miktarı Tablosu Mevcut ve Planlanan Durumu Gösterir Atıksu Tablosu Tablo.…"
+          },
+          {
+            "page": 4,
+            "match": "Atıksu",
+            "snippet": "…0 Ölçekli Uygulama İmar Planı 1/5000 Ölçekli Nazım İmar Planı 1/100.000 Ölçekli Çevre Düzeni Planı Ek-2.ö Ek-2.p Atıksu Onay Yazısı Tehlikeli Maddeler ve Tehlikeli Atık Mali Sorumluluk Sigırtası Ek-2.r Projeyi Hazırlayan Personel List…"
+          },
+          {
+            "page": 15,
+            "match": "atıksu",
+            "snippet": "…yonlar için Sanayi Kaynaklı Hava Kirliliği Kontrolü Yönetmeliği kapsamında uygun havalandırma sistemlerinin kurulması, atıksu oluşumu ile alakalı ise OSB uygulama yönetmeliği deşarj kriterlerine uyulması sınır değerlerin sağlanması ve gerekli…"
+          },
+          {
+            "page": 15,
+            "match": "deşarj",
+            "snippet": "…tmeliği kapsamında uygun havalandırma sistemlerinin kurulması, atıksu oluşumu ile alakalı ise OSB uygulama yönetmeliği deşarj kriterlerine uyulması sınır değerlerin sağlanması ve gerekli tedbirlerin alınması şartıyla Bölge Müdürlüğünce sakınca…"
+          },
+          {
+            "page": 15,
+            "match": "0,45 m3/gün",
+            "snippet": "…siste çalışan 3 personelden kaynaklı toplam evsel su sarfiyatı; Q evsel = 3 kişi x 150 litre/gün = 450 litre/gün = 0,45 m3/gün’ dür. Tesiste ilerleyen süreçte çalışan sayısının 20 kişi olması planlanmaktadır. Bu durumda 20 personelden kaynak…"
+          },
+          {
+            "page": 15,
+            "match": "3 m3/gün",
+            "snippet": "…Bu durumda 20 personelden kaynaklı toplam evsel su sarfiyatı; Q evsel = 20 kişi x 150 litre/gün = 3000 litre/gün = 3 m3/gün’ dür. Proje kapsamında görev alacak personelin içme-kullanma suyu kapsamında ihtiyaç olan içme suyu damacanalarla…"
+          },
+          {
+            "page": 16,
+            "match": "4,5 m3/gün",
+            "snippet": "…0,313 0,117 Tespit Banyosu 2,35 İlave - 0,117 TOPLAM 31,45 - 3,034 1,427 TOPLAM SU MİKTARI (mevcut) 4,5 m3/gün Eloksal Kaplama Ünitesi (PLANLANAN) Ünitenin Adı Mevcut Kapasite (m3) Değişim Sıklığı Değişim İçin Su İhtiyacı…"
+          },
+          {
+            "page": 17,
+            "match": "7,2 m3/gün",
+            "snippet": "…,191 Tespit Banyosu 3,82 İlave - 0,191 TOPLAM 51,02 - 4,854 2,326 TOPLAM SU MİKTARIMİKTARI (planlanan) 7,2 m3/gün Kullanılacak Enerji Türü Tesiste kullanılan makine ve tesisatın, aydınlatma ekipmanlarının çalıştırılması için…"
+          }
+        ]
+      },
+      "protected_land_and_olive": {
+        "label": "Protected Zones, Forests & Olive Groves",
+        "page_count": 3,
+        "pages": [
+          27,
+          32,
+          33
+        ],
+        "samples": [
+          {
+            "page": 27,
+            "match": "orman alanı",
+            "snippet": "…2. PROJENİN YERİ VE ETKİ ALANIN MEVCUT VE ÇEVRESEL ÖZELLİKLERİ 2.a. Mevcut Arazi Kullanımı ve Kalitesi (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) KAFKAS ALÜMİNYUM tarafından tarafından İstanbul ili, Başakşehir ilçesi, İkitelli…"
+          },
+          {
+            "page": 32,
+            "match": "tabiat parkı",
+            "snippet": "…elirlenen \"Milli Parklar\", \"Tabiat Parkları\", \"Tabiat Anıtları\" ve \"Tabiat Koruma Alanları\" bulunmamaktadır. En yakın tabiat parkı kuş uçumu 6,94 km mesafede Şamlar Tabiat Parkıdır. b) Kara Avcılığı Kanunu uyarınca belirlenen \"Yaban Hayatı Koruma…"
+          },
+          {
+            "page": 32,
+            "match": "Özel Çevre Koruma",
+            "snippet": "…eliği’nde tanımlanan alanlar yer almamaktadır. f) Çevre Kanunu’nun 9 uncu maddesi uyarınca Bakanlar Kurulu tarafından \"Özel Çevre Koruma Bölgeleri\" olarak tespit ve ilan edilen alanlar bulunmamaktadır. g) Boğaziçi Kanunu’na göre koruma altına alınan alan…"
+          },
+          {
+            "page": 32,
+            "match": "orman alanı",
+            "snippet": "…r bulunmamaktadır. g) Boğaziçi Kanunu’na göre koruma altına alınan alanlar yer almamaktadır. ğ) Orman Kanunu uyarınca orman alanı sayılan yerler yer almamaktadır. h) Kıyı Kanunu gereğince yapı yasağı getirilen alanlar yer almamaktadır. ı) Zeytinci…"
+          },
+          {
+            "page": 33,
+            "match": "kıyı kenar",
+            "snippet": "…ı olmak üzere canlıların yaşama ortamı olarak önem taşıyan bütün sular, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler bulunmamaktadır. ç) Göller, akarsula…"
+          },
+          {
+            "page": 33,
+            "match": "sulak alan",
+            "snippet": "…r, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler bulunmamaktadır. ç) Göller, akarsular, yeraltı suyu işletme sahaları mevcut değildir. d) Bilimsel araştı…"
+          }
+        ]
+      },
+      "ecology_and_baseline": {
+        "label": "Flora, Fauna & Baseline Methodology",
+        "page_count": 3,
+        "pages": [
+          30,
+          32,
+          33
+        ],
+        "samples": [
+          {
+            "page": 30,
+            "match": "Endemik",
+            "snippet": "…tedir. Flora İstanbul il sınırı içinde doğal olarak yetişen 270 bitki türü \"Türkiye'nin Tehlike Altındaki Nadir ve Endemik Bitkiler Listesinde yer alır. Bunlar arasında 40 türün dünya üzerindeki en zengin popülâsyonlarının İstanbul'da bulund…"
+          },
+          {
+            "page": 32,
+            "match": "BERN Sözleşmesi",
+            "snippet": "…kli Alanlar Proje alanı ve yakın çevresinde; a) \"Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi\" (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan \"Önemli Deniz Kaplumbağası Üreme Alanları\"nda belirtilen I. ve II. Koruma…"
+          },
+          {
+            "page": 33,
+            "match": "endemik",
+            "snippet": "…dir. d) Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…"
+          }
+        ]
+      },
+      "pollutants_and_hazards": {
+        "label": "Emissions, Geochemistry & Waste",
+        "page_count": 15,
+        "pages": [
+          3,
+          4,
+          23,
+          24,
+          25,
+          30,
+          31,
+          36,
+          37,
+          39,
+          80,
+          81,
+          84,
+          106,
+          200
+        ],
+        "samples": [
+          {
+            "page": 3,
+            "match": "Gürültü",
+            "snippet": "…AR VE KAYNAKLAR 50 Şekiller Dizini Şekil.1. Eloksal Kaplama Projesi İş Akım Şeması Şekil.2. Mesafelere Göre Gürültü Seviyesinin Dağılımı Şekil.3. Yer Bulduru Haritası Şekil.4. Uydu Görüntüleri Şekil.5. Jeoloji Haritası Ş…"
+          },
+          {
+            "page": 3,
+            "match": "Deprem",
+            "snippet": "…nin Dağılımı Şekil.3. Yer Bulduru Haritası Şekil.4. Uydu Görüntüleri Şekil.5. Jeoloji Haritası Şekil.6. Deprem Haritası Şekil.7. Proje Alanının Koruma Alanına Mesafesini Gösterir Uydu Görüntüsü Tablolar Dizini Ta…"
+          },
+          {
+            "page": 3,
+            "match": "Tehlikeli Atık",
+            "snippet": "…lo.11 Tablo.12 Tablo.13 Tablo.14 Mevcut ve Plananan Durumda Kullanılan Su Tüketim Miktarı Tehlikesiz Atık Tablosu Tehlikeli Atık Tablosu Mevcut Durumda Atıksu Miktarı Tablosu Planlanan Durumda Atıksu Miktarı Tablosu Mevcut ve Planlanan Durumu Gö…"
+          },
+          {
+            "page": 4,
+            "match": "Gürültü",
+            "snippet": "…ira Sözleşmesi Ek-2.h OSB Kurum Görüşü Ek-2.ı Elektrik, Doğalgaz, Su Faturaları Ek-2.i İşletme Aşamasındaki Gürültü Hesabı Ek-2.j Malzeme Güvenlik Bilgi Formu Ek-2.k Acil Eylem Planı Ek-2.l Ek-2.m Ek-2.n Ek-2.o Bekra Bey…"
+          },
+          {
+            "page": 4,
+            "match": "Tehlikeli Atık",
+            "snippet": "…kli Nazım İmar Planı 1/100.000 Ölçekli Çevre Düzeni Planı Ek-2.ö Ek-2.p Atıksu Onay Yazısı Tehlikeli Maddeler ve Tehlikeli Atık Mali Sorumluluk Sigırtası Ek-2.r Projeyi Hazırlayan Personel Listesi Ek-2.s Yeterlik Belgesi…"
+          },
+          {
+            "page": 23,
+            "match": "Karbondioksit",
+            "snippet": "…oğalgazın Kimyasal Özellikleri Metan CH4 Min %82 Etan C2H6 Min %12 Propan C3H8 Max %4 Bütan C4H10 Max %2,5 Karbondioksit CO2 Max %3 Oksijen O2 Max %0,5 Azot N2 Max %5,8 Hidrojen Sülfür H2S Max 5,35 mg/m3 Pentan ve Diğer Karbonla…"
+          },
+          {
+            "page": 23,
+            "match": "CO2",
+            "snippet": "…sal Özellikleri Metan CH4 Min %82 Etan C2H6 Min %12 Propan C3H8 Max %4 Bütan C4H10 Max %2,5 Karbondioksit CO2 Max %3 Oksijen O2 Max %0,5 Azot N2 Max %5,8 Hidrojen Sülfür H2S Max 5,35 mg/m3 Pentan ve Diğer Karbonlar…"
+          },
+          {
+            "page": 23,
+            "match": "Hidrojen Sülfür",
+            "snippet": "…2 Propan C3H8 Max %4 Bütan C4H10 Max %2,5 Karbondioksit CO2 Max %3 Oksijen O2 Max %0,5 Azot N2 Max %5,8 Hidrojen Sülfür H2S Max 5,35 mg/m3 Pentan ve Diğer Karbonlar Max %1 Gürültü KAFKAS ALÜMİNYUM tarafından gerçekleştiri…"
+          }
+        ]
+      },
+      "cost_and_capacity": {
+        "label": "Proje Bedeli, Güç ve Kapasite",
+        "page_count": 20,
+        "pages": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          10,
+          12,
+          13,
+          14,
+          15,
+          16,
+          19,
+          20,
+          21,
+          23,
+          25,
+          52,
+          67,
+          68
+        ],
+        "samples": [
+          {
+            "page": 2,
+            "match": "255.400 TL",
+            "snippet": "…0212 671 94 38 Faks: - E-posta kafkasmuhasebe@outlook.com Projenin Adı Eloksal Kaplama Tesisi Projenin Bedeli 255.400 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii) İkitelli Organize Sanayi Bölgesi Mahallesi, Galvanoteknik…"
+          },
+          {
+            "page": 3,
+            "match": "Kapasite",
+            "snippet": "…in ve Yerin Alternatifleri (Proje Teknolojisinin ve Proje Alanının Seçilme Nedenleri) 5 1.B Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Teknolojisi, Çalışacak Personel Sayısı 5 1.C Doğal Kaynakların Kullanımı (Arazi Kullanımı, Su Kul…"
+          },
+          {
+            "page": 3,
+            "match": "Proje Bedeli",
+            "snippet": "…itesi Planlanan Mevcut Makine ve Ekipman Listesi Tablo.7. Planlanan Durumda Makine ve Ekipman Listesi Tablo.8. Proje Bedeli Tablo.9. Tablo.10. Tablo.11 Tablo.12 Tablo.13 Tablo.14 Mevcut ve Plananan Durumda Kullanılan Su Tüketim Miktar…"
+          },
+          {
+            "page": 4,
+            "match": "Kapasite",
+            "snippet": "…İnceleme Dilekçesi Ek-2.b Ek-2.c Ek-2.ç Ek-2.d Ek-2.e Taahhütname Vekâletname Firmaya Ait Şirket Evrakları Kapasite Raporu Makine-Teçhizat Proforma Faturalar Ek-2.f Vaziyet Planı Ek-2.g Kira Sözleşmesi Ek-2.h OSB Kurum Gör…"
+          },
+          {
+            "page": 5,
+            "match": "kapasite",
+            "snippet": "…ası yapılmayacaktır. Proje konusu tesiste Kaplama Hacmi 15 m3 ve Durulama Hacmi 16,5 m3 olmak üzere toplam 31,5 m3 kapasiteye sahip banyolarda muhtelif ‘Eloksal Kaplama’ faaliyeti gerçekleştirilmektedir."
+          },
+          {
+            "page": 6,
+            "match": "kapasite",
+            "snippet": "ELOKSAL KAPLAMA TESİSİ PROJESİ 5 Tesiste kurulu bulunan banyoların değiştirilmesi planlanmakta olup, kurulu kapasitede artış gerçekleşecektir. Planlanan artış sonrasında kaplama hacmi 24,28 m3 ve durulama hacmi 26,74 m3 olmak üzere 51…"
+          },
+          {
+            "page": 7,
+            "match": "Kapasite",
+            "snippet": "…sı ve çevre trafiğini etkilememesi şeklinde sıralanabilir. 1. PROJENİN ÖZELLİKLERİ 1.b. Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Teknolojisi, Çalışacak Personel Sayısı Projenin İş Akım Şeması KAFKAS ALÜMİNYUM tarafında…"
+          },
+          {
+            "page": 10,
+            "match": "Kapasite",
+            "snippet": "ELOKSAL KAPLAMA TESİSİ PROJESİ 9 Projenin Kapasitesi Firmada, alüminyum aksesuar ve parçalara eloksal kaplama yapılmaktadır. Proje konusu tesis, 15 m3 kapasiteye sahip…"
+          }
+        ]
+      },
+      "splitting_and_thresholds": {
+        "label": "Proje Parçalama, Kapasite Artışı ve Eşik Değerler",
+        "page_count": 3,
+        "pages": [
+          15,
+          23,
+          25
+        ],
+        "samples": [
+          {
+            "page": 15,
+            "match": "kapasite artışı",
+            "snippet": "…nımı söz konusudur. Endüstriyel nitelikli atıksu Galvanoteknik Sanayi Sitesinden temin edilmektedir. Mevcut durumda ve kapasite artışı sonrasında kullanılacak su miktarı Tablo.9 ile verilmiştir. Evsel ve endüstriyel amaçlı su kullanıma ilişkin veriler…"
+          },
+          {
+            "page": 23,
+            "match": "kapasite artışı",
+            "snippet": "…M tarafından gerçekleştirilen üretim prosesi kapsamında kullanılan makinelerden gürültü emisyonu oluşmaktadır. Tesiste kapasite artışı sonrası kullanılacak tüm makine ve ekipmanların ses gücü seviyeleri literatür araştırmaları sonrasında elde edinilen b…"
+          },
+          {
+            "page": 25,
+            "match": "kapasite artışı",
+            "snippet": "…nasıl uzaklaştırılacağıyla ilgili talimatnameler depolama alanına asılarak personelin ulaşımına sunulacaktır. Tesiste kapasite artışı sonrasında kullanılacak kimyasallara ait Malzeme Güvenlik Bilgi Formları Ek-2.j ile verilmiştir. Personele kimyas…"
+          }
+        ]
+      }
+    },
+    "audit_checks": {
+      "mentions_field_survey": false,
+      "mentions_literature_only_cue": false,
+      "mentions_seasonal_sampling": false,
+      "mentions_cumulative_impact": true,
+      "mentions_olive_law_3573": false,
+      "mentions_groundwater_or_aquifer": true,
+      "mentions_iucn_or_endemic": true,
+      "mentions_capacity_or_splitting": true,
+      "mentions_circular_2009_7_or_revision": false
+    }
+  },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-22T00:54:23",
+      "decision_type": "ÇED Gerekli Değil/ÇED Olumlu",
+      "announcement_date": "2026-11-13",
+      "announcement_date_tr": "13.11.2026",
+      "submitted_at": "26/07/2022 10:34:34",
+      "consulting_firm": "ÇİGEM ÇEVRE VE İŞ GÜVENLİĞİ TEKNOLOJİLERİ DANIŞMANLIĞI VE MÜ. Hİ. SAN. VE TİC. LTD. ŞTİ.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign8746778019388669244.pdf&orjinalAd=KAFKAS PTD nihai.pdf&yuklemeTarihi=2022-09-08",
+      "pdf_temp_ad": "sign8746778019388669244.pdf",
+      "pdf_original_name": "KAFKAS PTD nihai.pdf",
+      "pdf_upload_date": "2022-09-08",
+      "sha256": "166415994c79dd5fc08606b15abb673c239cb8fe06dc47bc23f56712bb7c4953",
+      "bytes": 50627785,
+      "page_count": 206,
+      "text_pages": 96,
+      "scanned_or_blank_pages": 110,
+      "audit_checks": {
+        "mentions_field_survey": false,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": false,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": false,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true,
+        "mentions_capacity_or_splitting": true,
+        "mentions_circular_2009_7_or_revision": false
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 15,
+        "water_and_discharge": 17,
+        "protected_land_and_olive": 3,
+        "ecology_and_baseline": 3,
+        "pollutants_and_hazards": 15,
+        "cost_and_capacity": 20,
+        "splitting_and_thresholds": 3
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 41.08294,
+      "geo_lon": 28.80898,
+      "geo_point_count": 19,
+      "detail_text_sha256": "9e36e2596d939508"
+    }
+  ],
+  "llm_synthesis": {
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-11-22T00:54:28",
+    "pages_sent": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      23,
+      24,
+      27,
+      30,
+      32,
+      33
+    ],
+    "usage": {
+      "prompt_tokens": 16846,
+      "output_tokens": 1740,
+      "thoughts_tokens": null,
+      "total_tokens": 18586
+    },
+    "result": {
+      "executive_summary_tr": "Kafkas Alüminyum Sanayi Ticaret Ltd. Şti. İstanbul Şubesi tarafından İstanbul ili, Başakşehir ilçesi, İkitelli Organize Sanayi Bölgesi'nde planlanan eloksal kaplama tesisi projesi için hazırlanan Proje Tanıtım Dosyası (PTD) incelenmiş ve valilikçe 'ÇED Olumlu (Ek-2)' kararı verilmiştir. Tesis, 160 metrekare kapalı alanda mevcut 31,5 metrekarelik toplam banyo hacmini kapasite artışı ile 51,02 metrekareye çıkarmayı hedeflemektedir. Faaliyet kapsamında yoğun kimyasal kullanımı, asidik atıksu oluşumu ve hava emisyonları öngörülmekte olup, yakın çevredeki hassas ekosistemler ve altyapı entegrasyonu açısından çevresel riskler taşımaktadır.",
+      "executive_summary_en": "The Project Presentation Dossier for the anodizing plant proposed by Kafkas Aluminum in Başakşehir, Istanbul, has received an 'EIA Positive (Annex-2)' decision from the local governorship. The facility operates in a 160 square meter indoor area and plans to increase its total bath capacity from 31.5 cubic meters to 51.02 cubic meters. The project involves intensive chemical consumption, acidic wastewater generation, and air emissions, presenting environmental risks regarding surrounding ecosystems and infrastructure integration.",
+      "key_facts": [
+        {
+          "label": "Proje Bedeli",
+          "value": "255.400 TL",
+          "page": 2
+        },
+        {
+          "label": "Kapalı Alan",
+          "value": "160 m2",
+          "page": 5
+        },
+        {
+          "label": "Mevcut Toplam Banyo Hacmi",
+          "value": "31,5 m3",
+          "page": 5
+        },
+        {
+          "label": "Planlanan Toplam Banyo Hacmi",
+          "value": "51,02 m3",
+          "page": 6
+        },
+        {
+          "label": "Mevcut Çalışan Sayısı",
+          "value": "3 kişi",
+          "page": 14
+        },
+        {
+          "label": "Planlanan Çalışan Sayısı",
+          "value": "20 kişi",
+          "page": 14
+        },
+        {
+          "label": "Mevcut Su Tüketimi",
+          "value": "4,5 m3/gün",
+          "page": 16
+        },
+        {
+          "label": "En Yakın Tabiat Parkı Mesafesi",
+          "value": "6,94 km (Şamlar Tabiat Parkı)",
+          "page": 32
+        }
+      ],
+      "baseline_assessment": {
+        "field_survey_status": "literature_only",
+        "seasonal_sampling_status": "not_found",
+        "cumulative_impact_status": "omitted_or_not_found",
+        "olive_and_protected_status": "Proje alanı organize sanayi bölgesi içerisinde yer almakta olup, 3573 sayılı Zeytincilik Kanunu kapsamında zeytinlik alanların bulunmadığı [s. 32], ayrıca orman, su yüzeyi ve özel çevre koruma bölgelerine rastlanmadığı belirtilmiştir [s. 32].",
+        "explanation": "Dosyadaki flora ve fauna değerlendirmeleri tamamen genel literatür bilgilerine ve İstanbul geneline ait istatistiki verilere dayandırılmış olup [s. 30], proje alanına özgü mevsimsel saha çalışmaları veya ekolojik örneklemeler gerçekleştirilmemiştir. Bölgesel birikimli (kumulatif) etkiler ve yeraltı akifer özellikleri yönünden herhangi bir nicel analiz sunulmamıştır."
+      },
+      "red_flags": [
+        {
+          "category": "flora_fauna_mevsimsel",
+          "severity": "high",
+          "title": "Flora ve Fauna Envanterinin Yalnızca Genel Literatüre Dayandırılması",
+          "detail": "Raporda yer alan flora ve fauna bölümleri, İstanbul ilinin genel bitki örtüsü ve yaban hayatı istatistikleri üzerinden derlenmiş olup, proje sahasında uzmanlarca gerçekleştirilmiş somut, çok mevsimli arazi gözlem ve örnekleme verileri içermemektedir [s. 30].",
+          "pages": [
+            30
+          ]
+        },
+        {
+          "category": "kumulatif_etki",
+          "severity": "high",
+          "title": "Birikimli Bölgesel Etki Değerlendirmesinin Bulunmaması",
+          "detail": "İkitelli Organize Sanayi Bölgesi içerisinde benzer yüzey işleme ve kaplama tesislerinin yarattığı kümülatif hava emisyonu, atıksu ve kimyasal yükler, çevredeki diğer sanayi parselleriyle birlikte bütüncül olarak değerlendirilmemiştir.",
+          "pages": [
+            7,
+            15
+          ]
+        },
+        {
+          "category": "izleme_olcum_celiskisi",
+          "severity": "medium",
+          "title": "Gürültü Modellemesinde Literatür Verilerine Dayanılması",
+          "detail": "Tesiste kullanılacak kompresör ve redresör gibi ekipmanların ses gücü seviyeleri doğrudan saha ölçümleri yerine literatür araştırmalarından elde edilen kabullerle hesaplanmıştır [s. 23].",
+          "pages": [
+            23
+          ]
+        }
+      ],
+      "recommended_bilirkisi_disciplines": [
+        "Çevre Mühendisi",
+        "Hidrojeoloji Mühendisi",
+        "Biyolog",
+        "Kimya Mühendisi",
+        "Şehir ve Bölge Plancısı"
+      ],
+      "hkt_and_petition_questions": [
+        {
+          "question_tr": "Tesiste gerçekleştirilecek kapasite artışı ve banyo hacmi büyümesinin (31,5 m3'ten 51,02 m3'e) İkitelli OSB merkezi atıksu arıtma altyapısı ve deşarj limitleri üzerindeki kümülatif yükü hidrolojik olarak nasıl hesaplanmıştır?",
+          "pages": [
+            5,
+            6,
+            15
+          ]
+        },
+        {
+          "question_tr": "Nitrik asit, fosforik asit ve sülfürik asit gibi tehlikeli kimyasalların depolanması ve haftalık/aylık banyo değişimlerinde sızdırmazlık ve toprak/yeraltı suyu koruma önlemleri hangi teknik standartlara göre alınmıştır?",
+          "pages": [
+            10,
+            11,
+            13
+          ]
+        },
+        {
+          "question_tr": "Proje alanında flora ve fauna için neden özgün bir arazi çalışması yapılmamış, sadece genel İstanbul literatür bilgileriyle yetinilmiştir?",
+          "pages": [
+            30
+          ]
+        }
+      ],
+      "data_limitations": "Dosyanın toplam 206 sayfa olduğu, ancak bu veri setinin 110 sayfasının taranmış/görsel ağırlıklı olması nedeniyle metin olarak ayıklanamadığı ve incelemenin erişilebilen 96 sayfalık metin kesitleri ile sınırlı kaldığı görülmüştür."
+    }
+  }
+}

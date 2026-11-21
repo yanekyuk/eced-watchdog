@@ -7,20 +7,20 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
 :root {
-  --bg: #f6f8fa;
+  --bg: #f8f9fb;
   --surface: #ffffff;
-  --surface-subtle: #f1f4f8;
-  --border: #d8dee6;
-  --border-strong: #bcc6d4;
-  --text: #161b22;
-  --text-secondary: #424a53;
-  --muted: #5c6670;
-  --accent: #0b5ed7;
-  --accent-soft: #e7f1ff;
+  --surface-subtle: #f2f4f7;
+  --border: #e4e7ec;
+  --border-strong: #cfd5df;
+  --text: #101828;
+  --text-secondary: #344054;
+  --muted: #667085;
+  --accent: #175cd3;
+  --accent-soft: #eff8ff;
   --red: #b42318;
   --red-soft: #fef3f2;
   --red-border: #fecdca;
-  --amber: #9a5b00;
+  --amber: #b54708;
   --amber-soft: #fffaeb;
   --amber-border: #fedf89;
   --green: #067647;
@@ -29,60 +29,60 @@
   --violet: #5925dc;
   --violet-soft: #f4f3ff;
   --violet-border: #d9d6fe;
-  --shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
   --radius: 10px;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0d1117;
-    --surface: #161b22;
-    --surface-subtle: #1c222b;
-    --border: #2b333e;
-    --border-strong: #3d4756;
-    --text: #e6edf3;
-    --text-secondary: #c9d1d9;
-    --muted: #8b949e;
-    --accent: #58a6ff;
-    --accent-soft: rgba(88, 166, 255, 0.14);
-    --red: #ff7b72;
-    --red-soft: rgba(248, 81, 73, 0.14);
-    --red-border: rgba(248, 81, 73, 0.4);
-    --amber: #e3b341;
-    --amber-soft: rgba(210, 153, 34, 0.14);
-    --amber-border: rgba(210, 153, 34, 0.4);
-    --green: #3fb950;
-    --green-soft: rgba(63, 185, 80, 0.14);
-    --green-border: rgba(63, 185, 80, 0.4);
-    --violet: #b692f6;
-    --violet-soft: rgba(158, 119, 237, 0.16);
-    --violet-border: rgba(158, 119, 237, 0.42);
-    --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    --bg: #0f131a;
+    --surface: #161b24;
+    --surface-subtle: #1d2430;
+    --border: #273040;
+    --border-strong: #39465c;
+    --text: #eaedf2;
+    --text-secondary: #c5cdd9;
+    --muted: #8a95a6;
+    --accent: #6cb0ff;
+    --accent-soft: rgba(108, 176, 255, 0.14);
+    --red: #ff857a;
+    --red-soft: rgba(248, 81, 73, 0.13);
+    --red-border: rgba(248, 81, 73, 0.36);
+    --amber: #f0b849;
+    --amber-soft: rgba(210, 153, 34, 0.13);
+    --amber-border: rgba(210, 153, 34, 0.36);
+    --green: #4cc38a;
+    --green-soft: rgba(63, 185, 80, 0.13);
+    --green-border: rgba(63, 185, 80, 0.36);
+    --violet: #bda3ff;
+    --violet-soft: rgba(158, 119, 237, 0.15);
+    --violet-border: rgba(158, 119, 237, 0.38);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0d1117;
-  --surface: #161b22;
-  --surface-subtle: #1c222b;
-  --border: #2b333e;
-  --border-strong: #3d4756;
-  --text: #e6edf3;
-  --text-secondary: #c9d1d9;
-  --muted: #8b949e;
-  --accent: #58a6ff;
-  --accent-soft: rgba(88, 166, 255, 0.14);
-  --red: #ff7b72;
-  --red-soft: rgba(248, 81, 73, 0.14);
-  --red-border: rgba(248, 81, 73, 0.4);
-  --amber: #e3b341;
-  --amber-soft: rgba(210, 153, 34, 0.14);
-  --amber-border: rgba(210, 153, 34, 0.4);
-  --green: #3fb950;
-  --green-soft: rgba(63, 185, 80, 0.14);
-  --green-border: rgba(63, 185, 80, 0.4);
-  --violet: #b692f6;
-  --violet-soft: rgba(158, 119, 237, 0.16);
-  --violet-border: rgba(158, 119, 237, 0.42);
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --bg: #0f131a;
+  --surface: #161b24;
+  --surface-subtle: #1d2430;
+  --border: #273040;
+  --border-strong: #39465c;
+  --text: #eaedf2;
+  --text-secondary: #c5cdd9;
+  --muted: #8a95a6;
+  --accent: #6cb0ff;
+  --accent-soft: rgba(108, 176, 255, 0.14);
+  --red: #ff857a;
+  --red-soft: rgba(248, 81, 73, 0.13);
+  --red-border: rgba(248, 81, 73, 0.36);
+  --amber: #f0b849;
+  --amber-soft: rgba(210, 153, 34, 0.13);
+  --amber-border: rgba(210, 153, 34, 0.36);
+  --green: #4cc38a;
+  --green-soft: rgba(63, 185, 80, 0.13);
+  --green-border: rgba(63, 185, 80, 0.36);
+  --violet: #bda3ff;
+  --violet-soft: rgba(158, 119, 237, 0.15);
+  --violet-border: rgba(158, 119, 237, 0.38);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -105,30 +105,29 @@ a:hover { text-decoration: underline; }
   z-index: 900;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
-  box-shadow: var(--shadow);
 }
 .topbar-inner {
-  max-width: 1220px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 11px 20px;
+  padding: 10px 20px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 10px;
 }
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
   color: var(--text);
   font-weight: 700;
-  font-size: 0.98rem;
+  font-size: 0.96rem;
   letter-spacing: -0.01em;
 }
 .brand:hover { text-decoration: none; color: var(--accent); }
 .brand-scope {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: var(--accent);
   background: var(--accent-soft);
@@ -139,130 +138,114 @@ a:hover { text-decoration: underline; }
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
 }
 .nav-link {
-  padding: 5px 11px;
+  padding: 5px 10px;
   border-radius: 7px;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   font-weight: 500;
   color: var(--text-secondary);
 }
 .nav-link:hover { background: var(--surface-subtle); text-decoration: none; color: var(--text); }
 .nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
 .theme-btn {
+  margin-left: 4px;
   padding: 5px 10px;
   border-radius: 7px;
   border: 1px solid var(--border);
-  background: var(--surface-subtle);
-  color: var(--text-secondary);
+  background: transparent;
+  color: var(--muted);
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.79rem;
   font-weight: 500;
 }
 .theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
 
 /* Layout */
-.wrap { max-width: 1220px; margin: 0 auto; padding: 24px 20px 68px; }
-.wrap.narrow { max-width: 960px; }
-header.page-head { margin-bottom: 20px; }
-h1 { margin: 0 0 8px; font-size: 1.62rem; line-height: 1.25; letter-spacing: -0.02em; }
-h2 { margin: 28px 0 12px; font-size: 1.2rem; line-height: 1.3; letter-spacing: -0.01em; }
-h3 { margin: 16px 0 8px; font-size: 0.98rem; line-height: 1.35; }
-.sub { color: var(--muted); font-size: 0.93rem; margin: 0; }
-.meta-bar {
+.wrap { max-width: 1120px; margin: 0 auto; padding: 22px 20px 72px; }
+.wrap.narrow { max-width: 900px; }
+h1 { margin: 0 0 6px; font-size: 1.5rem; line-height: 1.25; letter-spacing: -0.02em; }
+h2 { margin: 28px 0 10px; font-size: 1.15rem; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { margin: 16px 0 8px; font-size: 0.96rem; line-height: 1.35; }
+.sub { color: var(--muted); font-size: 0.91rem; margin: 0; }
+
+/* Compact Masthead */
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 20px;
+  margin-bottom: 16px;
+}
+.masthead-left { max-width: 720px; }
+.masthead-right {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px 16px;
-  margin-top: 12px;
-  font-size: 0.84rem;
+  gap: 10px;
+  font-size: 0.82rem;
   color: var(--muted);
 }
-
-/* Orientation Banner */
-.hero-strip {
+.kpi-line {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px 18px;
+  gap: 6px 18px;
+  padding: 10px 16px;
+  margin-bottom: 14px;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-left: 4px solid var(--accent);
   border-radius: var(--radius);
-  padding: 14px 18px;
-  margin-bottom: 18px;
-  box-shadow: var(--shadow);
-}
-.hero-strip p { margin: 0; font-size: 0.9rem; color: var(--text-secondary); max-width: 820px; }
-.hero-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 13px;
-  border-radius: 7px;
-  background: var(--accent);
-  color: #ffffff;
   font-size: 0.84rem;
-  font-weight: 600;
-  white-space: nowrap;
-}
-.hero-cta:hover { text-decoration: none; filter: brightness(1.06); }
-
-/* KPI Stats */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
-  gap: 12px;
-  margin: 0 0 18px;
-}
-.stat {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 13px 16px;
+  color: var(--muted);
   box-shadow: var(--shadow);
 }
-.stat .num {
-  font-size: 1.5rem;
-  font-weight: 700;
+.kpi-item { display: inline-flex; align-items: baseline; gap: 5px; }
+.kpi-item strong {
+  color: var(--text);
+  font-size: 0.96rem;
   font-variant-numeric: tabular-nums;
-  line-height: 1.2;
 }
-.stat .lbl { font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
-.stat.accent .num { color: var(--accent); }
-.stat.rev .num { color: var(--violet); }
+.kpi-item.accent strong { color: var(--accent); }
+.kpi-item.rev strong { color: var(--violet); }
+.kpi-sep { color: var(--border-strong); user-select: none; }
 
-/* Map */
+/* Map Card */
 .map-box {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   box-shadow: var(--shadow);
 }
-#map { width: 100%; height: 400px; background: var(--surface-subtle); }
-#digest-map { width: 100%; height: 320px; background: var(--surface-subtle); }
-.map-legend {
+.map-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 16px;
-  padding: 10px 16px;
-  font-size: 0.79rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 14px;
+  padding: 9px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
   color: var(--muted);
-  border-top: 1px solid var(--border);
-  background: var(--surface-subtle);
 }
-.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+.map-box.collapsed .map-bar { border-bottom: none; }
+.map-box.collapsed #map { display: none; }
+.map-legend-inline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+#map { width: 100%; height: 320px; background: var(--surface-subtle); }
+#digest-map { width: 100%; height: 300px; background: var(--surface-subtle); }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
 
-/* Controls */
+/* Streamlined Controls */
 .controls-panel {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 14px 16px;
+  padding: 12px 14px;
   margin-bottom: 14px;
   box-shadow: var(--shadow);
 }
@@ -272,76 +255,104 @@ h3 { margin: 16px 0 8px; font-size: 0.98rem; line-height: 1.35; }
   gap: 8px;
   align-items: center;
 }
-.controls-row + .controls-row { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+.controls-row + .controls-row {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.advanced-row { display: none; }
+.advanced-row.open { display: flex; }
 input[type="search"], select.filter-select {
-  padding: 8px 12px;
+  padding: 7px 11px;
   border-radius: 7px;
   border: 1px solid var(--border);
   background: var(--bg);
   color: var(--text);
-  font-size: 0.88rem;
+  font-size: 0.87rem;
 }
 input[type="search"]:focus, select.filter-select:focus {
   outline: 2px solid var(--accent-soft);
   border-color: var(--accent);
 }
-input[type="search"] { flex: 1 1 250px; }
-select.filter-select { min-width: 165px; }
+input[type="search"] { flex: 1 1 240px; }
+select.filter-select { min-width: 155px; }
 button.pill {
-  padding: 6px 12px;
+  padding: 5px 11px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: var(--surface-subtle);
+  background: transparent;
   color: var(--text-secondary);
   cursor: pointer;
-  font-size: 0.81rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  transition: background 0.12s, border-color 0.12s;
 }
-button.pill:hover { border-color: var(--border-strong); color: var(--text); }
+button.pill:hover { background: var(--surface-subtle); color: var(--text); }
 button.pill.active { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 600; }
 button.pill.rev-pill.active { background: var(--violet); border-color: var(--violet); }
-button.reset-btn {
-  margin-left: auto;
-  padding: 5px 10px;
+.ctrl-right { margin-left: auto; display: flex; align-items: center; gap: 6px; }
+button.ghost-btn {
+  padding: 5px 9px;
   border-radius: 7px;
   border: 1px solid var(--border);
   background: transparent;
   color: var(--muted);
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.79rem;
+  font-weight: 500;
 }
-button.reset-btn:hover { color: var(--text); border-color: var(--border-strong); }
+button.ghost-btn:hover { color: var(--text); border-color: var(--border-strong); background: var(--surface-subtle); }
 
-/* Cards & Badges */
-.cards { display: flex; flex-direction: column; gap: 11px; }
+/* Calm Two-Tier Cards */
+.list-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+.cards { display: flex; flex-direction: column; gap: 10px; }
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 16px 18px;
+  padding: 15px 18px;
   box-shadow: var(--shadow);
+  transition: border-color 0.12s;
 }
-.card.ek1 { border-left: 4px solid var(--accent); }
-.card.has-rev { border-left: 4px solid var(--violet); }
-.card.ek1.has-rev { border-left: 4px solid var(--violet); }
-.row-top {
+.card:hover { border-color: var(--border-strong); }
+.card.urgent-edge { border-left: 3px solid var(--red); }
+.card.ek1 { border-left: 3px solid var(--accent); }
+.card.has-rev { border-left: 3px solid var(--violet); }
+.card.urgent-edge.has-rev { border-left: 3px solid var(--red); }
+
+/* Tier 1: Quiet Metadata Context Row (zero boxes!) */
+.card-ctx {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 8px 14px;
-  align-items: flex-start;
+  align-items: baseline;
+  gap: 4px 12px;
+  font-size: 0.79rem;
+  color: var(--muted);
+  margin-bottom: 5px;
 }
-.title { font-weight: 650; font-size: 1rem; line-height: 1.38; color: var(--text); flex: 1 1 320px; }
+.ctx-left { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.ctx-loc { color: var(--text-secondary); font-weight: 600; }
+.ctx-ek1 { color: var(--accent); font-weight: 600; }
+.ctx-geo { color: var(--green); font-weight: 500; }
+.ctx-sep { color: var(--border-strong); }
+.ctx-right { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.title { font-weight: 650; font-size: 1.01rem; line-height: 1.38; color: var(--text); margin: 0; }
 .title a { color: var(--text); }
 .title a:hover { color: var(--accent); text-decoration: none; }
-.date-meta {
-  font-size: 0.8rem;
-  color: var(--muted);
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums;
-}
-.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.owner-line { font-size: 0.82rem; color: var(--muted); margin: 3px 0 0; }
+
+/* Tier 2: Signal Pills (Status, Clock, Findings, Revision ONLY) */
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
 .badge {
   display: inline-flex;
   align-items: center;
@@ -360,30 +371,40 @@ button.reset-btn:hover { color: var(--text); border-color: var(--border-strong);
 .badge.info { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
 .badge.rev { background: var(--violet-soft); border-color: var(--violet-border); color: var(--violet); font-weight: 600; }
 .badge.muted { color: var(--muted); }
-.detail { font-size: 0.88rem; color: var(--text-secondary); margin: 9px 0 0; }
-.detail.muted { color: var(--muted); }
 
-/* Revision inline strip on cards */
-.rev-strip {
-  margin-top: 10px;
-  padding: 8px 11px;
-  border-radius: 7px;
+/* Calm 2-line Clamped Summary */
+.summary-clamp {
+  margin: 9px 0 0;
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+  line-height: 1.52;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.summary-clamp.muted { color: var(--muted); }
+
+.rev-inline {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
   background: var(--violet-soft);
   border: 1px solid var(--violet-border);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
 }
-.rev-strip strong { color: var(--violet); }
+.rev-inline strong { color: var(--violet); }
 
-/* Action Buttons */
+/* Quiet Action Row */
 .actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px 12px;
-  font-size: 0.83rem;
-  margin-top: 11px;
-  padding-top: 10px;
+  gap: 10px 14px;
+  font-size: 0.82rem;
+  margin-top: 10px;
+  padding-top: 9px;
   border-top: 1px solid var(--border);
 }
 .btn-primary {
@@ -395,7 +416,7 @@ button.reset-btn:hover { color: var(--text); border-color: var(--border-strong);
   background: var(--accent);
   color: #ffffff;
   font-weight: 600;
-  font-size: 0.82rem;
+  font-size: 0.81rem;
 }
 .btn-primary:hover { text-decoration: none; filter: brightness(1.06); }
 .btn-secondary {
@@ -408,17 +429,46 @@ button.reset-btn:hover { color: var(--text); border-color: var(--border-strong);
   background: var(--surface-subtle);
   color: var(--text-secondary);
   font-weight: 500;
-  font-size: 0.82rem;
+  font-size: 0.81rem;
   cursor: pointer;
 }
 .btn-secondary:hover { text-decoration: none; border-color: var(--border-strong); color: var(--text); }
+.quiet-link { color: var(--muted); font-weight: 500; }
+.quiet-link:hover { color: var(--accent); }
 
-/* Tables, Code, Callouts, Timeline */
+/* Pagination Bar */
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.pager button {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pager button:hover { border-color: var(--accent); color: var(--accent); }
+.pager .pager-all {
+  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Digest & Guide Tables, Accordions, Callouts */
 table.kv {
   width: 100%;
   border-collapse: collapse;
   margin: 12px 0;
-  font-size: 0.89rem;
+  font-size: 0.88rem;
   background: var(--surface);
   border-radius: var(--radius);
   overflow: hidden;
@@ -431,12 +481,12 @@ table.kv th, table.kv td {
   vertical-align: top;
 }
 table.kv tr:last-child th, table.kv tr:last-child td { border-bottom: none; }
-table.kv th { width: 250px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
+table.kv th { width: 240px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
 table.data-tbl {
   width: 100%;
   border-collapse: collapse;
   margin: 10px 0;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -448,7 +498,7 @@ table.data-tbl th, table.data-tbl td {
   text-align: left;
   vertical-align: top;
 }
-table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.03em; }
 table.data-tbl tr:last-child td { border-bottom: none; }
 code {
   background: var(--surface-subtle);
@@ -462,9 +512,9 @@ blockquote {
   margin: 10px 0;
   padding: 12px 16px;
   border-left: 3px solid var(--accent);
-  background: var(--surface);
+  background: var(--surface-subtle);
   border-radius: 0 8px 8px 0;
-  font-size: 0.9rem;
+  font-size: 0.89rem;
   color: var(--text-secondary);
 }
 .callout {
@@ -474,26 +524,43 @@ blockquote {
   background: var(--surface);
   margin: 14px 0;
 }
-.callout.rev {
-  background: var(--violet-soft);
-  border-color: var(--violet-border);
+.callout.rev { background: var(--violet-soft); border-color: var(--violet-border); }
+details.accordion {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 10px 0;
+  overflow: hidden;
 }
-.callout.warn {
-  background: var(--amber-soft);
-  border-color: var(--amber-border);
+details.accordion summary {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
 }
+details.accordion summary::-webkit-details-marker { display: none; }
+details.accordion summary::after {
+  content: "+";
+  font-size: 1.1rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+details.accordion[open] summary::after { content: "−"; }
+details.accordion[open] summary { border-bottom: 1px solid var(--border); background: var(--surface-subtle); }
+.accordion-body { padding: 14px 16px; }
 .timeline {
   list-style: none;
   margin: 10px 0 0;
   padding: 0 0 0 18px;
   border-left: 2px solid var(--border-strong);
 }
-.timeline li {
-  position: relative;
-  margin: 0 0 10px;
-  padding-left: 8px;
-  font-size: 0.87rem;
-}
+.timeline li { position: relative; margin: 0 0 9px; padding-left: 8px; font-size: 0.86rem; }
 .timeline li::before {
   content: "";
   position: absolute;
@@ -505,15 +572,15 @@ blockquote {
   background: var(--accent);
   border: 2px solid var(--surface);
 }
-.hit { margin: 8px 0; font-size: 0.88rem; line-height: 1.55; }
+.hit { margin: 8px 0; font-size: 0.87rem; line-height: 1.55; }
 .pno { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
 .notice {
   margin-top: 32px;
-  padding: 14px 16px;
+  padding: 13px 16px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface-subtle);
-  font-size: 0.83rem;
+  font-size: 0.82rem;
   color: var(--muted);
 }
 .toc-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 20px; }
@@ -559,17 +626,18 @@ pre.template-box {
   justify-content: space-between;
   gap: 10px;
 }
-.leaflet-popup-content { color: #161b22; font-size: 0.85rem; line-height: 1.45; }
+.leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
 @media (max-width: 700px) {
-  table.kv th { width: 145px; }
-  #map { height: 320px; }
-  .topbar-inner { padding: 10px 14px; }
-  .wrap { padding: 18px 14px 54px; }
+  table.kv th { width: 140px; }
+  #map { height: 270px; }
+  .topbar-inner { padding: 9px 14px; }
+  .wrap { padding: 16px 14px 54px; }
 }
 @media print {
   .topbar, .no-print, #digest-map, .map-box { display: none !important; }
   body { background: #ffffff; color: #000000; font-size: 11pt; }
-  .card, table.kv, table.data-tbl { box-shadow: none; break-inside: avoid; }
+  .card, table.kv, table.data-tbl, details.accordion { box-shadow: none; break-inside: avoid; }
+  details.accordion { border: 1px solid #ccc; }
   a { color: #000000; text-decoration: underline; }
 }
 </style>
@@ -578,72 +646,69 @@ pre.template-box {
 <nav class="topbar">
   <div class="topbar-inner">
     <a class="brand" href="../index.html">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
       <span>Türkiye e-ÇED İzleme</span>
       <span class="brand-scope">81 İl</span>
     </a>
     <div class="nav-links">
-      <a class="nav-link " href="../index.html">Duyurular ve Harita</a>
+      <a class="nav-link " href="../index.html">Duyurular</a>
       <a class="nav-link " href="../rehber.html">Kullanım Rehberi</a>
-      <a class="nav-link" href="../feed.xml">RSS 2.0</a>
+      <a class="nav-link" href="../feed.xml">RSS</a>
       <a class="nav-link" href="https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml" target="_blank" rel="noopener">Resmi e-ÇED ↗</a>
       <button id="theme-toggle" class="theme-btn" type="button">Tema</button>
     </div>
   </div>
 </nav>
 <div class="wrap narrow">
-  <header class="page-head">
-    <div style="font-size:0.84rem;color:var(--muted);margin-bottom:8px;" class="no-print">
-      <a href="../index.html">← Duyurular listesine dön</a> · Dosya <code>#61193</code>
+  <header style="margin-bottom:16px;">
+    <div class="card-ctx no-print" style="margin-bottom:8px;">
+      <span><a href="../index.html">← Duyurulara dön</a> · <strong>MANİSA / YUNUSEMRE</strong> · Ek-2 · Atık</span>
+      <span><code>#61193</code> · 02.11.2026</span>
     </div>
     <h1>Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün)</h1>
-    <p class="sub">MANİSA / YUNUSEMRE · MAXİON İNCİ JANT SANAYİ ANONİM ŞİRKETİ ALÜMİNYUM JANT İŞLETMESİ ŞUBESİ</p>
-    <div class="badges" style="margin-top:11px;">
+    <p class="sub">MAXİON İNCİ JANT SANAYİ ANONİM ŞİRKETİ ALÜMİNYUM JANT İŞLETMESİ ŞUBESİ</p>
+    <div class="badges" style="margin-top:10px;">
       <span class="badge">ÇED Gerekli Değil/ÇED Olumlu</span>
-      <span class="badge info">Ek-2</span>
-      <span class="badge warn">İYUK 20/A (30g) · 10 gün kaldı (2026-12-02)</span>
+      <span class="badge warn">İYUK 20/A · 10 gün kaldı (2026-12-02)</span>
+      
       
     </div>
     <div class="actions no-print" style="border-top:none;padding-top:4px;">
       <a class="btn-primary" href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign2428537268534369520.pdf&amp;orjinalAd=e-imza.pdf&amp;yuklemeTarihi=2026-10-16" target="_blank" rel="noopener">Resmi PDF Dosyası ↗</a>
       <a class="btn-secondary" href="http://eced.csb.gov.tr/jsp/ek1/61193" target="_blank" rel="noopener">e-ÇED Portal Kaydı ↗</a>
-      <a class="btn-secondary" href="61193.md">Ham Markdown (.md)</a>
-      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF Kaydet</button>
+      <a class="btn-secondary" href="61193.md">Markdown (.md)</a>
+      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF</button>
     </div>
   </header>
 
   <table class="kv">
-    <tr><th>Proje Sahibi</th><td>MAXİON İNCİ JANT SANAYİ ANONİM ŞİRKETİ ALÜMİNYUM JANT İŞLETMESİ ŞUBESİ</td></tr>
     <tr><th>Hazırlayan Kuruluş</th><td>CANÇED ÇEVRE DANIŞMANLIK VE MÜHENDİSLİK SAN. TİC. LTD. ŞTİ.</td></tr>
     <tr><th>Sektör / Alt Sektör</th><td>Atık / Atık Bertaraf /Geri Kazanım/ Depolama Tesisi Projeleri</td></tr>
-    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>02.11.2026</code> · Belge yükleme: <code>29/09/2026 01:19:52</code></td></tr>
-    <tr><th>PDF Kapsamı ve Bütünlük</th><td>44.46 MB · 258 sayfa (212 metin / 46 taranmış) · SHA-256 <code>2a2d260713b44b55…</code></td></tr>
-    <tr><th>Harita Bağlantıları</th><td><a href="https://www.openstreetmap.org/?mlat=38.6191&amp;mlon=27.4289#map=8/38.6191/27.4289" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=38.6191,27.4289" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
+    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>02.11.2026</code> · Yükleme: <code>29/09/2026 01:19:52</code></td></tr>
+    <tr><th>PDF Kapsamı</th><td>44.46 MB · 258 sayfa (212 metin / 46 taranmış) · <a href="https://www.openstreetmap.org/?mlat=38.6191&amp;mlon=27.4289#map=8/38.6191/27.4289" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=38.6191,27.4289" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
   </table>
 
-  <h2>Belge Bütünlüğü, Revizyon ve Süreç Geçmişi</h2>
-<p class="sub">Her PDF dosyasının SHA-256 özeti, yükleme tarihi ve teknik göstergeleri arşivlenir. Bakanlık portalında rapor değiştirildiğinde veya 2009/7 Genelgesi kapsamında yeniden yüklendiğinde sürümler arası fark (v1 → v2) otomatik olarak kaydedilir.</p>
-<table class="data-tbl"><thead><tr><th>Sürüm</th><th>Arşiv Tarihi</th><th>Aşama</th><th>Yükleme Tarihi</th><th>Sayfa</th><th>SHA-256</th></tr></thead><tbody><tr><td><code>v1</code></td><td><code>2026-11-20T00:44:21</code></td><td>ÇED Gerekli Değil/ÇED Olumlu</td><td><code>2026-10-16</code></td><td>258</td><td><code>2a2d260713b44b55…</code></td></tr></tbody></table>
-
-  <h2>Konum Haritası</h2>
-  <div class="map-box">
-    <div id="digest-map"></div>
-    <div class="map-legend"><span>PDF dosyasında metin olarak okunabilir koordinat tablosu tespit edilemediği için il merkezi yaklaşık konum olarak gösterilmektedir.</span></div>
-  </div>
+  <div class="card" style="padding:11px 15px;margin:14px 0;font-size:0.84rem;color:var(--text-secondary);"><span class="badge ok">v1 Arşivlendi</span> &nbsp;SHA-256: <code>2a2d260713b44b55…</code> · Yükleme: <code>2026-10-16</code> · <span style="color:var(--muted);">Rapor değiştirilirse sürümler arası fark (v1→v2) otomatik kaydedilir.</span></div>
 
   
-  <h2>Yapay Zeka Destekli Bilimsel Ön Değerlendirme <span class="badge">gemini-4-hydrogen</span></h2>
-  <p class="sub">Bu değerlendirme, resmi PDF dosyasından seçilen 21 sayfa (s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14, s.15, s.42, s.47, s.48, s.50, s.51, s.52) esas alınarak hazırlanmıştır. Tüm sayısal verilerin ve tespitlerin resmi PDF belgesindeki ilgili <code>[s. N]</code> sayfalarından doğrulanması gerekir.</p>
+  <h2>Bilimsel Ön Değerlendirme <span class="badge">gemini-4-hydrogen</span></h2>
+  <p class="sub">Resmi PDF'ten seçilen 21 sayfa (s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14, s.15, s.42, s.47, s.48, s.50, s.51, s.52) üzerinden üretilmiştir; her bulguyu <code>[s. N]</code> kaynağından doğrulayınız.</p>
   <section class="card ek1" style="margin-top:10px;">
     <p style="margin-top:0;"><strong>Özet:</strong> Maxion İnci Jant Sanayi A.Ş. Alüminyum Jant İşletmesi Şubesi tarafından Manisa İli, Yunusemre İlçesi, Organize Sanayi Bölgesi III. Kısım (Kayapınar Mahallesi, 3311 Ada, 18 parsel) sınırları içinde mevcut 72.058,03 m² parsel ve 52.000 m² kapalı alanda toplam 87,555 ton/gün kapasiteli Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi planlanmaktadır. Proje bedeli 65.595.465 TL olarak beyan edilmiş olup ilave inşaat yapılmadan mevcut bina içinde hurda alüminyum jant kırma ünitesi kurulması, mevcut ergitme makinesinde talaş geri kazanımı ve tehlikeli özellikteki talaşların solventsiz santrifüj işlemiyle yağ oranının %1&#x27;in altına düşürülerek ön işleme tabi tutulması öngörülmektedir. Tesisin mevcut jant üretim kapasitesini değiştirmeyeceği, 955 mevcut personele ek 3 kişi istihdam edileceği ve yılın 300 günü 3 vardiya (24 saat/gün) çalışılacağı belirtilmektedir. Başlıca çevresel konular; tehlikeli ve tehlikesiz metal atıkların yüksek sıcaklıktaki (760-1.000 °C) fırınlarda ergitilmesi ve Sb/Na tabletlerle temizlenmesi sırasındaki hava emisyonları, yağdan arındırma eşiğinin (%1) denetimi ile geçmişten bu yana parça parça verilen ÇED kararlarının kümülatif etkisidir.</p>
-    <details style="margin-top:10px;font-size:0.86rem;color:var(--muted);"><summary style="cursor:pointer;">İngilizce özet (English summary)</summary><p style="margin:6px 0 0;">Maxion İnci Jant Sanayi A.Ş. Aluminum Wheel Plant Branch proposes adding a Non-Hazardous Waste Recovery and Hazardous Waste Pre-Treatment Process with a total capacity of 87.555 tons/day within its existing 72,058.03 m² parcel (52,000 m² enclosed area) in Manisa Organized Industrial Zone Part III (Yunusemre, Kayapınar Mah., Block 3311, Parcel 18). With a declared investment cost of 65,595,465 TL and no new building construction, the project includes installing a scrap aluminum wheel crushing unit, recovering swarf in an existing melting furnace, and physically de-oiling hazardous swarf via centrifugation without solvents until oil content drops below 1%. The additions will not alter existing wheel manufacturing capacity, will add 3 workers to the current 955-person workforce, and will operate 300 days/year across three shifts (24 hours/day). Key environmental considerations involve air emissions from high-temperature (760-1,000 °C) melting and Sb/Na refining of scrap and de-oiled swarf, verification of the &lt;1% residual oil threshold, and the cumulative implications of numerous fragmented EIA decisions issued for the site since 2001.</p></details>
+    <details style="margin-top:10px;font-size:0.85rem;color:var(--muted);"><summary style="cursor:pointer;">English summary</summary><p style="margin:6px 0 0;">Maxion İnci Jant Sanayi A.Ş. Aluminum Wheel Plant Branch proposes adding a Non-Hazardous Waste Recovery and Hazardous Waste Pre-Treatment Process with a total capacity of 87.555 tons/day within its existing 72,058.03 m² parcel (52,000 m² enclosed area) in Manisa Organized Industrial Zone Part III (Yunusemre, Kayapınar Mah., Block 3311, Parcel 18). With a declared investment cost of 65,595,465 TL and no new building construction, the project includes installing a scrap aluminum wheel crushing unit, recovering swarf in an existing melting furnace, and physically de-oiling hazardous swarf via centrifugation without solvents until oil content drops below 1%. The additions will not alter existing wheel manufacturing capacity, will add 3 workers to the current 955-person workforce, and will operate 300 days/year across three shifts (24 hours/day). Key environmental considerations involve air emissions from high-temperature (760-1,000 °C) melting and Sb/Na refining of scrap and de-oiled swarf, verification of the &lt;1% residual oil threshold, and the cumulative implications of numerous fragmented EIA decisions issued for the site since 2001.</p></details>
     <div class="badges" style="margin-top:10px;">
-      <span class="badge">Saha çalışması: Yalnızca literatür taramasına dayalı</span>
-      <span class="badge">Mevsimsel örnekleme: İncelenen sayfalarda tespit edilemedi</span>
-      <span class="badge">Kümülatif etki: Eksik veya tespit edilemedi</span>
+      <span class="badge">Saha: Yalnızca literatür taramasına dayalı</span>
+      <span class="badge">Mevsimsellik: İncelenen sayfalarda tespit edilemedi</span>
+      <span class="badge">Kümülatif: Eksik veya tespit edilemedi</span>
     </div>
-    <p class="detail" style="margin-top:10px;"><strong>Zeytinlik ve Korunan Alanlar:</strong> İncelenen sayfalarda, proje alanının 1/100.000 ölçekli Çevre Düzeni Planında Organize Sanayi Bölgesi içinde yer aldığı [s. 8, 42, 50] ve ÇED Yönetmeliği EK-5 Duyarlı Yöreler listesi kapsamında 3573 sayılı Zeytincilik Kanunu kapsamındaki alanlar ile milli parklar, tabiat parkları, sit/koruma alanları, ÖÇK bölgeleri, orman alanları, mera alanları ve sulak alanların bulunmadığı beyan edilmektedir [s. 47, 48, 50].<br/>Yeterlik Belgesi Tebliği kapsamında 18.09.2026 tarihinde genel bir saha incelemesi yapıldığı belirtilmekle birlikte [s. 8], flora ve fauna bölümü Davis&#x27;in eseri, yayımlanmış literatür, TÜBİVES veri servisi ve bölgedeki diğer projelerin verileri esas alınarak hazırlanmıştır [s. 52]. Tablolar dizininde flora ve fauna listelerinin &#x27;Bulunma Olasılığı Yüksek Olan&#x27; türler olarak adlandırıldığı görülmekte olup [s. 4], sunulan sayfalarda proje öncesi tamamlanmış mevsimsel arazi örneklemesine rastlanmamıştır [s. 50-52]. İçindekiler dizininde Bölüm IV (Kümülatif Etki Değerlendirme) yalnızca 1 sayfa (sayfa 74) olarak görünmekte olup [s. 3], bu sayfa sunulan kesitler arasında yer almadığından değerlendirilememiştir.</p>
+    <p class="sub" style="margin-top:10px;color:var(--text-secondary);"><strong>Zeytinlik ve Korunan Alanlar:</strong> İncelenen sayfalarda, proje alanının 1/100.000 ölçekli Çevre Düzeni Planında Organize Sanayi Bölgesi içinde yer aldığı [s. 8, 42, 50] ve ÇED Yönetmeliği EK-5 Duyarlı Yöreler listesi kapsamında 3573 sayılı Zeytincilik Kanunu kapsamındaki alanlar ile milli parklar, tabiat parkları, sit/koruma alanları, ÖÇK bölgeleri, orman alanları, mera alanları ve sulak alanların bulunmadığı beyan edilmektedir [s. 47, 48, 50].<br/>Yeterlik Belgesi Tebliği kapsamında 18.09.2026 tarihinde genel bir saha incelemesi yapıldığı belirtilmekle birlikte [s. 8], flora ve fauna bölümü Davis&#x27;in eseri, yayımlanmış literatür, TÜBİVES veri servisi ve bölgedeki diğer projelerin verileri esas alınarak hazırlanmıştır [s. 52]. Tablolar dizininde flora ve fauna listelerinin &#x27;Bulunma Olasılığı Yüksek Olan&#x27; türler olarak adlandırıldığı görülmekte olup [s. 4], sunulan sayfalarda proje öncesi tamamlanmış mevsimsel arazi örneklemesine rastlanmamıştır [s. 50-52]. İçindekiler dizininde Bölüm IV (Kümülatif Etki Değerlendirme) yalnızca 1 sayfa (sayfa 74) olarak görünmekte olup [s. 3], bu sayfa sunulan kesitler arasında yer almadığından değerlendirilememiştir.</p>
   </section>
+  <h3>Danıştay Ölçütlerine Göre Bilimsel ve Hukuki Bulgular</h3><section class="card"><div class="hit"><span class="badge urgent">YÜKSEK</span> <strong>Parçalı ÇED Geçmişi ve Kümülatif Değerlendirme Eksikliği Riski</strong> <span class="pno">[s. 3, s. 5, s. 6, s. 7]</span> — Tesis için 2001&#x27;den 2026&#x27;ya kadar çok sayıda ayrı &#x27;ÇED Gerekli Değildir&#x27; kararı ve &#x27;ÇED Görüşü&#x27; alınmış (2015&#x27;te 52.320 ton/yıldan 248.188 ton/yıla ergitme kapasite artışı, 2017 fırın ilaveleri, 2024&#x27;te 1.786,5 ton/yıl hurda alüminyum jant kararı, parsel tevhidi) ve 2024 tarihli hurda jant kırma ünitesi henüz faaliyete geçmeden yeni atık geri kazanım/ön işlem prosesleri eklenmiştir [s. 5, 6, 7]. Buna karşın İçindekiler dizininde Kümülatif Etki Değerlendirme (Bölüm IV) yalnızca 1 sayfa (s. 74) olarak yer almaktadır [s. 3].</div>
+<div class="hit"><span class="badge urgent">YÜKSEK</span> <strong>Ergitme Emisyon Kontrolü ve Kalıntı Yağ/Ağır Metal Riski</strong> <span class="pno">[s. 7, s. 14, s. 15]</span> — Ergitme fırınlarında 760-1.000 °C sıcaklıkta çalışıldığı [s. 14], yağ oranı %1&#x27;in altına düşürülen tehlikeli talaşların ergitileceği [s. 7] ve potada Sb veya Na içeren tabletler ile TiBor çubuklarının kullanıldığı belirtilmektedir [s. 15]. Ancak proses tanımında fırın emisyon çıkışı öncesinde yalnızca &#x27;toz tutucu siklon&#x27; bulunduğu ifade edilmekte [s. 15], ince partikül, ağır metal veya kalıntı yağ yanma ürünlerine (VOC vb.) yönelik torbalı filtre veya yıkayıcı sistemlerden söz edilmemektedir.</div>
+<div class="hit"><span class="badge warn">ORTA</span> <strong>Biyoçeşitlilik Temel Durumunun Yalnızca Literatüre Dayanması</strong> <span class="pno">[s. 4, s. 52]</span> — Flora ve fauna değerlendirmesi arazi içi sistematik biyolojik örneklemelere değil, literatür taramasına, TÜBİVES kayıtlarına ve bölgedeki diğer projelerin verilerine dayandırılmıştır [s. 52]. Tablolar dizininde tür listeleri &#x27;Bulunma Olasılığı Yüksek Olan&#x27; başlığıyla verilmiştir [s. 4].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <strong>Tehlikeli Talaşta %1 Yağ Sınırının Doğrulama Protokolü Belirsizliği</strong> <span class="pno">[s. 7, s. 13, s. 14]</span> — Tehlikeli özellikteki metal talaşların santrifüj ile yağdan arındırılıp yağ oranının %1&#x27;in altına düşmesi kaydıyla ergitme prosesine alınacağı belirtilmektedir [s. 7]. Ancak sunulan proses kesitlerinde her parti için %1 sınırının nasıl ölçülüp doğrulanacağına ve eşik üstü partilerin yönetimine ilişkin teknik detay yer almamaktadır [s. 7, 13, 14].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <strong>Hassas Alan ve Yerleşim Yeri Mesafe Verilerinin Metinde Eksikliği</strong> <span class="pno">[s. 9, s. 48, s. 50]</span> — EK-5 Duyarlı Yöreler kapsamındaki zeytinlik (3573 sayılı Kanun), orman ve sulak alanlar için yalnızca &#x27;bulunmamaktadır&#x27; ifadesi kullanılmış [s. 48, 50], en yakın yerleşim yeri uydu görüntüsüyle gösterilmiş ancak [s. 9] sunulan metin sayfalarında en yakın konuta ve hassas alıcı ortamlara olan sayısal mesafeler ile hakim rüzgar yönü belirtilmemiştir.</div>
+<div class="hit"><span class="badge muted">DÜŞÜK</span> <strong>Yer ve Teknoloji Alternatiflerinin Değerlendirilmemesi</strong> <span class="pno">[s. 9, s. 10]</span> — Projenin halihazırda kurulu binada ve OSB içinde olması ve inşaat aşaması bulunmaması gerekçe gösterilerek faaliyet alanı veya teknoloji için hiçbir alternatif değerlendirilmediği açıkça ifade edilmiştir [s. 9, 10].</div></section>
   <h3>Öne Çıkan Sayısal Bulgular</h3><table class="kv"><tr><th>Planlanan Proje Kapasitesi</th><td>87,555 ton/gün (Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem) <span class="pno">[s. 2]</span></td></tr>
 <tr><th>Proje Bedeli</th><td>65.595.465 TL <span class="pno">[s. 2]</span></td></tr>
 <tr><th>Parsel ve Kapalı Alan Büyüklüğü</th><td>72.058,03 m² parsel içinde 52.000 m² kapalı alan (ilave inşaat yok) <span class="pno">[s. 7]</span></td></tr>
@@ -654,14 +719,10 @@ pre.template-box {
 <tr><th>Baca Gazı ve Metal Temizleme Sistemi</th><td>Toz tutucu siklon (SKHKKY Ek-5 (G) 7. Grup); Sb veya Na içeren 25-50 gr tablet, azot gazı ve TiBor çubuk <span class="pno">[s. 15]</span></td></tr>
 <tr><th>ÇED Yönetmeliği Kapsamı</th><td>Ek-2 Madde 5-b(1), Madde 5-b(2) ve Madde 5-e <span class="pno">[s. 2]</span></td></tr>
 <tr><th>Saha İnceleme Tarihi</th><td>18.09.2026 (Yeterlik Belgesi Tebliği uyarınca yer incelemesi) <span class="pno">[s. 8]</span></td></tr></table>
-  <h3>Danıştay Ölçütlerine Göre Bilimsel ve Hukuki Bulgular</h3><section class="card"><div class="hit"><span class="badge urgent">YÜKSEK</span> <strong>Parçalı ÇED Geçmişi ve Kümülatif Değerlendirme Eksikliği Riski</strong> <span class="pno">[s. 3, s. 5, s. 6, s. 7]</span> — Tesis için 2001&#x27;den 2026&#x27;ya kadar çok sayıda ayrı &#x27;ÇED Gerekli Değildir&#x27; kararı ve &#x27;ÇED Görüşü&#x27; alınmış (2015&#x27;te 52.320 ton/yıldan 248.188 ton/yıla ergitme kapasite artışı, 2017 fırın ilaveleri, 2024&#x27;te 1.786,5 ton/yıl hurda alüminyum jant kararı, parsel tevhidi) ve 2024 tarihli hurda jant kırma ünitesi henüz faaliyete geçmeden yeni atık geri kazanım/ön işlem prosesleri eklenmiştir [s. 5, 6, 7]. Buna karşın İçindekiler dizininde Kümülatif Etki Değerlendirme (Bölüm IV) yalnızca 1 sayfa (s. 74) olarak yer almaktadır [s. 3].</div>
-<div class="hit"><span class="badge urgent">YÜKSEK</span> <strong>Ergitme Emisyon Kontrolü ve Kalıntı Yağ/Ağır Metal Riski</strong> <span class="pno">[s. 7, s. 14, s. 15]</span> — Ergitme fırınlarında 760-1.000 °C sıcaklıkta çalışıldığı [s. 14], yağ oranı %1&#x27;in altına düşürülen tehlikeli talaşların ergitileceği [s. 7] ve potada Sb veya Na içeren tabletler ile TiBor çubuklarının kullanıldığı belirtilmektedir [s. 15]. Ancak proses tanımında fırın emisyon çıkışı öncesinde yalnızca &#x27;toz tutucu siklon&#x27; bulunduğu ifade edilmekte [s. 15], ince partikül, ağır metal veya kalıntı yağ yanma ürünlerine (VOC vb.) yönelik torbalı filtre veya yıkayıcı sistemlerden söz edilmemektedir.</div>
-<div class="hit"><span class="badge warn">ORTA</span> <strong>Biyoçeşitlilik Temel Durumunun Yalnızca Literatüre Dayanması</strong> <span class="pno">[s. 4, s. 52]</span> — Flora ve fauna değerlendirmesi arazi içi sistematik biyolojik örneklemelere değil, literatür taramasına, TÜBİVES kayıtlarına ve bölgedeki diğer projelerin verilerine dayandırılmıştır [s. 52]. Tablolar dizininde tür listeleri &#x27;Bulunma Olasılığı Yüksek Olan&#x27; başlığıyla verilmiştir [s. 4].</div>
-<div class="hit"><span class="badge warn">ORTA</span> <strong>Tehlikeli Talaşta %1 Yağ Sınırının Doğrulama Protokolü Belirsizliği</strong> <span class="pno">[s. 7, s. 13, s. 14]</span> — Tehlikeli özellikteki metal talaşların santrifüj ile yağdan arındırılıp yağ oranının %1&#x27;in altına düşmesi kaydıyla ergitme prosesine alınacağı belirtilmektedir [s. 7]. Ancak sunulan proses kesitlerinde her parti için %1 sınırının nasıl ölçülüp doğrulanacağına ve eşik üstü partilerin yönetimine ilişkin teknik detay yer almamaktadır [s. 7, 13, 14].</div>
-<div class="hit"><span class="badge warn">ORTA</span> <strong>Hassas Alan ve Yerleşim Yeri Mesafe Verilerinin Metinde Eksikliği</strong> <span class="pno">[s. 9, s. 48, s. 50]</span> — EK-5 Duyarlı Yöreler kapsamındaki zeytinlik (3573 sayılı Kanun), orman ve sulak alanlar için yalnızca &#x27;bulunmamaktadır&#x27; ifadesi kullanılmış [s. 48, 50], en yakın yerleşim yeri uydu görüntüsüyle gösterilmiş ancak [s. 9] sunulan metin sayfalarında en yakın konuta ve hassas alıcı ortamlara olan sayısal mesafeler ile hakim rüzgar yönü belirtilmemiştir.</div>
-<div class="hit"><span class="badge muted">DÜŞÜK</span> <strong>Yer ve Teknoloji Alternatiflerinin Değerlendirilmemesi</strong> <span class="pno">[s. 9, s. 10]</span> — Projenin halihazırda kurulu binada ve OSB içinde olması ve inşaat aşaması bulunmaması gerekçe gösterilerek faaliyet alanı veya teknoloji için hiçbir alternatif değerlendirilmediği açıkça ifade edilmiştir [s. 9, 10].</div></section>
   
-  <div class="section-head-row"><h3>HKT Tutanakları ve Bilirkişi İncelemesi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card"><ul style="margin:0;padding-left:20px;"><li>Tesiste 2001 yılından bu yana alınan çok sayıda &#x27;ÇED Gerekli Değildir&#x27; kararı ve henüz faaliyete geçmemiş 2024 tarihli hurda jant kırma projesi [s. 5-7] dikkate alındığında, tüm bu ünitelerin toplam hava emisyonu ve atık yükü açısından kümülatif etkisi ÇED Yönetmeliği Ek-1 eşikleri ve bölge hava kalitesi çerçevesinde neden yalnızca 1 sayfalık bir bölümde [s. 3] ele alınmıştır? <span class="pno">[s. 3, s. 5, s. 6, s. 7]</span></li>
+  
+  
+  <div class="section-head-row" style="margin-top:16px;"><h3 style="margin:0;">HKT Tutanakları ve Bilirkişi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card" style="margin-top:8px;"><ul style="margin:0;padding-left:20px;"><li>Tesiste 2001 yılından bu yana alınan çok sayıda &#x27;ÇED Gerekli Değildir&#x27; kararı ve henüz faaliyete geçmemiş 2024 tarihli hurda jant kırma projesi [s. 5-7] dikkate alındığında, tüm bu ünitelerin toplam hava emisyonu ve atık yükü açısından kümülatif etkisi ÇED Yönetmeliği Ek-1 eşikleri ve bölge hava kalitesi çerçevesinde neden yalnızca 1 sayfalık bir bölümde [s. 3] ele alınmıştır? <span class="pno">[s. 3, s. 5, s. 6, s. 7]</span></li>
 <li>Yağ oranı %1&#x27;e kadar kalabilen santrifüj edilmiş tehlikeli talaşların [s. 7] 760-1.000 °C sıcaklıktaki kule fırınlarda ergitilmesi ve Sb/Na tabletlerle temizlenmesi sırasında oluşabilecek ince partikül, ağır metal ve organik yanma emisyonları için yalnızca &#x27;toz tutucu siklon&#x27; [s. 15] yeterli midir; torbalı filtre veya aktif karbon gibi ilave arıtma üniteleri neden proses akımında yer almamaktadır? <span class="pno">[s. 7, s. 14, s. 15]</span></li>
 <li>Tehlikeli talaşların ergitme fırınına verilmesinden önce yağ içeriğinin %1&#x27;in altına düştüğü [s. 7] hangi standart analiz yöntemiyle, hangi sıklıkta ve kim tarafından doğrulanacaktır; eşik değerin aşıldığı partiler için karantina veya geri çevirme prosedürü nedir? <span class="pno">[s. 7, s. 12, s. 14]</span></li>
 <li>EK-5 Duyarlı Yöreler listesinde 3573 sayılı Zeytincilik Kanunu kapsamındaki alanlar, sulak alanlar ve yerleşim yerleri için yalnızca &#x27;bulunmamaktadır&#x27; beyanı verilmiş [s. 48, 50] ve en yakın yerleşim yeri haritasında mesafe yazılmamıştır [s. 9]; parsel sınırından itibaren 3 km yarıçap içindeki zeytinlik, tarım alanı ve konutların kesin mesafeleri ile hakim rüzgar yönüne göre etki analizi neden sunulmamıştır? <span class="pno">[s. 9, s. 48, s. 50]</span></li></ul><textarea id="qs-plain" style="display:none;">1. Tesiste 2001 yılından bu yana alınan çok sayıda &#x27;ÇED Gerekli Değildir&#x27; kararı ve henüz faaliyete geçmemiş 2024 tarihli hurda jant kırma projesi [s. 5-7] dikkate alındığında, tüm bu ünitelerin toplam hava emisyonu ve atık yükü açısından kümülatif etkisi ÇED Yönetmeliği Ek-1 eşikleri ve bölge hava kalitesi çerçevesinde neden yalnızca 1 sayfalık bir bölümde [s. 3] ele alınmıştır? [s. 3, s. 5, s. 6, s. 7]
@@ -671,56 +732,72 @@ pre.template-box {
   <p class="sub" style="margin-top:10px;"><em>İnceleme sınırları:</em> Toplam 258 sayfalık PTD dosyasının 46 sayfası taranmış/görüntü formatında olup yalnızca 21 sayfalık seçilmiş metin kesiti ([1-15, 42, 47, 48, 50-52]) incelenebilmiştir. Kapasite tabloları (s. 22-24), su tüketimi ve atıksu bilgileri (s. 27-28, 35), baca emisyon ve ısıl güç tabloları (s. 36-37), atık yönetimi (s. 29-38, 73), çevresel etkiler ve önlemler (Bölüm III, s. 66-73), kümülatif etki bölümü (Bölüm IV, s. 74), çevre izleme planı (Bölüm V, s. 75-79) ve ek belgeler (s. 80-258) inceleme dışı kaldığından bu bölümlerdeki sayısal emisyon değerleri, arıtma detayları ve izleme taahhütleri doğrulanamamıştır.</p>
 
 
-  <h2>Resmi Duyuru Metni</h2>
-  <blockquote>MANİSA ili YUNUSEMRE,  ilcesinde MANİSA ili YUNUSEMRE,  ilcesi tapunun Kayapınar Mahallesi, 3311 Ada, 18 parseli mevkiindeki MAXİON İNCİ JANT SANAYİ ANONİM ŞİRKETİ ALÜMİNYUM JANT İŞLETMESİ ŞUBESİ tarafından yapılması planlanan Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) projesi ile ilgili olarak Bakanlığımıza sunulan PTD Dosyası incelenmiş ve değerlendirilmiştir  ÇED Yönetmeliği&#x27;nin 17. maddesi gereğince Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) projesi&#x27;ne Valiliğimizce &#x27;ÇED Olumlu (Kapsam Ek-2)&#x27; kararı verilmiştir.</blockquote>
+  <h2>Konum Haritası ve 3 km Çevre Taraması</h2>
+  <div class="map-box">
+    <div id="digest-map"></div>
+    <div class="map-bar"><span>PDF dosyasında metin olarak okunabilir koordinat tablosu tespit edilemediği için il merkezi yaklaşık konum olarak gösterilmektedir.</span></div>
+  </div>
+  
 
-  <h2>Otomatik Metin Taraması (Deterministik)</h2>
-  <table class="kv"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
-<tr><th>Literatür taraması ifadesi</th><td><span class="badge warn">Literatür ifadesi mevcut — saha çalışması ile karşılaştırınız</span></td></tr>
+  <h2>Ham Kayıt ve Derin Teknik Ekler</h2>
+  <details class="accordion">
+    <summary>Resmi Duyuru Metni (Bakanlık İlanı)</summary>
+    <div class="accordion-body"><blockquote>MANİSA ili YUNUSEMRE,  ilcesinde MANİSA ili YUNUSEMRE,  ilcesi tapunun Kayapınar Mahallesi, 3311 Ada, 18 parseli mevkiindeki MAXİON İNCİ JANT SANAYİ ANONİM ŞİRKETİ ALÜMİNYUM JANT İŞLETMESİ ŞUBESİ tarafından yapılması planlanan Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) projesi ile ilgili olarak Bakanlığımıza sunulan PTD Dosyası incelenmiş ve değerlendirilmiştir  ÇED Yönetmeliği&#x27;nin 17. maddesi gereğince Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) projesi&#x27;ne Valiliğimizce &#x27;ÇED Olumlu (Kapsam Ek-2)&#x27; kararı verilmiştir.</blockquote></div>
+  </details>
+  <details class="accordion">
+    <summary>Otomatik Metin Taraması (9 Deterministik Kontrol)</summary>
+    <div class="accordion-body">
+      <table class="kv" style="margin-top:0;"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Literatür taraması ifadesi</th><td><span class="badge warn">Literatür ifadesi mevcut</span></td></tr>
 <tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
 <tr><th>Kümülatif etki değerlendirmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
-<tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge urgent">Metinde tespit edilemedi — doğrudan PDF üzerinden kontrol ediniz</span></td></tr>
+<tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
 <tr><th>Yeraltı suyu, akifer veya hidrojeoloji ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
 <tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
-<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr>
-<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr></table>
-  <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik metin taramasına dahil edilmemiştir.</p>
-
-  <h2>Sayfa Kaynaklı Çıkarılan Bulgular</h2>
-  <div class="cards"><section class="card"><h3>Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(40 sayfa: s.2, s.5, s.6, s.7, s.8, s.10, s.15, s.17, s.27, s.29, s.30, s.42, s.45, s.74 (+26 sayfa))</span></h3><div class="hit"><span class="pno">[s. 2]</span> <code>utm</code> — …likesiz atıkların ve/veya belediye atıklarının geri kazanıldığı ve/veya biyobozunur atık işleme (mekanik ayırma, biyokurutma, biyometanizasyon, kompost) tesisleri, PROJENİN ANA NACE KODU 29.32.20- Motorlu kara taşıtları için diğer parça ve a…</div>
+<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
+<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
+<tr><th>Kurum görüşleri (DSİ, İl Tarım, OGM, MAPEG)</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Deprem, fay hattı veya jeoteknik stabilite ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr></table>
+      <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik taramaya dahil edilmemiştir.</p>
+    </div>
+  </details>
+  <details class="accordion">
+    <summary>Sayfa Kaynaklı Ham Alıntılar (7 Teknik Başlık)</summary>
+    <div class="accordion-body"><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(40 sayfa: s.2, s.5, s.6, s.7, s.8, s.10, s.15, s.17, s.27, s.29, s.30, s.42, s.45, s.74 (+26 sayfa))</span></h3><div class="hit"><span class="pno">[s. 2]</span> <code>utm</code> — …likesiz atıkların ve/veya belediye atıklarının geri kazanıldığı ve/veya biyobozunur atık işleme (mekanik ayırma, biyokurutma, biyometanizasyon, kompost) tesisleri, PROJENİN ANA NACE KODU 29.32.20- Motorlu kara taşıtları için diğer parça ve a…</div>
 <div class="hit"><span class="pno">[s. 5]</span> <code>Ada 9 parsel</code> — …7). Hayes Lemmerz İnci Jant San. A.Ş. tarafından Manisa İli Merkez İlçesi, Organize Sanayi Bölgesi III. Kısım, 3311 Ada 9 parselde “29.000 ton/yıl kapasiteli Alüminyum Jant Üretim Tesisi Kapasite Artışı Projesi” planlanmış olup 01.04.2011 tarih ve…</div>
 <div class="hit"><span class="pno">[s. 5]</span> <code>Ada 17 parsel</code> — …Değerlendirmesi Gerekli Değildir Kararı alınmıştır. Manisa İli Merkez İlçesi, Organize Sanayi Bölgesi III. Kısım, 3311 Ada 17 parselde “23.320 ton/yıl Ergitme kapasiteli Alüminyum Jant Üretim Tesisi-2” planlanmış olup 19.09.2011 tarih ve 76 Karar Nol…</div>
 <div class="hit"><span class="pno">[s. 6]</span> <code>Ada 18 parsel</code> — …ş olup proje tanıtım dosyası eklerinde sunulmuştur (Bkz. Ek-7). Manisa İli, Organize Sanayi Bölgesi III. Kısım, 3311 Ada 18 parselde doğal kaynak kullanımını azaltıp döngüsel ekonomiye katkı sağlamak ve sürdürülebilir üretimi mümkün kılmak için Hur…</div>
 <div class="hit"><span class="pno">[s. 7]</span> <code>058,03 m2</code> — …ini değiştirmeyecek olup tesis aynı kapasitede Jant İmali üretimine devam edecektir. Planlanan proje kapsamında 72.058,03 m2 alana sahip parsel içerisinde bulunan 52.000 m2 yüzölçümlü kapalı alanda faaliyetler gerçekleştirilecek olup ilave inş…</div>
-<div class="hit"><span class="pno">[s. 7]</span> <code>52.000 m2</code> — …ant İmali üretimine devam edecektir. Planlanan proje kapsamında 72.058,03 m2 alana sahip parsel içerisinde bulunan 52.000 m2 yüzölçümlü kapalı alanda faaliyetler gerçekleştirilecek olup ilave inşaat yapılması planlanmamaktadır. Tapu, proje tan…</div></section><section class="card"><h3>Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(97 sayfa: s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14 (+83 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>87,555 ton/gün</code> — …UM JANT İŞLETMESİ ŞUBESİ Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) PROJE TANITIM DOSYASI Manisa İli, Yunusemre İlçesi, Organize Sanayi Bölgesi III. Kısım Keçiliköy OSB Mahallesi Must…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>52.000 m2</code> — …ant İmali üretimine devam edecektir. Planlanan proje kapsamında 72.058,03 m2 alana sahip parsel içerisinde bulunan 52.000 m2 yüzölçümlü kapalı alanda faaliyetler gerçekleştirilecek olup ilave inşaat yapılması planlanmamaktadır. Tapu, proje tan…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(97 sayfa: s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14 (+83 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>87,555 ton/gün</code> — …UM JANT İŞLETMESİ ŞUBESİ Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) PROJE TANITIM DOSYASI Manisa İli, Yunusemre İlçesi, Organize Sanayi Bölgesi III. Kısım Keçiliköy OSB Mahallesi Must…</div>
 <div class="hit"><span class="pno">[s. 2]</span> <code>87,555 ton/gün</code> — …cevre.com.tr PROJENİN ADI Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) PROJE BEDELİ 65.595.465 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) Manisa İli, Yunusemre İlçe…</div>
 <div class="hit"><span class="pno">[s. 2]</span> <code>1 ton/gün</code> — …cam, ahşap atıkları toplama, ayırma, kesme, parçalama, öğütme, granül elde etme hariç) 5-e)(Değişik:RG-5/3/2026-33187) 1 ton/gün ve üzeri tehlikesiz atıkların ve/veya belediye atıklarının geri kazanıldığı ve/veya biyobozunur atık işleme (mekanik ay…</div>
 <div class="hit"><span class="pno">[s. 3]</span> <code>87,555 ton/gün</code> — …NYUM JANT İŞLETMESİ ŞUBESİ Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) i İÇİNDEKİLER…</div>
 <div class="hit"><span class="pno">[s. 4]</span> <code>87,555 ton/gün</code> — …NYUM JANT İŞLETMESİ ŞUBESİ Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) ii TABLOLAR D…</div>
-<div class="hit"><span class="pno">[s. 5]</span> <code>87,555 ton/gün</code> — …NYUM JANT İŞLETMESİ ŞUBESİ Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) iii PROJENİN TE…</div></section><section class="card"><h3>Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(8 sayfa: s.3, s.42, s.47, s.48, s.50, s.61, s.67, s.183)</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>orman alanı</code> — ….......................................................................... 40 a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri ...............................…</div>
+<div class="hit"><span class="pno">[s. 5]</span> <code>87,555 ton/gün</code> — …NYUM JANT İŞLETMESİ ŞUBESİ Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) iii PROJENİN TE…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(8 sayfa: s.3, s.42, s.47, s.48, s.50, s.61, s.67, s.183)</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>orman alanı</code> — ….......................................................................... 40 a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri ...............................…</div>
 <div class="hit"><span class="pno">[s. 42]</span> <code>orman alanı</code> — …40 BÖLÜM II: PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri Manisa İli, Yunusemre İlçesi…</div>
 <div class="hit"><span class="pno">[s. 47]</span> <code>özel çevre koruma</code> — …koruma alanları, Boğaziçi Kanuna göre koruma altına alınan alanlar, biyogenetik rezerv alanları, biyosfer rezervleri, özel çevre koruma bölgeleri, özel koruma alanları, turizm bölgeleri ve koruma altına alınmış diğer alanlar bulunmamaktadır. Proje al…</div>
 <div class="hit"><span class="pno">[s. 48]</span> <code>Özel Çevre Koruma</code> — …liği’nde tanımlanan alanlar, bulunmamaktadır. f) Çevre Kanunu’nun 9 uncu maddesi uyarınca Cumhurbaşkanı tarafından &quot;Özel Çevre Koruma Bölgeleri&quot; olarak tespit ve ilan edilen alanlar, bulunmamaktadır. g) Boğaziçi Kanunu’na göre koruma altına alınan al…</div>
 <div class="hit"><span class="pno">[s. 48]</span> <code>orman alanı</code> — …lunmamaktadır. g) Boğaziçi Kanunu’na göre koruma altına alınan alanlar, bulunmamaktadır. ğ) Orman Kanunu uyarınca orman alanı sayılan yerler, bulunmamaktadır. h) Kıyı Kanunu gereğince yapı yasağı getirilen alanlar, bulunmamaktadır. ı) Zeyt…</div>
-<div class="hit"><span class="pno">[s. 50]</span> <code>kıyı kenar</code> — …ı olmak üzere canlıların yaşama ortamı olarak önem taşıyan bütün sular, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler, bulunmamaktadır. ç) Göller, akarsu…</div></section><section class="card"><h3>Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(13 sayfa: s.48, s.50, s.51, s.52, s.54, s.55, s.61, s.63, s.64, s.65, s.66, s.67, s.185)</span></h3><div class="hit"><span class="pno">[s. 48]</span> <code>BERN Sözleşmesi</code> — …sözleşmeler uyarınca korunması gerekli alanlar: a) &quot;Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi&quot; (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan &quot;Önemli Deniz Kaplumbağası Üreme Alanları&quot;nda belirtilen I. ve II. Koruma B…</div>
+<div class="hit"><span class="pno">[s. 50]</span> <code>kıyı kenar</code> — …ı olmak üzere canlıların yaşama ortamı olarak önem taşıyan bütün sular, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler, bulunmamaktadır. ç) Göller, akarsu…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(13 sayfa: s.48, s.50, s.51, s.52, s.54, s.55, s.61, s.63, s.64, s.65, s.66, s.67, s.185)</span></h3><div class="hit"><span class="pno">[s. 48]</span> <code>BERN Sözleşmesi</code> — …sözleşmeler uyarınca korunması gerekli alanlar: a) &quot;Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi&quot; (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan &quot;Önemli Deniz Kaplumbağası Üreme Alanları&quot;nda belirtilen I. ve II. Koruma B…</div>
 <div class="hit"><span class="pno">[s. 50]</span> <code>endemik</code> — …adır. d) Bilimsel araştırmalar için önem arzeden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…</div>
 <div class="hit"><span class="pno">[s. 50]</span> <code>FLORA VE FAUNA</code> — …çekli İzmir – Manisa Bölgesi Çevre Düzeni Planında “Organize Sanayi Bölgesi” içerisinde kalmaktadır (Bkz. Ek.2-a). FLORA VE FAUNA İÇEREN SÖZLEŞMELER VE KATEGORİLER 1. IUCN Red List Kategorileri IUCN (The World Conservation Union: The Inte…</div>
 <div class="hit"><span class="pno">[s. 50]</span> <code>IUCN</code> — …nize Sanayi Bölgesi” içerisinde kalmaktadır (Bkz. Ek.2-a). FLORA VE FAUNA İÇEREN SÖZLEŞMELER VE KATEGORİLER 1. IUCN Red List Kategorileri IUCN (The World Conservation Union: The International Union for the Conservation of Nature…</div>
 <div class="hit"><span class="pno">[s. 51]</span> <code>IUCN</code> — …49 Şekil 18. IUCN Red List Kategorileri Kaynak: www.iucnredlist.org Tablo 9. IUCN red List Kategorileri ve Türkçe Karşılıkları Kat…</div>
-<div class="hit"><span class="pno">[s. 52]</span> <code>BERN SÖZLEŞMESİ</code> — …5 ton/gün) 50 BERN SÖZLEŞMESİ Bern Sözleşmesi, yaban hayatı ve yaşama ortamlarının korunmasına ilişkin bir sözleşmedir. Sözleşmede korunan türler…</div></section><section class="card"><h3>Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(50 sayfa: s.1, s.2, s.5, s.9, s.10, s.18, s.25, s.26, s.29, s.32, s.35, s.39, s.40, s.42 (+36 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>Tehlikeli Atık</code> — MAXİON İNCİ JANT SANAYİ ANONİM ŞİRKETİ ALÜMİNYUM JANT İŞLETMESİ ŞUBESİ Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) PROJE TANITIM DOSYASI Manisa İli, Yunusemre İlçesi, Org…</div>
+<div class="hit"><span class="pno">[s. 52]</span> <code>BERN SÖZLEŞMESİ</code> — …5 ton/gün) 50 BERN SÖZLEŞMESİ Bern Sözleşmesi, yaban hayatı ve yaşama ortamlarının korunmasına ilişkin bir sözleşmedir. Sözleşmede korunan türler…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(50 sayfa: s.1, s.2, s.5, s.9, s.10, s.18, s.25, s.26, s.29, s.32, s.35, s.39, s.40, s.42 (+36 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>Tehlikeli Atık</code> — MAXİON İNCİ JANT SANAYİ ANONİM ŞİRKETİ ALÜMİNYUM JANT İŞLETMESİ ŞUBESİ Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) PROJE TANITIM DOSYASI Manisa İli, Yunusemre İlçesi, Org…</div>
 <div class="hit"><span class="pno">[s. 2]</span> <code>Tehlikeli Atık</code> — …02362261630 Mesir V.D. - 6080032815 E-POSTA info@cancedcevre.com.tr PROJENİN ADI Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) PROJE BEDELİ 65.595.465 TL PROJE İÇİN SEÇİLEN YERİN AÇI…</div>
 <div class="hit"><span class="pno">[s. 5]</span> <code>Tehlikeli Atık</code> — …de MAXİON İNCİ JANT SANAYİ ANONİM ŞİRKETİ ALÜMİNYUM JANT İŞLETMESİ ŞUBESİ tarafından “Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün)” yapılması planlanmaktadır. Mülga Çevre Bakanlığı taraf…</div>
 <div class="hit"><span class="pno">[s. 9]</span> <code>Tehlikeli Atık</code> — …de MAXİON İNCİ JANT SANAYİ ANONİM ŞİRKETİ ALÜMİNYUM JANT İŞLETMESİ ŞUBESİ tarafından “Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün)” yapılması planlanmaktadır. Tesise en yakın yerleşim ye…</div>
 <div class="hit"><span class="pno">[s. 10]</span> <code>Tehlikeli Atık</code> — …de MAXİON İNCİ JANT SANAYİ ANONİM ŞİRKETİ ALÜMİNYUM JANT İŞLETMESİ ŞUBESİ tarafından “Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün)” yapılması planlanmaktadır. Gerçekleştirilen faaliyet s…</div>
-<div class="hit"><span class="pno">[s. 18]</span> <code>Bor</code> — …um jantların, porya delikleri, bijon saplama delikleri, lastik oturma yüzeyleri ve kampana yüzeyleri işlenmektedir. Bor yağı kullanılarak gerçekleştirilen işlemler sırasında jantın kenarları parlatılmakta, çapakları alınmakta, içi ve dışı…</div></section><section class="card"><h3>Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(101 sayfa: s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14 (+87 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>Kapasite</code> — …İ ALÜMİNYUM JANT İŞLETMESİ ŞUBESİ Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) PROJE TANITIM DOSYASI Manisa İli, Yunusemre İlçesi, Organize Sanayi Bölgesi III. Kısım Keçiliköy OS…</div>
+<div class="hit"><span class="pno">[s. 18]</span> <code>Bor</code> — …um jantların, porya delikleri, bijon saplama delikleri, lastik oturma yüzeyleri ve kampana yüzeyleri işlenmektedir. Bor yağı kullanılarak gerçekleştirilen işlemler sırasında jantın kenarları parlatılmakta, çapakları alınmakta, içi ve dışı…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(101 sayfa: s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14 (+87 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>Kapasite</code> — …İ ALÜMİNYUM JANT İŞLETMESİ ŞUBESİ Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) PROJE TANITIM DOSYASI Manisa İli, Yunusemre İlçesi, Organize Sanayi Bölgesi III. Kısım Keçiliköy OS…</div>
 <div class="hit"><span class="pno">[s. 1]</span> <code>87,555 ton/gün</code> — …UM JANT İŞLETMESİ ŞUBESİ Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) PROJE TANITIM DOSYASI Manisa İli, Yunusemre İlçesi, Organize Sanayi Bölgesi III. Kısım Keçiliköy OSB Mahallesi Must…</div>
 <div class="hit"><span class="pno">[s. 2]</span> <code>Kapasite</code> — …nfo@cancedcevre.com.tr PROJENİN ADI Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) PROJE BEDELİ 65.595.465 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) Manisa İli…</div>
 <div class="hit"><span class="pno">[s. 2]</span> <code>87,555 ton/gün</code> — …cevre.com.tr PROJENİN ADI Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) PROJE BEDELİ 65.595.465 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) Manisa İli, Yunusemre İlçe…</div>
 <div class="hit"><span class="pno">[s. 2]</span> <code>PROJE BEDELİ</code> — …JENİN ADI Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) PROJE BEDELİ 65.595.465 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) Manisa İli, Yunusemre İlçesi, tapunun Kay…</div>
-<div class="hit"><span class="pno">[s. 2]</span> <code>65.595.465 TL</code> — …likesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) PROJE BEDELİ 65.595.465 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) Manisa İli, Yunusemre İlçesi, tapunun Kayapınar Mahalles…</div></section></div>
-
-  <h2>Belge Bölüm Haritası</h2>
-  <ul><li><span class="pno">[s. 1]</span> PROJENİN TEKNİK OLMAYAN ÖZETİ:</li>
+<div class="hit"><span class="pno">[s. 2]</span> <code>65.595.465 TL</code> — …likesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite: 87,555 ton/gün) PROJE BEDELİ 65.595.465 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) Manisa İli, Yunusemre İlçesi, tapunun Kayapınar Mahalles…</div></div></div>
+  </details>
+  <details class="accordion">
+    <summary>Belge Bölüm Haritası (25 başlık)</summary>
+    <div class="accordion-body"><ul style="margin:0;padding-left:20px;"><li><span class="pno">[s. 1]</span> PROJENİN TEKNİK OLMAYAN ÖZETİ:</li>
 <li><span class="pno">[s. 1]</span> BÖLÜM I: PROJENİN ÖZELLİKLERİ</li>
 <li><span class="pno">[s. 1]</span> a) Projenin ve yerin alternatifleri (Proje teknolojisinin ve proje alanının seçilme nedenleri)</li>
 <li><span class="pno">[s. 1]</span> b) Projenin iş akım şeması, kapasitesi, kapladığı alan, yatırım bedeli, teknolojisi, çalışacak personel sayısı</li>
@@ -739,10 +816,11 @@ pre.template-box {
 <li><span class="pno">[s. 1]</span> 3.Vekaletname, İmza Sirküleri ve Türkiye Ticaret Sicili Gazetesi</li>
 <li><span class="pno">[s. 1]</span> 4. Proje Sahibince Onaylı Taahhüt Yazısı</li>
 <li><span class="pno">[s. 1]</span> 5.Başvuru Bedelinin Ödendiğine Dair Dekont</li>
-<li><span class="pno">[s. 1]</span> 6.Faaliyet Alanında Bakanlıkça Yeterlik Verilmiş Kurum/Kuruluş Tarafından Yer İncelemesi Yapıldığını Gösterir Rapor</li></ul>
+<li><span class="pno">[s. 1]</span> 6.Faaliyet Alanında Bakanlıkça Yeterlik Verilmiş Kurum/Kuruluş Tarafından Yer İncelemesi Yapıldığını Gösterir Rapor</li></ul></div>
+  </details>
 
   <div class="notice">
-    Bu sayfa, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın kamuya açık <code>eced-duyuru.csb.gov.tr</code> duyuru portalındaki kayıtlar esas alınarak bilgilendirme amacıyla hazırlanmıştır. Alıntıların tamamı 1 tabanlı PDF sayfa numarasıyla (<code>[s. N]</code>) gösterilmektedir. Yasal süreler otomatik olarak hesaplanır; kesin sürelerin ve hukuki başvuru yollarının yetkili hukukçular tarafından teyit edilmesi gerekir.
+    Bu sayfa, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın kamuya açık <code>eced-duyuru.csb.gov.tr</code> duyuru portalındaki kayıtlar esas alınarak bilgilendirme amacıyla hazırlanmıştır. Alıntıların tamamı 1 tabanlı PDF sayfa numarasıyla (<code>[s. N]</code>) gösterilmektedir. Yasal sürelerin ve hukuki başvuru yollarının yetkili hukukçular tarafından teyit edilmesi gerekir.
   </div>
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -752,25 +830,36 @@ pre.template-box {
   const root = document.documentElement;
   const saved = localStorage.getItem('eced_theme');
   if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  function isDarkNow() {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return cur ? cur === 'dark' : prefersDark;
+  }
+  window.__ecedIsDark = isDarkNow;
   const btn = document.getElementById('theme-toggle');
   if (!btn) return;
   function syncLabel() {
-    const cur = root.getAttribute('data-theme');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isDark = cur ? cur === 'dark' : prefersDark;
-    btn.textContent = isDark ? 'Açık Tema' : 'Koyu Tema';
+    btn.textContent = isDarkNow() ? 'Açık Tema' : 'Koyu Tema';
   }
   syncLabel();
   btn.addEventListener('click', () => {
-    const cur = root.getAttribute('data-theme');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isDark = cur ? cur === 'dark' : prefersDark;
-    const next = isDark ? 'light' : 'dark';
+    const next = isDarkNow() ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
     localStorage.setItem('eced_theme', next);
     syncLabel();
+    window.dispatchEvent(new CustomEvent('eced-theme-change', { detail: { dark: next === 'dark' } }));
   });
 })();
+
+
+function createCartoTileLayer(isDark) {
+  const style = isDark ? 'dark_all' : 'light_all';
+  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+    maxZoom: 19,
+    subdomains: 'abcd',
+    attribution: '&copy; OpenStreetMap &copy; CARTO'
+  });
+}
 
 (() => {
   const copyBtn = document.getElementById('copy-qs-btn');
@@ -787,15 +876,35 @@ pre.template-box {
     });
   }
   if (typeof L === 'undefined') return;
-  const g = {"lat": 38.6191, "lon": 27.4289, "zoom": 8, "precision": "province_centroid", "points": [], "label": "MANİSA / YUNUSEMRE — Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite:"};
+  const g = {"lat": 38.6191, "lon": 27.4289, "zoom": 8, "precision": "province_centroid", "points": [], "gis_markers": [], "label": "MANİSA / YUNUSEMRE — Tehlikesiz Atık Geri Kazanımı ve Tehlikeli Atık Ön İşlem Prosesi İlavesi (Toplam Kapasite:"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 18,
-    attribution: '&copy; OpenStreetMap katkıda bulunanları'
-  }).addTo(map);
+  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
+  window.addEventListener('eced-theme-change', (ev) => {
+    map.removeLayer(tileLayer);
+    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
+  });
+  if (g.precision === 'exact_pdf') {
+    L.circle([g.lat, g.lon], {
+      radius: 3000,
+      color: '#d97706',
+      weight: 1.5,
+      dashArray: '6 5',
+      fillColor: '#d97706',
+      fillOpacity: 0.04
+    }).bindTooltip('3 km yasal referans çemberi (3573 m.20)').addTo(map);
+    for (const gm of (g.gis_markers || [])) {
+      L.circleMarker([gm.lat, gm.lon], {
+        radius: 5,
+        color: '#ffffff',
+        fillColor: gm.color,
+        fillOpacity: 0.9,
+        weight: 1.5
+      }).bindPopup(gm.label).addTo(map);
+    }
+  }
   if (g.precision === 'exact_pdf' && g.points.length > 1) {
     const latlngs = g.points.map(p => [p[0], p[1]]);
-    const poly = L.polyline(latlngs, { color: '#0b5ed7', weight: 3, opacity: 0.85 }).addTo(map);
+    const poly = L.polyline(latlngs, { color: '#175cd3', weight: 3, opacity: 0.85 }).addTo(map);
     for (const ll of latlngs.slice(0, 30)) {
       L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#d92d20', fillOpacity: 0.9, weight: 1 }).addTo(map);
     }
@@ -804,7 +913,7 @@ pre.template-box {
     L.circleMarker([g.lat, g.lon], {
       radius: g.precision === 'exact_pdf' ? 8 : 11,
       color: '#ffffff',
-      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#0b5ed7',
+      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#175cd3',
       fillOpacity: g.precision === 'exact_pdf' ? 0.9 : 0.45,
       weight: 2
     }).bindPopup(g.label).addTo(map).openPopup();

@@ -1,0 +1,266 @@
+{
+  "filing": {
+    "province": "TOKAT",
+    "district": "MERKEZ",
+    "project_name": "Kalker Ocağı, Kırma Eleme Tesisi ve Hazır Beton Santraline İlave Stok Alanı (688 Ada 1 Parsel ve 693 Ada 1 Parsel)",
+    "project_owner": "Yılmaz Gelebür İnş. Nakl. Petr. Ürn. San. Tic. Ltd. Şti",
+    "sector": "I., II. ve V. Grup Madenler",
+    "sub_sector": "I., II. ve V. Grup Maden Kırma Eleme Yıkama",
+    "decision_type": "İptal/İade",
+    "announcement_date_tr": "13.11.2026",
+    "project_type": "Ek-2",
+    "detail_text": "TOKAT ili MERKEZ,  ilcesinde TOKAT ili MERKEZ,  ilcesi 688 Ada 1 Parsel ve 693 Ada 1 Parsel sınırları içerisinde, Yılmaz Gelebür İnş. Nakl. Petr. Ürn. San. Tic. Ltd. Şti tarafından yapılması planlanan Kalker Ocağı, Kırma Eleme Tesisi ve Hazır Beton Santraline İlave Stok Alanı (688 Ada 1 Parsel ve 693 Ada 1 Parsel) projesi iptal edilmiştir. İptal Raporu: İptal Raporu",
+    "detail_links": [
+      {
+        "text": "İptal Raporu",
+        "href": "http://eced.csb.gov.tr/jsp/ek1/61482"
+      }
+    ],
+    "documents": [
+      {
+        "portal_doc_url": "http://eced.csb.gov.tr/jsp/ek1/61482",
+        "filing_id": "61482",
+        "consulting_firm": "MERS ÇEVRE MAD.MÜH.PRO.DAN.İŞ SAĞ.VE GÜV. İNŞ. SAN.VE TİC. LTD. ŞTİ",
+        "submitted_at": "03/11/2026 05:26:35",
+        "pdf_urls": [
+          {
+            "label": "İptal Dosya Göster (ek2)",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=dosya_6802705358516549487.tmp&orjinalAd=61482_projeIptalDosya.pdf&yuklemeTarihi=2026-11-13"
+          },
+          {
+            "label": "Dosya Göster",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign657119139285567152.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-03"
+          }
+        ]
+      }
+    ],
+    "announcement_date": "2026-11-13",
+    "statutory_clocks": [],
+    "filing_key": "61482:13.11.2026:İptal/İade",
+    "first_seen_at": "2026-11-20T09:02:14"
+  },
+  "pdf_info": {
+    "filename": "61482.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=dosya_6802705358516549487.tmp&orjinalAd=61482_projeIptalDosya.pdf&yuklemeTarihi=2026-11-13",
+    "bytes": 189544,
+    "sha256": "48394d49d5b68183dbdbd760faddce0ae1a3bb012832b1373c861bd88307105f",
+    "cached": false
+  },
+  "analysis": {
+    "page_count": 1,
+    "total_chars": 2938,
+    "text_pages": 1,
+    "scanned_or_blank_pages": 0,
+    "scanned_page_sample": [],
+    "headings": [],
+    "geo": {
+      "precision": "province_centroid",
+      "lat": 40.3167,
+      "lon": 36.55,
+      "point_count": 0,
+      "points": [],
+      "datum": null,
+      "pages": []
+    },
+    "signals": {
+      "coordinates_and_footprint": {
+        "label": "Coordinates, Parcel & Footprint",
+        "page_count": 1,
+        "pages": [
+          1
+        ],
+        "samples": [
+          {
+            "page": 1,
+            "match": "Ada 1 Parsel",
+            "snippet": "…nün 11.11.2026 tarihli ve 7418 sayılı yazısı. İlgi de kayıtlı dilekçede; Tokat ili, Merkez ilçesi, Çay Mahallesi, 688 Ada 1 Parsel ve 693 Ada 1 Parsel adreslerinde,\"Yılmaz Gelebür İnş. Nakl. Petr. Ürn. San. Tic. Ltd. Şti.\" tarafından \"Kalker Ocağı, K…"
+          },
+          {
+            "page": 1,
+            "match": "Ada 1 Parsel ve 693 Ada 1 Parsel",
+            "snippet": "…Ürn. San. Tic. Ltd. Şti.\" tarafından \"Kalker Ocağı, Kırma Eleme Tesisi ve Hazır Beton Santraline İlave Stok Alanı (688 Ada 1 Parsel ve 693 Ada 1 Parsel)\" projesi için hazırlanan Proje Tanıtım Dosyasının Bakanlığımız e-ÇED sistemi üzerinden 03.11.2026 söz konu…"
+          }
+        ]
+      },
+      "water_and_discharge": {
+        "label": "Water Use, Hydrogeology & Discharge",
+        "page_count": 0,
+        "pages": [],
+        "samples": []
+      },
+      "protected_land_and_olive": {
+        "label": "Protected Zones, Forests & Olive Groves",
+        "page_count": 0,
+        "pages": [],
+        "samples": []
+      },
+      "ecology_and_baseline": {
+        "label": "Flora, Fauna & Baseline Methodology",
+        "page_count": 0,
+        "pages": [],
+        "samples": []
+      },
+      "pollutants_and_hazards": {
+        "label": "Emissions, Geochemistry & Waste",
+        "page_count": 0,
+        "pages": [],
+        "samples": []
+      },
+      "cost_and_capacity": {
+        "label": "Proje Bedeli, Güç ve Kapasite",
+        "page_count": 0,
+        "pages": [],
+        "samples": []
+      },
+      "splitting_and_thresholds": {
+        "label": "Proje Parçalama, Kapasite Artışı ve Eşik Değerler",
+        "page_count": 0,
+        "pages": [],
+        "samples": []
+      }
+    },
+    "audit_checks": {
+      "mentions_field_survey": false,
+      "mentions_literature_only_cue": false,
+      "mentions_seasonal_sampling": false,
+      "mentions_cumulative_impact": false,
+      "mentions_olive_law_3573": false,
+      "mentions_groundwater_or_aquifer": false,
+      "mentions_iucn_or_endemic": false,
+      "mentions_capacity_or_splitting": false,
+      "mentions_circular_2009_7_or_revision": false
+    }
+  },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-22T01:20:34",
+      "decision_type": "İptal/İade",
+      "announcement_date": "2026-11-13",
+      "announcement_date_tr": "13.11.2026",
+      "submitted_at": "03/11/2026 05:26:35",
+      "consulting_firm": "MERS ÇEVRE MAD.MÜH.PRO.DAN.İŞ SAĞ.VE GÜV. İNŞ. SAN.VE TİC. LTD. ŞTİ",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=dosya_6802705358516549487.tmp&orjinalAd=61482_projeIptalDosya.pdf&yuklemeTarihi=2026-11-13",
+      "pdf_temp_ad": "dosya_6802705358516549487.tmp",
+      "pdf_original_name": "61482_projeIptalDosya.pdf",
+      "pdf_upload_date": "2026-11-13",
+      "sha256": "48394d49d5b68183dbdbd760faddce0ae1a3bb012832b1373c861bd88307105f",
+      "bytes": 189544,
+      "page_count": 1,
+      "text_pages": 1,
+      "scanned_or_blank_pages": 0,
+      "audit_checks": {
+        "mentions_field_survey": false,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": false,
+        "mentions_cumulative_impact": false,
+        "mentions_olive_law_3573": false,
+        "mentions_groundwater_or_aquifer": false,
+        "mentions_iucn_or_endemic": false,
+        "mentions_capacity_or_splitting": false,
+        "mentions_circular_2009_7_or_revision": false
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 1,
+        "water_and_discharge": 0,
+        "protected_land_and_olive": 0,
+        "ecology_and_baseline": 0,
+        "pollutants_and_hazards": 0,
+        "cost_and_capacity": 0,
+        "splitting_and_thresholds": 0
+      },
+      "geo_precision": "province_centroid",
+      "geo_lat": 40.3167,
+      "geo_lon": 36.55,
+      "geo_point_count": 0,
+      "detail_text_sha256": "5153b5fb39afb95f"
+    }
+  ],
+  "llm_synthesis": {
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-11-22T01:20:38",
+    "pages_sent": [
+      1
+    ],
+    "usage": {
+      "prompt_tokens": 2464,
+      "output_tokens": 1194,
+      "thoughts_tokens": null,
+      "total_tokens": 3658
+    },
+    "result": {
+      "executive_summary_tr": "Tokat ili Merkez ilçesi Çay Mahallesi 688 Ada 1 Parsel ve 693 Ada 1 Parsel sınırları içerisinde Yılmaz Gelebür İnş. Nakl. Petr. Ürn. San. Tic. Ltd. Şti. tarafından yapılması planlanan Kalker Ocağı, Kırma Eleme Tesisi ve Hazır Beton Santraline İlave Stok Alanı projesi için yürütülen ÇED süreci sonlandırılmıştır. Faaliyet sahibi tarafın yaptığı başvuru hatası gerekçesiyle projeden vazgeçtiği bildirilmiş ve ÇED Yönetmeliği'nin 5. maddesinin 2. fıkrasının (b) bendi uyarınca süreç idari olarak iptal edilmiştir. İlgili karar 13.11.2026 tarihli resmî yazıyla Valilik makamınca onaylanmıştır.",
+      "executive_summary_en": "The Environmental Impact Assessment (EIA) process for the proposed Additional Stockpile Area for Limestone Quarry, Crushing-Screening Plant, and Ready-Mixed Concrete Plant by Yılmaz Gelebür İnş. Nakl. Petr. Ürn. San. Tic. Ltd. Şti. in Tokat Central District has been terminated. The project owner formally requested the cancellation of the EIA process citing an erroneous application, and the Provincial Directorate terminated the procedure pursuant to Article 5, Paragraph 2, Clause (b) of the EIA Regulation. The termination was officially approved on November 13, 2026.",
+      "key_facts": [
+        {
+          "label": "Proje Sahibi",
+          "value": "Yılmaz Gelebür İnş. Nakl. Petr. Ürn. San. Tic. Ltd. Şti.",
+          "page": 1
+        },
+        {
+          "label": "İl / İlçe",
+          "value": "Tokat / Merkez",
+          "page": 1
+        },
+        {
+          "label": "Parsel Bilgileri",
+          "value": "688 Ada 1 Parsel ve 693 Ada 1 Parsel",
+          "page": 1
+        },
+        {
+          "label": "Proje Adı",
+          "value": "Kalker Ocağı, Kırma Eleme Tesisi ve Hazır Beton Santraline İlave Stok Alanı",
+          "page": 1
+        },
+        {
+          "label": "e-ÇED Sunum Tarihi",
+          "value": "03.11.2026",
+          "page": 1
+        },
+        {
+          "label": "Firma Başvuru Tarihi",
+          "value": "11.11.2026",
+          "page": 1
+        },
+        {
+          "label": "Süreç Sonlandırma Tarihi",
+          "value": "13.11.2026",
+          "page": 1
+        },
+        {
+          "label": "İlgili Mevzuat Dayanağı",
+          "value": "ÇED Yönetmeliği Madde 5, Fıkra 2, Bent (b)",
+          "page": 1
+        }
+      ],
+      "baseline_assessment": {
+        "field_survey_status": "not_found",
+        "seasonal_sampling_status": "not_found",
+        "cumulative_impact_status": "omitted_or_not_found",
+        "olive_and_protected_status": "Mevcut belgede zeytinlik, orman, sulak alan veya korunan alan statüsüne ilişkin herhangi bir teknik veri veya eşik değerlendirmesi yer almamaktadır [s. 1].",
+        "explanation": "Dosya içeriği yalnızca projenin idari olarak iptal edildiğini bildiren resmiyete dayandığından, herhangi bir çevresel taban çalışması, flora-fauna envanteri veya kümülatif değerlendirme verisi bulunmamaktadır [s. 1]."
+      },
+      "red_flags": [],
+      "recommended_bilirkisi_disciplines": [
+        "Şehir ve Bölge Plancısı",
+        "Çevre Mühendisi",
+        "Maden Mühendisi"
+      ],
+      "hkt_and_petition_questions": [
+        {
+          "question_tr": "Projenin idari olarak iptal edildiği belirtilen 688 Ada 1 Parsel ve 693 Ada 1 Parsellerin imar planlarındaki mevcut kullanım kararları ve çevre düzeni planı ile uyumu nedir?",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "question_tr": "Yanlış başvuru yapıldığı gerekçesiyle vazgeçilen projenin daha sonra aynı veya farklı parsellerde yeniden başlatılması durumunda hangi kümülatif çevresel etkiler öngörülmektedir?",
+          "pages": [
+            1
+          ]
+        }
+      ],
+      "data_limitations": "Sunulan tek sayfalık belge yalnızca ÇED sürecinin idari olarak sonlandırıldığını gösteren resmi yazışmayı içermekte olup, proje tanıtım dosyasına veya çevresel rapor eklerine ait teknik veri bulunmamaktadır."
+    }
+  }
+}

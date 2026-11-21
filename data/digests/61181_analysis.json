@@ -1,0 +1,925 @@
+{
+  "filing": {
+    "province": "MUĞLA",
+    "district": "SEYDİKEMER",
+    "project_name": "154 kV (Seydikemer-Özaltın Otel GES) Brş. N. - Seki TM EİH",
+    "project_owner": "Türkiye Elektrik İletim A.Ş. Genel Müdürlüğü",
+    "sector": "Turizm",
+    "sub_sector": "Enerji İletim Hatları",
+    "decision_type": "ÇED Süreci Başlayan",
+    "announcement_date_tr": "13.11.2026",
+    "project_type": "Ek-2",
+    "detail_text": "MUĞLA ili SEYDİKEMER,  ilcesinde MUĞLA ili SEYDİKEMER,  ilçesi Çaltılar, Bekçiler, Bozarmut ve Yayla Atlıdere Mahalleleri mevkiindeki Türkiye Elektrik İletim A.Ş. Genel Müdürlüğü tarafından yapılması planlanan 154 kV (Seydikemer-Özaltın Otel GES) Brş. N. - Seki TM EİH projesi ile ilgili olarak MUĞLA Valiliğimize sunulan P.T.D. Dosyası Çevresel Etki Değerlendirmesi Yönetmeliği'nin 16. maddesi doğrultusunda incelenmiş ve projeye ilişkin ÇED Süreci başlamıştır. İlgililere ve kamuoyuna duyurulur.",
+    "detail_links": [
+      {
+        "text": "P.T.D. Dosyası",
+        "href": "http://eced.csb.gov.tr/jsp/ek1/61181"
+      }
+    ],
+    "documents": [
+      {
+        "portal_doc_url": "http://eced.csb.gov.tr/jsp/ek1/61181",
+        "filing_id": "61181",
+        "consulting_firm": "TEİAŞ TÜRKİYE ELEKTRİK İLETİM A.Ş ÇEVRE MÜDÜRLÜĞÜ",
+        "submitted_at": "03/11/2026 04:50:26",
+        "pdf_urls": [
+          {
+            "label": "Dosya Göster",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign685376149382269031.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-13"
+          }
+        ]
+      }
+    ],
+    "announcement_date": "2026-11-13",
+    "statutory_clocks": [
+      {
+        "code": "process_open",
+        "kind": "Karar öncesi inceleme süreci (ÇED Yönetmeliği m. 8/16; süreç boyunca yazılı görüş verilebilir)",
+        "deadline": null,
+        "days_remaining": null
+      }
+    ],
+    "filing_key": "61181:13.11.2026:ÇED Süreci Başlayan",
+    "first_seen_at": "2026-11-20T09:02:30"
+  },
+  "pdf_info": {
+    "filename": "61181.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign685376149382269031.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-13",
+    "bytes": 98061839,
+    "sha256": "0d128afcb18a64c49536e4ea9f942a3f5c1b9994c4299ed6bea2484f78fe4b90",
+    "cached": false
+  },
+  "analysis": {
+    "page_count": 706,
+    "total_chars": 621551,
+    "text_pages": 286,
+    "scanned_or_blank_pages": 420,
+    "scanned_page_sample": [
+      202,
+      204,
+      206,
+      208,
+      210,
+      212,
+      213,
+      214,
+      215,
+      216,
+      217,
+      218,
+      219,
+      220,
+      222
+    ],
+    "headings": [
+      [
+        9,
+        "PROJENİN TEKNİK OLMAYAN ÖZETİ"
+      ],
+      [
+        18,
+        "BÖLÜM -1- PROJENİN ÖZELLİKLERİ"
+      ],
+      [
+        18,
+        "1.a. Projenin ve Yerin Alternatifleri (Proje Teknolojisinin ve Proje Alanının Seçilme Nedenleri)"
+      ],
+      [
+        24,
+        "1.b. Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Teknolojisi, Çalışacak Personel Sayısı"
+      ],
+      [
+        24,
+        "1.b.1. Projenin İş Akım Şeması"
+      ],
+      [
+        26,
+        "1.b.2. Projenin Kapasitesi"
+      ],
+      [
+        27,
+        "1.b.3. Projenin Kapladığı Alan"
+      ],
+      [
+        28,
+        "1.b.4. Proje Yatırım Bedeli"
+      ],
+      [
+        29,
+        "1.b.5. Projenin Teknolojisi"
+      ],
+      [
+        30,
+        "1.b.6. Çalışacak Personel Sayısı"
+      ],
+      [
+        30,
+        "1.c. Doğal Kaynakların Kullanımı (Arazi Kullanımı, Su Kullanımı, Kullanılan Enerji Türü vb.)"
+      ],
+      [
+        30,
+        "1.c.1. Arazi Kullanımı"
+      ],
+      [
+        32,
+        "1.c.2. Su Kullanımı"
+      ],
+      [
+        34,
+        "1.c.3. Kullanılan Enerji Türü"
+      ],
+      [
+        34,
+        "1.ç. Projenin inşaat ve işletme aşamasında oluşan her türlü atığın özelliği (cinsi, türü, miktarı vb.)  bertarafı ve geri kazanımına yönelik değerlendirmeler."
+      ],
+      [
+        34,
+        "1.ç.1. Sıvı Atık"
+      ],
+      [
+        35,
+        "1.ç.2. Katı Atık"
+      ],
+      [
+        38,
+        "1.ç.3. Hava Kalitesine Etkiler"
+      ],
+      [
+        41,
+        "1.ç.4. Gürültü"
+      ],
+      [
+        49,
+        "1.ç.5. EMA (Elektromanyetik Alan)"
+      ],
+      [
+        55,
+        "1.d. Kullanılan Teknoloji ve Malzemelerden Kaynaklanabilecek Kaza Riski"
+      ],
+      [
+        58,
+        "BÖLÜM -2- PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ"
+      ],
+      [
+        58,
+        "2.a.Mevcut Arazi Kullanımı ve Kalitesi (Tarım Alanı, Orman Alanı, Planlı Alan, Su Yüzeyi vb.)"
+      ],
+      [
+        59,
+        "2.a.1. Toprak Özellikleri ve Arazi Kullanım Durumu"
+      ],
+      [
+        61,
+        "2.a.2. Arazi Kullanım Kabiliyeti"
+      ]
+    ],
+    "geo": {
+      "precision": "exact_pdf",
+      "lat": 36.89216,
+      "lon": 29.69938,
+      "point_count": 12,
+      "points": [
+        [
+          36.91523,
+          29.69734
+        ],
+        [
+          36.91178,
+          29.7013
+        ],
+        [
+          36.90594,
+          29.70116
+        ],
+        [
+          36.89708,
+          29.69688
+        ],
+        [
+          36.87183,
+          29.69983
+        ],
+        [
+          36.85096,
+          29.69815
+        ],
+        [
+          36.91554,
+          29.69776
+        ],
+        [
+          36.91195,
+          29.70186
+        ],
+        [
+          36.90585,
+          29.70172
+        ],
+        [
+          36.89701,
+          29.69745
+        ],
+        [
+          36.87184,
+          29.70039
+        ],
+        [
+          36.85093,
+          29.69871
+        ]
+      ],
+      "datum": "UTM-Z35/ED50",
+      "pages": [
+        27
+      ]
+    },
+    "signals": {
+      "coordinates_and_footprint": {
+        "label": "Coordinates, Parcel & Footprint",
+        "page_count": 42,
+        "pages": [
+          1,
+          2,
+          7,
+          9,
+          20,
+          22,
+          23,
+          26,
+          27,
+          29,
+          30,
+          40,
+          47,
+          49,
+          53,
+          58,
+          61,
+          66,
+          92,
+          93,
+          118,
+          131,
+          150,
+          165,
+          178
+        ],
+        "samples": [
+          {
+            "page": 1,
+            "match": "7,360 km",
+            "snippet": "…İLETİM A.Ş. GENEL MÜDÜRLÜĞÜ 154 kV (Seydikemer - Özaltın Otel GES)-Girdi-Çıktı (2 Ayrı Hat) - Seki TM EEİH (HAT-1: 7,360 km, HAT-2: 7,402 km) PROJE TANITIM DOSYASI MUĞLA İLİ (Seydikemer İlçesi, Çaltılar, Bekçiler, Boğalar ve Yayla Atlıdere…"
+          },
+          {
+            "page": 1,
+            "match": "7,402 km",
+            "snippet": "…EL MÜDÜRLÜĞÜ 154 kV (Seydikemer - Özaltın Otel GES)-Girdi-Çıktı (2 Ayrı Hat) - Seki TM EEİH (HAT-1: 7,360 km, HAT-2: 7,402 km) PROJE TANITIM DOSYASI MUĞLA İLİ (Seydikemer İlçesi, Çaltılar, Bekçiler, Boğalar ve Yayla Atlıdere Mahalleleri) TEİ…"
+          },
+          {
+            "page": 2,
+            "match": "7,360 km",
+            "snippet": "…(İLİ, İLÇESİ, MEVKİİ) Muğla İli, Seydikemer İlçesi, Çaltılar, Bekçiler, Boğalar ve Yaylıatlıdere Mahalleleri, HAT-1: 7,360 km, HAT-2: 7,402 km PROJENİN ÇED YÖNETMELİĞİ KAPSAMINDAKİ YERİ (SEKTÖR, ALT SEKTÖR) 29.07.2022 tarihli ve 31907 say…"
+          },
+          {
+            "page": 2,
+            "match": "7,402 km",
+            "snippet": "…İİ) Muğla İli, Seydikemer İlçesi, Çaltılar, Bekçiler, Boğalar ve Yaylıatlıdere Mahalleleri, HAT-1: 7,360 km, HAT-2: 7,402 km PROJENİN ÇED YÖNETMELİĞİ KAPSAMINDAKİ YERİ (SEKTÖR, ALT SEKTÖR) 29.07.2022 tarihli ve 31907 sayılı Resmi Gazete’de…"
+          },
+          {
+            "page": 7,
+            "match": "Koordinat",
+            "snippet": "…tası .............................................................. 99 EKLER DİZİNİ EK -1- Proje İçin Seçilen Yerin Koordinatları EK -2- Proje Alanı Ve Yakın Çevresinin Mevcut Arazi Kullanımını Değerlendirmek İçin; Yerleşim Alanlarının, Ulaşım…"
+          },
+          {
+            "page": 9,
+            "match": "7,360 km",
+            "snippet": "…istiğinde ve yaklaşık olarak 50 m aralıkta birbirine paralel olacak şekilde tesis edilmesi planlanan hatların uzunluğu 7,360 km ve 7,402 km’dir. Hatların birbirine paralel olması nedeniyle çevreye etkilerinin birbirine benzer olacağı düşünüldüğün…"
+          },
+          {
+            "page": 9,
+            "match": "7,402 km",
+            "snippet": "…yaklaşık olarak 50 m aralıkta birbirine paralel olacak şekilde tesis edilmesi planlanan hatların uzunluğu 7,360 km ve 7,402 km’dir. Hatların birbirine paralel olması nedeniyle çevreye etkilerinin birbirine benzer olacağı düşünüldüğünden tek bir…"
+          },
+          {
+            "page": 9,
+            "match": "2.5 km",
+            "snippet": "…ağlantısı sağlanacaktır. Projenin çevresel etkilerinin değerlendirilmesi kapsamında, güzergâhın sağından ve solundan 2.5 km olmak üzere toplam 5 km genişliğinde bir koridor \"inceleme alanı\" olarak belirlenmiştir. Çevresel Etki Değerlendirmesi…"
+          }
+        ]
+      },
+      "water_and_discharge": {
+        "label": "Water Use, Hydrogeology & Discharge",
+        "page_count": 11,
+        "pages": [
+          10,
+          29,
+          32,
+          33,
+          34,
+          35,
+          110,
+          176,
+          257,
+          258,
+          294
+        ],
+        "samples": [
+          {
+            "page": 10,
+            "match": "Sulak Alan",
+            "snippet": "…dikemer Yazır Gölü Sulak Alanı bulunmaktadır EEİH proje güzergahı Sulak Alana yaklaşık 6 km uzaklıktadır. Bu sebeple Sulak Alan içerisinde herhangi bir inşaat ve işletme faaliyeti yürütülmeyecektir. EEİH Güzergâhına En Yakın Konumda Yazır Gölü…"
+          },
+          {
+            "page": 29,
+            "match": "deşarj",
+            "snippet": "…depo, idari ve/veya sosyal bina, köprü, alt ve üst yapılar (arıtma, kanalizasyon, içme/kullanma su hatları, su alma/deşarj hatları vb dahil) viyadük vb. sanat yapıları Makine ve Teçhizat Giderleri Temel üretim sürecindeki makinaların KDV…"
+          },
+          {
+            "page": 32,
+            "match": "12,39 m3/gün",
+            "snippet": "…k Su Miktarı 413 lt/kişi- gün’dür (Hesaplamalara esas teşkil edecek değer). 30 kişi x 413 lt/kişi-gün = 12390 lt/gün = 12,39 m3/gün su kullanılacaktır. Projenin arazi hazırlama ve inşaat aşamasında çalışacak personel, enerji iletim güzergâhına en y…"
+          },
+          {
+            "page": 33,
+            "match": "12,39 m3/gün",
+            "snippet": "…mı EEİH Faaliyeti Su Kullanım Amacı Su Kullanım Miktarı (m3/gün) Temin Yeri İnşaat Aşaması İçme ve Kullanma Suyu 12,39 m3/gün Hazır Ambalajlı Su ve Mevcut Tesisler Sulama için Gerekli Su 10 m3/gün (mevsim şartlarına göre ihtiyaç olduğunda su…"
+          },
+          {
+            "page": 33,
+            "match": "10 m3/gün",
+            "snippet": "…ri İnşaat Aşaması İçme ve Kullanma Suyu 12,39 m3/gün Hazır Ambalajlı Su ve Mevcut Tesisler Sulama için Gerekli Su 10 m3/gün (mevsim şartlarına göre ihtiyaç olduğunda sulama yapılacak) Arazöz kiralama yöntemiyle yapılacak olup tedarikçi fir…"
+          },
+          {
+            "page": 33,
+            "match": "atıksu",
+            "snippet": "…yapılacaktır. Bu işlem için günlük ortalama 10 m3/gün su tüketiminin olacağı öngörülmektedir. Bu su buharlaşacağı için atıksu oluşumu söz konusu olmayacaktır. Hem inşaat, hem işletme aşamasında çalışacak personelin içme ve kullanma su ihtiyac…"
+          },
+          {
+            "page": 34,
+            "match": "12,39 m3/gün",
+            "snippet": "…: 413 lt/kişi-gün Günlük Su Tüketimi : 12390 lt/gün = 12390 litre/gün Oluşacak Evsel Nitelikli Atık Su Miktarı(1) : 12,39 m3/gün (1) Kullanılacak suyun tamamının atık suya dönüşeceği varsayımı…"
+          },
+          {
+            "page": 35,
+            "match": "12,39 m3/gün",
+            "snippet": "…27 Kullanılacak suyun % 100’ünün atık su olarak geri döneceği kabulüyle oluşacak evsel nitelikli atık su miktarı 12,39 m3/gün olarak hesaplanır. Şantiye tesisi için mevcut yapıların kiralanması durumunda, çalışacak personelden kaynaklı atık su…"
+          }
+        ]
+      },
+      "protected_land_and_olive": {
+        "label": "Protected Zones, Forests & Olive Groves",
+        "page_count": 28,
+        "pages": [
+          3,
+          10,
+          18,
+          19,
+          20,
+          21,
+          23,
+          30,
+          58,
+          61,
+          62,
+          105,
+          106,
+          107,
+          108,
+          110,
+          112,
+          135,
+          168,
+          173,
+          244,
+          252,
+          256,
+          258,
+          265
+        ],
+        "samples": [
+          {
+            "page": 3,
+            "match": "Orman Alanı",
+            "snippet": "…M -2- PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ .50 2.a.Mevcut Arazi Kullanımı ve Kalitesi (Tarım Alanı, Orman Alanı, Planlı Alan, Su Yüzeyi vb.) ..........................................................................................…"
+          },
+          {
+            "page": 10,
+            "match": "Sulak Alan",
+            "snippet": "…dikemer Yazır Gölü Sulak Alanı bulunmaktadır EEİH proje güzergahı Sulak Alana yaklaşık 6 km uzaklıktadır. Bu sebeple Sulak Alan içerisinde herhangi bir inşaat ve işletme faaliyeti yürütülmeyecektir. EEİH Güzergâhına En Yakın Konumda Yazır Gölü…"
+          },
+          {
+            "page": 18,
+            "match": "Özel Çevre Koruma",
+            "snippet": "…nlar, Askeri Sahalar, Hava Meydanları, İmarlı Sahalar, Telekom hattı ve Mevcut EEİH’lere Paralellik Durumu, Özel Çevre Koruma Alanları, Karayolları, BOTAŞ, DDY, Baraj, Gölet, Sulama Kanalları, Maden ve Kömür Alanları…"
+          },
+          {
+            "page": 19,
+            "match": "Milli Park",
+            "snippet": "…üklerince yapılan ön incelemede EEİH güzergâhı ile güzergâha ait çalışma koridorunun 2873 sayılı Milli Parklar Kanunu (Milli Park, Tabiat Parkı, Tabiat Anıtı ve Tabiat Koruma Alanı), 4915 sayılı Kara Avcılığı Kanunu (Yaban Hayatı Koruma Sahası Yab…"
+          },
+          {
+            "page": 19,
+            "match": "Tabiat Parkı",
+            "snippet": "…pılan ön incelemede EEİH güzergâhı ile güzergâha ait çalışma koridorunun 2873 sayılı Milli Parklar Kanunu (Milli Park, Tabiat Parkı, Tabiat Anıtı ve Tabiat Koruma Alanı), 4915 sayılı Kara Avcılığı Kanunu (Yaban Hayatı Koruma Sahası Yaban Hayatı Yerl…"
+          },
+          {
+            "page": 20,
+            "match": "Özel Çevre Koruma",
+            "snippet": "…söz konusu proje talebine ilişkin belirtilen koordinatların 2872 sayılı Çevre Kanununun 9. maddesine göre ilan edilen \"Özel Çevre Koruma Bölgesi\" ve 2863 Sayılı Kültür ve Tabiat Varlıklarını Koruma Kanunu kapsamında ilan edilmiş olan doğal sit alanı sınır…"
+          },
+          {
+            "page": 20,
+            "match": "doğal sit",
+            "snippet": "…en \"Özel Çevre Koruma Bölgesi\" ve 2863 Sayılı Kültür ve Tabiat Varlıklarını Koruma Kanunu kapsamında ilan edilmiş olan doğal sit alanı sınırları dışında kaldığı belirtilmektedir. Projeye konu EEİH dikkate alınarak belirlenen inceleme alanının sın…"
+          },
+          {
+            "page": 21,
+            "match": "arkeolojik sit",
+            "snippet": "…100.000 ölçekli Çevre Düzeni Planında arazi kullanım kararları bakımından bir kısmı \"önemli doğa alanı\" ve \"1. derece arkeolojik sit alanı\" sınırları içerisinde, bir kısmı \"tarım arazisi\", \"orman alanı\", \"kırsal"
+          }
+        ]
+      },
+      "ecology_and_baseline": {
+        "label": "Flora, Fauna & Baseline Methodology",
+        "page_count": 55,
+        "pages": [
+          6,
+          13,
+          14,
+          19,
+          59,
+          64,
+          68,
+          101,
+          106,
+          108,
+          110,
+          111,
+          116,
+          117,
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127,
+          128,
+          129,
+          130
+        ],
+        "samples": [
+          {
+            "page": 6,
+            "match": "Endemik",
+            "snippet": "…Proje Alanı, Etki Alanı ve İnceleme Alanında Tespit Edilen Bitki Taksonları ve Tehlike Kategorileri 113 Tespit Edilen Endemik ve/veya Nadir Bitki Taksonu/Taksonları ve Tehlike Kategorileri . 122 Öncelikli Bitki Taksonu/Taksonları ..............…"
+          },
+          {
+            "page": 13,
+            "match": "mevsimsel",
+            "snippet": "…lerine veya civarların dökülmeyecek ve dökülecek şekilde tesisat yapılmayacaktır. • Proje alanı ve civarında bulunan mevsimsel akış gösteren istihsal yerlerinde su ürünlerinin doğal yaşamını olumsuz etkilemeyecek tedbirler alınacak, atık-pasa d…"
+          },
+          {
+            "page": 14,
+            "match": "mevsimsel",
+            "snippet": "…a havzası içerisinde olmadığı ve herhangi bir proje sahalarında kalmadığı, ancak hattın geçtiği güzergâh ve civarında mevsimsel akışlı derelerin bulunduğu tespit edilmiştir. Enerji İletim Hatlarının geçtiği güzergâh ve civarında derelerde zaman z…"
+          },
+          {
+            "page": 19,
+            "match": "mevsimsel",
+            "snippet": "…a havzası içerisinde olmadığı ve herhangi bir proje sahalarında kalmadığı, ancak hattın geçtiği güzergâh ve civarında mevsimsel akışlı derelerin bulunduğu tespit edilmiştir. Enerji İletim Hatlarının geçtiği güzergâh ve civarında derelerde zaman z…"
+          },
+          {
+            "page": 59,
+            "match": "mevsimsel",
+            "snippet": "…lerine veya civarların dökülmeyecek ve dökülecek şekilde tesisat yapılmayacaktır. • Proje alanı ve civarında bulunan mevsimsel akış gösteren istihsal yerlerinde su ürünlerinin doğal yaşamını olumsuz etkilemeyecek tedbirler alınacak, atık-pasa d…"
+          },
+          {
+            "page": 64,
+            "match": "flora ve fauna",
+            "snippet": "…tır. Bitki örtüsünün yakılarak uzaklaştırılması kesinlikle söz konusu olmayacaktır. Korunması gereken kültür alanına, flora ve fauna türüne rastlanması halinde en yakın sorumlu birime haber verilecek ve ilgili mevzuat hükümlerine uyularak, önerilen te…"
+          },
+          {
+            "page": 68,
+            "match": "mevsimsel",
+            "snippet": "…a havzası içerisinde olmadığı ve herhangi bir proje sahalarında kalmadığı, ancak hattın geçtiği güzergâh ve civarında mevsimsel akışlı derelerin bulunduğu tespit edilmiştir. Enerji İletim Hatlarının geçtiği güzergâh ve civarında derelerde zaman z…"
+          },
+          {
+            "page": 101,
+            "match": "mevsimsel",
+            "snippet": "…a havzası içerisinde olmadığı ve herhangi bir proje sahalarında kalmadığı, ancak hattın geçtiği güzergâh ve civarında mevsimsel akışlı derelerin bulunduğu tespit edilmiştir. Enerji İletim Hatlarının geçtiği güzergâh ve civarında derelerde zaman z…"
+          }
+        ]
+      },
+      "pollutants_and_hazards": {
+        "label": "Emissions, Geochemistry & Waste",
+        "page_count": 44,
+        "pages": [
+          8,
+          13,
+          22,
+          31,
+          34,
+          36,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          55,
+          95,
+          96,
+          97,
+          98,
+          103,
+          104
+        ],
+        "samples": [
+          {
+            "page": 8,
+            "match": "Elektromanyetik",
+            "snippet": "…metrik Maliyetleri EK -2-14- Sıfır Atık Planı EK -2-15- Çevre İzleme Planı EK -2-16- Trafik Yönetim Planı EK -2-17- Elektromanyetik Alan Ölçüm Raporu EK -2-18- Gürültü Ölçüm Raporu EK -2-19- Flora-Fauna Değerlendirme Raporu (FFDR) EK -2-20- FFDR Ar…"
+          },
+          {
+            "page": 8,
+            "match": "Gürültü",
+            "snippet": "…ı EK -2-15- Çevre İzleme Planı EK -2-16- Trafik Yönetim Planı EK -2-17- Elektromanyetik Alan Ölçüm Raporu EK -2-18- Gürültü Ölçüm Raporu EK -2-19- Flora-Fauna Değerlendirme Raporu (FFDR) EK -2-20- FFDR Arazi Takvimi Bildirim Yazısı ve Arazi…"
+          },
+          {
+            "page": 13,
+            "match": "gürültü",
+            "snippet": "…nelden ve gerekse yapılacak inşaat, kazı, montaj vb. çalışmalardan dolayı hafriyat, atık su, katı atık, emisyonlar ve gürültü kirliliği oluşması beklenmektedir. Yürütülecek faaliyetlerde, söz konusu çevresel etkileri en aza indirmek için gerekl…"
+          },
+          {
+            "page": 22,
+            "match": "Deprem",
+            "snippet": "…tadır. Bu nedenle imara esas jeolojik ve jeoteknik raporların hazırlanmasına gerek bulunmamaktadır. Zira Türkiye Bina Deprem Yönetmeliğinin Ek-Bölüm 1 Genel Hükümler 1.1.7 maddesinde ‘Binalar ve bina türü yapıların dışında kalan köprüler, bara…"
+          },
+          {
+            "page": 31,
+            "match": "kümülatif",
+            "snippet": "…di-Çıktı(2 Ayrı Hat) - Seki TM EEİH 23 Proje sebebiyle yöredeki mevcut veya planlanan diğer faaliyetlerle biriken kümülatif etkilerin ortaya çıkma potansiyeli bulunmamaktadır. EEİH’nin tarım alanlarından geçen kısımlar için fiilen inşaata ba…"
+          },
+          {
+            "page": 34,
+            "match": "gürültü",
+            "snippet": "…acak personelden ve gerekse yapılacak inşaat, montaj vb. çalışmalardan dolayı hafriyat, atık su, katı atık, emisyon ve gürültü kirliliği oluşması söz konusu olacaktır. Projenin işletme aşamasında ise çevre ve insan sağlığı açısından en önemli h…"
+          },
+          {
+            "page": 36,
+            "match": "tehlikeli atık",
+            "snippet": "…angi bir kimyasal madde (herbisit) kullanılmayacaktır. Tehlikeli Atıklar Projenin inşaat aşamasında herhangi bir tehlikeli atık oluşması söz konusu değildir. Projenin işletme aşamasında tehlikeli atık oluşması beklenmemektedir. Ancak bakım çalış…"
+          },
+          {
+            "page": 40,
+            "match": "toz emisyon",
+            "snippet": "…tır. “Kontrollü” çalışma şartları için geçerli olan emisyon faktörleri kullanılarak yapılan hesaplamalara göre toplam toz emisyon değeri 0,45 kg/saat olarak hesap edilmiştir. Söz konusu 0,45 kg/saat değeri, 03.07.2009 tarih ve 27277 sayılı Resmi Ga…"
+          }
+        ]
+      },
+      "cost_and_capacity": {
+        "label": "Proje Bedeli, Güç ve Kapasite",
+        "page_count": 11,
+        "pages": [
+          3,
+          24,
+          26,
+          29,
+          54,
+          61,
+          172,
+          174,
+          260,
+          264,
+          302
+        ],
+        "samples": [
+          {
+            "page": 3,
+            "match": "Kapasite",
+            "snippet": "…......................................................................................10 1.b. Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Teknolojisi, Çalışacak Personel Sayısı .............................................................…"
+          },
+          {
+            "page": 24,
+            "match": "Kapasite",
+            "snippet": "…r. Bahsi geçen kamu Kurum-Kuruluşlarından alınan görüşler Ek-2-12’de sunulmaktadır. 1.b. Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Teknolojisi, Çalışacak Personel Sayısı 1.b.1. Projenin İş Akım Şeması EEİH tesis çalışmalar…"
+          },
+          {
+            "page": 26,
+            "match": "Kapasite",
+            "snippet": "…2 Ayrı Hat) - Seki TM EEİH 18 Projeye Ait İş Akış Şeması Projeye Ait Zamanlama Tablosu 1.b.2. Projenin Kapasitesi TEİAŞ Genel Müdürlüğü tarafından Muğla ili, Seydikemer ilçesi, Çaltılar, Bekçiler, Boğalar ve Yayla Atlıdere Maha…"
+          },
+          {
+            "page": 29,
+            "match": "Proje Bedeli",
+            "snippet": "…TEİAŞ GENEL MÜDÜRLÜĞÜ 154 kV (Seydikemer - Özaltın Otel GES)- Girdi-Çıktı(2 Ayrı Hat) - Seki TM EEİH 21 Proje Bedeli Tablosu Yatırım Giderleri Açıklama Tutar (TL) Etüt-proje giderleri Projenin hazırlık aşaması döneminde yapılan ha…"
+          },
+          {
+            "page": 29,
+            "match": "PROJE BEDELİ",
+            "snippet": "…harcamaların tamamı Diğer(varsa) Eğitim, yazılım, donanım, otomasyon, sertifikalandırma vb. idari giderler TOPLAM PROJE BEDELİ 87.028.728,71 TL Toplam Proje Bedeli= 5.895.456,49 TL × 14,762 km = 87.028.728,71 TL Proje güzergâhında mevcut…"
+          },
+          {
+            "page": 54,
+            "match": "1,200 kV",
+            "snippet": "…mı yoksa hatta yakın havadan zirai ilaçlamanın yetersizliğinden mi kaynakladığı konusuna karar verememektedirler.” - 1,200 kV prototip hat yakınında yetişen bitkiler (ağaçlar, çalılıklar, otlar ve tahıllar) ile yapılan çalışmalarda; Hat altına…"
+          },
+          {
+            "page": 61,
+            "match": "kapasite",
+            "snippet": "…fazla hassasiyet, fazla ıslaklık, yüzlek toprak, taban taşının varlığı, fazla kumluluk veya çakıllılık, düşük su tutma kapasitesi ve az verimlilik bu sınıf araziye ait olan özelliklerdir. IV. Sınıf Arazi: Dördüncü sınıf arazi, özellikle devamlı…"
+          },
+          {
+            "page": 172,
+            "match": "kapasite",
+            "snippet": "…kontrol, translokasyon, alandan uzaklaştırma vb. önlemler alınmalıdır. Bölgede benzer özelliklere ve yeterli taşıma kapasitesine sahip alternatif habitatlar bulunmakta olup, proje alanı, etki alanı ve inceleme alanı bölgede tespit edilen yaban…"
+          }
+        ]
+      },
+      "splitting_and_thresholds": {
+        "label": "Proje Parçalama, Kapasite Artışı ve Eşik Değerler",
+        "page_count": 12,
+        "pages": [
+          13,
+          14,
+          31,
+          59,
+          60,
+          108,
+          109,
+          110,
+          135,
+          168,
+          189,
+          273
+        ],
+        "samples": [
+          {
+            "page": 13,
+            "match": "5403 sayılı",
+            "snippet": "…sı ve trafik emniyeti can ve mal güvenliği açısından gerekli tüm tedbirler alınacak olup tüm hususlara uyulacaktır. 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu kapsamında gerekli izinler alınacak olup, tüm hususlara uyulacaktır. 4342 say…"
+          },
+          {
+            "page": 14,
+            "match": "5403 sayılı",
+            "snippet": "…e 14. maddeleri kapsamında gerekli izinler alınacak, izin şartlarının taşınmaması durumunda projeye başlanmayacaktır. 5403 sayılı Toprak Koruma ve Arazi Kullanım Kanunu, 4342 sayılı Mera Kanunu, 1380 sayılı Su Ürünleri Kanunu, 3083 sayılı Sulama Al…"
+          },
+          {
+            "page": 31,
+            "match": "5403 sayılı",
+            "snippet": "…e tarım dışı amaçla kullanılması için, 19.07.2005 tarih ve 25880 sayılı Resmi Gazete ’de yayımlanarak yürürlüğe giren 5403 sayılı ‘’Toprak Koruma ve Arazi Kullanımı Kanunu’’ hükümleri gereğince Muğla İl Tarım ve Orman Müdürlüğüne başvuru yapılacak,…"
+          },
+          {
+            "page": 59,
+            "match": "5403 sayılı",
+            "snippet": "…7.maddesi gereğince tesis çalışmalarına başlanmadan önce Muğla Orman Bölge Müdürlüğünden gerekli izinler alınacaktır. 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu kapsamında gerekli izinler alınacak olup, tüm hususlara uyulacaktır. Tarım ala…"
+          },
+          {
+            "page": 60,
+            "match": "5403 sayılı",
+            "snippet": "…iği Kontrol Yönetmeliğinin ilgili madde hükümleri yerine getirilecektir. Tarım arazilerinde yürütülecek faaliyetlerde 5403 sayılı Kanunun 13. ve 14. madde hükümleri yerine getirilecektir. TEİAŞ 21. Bölge Müdürlüğü tarafından proje faaliyetine başl…"
+          },
+          {
+            "page": 108,
+            "match": "5403 sayılı",
+            "snippet": "…rmu Genel Müdürlüğü’nün 19766752 sayılı görüşünde; talep konusu alanda (tarım dışı kullanım ile ilgili tüm taleplerde) 5403 sayılı Kanun'un 13 ve/veya 14'üncü maddeleri kapsamında müracaat edilmesi ve tarım dışı kullanım izninin alınması gerektiği b…"
+          },
+          {
+            "page": 109,
+            "match": "5403 sayılı",
+            "snippet": "…ce tarım dışı amaçla kullanılması için, 19.07.2005 tarih ve 25880 sayılı Resmi Gazete’de yayımlanarak yürürlüğe giren 5403 sayılı ‘’Toprak Koruma ve Arazi Kullanımı Kanunu’’ hükümleri gereğince Muğla İl Tarım ve Orman Müdürlüğüne başvuru yapılarak,…"
+          },
+          {
+            "page": 110,
+            "match": "5403 sayılı",
+            "snippet": "…tlarının taşınmaması durumunda projeye başlanmayacaktır. (Bkz. Ek-2-12) Tarım arazilerinde yürütülecek faaliyetlerde 5403 sayılı Kanunun 13. ve 14. madde hükümleri yerine getirilecektir. TEİAŞ 21. Bölge Müdürlüğü tarafından proje faaliyetine başl…"
+          }
+        ]
+      }
+    },
+    "audit_checks": {
+      "mentions_field_survey": true,
+      "mentions_literature_only_cue": true,
+      "mentions_seasonal_sampling": true,
+      "mentions_cumulative_impact": true,
+      "mentions_olive_law_3573": false,
+      "mentions_groundwater_or_aquifer": true,
+      "mentions_iucn_or_endemic": true,
+      "mentions_capacity_or_splitting": false,
+      "mentions_circular_2009_7_or_revision": false
+    }
+  },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-22T01:15:44",
+      "decision_type": "ÇED Süreci Başlayan",
+      "announcement_date": "2026-11-13",
+      "announcement_date_tr": "13.11.2026",
+      "submitted_at": "03/11/2026 04:50:26",
+      "consulting_firm": "TEİAŞ TÜRKİYE ELEKTRİK İLETİM A.Ş ÇEVRE MÜDÜRLÜĞÜ",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign685376149382269031.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-13",
+      "pdf_temp_ad": "sign685376149382269031.pdf",
+      "pdf_original_name": "e-imza.pdf",
+      "pdf_upload_date": "2026-11-13",
+      "sha256": "0d128afcb18a64c49536e4ea9f942a3f5c1b9994c4299ed6bea2484f78fe4b90",
+      "bytes": 98061839,
+      "page_count": 706,
+      "text_pages": 286,
+      "scanned_or_blank_pages": 420,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": true,
+        "mentions_seasonal_sampling": true,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": false,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true,
+        "mentions_capacity_or_splitting": false,
+        "mentions_circular_2009_7_or_revision": false
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 42,
+        "water_and_discharge": 11,
+        "protected_land_and_olive": 28,
+        "ecology_and_baseline": 55,
+        "pollutants_and_hazards": 44,
+        "cost_and_capacity": 11,
+        "splitting_and_thresholds": 12
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 36.89216,
+      "geo_lon": 29.69938,
+      "geo_point_count": 12,
+      "detail_text_sha256": "068b3dd18859f4f0"
+    }
+  ],
+  "llm_synthesis": {
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-11-22T01:15:51",
+    "pages_sent": [
+      1,
+      2,
+      3,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      18,
+      19,
+      22,
+      24,
+      26,
+      29,
+      31,
+      32,
+      33
+    ],
+    "usage": {
+      "prompt_tokens": 18278,
+      "output_tokens": 2081,
+      "thoughts_tokens": null,
+      "total_tokens": 20359
+    },
+    "result": {
+      "executive_summary_tr": "Muğla ili Seydikemer ilçesi sınırları içerisinde Türkiye Elektrik İletim A.Ş. Genel Müdürlüğü tarafından yapılması planlanan 154 kV Seydikemer-Özaltın Otel GES Brş. N. - Seki TM Enerji İletim Hattı (EİH) projesi; 7.360 km (HAT-1) ve 7.402 km (HAT-2) uzunluğunda iki ayrı paralel hattan oluşmaktadır. Projenin toplam bedeli 87.028.728,71 TL olarak hesaplanmış olup, ÇED Yönetmeliği Ek-2 listesi kapsamında değerlendirilmektedir. Güzergâh tarım ve orman alanlarından geçmekte olup, Yazır Gölü Sulak Alanı'na yaklaşık 6 km mesafededir ve en yakın konuta uzaklığı 100 metredir.",
+      "executive_summary_en": "The proposed 154 kV transmission line project by TEİAŞ in Seydikemer, Muğla consists of two parallel lines of 7.360 km and 7.402 km, connecting to the Seki Transformer Center with a total project cost of 87,028,728.71 TL. The route crosses agricultural and forestry lands, lies approximately 6 km from the Yazır Lake Wetland, and passes as close as 100 meters to the nearest residential building.",
+      "key_facts": [
+        {
+          "label": "Proje Bedeli",
+          "value": "87.028.728,71 TL",
+          "page": 2
+        },
+        {
+          "label": "HAT-1 Uzunluğu",
+          "value": "7,360 km",
+          "page": 1
+        },
+        {
+          "label": "HAT-2 Uzunluğu",
+          "value": "7,402 km",
+          "page": 1
+        },
+        {
+          "label": "Gerilim Seviyesi",
+          "value": "154 kV",
+          "page": 2
+        },
+        {
+          "label": "İletken Karakteristiği",
+          "value": "1272 MCM",
+          "page": 9
+        },
+        {
+          "label": "Orman Alanı Geçişi",
+          "value": "1480 m",
+          "page": 22
+        },
+        {
+          "label": "Tarım Alanı Geçişi",
+          "value": "5840 m",
+          "page": 22
+        },
+        {
+          "label": "En Yakın Konut Mesafesi",
+          "value": "100 metre",
+          "page": 11
+        },
+        {
+          "label": "Yazır Gölü Sulak Alanı Mesafesi",
+          "value": "6 km",
+          "page": 10
+        },
+        {
+          "label": "İnşaat Aşamasında Çalışacak Personel",
+          "value": "30 kişi",
+          "page": 32
+        }
+      ],
+      "baseline_assessment": {
+        "field_survey_status": "mixed_or_unclear",
+        "seasonal_sampling_status": "unclear",
+        "cumulative_impact_status": "omitted_or_not_found",
+        "olive_and_protected_status": "Proje güzergâhı Yazır Gölü Sulak Alanı'na yaklaşık 6 km mesafededir [s. 10]; ancak 3573 sayılı Zeytincilik Kanunu kapsamında zeytinlik sahalarına dair somut bir tarama veya 3 km mesafe analizi PTD metninde sunulmamıştır.",
+        "explanation": "Proje tanıtım dosyasında arazi kullanım türleri 1/100.000 ölçekli çevre düzeni planı verileri üzerinden özetlenmiş, orman ve tarım alanlarından geçen metrajlar belirtilmiştir [s. 22]. Bununla birlikte, biyoçeşitlilik ve flora-fauna unsurlarına yönelik nihai sahadaki mevsimsel örneklemelerin tamamlanıp tamamlanmadığı veya taahhüt aşamasında mı bırakıldığı PTD metninde net olarak belgelenmemiştir."
+      },
+      "red_flags": [
+        {
+          "category": "tarim_orman_korunan_alan",
+          "severity": "high",
+          "title": "5403 Sayılı Kanun ve Orman İzinlerinin ÇED Kararı Öncesi Eksikliği",
+          "detail": "Proje güzergâhının 1480 metresi orman arazisinden ve 5840 metresi tarım alanlarından geçmesine rağmen [s. 22], kesin izinlerin henüz alınmadığı ve yalnızca ilgili kurumlara başvuru yapılacağı belirtilmiştir [s. 23]. Danıştay içtihatlarına göre, tarım ve orman vasıflı alanlarda gerekli kamu yararı ve kesin izinler temin edilmeden ÇED süreci tamamlanamaz.",
+          "pages": [
+            22,
+            23
+          ]
+        },
+        {
+          "category": "su_hidrojeoloji",
+          "severity": "medium",
+          "title": "Mevsimsel Dere Yatakları ve Taşkın Riski Değerlendirmesi",
+          "detail": "DSİ 21. Bölge Müdürlüğü görüşünde güzergâh civarında mevsimsel akışlı derelerin bulunduğu, direk yerlerinin dere yataklarına gelmemesi gerektiği vurgulanmıştır [s. 14]. Ancak hat boyunca akarsu kesişimlerinin koordinat bazlı hidrojeolojik kesitleri ve rusubat/taşkın risk analizleri PTD dosyasında ayrıntılı modellenmemiştir.",
+          "pages": [
+            14,
+            19
+          ]
+        },
+        {
+          "category": "kumulatif_etki",
+          "severity": "medium",
+          "title": "Birikimli (Kümülatif) Bölgesel Etki Analizinin Bulunmaması",
+          "detail": "Bölgede planlanan diğer enerji iletim hatları ve trafo merkezi projeleri ile birlikte yaratacağı kümülatif çevresel baskı PTD metninde 'ortaya çıkma potansiyeli bulunmamaktadır' şeklinde ezbere bir ifadeyle geçiştirilmiştir [s. 23], somut bir kümülatif etki değerlendirmesi yapılmamıştır.",
+          "pages": [
+            23
+          ]
+        }
+      ],
+      "recommended_bilirkisi_disciplines": [
+        "Çevre Mühendisi",
+        "Elektrik Mühendisi",
+        "Ziraat Mühendisi",
+        "Orman Mühendisi",
+        "Hidrojeoloji Mühendisi",
+        "Şehir ve Bölge Plancısı"
+      ],
+      "hkt_and_petition_questions": [
+        {
+          "question_tr": "Proje güzergâhının orman arazisinden geçen 1480 metrelik kısmının ve tarım alanından geçen 5840 metrelik kısmının [s. 22] parsel bazlı mülkiyet ve arazi toplulaştırma durumları nedir; 5403 sayılı Kanun ve Orman Kanunu uyarınca alınması zorunlu kesin izinler PTD onayı öncesi temin edilmiş midir?",
+          "pages": [
+            22,
+            23
+          ]
+        },
+        {
+          "question_tr": "Direk yerlerinin mevsimsel dere yataklarına ve taşkın alanlarına denk gelmemesi amacıyla [s. 14] hangi koordinatlarda mikro-lokasyon değişiklikleri planlanmıştır; DSİ Taşkın ve Rusubat Kontrolü Yönetmeliği hükümlerine göre yapılmış hidroteknik hesaplamalar dosyada neden yer almamaktadır?",
+          "pages": [
+            14,
+            19
+          ]
+        },
+        {
+          "question_tr": "Çaltılar Mahallesi'nde 100 metre mesafede yer alan konut [s. 11] ve hat boyunca etki alanındaki diğer yapılar dikkate alındığında, Elektrik Kuvvetli Akım Tesisleri Yönetmeliği kapsamında oluşacak elektromanyetik alan (EMA) eşik değerleri 50 metrelik koridor boyunca nasıl modellenmiştir?",
+          "pages": [
+            9,
+            11
+          ]
+        }
+      ],
+      "data_limitations": "İnceleme, PTD metninden sağlanan 286 sayfalık metin verisi ve 23 seçilmiş sayfa üzerinden gerçekleştirilmiş olup, raporda atıfta bulunulan ancak metin dışı bırakılan Ek-2 haritaları ve kurum görüşü ekleri (Ek-2-1 ila Ek-2-20) bu değerlendirmenin kapsamı dışındadır."
+    }
+  }
+}

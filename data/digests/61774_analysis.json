@@ -1,0 +1,937 @@
+{
+  "filing": {
+    "province": "İZMİR",
+    "district": "TORBALI",
+    "project_name": "Mobilya Üretim Tesisi Kapasite Artışı (152.227 m3/yıldan 164.832 m3/yıl?a artış)",
+    "project_owner": "Bambi Mobilya ve Yatak San. A.Ş.",
+    "sector": "Sanayi",
+    "sub_sector": "Orman Ürünleri ve Selüloz Tesisleri",
+    "decision_type": "ÇED Süreci Başlayan",
+    "announcement_date_tr": "20.11.2026",
+    "project_type": "Ek-2",
+    "detail_text": "İZMİR ili TORBALI,  ilcesinde İZMİR ili TORBALI,  ilçesi Yazıbaşı Mah., Tapunun 314 Ada, 6 Nolu Parseli (9223 Sk. No:8, 8/1 ve 8/1A adresi) mevkiindeki Bambi Mobilya ve Yatak San. A.Ş. tarafından yapılması planlanan Mobilya Üretim Tesisi Kapasite Artışı (152.227 m3/yıldan 164.832 m3/yıl?a artış) projesi ile ilgili olarak İZMİR Valiliğimize sunulan P.T.D. Dosyası Çevresel Etki Değerlendirmesi Yönetmeliği'nin 16. maddesi doğrultusunda incelenmiş ve projeye ilişkin ÇED Süreci başlamıştır. İlgililere ve kamuoyuna duyurulur.",
+    "detail_links": [
+      {
+        "text": "P.T.D. Dosyası",
+        "href": "http://eced.csb.gov.tr/jsp/ek1/61774"
+      }
+    ],
+    "documents": [
+      {
+        "portal_doc_url": "http://eced.csb.gov.tr/jsp/ek1/61774",
+        "filing_id": "61774",
+        "consulting_firm": "ASİL ÇEVRE MÜHENDİSLİK VE ATIK YÖNETİMİ HİZMETLERİ LİMİTED ŞİRKETİ",
+        "submitted_at": "19/11/2026 08:59:33",
+        "pdf_urls": [
+          {
+            "label": "Dosya Göster",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign7227618263460746575.pdf&orjinalAd=BAMBIMOBILYAPTD.pdf&yuklemeTarihi=2026-11-19"
+          }
+        ]
+      }
+    ],
+    "announcement_date": "2026-11-20",
+    "statutory_clocks": [
+      {
+        "code": "process_open",
+        "kind": "Karar öncesi inceleme süreci (ÇED Yönetmeliği m. 8/16; süreç boyunca yazılı görüş verilebilir)",
+        "deadline": null,
+        "days_remaining": null
+      }
+    ],
+    "filing_key": "61774:20.11.2026:ÇED Süreci Başlayan",
+    "first_seen_at": "2026-11-21T09:02:57"
+  },
+  "pdf_info": {
+    "filename": "61774.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign7227618263460746575.pdf&orjinalAd=BAMBIMOBILYAPTD.pdf&yuklemeTarihi=2026-11-19",
+    "bytes": 101873573,
+    "sha256": "4913b92e038d3deb63b7654ababc0af461111a764729fdcaa6c4d882cef6a202",
+    "cached": false
+  },
+  "analysis": {
+    "page_count": 216,
+    "total_chars": 281358,
+    "text_pages": 161,
+    "scanned_or_blank_pages": 55,
+    "scanned_page_sample": [
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      109,
+      114,
+      116
+    ],
+    "headings": [
+      [
+        4,
+        "İçindekiler Listesi                   Sayfa No:"
+      ],
+      [
+        5,
+        "Tablolar Dizini          Sayfa N:"
+      ],
+      [
+        6,
+        "Şekiller Dizini                   Sayfa No:"
+      ],
+      [
+        7,
+        "PROJENİN TEKNİK OLMAYAN ÖZETİ"
+      ],
+      [
+        11,
+        "BÖLÜM I. PROJENİN ÖZELLİKLERİ"
+      ],
+      [
+        11,
+        "I.a) Projenin ve Yerin Alternatifleri (proje teknolojisinin ve proje alanının seçilme nedenleri)"
+      ],
+      [
+        11,
+        "I.b) Projenin iş akım şeması, kapasitesi, kapladığı alan, yatırım bedeli, teknolojisi, çalışacak personel sayısı,"
+      ],
+      [
+        23,
+        "I.c) Doğal Kaynakların Kullanımı (arazi kullanımı, su kullanımı, kullanılan enerji türü vb.),"
+      ],
+      [
+        26,
+        "I.ç) Projenin İnşaat ve İşletme Aşamasında Oluşan Her Türlü Atığın Özelliği (cinsi, türü, miktarı vb.)  Bertarafı ve Geri Kazanımına Yönelik Değerlendirmeler"
+      ],
+      [
+        39,
+        "I.d) Kullanılan Teknoloji ve Malzemelerden Kaynaklanabilecek Kaza Riski"
+      ],
+      [
+        47,
+        "BÖLÜM II. PROJE YERİ VE ETKİ ALANIN MEVCUT ÇEVRESEL ÖZELLİKLERİ"
+      ],
+      [
+        47,
+        "II.a) Mevcut Arazi Kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve Kalitesi, Jeolojik ve Hidrojeolojik Özellikleri"
+      ],
+      [
+        55,
+        "II.b) Ek-5’deki Duyarlı Yöreler Listesi Dikkate Alınarak Korunması Gereken Alanlar"
+      ],
+      [
+        67,
+        "BÖLÜM III. PROJENİN İNŞAAT VE İŞLETME AŞAMASINDA ÇEVRESEL ETKİLERİ, ÖNCELİKLİ ETKİLERİN BELİRLENMESİ VE ALINACAK ÖNLEMLER"
+      ],
+      [
+        74,
+        "BÖLÜM IV. KÜMÜLATİF ETKİ DEĞERLENDİRME"
+      ],
+      [
+        77,
+        "BÖLÜM V. ÇEVRESEL VE SOSYAL EYLEM PLANI"
+      ],
+      [
+        77,
+        "V-1. Çevre İzleme Planı"
+      ],
+      [
+        78,
+        "V-2. Sürdürülebilirlik Planı (Sıfır Atık Planı, Trafik Yönetim Planı, Sera Gazı Azaltım Planı, Çevresel ve Sosyal Yönetim Planı vb.)"
+      ],
+      [
+        82,
+        "BÖLÜM VI. NOTLAR, KAYNAKLAR VE EKLER"
+      ],
+      [
+        1,
+        "7.9 SIFIR ATIK.pdf"
+      ],
+      [
+        187,
+        "İçindekiler Listesi"
+      ],
+      [
+        188,
+        "1. ATIK YÖNETİMİ"
+      ],
+      [
+        188,
+        "1.1. Atık Önleme ve Minimizasyon"
+      ],
+      [
+        189,
+        "1.2. Atıkların Kaynağında Ayrı Biriktirilmesi ve Toplanması"
+      ],
+      [
+        190,
+        "1.3. Atıkların Proje Alanından Geçici Depolama Alanına Taşınması"
+      ]
+    ],
+    "geo": {
+      "precision": "exact_pdf",
+      "lat": 38.22749,
+      "lon": 27.3238,
+      "point_count": 14,
+      "points": [
+        [
+          38.2276,
+          27.3228
+        ],
+        [
+          38.2267,
+          27.3241
+        ],
+        [
+          38.2263,
+          27.3248
+        ],
+        [
+          38.2267,
+          27.3252
+        ],
+        [
+          38.2272,
+          27.3245
+        ],
+        [
+          38.2274,
+          27.3241
+        ],
+        [
+          38.228,
+          27.3231
+        ],
+        [
+          38.22832,
+          27.32223
+        ],
+        [
+          38.22742,
+          27.32353
+        ],
+        [
+          38.22702,
+          27.32423
+        ],
+        [
+          38.22742,
+          27.32463
+        ],
+        [
+          38.22792,
+          27.32393
+        ],
+        [
+          38.22812,
+          27.32353
+        ],
+        [
+          38.22872,
+          27.32253
+        ]
+      ],
+      "datum": "UTM-Z35/ED50",
+      "pages": [
+        87
+      ]
+    },
+    "signals": {
+      "coordinates_and_footprint": {
+        "label": "Coordinates, Parcel & Footprint",
+        "page_count": 30,
+        "pages": [
+          8,
+          12,
+          13,
+          17,
+          22,
+          26,
+          31,
+          32,
+          33,
+          34,
+          35,
+          37,
+          51,
+          53,
+          56,
+          59,
+          63,
+          85,
+          86,
+          87,
+          92,
+          100,
+          111,
+          135,
+          195
+        ],
+        "samples": [
+          {
+            "page": 8,
+            "match": "895,70 m2",
+            "snippet": "…yet belgeleri Ek-2.4’ ve Ek-2.5’ de yer almaktadır. Proje kapsamında kullanılan 314 ada, 6 nolu parselin büyüklüğü 13.895,70 m2 olup, sözkonusu mobilya üretim faaliyetleri 9.531 m2 tesis alanı içerisinde yapılmaktadır, dolayısıyla herhangi bir in…"
+          },
+          {
+            "page": 8,
+            "match": "9.531 m2",
+            "snippet": "…roje kapsamında kullanılan 314 ada, 6 nolu parselin büyüklüğü 13.895,70 m2 olup, sözkonusu mobilya üretim faaliyetleri 9.531 m2 tesis alanı içerisinde yapılmaktadır, dolayısıyla herhangi bir inşaat çalışması olmayacaktır. Proje kapsamında; tes…"
+          },
+          {
+            "page": 12,
+            "match": "utm",
+            "snippet": "…alar tehlikeli ve tehlikesiz atık yönetim sistemine yönlendirilmektedir. ➢ Boya öncesi kimyasal yüzey temizleme ve kurutma: Bükümü yapılan metaller boya öncesi kimyasal yüzey hazırlığına alınır. Süreç sırasıyla; su ilavesiyle Yıkama, yağ a…"
+          },
+          {
+            "page": 13,
+            "match": "utm",
+            "snippet": "…esi Boru Profil Kesme Mekanik Yüzey Temizleme Boru Profil Şekillendirme Boya öncesi kimyasal yüzey temizleme ve kurutma Yıkama Boyama ve Pişirme Montaja Sevkiyat Yağ Alma Demir- Fosfat Havuzu Durulama Şekil 2. Baza İskeleti Üreti…"
+          },
+          {
+            "page": 17,
+            "match": "4.880 m2",
+            "snippet": "…şap Ebatlama Makine Kapasiteleri Kapasite (m2/sa) = Makine adet x tablo değeri (m2/sa) x kat kesim (ad) Kapasite= 4.880 m2/sa x 8 x 300 = 11.712.000 m2/yıl olarak hesaplanmıştır. Tesiste kullanılan 11.712.000 m2/yıl ahşap ebatlama kapasit…"
+          },
+          {
+            "page": 17,
+            "match": "712.000 m2",
+            "snippet": "…eleri Kapasite (m2/sa) = Makine adet x tablo değeri (m2/sa) x kat kesim (ad) Kapasite= 4.880 m2/sa x 8 x 300 = 11.712.000 m2/yıl olarak hesaplanmıştır. Tesiste kullanılan 11.712.000 m2/yıl ahşap ebatlama kapasitesinin %70’i MDF 8mm, %30’u…"
+          },
+          {
+            "page": 22,
+            "match": "895,70 m2",
+            "snippet": "…4.832 m3/yıl’a artış) PROJE TANITIM DOSYASI 12 Proje kapsamında kullanılan 314 ada, 6 nolu parselin büyüklüğü 13.895,70 m2 olup, sözkonusu mobilya üretim faaliyetleri 9.531 m2 tesis alanı içerisinde yapılmaktadır. Kapasite artışına konu…"
+          },
+          {
+            "page": 22,
+            "match": "9.531 m2",
+            "snippet": "…roje kapsamında kullanılan 314 ada, 6 nolu parselin büyüklüğü 13.895,70 m2 olup, sözkonusu mobilya üretim faaliyetleri 9.531 m2 tesis alanı içerisinde yapılmaktadır. Kapasite artışına konu tesiste yer alan makine ekipmanlar da tesis binası içi…"
+          }
+        ]
+      },
+      "water_and_discharge": {
+        "label": "Water Use, Hydrogeology & Discharge",
+        "page_count": 142,
+        "pages": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26
+        ],
+        "samples": [
+          {
+            "page": 1,
+            "match": "152.227 m3/yıl",
+            "snippet": "BAMBİ MOBİLYA VE YATAK SAN. A.Ş. MOBİLYA ÜRETİM TESİSİ KAPASİTE ARTIŞI (152.227 m3/yıldan 164.832 m3/yıl’a artış) PROJE TANITIM DOSYASI İzmir İli, Torbalı İlçesi, Yazıbaşı Mah., Tapunun 314…"
+          },
+          {
+            "page": 1,
+            "match": "164.832 m3/yıl",
+            "snippet": "BAMBİ MOBİLYA VE YATAK SAN. A.Ş. MOBİLYA ÜRETİM TESİSİ KAPASİTE ARTIŞI (152.227 m3/yıldan 164.832 m3/yıl’a artış) PROJE TANITIM DOSYASI İzmir İli, Torbalı İlçesi, Yazıbaşı Mah., Tapunun 314 Ada, 6 Nolu Parsel…"
+          },
+          {
+            "page": 3,
+            "match": "152.227 m3/yıl",
+            "snippet": "BAMBİ MOBİLYA VE YATAK SAN. A.Ş. MOBİLYA ÜRETİM TESİSİ KAPASİTE ARTIŞI (152.227 m3/yıldan 164.832 m3/yıl’a artış) PROJE TANITIM DOSYASI i Proje Sahibinin Adı: BAMBİ MOBİLYA VE YATAK SAN. A.Ş. Adresi:…"
+          },
+          {
+            "page": 3,
+            "match": "164.832 m3/yıl",
+            "snippet": "BAMBİ MOBİLYA VE YATAK SAN. A.Ş. MOBİLYA ÜRETİM TESİSİ KAPASİTE ARTIŞI (152.227 m3/yıldan 164.832 m3/yıl’a artış) PROJE TANITIM DOSYASI i Proje Sahibinin Adı: BAMBİ MOBİLYA VE YATAK SAN. A.Ş. Adresi: Yazıbaşı Mah. 9223…"
+          },
+          {
+            "page": 3,
+            "match": "3600 m3/yıl",
+            "snippet": "…sisleri, c) Hammadde olarak ağaç ve ağaç ürünleri kullanarak mobilya üreten tesisler (Değişik ibare:RG-5/3/2026-33187) 3600 m3/yıl ve üzeri üretim kapasiteli), Projenin Ana Nace Kodu: 31. Projenin İlgili Faaliyetlerinin Nace Kodları: 31.01.01-…"
+          },
+          {
+            "page": 4,
+            "match": "152.227 m3/yıl",
+            "snippet": "BAMBİ MOBİLYA VE YATAK SAN. A.Ş. MOBİLYA ÜRETİM TESİSİ KAPASİTE ARTIŞI (152.227 m3/yıldan 164.832 m3/yıl’a artış) PROJE TANITIM DOSYASI ii İçindekiler Listesi Sayfa No: P…"
+          },
+          {
+            "page": 4,
+            "match": "164.832 m3/yıl",
+            "snippet": "BAMBİ MOBİLYA VE YATAK SAN. A.Ş. MOBİLYA ÜRETİM TESİSİ KAPASİTE ARTIŞI (152.227 m3/yıldan 164.832 m3/yıl’a artış) PROJE TANITIM DOSYASI ii İçindekiler Listesi Sayfa No: PROJENİN TEKNİK OLM…"
+          },
+          {
+            "page": 5,
+            "match": "152.227 m3/yıl",
+            "snippet": "BAMBİ MOBİLYA VE YATAK SAN. A.Ş. MOBİLYA ÜRETİM TESİSİ KAPASİTE ARTIŞI (152.227 m3/yıldan 164.832 m3/yıl’a artış) PROJE TANITIM DOSYASI iii Tablolar Dizini Sayfa N: Tablo 1. Tesi…"
+          }
+        ]
+      },
+      "protected_land_and_olive": {
+        "label": "Protected Zones, Forests & Olive Groves",
+        "page_count": 10,
+        "pages": [
+          4,
+          47,
+          55,
+          56,
+          60,
+          61,
+          63,
+          84,
+          208,
+          211
+        ],
+        "samples": [
+          {
+            "page": 4,
+            "match": "orman alanı",
+            "snippet": "…ÜM II. PROJE YERİ VE ETKİ ALANIN MEVCUT ÇEVRESEL ÖZELLİKLERİ ........... 36 II.a) Mevcut Arazi Kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve Kalitesi, Jeolojik ve Hidrojeolojik Özellikleri ...............................…"
+          },
+          {
+            "page": 47,
+            "match": "orman alanı",
+            "snippet": "…36 BÖLÜM II. PROJE YERİ VE ETKİ ALANIN MEVCUT ÇEVRESEL ÖZELLİKLERİ II.a) Mevcut Arazi Kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve Kalitesi, Jeolojik ve Hidrojeolojik Özellikleri İzmir İli, Torbalı İlçesi, Y…"
+          },
+          {
+            "page": 55,
+            "match": "Milli Park",
+            "snippet": "…abiat Koruma Alanları\", İzmir ili sınırları içindeki korunan alanlar ile ilgili bilgiler aşağıda verilmiştir. • Milli Park (MP): Türkiye’de 50 adet Milli Park bulunmakta olup, projenin gerçekleşeceği İzmir İli sınırları içinde milli park…"
+          },
+          {
+            "page": 56,
+            "match": "Tabiat Parkı",
+            "snippet": "…MOBİLYA ÜRETİM TESİSİ KAPASİTE ARTIŞI (152.227 m3/yıldan 164.832 m3/yıl’a artış) PROJE TANITIM DOSYASI 45 • Tabiat Parkı (TP): Projenin gerçekleştirileceği İzmir İli sınırları içinde 8 adet tabiat parkı bulunmaktadır. Bu alanlardan Efe…"
+          },
+          {
+            "page": 60,
+            "match": "Özel Çevre Koruma",
+            "snippet": "…m3/yıl’a artış) PROJE TANITIM DOSYASI 49 f) Çevre Kanunu’nun 9 uncu maddesi uyarınca Cumhurbaşkanı tarafından \"Özel Çevre Koruma Bölgeleri\" olarak tespit ve ilan edilen alanlar İzmir ili sınırları içinde Foça Özel Çevre Koruma Bölgesi ve Karabur…"
+          },
+          {
+            "page": 60,
+            "match": "ÖÇK",
+            "snippet": "…ınırları içinde Foça Özel Çevre Koruma Bölgesi ve Karaburun-Ildır Körfezi Özel Çevre Koruma Bölgesi olmak üzere 2 adet ÖÇK alanı bulunmaktadır. Şekil 20. İzmir İlinde Yer Alan Özel Çevre Koruma Bölgeleri Proje alanı içerisinde veya y…"
+          },
+          {
+            "page": 60,
+            "match": "orman alanı",
+            "snippet": "…a Alınan Alanlar ile ilişkisi bulunmamaktadır. Dolayısıyla mesafe değeri belirtilmemiştir. ğ) Orman Kanunu uyarınca orman alanı sayılan yerler Proje alanına ait parsel İzmir-Manisa Planlama Bölgesi 1/100.000 Ölçekli Çevre Düzeni Planı L18 paft…"
+          },
+          {
+            "page": 61,
+            "match": "mera alanı",
+            "snippet": "…lanlama Bölgesi 1/100.000 Ölçekli Çevre Düzeni Planı L18 paftası içerisinde “Sanayi Alanı” içerisinde yer almakta olup mera alanı içerisinde değildir. Sanayi Alanı olarak belirlenen alanlar, mobilya üretim tesisi gibi birçok sanayi tesisinin faali…"
+          }
+        ]
+      },
+      "ecology_and_baseline": {
+        "label": "Flora, Fauna & Baseline Methodology",
+        "page_count": 6,
+        "pages": [
+          50,
+          61,
+          63,
+          64,
+          65,
+          211
+        ],
+        "samples": [
+          {
+            "page": 50,
+            "match": "mevsimsel",
+            "snippet": "…msal sulama ve diğer su kullanımlarına bağlı olarak yeraltı suyu çekimleri artabilmekte ve yeraltı suyu seviyelerinde mevsimsel değişimler meydana gelebilmektedir. Bölgenin hidrojeolojik yapısı genel olarak Torbalı Havzası'nın alüvyal ve Neoje…"
+          },
+          {
+            "page": 61,
+            "match": "BERN Sözleşmesi",
+            "snippet": "…özleşmeler Uyarınca Korunması Gerekli Alanlar a) \"Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi\" (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan \"Önemli Deniz Kaplumbağası Üreme Alanları\"nda belirtilen I. ve II. Koruma B…"
+          },
+          {
+            "page": 63,
+            "match": "endemik",
+            "snippet": "…. d) Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…"
+          },
+          {
+            "page": 64,
+            "match": "endemik",
+            "snippet": "…ta olup Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…"
+          },
+          {
+            "page": 65,
+            "match": "Flora ve Fauna",
+            "snippet": "…r geçerli olan Kanalizasyona Bağlantı Kalite Kontrol Ruhsatı verilmiştir.” Yönünde görüş bildirmiştir (Bkz.Ek-7.4). Flora ve Fauna Proje alanı, Atıfbey Mahallesi sınırları içerisinde, İzmir-Manisa Planlama Bölgesi 1/100.000 Ölçekli Çevre Düzeni P…"
+          },
+          {
+            "page": 211,
+            "match": "flora ve fauna",
+            "snippet": "…k alan ve içme-kullanma suyu havzası koruma alanı bulunmamaktadır. Faaliyet mevcut tesis binası içinde yürütüldüğünden flora ve fauna üzerinde olumsuz etki beklenmemektedir."
+          }
+        ]
+      },
+      "pollutants_and_hazards": {
+        "label": "Emissions, Geochemistry & Waste",
+        "page_count": 32,
+        "pages": [
+          21,
+          27,
+          36,
+          37,
+          39,
+          43,
+          50,
+          52,
+          54,
+          55,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          77,
+          78,
+          82,
+          84,
+          136,
+          191,
+          192,
+          193
+        ],
+        "samples": [
+          {
+            "page": 21,
+            "match": "Bor",
+            "snippet": "…stik hırdavat malzemeleri ad 6.455.280 Hareket mekanizması tkm 750.480 Tela kg 336.000 Toz boya kg 562.860 Bor yağı kg 500 Poşet ad 40.556 LED lamba ad 75.000 Led aydınlatma armatürü (şerit led aydınlatma grubu) ad 22.…"
+          },
+          {
+            "page": 27,
+            "match": "tehlikeli atık",
+            "snippet": "…anın 2025 yılına ait atık beyan formu Ek-7.6’da sunulmuştur. ❖ Tehlikeli Atıklar Proje kapsamında ortaya çıkacak tehlikeli atık kapsamındaki atıklar cinslerine göre ayrılarak, sızdırmazlığı sağlanmış, üstü kapalı ve her atık türü için bölmeleri b…"
+          },
+          {
+            "page": 36,
+            "match": "Gürültü",
+            "snippet": "…enin Çevre İzin ve Lisans Yönetmeliği kapsamında değerlendirilmesi amacıyla yeniden başvurular yapılacaktır. I.ç.4. Gürültü Sözkonusu projenin işletme aşamasında, faaliyet alanında bulunacak olan makine ve ekipmanlardan kaynaklı çevresel g…"
+          },
+          {
+            "page": 37,
+            "match": "gürültü",
+            "snippet": "…JE TANITIM DOSYASI 27 Ayrıca ÇGKY - Madde.12’nin (6). Bendinde; “(6) Endüstri tesisleri ve işyerlerinde çevresel gürültü kaynağı olan ekipmanların mümkün olduğunca kapalı ortamda olması sağlanır. Açık ortamda bulunması zorunlu olan soğutma…"
+          },
+          {
+            "page": 39,
+            "match": "Deprem",
+            "snippet": "…kyardım müdahalesi ve iyileştirilebilen yaralanmalar, dış müdahale gerektiren ağır yaralanmalı veya ölümlü olaylar) • Deprem • Yangın ve/veya patlama (basit metotlarla, yangın tüpleri, hortum sistemleri ile söndürülebilen veya dış destek gere…"
+          },
+          {
+            "page": 43,
+            "match": "Deprem",
+            "snippet": "…Ş. MOBİLYA ÜRETİM TESİSİ KAPASİTE ARTIŞI (152.227 m3/yıldan 164.832 m3/yıl’a artış) PROJE TANITIM DOSYASI 33 ❖ Deprem Deprem anında ve deprem sonrasında dikkat edilmesi gereken hususlar aşağıdadır. Deprem anı: Deprem anında bina iç…"
+          },
+          {
+            "page": 50,
+            "match": "Deprem",
+            "snippet": "…ve mühendislik uygulamalarında 18.03.2018 tarih ve 30364 sayılı Resmi Gazete yayımlanarak yürürlüğe giren Türkiye Bina Deprem Yönetmeliği (TBDY) esaslarına uyulmaktadır. Söz konusu kapasite artışı projesinde yeni bir inşaat çalışması öngörülme…"
+          },
+          {
+            "page": 52,
+            "match": "tehlikeli atık",
+            "snippet": "…ü Yönetmeliği, Atık Yönetimi Yönetmeliği ve ilgili mevzuat hükümlerine uyulacaktır. Proje kapsamında ortaya çıkacak tehlikeli atık kapsamındaki atıklar cinslerine göre ayrılarak, sızdırmazlığı sağlanmış, üstü kapalı ve her atık türü için bölmeleri b…"
+          }
+        ]
+      },
+      "cost_and_capacity": {
+        "label": "Proje Bedeli, Güç ve Kapasite",
+        "page_count": 150,
+        "pages": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26
+        ],
+        "samples": [
+          {
+            "page": 1,
+            "match": "KAPASİTE",
+            "snippet": "BAMBİ MOBİLYA VE YATAK SAN. A.Ş. MOBİLYA ÜRETİM TESİSİ KAPASİTE ARTIŞI (152.227 m3/yıldan 164.832 m3/yıl’a artış) PROJE TANITIM DOSYASI İzmir İli, Torbalı İlçesi, Yaz…"
+          },
+          {
+            "page": 3,
+            "match": "KAPASİTE",
+            "snippet": "BAMBİ MOBİLYA VE YATAK SAN. A.Ş. MOBİLYA ÜRETİM TESİSİ KAPASİTE ARTIŞI (152.227 m3/yıldan 164.832 m3/yıl’a artış) PROJE TANITIM DOSYASI i Proje Sahibinin Adı: BAMBİ MOBİLYA VE YA…"
+          },
+          {
+            "page": 3,
+            "match": "Kapasite",
+            "snippet": "…3 73 50 : 0506 917 72 53 : 1400384363/Torbalı VD. E-Posta: m.urhan@bambi.com.tr Projenin Adı: Mobilya Üretim Tesisi Kapasite Artışı (152.227 m3/yıldan 164.832 m3/yıl’a artış) Proje Bedeli: 19.090.170 TL Proje İçin Seçilen Yerin Açık Adresi…"
+          },
+          {
+            "page": 3,
+            "match": "Proje Bedeli",
+            "snippet": "…m.urhan@bambi.com.tr Projenin Adı: Mobilya Üretim Tesisi Kapasite Artışı (152.227 m3/yıldan 164.832 m3/yıl’a artış) Proje Bedeli: 19.090.170 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii): İzmir İli, Torbalı İlçesi, Yazıbaşı Mah…"
+          },
+          {
+            "page": 3,
+            "match": "19.090.170 TL",
+            "snippet": "…com.tr Projenin Adı: Mobilya Üretim Tesisi Kapasite Artışı (152.227 m3/yıldan 164.832 m3/yıl’a artış) Proje Bedeli: 19.090.170 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii): İzmir İli, Torbalı İlçesi, Yazıbaşı Mah., Tapunun 314 A…"
+          },
+          {
+            "page": 4,
+            "match": "KAPASİTE",
+            "snippet": "BAMBİ MOBİLYA VE YATAK SAN. A.Ş. MOBİLYA ÜRETİM TESİSİ KAPASİTE ARTIŞI (152.227 m3/yıldan 164.832 m3/yıl’a artış) PROJE TANITIM DOSYASI ii İçindekiler Listesi…"
+          },
+          {
+            "page": 4,
+            "match": "kapasite",
+            "snippet": "…...................................................................................... 1 I.b) Projenin iş akım şeması, kapasitesi, kapladığı alan, yatırım bedeli, teknolojisi, çalışacak personel sayısı, ...........................................…"
+          },
+          {
+            "page": 5,
+            "match": "KAPASİTE",
+            "snippet": "BAMBİ MOBİLYA VE YATAK SAN. A.Ş. MOBİLYA ÜRETİM TESİSİ KAPASİTE ARTIŞI (152.227 m3/yıldan 164.832 m3/yıl’a artış) PROJE TANITIM DOSYASI iii Tablolar Dizini S…"
+          }
+        ]
+      },
+      "splitting_and_thresholds": {
+        "label": "Proje Parçalama, Kapasite Artışı ve Eşik Değerler",
+        "page_count": 142,
+        "pages": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26
+        ],
+        "samples": [
+          {
+            "page": 1,
+            "match": "KAPASİTE ARTIŞI",
+            "snippet": "BAMBİ MOBİLYA VE YATAK SAN. A.Ş. MOBİLYA ÜRETİM TESİSİ KAPASİTE ARTIŞI (152.227 m3/yıldan 164.832 m3/yıl’a artış) PROJE TANITIM DOSYASI İzmir İli, Torbalı İlçesi, Yazıbaşı M…"
+          },
+          {
+            "page": 3,
+            "match": "KAPASİTE ARTIŞI",
+            "snippet": "BAMBİ MOBİLYA VE YATAK SAN. A.Ş. MOBİLYA ÜRETİM TESİSİ KAPASİTE ARTIŞI (152.227 m3/yıldan 164.832 m3/yıl’a artış) PROJE TANITIM DOSYASI i Proje Sahibinin Adı: BAMBİ MOBİLYA VE YATAK SAN…"
+          },
+          {
+            "page": 3,
+            "match": "Kapasite Artışı",
+            "snippet": "…3 73 50 : 0506 917 72 53 : 1400384363/Torbalı VD. E-Posta: m.urhan@bambi.com.tr Projenin Adı: Mobilya Üretim Tesisi Kapasite Artışı (152.227 m3/yıldan 164.832 m3/yıl’a artış) Proje Bedeli: 19.090.170 TL Proje İçin Seçilen Yerin Açık Adresi (İli,…"
+          },
+          {
+            "page": 4,
+            "match": "KAPASİTE ARTIŞI",
+            "snippet": "BAMBİ MOBİLYA VE YATAK SAN. A.Ş. MOBİLYA ÜRETİM TESİSİ KAPASİTE ARTIŞI (152.227 m3/yıldan 164.832 m3/yıl’a artış) PROJE TANITIM DOSYASI ii İçindekiler Listesi…"
+          },
+          {
+            "page": 5,
+            "match": "KAPASİTE ARTIŞI",
+            "snippet": "BAMBİ MOBİLYA VE YATAK SAN. A.Ş. MOBİLYA ÜRETİM TESİSİ KAPASİTE ARTIŞI (152.227 m3/yıldan 164.832 m3/yıl’a artış) PROJE TANITIM DOSYASI iii Tablolar Dizini Sayfa N:…"
+          },
+          {
+            "page": 6,
+            "match": "KAPASİTE ARTIŞI",
+            "snippet": "BAMBİ MOBİLYA VE YATAK SAN. A.Ş. MOBİLYA ÜRETİM TESİSİ KAPASİTE ARTIŞI (152.227 m3/yıldan 164.832 m3/yıl’a artış) PROJE TANITIM DOSYASI iv Şekiller Dizini S…"
+          },
+          {
+            "page": 7,
+            "match": "KAPASİTE ARTIŞI",
+            "snippet": "BAMBİ MOBİLYA VE YATAK SAN. A.Ş. MOBİLYA ÜRETİM TESİSİ KAPASİTE ARTIŞI (152.227 m3/yıldan 164.832 m3/yıl’a artış) PROJE TANITIM DOSYASI v PROJENİN TEKNİK OLMAYAN ÖZETİ İzmir İli,…"
+          },
+          {
+            "page": 7,
+            "match": "Kapasite Artışı",
+            "snippet": "…rseli (9223 Sk. No:8, 8/1 ve 8/1A adresi) üzerinde BAMBİ MOBİLYA VE YATAK SAN. A.Ş. tarafından “Mobilya Üretim Tesisi Kapasite Artışı (152.227 m3/yıldan 164.832 m3/yıl’a artış)” projesi yapılmaktadır. Söz konusu tesis mevcut olup halihazırda faaliyet g…"
+          }
+        ]
+      }
+    },
+    "audit_checks": {
+      "mentions_field_survey": false,
+      "mentions_literature_only_cue": false,
+      "mentions_seasonal_sampling": true,
+      "mentions_cumulative_impact": true,
+      "mentions_olive_law_3573": false,
+      "mentions_groundwater_or_aquifer": true,
+      "mentions_iucn_or_endemic": true,
+      "mentions_capacity_or_splitting": true,
+      "mentions_circular_2009_7_or_revision": false
+    }
+  },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-22T00:59:00",
+      "decision_type": "ÇED Süreci Başlayan",
+      "announcement_date": "2026-11-20",
+      "announcement_date_tr": "20.11.2026",
+      "submitted_at": "19/11/2026 08:59:33",
+      "consulting_firm": "ASİL ÇEVRE MÜHENDİSLİK VE ATIK YÖNETİMİ HİZMETLERİ LİMİTED ŞİRKETİ",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign7227618263460746575.pdf&orjinalAd=BAMBIMOBILYAPTD.pdf&yuklemeTarihi=2026-11-19",
+      "pdf_temp_ad": "sign7227618263460746575.pdf",
+      "pdf_original_name": "BAMBIMOBILYAPTD.pdf",
+      "pdf_upload_date": "2026-11-19",
+      "sha256": "4913b92e038d3deb63b7654ababc0af461111a764729fdcaa6c4d882cef6a202",
+      "bytes": 101873573,
+      "page_count": 216,
+      "text_pages": 161,
+      "scanned_or_blank_pages": 55,
+      "audit_checks": {
+        "mentions_field_survey": false,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": true,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": false,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true,
+        "mentions_capacity_or_splitting": true,
+        "mentions_circular_2009_7_or_revision": false
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 30,
+        "water_and_discharge": 142,
+        "protected_land_and_olive": 10,
+        "ecology_and_baseline": 6,
+        "pollutants_and_hazards": 32,
+        "cost_and_capacity": 150,
+        "splitting_and_thresholds": 142
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 38.22749,
+      "geo_lon": 27.3238,
+      "geo_point_count": 14,
+      "detail_text_sha256": "04d8f93112d1a91a"
+    }
+  ],
+  "llm_synthesis": {
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-11-22T00:59:06",
+    "pages_sent": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      8,
+      12,
+      13,
+      17,
+      21,
+      27,
+      36,
+      37,
+      47,
+      48,
+      50,
+      55,
+      56,
+      61,
+      63,
+      64,
+      67,
+      68,
+      77,
+      78,
+      79
+    ],
+    "usage": {
+      "prompt_tokens": 24289,
+      "output_tokens": 1948,
+      "thoughts_tokens": null,
+      "total_tokens": 26237
+    },
+    "result": {
+      "executive_summary_tr": "Bambi Mobilya ve Yatak San. A.Ş. tarafından İzmir İli, Torbalı İlçesi, Yazıbaşı Mahallesi, 314 Ada 6 Nolu Parselde yürütülen mobilya üretim tesisinin kapasite artışı projesi (152.227 m³/yıldan 164.832 m³/yıl'a artış) için hazırlanan PTD dosyası incelenmiştir. Mevcut sanayi alanı içinde yer alan tesiste, metal işleme, ahşap ebatlama, yüzey işlemleri ve boyama faaliyetleri yürütülmekte olup herhangi bir yeni inşaat çalışması öngörülmemektedir. Proje sahası Küçük Menderes Havzası alüvyal akifer sistemi üzerinde yer almakta olup, çevresel riskler arasında proses atıksuları, tehlikeli atıklar, kimyasal havuz emisyonları ve endüstriyel gürültü bulunmaktadır.",
+      "executive_summary_en": "The Project Promotion File (PTD) for the furniture production facility capacity increase (from 152.227 m³/year to 164.832 m³/year) by Bambi Mobilya ve Yatak San. A.Ş. in Izmir, Torbalı, Yazıbaşı District, Plot 314, Parcel 6, has been reviewed. Located in an existing industrial zone, the facility engages in metal processing, wood sizing, surface treatments, and painting without any new construction works. Situated within the Küçük Menderes Basin alluvial aquifer system, key environmental risks include process wastewaters, hazardous wastes, chemical pool emissions, and industrial noise.",
+      "key_facts": [
+        {
+          "label": "Proje Bedeli",
+          "value": "19.090.170 TL",
+          "page": 3
+        },
+        {
+          "label": "Parsel Alanı",
+          "value": "13.895,70 m2",
+          "page": 8
+        },
+        {
+          "label": "Tesis Kapalı Alanı",
+          "value": "9.531 m2",
+          "page": 8
+        },
+        {
+          "label": "En Yakın Yerleşim",
+          "value": "600 m kuzeybatı",
+          "page": 8
+        },
+        {
+          "label": "Mevcut Üretim Kapasitesi",
+          "value": "152.227 m3/yıl",
+          "page": 1
+        },
+        {
+          "label": "Planlanan Üretim Kapasitesi",
+          "value": "164.832 m3/yıl",
+          "page": 1
+        },
+        {
+          "label": "Toz Boya Yüzey İşlem Havuz Hacimleri",
+          "value": "54,3 m3",
+          "page": 17
+        },
+        {
+          "label": "En Yakın Tabiat Parkı",
+          "value": "8,25 km (Efeoğlu Tabiat Parkı)",
+          "page": 56
+        },
+        {
+          "label": "En Yakın Yüzeysel Su Kaynağı",
+          "value": "3,5 km (Koca Çay)",
+          "page": 63
+        },
+        {
+          "label": "En Yakın İçme Suyu Barajı",
+          "value": "15 km (Tahtalı Barajı)",
+          "page": 64
+        }
+      ],
+      "baseline_assessment": {
+        "field_survey_status": "literature_only",
+        "seasonal_sampling_status": "not_found",
+        "cumulative_impact_status": "superficial_or_boilerplate",
+        "olive_and_protected_status": "Proje alanı 1/100.000 ölçekli çevre düzeni planında sanayi alanı içerisinde kalmakta olup, zeytincilik kanunu, mera kanunu ve sulak alanlar açısından koruma bölgeleri dışında yer almaktadır [s. 61, 63].",
+        "explanation": "Dosyada flora, fauna, toprak ve yeraltı suyu kalitesine ilişkin herhangi bir saha ölçümü veya laboratuvar analizi bulunmamakta; çevresel özellikler tamamen literatür verileri ve plan kararlarına dayandırılmaktadır [s. 47, 50]. Birikimli etkiler ve ekosistem analizleri yüzeysel düzeyde geçiştirilmiştir [s. 61]."
+      },
+      "red_flags": [
+        {
+          "category": "flora_fauna_mevsimsel",
+          "severity": "high",
+          "title": "Flora ve Fauna Arazi Çalışmasının Bulunmaması",
+          "detail": "Dosyada ekolojik ve biyolojik çeşitliliğe yönelik hiçbir mevsimsel saha çalışması veya yerinde gözlem yapılmamış, veriler tamamen ikincil literatür kaynaklarına dayandırılmıştır [s. 47, 50].",
+          "pages": [
+            47,
+            50
+          ]
+        },
+        {
+          "category": "su_hidrojeoloji",
+          "severity": "medium",
+          "title": "Yeraltı Suyu Akifer Güvenliği ve Alüvyon Etkileşimi",
+          "detail": "Küçük Menderes Havzası alüvyal akifer sistemi üzerinde yer alan tesiste yeraltı suyu kalitesine ve olası sızıntı risklerine ilişkin pre-project baseline hidrojeolojik analiz raporu sunulmamıştır [s. 50].",
+          "pages": [
+            50
+          ]
+        },
+        {
+          "category": "izleme_olcum_celiskisi",
+          "severity": "medium",
+          "title": "Emisyon ve Gürültü Ölçümlerinin Şarta Bağlanması",
+          "detail": "Hava emisyonları ve gürültü izleme planında sürekli ölçüm yerine yalnızca 'şikâyet olması durumunda' ölçüm yapılması öngörülmüştür ki bu durum etkin idari denetimi zayıflatmaktadır [s. 78].",
+          "pages": [
+            77,
+            78
+          ]
+        }
+      ],
+      "recommended_bilirkisi_disciplines": [
+        "Çevre Mühendisi",
+        "Hidrojeoloji Mühendisi",
+        "Ziraat Mühendisi",
+        "Biyolog",
+        "Şehir ve Bölge Plancısı"
+      ],
+      "hkt_and_petition_questions": [
+        {
+          "question_tr": "Tesiste gerçekleştirilen kimyasal yüzey temizleme, demir-fosfat kaplama ve elektrostatik toz boyama proseslerinden kaynaklanan atıksuların karakterizasyonu nedir ve İZSU kanal bağlantı izin belgesi sınır değerlerini sağladığı hangi analitik testlerle kanıtlanmıştır?",
+          "pages": [
+            12,
+            21,
+            78
+          ]
+        },
+        {
+          "question_tr": "Küçük Menderes Havzası sığ yeraltı suyu akiferi üzerinde bulunan tesiste, tehlikeli atık geçici depolama alanı ve kimyasal havuzlar nedeniyle olası bir sızıntının yeraltı suyuna karışmasını önlemek amacıyla hangi somut mühendislik ve sızdırmazlık önlemleri alınmıştır?",
+          "pages": [
+            17,
+            27,
+            50
+          ]
+        },
+        {
+          "question_tr": "Kapasite artışına konu olan ahşap ebatlama ve metal işleme makinelerinin artışından kaynaklanan toz, VOC ve gürültü emisyonlarının çevre parsellerdeki ve 600 metre mesafedeki konutlardaki kümülatif etkisi niçin modelleme yapılarak hesaplanmamıştır?",
+          "pages": [
+            8,
+            17,
+            36,
+            37
+          ]
+        }
+      ],
+      "data_limitations": "Dosya içerisindeki bazı ekler (Ek-2.2, Ek-7.1, Ek-7.6 gibi) taranmış veya harita formatında olduğundan metin tabanlı inceleme dışınd kalmıştır; ancak ana metin ve tablolar üzerinden hukuki ve teknik değerlendirme yapılmıştır."
+    }
+  }
+}

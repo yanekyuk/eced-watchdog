@@ -1,0 +1,2698 @@
+{
+  "updated_at": "2026-11-22T01:29:31",
+  "count": 29,
+  "entries": {
+    "41.0829,28.8090": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:07:55",
+      "lat": 41.08294,
+      "lon": 28.80898,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 93,
+          "min_distance_m": 38,
+          "nearest": [
+            {
+              "name": "Ayamama Deresi",
+              "distance_m": 38,
+              "lat": 41.08328,
+              "lon": 28.80888,
+              "kind": "Su kanalı"
+            },
+            {
+              "name": "",
+              "distance_m": 205,
+              "lat": 41.08475,
+              "lon": 28.80941,
+              "kind": "Dere / Akarsu"
+            },
+            {
+              "name": "",
+              "distance_m": 249,
+              "lat": 41.0833,
+              "lon": 28.81192,
+              "kind": "Dere / Akarsu"
+            },
+            {
+              "name": "",
+              "distance_m": 260,
+              "lat": 41.08408,
+              "lon": 28.81168,
+              "kind": "Dere / Akarsu"
+            },
+            {
+              "name": "",
+              "distance_m": 267,
+              "lat": 41.08532,
+              "lon": 28.80938,
+              "kind": "Dere / Akarsu"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 18,
+          "min_distance_m": 222,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 222,
+              "lat": 41.08181,
+              "lon": 28.81116,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 1707,
+              "lat": 41.0676,
+              "lon": 28.80982,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 2051,
+              "lat": 41.08274,
+              "lon": 28.83345,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 2112,
+              "lat": 41.06396,
+              "lon": 28.80995,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 2118,
+              "lat": 41.09897,
+              "lon": 28.82265,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            }
+          ],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 6,
+          "min_distance_m": 1489,
+          "nearest": [
+            {
+              "name": "İkitelli OSB",
+              "distance_m": 1489,
+              "lat": 41.06987,
+              "lon": 28.80508,
+              "kind": "Semt"
+            },
+            {
+              "name": "Ziya Gökalp",
+              "distance_m": 1966,
+              "lat": 41.07518,
+              "lon": 28.78791,
+              "kind": "Semt"
+            },
+            {
+              "name": "Başak",
+              "distance_m": 2315,
+              "lat": 41.10371,
+              "lon": 28.80704,
+              "kind": "Semt"
+            },
+            {
+              "name": "Ayazma",
+              "distance_m": 2719,
+              "lat": 41.07408,
+              "lon": 28.77875,
+              "kind": "Semt"
+            },
+            {
+              "name": "Başakşehir",
+              "distance_m": 2977,
+              "lat": 41.10758,
+              "lon": 28.79507,
+              "kind": "İlçe / belde"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 44,
+          "min_distance_m": 412,
+          "nearest": [
+            {
+              "name": "İstanbullu OSGB",
+              "distance_m": 412,
+              "lat": 41.08005,
+              "lon": 28.8059,
+              "kind": "Hastane"
+            },
+            {
+              "name": "Borsa İstanbul Başakşehir Mesleki ve Teknik Anadolu Lisesi",
+              "distance_m": 648,
+              "lat": 41.08818,
+              "lon": 28.80559,
+              "kind": "Okul"
+            },
+            {
+              "name": "Başakşehir Şehit Muhammed Eymen Demirci İlkokulu",
+              "distance_m": 942,
+              "lat": 41.09067,
+              "lon": 28.80438,
+              "kind": "Okul"
+            },
+            {
+              "name": "Başakşehir Anadolu Lisesi",
+              "distance_m": 1241,
+              "lat": 41.09407,
+              "lon": 28.81012,
+              "kind": "Okul"
+            },
+            {
+              "name": "Final Okulları Bahçeşehir Kampüsü",
+              "distance_m": 1422,
+              "lat": 41.0953,
+              "lon": 28.80465,
+              "kind": "Okul"
+            }
+          ]
+        }
+      }
+    },
+    "36.9542,34.5866": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:10:06",
+      "lat": 36.95417,
+      "lon": 34.58658,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 4,
+          "min_distance_m": 84,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 84,
+              "lat": 36.95347,
+              "lon": 34.58624,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 1586,
+              "lat": 36.94208,
+              "lon": 34.57712,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "Gölet",
+              "distance_m": 2492,
+              "lat": 36.95152,
+              "lon": 34.61442,
+              "kind": "Su kütlesi / gölet"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 4,
+          "min_distance_m": 180,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 180,
+              "lat": 36.95279,
+              "lon": 34.58764,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 1212,
+              "lat": 36.96042,
+              "lon": 34.5754,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 1696,
+              "lat": 36.94149,
+              "lon": 34.57597,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 1894,
+              "lat": 36.94138,
+              "lon": 34.57251,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            }
+          ],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 5,
+          "min_distance_m": 1151,
+          "nearest": [
+            {
+              "name": "Evrenli",
+              "distance_m": 1151,
+              "lat": 36.94619,
+              "lon": 34.57834,
+              "kind": "Köy"
+            },
+            {
+              "name": "Sarnıç",
+              "distance_m": 1312,
+              "lat": 36.95811,
+              "lon": 34.57266,
+              "kind": "Mezra"
+            },
+            {
+              "name": "Darısekisi",
+              "distance_m": 2315,
+              "lat": 36.97223,
+              "lon": 34.57361,
+              "kind": "Köy"
+            },
+            {
+              "name": "Musalı",
+              "distance_m": 2360,
+              "lat": 36.96052,
+              "lon": 34.61192,
+              "kind": "Köy"
+            },
+            {
+              "name": "Çelebili",
+              "distance_m": 2445,
+              "lat": 36.94186,
+              "lon": 34.60937,
+              "kind": "Köy"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "38.4040,27.2344": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:24:34",
+      "lat": 38.40396,
+      "lon": 27.23442,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 22,
+          "min_distance_m": 192,
+          "nearest": [
+            {
+              "name": "Gökdere",
+              "distance_m": 192,
+              "lat": 38.40293,
+              "lon": 27.2362,
+              "kind": "Dere / Akarsu"
+            },
+            {
+              "name": "",
+              "distance_m": 327,
+              "lat": 38.40105,
+              "lon": 27.23388,
+              "kind": "Dere / Akarsu"
+            },
+            {
+              "name": "",
+              "distance_m": 343,
+              "lat": 38.40088,
+              "lon": 27.23455,
+              "kind": "Dere / Akarsu"
+            },
+            {
+              "name": "",
+              "distance_m": 374,
+              "lat": 38.40065,
+              "lon": 27.23521,
+              "kind": "Dere / Akarsu"
+            },
+            {
+              "name": "",
+              "distance_m": 410,
+              "lat": 38.40045,
+              "lon": 27.23588,
+              "kind": "Dere / Akarsu"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 11,
+          "min_distance_m": 627,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 627,
+              "lat": 38.40785,
+              "lon": 27.23964,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 737,
+              "lat": 38.40501,
+              "lon": 27.24277,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 772,
+              "lat": 38.39901,
+              "lon": 27.24063,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 1107,
+              "lat": 38.40532,
+              "lon": 27.247,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "Ege Üniversitesi Ormanı",
+              "distance_m": 1147,
+              "lat": 38.4126,
+              "lon": 27.2416,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            }
+          ],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 4,
+          "min_distance_m": 2221,
+          "nearest": [
+            {
+              "name": "Işıklar",
+              "distance_m": 2221,
+              "lat": 38.42383,
+              "lon": 27.23188,
+              "kind": "Semt"
+            },
+            {
+              "name": "Egemenlik",
+              "distance_m": 2541,
+              "lat": 38.42649,
+              "lon": 27.22953,
+              "kind": "Semt"
+            },
+            {
+              "name": "Aydoğdu",
+              "distance_m": 2814,
+              "lat": 38.39986,
+              "lon": 27.20255,
+              "kind": "Semt"
+            },
+            {
+              "name": "Gökdere",
+              "distance_m": 2894,
+              "lat": 38.37836,
+              "lon": 27.24039,
+              "kind": "Köy"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 5,
+          "min_distance_m": 2297,
+          "nearest": [
+            {
+              "name": "BEGOS Teknik Koleji",
+              "distance_m": 2297,
+              "lat": 38.39655,
+              "lon": 27.20982,
+              "kind": "Okul"
+            },
+            {
+              "name": "Işıkkent İlköğretim Okulu",
+              "distance_m": 2302,
+              "lat": 38.42396,
+              "lon": 27.22762,
+              "kind": "Okul"
+            },
+            {
+              "name": "Hatice Güzelcan Anadolu Lisesi",
+              "distance_m": 2362,
+              "lat": 38.42516,
+              "lon": 27.23286,
+              "kind": "Okul"
+            },
+            {
+              "name": "Bornova Gökdere Köyü Aile Sağlığı Merkezi",
+              "distance_m": 2873,
+              "lat": 38.37853,
+              "lon": 27.24028,
+              "kind": "Sağlık tesisi"
+            },
+            {
+              "name": "Buca Tınaztepe Anadolu Lisesi",
+              "distance_m": 2908,
+              "lat": 38.39761,
+              "lon": 27.20204,
+              "kind": "Okul"
+            }
+          ]
+        }
+      }
+    },
+    "41.1035,28.6839": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:24:38",
+      "lat": 41.10348,
+      "lon": 28.68393,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 36,
+          "min_distance_m": 1088,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 1088,
+              "lat": 41.10301,
+              "lon": 28.67096,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 1478,
+              "lat": 41.09251,
+              "lon": 28.67397,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "Eşkinoz Deresi",
+              "distance_m": 1810,
+              "lat": 41.08993,
+              "lon": 28.67196,
+              "kind": "Dere / Akarsu"
+            },
+            {
+              "name": "",
+              "distance_m": 2002,
+              "lat": 41.09034,
+              "lon": 28.70026,
+              "kind": "Dere / Akarsu"
+            },
+            {
+              "name": "",
+              "distance_m": 2033,
+              "lat": 41.08693,
+              "lon": 28.67362,
+              "kind": "Dere / Akarsu"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 1,
+          "min_distance_m": 2039,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 2039,
+              "lat": 41.10104,
+              "lon": 28.70804,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            }
+          ],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 3,
+          "min_distance_m": 2621,
+          "nearest": [
+            {
+              "name": "Deliklikaya",
+              "distance_m": 2621,
+              "lat": 41.11152,
+              "lon": 28.65453,
+              "kind": "Semt"
+            },
+            {
+              "name": "Boğazköy",
+              "distance_m": 2718,
+              "lat": 41.08133,
+              "lon": 28.6702,
+              "kind": "Semt"
+            },
+            {
+              "name": "Vaditepe",
+              "distance_m": 2983,
+              "lat": 41.07774,
+              "lon": 28.69397,
+              "kind": "Semt"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 9,
+          "min_distance_m": 1076,
+          "nearest": [
+            {
+              "name": "Hacı Şöhret Demiröz Fen Lisesi",
+              "distance_m": 1076,
+              "lat": 41.09955,
+              "lon": 28.6722,
+              "kind": "Okul"
+            },
+            {
+              "name": "Demiröz Eğitim ve Yaşam Vadisi",
+              "distance_m": 1129,
+              "lat": 41.10022,
+              "lon": 28.67117,
+              "kind": "Okul"
+            },
+            {
+              "name": "İsmail Kemal Demiröz Ortaokulu",
+              "distance_m": 1158,
+              "lat": 41.10069,
+              "lon": 28.67061,
+              "kind": "Okul"
+            },
+            {
+              "name": "İsmail Kemal Demiröz İlkokulu",
+              "distance_m": 1228,
+              "lat": 41.10027,
+              "lon": 28.66991,
+              "kind": "Okul"
+            },
+            {
+              "name": "",
+              "distance_m": 1245,
+              "lat": 41.1042,
+              "lon": 28.6691,
+              "kind": "Okul"
+            }
+          ]
+        }
+      }
+    },
+    "37.1163,35.6208": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:24:41",
+      "lat": 37.11634,
+      "lon": 35.62081,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 2,
+          "min_distance_m": 2084,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 2084,
+              "lat": 37.1156,
+              "lon": 35.59732,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 2942,
+              "lat": 37.09147,
+              "lon": 35.60948,
+              "kind": "Su kütlesi / gölet"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 3,
+          "min_distance_m": 1174,
+          "nearest": [
+            {
+              "name": "Avcılar",
+              "distance_m": 1174,
+              "lat": 37.12289,
+              "lon": 35.61042,
+              "kind": "Köy"
+            },
+            {
+              "name": "Küçükiniş",
+              "distance_m": 1583,
+              "lat": 37.10219,
+              "lon": 35.61883,
+              "kind": "Mahalle"
+            },
+            {
+              "name": "Karcılar",
+              "distance_m": 2173,
+              "lat": 37.11712,
+              "lon": 35.64529,
+              "kind": "Mahalle"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "38.3253,38.7542": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:27:27",
+      "lat": 38.32527,
+      "lon": 38.75425,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 17,
+          "min_distance_m": 414,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 414,
+              "lat": 38.32332,
+              "lon": 38.75828,
+              "kind": "Dere / Akarsu"
+            },
+            {
+              "name": "",
+              "distance_m": 1003,
+              "lat": 38.32119,
+              "lon": 38.7645,
+              "kind": "Dere / Akarsu"
+            },
+            {
+              "name": "",
+              "distance_m": 1312,
+              "lat": 38.31955,
+              "lon": 38.76741,
+              "kind": "Dere / Akarsu"
+            },
+            {
+              "name": "",
+              "distance_m": 1746,
+              "lat": 38.30993,
+              "lon": 38.75856,
+              "kind": "Dere / Akarsu"
+            },
+            {
+              "name": "",
+              "distance_m": 1936,
+              "lat": 38.32499,
+              "lon": 38.73206,
+              "kind": "Dere / Akarsu"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 1,
+          "min_distance_m": 2611,
+          "nearest": [
+            {
+              "name": "Çanakçı",
+              "distance_m": 2611,
+              "lat": 38.34868,
+              "lon": 38.75196,
+              "kind": "Köy"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "36.3802,29.4593": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:27:32",
+      "lat": 36.38021,
+      "lon": 29.4593,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        },
+        "protected_or_forest": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "38.1896,40.0892": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:28:17",
+      "lat": 38.18959,
+      "lon": 40.08919,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 3,
+          "min_distance_m": 763,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 763,
+              "lat": 38.18719,
+              "lon": 40.09736,
+              "kind": "Bağ",
+              "explicit_olive": false
+            },
+            {
+              "name": "",
+              "distance_m": 775,
+              "lat": 38.18829,
+              "lon": 40.0979,
+              "kind": "Bağ",
+              "explicit_olive": false
+            },
+            {
+              "name": "",
+              "distance_m": 1221,
+              "lat": 38.187,
+              "lon": 40.10277,
+              "kind": "Bağ",
+              "explicit_olive": false
+            }
+          ],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        },
+        "protected_or_forest": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 3,
+          "min_distance_m": 769,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 769,
+              "lat": 38.1959,
+              "lon": 40.08559,
+              "kind": "Mezra"
+            },
+            {
+              "name": "Yukarı Döşemeler",
+              "distance_m": 1319,
+              "lat": 38.19018,
+              "lon": 40.10426,
+              "kind": "Mezra"
+            },
+            {
+              "name": "",
+              "distance_m": 2263,
+              "lat": 38.19563,
+              "lon": 40.06446,
+              "kind": "Mezra"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "40.1097,42.7852": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:28:20",
+      "lat": 40.10975,
+      "lon": 42.78519,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 1,
+          "min_distance_m": 1534,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 1534,
+              "lat": 40.11948,
+              "lon": 42.77241,
+              "kind": "Dere / Akarsu"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 1,
+          "min_distance_m": 1602,
+          "nearest": [
+            {
+              "name": "Kalebaşı",
+              "distance_m": 1602,
+              "lat": 40.12122,
+              "lon": 42.77378,
+              "kind": "Köy"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "39.9582,30.2100": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:28:23",
+      "lat": 39.95815,
+      "lon": 30.21003,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 1,
+          "min_distance_m": 1972,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 1972,
+              "lat": 39.95346,
+              "lon": 30.18772,
+              "kind": "Meyve bahçesi / dikili alan",
+              "explicit_olive": false
+            }
+          ],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 4,
+          "min_distance_m": 1908,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 1908,
+              "lat": 39.94106,
+              "lon": 30.21205,
+              "kind": "Dere / Akarsu"
+            },
+            {
+              "name": "",
+              "distance_m": 2566,
+              "lat": 39.96494,
+              "lon": 30.18126,
+              "kind": "Dere / Akarsu"
+            },
+            {
+              "name": "",
+              "distance_m": 2570,
+              "lat": 39.95269,
+              "lon": 30.18073,
+              "kind": "Su kanalı"
+            },
+            {
+              "name": "",
+              "distance_m": 2604,
+              "lat": 39.93814,
+              "lon": 30.22591,
+              "kind": "Dere / Akarsu"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 12,
+          "min_distance_m": 1866,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 1866,
+              "lat": 39.94254,
+              "lon": 30.21808,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 2087,
+              "lat": 39.9401,
+              "lon": 30.20334,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 2087,
+              "lat": 39.95146,
+              "lon": 30.18716,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 2188,
+              "lat": 39.95369,
+              "lon": 30.18502,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 2321,
+              "lat": 39.95099,
+              "lon": 30.18446,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            }
+          ],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 3,
+          "min_distance_m": 864,
+          "nearest": [
+            {
+              "name": "Gündüzbey",
+              "distance_m": 864,
+              "lat": 39.9537,
+              "lon": 30.21835,
+              "kind": "Köy"
+            },
+            {
+              "name": "Hayriyeköy",
+              "distance_m": 2274,
+              "lat": 39.94676,
+              "lon": 30.18788,
+              "kind": "Köy"
+            },
+            {
+              "name": "Savcıbey",
+              "distance_m": 2772,
+              "lat": 39.95528,
+              "lon": 30.17772,
+              "kind": "Köy"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "39.2595,33.4600": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:28:27",
+      "lat": 39.25949,
+      "lon": 33.46001,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        },
+        "protected_or_forest": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 3,
+          "min_distance_m": 1832,
+          "nearest": [
+            {
+              "name": "Hacıabdullah",
+              "distance_m": 1832,
+              "lat": 39.26675,
+              "lon": 33.47911,
+              "kind": "Mahalle"
+            },
+            {
+              "name": "Kuyular",
+              "distance_m": 2131,
+              "lat": 39.25617,
+              "lon": 33.48439,
+              "kind": "Köy"
+            },
+            {
+              "name": "Eskikışla",
+              "distance_m": 2773,
+              "lat": 39.2842,
+              "lon": 33.46433,
+              "kind": "Mahalle"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "40.6781,26.7151": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:28:30",
+      "lat": 40.6781,
+      "lon": 26.7151,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 2,
+          "min_distance_m": 2494,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 2494,
+              "lat": 40.66093,
+              "lon": 26.69608,
+              "kind": "Dere / Akarsu"
+            },
+            {
+              "name": "",
+              "distance_m": 2874,
+              "lat": 40.65831,
+              "lon": 26.69318,
+              "kind": "Su kütlesi / gölet"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 5,
+          "min_distance_m": 1162,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 1162,
+              "lat": 40.67247,
+              "lon": 26.70349,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 1880,
+              "lat": 40.69106,
+              "lon": 26.72942,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 1979,
+              "lat": 40.69406,
+              "lon": 26.70471,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 2936,
+              "lat": 40.65179,
+              "lon": 26.71809,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 2949,
+              "lat": 40.65177,
+              "lon": 26.71092,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            }
+          ],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "39.2320,29.8853": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:28:34",
+      "lat": 39.23203,
+      "lon": 29.88535,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 1,
+          "min_distance_m": 1968,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 1968,
+              "lat": 39.2182,
+              "lon": 29.8711,
+              "kind": "Su kütlesi / gölet"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 3,
+          "min_distance_m": 2194,
+          "nearest": [
+            {
+              "name": "Cumhuriyet",
+              "distance_m": 2194,
+              "lat": 39.21826,
+              "lon": 29.86711,
+              "kind": "Semt"
+            },
+            {
+              "name": "Aslanapa",
+              "distance_m": 2308,
+              "lat": 39.21522,
+              "lon": 29.86963,
+              "kind": "İlçe / belde"
+            },
+            {
+              "name": "Hürriyet",
+              "distance_m": 2481,
+              "lat": 39.21154,
+              "lon": 29.87397,
+              "kind": "Semt"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "41.1023,27.8687": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:28:37",
+      "lat": 41.10229,
+      "lon": 27.86871,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 1,
+          "min_distance_m": 2000,
+          "nearest": [
+            {
+              "name": "Üzümler Çiftliği",
+              "distance_m": 2000,
+              "lat": 41.10838,
+              "lon": 27.89117,
+              "kind": "Bağ",
+              "explicit_olive": false
+            }
+          ],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 17,
+          "min_distance_m": 560,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 560,
+              "lat": 41.10214,
+              "lon": 27.86204,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 854,
+              "lat": 41.10091,
+              "lon": 27.87874,
+              "kind": "Dere / Akarsu"
+            },
+            {
+              "name": "",
+              "distance_m": 951,
+              "lat": 41.09432,
+              "lon": 27.86461,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 1072,
+              "lat": 41.10494,
+              "lon": 27.88101,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 1584,
+              "lat": 41.10243,
+              "lon": 27.84981,
+              "kind": "Su kütlesi / gölet"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 1,
+          "min_distance_m": 2353,
+          "nearest": [
+            {
+              "name": "Şahpaz",
+              "distance_m": 2353,
+              "lat": 41.08411,
+              "lon": 27.88308,
+              "kind": "Köy"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "39.2023,43.8512": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:28:41",
+      "lat": 39.20229,
+      "lon": 43.85119,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 2,
+          "min_distance_m": 1063,
+          "nearest": [
+            {
+              "name": "Abdalağa Deresi",
+              "distance_m": 1063,
+              "lat": 39.19503,
+              "lon": 43.85921,
+              "kind": "Dere / Akarsu"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 2,
+          "min_distance_m": 2123,
+          "nearest": [
+            {
+              "name": "Seyitova",
+              "distance_m": 2123,
+              "lat": 39.2023,
+              "lon": 43.87583,
+              "kind": "Mezra"
+            },
+            {
+              "name": "Kuskunkıran",
+              "distance_m": 2871,
+              "lat": 39.19154,
+              "lon": 43.88148,
+              "kind": "Köy"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "40.2523,29.9528": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:28:44",
+      "lat": 40.25232,
+      "lon": 29.95275,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        },
+        "protected_or_forest": {
+          "count": 3,
+          "min_distance_m": 798,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 798,
+              "lat": 40.25926,
+              "lon": 29.95514,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 893,
+              "lat": 40.26017,
+              "lon": 29.95493,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 901,
+              "lat": 40.26024,
+              "lon": 29.955,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            }
+          ],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "41.1531,42.8518": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:28:47",
+      "lat": 41.15307,
+      "lon": 42.85176,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 14,
+          "min_distance_m": 1501,
+          "nearest": [
+            {
+              "name": "Ölçeksuyu Çayı",
+              "distance_m": 1501,
+              "lat": 41.14265,
+              "lon": 42.86315,
+              "kind": "Nehir"
+            },
+            {
+              "name": "",
+              "distance_m": 2271,
+              "lat": 41.13271,
+              "lon": 42.85393,
+              "kind": "Nehir"
+            },
+            {
+              "name": "",
+              "distance_m": 2291,
+              "lat": 41.13248,
+              "lon": 42.85072,
+              "kind": "Nehir"
+            },
+            {
+              "name": "",
+              "distance_m": 2345,
+              "lat": 41.16444,
+              "lon": 42.87536,
+              "kind": "Dere / Akarsu"
+            },
+            {
+              "name": "",
+              "distance_m": 2358,
+              "lat": 41.13205,
+              "lon": 42.84807,
+              "kind": "Dere / Akarsu"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 6,
+          "min_distance_m": 1504,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 1504,
+              "lat": 41.15885,
+              "lon": 42.86801,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 1947,
+              "lat": 41.14964,
+              "lon": 42.87457,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 1976,
+              "lat": 41.17064,
+              "lon": 42.84815,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 2356,
+              "lat": 41.16862,
+              "lon": 42.83265,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 2405,
+              "lat": 41.15528,
+              "lon": 42.88033,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            }
+          ],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 4,
+          "min_distance_m": 1203,
+          "nearest": [
+            {
+              "name": "Balıkçılar",
+              "distance_m": 1203,
+              "lat": 41.15423,
+              "lon": 42.83748,
+              "kind": "Köy"
+            },
+            {
+              "name": "Altaş",
+              "distance_m": 2105,
+              "lat": 41.16147,
+              "lon": 42.87429,
+              "kind": "Köy"
+            },
+            {
+              "name": "Ölçek",
+              "distance_m": 2949,
+              "lat": 41.12669,
+              "lon": 42.85535,
+              "kind": "Köy"
+            },
+            {
+              "name": "Tulumba",
+              "distance_m": 2960,
+              "lat": 41.13086,
+              "lon": 42.87123,
+              "kind": "Mahalle"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "40.9660,26.9211": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:28:52",
+      "lat": 40.96597,
+      "lon": 26.92111,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 4,
+          "min_distance_m": 696,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 696,
+              "lat": 40.95977,
+              "lon": 26.92227,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 775,
+              "lat": 40.96146,
+              "lon": 26.91408,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 1015,
+              "lat": 40.95884,
+              "lon": 26.91356,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 2142,
+              "lat": 40.95203,
+              "lon": 26.90352,
+              "kind": "Su kütlesi / gölet"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 3,
+          "min_distance_m": 673,
+          "nearest": [
+            {
+              "name": "Sarnıç",
+              "distance_m": 673,
+              "lat": 40.96786,
+              "lon": 26.92873,
+              "kind": "Köy"
+            },
+            {
+              "name": "Kiremitlik",
+              "distance_m": 1390,
+              "lat": 40.9768,
+              "lon": 26.91284,
+              "kind": "Köy"
+            },
+            {
+              "name": "Batkın",
+              "distance_m": 1616,
+              "lat": 40.9692,
+              "lon": 26.90234,
+              "kind": "Köy"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "39.3939,27.8017": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:28:55",
+      "lat": 39.39393,
+      "lon": 27.80166,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 1,
+          "min_distance_m": 2179,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 2179,
+              "lat": 39.41352,
+              "lon": 27.80239,
+              "kind": "Dere / Akarsu"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 6,
+          "min_distance_m": 551,
+          "nearest": [
+            {
+              "name": "Köseler",
+              "distance_m": 551,
+              "lat": 39.39661,
+              "lon": 27.79627,
+              "kind": "Mahalle"
+            },
+            {
+              "name": "Boğatepe",
+              "distance_m": 1717,
+              "lat": 39.40754,
+              "lon": 27.81109,
+              "kind": "Köy"
+            },
+            {
+              "name": "Bağkoltuğu",
+              "distance_m": 2169,
+              "lat": 39.40816,
+              "lon": 27.81893,
+              "kind": "Mahalle"
+            },
+            {
+              "name": "Yukarı Karaçam",
+              "distance_m": 2376,
+              "lat": 39.38106,
+              "lon": 27.77959,
+              "kind": "Köy"
+            },
+            {
+              "name": "Hacıosman",
+              "distance_m": 2680,
+              "lat": 39.41775,
+              "lon": 27.79686,
+              "kind": "Mahalle"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "40.1755,30.2500": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:28:59",
+      "lat": 40.17548,
+      "lon": 30.24997,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        },
+        "protected_or_forest": {
+          "count": 1,
+          "min_distance_m": 1271,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 1271,
+              "lat": 40.16569,
+              "lon": 30.25769,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            }
+          ],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 3,
+          "min_distance_m": 1418,
+          "nearest": [
+            {
+              "name": "Kasımlar",
+              "distance_m": 1418,
+              "lat": 40.18043,
+              "lon": 30.23458,
+              "kind": "Köy"
+            },
+            {
+              "name": "Karacalar",
+              "distance_m": 1676,
+              "lat": 40.18995,
+              "lon": 30.25549,
+              "kind": "Köy"
+            },
+            {
+              "name": "Bayat",
+              "distance_m": 1892,
+              "lat": 40.18782,
+              "lon": 30.2653,
+              "kind": "Köy"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "39.8961,31.3700": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:29:03",
+      "lat": 39.89611,
+      "lon": 31.37001,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        },
+        "protected_or_forest": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 1,
+          "min_distance_m": 2364,
+          "nearest": [
+            {
+              "name": "Tatarcık",
+              "distance_m": 2364,
+              "lat": 39.87661,
+              "lon": 31.38106,
+              "kind": "Köy"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "37.6894,35.3289": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:29:07",
+      "lat": 37.68942,
+      "lon": 35.32894,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 1,
+          "min_distance_m": 1584,
+          "nearest": [
+            {
+              "name": "Yapraklı Dere",
+              "distance_m": 1584,
+              "lat": 37.69274,
+              "lon": 35.31143,
+              "kind": "Dere / Akarsu"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 1,
+          "min_distance_m": 1580,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 1580,
+              "lat": 37.68122,
+              "lon": 35.3436,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            }
+          ],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "37.0864,30.6265": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:29:11",
+      "lat": 37.08644,
+      "lon": 30.62651,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 10,
+          "min_distance_m": 2035,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 2035,
+              "lat": 37.10367,
+              "lon": 30.61878,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 2047,
+              "lat": 37.10372,
+              "lon": 30.61854,
+              "kind": "Su kanalı"
+            },
+            {
+              "name": "",
+              "distance_m": 2090,
+              "lat": 37.10028,
+              "lon": 30.61058,
+              "kind": "Su kanalı"
+            },
+            {
+              "name": "",
+              "distance_m": 2101,
+              "lat": 37.10391,
+              "lon": 30.61749,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 2220,
+              "lat": 37.09602,
+              "lon": 30.60456,
+              "kind": "Su kanalı"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 17,
+          "min_distance_m": 415,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 415,
+              "lat": 37.08799,
+              "lon": 30.63077,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 890,
+              "lat": 37.08851,
+              "lon": 30.63621,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 1341,
+              "lat": 37.09412,
+              "lon": 30.63816,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 1588,
+              "lat": 37.10042,
+              "lon": 30.62285,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 1618,
+              "lat": 37.08139,
+              "lon": 30.64362,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            }
+          ],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 2,
+          "min_distance_m": 1317,
+          "nearest": [
+            {
+              "name": "AOSB 1. Kısım",
+              "distance_m": 1317,
+              "lat": 37.08189,
+              "lon": 30.6128,
+              "kind": "Semt"
+            },
+            {
+              "name": "Kömürcüler",
+              "distance_m": 2608,
+              "lat": 37.08609,
+              "lon": 30.59712,
+              "kind": "Köy"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 1,
+          "min_distance_m": 859,
+          "nearest": [
+            {
+              "name": "Özel Antalya OSB Mesleki ve Teknik Anadolu Lisesi",
+              "distance_m": 859,
+              "lat": 37.07873,
+              "lon": 30.62589,
+              "kind": "Okul"
+            }
+          ]
+        }
+      }
+    },
+    "37.0863,30.6325": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:29:14",
+      "lat": 37.08628,
+      "lon": 30.63251,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 8,
+          "min_distance_m": 2286,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 2286,
+              "lat": 37.10367,
+              "lon": 30.61878,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 2301,
+              "lat": 37.10372,
+              "lon": 30.61854,
+              "kind": "Su kanalı"
+            },
+            {
+              "name": "",
+              "distance_m": 2370,
+              "lat": 37.10391,
+              "lon": 30.61749,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 2492,
+              "lat": 37.10028,
+              "lon": 30.61058,
+              "kind": "Su kanalı"
+            },
+            {
+              "name": "",
+              "distance_m": 2682,
+              "lat": 37.0652,
+              "lon": 30.61781,
+              "kind": "Su kütlesi / gölet"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 18,
+          "min_distance_m": 245,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 245,
+              "lat": 37.08799,
+              "lon": 30.63077,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 411,
+              "lat": 37.08851,
+              "lon": 30.63621,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 1006,
+              "lat": 37.09412,
+              "lon": 30.63816,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 1125,
+              "lat": 37.08139,
+              "lon": 30.64362,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 1592,
+              "lat": 37.0973,
+              "lon": 30.64397,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            }
+          ],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 1,
+          "min_distance_m": 1815,
+          "nearest": [
+            {
+              "name": "AOSB 1. Kısım",
+              "distance_m": 1815,
+              "lat": 37.08189,
+              "lon": 30.6128,
+              "kind": "Semt"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 1,
+          "min_distance_m": 1025,
+          "nearest": [
+            {
+              "name": "Özel Antalya OSB Mesleki ve Teknik Anadolu Lisesi",
+              "distance_m": 1025,
+              "lat": 37.07873,
+              "lon": 30.62589,
+              "kind": "Okul"
+            }
+          ]
+        }
+      }
+    },
+    "38.1815,27.9704": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:29:17",
+      "lat": 38.1815,
+      "lon": 27.9704,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 2,
+          "min_distance_m": 896,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 896,
+              "lat": 38.1748,
+              "lon": 27.97609,
+              "kind": "Dere / Akarsu"
+            },
+            {
+              "name": "Küçük Menderes",
+              "distance_m": 2548,
+              "lat": 38.16112,
+              "lon": 27.98373,
+              "kind": "Dere / Akarsu"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 1,
+          "min_distance_m": 2642,
+          "nearest": [
+            {
+              "name": "Karakova",
+              "distance_m": 2642,
+              "lat": 38.17417,
+              "lon": 27.94165,
+              "kind": "Köy"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "38.6859,27.2148": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:29:20",
+      "lat": 38.6859,
+      "lon": 27.21484,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 8,
+          "min_distance_m": 1099,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 1099,
+              "lat": 38.67606,
+              "lon": 27.21606,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 1982,
+              "lat": 38.70111,
+              "lon": 27.20292,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 2074,
+              "lat": 38.69314,
+              "lon": 27.19281,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 2306,
+              "lat": 38.6658,
+              "lon": 27.2214,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 2723,
+              "lat": 38.70325,
+              "lon": 27.1927,
+              "kind": "Su kütlesi / gölet"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 4,
+          "min_distance_m": 482,
+          "nearest": [
+            {
+              "name": "Sarınasuhlar",
+              "distance_m": 482,
+              "lat": 38.68307,
+              "lon": 27.21905,
+              "kind": "Köy"
+            },
+            {
+              "name": "Bozalan",
+              "distance_m": 2604,
+              "lat": 38.70389,
+              "lon": 27.19563,
+              "kind": "Köy"
+            },
+            {
+              "name": "Telekler",
+              "distance_m": 2638,
+              "lat": 38.66219,
+              "lon": 27.21578,
+              "kind": "Köy"
+            },
+            {
+              "name": "Beydere",
+              "distance_m": 2951,
+              "lat": 38.6809,
+              "lon": 27.24823,
+              "kind": "Köy"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "37.7398,30.4069": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:29:24",
+      "lat": 37.73977,
+      "lon": 30.40695,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 11,
+          "min_distance_m": 2340,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 2340,
+              "lat": 37.75642,
+              "lon": 30.42323,
+              "kind": "Meyve bahçesi / dikili alan",
+              "explicit_olive": false
+            },
+            {
+              "name": "",
+              "distance_m": 2495,
+              "lat": 37.75838,
+              "lon": 30.42281,
+              "kind": "Meyve bahçesi / dikili alan",
+              "explicit_olive": false
+            },
+            {
+              "name": "",
+              "distance_m": 2590,
+              "lat": 37.7589,
+              "lon": 30.42376,
+              "kind": "Meyve bahçesi / dikili alan",
+              "explicit_olive": false
+            },
+            {
+              "name": "",
+              "distance_m": 2640,
+              "lat": 37.75964,
+              "lon": 30.42338,
+              "kind": "Meyve bahçesi / dikili alan",
+              "explicit_olive": false
+            },
+            {
+              "name": "",
+              "distance_m": 2667,
+              "lat": 37.75641,
+              "lon": 30.42879,
+              "kind": "Meyve bahçesi / dikili alan",
+              "explicit_olive": false
+            }
+          ],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 2,
+          "min_distance_m": 2337,
+          "nearest": [
+            {
+              "name": "Gökçebağ Göleti",
+              "distance_m": 2337,
+              "lat": 37.75982,
+              "lon": 30.41492,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 2752,
+              "lat": 37.73301,
+              "lon": 30.37685,
+              "kind": "Dere / Akarsu"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 4,
+          "min_distance_m": 2019,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 2019,
+              "lat": 37.7579,
+              "lon": 30.40815,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 2494,
+              "lat": 37.76143,
+              "lon": 30.41432,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 2528,
+              "lat": 37.76105,
+              "lon": 30.41709,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            },
+            {
+              "name": "",
+              "distance_m": 2898,
+              "lat": 37.76558,
+              "lon": 30.40237,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            }
+          ],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 1,
+          "min_distance_m": 2596,
+          "nearest": [
+            {
+              "name": "Günalan",
+              "distance_m": 2596,
+              "lat": 37.7201,
+              "lon": 30.39105,
+              "kind": "Köy"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "37.6320,27.7732": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:29:27",
+      "lat": 37.63205,
+      "lon": 27.77316,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 36,
+          "min_distance_m": 1171,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 1171,
+              "lat": 37.62168,
+              "lon": 27.77547,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 1204,
+              "lat": 37.62835,
+              "lon": 27.78601,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 1301,
+              "lat": 37.62035,
+              "lon": 27.77313,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 1444,
+              "lat": 37.62451,
+              "lon": 27.78651,
+              "kind": "Su kütlesi / gölet"
+            },
+            {
+              "name": "",
+              "distance_m": 1466,
+              "lat": 37.61894,
+              "lon": 27.77137,
+              "kind": "Su kütlesi / gölet"
+            }
+          ]
+        },
+        "protected_or_forest": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 4,
+          "min_distance_m": 1635,
+          "nearest": [
+            {
+              "name": "Karaağaç",
+              "distance_m": 1635,
+              "lat": 37.64349,
+              "lon": 27.7615,
+              "kind": "Köy"
+            },
+            {
+              "name": "Ören",
+              "distance_m": 1938,
+              "lat": 37.64326,
+              "lon": 27.79001,
+              "kind": "Mezra"
+            },
+            {
+              "name": "Akçaabat",
+              "distance_m": 2075,
+              "lat": 37.61776,
+              "lon": 27.78832,
+              "kind": "Köy"
+            },
+            {
+              "name": "Sapalan",
+              "distance_m": 2114,
+              "lat": 37.63865,
+              "lon": 27.75064,
+              "kind": "Köy"
+            }
+          ]
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    },
+    "40.3832,37.6314": {
+      "source": "OpenStreetMap / Overpass",
+      "radius_m": 3000,
+      "queried_at": "2026-11-22T01:29:31",
+      "lat": 40.38321,
+      "lon": 37.63141,
+      "categories": {
+        "olive_or_orchard": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": [],
+          "explicit_olive_count": 0
+        },
+        "water_bodies": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        },
+        "protected_or_forest": {
+          "count": 1,
+          "min_distance_m": 2255,
+          "nearest": [
+            {
+              "name": "",
+              "distance_m": 2255,
+              "lat": 40.38611,
+              "lon": 37.60506,
+              "kind": "Orman / ağaçlık alan",
+              "is_protected": false
+            }
+          ],
+          "protected_count": 0
+        },
+        "settlements": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        },
+        "sensitive_facilities": {
+          "count": 0,
+          "min_distance_m": null,
+          "nearest": []
+        }
+      }
+    }
+  }
+}

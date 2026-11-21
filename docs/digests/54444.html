@@ -7,20 +7,20 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
 :root {
-  --bg: #f6f8fa;
+  --bg: #f8f9fb;
   --surface: #ffffff;
-  --surface-subtle: #f1f4f8;
-  --border: #d8dee6;
-  --border-strong: #bcc6d4;
-  --text: #161b22;
-  --text-secondary: #424a53;
-  --muted: #5c6670;
-  --accent: #0b5ed7;
-  --accent-soft: #e7f1ff;
+  --surface-subtle: #f2f4f7;
+  --border: #e4e7ec;
+  --border-strong: #cfd5df;
+  --text: #101828;
+  --text-secondary: #344054;
+  --muted: #667085;
+  --accent: #175cd3;
+  --accent-soft: #eff8ff;
   --red: #b42318;
   --red-soft: #fef3f2;
   --red-border: #fecdca;
-  --amber: #9a5b00;
+  --amber: #b54708;
   --amber-soft: #fffaeb;
   --amber-border: #fedf89;
   --green: #067647;
@@ -29,60 +29,60 @@
   --violet: #5925dc;
   --violet-soft: #f4f3ff;
   --violet-border: #d9d6fe;
-  --shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
   --radius: 10px;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0d1117;
-    --surface: #161b22;
-    --surface-subtle: #1c222b;
-    --border: #2b333e;
-    --border-strong: #3d4756;
-    --text: #e6edf3;
-    --text-secondary: #c9d1d9;
-    --muted: #8b949e;
-    --accent: #58a6ff;
-    --accent-soft: rgba(88, 166, 255, 0.14);
-    --red: #ff7b72;
-    --red-soft: rgba(248, 81, 73, 0.14);
-    --red-border: rgba(248, 81, 73, 0.4);
-    --amber: #e3b341;
-    --amber-soft: rgba(210, 153, 34, 0.14);
-    --amber-border: rgba(210, 153, 34, 0.4);
-    --green: #3fb950;
-    --green-soft: rgba(63, 185, 80, 0.14);
-    --green-border: rgba(63, 185, 80, 0.4);
-    --violet: #b692f6;
-    --violet-soft: rgba(158, 119, 237, 0.16);
-    --violet-border: rgba(158, 119, 237, 0.42);
-    --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    --bg: #0f131a;
+    --surface: #161b24;
+    --surface-subtle: #1d2430;
+    --border: #273040;
+    --border-strong: #39465c;
+    --text: #eaedf2;
+    --text-secondary: #c5cdd9;
+    --muted: #8a95a6;
+    --accent: #6cb0ff;
+    --accent-soft: rgba(108, 176, 255, 0.14);
+    --red: #ff857a;
+    --red-soft: rgba(248, 81, 73, 0.13);
+    --red-border: rgba(248, 81, 73, 0.36);
+    --amber: #f0b849;
+    --amber-soft: rgba(210, 153, 34, 0.13);
+    --amber-border: rgba(210, 153, 34, 0.36);
+    --green: #4cc38a;
+    --green-soft: rgba(63, 185, 80, 0.13);
+    --green-border: rgba(63, 185, 80, 0.36);
+    --violet: #bda3ff;
+    --violet-soft: rgba(158, 119, 237, 0.15);
+    --violet-border: rgba(158, 119, 237, 0.38);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0d1117;
-  --surface: #161b22;
-  --surface-subtle: #1c222b;
-  --border: #2b333e;
-  --border-strong: #3d4756;
-  --text: #e6edf3;
-  --text-secondary: #c9d1d9;
-  --muted: #8b949e;
-  --accent: #58a6ff;
-  --accent-soft: rgba(88, 166, 255, 0.14);
-  --red: #ff7b72;
-  --red-soft: rgba(248, 81, 73, 0.14);
-  --red-border: rgba(248, 81, 73, 0.4);
-  --amber: #e3b341;
-  --amber-soft: rgba(210, 153, 34, 0.14);
-  --amber-border: rgba(210, 153, 34, 0.4);
-  --green: #3fb950;
-  --green-soft: rgba(63, 185, 80, 0.14);
-  --green-border: rgba(63, 185, 80, 0.4);
-  --violet: #b692f6;
-  --violet-soft: rgba(158, 119, 237, 0.16);
-  --violet-border: rgba(158, 119, 237, 0.42);
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --bg: #0f131a;
+  --surface: #161b24;
+  --surface-subtle: #1d2430;
+  --border: #273040;
+  --border-strong: #39465c;
+  --text: #eaedf2;
+  --text-secondary: #c5cdd9;
+  --muted: #8a95a6;
+  --accent: #6cb0ff;
+  --accent-soft: rgba(108, 176, 255, 0.14);
+  --red: #ff857a;
+  --red-soft: rgba(248, 81, 73, 0.13);
+  --red-border: rgba(248, 81, 73, 0.36);
+  --amber: #f0b849;
+  --amber-soft: rgba(210, 153, 34, 0.13);
+  --amber-border: rgba(210, 153, 34, 0.36);
+  --green: #4cc38a;
+  --green-soft: rgba(63, 185, 80, 0.13);
+  --green-border: rgba(63, 185, 80, 0.36);
+  --violet: #bda3ff;
+  --violet-soft: rgba(158, 119, 237, 0.15);
+  --violet-border: rgba(158, 119, 237, 0.38);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -105,30 +105,29 @@ a:hover { text-decoration: underline; }
   z-index: 900;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
-  box-shadow: var(--shadow);
 }
 .topbar-inner {
-  max-width: 1220px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 11px 20px;
+  padding: 10px 20px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 10px;
 }
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
   color: var(--text);
   font-weight: 700;
-  font-size: 0.98rem;
+  font-size: 0.96rem;
   letter-spacing: -0.01em;
 }
 .brand:hover { text-decoration: none; color: var(--accent); }
 .brand-scope {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: var(--accent);
   background: var(--accent-soft);
@@ -139,130 +138,114 @@ a:hover { text-decoration: underline; }
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
 }
 .nav-link {
-  padding: 5px 11px;
+  padding: 5px 10px;
   border-radius: 7px;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   font-weight: 500;
   color: var(--text-secondary);
 }
 .nav-link:hover { background: var(--surface-subtle); text-decoration: none; color: var(--text); }
 .nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
 .theme-btn {
+  margin-left: 4px;
   padding: 5px 10px;
   border-radius: 7px;
   border: 1px solid var(--border);
-  background: var(--surface-subtle);
-  color: var(--text-secondary);
+  background: transparent;
+  color: var(--muted);
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.79rem;
   font-weight: 500;
 }
 .theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
 
 /* Layout */
-.wrap { max-width: 1220px; margin: 0 auto; padding: 24px 20px 68px; }
-.wrap.narrow { max-width: 960px; }
-header.page-head { margin-bottom: 20px; }
-h1 { margin: 0 0 8px; font-size: 1.62rem; line-height: 1.25; letter-spacing: -0.02em; }
-h2 { margin: 28px 0 12px; font-size: 1.2rem; line-height: 1.3; letter-spacing: -0.01em; }
-h3 { margin: 16px 0 8px; font-size: 0.98rem; line-height: 1.35; }
-.sub { color: var(--muted); font-size: 0.93rem; margin: 0; }
-.meta-bar {
+.wrap { max-width: 1120px; margin: 0 auto; padding: 22px 20px 72px; }
+.wrap.narrow { max-width: 900px; }
+h1 { margin: 0 0 6px; font-size: 1.5rem; line-height: 1.25; letter-spacing: -0.02em; }
+h2 { margin: 28px 0 10px; font-size: 1.15rem; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { margin: 16px 0 8px; font-size: 0.96rem; line-height: 1.35; }
+.sub { color: var(--muted); font-size: 0.91rem; margin: 0; }
+
+/* Compact Masthead */
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 20px;
+  margin-bottom: 16px;
+}
+.masthead-left { max-width: 720px; }
+.masthead-right {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px 16px;
-  margin-top: 12px;
-  font-size: 0.84rem;
+  gap: 10px;
+  font-size: 0.82rem;
   color: var(--muted);
 }
-
-/* Orientation Banner */
-.hero-strip {
+.kpi-line {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px 18px;
+  gap: 6px 18px;
+  padding: 10px 16px;
+  margin-bottom: 14px;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-left: 4px solid var(--accent);
   border-radius: var(--radius);
-  padding: 14px 18px;
-  margin-bottom: 18px;
-  box-shadow: var(--shadow);
-}
-.hero-strip p { margin: 0; font-size: 0.9rem; color: var(--text-secondary); max-width: 820px; }
-.hero-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 13px;
-  border-radius: 7px;
-  background: var(--accent);
-  color: #ffffff;
   font-size: 0.84rem;
-  font-weight: 600;
-  white-space: nowrap;
-}
-.hero-cta:hover { text-decoration: none; filter: brightness(1.06); }
-
-/* KPI Stats */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
-  gap: 12px;
-  margin: 0 0 18px;
-}
-.stat {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 13px 16px;
+  color: var(--muted);
   box-shadow: var(--shadow);
 }
-.stat .num {
-  font-size: 1.5rem;
-  font-weight: 700;
+.kpi-item { display: inline-flex; align-items: baseline; gap: 5px; }
+.kpi-item strong {
+  color: var(--text);
+  font-size: 0.96rem;
   font-variant-numeric: tabular-nums;
-  line-height: 1.2;
 }
-.stat .lbl { font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
-.stat.accent .num { color: var(--accent); }
-.stat.rev .num { color: var(--violet); }
+.kpi-item.accent strong { color: var(--accent); }
+.kpi-item.rev strong { color: var(--violet); }
+.kpi-sep { color: var(--border-strong); user-select: none; }
 
-/* Map */
+/* Map Card */
 .map-box {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   box-shadow: var(--shadow);
 }
-#map { width: 100%; height: 400px; background: var(--surface-subtle); }
-#digest-map { width: 100%; height: 320px; background: var(--surface-subtle); }
-.map-legend {
+.map-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 16px;
-  padding: 10px 16px;
-  font-size: 0.79rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 14px;
+  padding: 9px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
   color: var(--muted);
-  border-top: 1px solid var(--border);
-  background: var(--surface-subtle);
 }
-.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+.map-box.collapsed .map-bar { border-bottom: none; }
+.map-box.collapsed #map { display: none; }
+.map-legend-inline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+#map { width: 100%; height: 320px; background: var(--surface-subtle); }
+#digest-map { width: 100%; height: 300px; background: var(--surface-subtle); }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
 
-/* Controls */
+/* Streamlined Controls */
 .controls-panel {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 14px 16px;
+  padding: 12px 14px;
   margin-bottom: 14px;
   box-shadow: var(--shadow);
 }
@@ -272,76 +255,104 @@ h3 { margin: 16px 0 8px; font-size: 0.98rem; line-height: 1.35; }
   gap: 8px;
   align-items: center;
 }
-.controls-row + .controls-row { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+.controls-row + .controls-row {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.advanced-row { display: none; }
+.advanced-row.open { display: flex; }
 input[type="search"], select.filter-select {
-  padding: 8px 12px;
+  padding: 7px 11px;
   border-radius: 7px;
   border: 1px solid var(--border);
   background: var(--bg);
   color: var(--text);
-  font-size: 0.88rem;
+  font-size: 0.87rem;
 }
 input[type="search"]:focus, select.filter-select:focus {
   outline: 2px solid var(--accent-soft);
   border-color: var(--accent);
 }
-input[type="search"] { flex: 1 1 250px; }
-select.filter-select { min-width: 165px; }
+input[type="search"] { flex: 1 1 240px; }
+select.filter-select { min-width: 155px; }
 button.pill {
-  padding: 6px 12px;
+  padding: 5px 11px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: var(--surface-subtle);
+  background: transparent;
   color: var(--text-secondary);
   cursor: pointer;
-  font-size: 0.81rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  transition: background 0.12s, border-color 0.12s;
 }
-button.pill:hover { border-color: var(--border-strong); color: var(--text); }
+button.pill:hover { background: var(--surface-subtle); color: var(--text); }
 button.pill.active { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 600; }
 button.pill.rev-pill.active { background: var(--violet); border-color: var(--violet); }
-button.reset-btn {
-  margin-left: auto;
-  padding: 5px 10px;
+.ctrl-right { margin-left: auto; display: flex; align-items: center; gap: 6px; }
+button.ghost-btn {
+  padding: 5px 9px;
   border-radius: 7px;
   border: 1px solid var(--border);
   background: transparent;
   color: var(--muted);
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.79rem;
+  font-weight: 500;
 }
-button.reset-btn:hover { color: var(--text); border-color: var(--border-strong); }
+button.ghost-btn:hover { color: var(--text); border-color: var(--border-strong); background: var(--surface-subtle); }
 
-/* Cards & Badges */
-.cards { display: flex; flex-direction: column; gap: 11px; }
+/* Calm Two-Tier Cards */
+.list-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+.cards { display: flex; flex-direction: column; gap: 10px; }
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 16px 18px;
+  padding: 15px 18px;
   box-shadow: var(--shadow);
+  transition: border-color 0.12s;
 }
-.card.ek1 { border-left: 4px solid var(--accent); }
-.card.has-rev { border-left: 4px solid var(--violet); }
-.card.ek1.has-rev { border-left: 4px solid var(--violet); }
-.row-top {
+.card:hover { border-color: var(--border-strong); }
+.card.urgent-edge { border-left: 3px solid var(--red); }
+.card.ek1 { border-left: 3px solid var(--accent); }
+.card.has-rev { border-left: 3px solid var(--violet); }
+.card.urgent-edge.has-rev { border-left: 3px solid var(--red); }
+
+/* Tier 1: Quiet Metadata Context Row (zero boxes!) */
+.card-ctx {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 8px 14px;
-  align-items: flex-start;
+  align-items: baseline;
+  gap: 4px 12px;
+  font-size: 0.79rem;
+  color: var(--muted);
+  margin-bottom: 5px;
 }
-.title { font-weight: 650; font-size: 1rem; line-height: 1.38; color: var(--text); flex: 1 1 320px; }
+.ctx-left { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.ctx-loc { color: var(--text-secondary); font-weight: 600; }
+.ctx-ek1 { color: var(--accent); font-weight: 600; }
+.ctx-geo { color: var(--green); font-weight: 500; }
+.ctx-sep { color: var(--border-strong); }
+.ctx-right { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.title { font-weight: 650; font-size: 1.01rem; line-height: 1.38; color: var(--text); margin: 0; }
 .title a { color: var(--text); }
 .title a:hover { color: var(--accent); text-decoration: none; }
-.date-meta {
-  font-size: 0.8rem;
-  color: var(--muted);
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums;
-}
-.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.owner-line { font-size: 0.82rem; color: var(--muted); margin: 3px 0 0; }
+
+/* Tier 2: Signal Pills (Status, Clock, Findings, Revision ONLY) */
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
 .badge {
   display: inline-flex;
   align-items: center;
@@ -360,30 +371,40 @@ button.reset-btn:hover { color: var(--text); border-color: var(--border-strong);
 .badge.info { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
 .badge.rev { background: var(--violet-soft); border-color: var(--violet-border); color: var(--violet); font-weight: 600; }
 .badge.muted { color: var(--muted); }
-.detail { font-size: 0.88rem; color: var(--text-secondary); margin: 9px 0 0; }
-.detail.muted { color: var(--muted); }
 
-/* Revision inline strip on cards */
-.rev-strip {
-  margin-top: 10px;
-  padding: 8px 11px;
-  border-radius: 7px;
+/* Calm 2-line Clamped Summary */
+.summary-clamp {
+  margin: 9px 0 0;
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+  line-height: 1.52;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.summary-clamp.muted { color: var(--muted); }
+
+.rev-inline {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
   background: var(--violet-soft);
   border: 1px solid var(--violet-border);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
 }
-.rev-strip strong { color: var(--violet); }
+.rev-inline strong { color: var(--violet); }
 
-/* Action Buttons */
+/* Quiet Action Row */
 .actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px 12px;
-  font-size: 0.83rem;
-  margin-top: 11px;
-  padding-top: 10px;
+  gap: 10px 14px;
+  font-size: 0.82rem;
+  margin-top: 10px;
+  padding-top: 9px;
   border-top: 1px solid var(--border);
 }
 .btn-primary {
@@ -395,7 +416,7 @@ button.reset-btn:hover { color: var(--text); border-color: var(--border-strong);
   background: var(--accent);
   color: #ffffff;
   font-weight: 600;
-  font-size: 0.82rem;
+  font-size: 0.81rem;
 }
 .btn-primary:hover { text-decoration: none; filter: brightness(1.06); }
 .btn-secondary {
@@ -408,17 +429,46 @@ button.reset-btn:hover { color: var(--text); border-color: var(--border-strong);
   background: var(--surface-subtle);
   color: var(--text-secondary);
   font-weight: 500;
-  font-size: 0.82rem;
+  font-size: 0.81rem;
   cursor: pointer;
 }
 .btn-secondary:hover { text-decoration: none; border-color: var(--border-strong); color: var(--text); }
+.quiet-link { color: var(--muted); font-weight: 500; }
+.quiet-link:hover { color: var(--accent); }
 
-/* Tables, Code, Callouts, Timeline */
+/* Pagination Bar */
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.pager button {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pager button:hover { border-color: var(--accent); color: var(--accent); }
+.pager .pager-all {
+  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Digest & Guide Tables, Accordions, Callouts */
 table.kv {
   width: 100%;
   border-collapse: collapse;
   margin: 12px 0;
-  font-size: 0.89rem;
+  font-size: 0.88rem;
   background: var(--surface);
   border-radius: var(--radius);
   overflow: hidden;
@@ -431,12 +481,12 @@ table.kv th, table.kv td {
   vertical-align: top;
 }
 table.kv tr:last-child th, table.kv tr:last-child td { border-bottom: none; }
-table.kv th { width: 250px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
+table.kv th { width: 240px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
 table.data-tbl {
   width: 100%;
   border-collapse: collapse;
   margin: 10px 0;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -448,7 +498,7 @@ table.data-tbl th, table.data-tbl td {
   text-align: left;
   vertical-align: top;
 }
-table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.03em; }
 table.data-tbl tr:last-child td { border-bottom: none; }
 code {
   background: var(--surface-subtle);
@@ -462,9 +512,9 @@ blockquote {
   margin: 10px 0;
   padding: 12px 16px;
   border-left: 3px solid var(--accent);
-  background: var(--surface);
+  background: var(--surface-subtle);
   border-radius: 0 8px 8px 0;
-  font-size: 0.9rem;
+  font-size: 0.89rem;
   color: var(--text-secondary);
 }
 .callout {
@@ -474,26 +524,43 @@ blockquote {
   background: var(--surface);
   margin: 14px 0;
 }
-.callout.rev {
-  background: var(--violet-soft);
-  border-color: var(--violet-border);
+.callout.rev { background: var(--violet-soft); border-color: var(--violet-border); }
+details.accordion {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 10px 0;
+  overflow: hidden;
 }
-.callout.warn {
-  background: var(--amber-soft);
-  border-color: var(--amber-border);
+details.accordion summary {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
 }
+details.accordion summary::-webkit-details-marker { display: none; }
+details.accordion summary::after {
+  content: "+";
+  font-size: 1.1rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+details.accordion[open] summary::after { content: "−"; }
+details.accordion[open] summary { border-bottom: 1px solid var(--border); background: var(--surface-subtle); }
+.accordion-body { padding: 14px 16px; }
 .timeline {
   list-style: none;
   margin: 10px 0 0;
   padding: 0 0 0 18px;
   border-left: 2px solid var(--border-strong);
 }
-.timeline li {
-  position: relative;
-  margin: 0 0 10px;
-  padding-left: 8px;
-  font-size: 0.87rem;
-}
+.timeline li { position: relative; margin: 0 0 9px; padding-left: 8px; font-size: 0.86rem; }
 .timeline li::before {
   content: "";
   position: absolute;
@@ -505,15 +572,15 @@ blockquote {
   background: var(--accent);
   border: 2px solid var(--surface);
 }
-.hit { margin: 8px 0; font-size: 0.88rem; line-height: 1.55; }
+.hit { margin: 8px 0; font-size: 0.87rem; line-height: 1.55; }
 .pno { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
 .notice {
   margin-top: 32px;
-  padding: 14px 16px;
+  padding: 13px 16px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface-subtle);
-  font-size: 0.83rem;
+  font-size: 0.82rem;
   color: var(--muted);
 }
 .toc-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 20px; }
@@ -559,17 +626,18 @@ pre.template-box {
   justify-content: space-between;
   gap: 10px;
 }
-.leaflet-popup-content { color: #161b22; font-size: 0.85rem; line-height: 1.45; }
+.leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
 @media (max-width: 700px) {
-  table.kv th { width: 145px; }
-  #map { height: 320px; }
-  .topbar-inner { padding: 10px 14px; }
-  .wrap { padding: 18px 14px 54px; }
+  table.kv th { width: 140px; }
+  #map { height: 270px; }
+  .topbar-inner { padding: 9px 14px; }
+  .wrap { padding: 16px 14px 54px; }
 }
 @media print {
   .topbar, .no-print, #digest-map, .map-box { display: none !important; }
   body { background: #ffffff; color: #000000; font-size: 11pt; }
-  .card, table.kv, table.data-tbl { box-shadow: none; break-inside: avoid; }
+  .card, table.kv, table.data-tbl, details.accordion { box-shadow: none; break-inside: avoid; }
+  details.accordion { border: 1px solid #ccc; }
   a { color: #000000; text-decoration: underline; }
 }
 </style>
@@ -578,72 +646,69 @@ pre.template-box {
 <nav class="topbar">
   <div class="topbar-inner">
     <a class="brand" href="../index.html">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
       <span>Türkiye e-ÇED İzleme</span>
       <span class="brand-scope">81 İl</span>
     </a>
     <div class="nav-links">
-      <a class="nav-link " href="../index.html">Duyurular ve Harita</a>
+      <a class="nav-link " href="../index.html">Duyurular</a>
       <a class="nav-link " href="../rehber.html">Kullanım Rehberi</a>
-      <a class="nav-link" href="../feed.xml">RSS 2.0</a>
+      <a class="nav-link" href="../feed.xml">RSS</a>
       <a class="nav-link" href="https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml" target="_blank" rel="noopener">Resmi e-ÇED ↗</a>
       <button id="theme-toggle" class="theme-btn" type="button">Tema</button>
     </div>
   </div>
 </nav>
 <div class="wrap narrow">
-  <header class="page-head">
-    <div style="font-size:0.84rem;color:var(--muted);margin-bottom:8px;" class="no-print">
-      <a href="../index.html">← Duyurular listesine dön</a> · Dosya <code>#54444</code>
+  <header style="margin-bottom:16px;">
+    <div class="card-ctx no-print" style="margin-bottom:8px;">
+      <span><a href="../index.html">← Duyurulara dön</a> · <strong>ANKARA / BALA</strong> · Ek-1 · Enerji</span>
+      <span><code>#54444</code> · 13.11.2026</span>
     </div>
     <h1>BİM ANKARA BALA GES (Kurulu Güç:46 MWm /30 MWe, Alan:72,26 ha)</h1>
-    <p class="sub">ANKARA / BALA · BİM BİRLEŞİK MAĞAZALAR A.Ş</p>
-    <div class="badges" style="margin-top:11px;">
+    <p class="sub">BİM BİRLEŞİK MAĞAZALAR A.Ş</p>
+    <div class="badges" style="margin-top:10px;">
       <span class="badge">Nihai Karar</span>
-      <span class="badge info">Ek-1</span>
-      <span class="badge urgent">Madde 14 Askı (10g) · 1 gün kaldı (2026-11-23)</span>
-      <span class="badge warn">Eski Dosya Yeniden Açıldı (1+ yıl)</span>
+      <span class="badge urgent">Madde 14 Askı · 1 gün kaldı (2026-11-23)</span>
+      <span class="badge warn">Eski Dosya (1+ yıl)</span>
+      
     </div>
     <div class="actions no-print" style="border-top:none;padding-top:4px;">
       <a class="btn-primary" href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file998888923525256075.imz&amp;orjinalAd=54444_Son_Sekli_Verilen_Rapor.pdf&amp;yuklemeTarihi=2026-11-12" target="_blank" rel="noopener">Resmi PDF Dosyası ↗</a>
       <a class="btn-secondary" href="http://eced.csb.gov.tr/jsp/ek1/54444" target="_blank" rel="noopener">e-ÇED Portal Kaydı ↗</a>
-      <a class="btn-secondary" href="54444.md">Ham Markdown (.md)</a>
-      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF Kaydet</button>
+      <a class="btn-secondary" href="54444.md">Markdown (.md)</a>
+      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF</button>
     </div>
   </header>
 
   <table class="kv">
-    <tr><th>Proje Sahibi</th><td>BİM BİRLEŞİK MAĞAZALAR A.Ş</td></tr>
     <tr><th>Hazırlayan Kuruluş</th><td>EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş</td></tr>
     <tr><th>Sektör / Alt Sektör</th><td>Enerji / Güneş Enerji Santralleri</td></tr>
-    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>13.11.2026</code> · Belge yükleme: <code>11/02/2025 03:23:08</code></td></tr>
-    <tr><th>PDF Kapsamı ve Bütünlük</th><td>81.98 MB · 1141 sayfa (1057 metin / 84 taranmış) · SHA-256 <code>4b1456d0b8b26ab9…</code></td></tr>
-    <tr><th>Harita Bağlantıları</th><td><a href="https://www.openstreetmap.org/?mlat=39.25949&amp;mlon=33.46001#map=12/39.25949/33.46001" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=39.25949,33.46001" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
+    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>13.11.2026</code> · Yükleme: <code>11/02/2025 03:23:08</code></td></tr>
+    <tr><th>PDF Kapsamı</th><td>81.98 MB · 1141 sayfa (1057 metin / 84 taranmış) · <a href="https://www.openstreetmap.org/?mlat=39.25949&amp;mlon=33.46001#map=12/39.25949/33.46001" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=39.25949,33.46001" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
   </table>
 
-  <h2>Belge Bütünlüğü, Revizyon ve Süreç Geçmişi</h2>
-<p class="sub">Her PDF dosyasının SHA-256 özeti, yükleme tarihi ve teknik göstergeleri arşivlenir. Bakanlık portalında rapor değiştirildiğinde veya 2009/7 Genelgesi kapsamında yeniden yüklendiğinde sürümler arası fark (v1 → v2) otomatik olarak kaydedilir.</p>
-<table class="data-tbl"><thead><tr><th>Sürüm</th><th>Arşiv Tarihi</th><th>Aşama</th><th>Yükleme Tarihi</th><th>Sayfa</th><th>SHA-256</th></tr></thead><tbody><tr><td><code>v1</code></td><td><code>2026-11-20T09:02:22</code></td><td>Nihai Karar</td><td><code>2026-11-12</code></td><td>1141</td><td><code>4b1456d0b8b26ab9…</code></td></tr></tbody></table>
-
-  <h2>Konum Haritası</h2>
-  <div class="map-box">
-    <div id="digest-map"></div>
-    <div class="map-legend"><span>PDF metninden çıkarılan kesin proje koordinatları (80 nokta, datum: UTM-Z36/WGS84, sayfa: s.163, s.617, s.618).</span></div>
-  </div>
+  <div class="card" style="padding:11px 15px;margin:14px 0;font-size:0.84rem;color:var(--text-secondary);"><span class="badge ok">v1 Arşivlendi</span> &nbsp;SHA-256: <code>4b1456d0b8b26ab9…</code> · Yükleme: <code>2026-11-12</code> · <span style="color:var(--muted);">Rapor değiştirilirse sürümler arası fark (v1→v2) otomatik kaydedilir.</span></div>
 
   
-  <h2>Yapay Zeka Destekli Bilimsel Ön Değerlendirme <span class="badge">gemini-4-hydrogen</span></h2>
-  <p class="sub">Bu değerlendirme, resmi PDF dosyasından seçilen 19 sayfa (s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.15, s.18, s.19, s.20, s.21, s.22) esas alınarak hazırlanmıştır. Tüm sayısal verilerin ve tespitlerin resmi PDF belgesindeki ilgili <code>[s. N]</code> sayfalarından doğrulanması gerekir.</p>
+  <h2>Bilimsel Ön Değerlendirme <span class="badge">gemini-4-hydrogen</span></h2>
+  <p class="sub">Resmi PDF'ten seçilen 19 sayfa (s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.15, s.18, s.19, s.20, s.21, s.22) üzerinden üretilmiştir; her bulguyu <code>[s. N]</code> kaynağından doğrulayınız.</p>
   <section class="card ek1" style="margin-top:10px;">
     <p style="margin-top:0;"><strong>Özet:</strong> BİM Birleşik Mağazalar A.Ş. tarafından Ankara ili, Bala ilçesi, Büyükbıyık Mahallesi mevkiinde 46 MWm / 30 MWe / 46,0053 MWp kurulu gücünde bir güneş enerji santrali (GES) kurulması ve işletilmesi planlanmaktadır. Toplam 72,26 hektarlık (722.590,27 m2) alanda 1090, 1091 ve 1092 adalardaki 11 adet tarla vasıflı parsel üzerinde 83.646 adet panel ve 100 adet evirici ile yıllık azami 73.002.000 kWh elektrik üretimi öngörülmekte olup proje bedeli 492.660.000 TL olarak belirtilmiştir. Başlıca çevresel hassasiyetler arasında sahanın III. ve VI. sınıf kuru tarım arazilerinde, planlaması tamamlanmış Akkoşan sulama sahası ile Kırıkkale içme suyu kaynağı Kesikköprü Barajı uzun mesafe koruma bandı içinde yer alması öne çıkmaktadır. Ayrıca bölgede yürürlükte 1/100.000 ölçekli Çevre Düzeni Planının mahkeme kararıyla iptal edilmiş olması ve 154 kV enerji iletim hattının bu ÇED kapsamı dışında bırakılması dikkat çeken planlama ve kapsam unsurlarıdır.</p>
-    <details style="margin-top:10px;font-size:0.86rem;color:var(--muted);"><summary style="cursor:pointer;">İngilizce özet (English summary)</summary><p style="margin:6px 0 0;">BİM Birleşik Mağazalar A.Ş. proposes to construct and operate the BİM Ankara Bala Solar Power Plant (46 MWm / 30 MWe / 46.0053 MWp) in Büyükbıyık Neighborhood, Bala District, Ankara Province. Covering 72.26 hectares across 11 leased agricultural parcels (registered as dry farmland), the project has an investment cost of 492,660,000 TL and plans to install 83,646 photovoltaic panels and 100 inverters to generate up to 73,002,000 kWh annually for the company&#x27;s retail stores. Key environmental stakes include the site&#x27;s location on Class III and VI arable land, within the planned Akkoşan irrigation area, and inside the long-distance protection zone of the Kesikköprü Dam drinking water reservoir serving Kırıkkale. In addition, the regional 1/100,000-scale Environmental Plan was previously annulled by court order, and the associated 154 kV power transmission line is excluded from the scope of this EIA filing.</p></details>
+    <details style="margin-top:10px;font-size:0.85rem;color:var(--muted);"><summary style="cursor:pointer;">English summary</summary><p style="margin:6px 0 0;">BİM Birleşik Mağazalar A.Ş. proposes to construct and operate the BİM Ankara Bala Solar Power Plant (46 MWm / 30 MWe / 46.0053 MWp) in Büyükbıyık Neighborhood, Bala District, Ankara Province. Covering 72.26 hectares across 11 leased agricultural parcels (registered as dry farmland), the project has an investment cost of 492,660,000 TL and plans to install 83,646 photovoltaic panels and 100 inverters to generate up to 73,002,000 kWh annually for the company&#x27;s retail stores. Key environmental stakes include the site&#x27;s location on Class III and VI arable land, within the planned Akkoşan irrigation area, and inside the long-distance protection zone of the Kesikköprü Dam drinking water reservoir serving Kırıkkale. In addition, the regional 1/100,000-scale Environmental Plan was previously annulled by court order, and the associated 154 kV power transmission line is excluded from the scope of this EIA filing.</p></details>
     <div class="badges" style="margin-top:10px;">
-      <span class="badge">Saha çalışması: İncelenen sayfalarda tespit edilemedi</span>
-      <span class="badge">Mevsimsel örnekleme: İncelenen sayfalarda tespit edilemedi</span>
-      <span class="badge">Kümülatif etki: Eksik veya tespit edilemedi</span>
+      <span class="badge">Saha: İncelenen sayfalarda tespit edilemedi</span>
+      <span class="badge">Mevsimsellik: İncelenen sayfalarda tespit edilemedi</span>
+      <span class="badge">Kümülatif: Eksik veya tespit edilemedi</span>
     </div>
-    <p class="detail" style="margin-top:10px;"><strong>Zeytinlik ve Korunan Alanlar:</strong> Zeytinlik varlığına dair saha tespiti sunulmamış olup 3573 sayılı Zeytincilik Kanunu dahil ilgili tarım ve mera mevzuatına uygun izinlerin ÇED sonrası planlama aşamasında alınacağı taahhüt edilmektedir [s. 21]. Orman Genel Müdürlüğü e-harita verilerine göre alan Orman Dışı Açıklıklar ve Z-1 kodlu Ziraat alanında kalmaktadır; 6831 sayılı Orman Kanunu kapsamındaki görüş ve izinlerin de işe başlamadan önce alınacağı belirtilmektedir [s. 21]. Saha tapuda tarla niteliğinde III. ve VI. sınıf kuru tarım-nadaslı arazi olup DSİ tarafından Akkoşan sulama sahası ve Kırıkkale içme suyu kaynağı Kesikköprü Barajı uzun mesafe koruma bandı içerisinde kaldığı tespit edilmiştir [s. 20, 21, 22]. ÖÇK, SİT ve korunan alanlara ilişkin Bölüm II.2.8 ve haritalar içindekiler listesinde görünmekle birlikte metin içerikleri sunulan sayfalarda yer almamaktadır [s. 4, 15].<br/>Sunulan PDF sayfaları yalnızca kapak, içindekiler, tablo/şekil listeleri, kısaltmalar ve Projenin Teknik Olmayan Özeti bölümlerini içermektedir [s. 1, 3, 18, 19]. İçindekiler ve tablolar listesinde flora, iki yaşamlı, sürüngen, kuş ve memeli listeleri ile hedef kuş türleri matrislerinin ve Bölüm IV Kümülatif Çevresel Etki Değerlendirmesi başlığının raporun ana metninde bulunduğu görülmektedir [s. 8, 11, 13]. Ancak bu bölümlere ait gövde sayfaları sunulan alıntılar arasında yer almadığından, arazi gözlemlerinin fiilen yapılıp yapılmadığı, mevsimsel örneklemenin ÇED öncesinde tamamlanıp tamamlanmadığı ve kümülatif etki analizinin nicel niteliği bu belgelerden doğrulanamamıştır [s. 4, 8, 11, 22].</p>
+    <p class="sub" style="margin-top:10px;color:var(--text-secondary);"><strong>Zeytinlik ve Korunan Alanlar:</strong> Zeytinlik varlığına dair saha tespiti sunulmamış olup 3573 sayılı Zeytincilik Kanunu dahil ilgili tarım ve mera mevzuatına uygun izinlerin ÇED sonrası planlama aşamasında alınacağı taahhüt edilmektedir [s. 21]. Orman Genel Müdürlüğü e-harita verilerine göre alan Orman Dışı Açıklıklar ve Z-1 kodlu Ziraat alanında kalmaktadır; 6831 sayılı Orman Kanunu kapsamındaki görüş ve izinlerin de işe başlamadan önce alınacağı belirtilmektedir [s. 21]. Saha tapuda tarla niteliğinde III. ve VI. sınıf kuru tarım-nadaslı arazi olup DSİ tarafından Akkoşan sulama sahası ve Kırıkkale içme suyu kaynağı Kesikköprü Barajı uzun mesafe koruma bandı içerisinde kaldığı tespit edilmiştir [s. 20, 21, 22]. ÖÇK, SİT ve korunan alanlara ilişkin Bölüm II.2.8 ve haritalar içindekiler listesinde görünmekle birlikte metin içerikleri sunulan sayfalarda yer almamaktadır [s. 4, 15].<br/>Sunulan PDF sayfaları yalnızca kapak, içindekiler, tablo/şekil listeleri, kısaltmalar ve Projenin Teknik Olmayan Özeti bölümlerini içermektedir [s. 1, 3, 18, 19]. İçindekiler ve tablolar listesinde flora, iki yaşamlı, sürüngen, kuş ve memeli listeleri ile hedef kuş türleri matrislerinin ve Bölüm IV Kümülatif Çevresel Etki Değerlendirmesi başlığının raporun ana metninde bulunduğu görülmektedir [s. 8, 11, 13]. Ancak bu bölümlere ait gövde sayfaları sunulan alıntılar arasında yer almadığından, arazi gözlemlerinin fiilen yapılıp yapılmadığı, mevsimsel örneklemenin ÇED öncesinde tamamlanıp tamamlanmadığı ve kümülatif etki analizinin nicel niteliği bu belgelerden doğrulanamamıştır [s. 4, 8, 11, 22].</p>
   </section>
+  <h3>Danıştay Ölçütlerine Göre Bilimsel ve Hukuki Bulgular</h3><section class="card"><div class="hit"><span class="badge urgent">YÜKSEK</span> <strong>Enerji İletim Hattının (EİH) ÇED Kapsamı Dışında Bırakılması</strong> <span class="pno">[s. 22]</span> — Santralde üretilecek elektriğin Kızılırmak-Kulu EİH üzerinden Hirfanlı Trafo Merkezine aktarılması için 154 kV, 1272 MCM, 1+1 km (iki ayrı hat) enerji iletim hattı planlandığı belirtilmekte, ancak bu hattın işbu proje kapsamında yer almadığı ve ÇED Yönetmeliği kapsamında ayrıca müracaat yapılacağı ifade edilmektedir. Proje bütünlüğü açısından temel bağlantı unsurunun kapsam dışı bırakılması çevresel etkilerin bütüncül değerlendirilmesini engellemektedir.</div>
+<div class="hit"><span class="badge urgent">YÜKSEK</span> <strong>İçme Suyu Koruma Bandı ve Sulama Sahası İçinde Konumlanma</strong> <span class="pno">[s. 22]</span> — DSİ tarafından faaliyet alanının hem planlama çalışmaları tamamlanmış Akkoşan sulama sahası içerisinde hem de Kırıkkale iline içme ve kullanma suyu temin eden Kesikköprü Barajının uzun mesafe koruma bandı içerisinde kaldığı tespit edilmiştir. Bu hassas su havzası statüsüne karşın teknik olmayan özette yüzey akışı, erozyon veya yıkama sularının havzaya etkisine dair somut mühendislik verisi sunulmamıştır.</div>
+<div class="hit"><span class="badge urgent">YÜKSEK</span> <strong>Yürürlükte 1/100.000 Ölçekli Çevre Düzeni Planının Bulunmaması</strong> <span class="pno">[s. 20]</span> — Ankara İli 2038 yılı hedefli 1/100.000 ölçekli Çevre Düzeni Planının Ankara 9. İdare Mahkemesinin 28.09.2020 tarihli kararıyla iptal edildiği ve proje sahasının bulunduğu bölgeye ilişkin yürürlükte 1/100.000 ölçekli Çevre Düzeni Planı bulunmadığı beyan edilmektedir. Üst ölçekli mekânsal planlama kararları olmaksızın 72,26 ha büyüklüğünde tarım arazisinde enerji yatırımı planlanmaktadır.</div>
+<div class="hit"><span class="badge warn">ORTA</span> <strong>Tarım Dışı Kullanım ve Mera İzinlerinin ÇED Sonrasına Bırakılması</strong> <span class="pno">[s. 20, s. 21]</span> — Parseller tapuda tarla nitelikli olup III. ve VI. sınıf toprak işlemeli kuru tarım-nadaslı alanda kalmaktadır. 5403 sayılı Kanun kapsamında tarım dışı amaçla kullanım izninin ÇED Olumlu Belgesi sonrasına bırakıldığı, ayrıca kati proje aşamasında mera vasıflı arazi tespiti yapılması halinde 4342 sayılı Kanun kapsamında tahsis amacı değişikliği yapılacağı belirtilerek proje sahasındaki mera varlığının ÇED aşamasında kesinleştirilmediği görülmektedir.</div>
+<div class="hit"><span class="badge warn">ORTA</span> <strong>Haritalanmamış Su Kaynakları ve Sondaj Kuyuları Belirsizliği</strong> <span class="pno">[s. 22]</span> — Teknik olmayan özette faaliyet sahasında veya yakınında harita üzerinde gösterilmeyen ancak kullanılmakta olan kaynak suyu çıkışı, sondaj kuyusu ve dere olması durumunda gerekli tedbirlerin alınacağı ifade edilmektedir. Bu ifade, proje alanı ve yakın çevresindeki yerel su noktalarının saha etüdüyle tam olarak haritalanıp doğrulanmadığına işaret etmektedir.</div>
+<div class="hit"><span class="badge warn">ORTA</span> <strong>Su Kullanımı Beyanı ile Panel Temizliği İhtiyacı Arasındaki Açıklama Eksikliği</strong> <span class="pno">[s. 6, s. 7, s. 12, s. 22]</span> — Projenin Teknik Olmayan Özetinde proje kapsamında yeraltı ya da yerüstü suyu kullanımının söz konusu olmadığı belirtilmektedir. Buna karşın raporun içindekiler ve tablolar listesinde inşaat-işletme su kullanımı ve panel temizliği suyu başlıkları yer almakta olup, ihtiyaç duyulacak suyun temin kaynağı özette açıklanmamıştır.</div></section>
   <h3>Öne Çıkan Sayısal Bulgular</h3><table class="kv"><tr><th>Kurulu Güç</th><td>46 MWm / 30 MWe / 46,0053 MWp <span class="pno">[s. 22]</span></td></tr>
 <tr><th>Proje Alanı</th><td>72,26 ha (722.590,27 m2); ilk başvuruda 74,42 ha iken karayolu kamulaştırma sınırı nedeniyle daraltılmıştır <span class="pno">[s. 19]</span></td></tr>
 <tr><th>Proje Bedeli</th><td>492.660.000 TL <span class="pno">[s. 2]</span></td></tr>
@@ -654,14 +719,10 @@ pre.template-box {
 <tr><th>En Yakın Konut Mesafesi</th><td>Doğu yönünde Büyükbıyık Mahallesi dahilinde kuş uçuşu yaklaşık 1.300 m <span class="pno">[s. 22]</span></td></tr>
 <tr><th>İl ve İlçe Merkezine Mesafe</th><td>Ankara İl Merkezine kuş uçuşu ~90 km, Bala İlçe Merkezine ~42 km <span class="pno">[s. 22]</span></td></tr>
 <tr><th>Karayolu Çekme Mesafeleri</th><td>Ana binalar kamulaştırma sınırına en az 25 m, paneller en az 10 m; kavşak mesafesi en az 100 m <span class="pno">[s. 19]</span></td></tr></table>
-  <h3>Danıştay Ölçütlerine Göre Bilimsel ve Hukuki Bulgular</h3><section class="card"><div class="hit"><span class="badge urgent">YÜKSEK</span> <strong>Enerji İletim Hattının (EİH) ÇED Kapsamı Dışında Bırakılması</strong> <span class="pno">[s. 22]</span> — Santralde üretilecek elektriğin Kızılırmak-Kulu EİH üzerinden Hirfanlı Trafo Merkezine aktarılması için 154 kV, 1272 MCM, 1+1 km (iki ayrı hat) enerji iletim hattı planlandığı belirtilmekte, ancak bu hattın işbu proje kapsamında yer almadığı ve ÇED Yönetmeliği kapsamında ayrıca müracaat yapılacağı ifade edilmektedir. Proje bütünlüğü açısından temel bağlantı unsurunun kapsam dışı bırakılması çevresel etkilerin bütüncül değerlendirilmesini engellemektedir.</div>
-<div class="hit"><span class="badge urgent">YÜKSEK</span> <strong>İçme Suyu Koruma Bandı ve Sulama Sahası İçinde Konumlanma</strong> <span class="pno">[s. 22]</span> — DSİ tarafından faaliyet alanının hem planlama çalışmaları tamamlanmış Akkoşan sulama sahası içerisinde hem de Kırıkkale iline içme ve kullanma suyu temin eden Kesikköprü Barajının uzun mesafe koruma bandı içerisinde kaldığı tespit edilmiştir. Bu hassas su havzası statüsüne karşın teknik olmayan özette yüzey akışı, erozyon veya yıkama sularının havzaya etkisine dair somut mühendislik verisi sunulmamıştır.</div>
-<div class="hit"><span class="badge urgent">YÜKSEK</span> <strong>Yürürlükte 1/100.000 Ölçekli Çevre Düzeni Planının Bulunmaması</strong> <span class="pno">[s. 20]</span> — Ankara İli 2038 yılı hedefli 1/100.000 ölçekli Çevre Düzeni Planının Ankara 9. İdare Mahkemesinin 28.09.2020 tarihli kararıyla iptal edildiği ve proje sahasının bulunduğu bölgeye ilişkin yürürlükte 1/100.000 ölçekli Çevre Düzeni Planı bulunmadığı beyan edilmektedir. Üst ölçekli mekânsal planlama kararları olmaksızın 72,26 ha büyüklüğünde tarım arazisinde enerji yatırımı planlanmaktadır.</div>
-<div class="hit"><span class="badge warn">ORTA</span> <strong>Tarım Dışı Kullanım ve Mera İzinlerinin ÇED Sonrasına Bırakılması</strong> <span class="pno">[s. 20, s. 21]</span> — Parseller tapuda tarla nitelikli olup III. ve VI. sınıf toprak işlemeli kuru tarım-nadaslı alanda kalmaktadır. 5403 sayılı Kanun kapsamında tarım dışı amaçla kullanım izninin ÇED Olumlu Belgesi sonrasına bırakıldığı, ayrıca kati proje aşamasında mera vasıflı arazi tespiti yapılması halinde 4342 sayılı Kanun kapsamında tahsis amacı değişikliği yapılacağı belirtilerek proje sahasındaki mera varlığının ÇED aşamasında kesinleştirilmediği görülmektedir.</div>
-<div class="hit"><span class="badge warn">ORTA</span> <strong>Haritalanmamış Su Kaynakları ve Sondaj Kuyuları Belirsizliği</strong> <span class="pno">[s. 22]</span> — Teknik olmayan özette faaliyet sahasında veya yakınında harita üzerinde gösterilmeyen ancak kullanılmakta olan kaynak suyu çıkışı, sondaj kuyusu ve dere olması durumunda gerekli tedbirlerin alınacağı ifade edilmektedir. Bu ifade, proje alanı ve yakın çevresindeki yerel su noktalarının saha etüdüyle tam olarak haritalanıp doğrulanmadığına işaret etmektedir.</div>
-<div class="hit"><span class="badge warn">ORTA</span> <strong>Su Kullanımı Beyanı ile Panel Temizliği İhtiyacı Arasındaki Açıklama Eksikliği</strong> <span class="pno">[s. 6, s. 7, s. 12, s. 22]</span> — Projenin Teknik Olmayan Özetinde proje kapsamında yeraltı ya da yerüstü suyu kullanımının söz konusu olmadığı belirtilmektedir. Buna karşın raporun içindekiler ve tablolar listesinde inşaat-işletme su kullanımı ve panel temizliği suyu başlıkları yer almakta olup, ihtiyaç duyulacak suyun temin kaynağı özette açıklanmamıştır.</div></section>
   
-  <div class="section-head-row"><h3>HKT Tutanakları ve Bilirkişi İncelemesi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card"><ul style="margin:0;padding-left:20px;"><li>Santralin şebeke bağlantısı için zorunlu olan 154 kV, 1+1 km uzunluğundaki enerji iletim hattı neden bu ÇED Raporu kapsamı dışında bırakılmıştır ve santral ile hattın tarım, mera ve su koruma alanları üzerindeki toplam etkileri neden birlikte değerlendirilmemiştir? <span class="pno">[s. 8, s. 22]</span></li>
+  
+  
+  <div class="section-head-row" style="margin-top:16px;"><h3 style="margin:0;">HKT Tutanakları ve Bilirkişi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card" style="margin-top:8px;"><ul style="margin:0;padding-left:20px;"><li>Santralin şebeke bağlantısı için zorunlu olan 154 kV, 1+1 km uzunluğundaki enerji iletim hattı neden bu ÇED Raporu kapsamı dışında bırakılmıştır ve santral ile hattın tarım, mera ve su koruma alanları üzerindeki toplam etkileri neden birlikte değerlendirilmemiştir? <span class="pno">[s. 8, s. 22]</span></li>
 <li>Proje sahasının Kırıkkale içme suyu kaynağı Kesikköprü Barajı uzun mesafe koruma bandı ve Akkoşan sulama sahası içinde kalması nedeniyle, İçme-Kullanma Suyu Havzalarının Korunmasına Dair Yönetmelik Madde 12 kapsamında inşaat kazıları, yüzey akışı ve panel temizliğine karşı hangi bağlayıcı teknik önlemler öngörülmüştür? <span class="pno">[s. 22]</span></li>
 <li>72,26 ha büyüklüğündeki III. ve VI. sınıf tarım parselleri için 5403 sayılı Kanun kapsamında tarım dışı kullanım izni ile sahada bulunabilecek olası mera alanları için 4342 sayılı Kanun kapsamında tahsis amacı değişikliği uygunluk görüşleri neden Nihai ÇED kararı öncesinde tamamlanmamıştır? <span class="pno">[s. 20, s. 21]</span></li>
 <li>Raporda harita üzerinde gösterilmeyen kaynak suyu çıkışı, sondaj kuyusu ve dere bulunması olasılığına atıf yapılırken sahada yerinde hidrolojik tespit yapılmış mıdır; ayrıca yeraltı veya yerüstü suyu kullanılmayacağı beyan edilirken inşaat ve panel yıkama suyu hangi kaynaktan temin edilecektir? <span class="pno">[s. 6, s. 7, s. 22]</span></li>
@@ -673,56 +734,72 @@ pre.template-box {
   <p class="sub" style="margin-top:10px;"><em>İnceleme sınırları:</em> Toplam 1.141 sayfadan oluşan (84 sayfası taranmış/görüntü formatında) Nihai ÇED Raporu dosyasından yalnızca 1-13, 15, 18 ve 19-22 numaralı PDF sayfaları incelenebilmiştir. Bu sayfalar kapak, içindekiler, tablo/şekil listeleri, kısaltmalar ve Projenin Teknik Olmayan Özetini kapsamaktadır. Dolayısıyla flora/fauna saha çalışmaları, mevsimsel örnekleme verileri, hidrojeolojik etütler, parlama ve gürültü modellemeleri, Bölüm IV Kümülatif Çevresel Etki Değerlendirmesi, Bölüm V Çevre İzleme Planı ve kurum görüşlerinin tam metinleri sunulan alıntılar dışında kaldığından doğrulanamamıştır.</p>
 
 
-  <h2>Resmi Duyuru Metni</h2>
-  <blockquote>ANKARA ili BALA,  ilcesinde ANKARA İli BALA,  ilcesinde BİM BİRLEŞİK MAĞAZALAR A.Ştarafından yapılması planlanan BİM ANKARA BALA GES (Kurulu Güç:46 MWm /30 MWe, Alan:72,26 ha) projesi ile ilgili olarak hazırlanan ÇED Raporu , İnceleme ve Değerlendirme Komisyonu (İDK) tarafından incelenerek son şekli verilmiş olup, söz konusu rapor halkın görüş ve önerilerini almak üzere ÇED Yönetmeliği&#x27;nin 14.Maddesi (1) no&#x27;lu bendi kapsamında Bakanlıkta ve Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü&#x27;nde on (10) takvim günü görüşe açılmıştır. Bakanlığa/Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü&#x27;ne iletilen görüşler projeyle ilgili karar alma sürecinde dikkate alınacaktır. Görüş ve öneriler için bu süreç içerisinde Çevre, Şehircilik ve İklim Değişikliği Bakanlığı&#x27;na veya ANKARA Çevre ve Şehircilik İl Müdürlüklerine müracaat edilebilir. İlgililere ve kamuoyuna duyurulur.</blockquote>
+  <h2>Konum Haritası ve 3 km Çevre Taraması</h2>
+  <div class="map-box">
+    <div id="digest-map"></div>
+    <div class="map-bar"><span>PDF metninden çıkarılan kesin proje koordinatları (80 nokta, datum: UTM-Z36/WGS84, sayfa: s.163, s.617, s.618).</span></div>
+  </div>
+  <h3>Bağımsız Mekânsal Doğrulama (3 km · OpenStreetMap)</h3><table class="kv"><tr><th>Zeytinlik / Meyve Bahçesi (3573 m.20)</th><td><span style="color:var(--muted)">3 km içinde kayıt tespit edilmedi</span></td></tr><tr><th>Akarsu / Sulak Alan / Su Kaynağı</th><td><span style="color:var(--muted)">3 km içinde kayıt tespit edilmedi</span></td></tr><tr><th>Korunan Alan / Orman</th><td><span style="color:var(--muted)">3 km içinde kayıt tespit edilmedi</span></td></tr><tr><th>En Yakın Yerleşimler (Yöre Sakinleri)</th><td><strong>3 kayıt</strong> · en yakın <code>~1832 m</code> — Hacıabdullah (~1832 m), Kuyular (~2131 m), Eskikışla (~2773 m)</td></tr><tr><th>Okul / Sağlık Tesisleri</th><td><span style="color:var(--muted)">3 km içinde kayıt tespit edilmedi</span></td></tr></table><p class="sub"><em>Not:</em> OpenStreetMap gönüllü harita verisidir; haritada eksik veya eski kayıtlar olabilir. Kesin mesafe ve zeytinlik/korunan alan tespiti için uydu görüntüsü, İlçe Tarım kayıtları ve mahallinde keşif esas alınmalıdır.</p>
 
-  <h2>Otomatik Metin Taraması (Deterministik)</h2>
-  <table class="kv"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
-<tr><th>Literatür taraması ifadesi</th><td><span class="badge warn">Literatür ifadesi mevcut — saha çalışması ile karşılaştırınız</span></td></tr>
+  <h2>Ham Kayıt ve Derin Teknik Ekler</h2>
+  <details class="accordion">
+    <summary>Resmi Duyuru Metni (Bakanlık İlanı)</summary>
+    <div class="accordion-body"><blockquote>ANKARA ili BALA,  ilcesinde ANKARA İli BALA,  ilcesinde BİM BİRLEŞİK MAĞAZALAR A.Ştarafından yapılması planlanan BİM ANKARA BALA GES (Kurulu Güç:46 MWm /30 MWe, Alan:72,26 ha) projesi ile ilgili olarak hazırlanan ÇED Raporu , İnceleme ve Değerlendirme Komisyonu (İDK) tarafından incelenerek son şekli verilmiş olup, söz konusu rapor halkın görüş ve önerilerini almak üzere ÇED Yönetmeliği&#x27;nin 14.Maddesi (1) no&#x27;lu bendi kapsamında Bakanlıkta ve Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü&#x27;nde on (10) takvim günü görüşe açılmıştır. Bakanlığa/Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü&#x27;ne iletilen görüşler projeyle ilgili karar alma sürecinde dikkate alınacaktır. Görüş ve öneriler için bu süreç içerisinde Çevre, Şehircilik ve İklim Değişikliği Bakanlığı&#x27;na veya ANKARA Çevre ve Şehircilik İl Müdürlüklerine müracaat edilebilir. İlgililere ve kamuoyuna duyurulur.</blockquote></div>
+  </details>
+  <details class="accordion">
+    <summary>Otomatik Metin Taraması (9 Deterministik Kontrol)</summary>
+    <div class="accordion-body">
+      <table class="kv" style="margin-top:0;"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Literatür taraması ifadesi</th><td><span class="badge warn">Literatür ifadesi mevcut</span></td></tr>
 <tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
 <tr><th>Kümülatif etki değerlendirmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
 <tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
 <tr><th>Yeraltı suyu, akifer veya hidrojeoloji ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
 <tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
-<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr>
-<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr></table>
-  <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik metin taramasına dahil edilmemiştir.</p>
-
-  <h2>Sayfa Kaynaklı Çıkarılan Bulgular</h2>
-  <div class="cards"><section class="card"><h3>Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(833 sayfa: s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14 (+819 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>72,26 ha</code> — BİM BİRLEŞİK MAĞAZALAR A.Ş. BİM ANKARA BALA GES (Kurulu Güç:46 MWm /30 MWe/46,0053 MWp, Alan:72,26 ha) ANKARA İLİ, BALA İLÇESİ BÜYÜKBIYIK MAHALLESİ MEVKİİ (1090 Ada 8, 9 ve 11 numaralı parseller, 1091 Ada 2, 3, 4, 1…</div>
+<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
+<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
+<tr><th>Kurum görüşleri (DSİ, İl Tarım, OGM, MAPEG)</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Deprem, fay hattı veya jeoteknik stabilite ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr></table>
+      <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik taramaya dahil edilmemiştir.</p>
+    </div>
+  </details>
+  <details class="accordion">
+    <summary>Sayfa Kaynaklı Ham Alıntılar (7 Teknik Başlık)</summary>
+    <div class="accordion-body"><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(833 sayfa: s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14 (+819 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>72,26 ha</code> — BİM BİRLEŞİK MAĞAZALAR A.Ş. BİM ANKARA BALA GES (Kurulu Güç:46 MWm /30 MWe/46,0053 MWp, Alan:72,26 ha) ANKARA İLİ, BALA İLÇESİ BÜYÜKBIYIK MAHALLESİ MEVKİİ (1090 Ada 8, 9 ve 11 numaralı parseller, 1091 Ada 2, 3, 4, 1…</div>
 <div class="hit"><span class="pno">[s. 1]</span> <code>Ada 8, 9 ve 11 numaralı parsel</code> — …(Kurulu Güç:46 MWm /30 MWe/46,0053 MWp, Alan:72,26 ha) ANKARA İLİ, BALA İLÇESİ BÜYÜKBIYIK MAHALLESİ MEVKİİ (1090 Ada 8, 9 ve 11 numaralı parseller, 1091 Ada 2, 3, 4, 11, 13 ve 14 numaralı parseller ile 1092 Ada 14 ve 15 numaralı parseller) EN-ÇEV ENERJİ Ç…</div>
 <div class="hit"><span class="pno">[s. 1]</span> <code>Ada 14 ve 15 numaralı parsel</code> — …MAHALLESİ MEVKİİ (1090 Ada 8, 9 ve 11 numaralı parseller, 1091 Ada 2, 3, 4, 11, 13 ve 14 numaralı parseller ile 1092 Ada 14 ve 15 numaralı parseller) EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI VE DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş. ÇED BAŞVURU DOSYASI ÇED RA…</div>
 <div class="hit"><span class="pno">[s. 2]</span> <code>72,26 ha</code> — BİM BİRLEŞİK MAĞAZALAR A.Ş. BİM ANKARA BALA GES (Kurulu Güç:46 MWm /30 MWe / 46,0053 MWp, Alan:72,26 ha) ÇED RAPORU I PROJE SAHİBİNİN ADI, BİM BİRLEŞİK MAĞAZALAR A.Ş. ADRESİ, Abdurrahmangazi Mah. Ebubekir Cad. N…</div>
 <div class="hit"><span class="pno">[s. 2]</span> <code>Ada 8, 9 ve 11 numaralı parsel</code> — …ÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ): İli: Ankara İlçesi: Bala Mevkii: Büyükbıyık Mahallesi (1090 Ada 8, 9 ve 11 numaralı parseller, 1091 Ada 2, 3, 4, 11, 13 ve 14 numaralı parseller ile 1092 Ada 14 ve 15 numaralı parseller) PROJENİN ÇED YÖNET…</div>
-<div class="hit"><span class="pno">[s. 3]</span> <code>72,26 ha</code> — BİM BİRLEŞİK MAĞAZALAR A.Ş. BİM ANKARA BALA GES (Kurulu Güç:46 MWm /30 MWe / 46,0053 MWp, Alan:72,26 ha) ÇED RAPORU I İÇİNDEKİLER LİSTESİ: İÇİNDEKİLER LİSTESİ: ....................................................…</div></section><section class="card"><h3>Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(104 sayfa: s.6, s.7, s.10, s.22, s.23, s.24, s.25, s.40, s.42, s.43, s.44, s.45, s.46, s.62 (+90 sayfa))</span></h3><div class="hit"><span class="pno">[s. 6]</span> <code>yeraltı suyu</code> — …emniyeti için yapılacak işlemler, alınacak önlemler; taşkın ve heyelan riski; yüzeysel (kuru dere yatakları dahil) ve yeraltı suyu kaynaklarının etkilenme durumları ve alınacak önlemler; “Dere Yatakları ve Taşkınlar” konulu 2006/27 sayılı Başbakanlı…</div>
+<div class="hit"><span class="pno">[s. 3]</span> <code>72,26 ha</code> — BİM BİRLEŞİK MAĞAZALAR A.Ş. BİM ANKARA BALA GES (Kurulu Güç:46 MWm /30 MWe / 46,0053 MWp, Alan:72,26 ha) ÇED RAPORU I İÇİNDEKİLER LİSTESİ: İÇİNDEKİLER LİSTESİ: ....................................................…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(104 sayfa: s.6, s.7, s.10, s.22, s.23, s.24, s.25, s.40, s.42, s.43, s.44, s.45, s.46, s.62 (+90 sayfa))</span></h3><div class="hit"><span class="pno">[s. 6]</span> <code>yeraltı suyu</code> — …emniyeti için yapılacak işlemler, alınacak önlemler; taşkın ve heyelan riski; yüzeysel (kuru dere yatakları dahil) ve yeraltı suyu kaynaklarının etkilenme durumları ve alınacak önlemler; “Dere Yatakları ve Taşkınlar” konulu 2006/27 sayılı Başbakanlı…</div>
 <div class="hit"><span class="pno">[s. 6]</span> <code>deşarj</code> — …ım amaçlarına göre miktarların ayrı ayrı belirtilmesi; oluşacak atık suların cins ve miktarları, bertaraf yöntemleri, deşarj edileceği ortamlar, Çevreyi etkileyebilecek olası sorunların belirlenmesi, alıcı ortamla etkileşimi, kümülatif etkiler…</div>
 <div class="hit"><span class="pno">[s. 7]</span> <code>atıksu</code> — …i; panellerin nasıl temizleneceği, kullanılacaksa suyunun nereden temin edileceği, ne kadar su kullanılacağı, oluşacak atıksu miktarı ve bertaraf yöntemi, Çevreyi etkileyebilecek olası sorunların belirlenmesi, alıcı ortamla etkileşimi, kümülati…</div>
 <div class="hit"><span class="pno">[s. 10]</span> <code>Yeraltısuyu</code> — …uyulara Ait Bilgiler (DSİ, 2018) (HGM) .............. 144 Tablo- 39 Proje Alanın Bulunduğu Kızılırmak Havzası Hirfanlı Yeraltısuyu Alt Havzasının Beslenim-Boşalım Değerleri (DSİ, 2018) ................................................................…</div>
 <div class="hit"><span class="pno">[s. 22]</span> <code>Akifer</code> — …ümlerine uygun hareket edilecektir. Faaliyet alanının, 10 Ekim 2012 tarih ve 28437 sayılı &quot;İçme Suyu Temin Edilen Akifer ve Kaynakların Koruma Alanlarının Belirlenmesi Hakkında Tebliğ&quot; hükümlerine göre koruma alanı belirlenmesi halinde DSİ…</div>
-<div class="hit"><span class="pno">[s. 23]</span> <code>yeraltısuyu</code> — …atı, sıvı atıklar) yeraltına sızmaması ve yeraltısuyunu kirletmemesi için gerekli tüm önlemler titizlikle alınacak ve yeraltısuyu kaynaklarının hidromorfolojik, biyolojik ve kimyasal yapılarının bozulmaması amacıyla tüm tedbirler faaliyet sahibi ta…</div></section><section class="card"><h3>Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(63 sayfa: s.4, s.15, s.18, s.21, s.37, s.71, s.99, s.110, s.111, s.112, s.154, s.184, s.189, s.191 (+49 sayfa))</span></h3><div class="hit"><span class="pno">[s. 4]</span> <code>orman alanı</code> — …ir.) ..................................................................................... 159 II.2.7. Orman alanları (orman alanı miktarı -m2-), meşçere tipi, kapalılığı, mevcut ve planlanan koruma ve/veya kullanım amaçları, proje sahasının işaretl…</div>
+<div class="hit"><span class="pno">[s. 23]</span> <code>yeraltısuyu</code> — …atı, sıvı atıklar) yeraltına sızmaması ve yeraltısuyunu kirletmemesi için gerekli tüm önlemler titizlikle alınacak ve yeraltısuyu kaynaklarının hidromorfolojik, biyolojik ve kimyasal yapılarının bozulmaması amacıyla tüm tedbirler faaliyet sahibi ta…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(63 sayfa: s.4, s.15, s.18, s.21, s.37, s.71, s.99, s.110, s.111, s.112, s.154, s.184, s.189, s.191 (+49 sayfa))</span></h3><div class="hit"><span class="pno">[s. 4]</span> <code>orman alanı</code> — …ir.) ..................................................................................... 159 II.2.7. Orman alanları (orman alanı miktarı -m2-), meşçere tipi, kapalılığı, mevcut ve planlanan koruma ve/veya kullanım amaçları, proje sahasının işaretl…</div>
 <div class="hit"><span class="pno">[s. 4]</span> <code>doğal sit</code> — …at anıtları, tabiatı koruma alanları, yaban hayatı korunma alanları, biyogenetik rezerv alanları, biyosfer rezervleri, doğal sit ve anıtlar, arkeolojik, tarihi, kültürel sitler, özel çevre koruma bölgeleri, özel koruma alanları, turizm alan ve mer…</div>
 <div class="hit"><span class="pno">[s. 4]</span> <code>özel çevre koruma</code> — …alanları, biyogenetik rezerv alanları, biyosfer rezervleri, doğal sit ve anıtlar, arkeolojik, tarihi, kültürel sitler, özel çevre koruma bölgeleri, özel koruma alanları, turizm alan ve merkezleri, mer&#x27;a kanunu kapsamındaki vb. alanlar, hassasiyet derecesi…</div>
 <div class="hit"><span class="pno">[s. 15]</span> <code>Özel Çevre Koruma</code> — …-77 Proje Alanı ve Etrafının Korunan Alan Haritası ...................................................... 175 Şekil-78 Özel Çevre Koruma Bölgesi Haritası Üzerinde Proje Alanının Bulunduğu Konum .............................................................…</div>
 <div class="hit"><span class="pno">[s. 18]</span> <code>Tabiat Parkı</code> — …ürlüğü DSİ Devlet Su İşleri Genel Müdürlüğü ADNKS Adrese dayalı Nüfus Kayıt Sistemi Hz Hertz TP Tabiat Parkı MP Milli Park SAK Şimdiki Arazi Kullanımı BTG Büyük Toprak Grubu m2 metrekare m³ metrekü…</div>
-<div class="hit"><span class="pno">[s. 18]</span> <code>Milli Park</code> — …t Su İşleri Genel Müdürlüğü ADNKS Adrese dayalı Nüfus Kayıt Sistemi Hz Hertz TP Tabiat Parkı MP Milli Park SAK Şimdiki Arazi Kullanımı BTG Büyük Toprak Grubu m2 metrekare m³ metreküp mm. Milimetr…</div></section><section class="card"><h3>Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(93 sayfa: s.4, s.203, s.205, s.206, s.207, s.208, s.209, s.213, s.216, s.217, s.219, s.220, s.221, s.222 (+79 sayfa))</span></h3><div class="hit"><span class="pno">[s. 4]</span> <code>Flora ve Fauna</code> — …inceleme alanı ve etki alanında varsa koruma statülü alanların mesafelerinin harita üzerinde gösterimi, . 174 II.2.9. Flora ve Fauna (türlerin belirlenmesi; belirlenen türlerin tehlike kategorileri, endemiklik durumları, nispi bolluk dereceleri, Ulusl…</div>
+<div class="hit"><span class="pno">[s. 18]</span> <code>Milli Park</code> — …t Su İşleri Genel Müdürlüğü ADNKS Adrese dayalı Nüfus Kayıt Sistemi Hz Hertz TP Tabiat Parkı MP Milli Park SAK Şimdiki Arazi Kullanımı BTG Büyük Toprak Grubu m2 metrekare m³ metreküp mm. Milimetr…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(93 sayfa: s.4, s.203, s.205, s.206, s.207, s.208, s.209, s.213, s.216, s.217, s.219, s.220, s.221, s.222 (+79 sayfa))</span></h3><div class="hit"><span class="pno">[s. 4]</span> <code>Flora ve Fauna</code> — …inceleme alanı ve etki alanında varsa koruma statülü alanların mesafelerinin harita üzerinde gösterimi, . 174 II.2.9. Flora ve Fauna (türlerin belirlenmesi; belirlenen türlerin tehlike kategorileri, endemiklik durumları, nispi bolluk dereceleri, Ulusl…</div>
 <div class="hit"><span class="pno">[s. 4]</span> <code>Bern Sözleşmesi</code> — …i; belirlenen türlerin tehlike kategorileri, endemiklik durumları, nispi bolluk dereceleri, Uluslararası anlaşmalarla (Bern Sözleşmesi vb.) koruma altına alınan türler; nadir ve nesli tehlikeye düşmüş türler ve bunların yaşama ortamları, av hayvanları,…</div>
 <div class="hit"><span class="pno">[s. 203]</span> <code>BERN Sözleşmesi</code> — …özleşmeler uyarınca korunması gerekli alanlar a) &quot;Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi&quot; (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan &quot;Önemli Deniz Kaplumbağası Üreme Alanları&quot;nda belirtilen I. ve II. Koruma B…</div>
 <div class="hit"><span class="pno">[s. 205]</span> <code>endemik</code> — …r. d) Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…</div>
 <div class="hit"><span class="pno">[s. 206]</span> <code>Flora ve Fauna</code> — …BİM BİRLEŞİK MAĞAZALAR A.Ş. BİM ANKARA BALA GES 46 MWm /30 MWe/46,0053 MWp – 72,26 ha) ÇED RAPORU 180 II.2.9. Flora ve Fauna (türlerin belirlenmesi; belirlenen türlerin tehlike kategorileri, endemiklik durumları, nispi bolluk dereceleri, Ulusl…</div>
-<div class="hit"><span class="pno">[s. 206]</span> <code>Bern Sözleşmesi</code> — …i; belirlenen türlerin tehlike kategorileri, endemiklik durumları, nispi bolluk dereceleri, Uluslararası anlaşmalarla (Bern Sözleşmesi vb.) koruma altına alınan türler; nadir ve nesli tehlikeye düşmüş türler ve bunların yaşama ortamları, av hayvanları,…</div></section><section class="card"><h3>Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(165 sayfa: s.4, s.5, s.6, s.7, s.8, s.12, s.16, s.17, s.18, s.24, s.26, s.40, s.41, s.42 (+151 sayfa))</span></h3><div class="hit"><span class="pno">[s. 4]</span> <code>deprem</code> — …i, çığ, su baskını vb.), duyarlılık analizi; heyelan yağış ilişkisi, yamaç stabilitesi, kayma analizi; depremsellik ve deprem riski; heyelan risk haritası, faaliyet alanını da içine alan büyük ölçekli diri fay haritası ile Türkiye Deprem Tehlik…</div>
+<div class="hit"><span class="pno">[s. 206]</span> <code>Bern Sözleşmesi</code> — …i; belirlenen türlerin tehlike kategorileri, endemiklik durumları, nispi bolluk dereceleri, Uluslararası anlaşmalarla (Bern Sözleşmesi vb.) koruma altına alınan türler; nadir ve nesli tehlikeye düşmüş türler ve bunların yaşama ortamları, av hayvanları,…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(165 sayfa: s.4, s.5, s.6, s.7, s.8, s.12, s.16, s.17, s.18, s.24, s.26, s.40, s.41, s.42 (+151 sayfa))</span></h3><div class="hit"><span class="pno">[s. 4]</span> <code>deprem</code> — …i, çığ, su baskını vb.), duyarlılık analizi; heyelan yağış ilişkisi, yamaç stabilitesi, kayma analizi; depremsellik ve deprem riski; heyelan risk haritası, faaliyet alanını da içine alan büyük ölçekli diri fay haritası ile Türkiye Deprem Tehlik…</div>
 <div class="hit"><span class="pno">[s. 5]</span> <code>gürültü</code> — …........................... 217 II.2.13. ÇED inceleme alanı ve etki alanının mevcut kirlilik yükü (hava, su, toprak ve gürültü açısından mevcut kirlilik yükünün belirlenmesi, bu çalışma yapılırken hangi tarihler arasında ne tür çalışmalar yapıl…</div>
 <div class="hit"><span class="pno">[s. 5]</span> <code>Kümülatif</code> — …te Alınarak- Çevreyi Etkileyebilecek Olası Sorunların Belirlenmesi, Kirleticilerin Miktarı, Alıcı Ortamla Etkileşimi, Kümülatif Etkileri, Projenin İklim Üzerindeki Etkisi (Sera Gazı Emisyonlarının Niteliği Ve Büyüklüğü) Ve Projenin İklim Değişikl…</div>
 <div class="hit"><span class="pno">[s. 6]</span> <code>kümülatif</code> — …apsamında değerlendirmeler yapılması, Çevreyi etkileyebilecek olası sorunların belirlenmesi, alıcı ortamla etkileşimi, kümülatif etkilerin belirlenmesi, çevreye olabilecek olumsuz etkilerinin azaltılması için alınacak önlemler, ...................…</div>
 <div class="hit"><span class="pno">[s. 7]</span> <code>kümülatif</code> — …için riskli ve tehlikeli olan işler, çevreyi etkileyebilecek olası sorunların belirlenmesi, alıcı ortamla etkileşimi, kümülatif etkilerin belirlenmesi, çevreye olabilecek olumsuz etkilerinin azaltılması için alınacak önlemler, ...................…</div>
-<div class="hit"><span class="pno">[s. 7]</span> <code>gürültü</code> — …lması için alınacak önlemler, ......................... 403 III.2.7. Proje ünitelerinin işletilmesi sırasında oluşacak gürültü kaynakları, çevreyi etkileyebilecek olası sorunların belirlenmesi, alıcı ortamla etkileşimi, kümülatif etkilerin belir…</div></section><section class="card"><h3>Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(550 sayfa: s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14 (+536 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>Kurulu Güç</code> — BİM BİRLEŞİK MAĞAZALAR A.Ş. BİM ANKARA BALA GES (Kurulu Güç:46 MWm /30 MWe/46,0053 MWp, Alan:72,26 ha) ANKARA İLİ, BALA İLÇESİ BÜYÜKBIYIK MAHALLESİ MEVKİİ (1090 Ada 8, 9 ve…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>gürültü</code> — …lması için alınacak önlemler, ......................... 403 III.2.7. Proje ünitelerinin işletilmesi sırasında oluşacak gürültü kaynakları, çevreyi etkileyebilecek olası sorunların belirlenmesi, alıcı ortamla etkileşimi, kümülatif etkilerin belir…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(550 sayfa: s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14 (+536 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>Kurulu Güç</code> — BİM BİRLEŞİK MAĞAZALAR A.Ş. BİM ANKARA BALA GES (Kurulu Güç:46 MWm /30 MWe/46,0053 MWp, Alan:72,26 ha) ANKARA İLİ, BALA İLÇESİ BÜYÜKBIYIK MAHALLESİ MEVKİİ (1090 Ada 8, 9 ve…</div>
 <div class="hit"><span class="pno">[s. 2]</span> <code>Kurulu Güç</code> — BİM BİRLEŞİK MAĞAZALAR A.Ş. BİM ANKARA BALA GES (Kurulu Güç:46 MWm /30 MWe / 46,0053 MWp, Alan:72,26 ha) ÇED RAPORU I PROJE SAHİBİNİN ADI, BİM BİRLEŞİK MAĞAZALAR A.Ş. A…</div>
 <div class="hit"><span class="pno">[s. 2]</span> <code>PROJE BEDELİ</code> — …p.tr PROJENİN ADI (…HA- MWM/MWE): BİM ANKARA BALA GES (Kurulu Güç:46 MWm /30 MWe,/ 46,0053 MWp, Alan:72,26 ha) PROJE BEDELİ (TL): 492.660.000 ₺ PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ): İli: Ankara İlçesi: Bala Mevki…</div>
 <div class="hit"><span class="pno">[s. 3]</span> <code>Kurulu Güç</code> — BİM BİRLEŞİK MAĞAZALAR A.Ş. BİM ANKARA BALA GES (Kurulu Güç:46 MWm /30 MWe / 46,0053 MWp, Alan:72,26 ha) ÇED RAPORU I İÇİNDEKİLER LİSTESİ: İÇİNDEKİLER LİSTESİ: .......…</div>
 <div class="hit"><span class="pno">[s. 4]</span> <code>Kurulu Güç</code> — BİM BİRLEŞİK MAĞAZALAR A.Ş. BİM ANKARA BALA GES (Kurulu Güç:46 MWm /30 MWe/46,0053 MWp, Alan:72,26 ha) ÇED RAPORU II II.1.2. ÇED inceleme alanı ve etki alanında, ÇED kararl…</div>
-<div class="hit"><span class="pno">[s. 5]</span> <code>Kurulu Güç</code> — BİM BİRLEŞİK MAĞAZALAR A.Ş. BİM ANKARA BALA GES (Kurulu Güç:46 MWm /30 MWe/46,0053 MWp, Alan:72,26 ha) ÇED RAPORU III II.2.12. Devletin yetkili organlarının hüküm ve tasarr…</div></section></div>
-
-  <h2>Belge Bölüm Haritası</h2>
-  <ul><li><span class="pno">[s. 3]</span> İçindekiler Listesi:</li>
+<div class="hit"><span class="pno">[s. 5]</span> <code>Kurulu Güç</code> — BİM BİRLEŞİK MAĞAZALAR A.Ş. BİM ANKARA BALA GES (Kurulu Güç:46 MWm /30 MWe/46,0053 MWp, Alan:72,26 ha) ÇED RAPORU III II.2.12. Devletin yetkili organlarının hüküm ve tasarr…</div></div></div>
+  </details>
+  <details class="accordion">
+    <summary>Belge Bölüm Haritası (25 başlık)</summary>
+    <div class="accordion-body"><ul style="margin:0;padding-left:20px;"><li><span class="pno">[s. 3]</span> İçindekiler Listesi:</li>
 <li><span class="pno">[s. 10]</span> Tablolar Listesi</li>
 <li><span class="pno">[s. 14]</span> Şekiller Listesi</li>
 <li><span class="pno">[s. 18]</span> Kısaltmalar Listesi</li>
@@ -741,10 +818,11 @@ pre.template-box {
 <li><span class="pno">[s. 105]</span> II.1.1. ÇED inceleme alanı ve etki alanının mülkiyet durumu, arazi kullanım durumu</li>
 <li><span class="pno">[s. 107]</span> II.1.2. ÇED inceleme alanı ve etki alanında, ÇED kararları bulunan ve mevcutta kurulu olan ya da kurulması planlanan diğer güneş enerji santrali projelerine ve diğer faaliyetlere (madencilik, sanayi, turizm, hayvancılık… gibi) mesafeleri, bu projeler ...</li>
 <li><span class="pno">[s. 113]</span> II.2. ÇED inceleme alanı ve etki alanı içerisindeki fiziksel ve biyolojik çevrenin özellikleri ve doğal kaynakların kullanımı,</li>
-<li><span class="pno">[s. 113]</span> II.2.1. Atmosferik koşullar, iklimsel faktörler (genel iklim koşulları- basınç, sıcaklık, yağış, nispi nem, sayılı günler, kar kalınlığı, buharlaşma, etkin rüzgâr yönü; meteorolojik parametrelerin dağılımlarının tablo, grafik ve yazılı anlatımı; -yapı...</li></ul>
+<li><span class="pno">[s. 113]</span> II.2.1. Atmosferik koşullar, iklimsel faktörler (genel iklim koşulları- basınç, sıcaklık, yağış, nispi nem, sayılı günler, kar kalınlığı, buharlaşma, etkin rüzgâr yönü; meteorolojik parametrelerin dağılımlarının tablo, grafik ve yazılı anlatımı; -yapı...</li></ul></div>
+  </details>
 
   <div class="notice">
-    Bu sayfa, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın kamuya açık <code>eced-duyuru.csb.gov.tr</code> duyuru portalındaki kayıtlar esas alınarak bilgilendirme amacıyla hazırlanmıştır. Alıntıların tamamı 1 tabanlı PDF sayfa numarasıyla (<code>[s. N]</code>) gösterilmektedir. Yasal süreler otomatik olarak hesaplanır; kesin sürelerin ve hukuki başvuru yollarının yetkili hukukçular tarafından teyit edilmesi gerekir.
+    Bu sayfa, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın kamuya açık <code>eced-duyuru.csb.gov.tr</code> duyuru portalındaki kayıtlar esas alınarak bilgilendirme amacıyla hazırlanmıştır. Alıntıların tamamı 1 tabanlı PDF sayfa numarasıyla (<code>[s. N]</code>) gösterilmektedir. Yasal sürelerin ve hukuki başvuru yollarının yetkili hukukçular tarafından teyit edilmesi gerekir.
   </div>
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -754,25 +832,36 @@ pre.template-box {
   const root = document.documentElement;
   const saved = localStorage.getItem('eced_theme');
   if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  function isDarkNow() {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return cur ? cur === 'dark' : prefersDark;
+  }
+  window.__ecedIsDark = isDarkNow;
   const btn = document.getElementById('theme-toggle');
   if (!btn) return;
   function syncLabel() {
-    const cur = root.getAttribute('data-theme');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isDark = cur ? cur === 'dark' : prefersDark;
-    btn.textContent = isDark ? 'Açık Tema' : 'Koyu Tema';
+    btn.textContent = isDarkNow() ? 'Açık Tema' : 'Koyu Tema';
   }
   syncLabel();
   btn.addEventListener('click', () => {
-    const cur = root.getAttribute('data-theme');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isDark = cur ? cur === 'dark' : prefersDark;
-    const next = isDark ? 'light' : 'dark';
+    const next = isDarkNow() ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
     localStorage.setItem('eced_theme', next);
     syncLabel();
+    window.dispatchEvent(new CustomEvent('eced-theme-change', { detail: { dark: next === 'dark' } }));
   });
 })();
+
+
+function createCartoTileLayer(isDark) {
+  const style = isDark ? 'dark_all' : 'light_all';
+  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+    maxZoom: 19,
+    subdomains: 'abcd',
+    attribution: '&copy; OpenStreetMap &copy; CARTO'
+  });
+}
 
 (() => {
   const copyBtn = document.getElementById('copy-qs-btn');
@@ -789,15 +878,35 @@ pre.template-box {
     });
   }
   if (typeof L === 'undefined') return;
-  const g = {"lat": 39.25949, "lon": 33.46001, "zoom": 12, "precision": "exact_pdf", "points": [[39.28502, 33.45392], [39.30996, 33.50265], [39.29172, 33.54949], [39.28182, 33.50043], [39.26347, 33.45738], [39.2629, 33.45963], [39.25821, 33.45657], [39.25814, 33.45644], [39.25809, 33.45672], [39.25812, 33.45705], [39.25836, 33.45786], [39.25842, 33.45773], [39.26268, 33.46051], [39.26228, 33.46207], [39.25912, 33.46001], [39.25909, 33.45986], [39.25903, 33.45968], [39.25896, 33.45977], [39.25784, 33.45969], [39.25803, 33.46188], [39.2576, 33.4609], [39.25725, 33.46117], [39.25763, 33.46198], [39.25563, 33.46241], [39.25541, 33.46246], [39.25492, 33.46172], [39.25483, 33.4616], [39.25446, 33.46085], [39.2541, 33.46009], [39.2536, 33.45877], [39.25358, 33.45853], [39.25274, 33.45573], [39.25271, 33.45568], [39.25294, 33.45569], [39.25398, 33.45577], [39.25453, 33.45581], [39.25489, 33.45583], [39.25563, 33.4575], [39.25655, 33.4596], [39.25712, 33.46088]], "label": "ANKARA / BALA — BİM ANKARA BALA GES (Kurulu Güç:46 MWm /30 MWe, Alan:72,26 ha)"};
+  const g = {"lat": 39.25949, "lon": 33.46001, "zoom": 12, "precision": "exact_pdf", "points": [[39.28502, 33.45392], [39.30996, 33.50265], [39.29172, 33.54949], [39.28182, 33.50043], [39.26347, 33.45738], [39.2629, 33.45963], [39.25821, 33.45657], [39.25814, 33.45644], [39.25809, 33.45672], [39.25812, 33.45705], [39.25836, 33.45786], [39.25842, 33.45773], [39.26268, 33.46051], [39.26228, 33.46207], [39.25912, 33.46001], [39.25909, 33.45986], [39.25903, 33.45968], [39.25896, 33.45977], [39.25784, 33.45969], [39.25803, 33.46188], [39.2576, 33.4609], [39.25725, 33.46117], [39.25763, 33.46198], [39.25563, 33.46241], [39.25541, 33.46246], [39.25492, 33.46172], [39.25483, 33.4616], [39.25446, 33.46085], [39.2541, 33.46009], [39.2536, 33.45877], [39.25358, 33.45853], [39.25274, 33.45573], [39.25271, 33.45568], [39.25294, 33.45569], [39.25398, 33.45577], [39.25453, 33.45581], [39.25489, 33.45583], [39.25563, 33.4575], [39.25655, 33.4596], [39.25712, 33.46088]], "gis_markers": [{"lat": 39.26675, "lon": 33.47911, "color": "#7c3aed", "label": "Mahalle: Hacıabdullah (~1832 m)"}, {"lat": 39.25617, "lon": 33.48439, "color": "#7c3aed", "label": "Köy: Kuyular (~2131 m)"}], "label": "ANKARA / BALA — BİM ANKARA BALA GES (Kurulu Güç:46 MWm /30 MWe, Alan:72,26 ha)"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 18,
-    attribution: '&copy; OpenStreetMap katkıda bulunanları'
-  }).addTo(map);
+  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
+  window.addEventListener('eced-theme-change', (ev) => {
+    map.removeLayer(tileLayer);
+    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
+  });
+  if (g.precision === 'exact_pdf') {
+    L.circle([g.lat, g.lon], {
+      radius: 3000,
+      color: '#d97706',
+      weight: 1.5,
+      dashArray: '6 5',
+      fillColor: '#d97706',
+      fillOpacity: 0.04
+    }).bindTooltip('3 km yasal referans çemberi (3573 m.20)').addTo(map);
+    for (const gm of (g.gis_markers || [])) {
+      L.circleMarker([gm.lat, gm.lon], {
+        radius: 5,
+        color: '#ffffff',
+        fillColor: gm.color,
+        fillOpacity: 0.9,
+        weight: 1.5
+      }).bindPopup(gm.label).addTo(map);
+    }
+  }
   if (g.precision === 'exact_pdf' && g.points.length > 1) {
     const latlngs = g.points.map(p => [p[0], p[1]]);
-    const poly = L.polyline(latlngs, { color: '#0b5ed7', weight: 3, opacity: 0.85 }).addTo(map);
+    const poly = L.polyline(latlngs, { color: '#175cd3', weight: 3, opacity: 0.85 }).addTo(map);
     for (const ll of latlngs.slice(0, 30)) {
       L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#d92d20', fillOpacity: 0.9, weight: 1 }).addTo(map);
     }
@@ -806,7 +915,7 @@ pre.template-box {
     L.circleMarker([g.lat, g.lon], {
       radius: g.precision === 'exact_pdf' ? 8 : 11,
       color: '#ffffff',
-      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#0b5ed7',
+      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#175cd3',
       fillOpacity: g.precision === 'exact_pdf' ? 0.9 : 0.45,
       weight: 2
     }).bindPopup(g.label).addTo(map).openPopup();

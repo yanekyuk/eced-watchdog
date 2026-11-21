@@ -1,0 +1,866 @@
+{
+  "filing": {
+    "province": "İSTANBUL",
+    "district": "ZEYTİNBURNU",
+    "project_name": "Otel Kapasite Artışı (118 Oda) - Grand Makel Hotel",
+    "project_owner": "Maktur Mekel Turizm ve Otelcilik Ticaret Anonim Şirketi",
+    "sector": "Turizm",
+    "sub_sector": "Turistik Tesisler",
+    "decision_type": "ÇED Süreci Başlayan",
+    "announcement_date_tr": "17.11.2026",
+    "project_type": "Ek-2",
+    "detail_text": "İSTANBUL ili ZEYTİNBURNU ,  ilcesinde İSTANBUL ili ZEYTİNBURNU ,  ilçesi Maltepe Mahallesi, Serçekale Sokak, No:1 (Tapuda Merkezefendi Mahallesi, 2945 Ada, 18 Parsel) mevkiindeki Maktur Mekel Turizm ve Otelcilik Ticaret Anonim Şirketi tarafından yapılması planlanan Otel Kapasite Artışı (118 Oda) - Grand Makel Hotel projesi ile ilgili olarak İSTANBUL Valiliğimize sunulan P.T.D. Dosyası Çevresel Etki Değerlendirmesi Yönetmeliği'nin 16. maddesi doğrultusunda incelenmiş ve projeye ilişkin ÇED Süreci başlamıştır. İlgililere ve kamuoyuna duyurulur.",
+    "detail_links": [
+      {
+        "text": "P.T.D. Dosyası",
+        "href": "http://eced.csb.gov.tr/jsp/ek1/61249"
+      }
+    ],
+    "documents": [
+      {
+        "portal_doc_url": "http://eced.csb.gov.tr/jsp/ek1/61249",
+        "filing_id": "61249",
+        "consulting_firm": "SERRA ÇEVRE DAN.VE İNŞ.SAN. TİC. LTD. ŞTİ.",
+        "submitted_at": "06/11/2026 12:24:28",
+        "pdf_urls": [
+          {
+            "label": "Dosya Göster",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign9197890574290150725.pdf&orjinalAd=MakturMakelPTD.pdf&yuklemeTarihi=2026-11-06"
+          }
+        ]
+      }
+    ],
+    "announcement_date": "2026-11-17",
+    "statutory_clocks": [
+      {
+        "code": "process_open",
+        "kind": "Karar öncesi inceleme süreci (ÇED Yönetmeliği m. 8/16; süreç boyunca yazılı görüş verilebilir)",
+        "deadline": null,
+        "days_remaining": null
+      }
+    ],
+    "filing_key": "61249:17.11.2026:ÇED Süreci Başlayan",
+    "first_seen_at": "2026-11-20T02:11:09"
+  },
+  "pdf_info": {
+    "filename": "61249.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign9197890574290150725.pdf&orjinalAd=MakturMakelPTD.pdf&yuklemeTarihi=2026-11-06",
+    "bytes": 96511262,
+    "sha256": "069a5edd777e0cf9362fc3417e875c0cfdc998cbd333b677ca3d81b13276c792",
+    "cached": false
+  },
+  "analysis": {
+    "page_count": 315,
+    "total_chars": 170396,
+    "text_pages": 123,
+    "scanned_or_blank_pages": 192,
+    "scanned_page_sample": [
+      55,
+      59,
+      60,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      72,
+      77,
+      78
+    ],
+    "headings": [
+      [
+        3,
+        "PROJENİN TEKNİK OLMAYAN ÖZETİ: ____________________________________4"
+      ],
+      [
+        3,
+        "BÖLÜM I: PROJENİN ÖZELLİKLERİ: ______________________________________6"
+      ],
+      [
+        3,
+        "BÖLÜM II:"
+      ],
+      [
+        3,
+        "BÖLÜM III: PROJENİN İNŞAAT VE İŞLETME AŞAMASINDA ÇEVRESEL"
+      ],
+      [
+        3,
+        "BÖLÜM IV: KÜMÜLATİF ETKİ DEĞERLENDİRME ________________________41"
+      ],
+      [
+        3,
+        "BÖLÜM V: ÇEVRESEL VE SOSYAL EYLEM PLANI ________________________42"
+      ],
+      [
+        3,
+        "BÖLÜM VI: NOTLAR, KAYNAKLAR VE EKLER: ___________________________48"
+      ],
+      [
+        6,
+        "PROJENİN TEKNİK OLMAYAN ÖZETİ:"
+      ],
+      [
+        8,
+        "BÖLÜM I: PROJENİN ÖZELLİKLERİ:"
+      ],
+      [
+        31,
+        "BÖLÜM II: PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL"
+      ],
+      [
+        43,
+        "BÖLÜM IV: KÜMÜLATİF ETKİ DEĞERLENDİRME"
+      ],
+      [
+        44,
+        "BÖLÜM V. ÇEVRESEL VE SOSYAL EYLEM PLANI"
+      ],
+      [
+        50,
+        "BÖLÜM VI. NOTLAR, KAYNAKLAR VE EKLER"
+      ],
+      [
+        126,
+        "ÇEVRESEL VE SOSYAL"
+      ]
+    ],
+    "geo": {
+      "precision": "exact_pdf",
+      "lat": 41.01941,
+      "lon": 28.90995,
+      "point_count": 12,
+      "points": [
+        [
+          41.01929,
+          28.90978
+        ],
+        [
+          41.01927,
+          28.91035
+        ],
+        [
+          41.01923,
+          28.91039
+        ],
+        [
+          41.01889,
+          28.91053
+        ],
+        [
+          41.01889,
+          28.91015
+        ],
+        [
+          41.01888,
+          28.90976
+        ],
+        [
+          41.01996,
+          28.90936
+        ],
+        [
+          41.01993,
+          28.90993
+        ],
+        [
+          41.0199,
+          28.90997
+        ],
+        [
+          41.01956,
+          28.91011
+        ],
+        [
+          41.01956,
+          28.90972
+        ],
+        [
+          41.01955,
+          28.90934
+        ]
+      ],
+      "datum": "UTM-Z35/ED50",
+      "pages": [
+        12
+      ]
+    },
+    "signals": {
+      "coordinates_and_footprint": {
+        "label": "Coordinates, Parcel & Footprint",
+        "page_count": 20,
+        "pages": [
+          2,
+          4,
+          5,
+          6,
+          8,
+          11,
+          12,
+          13,
+          14,
+          51,
+          56,
+          57,
+          73,
+          75,
+          76,
+          113,
+          122,
+          128,
+          129,
+          141
+        ],
+        "samples": [
+          {
+            "page": 2,
+            "match": "458,93 m2",
+            "snippet": "…li, Zeytinburnu İlçesi, Maltepe Mahallesi, Serçekale Sokak, No:1 (Tapuda Merkezefendi Mahallesi 2945 ada, 18 parsel (2.458,93 m2)) – 10593,18 m2 Kapalı Alan PROJENİN ÇED YÖNETMELİĞİ KAPSAMINDAKİ YERİ (SEKTÖR, ALT SEKTÖR) 29.07.2022 Tarih ve 3…"
+          },
+          {
+            "page": 2,
+            "match": "10593,18 m2",
+            "snippet": "…u İlçesi, Maltepe Mahallesi, Serçekale Sokak, No:1 (Tapuda Merkezefendi Mahallesi 2945 ada, 18 parsel (2.458,93 m2)) – 10593,18 m2 Kapalı Alan PROJENİN ÇED YÖNETMELİĞİ KAPSAMINDAKİ YERİ (SEKTÖR, ALT SEKTÖR) 29.07.2022 Tarih ve 31907 Sayılı ÇED…"
+          },
+          {
+            "page": 4,
+            "match": "Koordinat",
+            "snippet": "…Esas Kat Dağılım Listesi -------------------------------------------------------------- 9 Tablo 6. ÇED (Parsel) Alanı Koordinatları ---------------------------------------------------------------------- 10 Tablo 7. Su Kullanımı ------------------…"
+          },
+          {
+            "page": 5,
+            "match": "Koordinat",
+            "snippet": "…tel Kapasite Artışı (118 Oda) - Grand Makel Hotel Proje Tanıtım Dosyası EKLER DİZİNİ Ek-1 : Proje İçin Seçilen Yerin Koordinatları Ek-2 : Proje alanı ve yakın çevresinin mevcut arazi kullanımını değerlendirmek için; yerleşim alanlarının, ulaş…"
+          },
+          {
+            "page": 6,
+            "match": "2458,93 m²",
+            "snippet": "…lçesi, Maltepe Mahallesi, Serçekale Sokak, No:1 (Tapuda Merkezefendi Mahallesi, 2945 ada, 18 parsel) adresinde kayıtlı 2458,93 m² yüzölçümlü tapu alanı üzerinde 10593,18 m2 kapalı alanda MAKTUR MAKEL TURİZM VE OTELCİLİK TİCARET ANONİM ŞİRKETİ tara…"
+          },
+          {
+            "page": 6,
+            "match": "10593,18 m2",
+            "snippet": "…No:1 (Tapuda Merkezefendi Mahallesi, 2945 ada, 18 parsel) adresinde kayıtlı 2458,93 m² yüzölçümlü tapu alanı üzerinde 10593,18 m2 kapalı alanda MAKTUR MAKEL TURİZM VE OTELCİLİK TİCARET ANONİM ŞİRKETİ tarafından “Otel Kapasite Artışı (118 Oda) – Gr…"
+          },
+          {
+            "page": 6,
+            "match": "2458,93 m2",
+            "snippet": "…burnu İlçesi, Maltepe Mahallesi, Serçekale Sokak, No:1 (Tapuda Merkezefendi Mahallesi, 2945 Ada, 18 Parsel) adresinde; 2458,93 m2 tapulu alan üzerinde 10593,18 m2 kapalı alanda “Otel (118 Oda) – Grand Makel Hotel” olarak devam etmektedir. Faaliyet…"
+          },
+          {
+            "page": 8,
+            "match": "2458,93 m²",
+            "snippet": "…u görseli de aşağıdaki Şekil 1’de verilmiştir. Şekil 1. Proje Lokasyonuna Ait Uydu Görseli Proje Bedeli Proje, 2458,93 m² yüzölçümlü tapu alanı üzerinde 10593,18 m2 kapalı alanda gerçekleştirilecektir. Kat Planları Ek-2.3’te verilmektedir.…"
+          }
+        ]
+      },
+      "water_and_discharge": {
+        "label": "Water Use, Hydrogeology & Discharge",
+        "page_count": 10,
+        "pages": [
+          4,
+          14,
+          16,
+          17,
+          37,
+          38,
+          40,
+          44,
+          132,
+          133
+        ],
+        "samples": [
+          {
+            "page": 4,
+            "match": "Atıksu",
+            "snippet": "…ullanımı ------------------------------------------------------------------------------------------------- 12 Tablo 8. Atıksu Miktarı ----------------------------------------------------------------------------------------------- 14 Tablo 9. Ev…"
+          },
+          {
+            "page": 14,
+            "match": "65,21 m³/gün",
+            "snippet": "…cı = Günlük Ortalama Su Gereksinimi x Kişi Sayısı Günlük Su İhtiyacı = 228 lt/kişi.gün x 286 kişi = 65.208 lt = 65,21 m³/gün’dür. Tablo 7. Su Kullanımı Atık Dönemi Kaynağı Miktarı (m3/gün) Su Temini İşletme Misafir+Personel 65,21 Şeb…"
+          },
+          {
+            "page": 16,
+            "match": "atıksu",
+            "snippet": "…günlük su kullanımı 228 lt, olarak alınmıştır. İşletme aşamasında otelde su kullanımından kaynaklı evsel nitelikli atıksu oluşumu söz konusu olacaktır. Otel 118 oda / 236 yatak kapasitelidir. Otelin odalarının tamamının dolu olduğu kabu…"
+          },
+          {
+            "page": 16,
+            "match": "65,21 m³/gün",
+            "snippet": "…atıksu miktarı (lt/kişi.gün) N = Kişi sayısı olmak üzere; QEvsel = 228 lt/kişi.gün x 286 (50+236) kişi = 65.208 lt = 65,21 m³/gün’dür. Personelden kaynaklı evsel nitelikli atık sudaki kirlilik yükleri Tablo 8’da verilmiş olup, buna göre evsel at…"
+          },
+          {
+            "page": 17,
+            "match": "Deşarj",
+            "snippet": "…üdürlüğüne ait kanalizasyon şebekesine verilerek bertaraf edilecektir. İSKİ Genel Müdürlüğü “Atıksuların Kanalizasyona Deşarj Yönetmeliği” hükümleri ve 31.12.2004 Tarih ve 25687 Sayılı Resmi Gazete’de yayımlanarak yürürlüğe giren “Su Kirliliği…"
+          },
+          {
+            "page": 37,
+            "match": "sulak alan",
+            "snippet": "…ar, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler, içerisinde bulunmamaktadır. ç) Göller, akarsular, yeraltı suyu işletme sahaları, içerisinde bulunmama…"
+          },
+          {
+            "page": 37,
+            "match": "yeraltı suyu",
+            "snippet": "…aren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler, içerisinde bulunmamaktadır. ç) Göller, akarsular, yeraltı suyu işletme sahaları, içerisinde bulunmamaktadır. d) Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düş…"
+          },
+          {
+            "page": 38,
+            "match": "Deşarj",
+            "snippet": "…dürlüğüne ait kanalizasyon şebekesine verilerek bertaraf edilmektedir. İSKİ Genel Müdürlüğü “Atıksuların Kanalizasyona Deşarj Yönetmeliği” hükümleri ve 31.12.2004 Tarih ve 25687 Sayılı Resmi Gazete’de yayımlanarak yürürlüğe giren “Su Kirliliği…"
+          }
+        ]
+      },
+      "protected_land_and_olive": {
+        "label": "Protected Zones, Forests & Olive Groves",
+        "page_count": 5,
+        "pages": [
+          3,
+          31,
+          36,
+          37,
+          134
+        ],
+        "samples": [
+          {
+            "page": 3,
+            "match": "Orman Alanı",
+            "snippet": "…ESEL ÖZELLİKLERİ: _________________________________________________________29 a) Mevcut Arazi Kullanımı (Tarım Alanı, Orman Alanı, Planlı Alan, Su Yüzeyi ve Benzeri) ve Kalitesi, Jeolojik ve Hidrojeolojik Özellikleri. ___________________________ _…"
+          },
+          {
+            "page": 31,
+            "match": "Orman Alanı",
+            "snippet": "…m Dosyası BÖLÜM II: PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ: a) Mevcut Arazi Kullanımı (Tarım Alanı, Orman Alanı, Planlı Alan, Su Yüzeyi ve Benzeri) ve Kalitesi, Jeolojik ve Hidrojeolojik Özellikleri. Faaliyet Maktur Makel Turiz…"
+          },
+          {
+            "page": 31,
+            "match": "Doğal Sit",
+            "snippet": "…parklar, Tabiat Parkları, Tabiat Anıtları, Tabiatı Koruma Alanları, Biyogenetik Rezerv Alanları, Biyosfer Rezervleri, Doğal Sit ve Anıtlar, Arkeolojik, Tarihi, Kültürel Sitler, Özel Çevre Koruma Bölgeleri, Özel Koruma Alanları, kapsamında bulunm…"
+          },
+          {
+            "page": 31,
+            "match": "Özel Çevre Koruma",
+            "snippet": "…lanları, Biyogenetik Rezerv Alanları, Biyosfer Rezervleri, Doğal Sit ve Anıtlar, Arkeolojik, Tarihi, Kültürel Sitler, Özel Çevre Koruma Bölgeleri, Özel Koruma Alanları, kapsamında bulunmamaktadır. İlgili kurumlardan izin alınarak faaliyet gerçekleştirile…"
+          },
+          {
+            "page": 36,
+            "match": "Özel Çevre Koruma",
+            "snippet": "…mlanan alanlar, içerisinde bulunmamaktadır. f) Çevre Kanunu’nun 9 uncu maddesi uyarınca Bakanlar Kurulu tarafından \"Özel Çevre Koruma Bölgeleri\" olarak tespit ve ilan edilen alanlar, içerisinde bulunmamaktadır. g) Boğaziçi Kanunu’na göre koruma…"
+          },
+          {
+            "page": 36,
+            "match": "orman alanı",
+            "snippet": "…Boğaziçi Kanunu’na göre koruma altına alınan alanlar, içerisinde bulunmamaktadır. ğ) Orman Kanunu uyarınca orman alanı sayılan yerler, içerisinde bulunmamaktadır. h) Kıyı Kanunu gereğince yapı yasağı getirilen alanlar, içerisinde bulun…"
+          },
+          {
+            "page": 37,
+            "match": "kıyı kenar",
+            "snippet": "…ı olmak üzere canlıların yaşama ortamı olarak önem taşıyan bütün sular, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler, içerisinde bulunmamaktadır. ç) G…"
+          },
+          {
+            "page": 37,
+            "match": "sulak alan",
+            "snippet": "…ar, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler, içerisinde bulunmamaktadır. ç) Göller, akarsular, yeraltı suyu işletme sahaları, içerisinde bulunmama…"
+          }
+        ]
+      },
+      "ecology_and_baseline": {
+        "label": "Flora, Fauna & Baseline Methodology",
+        "page_count": 5,
+        "pages": [
+          33,
+          34,
+          36,
+          37,
+          131
+        ],
+        "samples": [
+          {
+            "page": 33,
+            "match": "Endemik",
+            "snippet": "…göre; Flora İstanbul il sınırı içinde doğal olarak yetişen 270 bitki türü \"Türkiye'nin Tehlike Altındaki Nadir ve Endemik Bitkiler Listesinde yer alır. Bunlar arasında 40 türün dünya üzerindeki en zengin popülâsyonlarının İstanbul'da bulund…"
+          },
+          {
+            "page": 34,
+            "match": "endemik",
+            "snippet": "…toralis) 16- Çokbaşlı köygöçüren (Cirsium polycephalum). Avrupa ölçeğinde nesli tehlike altında olan İstanbul’un endemik bitkileridir. 1- Kayışdağı soğanı (Allium peroninianum), 2- Ümraniye çiğdemi (Crocus pestalozzae), 3- Crocus fla…"
+          },
+          {
+            "page": 34,
+            "match": "kuş göç",
+            "snippet": "…Kuzey Boğaziçi 36 (15 endemik) Sahilköy-Şile 13 (6 endemik) Ömerli Havzası 37 (10 endemik) Dünyadaki önemli kuş göç yollarından birisi üzerinde bulunan İstanbul’daki bazı alanlar. Önemli Kuş Alanı olarak tanımlanmaktadır. Yılda iki ke…"
+          },
+          {
+            "page": 36,
+            "match": "BERN Sözleşmesi",
+            "snippet": "…sözleşmeler uyarınca korunması gerekli alanlar a) \"Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi\" (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan \"Önemli Deniz Kaplumbağası Üreme Alanları\"nda belirtilen I. ve II. Koruma B…"
+          },
+          {
+            "page": 37,
+            "match": "endemik",
+            "snippet": "…ır. d) Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…"
+          },
+          {
+            "page": 131,
+            "match": "Mevsimsel",
+            "snippet": "…elediyesi Su ve Kanalizasyon İdaresi Genel Müdürlüğüne ait kanalizasyon şebekesine verilerek bertaraf edilmektedir. Mevsimsel akışlı dere yatakları da olmak üzere yüzeysel su kaynaklarına zarar verilmeyecek, dere yataklarına sıvı, katı vb. atık…"
+          }
+        ]
+      },
+      "pollutants_and_hazards": {
+        "label": "Emissions, Geochemistry & Waste",
+        "page_count": 28,
+        "pages": [
+          3,
+          4,
+          18,
+          20,
+          23,
+          24,
+          25,
+          26,
+          28,
+          32,
+          33,
+          38,
+          40,
+          42,
+          43,
+          44,
+          45,
+          50,
+          52,
+          54,
+          115,
+          116,
+          132,
+          134,
+          139
+        ],
+        "samples": [
+          {
+            "page": 3,
+            "match": "KÜMÜLATİF",
+            "snippet": "…KİLERİN BELİRLENMESİ VE ALINACAK ÖNLEMLER ____________________________________________________________36 BÖLÜM IV: KÜMÜLATİF ETKİ DEĞERLENDİRME ________________________41 BÖLÜM V: ÇEVRESEL VE SOSYAL EYLEM PLANI ________________________42 V-1:…"
+          },
+          {
+            "page": 4,
+            "match": "Tehlikeli Atık",
+            "snippet": "…. İşletme Aşaması İş Akım Şeması -------------------------------------------------------------------------- 8 Şekil 3. Tehlikeli Atık Alanı ----------------------------------------------------------------------------------------- 18 Şekil 4. Trafik Hac…"
+          },
+          {
+            "page": 4,
+            "match": "Deprem",
+            "snippet": "…kil 5. Yangın Durumunda Acil Durum Planı ----------------------------------------------------------------- 25 Şekil 6. Deprem Anında Acil Durum Planı ---------------------------------------------------------------------- 26 Şekil 7. Kaza ve Sağ…"
+          },
+          {
+            "page": 18,
+            "match": "tehlikeli atık",
+            "snippet": "…alışmalarından kaynaklanabilecek kontamine atıklar, kontamine ambalajlar, yağlı metal atıklar, atık yağlar vb. atıklar tehlikeli atık olarak değerlendirilmektedir. Tesisten oluşabilecek bu atıklar diğer atıklardan ayrı bir şekilde toplanarak, Tehlikeli…"
+          },
+          {
+            "page": 20,
+            "match": "Tehlikeli Atık",
+            "snippet": "…L TURİZM VE OTELCİLİK TİC. A.Ş. Otel Kapasite Artışı (118 Oda) - Grand Makel Hotel Proje Tanıtım Dosyası Şekil 3. Tehlikeli Atık Alanı Atık Yağlar İşletme aşamasında kullanılacak jeneratörlerin bakımları yetkili servis tarafından gerçekleştiri…"
+          },
+          {
+            "page": 23,
+            "match": "Gürültü",
+            "snippet": "…n kullanacakları araçlar trafik yükünü %0,06 oranında artıracak olup trafik hacmine önemli bir yük getirmeyecektir. Gürültü Otel hizmetinden kaynaklı jeneratör, trafo, ısıtma kazanı, klima santralleri gibi makina ekipmanından gürültü kaynakl…"
+          },
+          {
+            "page": 24,
+            "match": "deprem",
+            "snippet": "…şisel koruyucu önlemler (koruyucu giysiler, kask vs.) yerine getirilecektir. Mevzuatta acil durum ekipleri, “Yangın, deprem ve benzeri afetlerde binada bulunanların tahliyesini sağlayan, olaya ilk müdahaleyi yapan, arama-kurtarma ve söndürme…"
+          },
+          {
+            "page": 25,
+            "match": "Deprem",
+            "snippet": "…düzgün ifadelerle net bir şekilde bildirin. - Gerekli ise ilkyardım ekibi veya sağlık görevlilerine yardımcı olun. Deprem Durumunda Yapılması Gerekenler: - Deprem olduğunu anladığınızda bina içerisinde bulunuyorsanız ve çıkışa çok yakın b…"
+          }
+        ]
+      },
+      "cost_and_capacity": {
+        "label": "Proje Bedeli, Güç ve Kapasite",
+        "page_count": 64,
+        "pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "samples": [
+          {
+            "page": 1,
+            "match": "Kapasite",
+            "snippet": "Otel Kapasite Artışı (118 Oda) - Grand Makel Hotel SERRA ÇEVRE DANIŞMANLIK VE İNŞAAT SAN. TİC. LTD. ŞTİ. Proje Tanıtım Dosyası…"
+          },
+          {
+            "page": 2,
+            "match": "Kapasite",
+            "snippet": "…ekale Sokak, No:1 TELEFON, GSM VE FAX NUMARASI 0212 482 30 40 E-POSTA info@grandmakelhotel.com PROJENİN ADI Otel Kapasite Artışı (118 Oda) – Grand Makel Hotel PROJE BEDELİ 25.594.260 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ,…"
+          },
+          {
+            "page": 2,
+            "match": "PROJE BEDELİ",
+            "snippet": "…I 0212 482 30 40 E-POSTA info@grandmakelhotel.com PROJENİN ADI Otel Kapasite Artışı (118 Oda) – Grand Makel Hotel PROJE BEDELİ 25.594.260 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) İstanbul İli, Zeytinburnu İlçesi, Maltepe…"
+          },
+          {
+            "page": 2,
+            "match": "25.594.260 TL",
+            "snippet": "…40 E-POSTA info@grandmakelhotel.com PROJENİN ADI Otel Kapasite Artışı (118 Oda) – Grand Makel Hotel PROJE BEDELİ 25.594.260 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) İstanbul İli, Zeytinburnu İlçesi, Maltepe Mahallesi, Ser…"
+          },
+          {
+            "page": 3,
+            "match": "Kapasite",
+            "snippet": "1 MAKTUR MAKEL TURİZM VE OTELCİLİK TİC. A.Ş. Otel Kapasite Artışı (118 Oda) - Grand Makel Hotel Proje Tanıtım Dosyası İÇİNDEKİLER ŞEKİLLER DİZİNİ _____________________________…"
+          },
+          {
+            "page": 4,
+            "match": "Kapasite",
+            "snippet": "2 MAKTUR MAKEL TURİZM VE OTELCİLİK TİC. A.Ş. Otel Kapasite Artışı (118 Oda) - Grand Makel Hotel Proje Tanıtım Dosyası ŞEKİLLER DİZİNİ Şekil 1. Proje Lokasyonuna Ait Uydu Görse…"
+          },
+          {
+            "page": 4,
+            "match": "Proje Bedeli",
+            "snippet": "…lo 2. Güncel Duruma Esas Alan Bilgi Tablosu --------------------------------------------------------------- 7 Tablo 3. Proje Bedeli ---------------------------------------------------------------------------------------------------- 7 Tablo 4. ÇED Gö…"
+          },
+          {
+            "page": 5,
+            "match": "Kapasite",
+            "snippet": "3 MAKTUR MAKEL TURİZM VE OTELCİLİK TİC. A.Ş. Otel Kapasite Artışı (118 Oda) - Grand Makel Hotel Proje Tanıtım Dosyası EKLER DİZİNİ Ek-1 : Proje İçin Seçilen Yerin Koordinatlar…"
+          }
+        ]
+      },
+      "splitting_and_thresholds": {
+        "label": "Proje Parçalama, Kapasite Artışı ve Eşik Değerler",
+        "page_count": 60,
+        "pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "samples": [
+          {
+            "page": 1,
+            "match": "Kapasite Artışı",
+            "snippet": "Otel Kapasite Artışı (118 Oda) - Grand Makel Hotel SERRA ÇEVRE DANIŞMANLIK VE İNŞAAT SAN. TİC. LTD. ŞTİ. Proje Tanıtım Dosyası KASIM…"
+          },
+          {
+            "page": 2,
+            "match": "Kapasite Artışı",
+            "snippet": "…ekale Sokak, No:1 TELEFON, GSM VE FAX NUMARASI 0212 482 30 40 E-POSTA info@grandmakelhotel.com PROJENİN ADI Otel Kapasite Artışı (118 Oda) – Grand Makel Hotel PROJE BEDELİ 25.594.260 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ…"
+          },
+          {
+            "page": 3,
+            "match": "Kapasite Artışı",
+            "snippet": "1 MAKTUR MAKEL TURİZM VE OTELCİLİK TİC. A.Ş. Otel Kapasite Artışı (118 Oda) - Grand Makel Hotel Proje Tanıtım Dosyası İÇİNDEKİLER ŞEKİLLER DİZİNİ ______________________________ Hata!…"
+          },
+          {
+            "page": 4,
+            "match": "Kapasite Artışı",
+            "snippet": "2 MAKTUR MAKEL TURİZM VE OTELCİLİK TİC. A.Ş. Otel Kapasite Artışı (118 Oda) - Grand Makel Hotel Proje Tanıtım Dosyası ŞEKİLLER DİZİNİ Şekil 1. Proje Lokasyonuna Ait Uydu Görseli ----…"
+          },
+          {
+            "page": 5,
+            "match": "Kapasite Artışı",
+            "snippet": "3 MAKTUR MAKEL TURİZM VE OTELCİLİK TİC. A.Ş. Otel Kapasite Artışı (118 Oda) - Grand Makel Hotel Proje Tanıtım Dosyası EKLER DİZİNİ Ek-1 : Proje İçin Seçilen Yerin Koordinatları Ek…"
+          },
+          {
+            "page": 6,
+            "match": "Kapasite Artışı",
+            "snippet": "4 MAKTUR MAKEL TURİZM VE OTELCİLİK TİC. A.Ş. Otel Kapasite Artışı (118 Oda) - Grand Makel Hotel Proje Tanıtım Dosyası PROJENİN TEKNİK OLMAYAN ÖZETİ: İstanbul İli, Zeyrinburnu İlçes…"
+          },
+          {
+            "page": 7,
+            "match": "Kapasite Artışı",
+            "snippet": "5 MAKTUR MAKEL TURİZM VE OTELCİLİK TİC. A.Ş. Otel Kapasite Artışı (118 Oda) - Grand Makel Hotel Proje Tanıtım Dosyası “Ticaret+Hizmet+Konut Alanları” nda yer almaktadır. İlgili imar p…"
+          },
+          {
+            "page": 8,
+            "match": "Kapasite Artışı",
+            "snippet": "6 MAKTUR MAKEL TURİZM VE OTELCİLİK TİC. A.Ş. Otel Kapasite Artışı (118 Oda) - Grand Makel Hotel Proje Tanıtım Dosyası BÖLÜM I: PROJENİN ÖZELLİKLERİ: a) Projenin ve Yerin Alternatifle…"
+          }
+        ]
+      }
+    },
+    "audit_checks": {
+      "mentions_field_survey": false,
+      "mentions_literature_only_cue": false,
+      "mentions_seasonal_sampling": true,
+      "mentions_cumulative_impact": false,
+      "mentions_olive_law_3573": false,
+      "mentions_groundwater_or_aquifer": true,
+      "mentions_iucn_or_endemic": true,
+      "mentions_capacity_or_splitting": true,
+      "mentions_circular_2009_7_or_revision": false
+    }
+  },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-22T01:07:46",
+      "decision_type": "ÇED Süreci Başlayan",
+      "announcement_date": "2026-11-17",
+      "announcement_date_tr": "17.11.2026",
+      "submitted_at": "06/11/2026 12:24:28",
+      "consulting_firm": "SERRA ÇEVRE DAN.VE İNŞ.SAN. TİC. LTD. ŞTİ.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign9197890574290150725.pdf&orjinalAd=MakturMakelPTD.pdf&yuklemeTarihi=2026-11-06",
+      "pdf_temp_ad": "sign9197890574290150725.pdf",
+      "pdf_original_name": "MakturMakelPTD.pdf",
+      "pdf_upload_date": "2026-11-06",
+      "sha256": "069a5edd777e0cf9362fc3417e875c0cfdc998cbd333b677ca3d81b13276c792",
+      "bytes": 96511262,
+      "page_count": 315,
+      "text_pages": 123,
+      "scanned_or_blank_pages": 192,
+      "audit_checks": {
+        "mentions_field_survey": false,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": true,
+        "mentions_cumulative_impact": false,
+        "mentions_olive_law_3573": false,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true,
+        "mentions_capacity_or_splitting": true,
+        "mentions_circular_2009_7_or_revision": false
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 20,
+        "water_and_discharge": 10,
+        "protected_land_and_olive": 5,
+        "ecology_and_baseline": 5,
+        "pollutants_and_hazards": 28,
+        "cost_and_capacity": 64,
+        "splitting_and_thresholds": 60
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 41.01941,
+      "geo_lon": 28.90995,
+      "geo_point_count": 12,
+      "detail_text_sha256": "42138ad76bf01c45"
+    }
+  ],
+  "llm_synthesis": {
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-11-22T01:07:53",
+    "pages_sent": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      14,
+      16,
+      17,
+      18,
+      20,
+      31,
+      32,
+      33,
+      34,
+      36,
+      37,
+      44,
+      45,
+      126,
+      127
+    ],
+    "usage": {
+      "prompt_tokens": 20238,
+      "output_tokens": 2267,
+      "thoughts_tokens": null,
+      "total_tokens": 22505
+    },
+    "result": {
+      "executive_summary_tr": "İstanbul ili Zeytinburnu ilçesi Maltepe Mahallesi'nde yer alan Grand Makel Hotel için hazırlanan bu PTD dosyası, 2458,93 m2 tapu alanı ve 10.593,18 m2 kapalı alana sahip mevcut bir otelin oda sayısının 96'dan 118'e (236 yatak) çıkarılmasına yöneliktir [s. 2, 6]. Proje alanının halihazırda inşa edilmiş ve faaliyette olduğu, dosyadaki verilerin kapasite artışı ve tadilat işlemlerini kapsadığı görülmektedir [s. 6]. Başlıca çevresel baskılar arasında günlük 65,21 m3 evsel nitelikli atıksu deşarjı, katı atıklar, tehlikeli atık yönetimi ve yoğun kentsel trafik ile deprem riski (yer ivmesi 0,403 g) yer almaktadır [s. 14, 15, 18, 32].",
+      "executive_summary_en": "This Project Promotion File (PTD) for the Grand Makel Hotel located in Zeytinburnu, Istanbul, concerns the capacity increase of an existing operational hotel from 96 rooms to 118 rooms (236 beds) on a 2,458.93 m2 plot with a total enclosed area of 10,593.18 m2 [s. 2, 6]. The filing reveals that the facility is already built and operating, and the review addresses ongoing operations and internal reconfiguration [s. 6]. Primary environmental pressures include 65.21 m3/day of domestic wastewater discharge, solid waste, hazardous waste management, dense urban traffic, and earthquake hazards with a peak ground acceleration of 0.403 g [s. 14, 15, 18, 32].",
+      "key_facts": [
+        {
+          "label": "Tapu Alanı",
+          "value": "2.458,93 m2",
+          "page": 2
+        },
+        {
+          "label": "Kapalı Alan",
+          "value": "10.593,18 m2",
+          "page": 2
+        },
+        {
+          "label": "Proje Bedeli",
+          "value": "5.725.000,00 TL",
+          "page": 9
+        },
+        {
+          "label": "Oda / Yatak Kapasitesi",
+          "value": "118 Oda / 236 Yatak",
+          "page": 14
+        },
+        {
+          "label": "Toplam Personel ve Misafir",
+          "value": "286 Kişi",
+          "page": 14
+        },
+        {
+          "label": "Günlük Su Tüketimi",
+          "value": "65,21 m3/gün",
+          "page": 14
+        },
+        {
+          "label": "Evsel Atıksu Miktarı",
+          "value": "65,21 m3/gün",
+          "page": 16
+        },
+        {
+          "label": "Katı Atık Miktarı",
+          "value": "323,18 kg/gün",
+          "page": 15
+        },
+        {
+          "label": "En Yakın Karayolu (E5)",
+          "value": "250 m güneyde",
+          "page": 7
+        },
+        {
+          "label": "Deprem Yer İvmesi (475 yıl)",
+          "value": "0,403 g",
+          "page": 32
+        }
+      ],
+      "baseline_assessment": {
+        "field_survey_status": "literature_only",
+        "seasonal_sampling_status": "not_found",
+        "cumulative_impact_status": "omitted_or_not_found",
+        "olive_and_protected_status": "Proje alanı özel koruma bölgeleri, milli parklar, orman alanları ve tarım alanları dışında kalmakta olup, 1/100.000 ölçekli çevre düzeni planında meskun alanda ve 1/1000 ölçekli imar planında ticaret+hizmet+konut alanında yer almaktadır [s. 6, 31, 34].",
+        "explanation": "Dosyada flora ve fauna bileşenleri için herhangi bir yerinde özgün arazi gözlemi veya mevsimsel örnekleme yapılmamış; bunun yerine genel İstanbul Çevre Durum Raporu verilerine dayanan literatür derlemelerine yer verilmiştir [s. 31-34]. Bölgesel birikimli etki değerlendirmesi ve kentsel doku üzerindeki kümülatif yükler raporda tamamen ihmal edilmiştir."
+      },
+      "red_flags": [
+        {
+          "category": "proje_parcalama",
+          "severity": "high",
+          "title": "Halihazırda Faaliyette Olan Tesis İçin Kapasite Artışı Adı Altında ÇED Sürecinin İşletilmesi",
+          "detail": "Proje tanıtım dosyasında tesisin halihazırda 118 oda ile otel olarak faaliyette olduğu, Turizm İşletme Belgesi'nin 2020 yılında alındığı açıkça belirtilmektedir [s. 6]. Mevcut inşaat ve işletme faaliyetlerinin geriye dönük olarak PTD ile yasallaştırılmaya çalışılması ÇED yönetmeliği temel ilkelerine aykırıdır.",
+          "pages": [
+            6
+          ]
+        },
+        {
+          "category": "kumulatif_etki",
+          "severity": "high",
+          "title": "Bölgesel Birikimli (Kümülatif) Etki Değerlendirmesinin Bulunmaması",
+          "detail": "Zeytinburnu gibi yoğun yapılaşma, üniversiteler, hastaneler ve ağır trafik akışının bulunduğu bir bölgede (E-5 karayoluna 250 m mesafede), çevredeki diğer turizm ve ticari tesislerle birlikte oluşturulacak kümülatif trafik, altyapı ve gürültü yükü raporda hiç değerlendirilmemiştir [s. 7].",
+          "pages": [
+            7,
+            41
+          ]
+        },
+        {
+          "category": "flora_fauna_mevsimsel",
+          "severity": "medium",
+          "title": "Flora ve Fauna Verilerinin Yerinde Arazi Çalışması Olmaksızın Yalnızca Literatüre Dayandırılması",
+          "detail": "Dosyada yer alan flora ve fauna bilgileri tamamen İstanbul İl Çevre Durum Raporu'ndan alıntılanan genel literatür verilerinden ibarettir; proje alanına özel arazi gözlemi veya ekolojik etki değerlendirmesi yapılmamıştır [s. 31-34].",
+          "pages": [
+            31,
+            32,
+            33,
+            34
+          ]
+        },
+        {
+          "category": "izleme_olcum_celiskisi",
+          "severity": "medium",
+          "title": "İşletme Aşamasında Emisyon Kaynağı Olmadığı İddiası İle Çelişen Isınma ve Kazan Beyanları",
+          "detail": "Çevresel ve Sosyal Yönetim Planı Tablosunda, faaliyetin işletme aşamasında herhangi bir enerji kullanımı ve emisyon oluşumu söz konusu olmadığı ifade edilirken [s. 45], metnin diğer kısımlarında kazan dairesi, doğalgaz tüketimi ve 1 MW üzeri kazanlara ilişkin Sanayi Kaynaklı Hava Kirliliği Kontrolü Yönetmeliği hükümlerine uyulacağı belirtilmektedir [s. 10, 45].",
+          "pages": [
+            10,
+            45
+          ]
+        }
+      ],
+      "recommended_bilirkisi_disciplines": [
+        "Çevre Mühendisi",
+        "İnşaat Mühendisi",
+        "Şehir ve Bölge Plancısı",
+        "Ziraat Mühendisi",
+        "Jeoloji Mühendisi"
+      ],
+      "hkt_and_petition_questions": [
+        {
+          "question_tr": "Tesisin halihazırda 118 oda kapasitesiyle faaliyette olduğu ve Turizm İşletme Belgesi'nin 2020 yılında alındığı dosyada belirtilmesine rağmen, bu kapasite artışının geriye dönük yasal kılıf olarak kullanılmasının ÇED Yönetmeliği'ne ve hukuka uygunluğu nedir?",
+          "pages": [
+            6
+          ]
+        },
+        {
+          "question_tr": "E-5 karayoluna 250 metre mesafede yer alan ve çevresinde pek çok yüksek ölçekli yapı bulunan proje alanının, bölgedeki trafik ve altyapı kapasitesine getirdiği kümülatif yük hangi hesaplama veya modellemelerle incelenmiştir?",
+          "pages": [
+            7,
+            41
+          ]
+        },
+        {
+          "question_tr": "Çevresel ve Sosyal Yönetim Planı tablosunda işletme aşamasında emisyon oluşmadığı beyan edilirken, aynı raporda kazan dairesi ve doğalgaz tüketimi olduğu belirtilerek bu çelişki nasıl açıklanmaktadır?",
+          "pages": [
+            10,
+            45
+          ]
+        }
+      ],
+      "data_limitations": "Dosya içerisinde atıfta bulunulan ancak metne dahil edilmeyen Ek-2 haritaları, plan örnekleri, İSKİ görüşü ve kurum yazıları taranmış veya ek metin olarak sunulmadığından tam olarak incelenememiştir."
+    }
+  }
+}

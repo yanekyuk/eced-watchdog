@@ -1,0 +1,720 @@
+{
+  "filing": {
+    "province": "KAYSERİ",
+    "district": "MELİKGAZİ",
+    "project_name": "Demir Yolu Araçları İmalatı, Yardımcı Ekipmanları ve Motorlu Taşıt Üretim Tesisi",
+    "project_owner": "KAAF DEMİRYOLU ARAÇLARI ANONİM ŞİRKETİ",
+    "sector": "Sanayi",
+    "sub_sector": "Taşıt İmalatı",
+    "decision_type": "ÇED Gerekli Değil/ÇED Olumlu",
+    "announcement_date_tr": "13.11.2026",
+    "project_type": "Ek-2",
+    "detail_text": "KAYSERİ ili MELİKGAZİ,  ilcesinde KAYSERİ ili MELİKGAZİ,  ilcesi 7559 Ada 33 parsel  mevkiindeki KAAF DEMİRYOLU ARAÇLARI ANONİM ŞİRKETİ tarafından yapılması planlanan Demir Yolu Araçları İmalatı, Yardımcı Ekipmanları ve Motorlu Taşıt Üretim Tesisi projesi ile ilgili olarak Bakanlığımıza sunulan PTD Dosyası incelenmiş ve değerlendirilmiştir  ÇED Yönetmeliği'nin 17. maddesi gereğince Demir Yolu Araçları İmalatı, Yardımcı Ekipmanları ve Motorlu Taşıt Üretim Tesisi projesi'ne Valiliğimizce 'ÇED Olumlu (Kapsam Ek-2)' kararı verilmiştir.",
+    "detail_links": [
+      {
+        "text": "PTD Dosyası",
+        "href": "http://eced.csb.gov.tr/jsp/ek1/61090"
+      }
+    ],
+    "documents": [
+      {
+        "portal_doc_url": "http://eced.csb.gov.tr/jsp/ek1/61090",
+        "filing_id": "61090",
+        "consulting_firm": "KORKMAZ MÜŞAVİRLİK MÜHENDİSLİK ÇEVRE DANIŞMANLIĞI İŞ SAĞLIĞI VE GÜVENLİĞİ İNŞAAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+        "submitted_at": "17/09/2026 11:34:58",
+        "pdf_urls": [
+          {
+            "label": "Dosya Göster",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4429962273757554607.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-09-17"
+          }
+        ]
+      }
+    ],
+    "announcement_date": "2026-11-13",
+    "statutory_clocks": [
+      {
+        "code": "iyuk_20a",
+        "kind": "İYUK Madde 20/A iptal davası süresi (30 takvim günü; İYUK 11 süreyi durdurmaz)",
+        "deadline": "2026-12-13",
+        "days_remaining": 21
+      }
+    ],
+    "filing_key": "61090:13.11.2026:ÇED Gerekli Değil/ÇED Olumlu",
+    "first_seen_at": "2026-11-20T09:02:28"
+  },
+  "pdf_info": {
+    "filename": "61090.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4429962273757554607.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-09-17",
+    "bytes": 29109625,
+    "sha256": "6a1ab02f3dabe4c1274f7506c3f74b6e1b6ca2043b6a181c8dc58a668938d85e",
+    "cached": false
+  },
+  "analysis": {
+    "page_count": 166,
+    "total_chars": 227353,
+    "text_pages": 128,
+    "scanned_or_blank_pages": 38,
+    "scanned_page_sample": [
+      44,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      56,
+      57,
+      59,
+      60,
+      61,
+      62
+    ],
+    "headings": [
+      [
+        3,
+        "BÖLÜM II. PROJENİN YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ"
+      ],
+      [
+        3,
+        "BÖLÜM III: PROJENİN İNŞAAT VE İŞLETME AŞAMASINDA ÇEVRESEL ETKİLERİ,"
+      ],
+      [
+        5,
+        "PROJENİN TEKNİK OLMAYAN ÖZETİ"
+      ],
+      [
+        10,
+        "BÖLÜM I: PROJENİN ÖZELLİKLERİ"
+      ],
+      [
+        29,
+        "BÖLÜM II. PROJENİN YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL"
+      ],
+      [
+        34,
+        "BÖLÜM III: PROJENİN İNŞAAT VE İŞLETME AŞAMASINDA ÇEVRESEL"
+      ],
+      [
+        38,
+        "BÖLÜM IV: KÜMÜLATİF ETKİ DEĞERLENDİRME"
+      ],
+      [
+        38,
+        "BÖLÜM V: ÇEVRESEL VE SOSYAL EYLEM PLANI"
+      ],
+      [
+        41,
+        "BÖLÜM VI: NOTLAR VE KAYNAKLAR VE EKLER"
+      ],
+      [
+        127,
+        "ÇEVRESEL VE SOSYAL"
+      ]
+    ],
+    "geo": {
+      "precision": "province_centroid",
+      "lat": 38.7312,
+      "lon": 35.4787,
+      "point_count": 0,
+      "points": [],
+      "datum": null,
+      "pages": []
+    },
+    "signals": {
+      "coordinates_and_footprint": {
+        "label": "Coordinates, Parcel & Footprint",
+        "page_count": 32,
+        "pages": [
+          2,
+          5,
+          6,
+          8,
+          10,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          21,
+          27,
+          29,
+          30,
+          33,
+          42,
+          43,
+          54,
+          63,
+          67,
+          72,
+          99
+        ],
+        "samples": [
+          {
+            "page": 2,
+            "match": "Ada 33 Parsel",
+            "snippet": "…ADI KAAF DEMİRYOLU ARAÇLARI A.Ş. ADRESİ Kayseri İli, Melikgazi İlçesi, Mimarsinan Mahallesi, K35D03D3C Pafta, 7559 Ada 33 Parsel (Mimarsinan Organize Sanayi Bölgesi 16. Cadde, No:4) TELEFON, GSM VE FAKS NUMARASI 0555 001 17 02 E POSTA omerozdem…"
+          },
+          {
+            "page": 5,
+            "match": "Ada 33 Parsel",
+            "snippet": "…İ KAAF DEMİRYOLU ARAÇLARI A.Ş tarafından Kayseri İli, Melikgazi İlçesi, Mimarsinan Mahallesi, K35d03d3c Pafta, 7559 Ada 33 Parsel (Mimarsinan Organize Sanayi Bölgesi 16. Cadde, No:4) adresinde “Demir Yolu Araçları İmalatı, Yardımcı Ekipmanları ve…"
+          },
+          {
+            "page": 5,
+            "match": "koordinat",
+            "snippet": "…F DEMİRYOLU ARAÇLARI A.Ş faaliyetin yapılacağı alanda kiracı olarak faaliyet gösterecek olup, proje için seçilen yerin koordinatları Ek- 1’de, Mülkiyete İlişkin Belgeler ve Kira Sözleşmesi Ek- 7’de sunulmuştur. Ek-1’de yer alan koordinatlar parsel…"
+          },
+          {
+            "page": 6,
+            "match": "999,05 m2",
+            "snippet": "…rsinan Mahallesi,7559 Ada,33 Parsel numaralı (Mimarsinan Organize Sanayi Bölgesi 16. Cadde, No:4) adresinde bulunan 39.999,05 m2 yüz ölçümlü parselin 24.225 m2’lik kısmında kapalı alanda Demir Yolu Araçları İmalatı, Yardımcı Ekipmanları ve Motorl…"
+          },
+          {
+            "page": 6,
+            "match": "24.225 m2",
+            "snippet": "…sel numaralı (Mimarsinan Organize Sanayi Bölgesi 16. Cadde, No:4) adresinde bulunan 39.999,05 m2 yüz ölçümlü parselin 24.225 m2’lik kısmında kapalı alanda Demir Yolu Araçları İmalatı, Yardımcı Ekipmanları ve Motorlu Taşıt Üretimi yapılması planla…"
+          },
+          {
+            "page": 8,
+            "match": "Ada 33 Parsel",
+            "snippet": "…taşıtların üretimi (Kara taşıtları, tarım makinaları, iş makinaları, savunma sanayi taşıtları), 900 adet Alan 7559 Ada 33 Parsel (39.999,05 m2) Kamu kurum ve kuruluşlarının faaliyetle ilgili istedikleri tüm yasal yükümlülük ve talepler faaliy…"
+          },
+          {
+            "page": 8,
+            "match": "999,05 m2",
+            "snippet": "…(Kara taşıtları, tarım makinaları, iş makinaları, savunma sanayi taşıtları), 900 adet Alan 7559 Ada 33 Parsel (39.999,05 m2) Kamu kurum ve kuruluşlarının faaliyetle ilgili istedikleri tüm yasal yükümlülük ve talepler faaliyet sahibi taraf…"
+          },
+          {
+            "page": 10,
+            "match": "Ada 33 Parsel",
+            "snippet": "…) KAAF DEMİRYOLU ARAÇLARI A.Ş tarafından Kayseri İli, Melikgazi İlçesi, Mimarsinan Mahallesi, K35d03d3c Pafta, 7559 Ada 33 Parsel (Mimarsinan Organize Sanayi Bölgesi 16. Cadde, No:4) adresinde “Demiryolu Araçları İmalatı, Yardımcı Ekipmanları ve M…"
+          }
+        ]
+      },
+      "water_and_discharge": {
+        "label": "Water Use, Hydrogeology & Discharge",
+        "page_count": 11,
+        "pages": [
+          9,
+          13,
+          14,
+          20,
+          22,
+          23,
+          33,
+          34,
+          38,
+          130,
+          131
+        ],
+        "samples": [
+          {
+            "page": 9,
+            "match": "Atıksu",
+            "snippet": "…imarsinan OSB kanalizasyon sistemine verilecektir. Mimarsinan Organize Sanayi Bölgesi Genel Müdürlüğünden alınmış olan Atıksu Kanal Bağlantı İzin Belgesi EK-16’da sunulmuştur. Tesis personelin ihtiyaçlarının giderilmesi sonucu oluşan katı…"
+          },
+          {
+            "page": 13,
+            "match": "Atıksu",
+            "snippet": "…ğ Alma İşlemi Yıkama ve Kurutma İşlemi Boyama İşlemi Pişirme İşlemi Son Ürün Ambalajlama İşlemi Sevkiyat İşlemi Atıksu Tehlikeli Atık Atıksu Emisyon Emisyon Tehlikesiz Atık"
+          },
+          {
+            "page": 14,
+            "match": "Atıksu",
+            "snippet": "…Temini Yıkama-Yağ Alma İşlemi ID Durulama Durulama İşlemi Nano Kaplama Kurutma-Paketleme İşlemi Sevkiyat İşlemi Atıksu Tehlikeli Atık Emisyon Atıksu Emisyon"
+          },
+          {
+            "page": 20,
+            "match": "4,5 m3/gün",
+            "snippet": "…ilerine göre = 226 lt/ kişi-gün (Kaynak: TUİK 2022) Gerekli Su miktarı = 226 lt/kişi-gün x 20 kişi = 4.520 lt/gün = 4,5 m3/gün Prosesten Kaynaklı Su Kullanımı Tesiste bulunan havuzlarda buharlaşmadan ve yüzeye tutunan su nedeni ile su kayb…"
+          },
+          {
+            "page": 20,
+            "match": "1m3/gün",
+            "snippet": "…acaktır ve bu nedenle havuza su takviyesi yapılacaktır. Havuzlara günlük ortalama 1 m3 su eklenmesi planlanmaktadır 1m3/gün x 300 gün/yıl = 300m3/yıl Tesiste sadece durulama havuzlarındaki su tamamen değiştirilecek olup ayda 1 defa bu işlem…"
+          },
+          {
+            "page": 20,
+            "match": "300m3/yıl",
+            "snippet": "…vuza su takviyesi yapılacaktır. Havuzlara günlük ortalama 1 m3 su eklenmesi planlanmaktadır 1m3/gün x 300 gün/yıl = 300m3/yıl Tesiste sadece durulama havuzlarındaki su tamamen değiştirilecek olup ayda 1 defa bu işlem gerçekleştirilecektir.…"
+          },
+          {
+            "page": 20,
+            "match": "0,56 m3/gün",
+            "snippet": "…det x 0,5 m3/adet=5m3 3 adet x 3 m3/adet=9m3 Durulama Havuzlarının Toplam Hacmi =14 m3 14 m3/ay x 1 ay/25 gün =0,56 m3/gün 0,56 m3/gün x 300 gün/yıl=168 m3/yıl Tablo.7 Toplam Kullanılacak Su Miktarı Miktar m3/gün m3/ay m3/yıl Perso…"
+          },
+          {
+            "page": 20,
+            "match": "168 m3/yıl",
+            "snippet": "…adet=9m3 Durulama Havuzlarının Toplam Hacmi =14 m3 14 m3/ay x 1 ay/25 gün =0,56 m3/gün 0,56 m3/gün x 300 gün/yıl=168 m3/yıl Tablo.7 Toplam Kullanılacak Su Miktarı Miktar m3/gün m3/ay m3/yıl Personel 4,5 112,5 1.350 Proses (Ekleme…"
+          }
+        ]
+      },
+      "protected_land_and_olive": {
+        "label": "Protected Zones, Forests & Olive Groves",
+        "page_count": 4,
+        "pages": [
+          3,
+          29,
+          31,
+          33
+        ],
+        "samples": [
+          {
+            "page": 3,
+            "match": "Orman Alanı",
+            "snippet": "…............................................................ 27 II.a) Mevcut Arazi Kullanımı ve Kalitesi (Tarım Alanı, Orman Alanı, Planlı Alan, Su Yüzeyi ve benzeri) ..................................................................................…"
+          },
+          {
+            "page": 29,
+            "match": "Orman Alanı",
+            "snippet": "…. PROJENİN YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ II.a) Mevcut Arazi Kullanımı ve Kalitesi (Tarım Alanı, Orman Alanı, Planlı Alan, Su Yüzeyi ve benzeri) KAAF DEMİRYOLU ARAÇLARI A.Ş tarafından Kayseri İli, Melikgazi İlçesi, Mimarsin…"
+          },
+          {
+            "page": 31,
+            "match": "Özel Çevre Koruma",
+            "snippet": "…liği’nde tanımlanan alanlar Bulunmamaktadır. f) Çevre Kanununun 9 uncu maddesi uyarınca Cumhurbaşkanı tarafından \"Özel Çevre Koruma Bölgeleri\" olarak tespit ve ilan edilen alanlar, Bulunmamaktadır. g) Boğaziçi Kanununa göre koruma altına alınan…"
+          },
+          {
+            "page": 31,
+            "match": "orman alanı",
+            "snippet": "…nmamaktadır. g) Boğaziçi Kanununa göre koruma altına alınan alanlar, Bulunmamaktadır. ğ) Orman Kanunu uyarınca orman alanı sayılan yerler, Bulunmamaktadır. h) Kıyı Kanunu gereğince yapı yasağı getirilen alanlar, Bulunmamaktadır. ı…"
+          },
+          {
+            "page": 33,
+            "match": "kıyı kenar",
+            "snippet": "…ı olmak üzere canlıların yaşama ortamı olarak önem taşıyan bütün sular, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler. Proje alanının yaklaşık 31,5 km k…"
+          },
+          {
+            "page": 33,
+            "match": "sulak alan",
+            "snippet": "…ar, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler. Proje alanının yaklaşık 31,5 km kuzeydoğu yönünde Tuzla Palas Gölü Sulak Alanı Tescil Sınırı bulunmak…"
+          }
+        ]
+      },
+      "ecology_and_baseline": {
+        "label": "Flora, Fauna & Baseline Methodology",
+        "page_count": 4,
+        "pages": [
+          32,
+          33,
+          95,
+          96
+        ],
+        "samples": [
+          {
+            "page": 32,
+            "match": "BERN Sözleşmesi",
+            "snippet": "…sözleşmeler uyarınca korunması gerekli alanlar a) \"Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi\" (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan \"Önemli Deniz Kaplumbağası Üreme Alanlarında belirtilen I. ve II. Koruma Bö…"
+          },
+          {
+            "page": 33,
+            "match": "endemik",
+            "snippet": "…. d) Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…"
+          },
+          {
+            "page": 95,
+            "match": "Biyoçeşitlilik",
+            "snippet": "…ı ve operasyon esnasında kullanılması Bu alanlarda sızıntı müdahale ekipmanlarının hazır bulundurulması Doğa ve Biyoçeşitlilik Toprak, yüzey suyu, yeraltı suları, atıkların doğaya bırakılması durumunda çalışma esnasında dökülme/sızıntı…"
+          },
+          {
+            "page": 96,
+            "match": "Biyoçeşitlilik",
+            "snippet": "…a, gerekli önlemler alınmazsa alanda faaliyet yapıldığında, varsa, önemli türlerin yok olması söz konusudur. Biyoçeşitlilik Faaliyetler başlanmadan önce hazırlanan Biyoçeşitlilik raporları Biyoçeşitlilik konusunda, uzman biyologd…"
+          }
+        ]
+      },
+      "pollutants_and_hazards": {
+        "label": "Emissions, Geochemistry & Waste",
+        "page_count": 26,
+        "pages": [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          22,
+          24,
+          26,
+          36,
+          37,
+          38,
+          41,
+          86,
+          87,
+          88,
+          89,
+          94,
+          109,
+          110,
+          124,
+          125,
+          129,
+          131,
+          162
+        ],
+        "samples": [
+          {
+            "page": 9,
+            "match": "tehlikeli atık",
+            "snippet": "…bidonlarda biriktirilip, düzenli olarak taşınarak, OSB çöp konteynırlarına bırakılacaktır. Oluşacak tehlikeli atıklar tehlikeli atık geçici depolama alanında, geçici olarak depolanarak lisanslı geri kazanım/bertaraf firmalarına verilmektedir.…"
+          },
+          {
+            "page": 10,
+            "match": "gürültü",
+            "snippet": "…llanılarak metal ve/veya plastik maddelerin yüzey işlemlerinin yapıldığı tesisler1 kapsamına girmektedir. (1: Çevresel gürültü konulu çevre izninden muaf olan tesisler) ÇED Olumlu Kararının alınmasına müteakip GFB ve Çevre İzin Belgelerinin a…"
+          },
+          {
+            "page": 11,
+            "match": "Tehlikeli Atık",
+            "snippet": "…me İşlemi Şase ve Gövde Parçalarının Hazırlanması Kaynaklı İmalat Montaj İşlemleri Yüzey Düzeltme-Boyama İşlemleri -Tehlikeli Atık -Tehlikesiz Atık -Emisyon -Gürültü Motor, Mekanik ve Elektrik Ekipmanlarının Montajı"
+          },
+          {
+            "page": 11,
+            "match": "Gürültü",
+            "snippet": "…nması Kaynaklı İmalat Montaj İşlemleri Yüzey Düzeltme-Boyama İşlemleri -Tehlikeli Atık -Tehlikesiz Atık -Emisyon -Gürültü Motor, Mekanik ve Elektrik Ekipmanlarının Montajı"
+          },
+          {
+            "page": 12,
+            "match": "Tehlikeli Atık",
+            "snippet": "…llendirme İşlemi Parçaların Kontrolü İşlemi Yüzey Temizleme İşlemi Boyama ve Kurutma İşlemi Mekanik Montaj İşlemi -Tehlikeli Atık -Tehlikesiz Atık -Emisyon -Gürültü Tekerlek, Aks, Fren ve Yürüyüş Ekipmanlarının Montajı Kontrol,Test ve Fonksiyo…"
+          },
+          {
+            "page": 12,
+            "match": "Gürültü",
+            "snippet": "…Yüzey Temizleme İşlemi Boyama ve Kurutma İşlemi Mekanik Montaj İşlemi -Tehlikeli Atık -Tehlikesiz Atık -Emisyon -Gürültü Tekerlek, Aks, Fren ve Yürüyüş Ekipmanlarının Montajı Kontrol,Test ve Fonksiyon Denemeleri Sevkiyat -Tehlikeli Atı…"
+          },
+          {
+            "page": 13,
+            "match": "Tehlikeli Atık",
+            "snippet": "…şlemi Yıkama ve Kurutma İşlemi Boyama İşlemi Pişirme İşlemi Son Ürün Ambalajlama İşlemi Sevkiyat İşlemi Atıksu Tehlikeli Atık Atıksu Emisyon Emisyon Tehlikesiz Atık"
+          },
+          {
+            "page": 14,
+            "match": "Tehlikeli Atık",
+            "snippet": "…Yıkama-Yağ Alma İşlemi ID Durulama Durulama İşlemi Nano Kaplama Kurutma-Paketleme İşlemi Sevkiyat İşlemi Atıksu Tehlikeli Atık Emisyon Atıksu Emisyon"
+          }
+        ]
+      },
+      "cost_and_capacity": {
+        "label": "Proje Bedeli, Güç ve Kapasite",
+        "page_count": 26,
+        "pages": [
+          2,
+          3,
+          4,
+          8,
+          11,
+          15,
+          16,
+          17,
+          18,
+          21,
+          38,
+          42,
+          67,
+          84,
+          130,
+          143,
+          148,
+          151,
+          152,
+          153,
+          154,
+          155,
+          156,
+          157,
+          158
+        ],
+        "samples": [
+          {
+            "page": 2,
+            "match": "PROJE BEDELİ",
+            "snippet": "…erozdemir@kaaf.com.tr PROJENİN ADI Demir Yolu Araçları İmalatı, Yardımcı Ekipmanları ve Motorlu Taşıt Üretim Tesisi PROJE BEDELİ 6.691.929 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) Kayseri İli, Melikgazi İlçesi, Mimarsinan…"
+          },
+          {
+            "page": 2,
+            "match": "6.691.929 TL",
+            "snippet": "….com.tr PROJENİN ADI Demir Yolu Araçları İmalatı, Yardımcı Ekipmanları ve Motorlu Taşıt Üretim Tesisi PROJE BEDELİ 6.691.929 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) Kayseri İli, Melikgazi İlçesi, Mimarsinan Mahallesi, K3…"
+          },
+          {
+            "page": 3,
+            "match": "Kapasite",
+            "snippet": "…Yerin Alternatifleri (Proje Teknolojisinin ve Proje Alanının Seçilme Nedenleri) ..... 8 I.b. Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Teknolojisi, Çalışacak Personel Sayısı 15 I.c) Doğal Kaynakların Kullanımı (Arazi Kullanımı, Su Kul…"
+          },
+          {
+            "page": 4,
+            "match": "Kapasite",
+            "snippet": "…ARDIMCI EKİPMANLARI VE MOTORLU TAŞIT ÜRETİM TESİSİ 2 TABLOLAR DİZİNİ Tablo.1 Tesisin ÇED Yönetmeliğindeki Yeri ve Kapasitesi……………………………………..……………..6 Tablo.2 Tesiste oluşacak Atık Kodları………………………………………………..………………………..13 Tablo.3 Tesiste Plan…"
+          },
+          {
+            "page": 8,
+            "match": "Kapasite",
+            "snippet": "…üzey temizleme işleminin yapıldığı tesisler kapsamında yer almaktadır. Tablo.1 Tesisin ÇED Yönetmeliğindeki Yeri ve Kapasitesi 05.03.2026 Tarih ve 33187 Sayılı Resmi Gazetede Yayınlanan Çevresel Etki Değerlendirmesi Yönetmeliğinde Değişiklik…"
+          },
+          {
+            "page": 11,
+            "match": "Kapasite",
+            "snippet": "…EMİRYOLU ARAÇLARI İMALATI, YARDIMCI EKİPMANLARI VE MOTORLU TAŞIT ÜRETİM TESİSİ 9 I.b. Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Teknolojisi, Çalışacak Personel Sayısı Demiryolu araçları imalatı, Yardımcı Ekipmanları ve Motorlu…"
+          },
+          {
+            "page": 15,
+            "match": "Kapasite",
+            "snippet": "…n ögütme parçaları ve ögütme maddeleri A R12 Bakım Onarım Faaliyetleri 16 06 04 Piller A R12 Ofis Kaynaklı Kapasitesi KAAF DEMİRYOLU ARAÇLARI A.Ş tarafından Kayseri İli, Melikgazi İlçesi, Mimarsinan Mahallesi, K35d03d3c Pafta, 7559…"
+          },
+          {
+            "page": 16,
+            "match": "Kapasite",
+            "snippet": "…ıtlı olup, ‘’Arsa’’ vasfında görülmektedir. Tapu Parsel Sorgulama Ekranı aşağıda verilmiştir. Makine/Ekipman Havuz Kapasitesi (m3) Planlanan Havuz Kapasite Adeti Toplam Hacmi(m3) Nano Kaplama Havuzu 1 3 3 DI Durulama Havuzu 0,5 4…"
+          }
+        ]
+      },
+      "splitting_and_thresholds": {
+        "label": "Proje Parçalama, Kapasite Artışı ve Eşik Değerler",
+        "page_count": 3,
+        "pages": [
+          7,
+          8,
+          63
+        ],
+        "samples": [
+          {
+            "page": 7,
+            "match": "ÇED alanı",
+            "snippet": "…lacaktır. Proje sahası üzerinde Proje Tanıtım Dosyasına konu olan tesisler dışında herhangi bir tesis kurulmayacak, ÇED alanı dışında da çalışılmayacak ve ilerleyen dönemlerde ÇED yönetmeliğine tabi herhangi bir değişiklik yapılmasının planlanm…"
+          },
+          {
+            "page": 8,
+            "match": "ÇED alanı",
+            "snippet": "…caktır. Proje sahası üzerinde Proje Tanıtım Dosyasına konu olan tesisler dışında herhangi bir tesis kurulmayacak ve ÇED alanı dışında da çalışılmayacaktır ve ileride ÇED yönetmeliğine tabi herhangi bir değişiklik yapılmasının planlanması durumu…"
+          },
+          {
+            "page": 63,
+            "match": "ÇED Alanı",
+            "snippet": "…ı rıı cıo N \"\"' 724000 725000 726000 727000 728000 729000 730000 731000 732000 JEOLOJİ HARİTASI LEJANT D ÇED Alanı D Parsel Sınırı JEOLOJİ D Opeça - İGNİMBİRİT - ÜST PLEYİSTOSEN D Pleç - PİROSLASTİK KAYA - ÜST PLİYOSEN D Pleg - P…"
+          },
+          {
+            "page": 63,
+            "match": "ÇEDAlanı",
+            "snippet": "…3000 35_6229000 Ç1 728047_044 4285846.403 38_6902317 35_6216927 Ç2 728062_884 4285806.582 38_6898691 35_6218615 ÇEDAlanı Ç3 727978-754 4285773-116 38_6895895 35_6208842 Ç4 727962_914 4285812.937 38_6899521 35_6207153 Hazırlayan ·•·…"
+          }
+        ]
+      }
+    },
+    "audit_checks": {
+      "mentions_field_survey": false,
+      "mentions_literature_only_cue": false,
+      "mentions_seasonal_sampling": false,
+      "mentions_cumulative_impact": false,
+      "mentions_olive_law_3573": false,
+      "mentions_groundwater_or_aquifer": true,
+      "mentions_iucn_or_endemic": true,
+      "mentions_capacity_or_splitting": false,
+      "mentions_circular_2009_7_or_revision": false
+    }
+  },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-22T00:46:49",
+      "decision_type": "ÇED Gerekli Değil/ÇED Olumlu",
+      "announcement_date": "2026-11-13",
+      "announcement_date_tr": "13.11.2026",
+      "submitted_at": "17/09/2026 11:34:58",
+      "consulting_firm": "KORKMAZ MÜŞAVİRLİK MÜHENDİSLİK ÇEVRE DANIŞMANLIĞI İŞ SAĞLIĞI VE GÜVENLİĞİ İNŞAAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4429962273757554607.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-09-17",
+      "pdf_temp_ad": "sign4429962273757554607.pdf",
+      "pdf_original_name": "e-imza.pdf",
+      "pdf_upload_date": "2026-09-17",
+      "sha256": "6a1ab02f3dabe4c1274f7506c3f74b6e1b6ca2043b6a181c8dc58a668938d85e",
+      "bytes": 29109625,
+      "page_count": 166,
+      "text_pages": 128,
+      "scanned_or_blank_pages": 38,
+      "audit_checks": {
+        "mentions_field_survey": false,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": false,
+        "mentions_cumulative_impact": false,
+        "mentions_olive_law_3573": false,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true,
+        "mentions_capacity_or_splitting": false,
+        "mentions_circular_2009_7_or_revision": false
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 32,
+        "water_and_discharge": 11,
+        "protected_land_and_olive": 4,
+        "ecology_and_baseline": 4,
+        "pollutants_and_hazards": 26,
+        "cost_and_capacity": 26,
+        "splitting_and_thresholds": 3
+      },
+      "geo_precision": "province_centroid",
+      "geo_lat": 38.7312,
+      "geo_lon": 35.4787,
+      "geo_point_count": 0,
+      "detail_text_sha256": "33d57cd0693c1598"
+    }
+  ],
+  "llm_synthesis": {
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-11-22T00:46:55",
+    "pages_sent": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      20,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      38,
+      39,
+      95,
+      96,
+      127,
+      128
+    ],
+    "usage": {
+      "prompt_tokens": 17485,
+      "output_tokens": 1780,
+      "thoughts_tokens": null,
+      "total_tokens": 19265
+    },
+    "result": {
+      "executive_summary_tr": "Kayseri ili, Melikgazi ilçesi, Mimarsinan Organize Sanayi Bölgesi sınırları içerisinde yer alan 7559 ada 33 parseldeki mevcut tesiste, KAAF Demiryolu Araçları A.Ş. tarafından demiryolu araçları, yardımcı ekipmanları ve motorlu taşıt üretim tesisi projesi planlanmaktadır. Proje kapsamında yüzey temizleme ve boyama hatlarının eklenmesi amaçlanmış olup, tesis için Valilik tarafından Ek-2 kapsamında 'ÇED Gerekli Değil / ÇED Olumlu' kararı verilmiştir. Faaliyet alanında günde 20 personelin çalışması öngörülmekte olup, proses kaynaklı atıksular OSB kanalizasyonuna deşarj edilecektir.",
+      "executive_summary_en": "KAAF Railway Vehicles Inc. plans to expand operations at an existing facility located on Plot 33, Block 7559 in the Mimarsinan Organized Industrial Zone, Melikgazi, Kayseri, for the manufacturing of railway vehicles, auxiliary equipment, and motor vehicles. The project involves the addition of surface treatment and painting lines, for which the Governorate issued a ÇED Not Required / Positive decision under Annex-2. The facility is designed for 20 personnel, and industrial wastewater will be discharged into the OIZ sewerage system.",
+      "key_facts": [
+        {
+          "label": "Parsel Alanı",
+          "value": "39.999,05 m²",
+          "page": 6
+        },
+        {
+          "label": "Kapalı Üretim Alanı",
+          "value": "24.225 m²",
+          "page": 6
+        },
+        {
+          "label": "Proje Bedeli",
+          "value": "6.691.929 TL",
+          "page": 2
+        },
+        {
+          "label": "Çalışacak Personel Sayısı",
+          "value": "20 kişi",
+          "page": 6
+        },
+        {
+          "label": "Personel Su Tüketimi",
+          "value": "4,5 m³/gün",
+          "page": 20
+        },
+        {
+          "label": "Proses Su Ekleme Miktarı",
+          "value": "1 m³/gün",
+          "page": 20
+        },
+        {
+          "label": "Durulama Havuzları Su Değişimi",
+          "value": "0,56 m³/gün",
+          "page": 20
+        },
+        {
+          "label": "En Yakın Yerleşim Yeri",
+          "value": "1800 metre (Başakpınar Mahallesi)",
+          "page": 6
+        },
+        {
+          "label": "Durulama Havuzları Toplam Hacmi",
+          "value": "14 m³",
+          "page": 20
+        }
+      ],
+      "baseline_assessment": {
+        "field_survey_status": "literature_only",
+        "seasonal_sampling_status": "not_found",
+        "cumulative_impact_status": "superficial_or_boilerplate",
+        "olive_and_protected_status": "Proje alanı organize sanayi bölgesinde yer almakta olup, 3573 sayılı Zeytincilik Kanunu kapsamında zeytinlik alanlarda, orman kanununa göre orman alanlarında veya yasal koruma statüsüne sahip hassas yörelerde bulunmamaktadır [s. 31]. En yakın korunan alan olan Sultan Sazlığı Milli Parkı tesise yaklaşık 38 km mesafededir [s. 30].",
+        "explanation": "Proje tanıtım dosyasında gerçek arazi ve biyolojik çeşitlilik saha gözlemleri yapılmamış; flora ve fauna değerlendirmeleri genel literatür bilgileriyle geçiştirilmiştir. Kümülatif etki değerlendirmesi ise yalnızca komşu sanayi tesislerinin varlığı ve OSB altyapısının kapasitesi üzerinden yüzeysel ifadelerle sınırlandırılmıştır [s. 38]."
+      },
+      "red_flags": [
+        {
+          "category": "flora_fauna_mevsimsel",
+          "severity": "high",
+          "title": "Mevsimsel ve Gerçek Saha Verisine Dayanmayan Biyolojik Çeşitlilik Envanteri",
+          "detail": "Dosyada flora ve fauna üzerine yapılmış somut bir saha çalışması bulunmamakta, ekosistem değerlendirmesi yalnızca varsayımsal ifadeler ve taahhütlerle geçiştirilmektedir [s. 96].",
+          "pages": [
+            96
+          ]
+        },
+        {
+          "category": "su_hidrojeoloji",
+          "severity": "medium",
+          "title": "Endüstriyel Atıksu Deşarj ve Arıtma Altyapısının Yetersiz İncelemesi",
+          "detail": "Tesisteki yüzey temizleme ve boyama havuzlarından kaynaklanacak kimyasal içerikli atıksuların OSB kanalizasyonuna verileceği belirtilmekte ancak ön arıtma zorunluluğu ve ağır metal kirlilik yükleri detaylı hidrojeolojik analizlere dayanmamaktadır [s. 34].",
+          "pages": [
+            34
+          ]
+        },
+        {
+          "category": "kumulatif_etki",
+          "severity": "medium",
+          "title": "Yüzeysel Kümülatif Etki Değerlendirmesi",
+          "detail": "Çevredeki diğer sanayi tesisleri (halı üretimi, depolama, makine imalatı) ile birlikte bölgedeki hava kalitesi ve atık yükü üzerindeki kümülatif etkiler nicel modellemelerden uzak, kalıbı bozulmuş ifadelerle geçiştirilmiştir [s. 38].",
+          "pages": [
+            38
+          ]
+        }
+      ],
+      "recommended_bilirkisi_disciplines": [
+        "Çevre Mühendisi",
+        "Hidrojeoloji Mühendisi",
+        "Biyolog",
+        "Kimya Mühendisi",
+        "Şehir ve Bölge Plancısı"
+      ],
+      "hkt_and_petition_questions": [
+        {
+          "question_tr": "Tesiste gerçekleştirilecek yüzey temizleme ve elektrokimyasal kaplama proseslerinden kaynaklanacak ağır metal içeren endüstriyel atıksuların Mimarsinan OSB kanalizasyon sistemine verilmesinden önce herhangi bir ön arıtma işlemine tabi tutulup tutulmayacağı bilimsel olarak nasıl modellenmiştir?",
+          "pages": [
+            34
+          ]
+        },
+        {
+          "question_tr": "Faaliyet alanının etki alanında yer alan flora ve fauna türlerine ilişkin nedenherhangi bir çok mevsimli ve yerinde bilimsel saha envanteri yürütülmemiştir?",
+          "pages": [
+            96
+          ]
+        },
+        {
+          "question_tr": "Mimarsinan OSB içerisinde faaliyet gösteren diğer endüstriyel tesislerin hava kalitesi ve atık yönetimi üzerindeki kümülatif baskıları neden nicel ölçümlerle hesaplanmamıştır?",
+          "pages": [
+            38
+          ]
+        }
+      ],
+      "data_limitations": "İncelenen dosya metninde atıfta bulunulan bazı Ekler (örneğin çevre düzeni planı örnekleri, taahhütnameler ve arazi koordinat detayları) taranmış veya eksik sunulmuş olup, teknik inceleme yalnızca metin içerisindeki kısıtlı verilerle sınırlandırılmıştır."
+    }
+  }
+}

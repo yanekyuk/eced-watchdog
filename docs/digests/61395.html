@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>e-ÇED Ön Özet #61395 — MERSİN / AKDENİZ</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+:root {
+  --bg: #f8f9fb;
+  --surface: #ffffff;
+  --surface-subtle: #f2f4f7;
+  --border: #e4e7ec;
+  --border-strong: #cfd5df;
+  --text: #101828;
+  --text-secondary: #344054;
+  --muted: #667085;
+  --accent: #175cd3;
+  --accent-soft: #eff8ff;
+  --red: #b42318;
+  --red-soft: #fef3f2;
+  --red-border: #fecdca;
+  --amber: #b54708;
+  --amber-soft: #fffaeb;
+  --amber-border: #fedf89;
+  --green: #067647;
+  --green-soft: #ecfdf3;
+  --green-border: #abefc6;
+  --violet: #5925dc;
+  --violet-soft: #f4f3ff;
+  --violet-border: #d9d6fe;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f131a;
+    --surface: #161b24;
+    --surface-subtle: #1d2430;
+    --border: #273040;
+    --border-strong: #39465c;
+    --text: #eaedf2;
+    --text-secondary: #c5cdd9;
+    --muted: #8a95a6;
+    --accent: #6cb0ff;
+    --accent-soft: rgba(108, 176, 255, 0.14);
+    --red: #ff857a;
+    --red-soft: rgba(248, 81, 73, 0.13);
+    --red-border: rgba(248, 81, 73, 0.36);
+    --amber: #f0b849;
+    --amber-soft: rgba(210, 153, 34, 0.13);
+    --amber-border: rgba(210, 153, 34, 0.36);
+    --green: #4cc38a;
+    --green-soft: rgba(63, 185, 80, 0.13);
+    --green-border: rgba(63, 185, 80, 0.36);
+    --violet: #bda3ff;
+    --violet-soft: rgba(158, 119, 237, 0.15);
+    --violet-border: rgba(158, 119, 237, 0.38);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f131a;
+  --surface: #161b24;
+  --surface-subtle: #1d2430;
+  --border: #273040;
+  --border-strong: #39465c;
+  --text: #eaedf2;
+  --text-secondary: #c5cdd9;
+  --muted: #8a95a6;
+  --accent: #6cb0ff;
+  --accent-soft: rgba(108, 176, 255, 0.14);
+  --red: #ff857a;
+  --red-soft: rgba(248, 81, 73, 0.13);
+  --red-border: rgba(248, 81, 73, 0.36);
+  --amber: #f0b849;
+  --amber-soft: rgba(210, 153, 34, 0.13);
+  --amber-border: rgba(210, 153, 34, 0.36);
+  --green: #4cc38a;
+  --green-soft: rgba(63, 185, 80, 0.13);
+  --green-border: rgba(63, 185, 80, 0.36);
+  --violet: #bda3ff;
+  --violet-soft: rgba(158, 119, 237, 0.15);
+  --violet-border: rgba(158, 119, 237, 0.38);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Unified Sticky Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.topbar-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.96rem;
+  letter-spacing: -0.01em;
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+.brand-scope {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+.nav-link {
+  padding: 5px 10px;
+  border-radius: 7px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-link:hover { background: var(--surface-subtle); text-decoration: none; color: var(--text); }
+.nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.theme-btn {
+  margin-left: 4px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.79rem;
+  font-weight: 500;
+}
+.theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
+
+/* Layout */
+.wrap { max-width: 1120px; margin: 0 auto; padding: 22px 20px 72px; }
+.wrap.narrow { max-width: 900px; }
+h1 { margin: 0 0 6px; font-size: 1.5rem; line-height: 1.25; letter-spacing: -0.02em; }
+h2 { margin: 28px 0 10px; font-size: 1.15rem; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { margin: 16px 0 8px; font-size: 0.96rem; line-height: 1.35; }
+.sub { color: var(--muted); font-size: 0.91rem; margin: 0; }
+
+/* Compact Masthead */
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 20px;
+  margin-bottom: 16px;
+}
+.masthead-left { max-width: 720px; }
+.masthead-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.kpi-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 18px;
+  padding: 10px 16px;
+  margin-bottom: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.84rem;
+  color: var(--muted);
+  box-shadow: var(--shadow);
+}
+.kpi-item { display: inline-flex; align-items: baseline; gap: 5px; }
+.kpi-item strong {
+  color: var(--text);
+  font-size: 0.96rem;
+  font-variant-numeric: tabular-nums;
+}
+.kpi-item.accent strong { color: var(--accent); }
+.kpi-item.rev strong { color: var(--violet); }
+.kpi-sep { color: var(--border-strong); user-select: none; }
+
+/* Map Card */
+.map-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.map-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 14px;
+  padding: 9px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.map-box.collapsed .map-bar { border-bottom: none; }
+.map-box.collapsed #map { display: none; }
+.map-legend-inline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+#map { width: 100%; height: 320px; background: var(--surface-subtle); }
+#digest-map { width: 100%; height: 300px; background: var(--surface-subtle); }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+/* Streamlined Controls */
+.controls-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.controls-row + .controls-row {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.advanced-row { display: none; }
+.advanced-row.open { display: flex; }
+input[type="search"], select.filter-select {
+  padding: 7px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.87rem;
+}
+input[type="search"]:focus, select.filter-select:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+input[type="search"] { flex: 1 1 240px; }
+select.filter-select { min-width: 155px; }
+button.pill {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+button.pill:hover { background: var(--surface-subtle); color: var(--text); }
+button.pill.active { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 600; }
+button.pill.rev-pill.active { background: var(--violet); border-color: var(--violet); }
+.ctrl-right { margin-left: auto; display: flex; align-items: center; gap: 6px; }
+button.ghost-btn {
+  padding: 5px 9px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.79rem;
+  font-weight: 500;
+}
+button.ghost-btn:hover { color: var(--text); border-color: var(--border-strong); background: var(--surface-subtle); }
+
+/* Calm Two-Tier Cards */
+.list-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+.cards { display: flex; flex-direction: column; gap: 10px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 15px 18px;
+  box-shadow: var(--shadow);
+  transition: border-color 0.12s;
+}
+.card:hover { border-color: var(--border-strong); }
+.card.urgent-edge { border-left: 3px solid var(--red); }
+.card.ek1 { border-left: 3px solid var(--accent); }
+.card.has-rev { border-left: 3px solid var(--violet); }
+.card.urgent-edge.has-rev { border-left: 3px solid var(--red); }
+
+/* Tier 1: Quiet Metadata Context Row (zero boxes!) */
+.card-ctx {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 12px;
+  font-size: 0.79rem;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+.ctx-left { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.ctx-loc { color: var(--text-secondary); font-weight: 600; }
+.ctx-ek1 { color: var(--accent); font-weight: 600; }
+.ctx-geo { color: var(--green); font-weight: 500; }
+.ctx-sep { color: var(--border-strong); }
+.ctx-right { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.title { font-weight: 650; font-size: 1.01rem; line-height: 1.38; color: var(--text); margin: 0; }
+.title a { color: var(--text); }
+.title a:hover { color: var(--accent); text-decoration: none; }
+.owner-line { font-size: 0.82rem; color: var(--muted); margin: 3px 0 0; }
+
+/* Tier 2: Signal Pills (Status, Clock, Findings, Revision ONLY) */
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.badge.urgent { background: var(--red-soft); border-color: var(--red-border); color: var(--red); font-weight: 600; }
+.badge.warn { background: var(--amber-soft); border-color: var(--amber-border); color: var(--amber); font-weight: 600; }
+.badge.ok { background: var(--green-soft); border-color: var(--green-border); color: var(--green); font-weight: 600; }
+.badge.info { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
+.badge.rev { background: var(--violet-soft); border-color: var(--violet-border); color: var(--violet); font-weight: 600; }
+.badge.muted { color: var(--muted); }
+
+/* Calm 2-line Clamped Summary */
+.summary-clamp {
+  margin: 9px 0 0;
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+  line-height: 1.52;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.summary-clamp.muted { color: var(--muted); }
+
+.rev-inline {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--violet-soft);
+  border: 1px solid var(--violet-border);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+.rev-inline strong { color: var(--violet); }
+
+/* Quiet Action Row */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  font-size: 0.82rem;
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid var(--border);
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.81rem;
+}
+.btn-primary:hover { text-decoration: none; filter: brightness(1.06); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.81rem;
+  cursor: pointer;
+}
+.btn-secondary:hover { text-decoration: none; border-color: var(--border-strong); color: var(--text); }
+.quiet-link { color: var(--muted); font-weight: 500; }
+.quiet-link:hover { color: var(--accent); }
+
+/* Pagination Bar */
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.pager button {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pager button:hover { border-color: var(--accent); color: var(--accent); }
+.pager .pager-all {
+  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Digest & Guide Tables, Accordions, Callouts */
+table.kv {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.88rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+table.kv th, table.kv td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 13px;
+  text-align: left;
+  vertical-align: top;
+}
+table.kv tr:last-child th, table.kv tr:last-child td { border-bottom: none; }
+table.kv th { width: 240px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
+table.data-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.84rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+table.data-tbl th, table.data-tbl td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.data-tbl tr:last-child td { border-bottom: none; }
+code {
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.84em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+blockquote {
+  margin: 10px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface-subtle);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.89rem;
+  color: var(--text-secondary);
+}
+.callout {
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  margin: 14px 0;
+}
+.callout.rev { background: var(--violet-soft); border-color: var(--violet-border); }
+details.accordion {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 10px 0;
+  overflow: hidden;
+}
+details.accordion summary {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
+}
+details.accordion summary::-webkit-details-marker { display: none; }
+details.accordion summary::after {
+  content: "+";
+  font-size: 1.1rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+details.accordion[open] summary::after { content: "−"; }
+details.accordion[open] summary { border-bottom: 1px solid var(--border); background: var(--surface-subtle); }
+.accordion-body { padding: 14px 16px; }
+.timeline {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid var(--border-strong);
+}
+.timeline li { position: relative; margin: 0 0 9px; padding-left: 8px; font-size: 0.86rem; }
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+}
+.hit { margin: 8px 0; font-size: 0.87rem; line-height: 1.55; }
+.pno { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.notice {
+  margin-top: 32px;
+  padding: 13px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.toc-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 20px; }
+.toc-pills a {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.81rem;
+  font-weight: 500;
+}
+.toc-pills a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+.step-num {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+pre.template-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.section-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+@media (max-width: 700px) {
+  table.kv th { width: 140px; }
+  #map { height: 270px; }
+  .topbar-inner { padding: 9px 14px; }
+  .wrap { padding: 16px 14px 54px; }
+}
+@media print {
+  .topbar, .no-print, #digest-map, .map-box { display: none !important; }
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .card, table.kv, table.data-tbl, details.accordion { box-shadow: none; break-inside: avoid; }
+  details.accordion { border: 1px solid #ccc; }
+  a { color: #000000; text-decoration: underline; }
+}
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      <span>Türkiye e-ÇED İzleme</span>
+      <span class="brand-scope">81 İl</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link " href="../index.html">Duyurular</a>
+      <a class="nav-link " href="../rehber.html">Kullanım Rehberi</a>
+      <a class="nav-link" href="../feed.xml">RSS</a>
+      <a class="nav-link" href="https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml" target="_blank" rel="noopener">Resmi e-ÇED ↗</a>
+      <button id="theme-toggle" class="theme-btn" type="button">Tema</button>
+    </div>
+  </div>
+</nav>
+<div class="wrap narrow">
+  <header style="margin-bottom:16px;">
+    <div class="card-ctx no-print" style="margin-bottom:8px;">
+      <span><a href="../index.html">← Duyurulara dön</a> · <strong>MERSİN / AKDENİZ</strong> · Ek-2 · Gıda</span>
+      <span><code>#61395</code> · 18.11.2026</span>
+    </div>
+    <h1>Süperkritik Üzüm Çekirdeği Yağı, Kabak Çekirdeği Yağı, Ay Çekirdeği Yağı Ekstraksiyonu Tesisi ve Soğuk Hava Deposu</h1>
+    <p class="sub">Arıç Lojistik İthalat İhracat Ticaret ve Sanayi Limited Şirketi</p>
+    <div class="badges" style="margin-top:10px;">
+      <span class="badge">ÇED Gerekli Değil/ÇED Olumlu</span>
+      <span class="badge ok">İYUK 20/A · 26 gün kaldı (2026-12-18)</span>
+      <span class="badge rev">1 İlişkili</span>
+      
+    </div>
+    <div class="actions no-print" style="border-top:none;padding-top:4px;">
+      <a class="btn-primary" href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign6760602037681658675.pdf&amp;orjinalAd=e-imza.pdf&amp;yuklemeTarihi=2026-10-09" target="_blank" rel="noopener">Resmi PDF Dosyası ↗</a>
+      <a class="btn-secondary" href="http://eced.csb.gov.tr/jsp/ek1/61395" target="_blank" rel="noopener">e-ÇED Portal Kaydı ↗</a>
+      <a class="btn-secondary" href="61395.md">Markdown (.md)</a>
+      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF</button>
+    </div>
+  </header>
+
+  <table class="kv">
+    <tr><th>Hazırlayan Kuruluş</th><td>TÜRKUAZ ÇEVRE DANIŞMANLIK MÜH. HİZM. TUR. TAŞ. TAAH. İNŞ. İTH. İHR. TİC. VE SAN. LTD. ŞTİ.</td></tr>
+    <tr><th>Sektör / Alt Sektör</th><td>Gıda / Bitkisel, Hayvansal Yağ Üretimi</td></tr>
+    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>18.11.2026</code> · Yükleme: <code>09/10/2026 09:28:41</code></td></tr>
+    <tr><th>PDF Kapsamı</th><td>41.12 MB · 215 sayfa (166 metin / 49 taranmış) · <a href="https://www.openstreetmap.org/?mlat=36.89442&amp;mlon=34.78388#map=12/36.89442/34.78388" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=36.89442,34.78388" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
+  </table>
+
+  <h2>Belge Bütünlüğü, Revizyon ve Süreç Geçmişi</h2>
+<p class="sub">Her PDF dosyasının SHA-256 özeti, yükleme tarihi ve teknik göstergeleri arşivlenir; 2009/7 Genelgesi kapsamındaki değişiklikler sürümler arası fark olarak kaydedilir.</p>
+<table class="data-tbl"><thead><tr><th>Sürüm</th><th>Arşiv Tarihi</th><th>Aşama</th><th>Yükleme Tarihi</th><th>Sayfa</th><th>SHA-256</th></tr></thead><tbody><tr><td><code>v1</code></td><td><code>2026-11-22T00:55:07</code></td><td>ÇED Gerekli Değil/ÇED Olumlu</td><td><code>2026-10-09</code></td><td>215</td><td><code>479a460c0541f80d…</code></td></tr></tbody></table>
+<h3>Aynı İlçede İlişkili / Tekrar veya Parçalı Başvurular</h3><table class="data-tbl"><thead><tr><th>Dosya</th><th>Tarih</th><th>Aşama</th><th>Proje ve Eşleşme Nedeni</th></tr></thead><tbody><tr><td><a href="60860.html"><strong>#60860 (Ön Özet)</strong></a></td><td>18.11.2026</td><td><span class='badge'>ÇED Gerekli Değil/ÇED Olumlu</span></td><td>Kimyasal (Sitrik Asit, Kalsiyum Sülfat, Vinas, Glukonik Asit, Glukono Delta Lakton, Glukonat Türevleri, Farma Gliserin ve Dekstrin Tutkalı) Üretim Tesisi<br/><span class='sub'>Aynı saha / yakın koordinat (631 m — olası el değiştirme, kümülatif yük veya proje parçalama)</span></td></tr></tbody></table>
+
+  
+  <h2>Bilimsel Ön Değerlendirme <span class="badge">gemini-3.5-flash-lite</span></h2>
+  <p class="sub">Resmi PDF'ten seçilen 26 sayfa (s.1, s.2, s.3, s.4, s.6, s.7, s.9, s.11, s.12, s.18, s.26, s.27, s.28, s.31, s.34, s.48, s.49, s.50, s.51, s.53, s.69, s.70, s.81, s.82, s.185, s.186) üzerinden üretilmiştir; her bulguyu <code>[s. N]</code> kaynağından doğrulayınız.</p>
+  <section class="card ek1" style="margin-top:10px;">
+    <p style="margin-top:0;"><strong>Özet:</strong> Mersin İli, Akdeniz İlçesi, Evci Mahallesi, Mersin Organize Sanayi Bölgesi 4. Bölge İlave Alanı içerisinde yer alan 13425 ada, 6 numaralı parselde Arıç Lojistik İthalat İhracat Ticaret ve Sanayi Limited Şirketi tarafından Süperkritik Üzüm Çekirdeği Yağı, Kabak Çekirdeği Yağı, Ay Çekirdeği Yağı Ekstraksiyonu Tesisi ve Soğuk Hava Deposu kurulması planlanmaktadır. Projenin toplam yatırım bedeli 455.916.567 TL olup, 16.260,74 m2 toplam parsel alanı üzerinde 8.169,64 m2 kapalı alanla faaliyet gösterilmesi öngörülmektedir. Tesiste süperkritik CO2 ekstraksiyon teknolojisi kullanılacak olup, inşaat aşamasında 15, işletme aşamasında ise 20 personel istihdam edilecektir.</p>
+    <details style="margin-top:10px;font-size:0.85rem;color:var(--muted);"><summary style="cursor:pointer;">English summary</summary><p style="margin:6px 0 0;">Arıç Lojistik İthalat İhracat Ticaret ve Sanayi Limited Şirketi plans to establish a Supercritical Grape Seed, Pumpkin Seed, and Sunflower Seed Oil Extraction Plant and Cold Storage Facility on a 16,260.74 m2 plot (Block 13425, Parcel 6) within the 4th Regional Additional Area of the Mersin Organized Industrial Zone in Akdeniz District, Mersin Province. The total investment cost of the project is 455,916,567 TRY, with an operational footprint of 8,169,64 m2. The facility will utilize supercritical CO2 extraction technology and employ 15 workers during construction and 20 workers during operation.</p></details>
+    <div class="badges" style="margin-top:10px;">
+      <span class="badge">Saha: İncelenen sayfalarda tespit edilemedi</span>
+      <span class="badge">Mevsimsellik: İncelenen sayfalarda tespit edilemedi</span>
+      <span class="badge">Kümülatif: Eksik veya tespit edilemedi</span>
+    </div>
+    <p class="sub" style="margin-top:10px;color:var(--text-secondary);"><strong>Zeytinlik ve Korunan Alanlar:</strong> Proje alanı Organize Sanayi Bölgesi sınırları içerisinde yer almakta olup, Adana Kültür Varlıklarını Koruma Bölge Kurulu Müdürlüğü yazısına göre aynı bölgedeki bazı parsellerde 3. Derece Arkeolojik Sit Alanı tescil bildirimleri bulunmaktadır [s. 48, 49].<br/>Dosya kapsamında gerçek anlamda arazi bazlı flora-fauna veya ekolojik saha çalışmalarına yer verilmemiş, çevresel özellikler genel literatür bilgileriyle geçiştirilmiştir. Bölgesel birikimli etki analizi (kumulatif etki) gerçekleştirilmemiştir [s. 3, 79].</p>
+  </section>
+  <h3>Danıştay Ölçütlerine Göre Bilimsel ve Hukuki Bulgular</h3><section class="card"><div class="hit"><span class="badge urgent">YÜKSEK</span> <span class="badge">Kümülatif Etki</span> <strong>Bölgesel Birikimli Etki (Kumulatif Etki) Değerlendirmesinin Bulunmaması</strong> <span class="pno">[s. 3, s. 79]</span> — Mersin Organize Sanayi Bölgesi 4. Bölge ilave alanı içerisinde halihazırda faaliyette olan ve planlanan diğer sanayi tesisleri ile birlikte yaratacakları kümülatif çevresel yüklerin değerlendirildiği nicel veya nitel bir analiz raporda yer almamaktadır.</div>
+<div class="hit"><span class="badge urgent">YÜKSEK</span> <span class="badge">Flora / Fauna &amp; Mevsimsellik</span> <strong>Flora ve Fauna Arazi Çalışmalarının ve Mevsimsel Envanterin Eksikliği</strong> <span class="pno">[s. 3, s. 47, s. 48]</span> — Proje alanının yer aldığı ekosistemde gerçekleştirilmesi zorunlu olan çok mevsimli flora ve fauna saha gözlemleri yapılmamış, canlı türlerine ilişkin somut saha verilerine dosyada yer verilmemiştir.</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">5403 / Orman / Korunan Alan</span> <strong>Arkeolojik Sit Alanları ile Yakın Çevre Etkileşimi</strong> <span class="pno">[s. 48, s. 49, s. 50]</span> — Adana Kültür Varlıklarını Koruma Bölge Kurulu Müdürlüğü&#x27;nün yazısında yakın çevredeki bazı parsellerin 3. Derece Arkeolojik Sit Alanı olarak tescilli olduğu belirtilmesine rağmen, projenin bu alanlara ve kültürel mirasa olası etkileri detaylı olarak incelenmemiştir.</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Su / Hidrojeoloji</span> <strong>Yeraltı Suyu ve Altyapı Bağlantı Belirsizlikleri</strong> <span class="pno">[s. 28, s. 69]</span> — İşletme aşamasında OSB kanalizasyon altyapısının tamamlanamaması durumunda sızdırmaz fosseptik kullanılacağı ve vidanjörle atık su bertaraf edileceği belirtilmiş olup, altyapı gecikmelerine dair hidrojeolojik risk analizi eksiktir.</div></section>
+  <h3>Öne Çıkan Sayısal Bulgular</h3><table class="kv"><tr><th>Toplam Yatırım Bedeli</th><td>455.916.567 TL <span class="pno">[s. 2]</span></td></tr>
+<tr><th>Toplam Parsel Alanı</th><td>16.260,74 m2 <span class="pno">[s. 7]</span></td></tr>
+<tr><th>ÇED / Tesis Kapalı Alanı</th><td>8.169,64 m2 <span class="pno">[s. 7]</span></td></tr>
+<tr><th>İşletme Aşaması Personel Sayısı</th><td>20 kişi <span class="pno">[s. 7]</span></td></tr>
+<tr><th>İnşaat Aşaması Personel Sayısı</th><td>15 kişi <span class="pno">[s. 7]</span></td></tr>
+<tr><th>Kabak Çekirdeği İşleme Kapasitesi</th><td>2,5 ton/gün <span class="pno">[s. 12]</span></td></tr>
+<tr><th>Ekstrakte Edilen Yağ Miktarı (Kabak Çekirdeği)</th><td>1125 kg/gün <span class="pno">[s. 12]</span></td></tr>
+<tr><th>Elde Edilen Protein/Katı Fraksiyon</th><td>1375 kg/gün <span class="pno">[s. 12]</span></td></tr>
+<tr><th>Makine-Ekipman Maliyeti</th><td>282.264.217 TL <span class="pno">[s. 18]</span></td></tr>
+<tr><th>En Yakın Yapıya Mesafe</th><td>265 m (güneybatıdaki Evci Mahallesi yapısı) <span class="pno">[s. 48]</span></td></tr></table>
+  
+  
+  <h3>Keşif ve Bilirkişi Heyeti İçin Önerilen Uzmanlık Alanları</h3><section class="card"><div class="badges" style="margin-top:0;"><span class="badge info">Çevre Mühendisi</span> <span class="badge info">Hidrojeoloji Mühendisi</span> <span class="badge info">Ziraat Mühendisi</span> <span class="badge info">Şehir ve Bölge Plancısı</span> <span class="badge info">Biyolog</span></div><p class="sub" style="margin-top:8px;">Bilirkişi heyetinin tek sayıda uzmandan oluşması, proje niteliğine uygun tüm disiplinleri içermesi ve plan kararlarıyla ilişkili davalarda Şehir ve Bölge Plancısına yer verilmesi gerekmektedir.</p></section>
+  <div class="section-head-row" style="margin-top:16px;"><h3 style="margin:0;">HKT Tutanakları ve Bilirkişi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card" style="margin-top:8px;"><ul style="margin:0;padding-left:20px;"><li>Mersin Organize Sanayi Bölgesi 4. Bölge içerisindeki diğer sanayi tesislerinin emisyon, atıksu ve gürültü yükleri dikkate alınarak bölge genelinde kümülatif bir çevresel etki değerlendirmesi neden yapılmamıştır? <span class="pno">[s. 3, s. 79]</span></li>
+<li>Proje alanının yakın çevresinde bulunan 3. Derece Arkeolojik Sit alanları ile kültürel varlıklar üzerinde inşaat ve işletme faaliyetlerinin yaratacağı titreşim ve toz etkilerine karşı hangi koruma önlemleri alınacaktır? <span class="pno">[s. 48, s. 49, s. 50]</span></li>
+<li>OSB kanalizasyon altyapısının faaliyete geçiş sürecinde tamamlanamaması durumunda öngörülen sızdırmaz fosseptik hacminin 20 personellik evsel atıksu yükünü uzun vadede nasıl karşılayacağı ve yeraltı suyu kirliliği riski nasıl denetlenecektir? <span class="pno">[s. 28, s. 69]</span></li></ul><textarea id="qs-plain" style="display:none;">1. Mersin Organize Sanayi Bölgesi 4. Bölge içerisindeki diğer sanayi tesislerinin emisyon, atıksu ve gürültü yükleri dikkate alınarak bölge genelinde kümülatif bir çevresel etki değerlendirmesi neden yapılmamıştır? [s. 3, s. 79]
+2. Proje alanının yakın çevresinde bulunan 3. Derece Arkeolojik Sit alanları ile kültürel varlıklar üzerinde inşaat ve işletme faaliyetlerinin yaratacağı titreşim ve toz etkilerine karşı hangi koruma önlemleri alınacaktır? [s. 48, s. 49, s. 50]
+3. OSB kanalizasyon altyapısının faaliyete geçiş sürecinde tamamlanamaması durumunda öngörülen sızdırmaz fosseptik hacminin 20 personellik evsel atıksu yükünü uzun vadede nasıl karşılayacağı ve yeraltı suyu kirliliği riski nasıl denetlenecektir? [s. 28, s. 69]</textarea></section>
+  <p class="sub" style="margin-top:10px;"><em>İnceleme sınırları:</em> Proje Tanıtım Dosyası eklerinde yer alan bazı onaylı kurum görüşleri, vaziyet planları ve proforma faturalar (Ek-6, Ek-7, Ek-8, Ek-9, Ek-10) metin dışı taranmış belgeler veya hariç tutulan sayfalar olduğundan, bu eklerin içerdiği idari izin belgeleri detaylı olarak incelenememiştir.</p>
+
+
+  <h2>Konum Haritası ve 3 km Çevre Taraması</h2>
+  <div class="map-box">
+    <div id="digest-map"></div>
+    <div class="map-bar"><span>PDF metninden çıkarılan kesin proje koordinatları (18 nokta, datum: UTM-Z36/ED50, sayfa: s.19, s.20).</span></div>
+  </div>
+  
+
+  <h2>Ham Kayıt ve Derin Teknik Ekler</h2>
+  <details class="accordion">
+    <summary>Resmi Duyuru Metni (Bakanlık İlanı)</summary>
+    <div class="accordion-body"><blockquote>MERSİN ili AKDENİZ,  ilcesinde MERSİN ili AKDENİZ,  ilcesi Mersin İli, Akdeniz İlçesi, Evci Mahallesi, Mersin Organize Sanayi Bölgesi 4.Bölge İlave Alanda (13425 Ada, 6 Parsel) mevkiindeki Arıç Lojistik İthalat İhracat Ticaret ve Sanayi Limited Şirketi tarafından yapılması planlanan Süperkritik Üzüm Çekirdeği Yağı, Kabak Çekirdeği Yağı, Ay Çekirdeği Yağı Ekstraksiyonu Tesisi ve Soğuk Hava Deposu projesi ile ilgili olarak Bakanlığımıza sunulan PTD Dosyası incelenmiş ve değerlendirilmiştir  ÇED Yönetmeliği&#x27;nin 17. maddesi gereğince Süperkritik Üzüm Çekirdeği Yağı, Kabak Çekirdeği Yağı, Ay Çekirdeği Yağı Ekstraksiyonu Tesisi ve Soğuk Hava Deposu projesi&#x27;ne Valiliğimizce &#x27;ÇED Olumlu (Kapsam Ek-2)&#x27; kararı verilmiştir.</blockquote></div>
+  </details>
+  <details class="accordion">
+    <summary>Otomatik Metin Taraması (9 Deterministik Kontrol)</summary>
+    <div class="accordion-body">
+      <table class="kv" style="margin-top:0;"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Literatür taraması ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
+<tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kümülatif etki değerlendirmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Yeraltı suyu, akifer veya hidrojeoloji ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
+<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
+<tr><th>Kurum görüşleri (DSİ, İl Tarım, OGM, MAPEG)</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Deprem, fay hattı veya jeoteknik stabilite ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr></table>
+      <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik taramaya dahil edilmemiştir.</p>
+    </div>
+  </details>
+  <details class="accordion">
+    <summary>Sayfa Kaynaklı Ham Alıntılar (7 Teknik Başlık)</summary>
+    <div class="accordion-body"><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(35 sayfa: s.7, s.8, s.10, s.12, s.14, s.15, s.16, s.18, s.19, s.20, s.21, s.22, s.24, s.25 (+21 sayfa))</span></h3><div class="hit"><span class="pno">[s. 7]</span> <code>260,74 m2</code> — …u” projesi yapılması ve işletilmesi planlanmaktadır. Mersin Organize Sanayi Bölgesi sınırları içindeki toplamda 16.260,74 m2 yüzölçümlü 13425 ada, 6 numaralı parsel, ARIÇ LOJİSTİK İTHALAT İHRACAT TİCARET VE SANAYİ LİMİTED ŞİRKETİ tarafından a…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>169,64 m2</code> — …tadır. Planlanan tesis ÇED alanı; süperkritik üretim tesisi, soğuk hava deposu ve idari bina olmak üzere toplamda 8.169,64 m2 olup, 13425 Ada, 6 Parsel üzerinde Mersin Organize Sanayi Bölgesi 4.Bölge ilave alan içerisinde arazi hazırlık ve inşa…</div>
+<div class="hit"><span class="pno">[s. 8]</span> <code>utm</code> — …ağı ve proteini üretilmesi planlanmaktadır. Sisteme günlük 2,5 ton kabak çekirdeği yüklenecektir. Eğer ürün yaş ise kurutma yapıldıktan sonra kırma işlemi ile toz haline getirilecektir. Günlük 2,5 ton kabak çekirdeği kuru hammadde (üzüm…</div>
+<div class="hit"><span class="pno">[s. 10]</span> <code>2,75 km</code> — …an OSB 4.Bölge ilave alan yoluna ayrılan yol ile sağlanacaktır. OSB’nin içerisinde yer alan tesisin kuşuçuşu yaklaşık 2,75 km güneydoğusunda D-400 karayolu ile kuşuçuşu yaklaşık 2,44 km doğusunda OSB 4.bölge ilave alan yol ayrımı bulunmaktadır.…</div>
+<div class="hit"><span class="pno">[s. 10]</span> <code>2,44 km</code> — …tır. OSB’nin içerisinde yer alan tesisin kuşuçuşu yaklaşık 2,75 km güneydoğusunda D-400 karayolu ile kuşuçuşu yaklaşık 2,44 km doğusunda OSB 4.bölge ilave alan yol ayrımı bulunmaktadır. Proje tesis alanına en yakın yapı, kuşuçuşu yaklaşık 265 m…</div>
+<div class="hit"><span class="pno">[s. 12]</span> <code>utm</code> — …madde, ekstraksiyon performansının iyileştirilmesi amacıyla yaklaşık 40–50 °C sıcaklık aralığında kurutulmaktadır. Kurutma ile hammaddenin nem</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(17 sayfa: s.9, s.26, s.27, s.28, s.29, s.36, s.37, s.40, s.53, s.67, s.69, s.70, s.76, s.157 (+3 sayfa))</span></h3><div class="hit"><span class="pno">[s. 9]</span> <code>1000 ton/gün</code> — …Gıda Endüstrisi, Tarım ve Hayvancılık; 7.11 Bitkisel ürünlerden yağ üretimi 1,2 7.11.1 Yağlı tohum işleme kapasitesi 1000 ton/gün ’den az olan ham yağ üretim tesisleri 1,2 kapsamındadır. Projenin inşaat ve işletme aşamasında; 2872 sayılı “Çevre…</div>
+<div class="hit"><span class="pno">[s. 26]</span> <code>Atıksu</code> — …i Bölgesi şebeke hattından karşılanacaktır. Personel içme ve kullanma suyu ihtiyacının hesaplanmasında, TUİK Su ve Atıksu istatistiklerinde güncel verilere göre bir kişinin günlük su ihtiyacı 255 lt/gün1 kabul edilmiştir. Personel İçme v…</div>
+<div class="hit"><span class="pno">[s. 26]</span> <code>3,82 m3/gün</code> — …u İhtiyacı = Personel Sayısı x Su İhtiyacı (lt/kişi-gün) = 15 kişi x 255 lt/gün = 3.825 lt/gün = 3,82 m3/gün Proje inşaat aşamasında, 17.02.2005 tarih ve 25730 sayılı (Değişik; R.G. 20.10.2016 tarih ve 29863 sayı) Resmi Gaze…</div>
+<div class="hit"><span class="pno">[s. 26]</span> <code>5,1 m3/gün</code> — …yu İhtiyacı = Personel Sayısı x Su İhtiyacı (lt/kişi-gün) = 20 kişi x 255 lt/gün = 5100 lt/gün = 5,1 m3/gün Proje işletme aşamasında, 17.02.2005 tarih ve 25730 sayılı (Değişik; R.G. 20.10.2016 tarih ve 29863 sayı) Resmi Gaz…</div>
+<div class="hit"><span class="pno">[s. 27]</span> <code>5 m3/gün</code> — …hazırlık ve inşaat çalışmaları kapsamında proje alanı içerisinde araç hareketleriyle oluşan tozumayı önlemek amacıyla 5 m3/gün su kullanımı öngörülmüştür. Gerekli olan su Organize Sanayi Bölgesi altyapı çalışmaları tamamlanmasıyla birlikte şebek…</div>
+<div class="hit"><span class="pno">[s. 27]</span> <code>atıksu</code> — …vı Atıklar Tesisin arazi hazırlık ve inşaat aşaması ile işletme faaliyeti kapsamında çalışacak personelden kaynaklı atıksu oluşumu söz konusu olacaktır.</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(8 sayfa: s.3, s.48, s.49, s.50, s.51, s.53, s.67, s.141)</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>orman alanı</code> — ….... 44 BÖLÜM II: PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ: 47 a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri. ..............................…</div>
+<div class="hit"><span class="pno">[s. 48]</span> <code>orman alanı</code> — …47 BÖLÜM II: PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ: a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri. Mersin İli, Akdeniz İlçesi,…</div>
+<div class="hit"><span class="pno">[s. 49]</span> <code>Arkeolojik Sit</code> — …talkoyak Mevkiinde bulunan 13428 ada 7 parsel, 13429 ada 1 parselin tapu kütüğünün beyanlar hanesine &quot;Tamamı 3. Derece Arkeolojik Sit Alanıdır&quot; olduğuna dair; 13420 ada 1 ve 5 parsellerin tapu kütüğünün beyanlar hanesine &quot;Bir Kısmı 3. Derece Arkeoloji…</div>
+<div class="hit"><span class="pno">[s. 50]</span> <code>Arkeolojik Sit</code> — …talkoyak Mevkiinde bulunan 13428 ada 7 parsel, 13429 ada 1 parselin tapu kütüğünün beyanlar hanesine &quot;Tamamı 3. Derece Arkeolojik Sit Alanıdır&quot; olduğuna dair; 13420 ada 1 ve 5 parsellerin tapu kütüğünün beyanlar hanesine &quot;Bir Kısmı 3. Derece Arkeoloji…</div>
+<div class="hit"><span class="pno">[s. 50]</span> <code>Özel Çevre Koruma</code> — …liği’nde tanımlanan alanlar, Bulunmamaktadır. f) Çevre Kanunu’nun 9 uncu maddesi uyarınca Cumhurbaşkanı tarafından “Özel Çevre Koruma Bölgeleri” olarak tespit ve ilan edilen alanlar, Mersin il sınırları içerisinde Silifke ilçesi sınırlarında Göksu De…</div>
+<div class="hit"><span class="pno">[s. 51]</span> <code>Özel Çevre Koruma</code> — …ı, Kabak Çekirdeği Yağı, Ay Çekirdeği Yağı Ekstraksiyonu Tesisi ve Soğuk Hava Deposu 50 Şekil 10. Türkiye’deki Özel Çevre Koruma (ÖÇK) Bölgeleri g) Boğaziçi Kanunu’na göre koruma altına alınan alanlar, Bulunmamaktadır. ğ) Orman Kanunu uyarın…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(12 sayfa: s.6, s.49, s.51, s.53, s.58, s.63, s.64, s.65, s.66, s.67, s.68, s.164)</span></h3><div class="hit"><span class="pno">[s. 6]</span> <code>CITES</code> — …Tamamlamış Lastik Leq Eşdeğer Gürültü Seviyesi Lp Ses Şiddeti Seviyesi dBA A-ağırlıklı desibel PM Partikül Madde CITES Nesli Tehlikede Olan Yabani Hayvan ve Bitki Türlerinin Uluslararası Ticaretine İlişkin Sözleşme IUCN Nesli Tükenme Te…</div>
+<div class="hit"><span class="pno">[s. 6]</span> <code>IUCN</code> — …Partikül Madde CITES Nesli Tehlikede Olan Yabani Hayvan ve Bitki Türlerinin Uluslararası Ticaretine İlişkin Sözleşme IUCN Nesli Tükenme Tehlikesi Altında Olan Türlerin Kırmızı Listesi m2 metrekare m³ metreküp km kilometre sn saniye SAN.…</div>
+<div class="hit"><span class="pno">[s. 49]</span> <code>mevsimsel</code> — …da ilgili mülkü amire bilgi verilecektir. Su Yüzeyi vb. Tesis alanının içinden ve yakın çevresinden geçen sürekli/mevsimsel akış gösteren dere ve kuru dere mevcut değildir. b. Ek-5’deki Duyarlı Yöreler Listesi Dikkate Alınarak Korunması…</div>
+<div class="hit"><span class="pno">[s. 51]</span> <code>BERN Sözleşmesi</code> — …özleşmeler Uyarınca Korunması Gerekli Alanlar a) “Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi” (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan “Önemli Deniz Kaplumbağası Üreme Alanları”nda belirtilen I. ve II. Koruma B…</div>
+<div class="hit"><span class="pno">[s. 53]</span> <code>endemik</code> — …r. d) Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…</div>
+<div class="hit"><span class="pno">[s. 58]</span> <code>mevsimsel</code> — …Jeolojik Formasyon Haritası Hidrojeolojik Özellikler Tesis alanının içinden ve yakın çevresinden geçen sürekli/mevsimsel akış gösteren dere ve kuru dere mevcut değildir. Akarsular Mersin il yüzölçümünün %87&#x27;si dağlıktır. İlin en y…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(42 sayfa: s.6, s.18, s.31, s.34, s.35, s.39, s.40, s.41, s.42, s.43, s.44, s.45, s.46, s.56 (+28 sayfa))</span></h3><div class="hit"><span class="pno">[s. 6]</span> <code>Gürültü</code> — …Yağı Ekstraksiyonu Tesisi ve Soğuk Hava Deposu v KISALTMALAR ÇED Çevresel Etki Değerlendirmesi ÇGKY Çevresel Gürültü Kontrol Yönetmeliği SKHKKY Sanayi Kaynaklı Hava Kirliliğinin Kontrolü Yönetmeliği HKKD Hava Kirlenmesi Katkı Değeri…</div>
+<div class="hit"><span class="pno">[s. 18]</span> <code>CO2</code> — …Isıtma/Soğutma Eşanjörleri, Back Pressure Regülatörleri (BPR), Seperatör Toplama Kapları ve seviye göstergeleri, Sıvı CO2 Depolama Tankı, CO2 Chiller / Soğutma Ünitesi, Yüksek Basınç CO2 Pompası, Co-solvent Pompası, Co-solvent Tankı ve Fil…</div>
+<div class="hit"><span class="pno">[s. 31]</span> <code>Tehlikeli Atık</code> — …0.03.2010 Tarih ve 27537 Sayı, 05.11.2013 Tarih ve 28812 Sayı, 23.12.2014 Tarih ve 29214 Sayı) hükümleri doğrultusunda Tehlikeli Atık Geçici Depolama Alanında biriktirilecektir. Biriktirilen atıklar lisanslı geri kazanım firmalarına verilerek bertarafı…</div>
+<div class="hit"><span class="pno">[s. 34]</span> <code>Tehlikeli Atık</code> — …e günlük olarak hazırlanarak karşılanacaktır. Tesiste oluşması muhtemel bitkisel atık yağlar tesis bünyesinde bulunan Tehlikeli Atık Geçici Depolama Alanında ağzı kapalı kaplarda biriktirilecektir. Tesis işletme aşamasında, bitkisel atık yağ oluşmas…</div>
+<div class="hit"><span class="pno">[s. 35]</span> <code>tehlikeli atık</code> — …içeren atıklar lisanslı geri kazanım/bertaraf tesislerine gönderilecektir. Faaliyet kapsamında ortaya çıkacak tehlikeli atık kapsamındaki atıklar cinslerine göre ayrılarak, sızdırmazlığı sağlanmış, üstü kapalı ve her atık türü için bölmeleri b…</div>
+<div class="hit"><span class="pno">[s. 39]</span> <code>toz emisyon</code> — …7 0,35 kg/km-araç Depolama 5,8 2,9 kg toz/ha gün Arazi hazırlık ve i nş aat faaliyeti sırasında oluşabilecek toz emisyon debileri aşağıda verilmiştir.</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(14 sayfa: s.2, s.3, s.8, s.9, s.10, s.11, s.13, s.16, s.17, s.18, s.36, s.42, s.76, s.177)</span></h3><div class="hit"><span class="pno">[s. 2]</span> <code>PROJE BEDELİ</code> — …: Süperkritik Üzüm Çekirdeği Yağı, Kabak Çekirdeği Yağı, Ay Çekirdeği Yağı Ekstraksiyonu Tesisi ve Soğuk Hava Deposu PROJE BEDELİ: 455.916.567 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİ): Mersin İli, Akdeniz İlçesi, Evci Mahall…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>455.916.567 TL</code> — …Üzüm Çekirdeği Yağı, Kabak Çekirdeği Yağı, Ay Çekirdeği Yağı Ekstraksiyonu Tesisi ve Soğuk Hava Deposu PROJE BEDELİ: 455.916.567 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİ): Mersin İli, Akdeniz İlçesi, Evci Mahallesi, Mersin Organ…</div>
+<div class="hit"><span class="pno">[s. 3]</span> <code>kapasite</code> — …n ve yerin alternatifleri (proje teknolojisinin ve proje alanının seçilme nedenleri). . 10 b. Projenin iş akım şeması, kapasitesi, kapladığı alan, yatırım bedeli, teknolojisi, çalışacak personel sayısı. ...........................................…</div>
+<div class="hit"><span class="pno">[s. 8]</span> <code>kapasite</code> — …iste hammadde olarak kullanılması ile yüksek saflıkta bitkisel yağ üretilmesi planlanmaktadır. Tesis günlük 2,5 ton kapasiteli süperkritik ekstraksiyon tesisidir. Hammadde olarak ay çekirdeği, kabak çekirdeği, üzüm çekirdeği gibi ürünlerin işl…</div>
+<div class="hit"><span class="pno">[s. 9]</span> <code>kapasite</code> — …meler; 7. Gıda Endüstrisi, Tarım ve Hayvancılık; 7.11 Bitkisel ürünlerden yağ üretimi 1,2 7.11.1 Yağlı tohum işleme kapasitesi 1000 ton/gün ’den az olan ham yağ üretim tesisleri 1,2 kapsamındadır. Projenin inşaat ve işletme aşamasında; 2872…</div>
+<div class="hit"><span class="pno">[s. 10]</span> <code>455.916.567 TL</code> — …edeli+çevre düzenlemesi/satıh kaplama vs. makine-ekipman giderleri, ve diğer (harç bedeli vs.) beklenmeyen giderlerle 455.916.567 TL olarak belirlenmiştir.</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Proje Parçalama, Kapasite Artışı ve Eşik Değerler <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(12 sayfa: s.7, s.19, s.24, s.36, s.39, s.48, s.77, s.88, s.105, s.187, s.193, s.195)</span></h3><div class="hit"><span class="pno">[s. 7]</span> <code>ÇED alanı</code> — …hsis sözleşmesi yapılarak alınmıştır. Söz konusu arsa ön tahsis sözleşmesi Ek-7’ de yer almaktadır. Planlanan tesis ÇED alanı; süperkritik üretim tesisi, soğuk hava deposu ve idari bina olmak üzere toplamda 8.169,64 m2 olup, 13425 Ada, 6 Parsel…</div>
+<div class="hit"><span class="pno">[s. 19]</span> <code>ÇED alanı</code> — …Üzüm Çekirdeği Yağı, Kabak Çekirdeği Yağı, Ay Çekirdeği Yağı Ekstraksiyonu Tesisi ve Soğuk Hava Deposu 18 Tesis ÇED alanı (13425 Ada, 6 Nolu Parsel) O33-B1 Topoğrafik paftasında kalmakta olup, proje alanı koordinatları Ek-1’de ve aşağıdaki…</div>
+<div class="hit"><span class="pno">[s. 24]</span> <code>ÇED alanı</code> — …hsis sözleşmesi yapılarak alınmıştır. Söz konusu arsa ön tahsis sözleşmesi Ek-7’ de yer almaktadır. Planlanan tesis ÇED alanı; süperkritik üretim tesisi, soğuk hava deposu ve idari bina olmak üzere toplamda 8.169,64 m2 olup, 13425 Ada, 6 Parsel…</div>
+<div class="hit"><span class="pno">[s. 36]</span> <code>ÇED alanı</code> — …e İzin ve Lisans Yönetmeliği kapsamında gerekli izin ve belgeler alınacaktır. İnşaat Aşaması: Planlanan tesis ÇED alanı; süperkritik üretim tesisi, soğuk hava deposu ve idari bina olmak üzere toplamda 8.169,64 m2 olup, 13425 Ada, 6 Parsel…</div>
+<div class="hit"><span class="pno">[s. 39]</span> <code>ÇED alanı</code> — …lge ilave alan içerisinde planlanmakta olup, OSB genelinde alanda hafriyat çalışmalarına başlanmıştır. Planlanan tesis ÇED alanı 8.169,64 m2 olup, 13425 Ada, 6 Parsel üzerinde olup, bu alanda arazi hazırlık ve inşaat çalışmaları yapılacaktır. Ç…</div>
+<div class="hit"><span class="pno">[s. 48]</span> <code>ÇED alanı</code> — …hsis sözleşmesi yapılarak alınmıştır. Söz konusu arsa ön tahsis sözleşmesi Ek-7’ de yer almaktadır. Planlanan tesis ÇED alanı; süperkritik üretim tesisi, soğuk hava deposu ve idari bina olmak üzere toplamda 8.169,64 m2 olup, 13425 Ada, 6 Parsel…</div></div></div>
+  </details>
+  <details class="accordion">
+    <summary>Belge Bölüm Haritası (9 başlık)</summary>
+    <div class="accordion-body"><ul style="margin:0;padding-left:20px;"><li><span class="pno">[s. 3]</span> BÖLÜM III: PROJENİN İNŞAAT VE İŞLETME AŞAMASINDA ÇEVRESEL ETKİLERİ,</li>
+<li><span class="pno">[s. 7]</span> PROJENİN TEKNİK OLMAYAN ÖZETİ:</li>
+<li><span class="pno">[s. 11]</span> BÖLÜM I: PROJENİN ÖZELLİKLERİ:</li>
+<li><span class="pno">[s. 48]</span> BÖLÜM II:</li>
+<li><span class="pno">[s. 69]</span> BÖLÜM III: PROJENİN İNŞAAT VE İŞLETME AŞAMASINDA ÇEVRESEL</li>
+<li><span class="pno">[s. 80]</span> BÖLÜM IV: KÜMÜLATİF ETKİ DEĞERLENDİRME</li>
+<li><span class="pno">[s. 81]</span> BÖLÜM V: ÇEVRESEL VE SOSYAL EYLEM PLANI</li>
+<li><span class="pno">[s. 86]</span> BÖLÜM VI: NOTLAR, KAYNAKLAR ve EKLER:</li>
+<li><span class="pno">[s. 185]</span> ÇEVRESEL VE SOSYAL YÖNETİM PLANI</li></ul></div>
+  </details>
+
+  <div class="notice">
+    Bu sayfa, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın kamuya açık <code>eced-duyuru.csb.gov.tr</code> duyuru portalındaki kayıtlar esas alınarak bilgilendirme amacıyla hazırlanmıştır. Alıntıların tamamı 1 tabanlı PDF sayfa numarasıyla (<code>[s. N]</code>) gösterilmektedir. Yasal sürelerin ve hukuki başvuru yollarının yetkili hukukçular tarafından teyit edilmesi gerekir.
+  </div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+
+(() => {
+  const root = document.documentElement;
+  const saved = localStorage.getItem('eced_theme');
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  function isDarkNow() {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return cur ? cur === 'dark' : prefersDark;
+  }
+  window.__ecedIsDark = isDarkNow;
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function syncLabel() {
+    btn.textContent = isDarkNow() ? 'Açık Tema' : 'Koyu Tema';
+  }
+  syncLabel();
+  btn.addEventListener('click', () => {
+    const next = isDarkNow() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('eced_theme', next);
+    syncLabel();
+    window.dispatchEvent(new CustomEvent('eced-theme-change', { detail: { dark: next === 'dark' } }));
+  });
+})();
+
+
+function createCartoTileLayer(isDark) {
+  const style = isDark ? 'dark_all' : 'light_all';
+  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+    maxZoom: 19,
+    subdomains: 'abcd',
+    attribution: '&copy; OpenStreetMap &copy; CARTO'
+  });
+}
+
+(() => {
+  const copyBtn = document.getElementById('copy-qs-btn');
+  const qsTxt = document.getElementById('qs-plain');
+  if (copyBtn && qsTxt) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(qsTxt.value);
+        copyBtn.textContent = 'Kopyalandı ✓';
+        setTimeout(() => (copyBtn.textContent = 'Soruları Kopyala'), 2200);
+      } catch (e) {
+        copyBtn.textContent = 'Kopyalanamadı';
+      }
+    });
+  }
+  if (typeof L === 'undefined') return;
+  const g = {"lat": 36.89442, "lon": 34.78388, "zoom": 12, "precision": "exact_pdf", "points": [[36.8946, 34.78282], [36.89536, 34.78363], [36.89491, 34.78417], [36.89425, 34.78496], [36.89421, 34.78491], [36.89388, 34.78368], [36.89392, 34.7835], [36.89464, 34.78301], [36.89417, 34.78416], [36.89427, 34.78404], [36.89411, 34.78364], [36.89426, 34.78384], [36.89418, 34.78393], [36.89422, 34.78422], [36.89493, 34.78337], [36.89403, 34.78374], [36.89514, 34.78365], [36.89444, 34.7845]], "gis_markers": [], "label": "MERSİN / AKDENİZ — Süperkritik Üzüm Çekirdeği Yağı, Kabak Çekirdeği Yağı, Ay Çekirdeği Yağı Ekstraksiyonu Tes"};
+  const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
+  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
+  window.addEventListener('eced-theme-change', (ev) => {
+    map.removeLayer(tileLayer);
+    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
+  });
+  if (g.precision === 'exact_pdf') {
+    L.circle([g.lat, g.lon], {
+      radius: 3000,
+      color: '#d97706',
+      weight: 1.5,
+      dashArray: '6 5',
+      fillColor: '#d97706',
+      fillOpacity: 0.04
+    }).bindTooltip('3 km yasal referans çemberi (3573 m.20)').addTo(map);
+    for (const gm of (g.gis_markers || [])) {
+      L.circleMarker([gm.lat, gm.lon], {
+        radius: 5,
+        color: '#ffffff',
+        fillColor: gm.color,
+        fillOpacity: 0.9,
+        weight: 1.5
+      }).bindPopup(gm.label).addTo(map);
+    }
+  }
+  if (g.precision === 'exact_pdf' && g.points.length > 1) {
+    const latlngs = g.points.map(p => [p[0], p[1]]);
+    const poly = L.polyline(latlngs, { color: '#175cd3', weight: 3, opacity: 0.85 }).addTo(map);
+    for (const ll of latlngs.slice(0, 30)) {
+      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#d92d20', fillOpacity: 0.9, weight: 1 }).addTo(map);
+    }
+    map.fitBounds(poly.getBounds().pad(0.25));
+  } else {
+    L.circleMarker([g.lat, g.lon], {
+      radius: g.precision === 'exact_pdf' ? 8 : 11,
+      color: '#ffffff',
+      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#175cd3',
+      fillOpacity: g.precision === 'exact_pdf' ? 0.9 : 0.45,
+      weight: 2
+    }).bindPopup(g.label).addTo(map).openPopup();
+  }
+})();
+</script>
+</body>
+</html>

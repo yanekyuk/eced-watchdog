@@ -1,0 +1,921 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>e-ÇED Ön Özet #59452 — KOCAELİ / BAŞİSKELE</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+:root {
+  --bg: #f8f9fb;
+  --surface: #ffffff;
+  --surface-subtle: #f2f4f7;
+  --border: #e4e7ec;
+  --border-strong: #cfd5df;
+  --text: #101828;
+  --text-secondary: #344054;
+  --muted: #667085;
+  --accent: #175cd3;
+  --accent-soft: #eff8ff;
+  --red: #b42318;
+  --red-soft: #fef3f2;
+  --red-border: #fecdca;
+  --amber: #b54708;
+  --amber-soft: #fffaeb;
+  --amber-border: #fedf89;
+  --green: #067647;
+  --green-soft: #ecfdf3;
+  --green-border: #abefc6;
+  --violet: #5925dc;
+  --violet-soft: #f4f3ff;
+  --violet-border: #d9d6fe;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f131a;
+    --surface: #161b24;
+    --surface-subtle: #1d2430;
+    --border: #273040;
+    --border-strong: #39465c;
+    --text: #eaedf2;
+    --text-secondary: #c5cdd9;
+    --muted: #8a95a6;
+    --accent: #6cb0ff;
+    --accent-soft: rgba(108, 176, 255, 0.14);
+    --red: #ff857a;
+    --red-soft: rgba(248, 81, 73, 0.13);
+    --red-border: rgba(248, 81, 73, 0.36);
+    --amber: #f0b849;
+    --amber-soft: rgba(210, 153, 34, 0.13);
+    --amber-border: rgba(210, 153, 34, 0.36);
+    --green: #4cc38a;
+    --green-soft: rgba(63, 185, 80, 0.13);
+    --green-border: rgba(63, 185, 80, 0.36);
+    --violet: #bda3ff;
+    --violet-soft: rgba(158, 119, 237, 0.15);
+    --violet-border: rgba(158, 119, 237, 0.38);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f131a;
+  --surface: #161b24;
+  --surface-subtle: #1d2430;
+  --border: #273040;
+  --border-strong: #39465c;
+  --text: #eaedf2;
+  --text-secondary: #c5cdd9;
+  --muted: #8a95a6;
+  --accent: #6cb0ff;
+  --accent-soft: rgba(108, 176, 255, 0.14);
+  --red: #ff857a;
+  --red-soft: rgba(248, 81, 73, 0.13);
+  --red-border: rgba(248, 81, 73, 0.36);
+  --amber: #f0b849;
+  --amber-soft: rgba(210, 153, 34, 0.13);
+  --amber-border: rgba(210, 153, 34, 0.36);
+  --green: #4cc38a;
+  --green-soft: rgba(63, 185, 80, 0.13);
+  --green-border: rgba(63, 185, 80, 0.36);
+  --violet: #bda3ff;
+  --violet-soft: rgba(158, 119, 237, 0.15);
+  --violet-border: rgba(158, 119, 237, 0.38);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Unified Sticky Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.topbar-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.96rem;
+  letter-spacing: -0.01em;
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+.brand-scope {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+.nav-link {
+  padding: 5px 10px;
+  border-radius: 7px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-link:hover { background: var(--surface-subtle); text-decoration: none; color: var(--text); }
+.nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.theme-btn {
+  margin-left: 4px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.79rem;
+  font-weight: 500;
+}
+.theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
+
+/* Layout */
+.wrap { max-width: 1120px; margin: 0 auto; padding: 22px 20px 72px; }
+.wrap.narrow { max-width: 900px; }
+h1 { margin: 0 0 6px; font-size: 1.5rem; line-height: 1.25; letter-spacing: -0.02em; }
+h2 { margin: 28px 0 10px; font-size: 1.15rem; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { margin: 16px 0 8px; font-size: 0.96rem; line-height: 1.35; }
+.sub { color: var(--muted); font-size: 0.91rem; margin: 0; }
+
+/* Compact Masthead */
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 20px;
+  margin-bottom: 16px;
+}
+.masthead-left { max-width: 720px; }
+.masthead-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.kpi-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 18px;
+  padding: 10px 16px;
+  margin-bottom: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.84rem;
+  color: var(--muted);
+  box-shadow: var(--shadow);
+}
+.kpi-item { display: inline-flex; align-items: baseline; gap: 5px; }
+.kpi-item strong {
+  color: var(--text);
+  font-size: 0.96rem;
+  font-variant-numeric: tabular-nums;
+}
+.kpi-item.accent strong { color: var(--accent); }
+.kpi-item.rev strong { color: var(--violet); }
+.kpi-sep { color: var(--border-strong); user-select: none; }
+
+/* Map Card */
+.map-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.map-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 14px;
+  padding: 9px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.map-box.collapsed .map-bar { border-bottom: none; }
+.map-box.collapsed #map { display: none; }
+.map-legend-inline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+#map { width: 100%; height: 320px; background: var(--surface-subtle); }
+#digest-map { width: 100%; height: 300px; background: var(--surface-subtle); }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+/* Streamlined Controls */
+.controls-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.controls-row + .controls-row {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.advanced-row { display: none; }
+.advanced-row.open { display: flex; }
+input[type="search"], select.filter-select {
+  padding: 7px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.87rem;
+}
+input[type="search"]:focus, select.filter-select:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+input[type="search"] { flex: 1 1 240px; }
+select.filter-select { min-width: 155px; }
+button.pill {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+button.pill:hover { background: var(--surface-subtle); color: var(--text); }
+button.pill.active { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 600; }
+button.pill.rev-pill.active { background: var(--violet); border-color: var(--violet); }
+.ctrl-right { margin-left: auto; display: flex; align-items: center; gap: 6px; }
+button.ghost-btn {
+  padding: 5px 9px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.79rem;
+  font-weight: 500;
+}
+button.ghost-btn:hover { color: var(--text); border-color: var(--border-strong); background: var(--surface-subtle); }
+
+/* Calm Two-Tier Cards */
+.list-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+.cards { display: flex; flex-direction: column; gap: 10px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 15px 18px;
+  box-shadow: var(--shadow);
+  transition: border-color 0.12s;
+}
+.card:hover { border-color: var(--border-strong); }
+.card.urgent-edge { border-left: 3px solid var(--red); }
+.card.ek1 { border-left: 3px solid var(--accent); }
+.card.has-rev { border-left: 3px solid var(--violet); }
+.card.urgent-edge.has-rev { border-left: 3px solid var(--red); }
+
+/* Tier 1: Quiet Metadata Context Row (zero boxes!) */
+.card-ctx {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 12px;
+  font-size: 0.79rem;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+.ctx-left { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.ctx-loc { color: var(--text-secondary); font-weight: 600; }
+.ctx-ek1 { color: var(--accent); font-weight: 600; }
+.ctx-geo { color: var(--green); font-weight: 500; }
+.ctx-sep { color: var(--border-strong); }
+.ctx-right { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.title { font-weight: 650; font-size: 1.01rem; line-height: 1.38; color: var(--text); margin: 0; }
+.title a { color: var(--text); }
+.title a:hover { color: var(--accent); text-decoration: none; }
+.owner-line { font-size: 0.82rem; color: var(--muted); margin: 3px 0 0; }
+
+/* Tier 2: Signal Pills (Status, Clock, Findings, Revision ONLY) */
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.badge.urgent { background: var(--red-soft); border-color: var(--red-border); color: var(--red); font-weight: 600; }
+.badge.warn { background: var(--amber-soft); border-color: var(--amber-border); color: var(--amber); font-weight: 600; }
+.badge.ok { background: var(--green-soft); border-color: var(--green-border); color: var(--green); font-weight: 600; }
+.badge.info { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
+.badge.rev { background: var(--violet-soft); border-color: var(--violet-border); color: var(--violet); font-weight: 600; }
+.badge.muted { color: var(--muted); }
+
+/* Calm 2-line Clamped Summary */
+.summary-clamp {
+  margin: 9px 0 0;
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+  line-height: 1.52;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.summary-clamp.muted { color: var(--muted); }
+
+.rev-inline {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--violet-soft);
+  border: 1px solid var(--violet-border);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+.rev-inline strong { color: var(--violet); }
+
+/* Quiet Action Row */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  font-size: 0.82rem;
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid var(--border);
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.81rem;
+}
+.btn-primary:hover { text-decoration: none; filter: brightness(1.06); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.81rem;
+  cursor: pointer;
+}
+.btn-secondary:hover { text-decoration: none; border-color: var(--border-strong); color: var(--text); }
+.quiet-link { color: var(--muted); font-weight: 500; }
+.quiet-link:hover { color: var(--accent); }
+
+/* Pagination Bar */
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.pager button {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pager button:hover { border-color: var(--accent); color: var(--accent); }
+.pager .pager-all {
+  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Digest & Guide Tables, Accordions, Callouts */
+table.kv {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.88rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+table.kv th, table.kv td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 13px;
+  text-align: left;
+  vertical-align: top;
+}
+table.kv tr:last-child th, table.kv tr:last-child td { border-bottom: none; }
+table.kv th { width: 240px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
+table.data-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.84rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+table.data-tbl th, table.data-tbl td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.data-tbl tr:last-child td { border-bottom: none; }
+code {
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.84em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+blockquote {
+  margin: 10px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface-subtle);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.89rem;
+  color: var(--text-secondary);
+}
+.callout {
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  margin: 14px 0;
+}
+.callout.rev { background: var(--violet-soft); border-color: var(--violet-border); }
+details.accordion {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 10px 0;
+  overflow: hidden;
+}
+details.accordion summary {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
+}
+details.accordion summary::-webkit-details-marker { display: none; }
+details.accordion summary::after {
+  content: "+";
+  font-size: 1.1rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+details.accordion[open] summary::after { content: "−"; }
+details.accordion[open] summary { border-bottom: 1px solid var(--border); background: var(--surface-subtle); }
+.accordion-body { padding: 14px 16px; }
+.timeline {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid var(--border-strong);
+}
+.timeline li { position: relative; margin: 0 0 9px; padding-left: 8px; font-size: 0.86rem; }
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+}
+.hit { margin: 8px 0; font-size: 0.87rem; line-height: 1.55; }
+.pno { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.notice {
+  margin-top: 32px;
+  padding: 13px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.toc-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 20px; }
+.toc-pills a {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.81rem;
+  font-weight: 500;
+}
+.toc-pills a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+.step-num {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+pre.template-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.section-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+@media (max-width: 700px) {
+  table.kv th { width: 140px; }
+  #map { height: 270px; }
+  .topbar-inner { padding: 9px 14px; }
+  .wrap { padding: 16px 14px 54px; }
+}
+@media print {
+  .topbar, .no-print, #digest-map, .map-box { display: none !important; }
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .card, table.kv, table.data-tbl, details.accordion { box-shadow: none; break-inside: avoid; }
+  details.accordion { border: 1px solid #ccc; }
+  a { color: #000000; text-decoration: underline; }
+}
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      <span>Türkiye e-ÇED İzleme</span>
+      <span class="brand-scope">81 İl</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link " href="../index.html">Duyurular</a>
+      <a class="nav-link " href="../rehber.html">Kullanım Rehberi</a>
+      <a class="nav-link" href="../feed.xml">RSS</a>
+      <a class="nav-link" href="https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml" target="_blank" rel="noopener">Resmi e-ÇED ↗</a>
+      <button id="theme-toggle" class="theme-btn" type="button">Tema</button>
+    </div>
+  </div>
+</nav>
+<div class="wrap narrow">
+  <header style="margin-bottom:16px;">
+    <div class="card-ctx no-print" style="margin-bottom:8px;">
+      <span><a href="../index.html">← Duyurulara dön</a> · <strong>KOCAELİ / BAŞİSKELE</strong> · Ek-2 · Kimya</span>
+      <span><code>#59452</code> · 17.11.2026</span>
+    </div>
+    <h1>MADENİ YAĞ ÜRETİMİ</h1>
+    <p class="sub">ARMA GERİ DÖNÜŞÜM ENERJİ KİMYA SAN. VE TİC. LTD. ŞTİ</p>
+    <div class="badges" style="margin-top:10px;">
+      <span class="badge">ÇED Gerekli Değil/ÇED Olumlu</span>
+      <span class="badge ok">İYUK 20/A · 25 gün kaldı (2026-12-17)</span>
+      
+      
+    </div>
+    <div class="actions no-print" style="border-top:none;padding-top:4px;">
+      <a class="btn-primary" href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign5189075398764076476.pdf&amp;orjinalAd=e-imza.pdf&amp;yuklemeTarihi=2026-10-21" target="_blank" rel="noopener">Resmi PDF Dosyası ↗</a>
+      <a class="btn-secondary" href="http://eced.csb.gov.tr/jsp/ek1/59452" target="_blank" rel="noopener">e-ÇED Portal Kaydı ↗</a>
+      <a class="btn-secondary" href="59452.md">Markdown (.md)</a>
+      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF</button>
+    </div>
+  </header>
+
+  <table class="kv">
+    <tr><th>Hazırlayan Kuruluş</th><td>ERÇEV DANIŞMANLIK ARITMA ÇEVRE DENETİMİ İLAÇLAMA İNŞAAT SAN. VE TİC. LTD. ŞTİ.</td></tr>
+    <tr><th>Sektör / Alt Sektör</th><td>Kimya / Kimyasal Üretim Yapan Tesis Projeleri</td></tr>
+    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>17.11.2026</code> · Yükleme: <code>07/05/2026 03:25:40</code></td></tr>
+    <tr><th>PDF Kapsamı</th><td>46.91 MB · 375 sayfa (306 metin / 69 taranmış) · <a href="https://www.openstreetmap.org/?mlat=40.73034&amp;mlon=29.9817#map=12/40.73034/29.9817" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=40.73034,29.9817" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
+  </table>
+
+  <div class="card" style="padding:11px 15px;margin:14px 0;font-size:0.84rem;color:var(--text-secondary);"><span class="badge ok">v1 Arşivlendi</span> &nbsp;SHA-256: <code>f94d64d4e15c51cd…</code> · Yükleme: <code>2026-10-21</code> · <span style="color:var(--muted);">Rapor değiştirilirse sürümler arası fark (v1→v2) otomatik kaydedilir.</span></div>
+
+  
+  <h2>Bilimsel Ön Değerlendirme <span class="badge">gemini-3.5-flash-lite</span></h2>
+  <p class="sub">Resmi PDF'ten seçilen 26 sayfa (s.1, s.2, s.3, s.4, s.6, s.7, s.8, s.9, s.10, s.11, s.13, s.16, s.17, s.19, s.27, s.41, s.48, s.50, s.51, s.52, s.54, s.57, s.353, s.354, s.368, s.369) üzerinden üretilmiştir; her bulguyu <code>[s. N]</code> kaynağından doğrulayınız.</p>
+  <section class="card ek1" style="margin-top:10px;">
+    <p style="margin-top:0;"><strong>Özet:</strong> Kocaeli ili Başiskele ilçesi Yaylacık Mahallesi&#x27;nde Arma Geri Dönüşüm Enerji Kimya San. ve Tic. Ltd. Şti. tarafından yapılması planlanan Madeni Yağ Üretimi projesi, 1.613 m² kapalı olmak üzere toplam 3.100 m² alanlı sanayi parseli üzerinde gerçekleştirilecektir. Tesiste yıllık 12.824,94 ton madeni yağ üretimi yapılması ve 654,757 m³ toplam kimyasal depolanması öngörülmektedir. Proje kapsamında herhangi bir inşaat çalışması olmayıp mevcut tesis altyapısı ve kapalı bina kullanılacaktır.</p>
+    <details style="margin-top:10px;font-size:0.85rem;color:var(--muted);"><summary style="cursor:pointer;">English summary</summary><p style="margin:6px 0 0;">The proposed Lubricant Production project by Arma Geri Dönüşüm Enerji Kimya San. ve Tic. Ltd. Şti. in Başiskele, Kocaeli, will be operated on a 3,100 m² industrial plot with 1,613 m² of closed area. The facility plans to produce 12,824.94 tons/year of lubricating oils and store up to 654.757 m³ of chemical substances. No construction works are planned as the existing industrial building and infrastructure will be utilized.</p></details>
+    <div class="badges" style="margin-top:10px;">
+      <span class="badge">Saha: Yalnızca literatür taramasına dayalı</span>
+      <span class="badge">Mevsimsellik: İncelenen sayfalarda tespit edilemedi</span>
+      <span class="badge">Kümülatif: Yüzeysel veya şablon düzeyinde</span>
+    </div>
+    <p class="sub" style="margin-top:10px;color:var(--text-secondary);"><strong>Zeytinlik ve Korunan Alanlar:</strong> Proje alanı sanayi bölgesi içerisinde yer almakta olup 3573 sayılı Zeytincilik Kanunu, orman, sulak alan ve özel çevre koruma bölgeleri kapsamında kalmadığı ifade edilmiştir [s. 54, 57].<br/>Dosyada sunulan flora ve fauna değerlendirmeleri tamamen ikincil literatür taramalarına ve masa başı veri tabanlarına dayanmakta olup, arazide gerçekleştirilmiş özgün ve çok mevsimli bir ekolojik saha çalışması bulunmamaktadır [s. 48]. Kümülatif etki değerlendirmesi ise somut ve nicel bölgesel modellemeler içermeyip kalıp ifadelerle geçiştirilmiştir [s. 70, 73].</p>
+  </section>
+  <h3>Danıştay Ölçütlerine Göre Bilimsel ve Hukuki Bulgular</h3><section class="card"><div class="hit"><span class="badge urgent">YÜKSEK</span> <span class="badge">Flora / Fauna &amp; Mevsimsellik</span> <strong>Tek Mevsim veya Literatür Bazlı Yetersiz Flora-Fauna Envanteri</strong> <span class="pno">[s. 48]</span> — Proje tanıtım dosyasında bitki ve hayvan varlığına ilişkin tespitler yalnızca masa başı literatür taramalarına ve veri tabanlarına dayanmakta olup, yerinde ve mevsimsel örneklemelere dayalı gerçek bir ekolojik envanter sunulmamıştır [s. 48].</div>
+<div class="hit"><span class="badge urgent">YÜKSEK</span> <span class="badge">Kümülatif Etki</span> <strong>Eksik ve Yüzeysel Kümülatif Bölgesel Etki Değerlendirmesi</strong> <span class="pno">[s. 70, s. 73]</span> — Başiskele gibi yoğun sanayi barındıran bir bölgede kurulacak kimyasal tesis için çevredeki diğer endüstriyel tesislerin kümülatif etkileri nicel ve modellemeye dayalı olarak incelenmemiş, yalnızca genel ifadelerle geçiştirilmiştir [s. 70, 73].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Su / Hidrojeoloji</span> <strong>Yeraltı Suyu ve Akifer Koruma Önlemlerinin Eksikliği</strong> <span class="pno">[s. 41]</span> — Madeni yağ harmanlama ve kimyasal depolama faaliyetlerinin yürütüldüğü tesiste olası sızıntıların yeraltı sularına ve alıcı ortamlara etkisine yönelik detaylı bir hidrojeolojik etüd veya akifer koruma planı sunulmamıştır [s. 41].</div></section>
+  <h3>Öne Çıkan Sayısal Bulgular</h3><table class="kv"><tr><th>Toplam Parsel Alanı</th><td>3.100 m2 <span class="pno">[s. 7]</span></td></tr>
+<tr><th>Kapalı Alan</th><td>1.613 m2 <span class="pno">[s. 7]</span></td></tr>
+<tr><th>Toplam Madeni Yağ Üretim Kapasitesi</th><td>12.824,94 ton/yıl <span class="pno">[s. 7]</span></td></tr>
+<tr><th>Kimyasal Depolama Kapasitesi</th><td>654,757 m3 <span class="pno">[s. 7]</span></td></tr>
+<tr><th>Toplam Proje Bedeli</th><td>396.897 TL <span class="pno">[s. 17]</span></td></tr>
+<tr><th>Çalışan Personel Sayısı</th><td>8 kişi <span class="pno">[s. 16]</span></td></tr>
+<tr><th>Evsel Su Kullanımı</th><td>2,04 m3/gün <span class="pno">[s. 19]</span></td></tr>
+<tr><th>Endüstriyel Temizlik Suyu</th><td>24 m3/yıl <span class="pno">[s. 19]</span></td></tr>
+<tr><th>Elektrik Enerjisi Tüketimi</th><td>400.000 kW/yıl <span class="pno">[s. 19]</span></td></tr>
+<tr><th>En Yakın Yerleşim Yeri</th><td>400 m <span class="pno">[s. 41]</span></td></tr></table>
+  
+  
+  <h3>Keşif ve Bilirkişi Heyeti İçin Önerilen Uzmanlık Alanları</h3><section class="card"><div class="badges" style="margin-top:0;"><span class="badge info">Çevre Mühendisi</span> <span class="badge info">Kimya Mühendisi</span> <span class="badge info">Hidrojeoloji Mühendisi</span> <span class="badge info">Biyolog</span> <span class="badge info">Şehir ve Bölge Plancısı</span></div><p class="sub" style="margin-top:8px;">Bilirkişi heyetinin tek sayıda uzmandan oluşması, proje niteliğine uygun tüm disiplinleri içermesi ve plan kararlarıyla ilişkili davalarda Şehir ve Bölge Plancısına yer verilmesi gerekmektedir.</p></section>
+  <div class="section-head-row" style="margin-top:16px;"><h3 style="margin:0;">HKT Tutanakları ve Bilirkişi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card" style="margin-top:8px;"><ul style="margin:0;padding-left:20px;"><li>Tesiste depolanacak 654,757 m³ toplam kimyasal ve baz yağ miktarının olası bir yangın veya sızıntı anında yer altı sularına ve yakın çevredeki 400 metre mesafedeki yerleşim yerlerine etkisini önlemek için hangi somut mühendislik önlemleri alınmıştır? <span class="pno">[s. 7, s. 41]</span></li>
+<li>Dosyada yer alan flora ve fauna listelerinin tamamen masa başı literatür çalışmalarına dayandığı, bölgede herhangi bir mevsimsel saha gözlemi yapılmadığı görülmektedir; bu durum ekolojik risklerin doğru değerlendirilmesini engellemez mi? <span class="pno">[s. 48]</span></li>
+<li>Başiskele sanayi bölgesindeki diğer kimyasal ve endüstriyel tesislerin emisyon ve atık yükleri ile birilikte değerlendirildiği nicel bir kümülatif etki analizi neden dosyaya dahil edilmemiştir? <span class="pno">[s. 70, s. 73]</span></li></ul><textarea id="qs-plain" style="display:none;">1. Tesiste depolanacak 654,757 m³ toplam kimyasal ve baz yağ miktarının olası bir yangın veya sızıntı anında yer altı sularına ve yakın çevredeki 400 metre mesafedeki yerleşim yerlerine etkisini önlemek için hangi somut mühendislik önlemleri alınmıştır? [s. 7, s. 41]
+2. Dosyada yer alan flora ve fauna listelerinin tamamen masa başı literatür çalışmalarına dayandığı, bölgede herhangi bir mevsimsel saha gözlemi yapılmadığı görülmektedir; bu durum ekolojik risklerin doğru değerlendirilmesini engellemez mi? [s. 48]
+3. Başiskele sanayi bölgesindeki diğer kimyasal ve endüstriyel tesislerin emisyon ve atık yükleri ile birilikte değerlendirildiği nicel bir kümülatif etki analizi neden dosyaya dahil edilmemiştir? [s. 70, s. 73]</textarea></section>
+  <p class="sub" style="margin-top:10px;"><em>İnceleme sınırları:</em> İncelenen dosya metninde bazı ekler (örneğin vaziyet planı görselleri ve tapu/kurum görüşü eklerinin detayları) metin dışı taranmış imaj formatında olduğundan, bu eklerin içerdiği grafik ve sayısal detaylar tam olarak okunamamıştır.</p>
+
+
+  <h2>Konum Haritası ve 3 km Çevre Taraması</h2>
+  <div class="map-box">
+    <div id="digest-map"></div>
+    <div class="map-bar"><span>PDF metninden çıkarılan kesin proje koordinatları (5 nokta, datum: WGS84, sayfa: s.18).</span></div>
+  </div>
+  
+
+  <h2>Ham Kayıt ve Derin Teknik Ekler</h2>
+  <details class="accordion">
+    <summary>Resmi Duyuru Metni (Bakanlık İlanı)</summary>
+    <div class="accordion-body"><blockquote>KOCAELİ ili BAŞİSKELE,  ilcesinde KOCAELİ ili BAŞİSKELE,  ilcesi Yaylacık Mah. Metin  Sok. No:2/2, G23c05b4c pafta, 873 ada, 10 nolu parsel  (3100 M2) mevkiindeki ARMA GERİ DÖNÜŞÜM ENERJİ KİMYA SAN. VE TİC. LTD. ŞTİ tarafından yapılması planlanan MADENİ YAĞ ÜRETİMİ  projesi ile ilgili olarak Bakanlığımıza sunulan PTD Dosyası incelenmiş ve değerlendirilmiştir  ÇED Yönetmeliği&#x27;nin 17. maddesi gereğince MADENİ YAĞ ÜRETİMİ  projesi&#x27;ne Valiliğimizce &#x27;ÇED Olumlu (Kapsam Ek-2)&#x27; kararı verilmiştir.</blockquote></div>
+  </details>
+  <details class="accordion">
+    <summary>Otomatik Metin Taraması (9 Deterministik Kontrol)</summary>
+    <div class="accordion-body">
+      <table class="kv" style="margin-top:0;"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Literatür taraması ifadesi</th><td><span class="badge warn">Literatür ifadesi mevcut</span></td></tr>
+<tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Kümülatif etki değerlendirmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Yeraltı suyu, akifer veya hidrojeoloji ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge warn">Metinde geçmektedir — parçalama / 2009/7 kontrolü</span></td></tr>
+<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
+<tr><th>Kurum görüşleri (DSİ, İl Tarım, OGM, MAPEG)</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Deprem, fay hattı veya jeoteknik stabilite ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr></table>
+      <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik taramaya dahil edilmemiştir.</p>
+    </div>
+  </details>
+  <details class="accordion">
+    <summary>Sayfa Kaynaklı Ham Alıntılar (7 Teknik Başlık)</summary>
+    <div class="accordion-body"><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(40 sayfa: s.4, s.6, s.7, s.13, s.18, s.34, s.35, s.41, s.42, s.73, s.94, s.95, s.96, s.98 (+26 sayfa))</span></h3><div class="hit"><span class="pno">[s. 4]</span> <code>Koordinat</code> — …Tablo 1.6 Makine Teçhizat Listesi 9 Tablo 1.7 Tesis Proje Bedeli 11 Tablo 1.8 Proje Alanını Sınırlayan Noktaların Koordinatları 12 Tablo 1.9 Toplam Su Kullanım Miktarları 13 Tablo 1.10 Enerji Türü ve Miktarı 13 Tablo 1.11 Toplam Atık Su…</div>
+<div class="hit"><span class="pno">[s. 6]</span> <code>Koordinat</code> — …iv EKLER Ek-1 Koordinat Bilgileri Ek-2 Proje Alanı Ve Yakın Çevresinin Mevcut Arazi Kullanımını Değerlendirmek İçin; Yerleşim Alanlarının, Ul…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>3.100 m2</code> — …Metin Sok. No:2/2, G23c05b4c pafta, 873 ada, 10 nolu parsel numarasında kayıtlı 1613 m2’si kapalı olmak üzere toplam 3.100 m2 alan üzerinde “Madeni Yağ Üretimi” konusunda faaliyet gerçekleştirmeyi planlamaktadır. Tesisin mevcut 07.10.2019 tari…</div>
+<div class="hit"><span class="pno">[s. 13]</span> <code>utm</code> — …nklarında karıştırıcı ve pompa sirkülasyonu ile karıştırılır. Dinlendirme Tankları: Laboratuvar onayı alan ürünler soğutma amacıyla dinlendirme tanklarına alınır. Sıcaklık 40 0C ye düşüne kadar dinlendirme tanklarında dinlendirilir. Paket…</div>
+<div class="hit"><span class="pno">[s. 18]</span> <code>3.100 m2</code> — …Metin Sok. No:2/2, G23c05b4c pafta, 873 ada, 10 nolu parsel numarasında kayıtlı 1613 m2’si kapalı olmak üzere toplam 3.100 m2 alan üzerinde “Madeni Yağ Üretimi” konusunda faaliyet gerçekleştirmeyi planlamaktadır. Projenin gerçekleşeceği alan v…</div>
+<div class="hit"><span class="pno">[s. 18]</span> <code>2,1 km</code> — …caeli Sultan Okulu ve en yakın sağlık 880 m uzaklıktaki Kullar 1 Nolu Aile Sağlığı Merkezidir. Faaliyet yerine ulaşım; 2,1 km mesafedeki Başiskele-İzmit D-130 karayolundan yapılacaktır. İşletme alanının yer alacağı alanı sınırlayan noktaların…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(32 sayfa: s.8, s.16, s.17, s.19, s.21, s.22, s.26, s.30, s.42, s.46, s.57, s.58, s.59, s.62 (+18 sayfa))</span></h3><div class="hit"><span class="pno">[s. 8]</span> <code>atıksu</code> — …irlenmiş yüzey ve saha suyu oluşumu öngörülmemektedir. Tesisin çatı ve açık alanlarından kaynaklanacak yağmur suları, atıksu sisteminden ayrı olarak toplanacak ve ilgili altyapı idaresinin belirlediği şartlar doğrultusunda uygun yağmursuyu dre…</div>
+<div class="hit"><span class="pno">[s. 8]</span> <code>deşarj</code> — …esi amacıyla gerekli tedbirler alınacaktır. Oluşabilecek atıksular mevzuata uygun şekilde yönetilecek, ilgili izin ve deşarj standartlarına uyulacaktır. Hava emisyonları ve çevresel gürültünün mevzuatta belirlenen sınır değerler içerisinde tu…</div>
+<div class="hit"><span class="pno">[s. 16]</span> <code>Atıksu</code> — …MADENİ YAĞ ÜRETİMİ PROJE TANITIM DOSYASI ARMA GERİ DÖNÜŞÜM ENERJİ KİMYA SAN. VE TİC. LTD. ŞTİ Su Kulesi ve Fan 1 Atıksu Tankı 1 Muhtelif Pompalar 1 Forklift 2 Akma Noktası Test Cihazı 1 Otomatik Viskozite Test Cihazı (40/100 °C) 1…</div>
+<div class="hit"><span class="pno">[s. 17]</span> <code>Atıksu</code> — …Tankı 1 Su Tankı 1 Yangın Su Tankı 1 Yangın Su Pompası 1 Kızgın Yağ Kazanı 2 Eşanjör 2 Su Kulesi ve Fan 1 Atıksu Tankı 1 Muhtelif Pompalar 1 Forklift 2 Akma Noktası Test Cihazı 1 Otomatik Viskozite Test Cihazı (40/100 °C) 1…</div>
+<div class="hit"><span class="pno">[s. 19]</span> <code>Atıksu</code> — …a 8 işçi sayısı esas alınmıştır. Evsel amaçlı günlük su tüketiminin kişi başına 255 lt./kişi. gün (Kaynak: TÜİK, Su ve Atıksu İstatistikleri, 2024) kabul edildiğinde; 8 kişi x 255 lt = 2.040 lt/gün= 2,04 su işletme aşamasındaki personel tarafı…</div>
+<div class="hit"><span class="pno">[s. 19]</span> <code>2,04 m3/gün</code> — …ir olacağı varsayılarak hesaplanmıştır. Tablo 1.9 Toplam Su Kullanım Miktarları SU KULLANIMI MİKTAR (M3/GÜN) EVSEL 2,04 m3/gün TEMİZLİK 24 m3/yıl Enerji Türü Tesiste makine ve ekipmanların çalışmasında ve ısınmada elektrik enerjisi kullanı…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(5 sayfa: s.3, s.41, s.54, s.57, s.368)</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>orman alanı</code> — …22 2. PROJENİN YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ -------- 35 a. Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri -------------------------------…</div>
+<div class="hit"><span class="pno">[s. 41]</span> <code>orman alanı</code> — …TİC. LTD. ŞTİ 2. PROJENİN YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ a. Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri Arma Geri Dönüşüm Enerji Kimya…</div>
+<div class="hit"><span class="pno">[s. 54]</span> <code>Özel Çevre Koruma</code> — …i kapsayan herhangi bir alan bulunmamaktadır. f) Çevre Kanunu’nun 9 uncu maddesi uyarınca Bakanlar Kurulu tarafından &quot;Özel Çevre Koruma Bölgeleri&quot; olarak tespit ve ilan edilen alanlar, Sanayi bölgesi içerisinde olduğundan tesis alanı ve çevresinde özel ç…</div>
+<div class="hit"><span class="pno">[s. 54]</span> <code>orman alanı</code> — …nunu’na göre koruma altına alınan alanlar başlığı altında herhangi bir alan bulunmamaktadır. ğ) Orman Kanunu uyarınca orman alanı sayılan yerler, Tesis Sanayi bölgesi içerisinde olduğundan Tesis alanı ve çevresinde bu tür alanlar bulunmamaktadır.…</div>
+<div class="hit"><span class="pno">[s. 54]</span> <code>3573 sayılı</code> — …da belirtilen alanlar, Tesis Sanayi bölgesi içerisinde olduğundan projenin alanı ve çevresinde 26.01.1939 tarihli ve 3573 sayılı Zeytinciliğin Islahı ve Yabanilerinin Aşılattırılması Hakkında Kanunda belirtilen alanlar bulunmamaktadır. i) Mera Ka…</div>
+<div class="hit"><span class="pno">[s. 57]</span> <code>kıyı kenar</code> — …ı olmak üzere canlıların yaşama ortamı olarak önem taşıyan bütün sular, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler, Sanayi bölgesi içerisinde olduğunda…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(8 sayfa: s.48, s.50, s.51, s.52, s.55, s.57, s.78, s.93)</span></h3><div class="hit"><span class="pno">[s. 48]</span> <code>Flora ve fauna</code> — …ı ile Trakya’nın kuzeyini (Istranca Dağları) kapsar. Marmara Bölgesinin kuzey kesimi bu iki yöreyi birbirine bağlar. Flora ve fauna listeleri hazırlanırken güncel literatür kaynaklarından faydalanılmıştır. Flora türleri için “Flora of Turkey and the…</div>
+<div class="hit"><span class="pno">[s. 48]</span> <code>endemik</code> — …mıştır. Bununla birlikte alanda daha önce yapılmış bilimsel çalışmalar gözden geçirilmiştir. Sahada bulunması muhtemel endemik türlerin tespiti için Türkiye Bitkileri Kırmızı Kitabı (Red Data Book of Turkish Plants); bitkilerin Türkçe adları iç…</div>
+<div class="hit"><span class="pno">[s. 48]</span> <code>literatür taraması</code> — …tki Adları Sözlüğü (Baytop, T., 1997)” kullanılmıştır. Aynı şekilde sahanın faunal yapısını tespit edebilmek amacıyla; literatür taraması yapılmış ve alanda daha önce yapılmış olan bilimsel çalışmalar incelenmiştir. Tür tespiti yapılırken Prof.Dr.İlhami K…</div>
+<div class="hit"><span class="pno">[s. 50]</span> <code>Endemik</code> — …ÜM ENERJİ KİMYA SAN. VE TİC. LTD. ŞTİ 6.Tahrip Edilmiş Alanlarda 7.Yol Kenarı 8.Kayalık END. (ENDEMİZM) L : Lokal Endemik Y : Yaygın Endemik B : Bölgesel Endemik TEHLİKE SINIFLARI (RDB) Ex : Tükenmiş-Extinct Endemik Türler(Tükenmiş) Ew…</div>
+<div class="hit"><span class="pno">[s. 51]</span> <code>BERN SÖZLEŞMESİ</code> — …apmanın mümkün olmadığı takson (Yetersiz Verili) NE (Not Evaluated) :Değerlendirilmemiş takson (Değerlendirilmemiş) BERN SÖZLEŞMESİ II:Kesin olarak koruma altına alınan türler III:Korunan türler MERKEZ AV KOMİSYONU KARARLARI (MAK) Ek Liste- I :Or…</div>
+<div class="hit"><span class="pno">[s. 51]</span> <code>CITES</code> — …arından MAK’ca koruma altına alınanlar Ek Liste-II :MAK tarafından avına belli sürelerde izin verilen av hayvanları CITES SÖZLEŞMESİ Ek I: Nesilleri tükenme tehdidi ile karşı karşıya bulunan, bu nedenle örneklerinin ticaretinin özellikle sı…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(60 sayfa: s.3, s.6, s.9, s.27, s.28, s.33, s.35, s.36, s.37, s.39, s.40, s.47, s.63, s.64 (+46 sayfa))</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>KÜMÜLATİF</code> — …ŞLETME AŞAMASINDA ÇEVRESEL ETKİLERİ ÖNCELİKLİ ETKİLERİN BELİRLENMESİ VE ALINACAK ÖNLEMLER -------------------- 52 4. KÜMÜLATİF ETKİ DEĞERLENDİRME ---------------------------------------------------------- 70 5. ÇEVRESEL VE SOSYAL EYLEM PLANI --…</div>
+<div class="hit"><span class="pno">[s. 6]</span> <code>Deprem</code> — …, Jeoloji Haritası Ve Depremsellik. Ek-2.1 1/25.000 Ölçekli Topoğrafik Harita Ek-2.2 Jeolojik Harita Ek-2.3 Türkiye Deprem Tehlike Haritası Ek-2.4 Yer Bulduru Haritası Ek-2.5 Vaziyet Planı Ek-2.6 1/50.000 Çevre Düzeni Planı Ek-3 Vekâletna…</div>
+<div class="hit"><span class="pno">[s. 9]</span> <code>gürültü</code> — …lacaktır. Faaliyetlerden kaynaklanabilecek çevresel etkilerin temel olarak atıkların yönetimi, atıksuların kontrolü, gürültü ve faaliyet kaynaklı emisyonlar ile sınırlı olacağı değerlendirilmektedir. Bu etkilerin, kaynağında kontrol altına alı…</div>
+<div class="hit"><span class="pno">[s. 27]</span> <code>tehlikeli atık</code> — …ı tesis yetkilisi tarafından taahhüt edilmiştir. Atık Yönetimi Yönetmeliği “Madde 13-5) Ayda bin kilogramdan daha az tehlikeli atık üreten atık üreticilerinin, tehlikeli atıklarını geçici olarak depoladığı/depolayacağı alanları/konteynerleri geçici d…</div>
+<div class="hit"><span class="pno">[s. 28]</span> <code>gürültü</code> — …gerekli tüm tedbirler alınacaktır. Tesisin faaliyeti aşamasında iş kazaları olabilir. Faaliyetler esnasında oluşacak gürültü ve toz oluşumu tehlike oluşturmamaktadır. İş kazalarının oluşumunda başlıca nedenler şöyle sıralanabilir; a) Çevresel…</div>
+<div class="hit"><span class="pno">[s. 33]</span> <code>gürültü</code> — …erde ortamında yapılacaktır. Çalışma ortamının olumsuz koşulları arasında, elektrik akımına kapılma, ezilme, boğulma, gürültü, sıcaklık, toz, gaz, kaygan zemin, kısıtlı hareket alanı, zorlamalı vücut pozisyonları, ağır yük kaldırma gibi durumla…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(44 sayfa: s.2, s.3, s.4, s.6, s.7, s.9, s.12, s.14, s.15, s.17, s.19, s.25, s.29, s.30 (+30 sayfa))</span></h3><div class="hit"><span class="pno">[s. 2]</span> <code>Proje Bedeli</code> — …s: - e-posta bilgi@armageridonusum.com Vergi Numarası Tepecik V.D. / 0790674101 PROJENİN ADI MADENİ YAĞ ÜRETİMİ Proje Bedeli 396.897 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Beldesi, Mevkii) Kocaeli İli, Başiskele İlçesi, Ya…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>396.897 TL</code> — …bilgi@armageridonusum.com Vergi Numarası Tepecik V.D. / 0790674101 PROJENİN ADI MADENİ YAĞ ÜRETİMİ Proje Bedeli 396.897 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Beldesi, Mevkii) Kocaeli İli, Başiskele İlçesi, Yaylacık Mah.…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>kapasite</code> — …907 sayılı ÇED Yönetmeliği; EK-II Listesi 2. b) Petrol bazlı yağlama maddesi üretim tesisleri, 3-Toplam depolama kapasitesi 500-50.000 m³ arası olan doğalgaz, petrokimya, petrol ve kimyasal maddelerin depolandığı tesisler (Perakende satış…</div>
+<div class="hit"><span class="pno">[s. 3]</span> <code>Kapasite</code> — …Yerin Alternatifleri (Proje Teknolojisinin Ve Proje Alanının Seçilme Nedenleri) ------- 5 b. Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Yatırım Bedeli, Teknolojisi, Çalışacak Personel Sayısı --------------------------------------------…</div>
+<div class="hit"><span class="pno">[s. 4]</span> <code>Kapasite</code> — …ii TABLOLAR DİZİNİ Tablo 1.1 Üretim Tankları ve Kapasitesi 8 Tablo 1.2 Yıllık Üretim Kapasitesi 8 Tablo.1.3. Yıllık Tüketim Kapasitesi 9 Tablo 1.4 Tank Depolama Kapasitel…</div>
+<div class="hit"><span class="pno">[s. 4]</span> <code>Proje Bedeli</code> — …olama Kapasiteleri 9 Tablo 1.5 Toplam Depolama Kapasiteleri 9 Tablo 1.6 Makine Teçhizat Listesi 9 Tablo 1.7 Tesis Proje Bedeli 11 Tablo 1.8 Proje Alanını Sınırlayan Noktaların Koordinatları 12 Tablo 1.9 Toplam Su Kullanım Miktarları 13 Tabl…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Proje Parçalama, Kapasite Artışı ve Eşik Değerler <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(3 sayfa: s.76, s.77, s.92)</span></h3><div class="hit"><span class="pno">[s. 76]</span> <code>eşik değer</code> — …nı projenin Etki Alanı olarak tanımlanır. Bu aynı zamanda ilgili projenin nüfuz alanı olarak da adlandırılabilir. Bir eşik değer, belirli bir kirleticinin aşıldığında sağlığı olumsuz etkileyeceği azami yoğunluğu veya bir arazinin doğal durumunun g…</div>
+<div class="hit"><span class="pno">[s. 77]</span> <code>eşik değer</code> — …tmeyeceğini belirlemede yardımcı olabilmektedir. Tanımlanmış eşik değerlerin olmadığı durumlarda, uygulayıcı uygun bir eşik değer önerebilir, çeşitli paydaşlara, kamu kurumlarına veya teknik uzmanlara danışabilir (en iyi şekilde çalıştay gibi inter…</div>
+<div class="hit"><span class="pno">[s. 92]</span> <code>kapasite artışı</code> — …n korunması ve geliştirilmesine yönelik tedbirlere riayet edileceği, proje ile ilgili herhangi bir proses değişikliği, kapasite artışı, alan genişlemesi, devir vb. halinde Kocaeli Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü’ ne başvuruda bulunu…</div></div></div>
+  </details>
+  <details class="accordion">
+    <summary>Belge Bölüm Haritası (20 başlık)</summary>
+    <div class="accordion-body"><ul style="margin:0;padding-left:20px;"><li><span class="pno">[s. 7]</span> PROJENİN TEKNİK OLMAYAN ÖZETİ</li>
+<li><span class="pno">[s. 199]</span> BÖLÜM 1: Maddenin/karışımın ve şirketin/dağıtıcının kimliği</li>
+<li><span class="pno">[s. 199]</span> BÖLÜM 2: Zararlılık tanımlanması</li>
+<li><span class="pno">[s. 200]</span> BÖLÜM 3: Bileşimi/içindekiler hakkında bilgi</li>
+<li><span class="pno">[s. 203]</span> BÖLÜM 4: İlk yardım önlemleri</li>
+<li><span class="pno">[s. 203]</span> BÖLÜM 5: Yangınla mücadele önlemleri</li>
+<li><span class="pno">[s. 204]</span> BÖLÜM 6: Kaza sonucu yayılmaya karşı önlemler</li>
+<li><span class="pno">[s. 204]</span> BÖLÜM 7: Elleçleme ve depolama</li>
+<li><span class="pno">[s. 205]</span> BÖLÜM 8: Maruz Kalma Kontrolleri/kişisel korunma</li>
+<li><span class="pno">[s. 205]</span> BÖLÜM 9: Fiziksel ve Kimyasal Özellikler</li>
+<li><span class="pno">[s. 206]</span> BÖLÜM 10: Kararlılık ve tepkime</li>
+<li><span class="pno">[s. 206]</span> BÖLÜM 11: Toksikolojik bilgiler</li>
+<li><span class="pno">[s. 207]</span> BÖLÜM 12: Ekolojik bilgiler</li>
+<li><span class="pno">[s. 207]</span> BÖLÜM 13: Bertaraf etme bilgileri</li>
+<li><span class="pno">[s. 207]</span> BÖLÜM 14: Taşımacılık bilgileri</li>
+<li><span class="pno">[s. 208]</span> BÖLÜM 15: Mevzuat bilgileri</li>
+<li><span class="pno">[s. 208]</span> BÖLÜM 16: Diğer bilgiler</li>
+<li><span class="pno">[s. 259]</span> BÖLÜM 3: Bileşimi/İçindekiler hakkında bilgi</li>
+<li><span class="pno">[s. 353]</span> ÇEVRESEL VE SOSYAL YÖNETİM</li>
+<li><span class="pno">[s. 368]</span> ÇEVRESEL VE SOSYAL YÖNETİM PLANI</li></ul></div>
+  </details>
+
+  <div class="notice">
+    Bu sayfa, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın kamuya açık <code>eced-duyuru.csb.gov.tr</code> duyuru portalındaki kayıtlar esas alınarak bilgilendirme amacıyla hazırlanmıştır. Alıntıların tamamı 1 tabanlı PDF sayfa numarasıyla (<code>[s. N]</code>) gösterilmektedir. Yasal sürelerin ve hukuki başvuru yollarının yetkili hukukçular tarafından teyit edilmesi gerekir.
+  </div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+
+(() => {
+  const root = document.documentElement;
+  const saved = localStorage.getItem('eced_theme');
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  function isDarkNow() {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return cur ? cur === 'dark' : prefersDark;
+  }
+  window.__ecedIsDark = isDarkNow;
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function syncLabel() {
+    btn.textContent = isDarkNow() ? 'Açık Tema' : 'Koyu Tema';
+  }
+  syncLabel();
+  btn.addEventListener('click', () => {
+    const next = isDarkNow() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('eced_theme', next);
+    syncLabel();
+    window.dispatchEvent(new CustomEvent('eced-theme-change', { detail: { dark: next === 'dark' } }));
+  });
+})();
+
+
+function createCartoTileLayer(isDark) {
+  const style = isDark ? 'dark_all' : 'light_all';
+  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+    maxZoom: 19,
+    subdomains: 'abcd',
+    attribution: '&copy; OpenStreetMap &copy; CARTO'
+  });
+}
+
+(() => {
+  const copyBtn = document.getElementById('copy-qs-btn');
+  const qsTxt = document.getElementById('qs-plain');
+  if (copyBtn && qsTxt) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(qsTxt.value);
+        copyBtn.textContent = 'Kopyalandı ✓';
+        setTimeout(() => (copyBtn.textContent = 'Soruları Kopyala'), 2200);
+      } catch (e) {
+        copyBtn.textContent = 'Kopyalanamadı';
+      }
+    });
+  }
+  if (typeof L === 'undefined') return;
+  const g = {"lat": 40.73034, "lon": 29.9817, "zoom": 12, "precision": "exact_pdf", "points": [[40.7306, 29.982], [40.7306, 29.9812], [40.7301, 29.9812], [40.7302, 29.982], [40.7302, 29.9821]], "gis_markers": [], "label": "KOCAELİ / BAŞİSKELE — MADENİ YAĞ ÜRETİMİ"};
+  const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
+  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
+  window.addEventListener('eced-theme-change', (ev) => {
+    map.removeLayer(tileLayer);
+    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
+  });
+  if (g.precision === 'exact_pdf') {
+    L.circle([g.lat, g.lon], {
+      radius: 3000,
+      color: '#d97706',
+      weight: 1.5,
+      dashArray: '6 5',
+      fillColor: '#d97706',
+      fillOpacity: 0.04
+    }).bindTooltip('3 km yasal referans çemberi (3573 m.20)').addTo(map);
+    for (const gm of (g.gis_markers || [])) {
+      L.circleMarker([gm.lat, gm.lon], {
+        radius: 5,
+        color: '#ffffff',
+        fillColor: gm.color,
+        fillOpacity: 0.9,
+        weight: 1.5
+      }).bindPopup(gm.label).addTo(map);
+    }
+  }
+  if (g.precision === 'exact_pdf' && g.points.length > 1) {
+    const latlngs = g.points.map(p => [p[0], p[1]]);
+    const poly = L.polyline(latlngs, { color: '#175cd3', weight: 3, opacity: 0.85 }).addTo(map);
+    for (const ll of latlngs.slice(0, 30)) {
+      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#d92d20', fillOpacity: 0.9, weight: 1 }).addTo(map);
+    }
+    map.fitBounds(poly.getBounds().pad(0.25));
+  } else {
+    L.circleMarker([g.lat, g.lon], {
+      radius: g.precision === 'exact_pdf' ? 8 : 11,
+      color: '#ffffff',
+      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#175cd3',
+      fillOpacity: g.precision === 'exact_pdf' ? 0.9 : 0.45,
+      weight: 2
+    }).bindPopup(g.label).addTo(map).openPopup();
+  }
+})();
+</script>
+</body>
+</html>

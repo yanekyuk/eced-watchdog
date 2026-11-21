@@ -11,6 +11,9 @@ from typing import Any, Literal
 import pymupdf as fitz
 from pydantic import BaseModel, Field
 
+fitz.TOOLS.mupdf_display_errors(False)
+fitz.TOOLS.mupdf_display_warnings(False)
+
 DEFAULT_EK1_MODEL = "gemini-4-hydrogen"
 DEFAULT_EK2_MODEL = "gemini-3.5-flash-lite"
 DEFAULT_GEMINI_MODEL = DEFAULT_EK1_MODEL
@@ -126,8 +129,23 @@ class EcologicalSynthesis(BaseModel):
         description=(
             "İdari yargıda mahallinde keşif ve bilirkişi heyeti talep edilmesi halinde heyette bulunması gereken "
             "temel akademik uzmanlık alanları (ör. 'Çevre Mühendisi', 'Hidrojeoloji Mühendisi', 'Biyolog', "
-            "'Ziraat Mühendisi', 'Orman Mühendisi', 'Maden Mühendisi', 'Şehir ve Bölge Plancısı')."
+            "'Ziraat Mühendisi (Zeytincilik/Toprak)', 'Orman Mühendisi', 'Jeoloji/Geoteknik Mühendisi', 'Şehir ve Bölge Plancısı')."
         )
+    )
+    agency_opinions_summary: str = Field(
+        default="",
+        description=(
+            "Raporda yer alan veya eksik kalan zorunlu kurum görüşlerinin (İl Tarım/3573-5403, DSİ, OGM, MAPEG, "
+            "Kültür Varlıkları) sayfa numaralı kısa özeti; özellikle olumsuz veya şartlı görüşleri vurgulayınız."
+        ),
+    )
+    companion_permits_to_watch: list[str] = Field(
+        default_factory=list,
+        description=(
+            "2009/7 Genelgesi döngüsünü kırmak için ÇED davasına paralel olarak izlenmesi veya dava edilmesi gereken "
+            "2-4 temel eşlikçi izin/işlem (ör. '5403 Tarım Dışı Kullanım İzni', 'EPDK Üretim Lisansı', "
+            "'1/100.000 Çevre Düzeni Planı Değişikliği', 'MAPEG İşletme Ruhsatı / Temdit', 'Orman İzni', 'İmar ve Yapı Ruhsatı')."
+        ),
     )
     hkt_and_petition_questions: list[RecordQuestion] = Field(
         description="HKT tutanağı, Madde 14 görüş dilekçesi veya İYUK 20/A davasında bilirkişi incelemesi için 3-5 somut Türkçe teknik soru."
@@ -185,6 +203,7 @@ def select_high_signal_pages(
         "flora",
         "kümülatif",
         "çevresel ve sosyal",
+        "kurum görüş",
         "bölüm i:",
     )
     for pno, title in analysis.get("headings") or []:
@@ -195,6 +214,7 @@ def select_high_signal_pages(
 
     # 3. Top pages from each deterministic signal bucket
     for bucket in (
+        "agency_opinions",
         "protected_land_and_olive",
         "water_and_discharge",
         "ecology_and_baseline",
@@ -255,14 +275,14 @@ def synthesize_with_gemini(
         "1. Rely ONLY on the provided PDF page excerpts and filing metadata. Never invent figures, species, distances, or claims.\n"
         "2. Every fact, finding, and question MUST cite exact 1-based PDF page numbers from the === PDF PAGE [s. N] === markers.\n"
         "3. Apply Danıştay (Turkish Council of State) ÇED annulment criteria strictly:\n"
-        "   - 'high' severity ONLY for established annulment grounds: 3573 Olive Law 3 km violations (mitigation promises cannot bypass it), "
+        "   - 'high' severity ONLY for established annulment grounds: 3573 Olive Law 3 km violations (mitigation promises cannot bypass it; check whether peripheral dust units like crushers, spoil heaps, and haul roads are included), "
         "project splitting / capacity-threshold evasion (proje parçalama), absent cumulative regional impact assessment, "
         "single-season/literature-only flora-fauna inventories in sensitive ecosystems, missing mandatory pre-project baseline water/soil chemistry "
-        "or agency consents (DSİ, İl Tarım/5403, OGM), or outright impossible monitoring methods (e.g. visual noise monitoring).\n"
+        "or missing/negative agency opinions (DSİ, İl Tarım/5403, OGM, MAPEG), unassessed seismic/fault-line/geotechnical stability on mining/industrial/tailings projects, or outright impossible monitoring methods (e.g. visual noise monitoring).\n"
         "   - 'medium' severity for concrete technical gaps requiring on-site keşif & bilirkişi verification.\n"
         "   - 'low' severity for secondary procedural or administrative omissions.\n"
         "4. Explicitly distinguish completed pre-project baseline field/seasonal surveys from future post-approval monitoring commitments.\n"
-        "5. Recommend the exact university expert disciplines (bilirkişi heyeti — always include 'Şehir ve Bölge Plancısı' when land-use/plan compliance is implicated) needed for an on-site court inspection.\n"
+        "5. Recommend the exact university expert disciplines (bilirkişi heyeti — always include 'Şehir ve Bölge Plancısı' when land-use/plan compliance is implicated), summarize agency opinions (Kurum Görüşleri), and list 2-4 companion permits (EPDK license, Law 5403 land-use permit, MAPEG renewal, 1/100k plan, zoning/construction permit, SİT status) plaintiffs should watch alongside the ÇED to prevent Circular 2009/7 loops.\n"
         "6. If a REVISION DIFF (v1 -> v2) or 2009/7 Circular re-submission context is provided, explicitly examine whether the revised PDF genuinely resolved prior scientific/legal gaps or merely patched wording / removed sensitive terms.\n"
         "7. Write all fields except executive_summary_en in fluent, complete, formal Turkish sentences (zero fragments, zero partisan commentary)."
     )
@@ -294,7 +314,10 @@ def synthesize_with_gemini(
         f"EXCERPTED PDF PAGES:\n{excerpt_blob}"
     )
 
-    client = genai.Client(api_key=api_key)
+    client = genai.Client(
+        api_key=api_key,
+        http_options=types.HttpOptions(timeout=240_000),
+    )
     config = types.GenerateContentConfig(
         system_instruction=system_instruction,
         temperature=0.1,
@@ -304,7 +327,20 @@ def synthesize_with_gemini(
 
     last_err: Exception | None = None
     response = None
-    for attempt, backoff in enumerate((4, 10, 20), start=1):
+    retryable_tokens = (
+        "503",
+        "429",
+        "504",
+        "500",
+        "unavailable",
+        "resource_exhausted",
+        "deadline_exceeded",
+        "timed out",
+        "timeout",
+        "remoteprotocolerror",
+        "connection reset",
+    )
+    for attempt, backoff in enumerate((4, 12, 24), start=1):
         try:
             response = client.models.generate_content(
                 model=chosen_model,
@@ -314,13 +350,13 @@ def synthesize_with_gemini(
             break
         except Exception as exc:
             last_err = exc
-            msg = str(exc)
-            if any(code in msg for code in ("503", "429", "UNAVAILABLE", "RESOURCE_EXHAUSTED")) and attempt < 3:
+            msg_low = f"{type(exc).__name__}: {exc}".lower()
+            if any(tok in msg_low for tok in retryable_tokens) and attempt < 3:
                 time.sleep(backoff)
                 continue
-            raise
+            raise RuntimeError(f"Gemini synthesis failed ({chosen_model}): {exc}") from exc
     if response is None:
-        raise last_err or RuntimeError("Gemini synthesis returned no response")
+        raise RuntimeError(f"Gemini synthesis returned no response ({chosen_model}): {last_err}")
 
     parsed = EcologicalSynthesis.model_validate_json(response.text)
     usage = getattr(response, "usage_metadata", None)

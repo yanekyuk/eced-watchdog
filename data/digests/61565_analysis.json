@@ -1,0 +1,992 @@
+{
+  "filing": {
+    "province": "UŞAK",
+    "district": "MERKEZ",
+    "project_name": "Uşak İli Merkez İlçesi Dikilitaş Mahallesi 340 Adet Konut (+3 Kd) İnşaatı İle Altyapı ve Çevre Düzenlemesi",
+    "project_owner": "Çevre, Şehircilik ve İklim Değişikliği Bakanlığı, Toplu Konut İdaresi Başkanlığı",
+    "sector": "Konut",
+    "sub_sector": "Toplu Konut Projeleri",
+    "decision_type": "ÇED Süreci Başlayan",
+    "announcement_date_tr": "20.11.2026",
+    "project_type": "Ek-2",
+    "detail_text": "UŞAK ili MERKEZ,  ilcesinde UŞAK ili MERKEZ,  ilçesi Dikilitaş Mahallesi, 994/7, 994/10, 994/27, 994/28, 994/31, 994/32 Ada/Parsel mevkiindeki Çevre, Şehircilik ve İklim Değişikliği Bakanlığı, Toplu Konut İdaresi Başkanlığı tarafından yapılması planlanan Uşak İli Merkez İlçesi Dikilitaş Mahallesi 340 Adet Konut (+3 Kd) İnşaatı İle Altyapı ve Çevre Düzenlemesi projesi ile ilgili olarak UŞAK Valiliğimize sunulan P.T.D. Dosyası Çevresel Etki Değerlendirmesi Yönetmeliği'nin 16. maddesi doğrultusunda incelenmiş ve projeye ilişkin ÇED Süreci başlamıştır. İlgililere ve kamuoyuna duyurulur.",
+    "detail_links": [
+      {
+        "text": "P.T.D. Dosyası",
+        "href": "http://eced.csb.gov.tr/jsp/ek1/61565"
+      }
+    ],
+    "documents": [
+      {
+        "portal_doc_url": "http://eced.csb.gov.tr/jsp/ek1/61565",
+        "filing_id": "61565",
+        "consulting_firm": "AKTEL ÇEVRE DANIŞMANLIK MÜŞAVİRLİK VE MÜHENDİSLİK LTD. ŞTİ.",
+        "submitted_at": "18/11/2026 04:04:47",
+        "pdf_urls": [
+          {
+            "label": "Dosya Göster",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign7567719719245232891.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-18"
+          }
+        ]
+      }
+    ],
+    "announcement_date": "2026-11-20",
+    "statutory_clocks": [
+      {
+        "code": "process_open",
+        "kind": "Karar öncesi inceleme süreci (ÇED Yönetmeliği m. 8/16; süreç boyunca yazılı görüş verilebilir)",
+        "deadline": null,
+        "days_remaining": null
+      }
+    ],
+    "filing_key": "61565:20.11.2026:ÇED Süreci Başlayan",
+    "first_seen_at": "2026-11-21T09:03:06"
+  },
+  "pdf_info": {
+    "filename": "61565.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign7567719719245232891.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-18",
+    "bytes": 25230878,
+    "sha256": "1d8d9e12cac8857ad6d3d853b0cd7e2fd401571109bd9bddaef1007af04085ee",
+    "cached": false
+  },
+  "analysis": {
+    "page_count": 216,
+    "total_chars": 304887,
+    "text_pages": 182,
+    "scanned_or_blank_pages": 34,
+    "scanned_page_sample": [
+      109,
+      111,
+      113,
+      115,
+      117,
+      119,
+      121,
+      122,
+      129,
+      130,
+      131,
+      132,
+      133,
+      147,
+      149
+    ],
+    "headings": [
+      [
+        1,
+        "1_Rapor"
+      ],
+      [
+        1,
+        "1_Dış Kapak"
+      ],
+      [
+        2,
+        "2_Rapor_Uşak_Merkez"
+      ],
+      [
+        6,
+        "PROJENİN TEKNİK OLMAYAN ÖZETİ:"
+      ],
+      [
+        9,
+        "BÖLÜM I: PROJENİN ÖZELLİKLERİ:"
+      ],
+      [
+        9,
+        "a) Projenin ve yerin alternatifleri (proje teknolojisinin ve proje alanının seçilme nedenleri)"
+      ],
+      [
+        10,
+        "b) Projenin iş akım şeması, kapasitesi, kapladığı alan, yatırım bedeli, teknolojisi, çalışacak personel sayısı."
+      ],
+      [
+        16,
+        "c) Doğal kaynakların kullanımı (arazi kullanımı, su kullanımı, kullanılan enerji türü vb.),"
+      ],
+      [
+        18,
+        "ç) Projenin inşaat ve işletme aşamasında oluşan her türlü atığın özelliği (cinsi, türü, miktarı vb.) bertarafı ve geri kazanımına yönelik değerlendirmeler,"
+      ],
+      [
+        46,
+        "d) Kullanılan teknoloji ve malzemelerden kaynaklanabilecek kaza riski"
+      ],
+      [
+        51,
+        "BÖLÜM II: PROJE YERİ VE ETKİ ALANIN MEVCUT ÇEVRESEL ÖZELLİKLERİ"
+      ],
+      [
+        54,
+        "a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri."
+      ],
+      [
+        56,
+        "b) EK-5’deki Duyarlı Yöreler Listesi dikkate alınarak korunması gereken alanlar"
+      ],
+      [
+        60,
+        "BÖLÜM III: PROJENİN İNŞAAT VE İŞLETME AŞAMASINDA ÇEVRESEL ETKİLERİ, ÖNCELİKLİ ETKİLERİN BELİRLENMESİ VE ALINACAK ÖNLEMLER"
+      ],
+      [
+        68,
+        "BÖLÜM IV: KÜMÜLATİF ETKİ DEĞERLENDİRME"
+      ],
+      [
+        68,
+        "BÖLÜM V: ÇEVRESEL VE SOSYAL EYLEM PLANI"
+      ],
+      [
+        68,
+        "V-1: Çevre İzleme Planı"
+      ],
+      [
+        70,
+        "V-2: Sürdürülebilirlik Planı (Sıfır Atık Planı, Trafik Yönetim Planı, Sera Gazı Azaltım planı, Çevresel ve Sosyal Yönetim Planı vb.)"
+      ],
+      [
+        98,
+        "BÖLÜM VI: NOTLAR, KAYNAKLAR VE EKLER"
+      ],
+      [
+        99,
+        "2_Ekler"
+      ],
+      [
+        123,
+        "01_ÇEVRE_ŞEHİRCİLİK_İLMÜD"
+      ],
+      [
+        124,
+        "02_UŞAK BELEDİYE"
+      ],
+      [
+        125,
+        "03_İLTARIMMÜDÜRLÜĞÜ"
+      ],
+      [
+        126,
+        "04_İL KÜLTÜR VE TURİZM  MÜDÜRLÜĞÜ"
+      ],
+      [
+        127,
+        "04_MÜZE MÜDÜRLÜĞÜ"
+      ]
+    ],
+    "geo": {
+      "precision": "exact_pdf",
+      "lat": 38.69863,
+      "lon": 29.3701,
+      "point_count": 54,
+      "points": [
+        [
+          38.69759,
+          29.3699
+        ],
+        [
+          38.69754,
+          29.36977
+        ],
+        [
+          38.69742,
+          29.36961
+        ],
+        [
+          38.69727,
+          29.36972
+        ],
+        [
+          38.69722,
+          29.3696
+        ],
+        [
+          38.69761,
+          29.36932
+        ],
+        [
+          38.69814,
+          29.36912
+        ],
+        [
+          38.69851,
+          29.36901
+        ],
+        [
+          38.69928,
+          29.36868
+        ],
+        [
+          38.6993,
+          29.36882
+        ],
+        [
+          38.69936,
+          29.36886
+        ],
+        [
+          38.69962,
+          29.36982
+        ],
+        [
+          38.6996,
+          29.36991
+        ],
+        [
+          38.69955,
+          29.3699
+        ],
+        [
+          38.699,
+          29.37005
+        ],
+        [
+          38.6987,
+          29.36995
+        ],
+        [
+          38.69838,
+          29.36996
+        ],
+        [
+          38.69818,
+          29.36994
+        ],
+        [
+          38.69786,
+          29.36992
+        ],
+        [
+          38.69783,
+          29.36992
+        ],
+        [
+          38.69779,
+          29.36991
+        ],
+        [
+          38.69774,
+          29.36991
+        ],
+        [
+          38.69772,
+          29.36991
+        ],
+        [
+          38.69763,
+          29.3699
+        ],
+        [
+          38.69977,
+          29.37144
+        ],
+        [
+          38.69995,
+          29.3718
+        ],
+        [
+          38.69998,
+          29.37185
+        ],
+        [
+          38.69961,
+          29.3722
+        ],
+        [
+          38.69955,
+          29.37225
+        ],
+        [
+          38.69949,
+          29.37231
+        ],
+        [
+          38.6976,
+          29.36977
+        ],
+        [
+          38.69755,
+          29.36962
+        ],
+        [
+          38.69742,
+          29.36973
+        ],
+        [
+          38.69727,
+          29.3696
+        ],
+        [
+          38.69722,
+          29.36931
+        ],
+        [
+          38.69761,
+          29.3691
+        ],
+        [
+          38.69814,
+          29.36899
+        ],
+        [
+          38.69852,
+          29.36866
+        ],
+        [
+          38.69927,
+          29.36882
+        ],
+        [
+          38.6993,
+          29.36885
+        ]
+      ],
+      "datum": "UTM-Z35/ED50",
+      "pages": [
+        101
+      ]
+    },
+    "signals": {
+      "coordinates_and_footprint": {
+        "label": "Coordinates, Parcel & Footprint",
+        "page_count": 34,
+        "pages": [
+          6,
+          15,
+          16,
+          17,
+          29,
+          30,
+          31,
+          32,
+          52,
+          55,
+          68,
+          88,
+          100,
+          101,
+          102,
+          103,
+          106,
+          110,
+          114,
+          118,
+          120,
+          123,
+          124,
+          125,
+          135
+        ],
+        "samples": [
+          {
+            "page": 6,
+            "match": "521,09 m2",
+            "snippet": "…7, 994/10, 994/27, 994/28, 994/31, 994/32 ada/parsel sınırları içinde gerçekleştirilmesi planlanmaktadır. ÇED alanı 29.521,09 m2 (2,95 ha) olarak belirlenmiştir. Bu alanda yapı alanı, araç yolu, sert peyzaj ve yeşil alan kullanımları öngörülmekted…"
+          },
+          {
+            "page": 6,
+            "match": "2,95 ha",
+            "snippet": "…994/27, 994/28, 994/31, 994/32 ada/parsel sınırları içinde gerçekleştirilmesi planlanmaktadır. ÇED alanı 29.521,09 m2 (2,95 ha) olarak belirlenmiştir. Bu alanda yapı alanı, araç yolu, sert peyzaj ve yeşil alan kullanımları öngörülmektedir. Proje…"
+          },
+          {
+            "page": 15,
+            "match": "521,09 m2",
+            "snippet": "…994/7, 994/10, 994/27, 994/28, 994/31, 994/32 ada/parseller üzerinde gerçekleştirilmesi planlanmaktadır. ÇED alanı 29.521,09 m2 (2,95 ha) olarak belirlenmiştir. Alan içerisinde yapı, araç yolu, sert peyzaj ve yeşil alan kullanımları öngörülmekted…"
+          },
+          {
+            "page": 15,
+            "match": "2,95 ha",
+            "snippet": "…/10, 994/27, 994/28, 994/31, 994/32 ada/parseller üzerinde gerçekleştirilmesi planlanmaktadır. ÇED alanı 29.521,09 m2 (2,95 ha) olarak belirlenmiştir. Alan içerisinde yapı, araç yolu, sert peyzaj ve yeşil alan kullanımları öngörülmektedir. Katla…"
+          },
+          {
+            "page": 15,
+            "match": "774,57 m2",
+            "snippet": "…çerisinde yapı, araç yolu, sert peyzaj ve yeşil alan kullanımları öngörülmektedir. Katlar dâhil toplam inşaat alanı 35.774,57 m2’dir. Projenin Teknolojisi Projenin yapısı itibarı ile ÇED alanın tamamı şantiye alanı olarak değerlendirilmektedi…"
+          },
+          {
+            "page": 16,
+            "match": "774,57 m2",
+            "snippet": "…narak yapılan yaklaşık hesaplamayı göstermektedir. Proje Bedeli: Konut İnşaat Emsal Alanı x Yapı birim maliyeti 35.774,57 m2 x 21.050TL/m2 = 753.054.698,50 TL dir. Projenin bedeli ayrıntılı olarak aşağıdaki tabloda değerlendirilmiştir. Ta…"
+          },
+          {
+            "page": 16,
+            "match": "521,09 m2",
+            "snippet": "…razi Kullanımı ÇED alanında yapı, araç yolu, sert peyzaj ve yeşil alan kullanımları öngörülmektedir. ÇED alanı 29.521,09 m2 (2,95 ha) büyüklüğündedir. Alan sınırları içinde kanalizasyon, yol, su, elektrik ve doğalgaz altyapısının oluşturulmas…"
+          },
+          {
+            "page": 16,
+            "match": "2,95 ha",
+            "snippet": "…ımı ÇED alanında yapı, araç yolu, sert peyzaj ve yeşil alan kullanımları öngörülmektedir. ÇED alanı 29.521,09 m2 (2,95 ha) büyüklüğündedir. Alan sınırları içinde kanalizasyon, yol, su, elektrik ve doğalgaz altyapısının oluşturulması planlan…"
+          }
+        ]
+      },
+      "water_and_discharge": {
+        "label": "Water Use, Hydrogeology & Discharge",
+        "page_count": 22,
+        "pages": [
+          17,
+          18,
+          23,
+          24,
+          30,
+          31,
+          55,
+          56,
+          59,
+          62,
+          63,
+          68,
+          70,
+          89,
+          90,
+          92,
+          96,
+          134,
+          135,
+          178,
+          180,
+          183
+        ],
+        "samples": [
+          {
+            "page": 17,
+            "match": "atıksu",
+            "snippet": "…in toplam günlük su tüketimi: (Kaynak: TÜİK 2024 verileri doğrultusunda bir kişinin günlük su kullanımı 255 lt, günlük atıksu miktarı 210 lt olarak alınmıştır.) 255 lt/kişi/gün x 80 kişi = 20.400 lt/gün = 20,40 m3/gün olarak hesaplanmaktad…"
+          },
+          {
+            "page": 17,
+            "match": "20,40 m3/gün",
+            "snippet": "…su kullanımı 255 lt, günlük atıksu miktarı 210 lt olarak alınmıştır.) 255 lt/kişi/gün x 80 kişi = 20.400 lt/gün = 20,40 m3/gün olarak hesaplanmaktadır. Projenin inşaat aşamasında çalışacak personelin içme ve kullanma suyu ihtiyaçlarının ayrı…"
+          },
+          {
+            "page": 17,
+            "match": "4,0 m3/gün",
+            "snippet": "…ştır. Buna göre günlük su ihtiyacı aşağıdaki şekilde hesaplanmıştır: 1.000 m2 × 1 L/m2 × 4 sefer/gün = 4.000 L/gün (4,0 m3/gün) Bu miktarın yetersiz kalması hâlinde sulama sıklığının artırılması planlanmaktadır. İnşaat aşamasındaki toplam g…"
+          },
+          {
+            "page": 17,
+            "match": "24,40 m3/gün",
+            "snippet": "…kliye yolunun nemlendirilmesi için öngörülen miktarların toplamı olarak hesaplanmıştır: 20,40 m3/gün + 4,0 m3/gün = 24,40 m3/gün"
+          },
+          {
+            "page": 18,
+            "match": "atıksu",
+            "snippet": "…+3 K.D 1.372 255* 349,86 (*(Kaynak: TÜİK 2024 verileri doğrultusunda bir kişinin günlük su kullanımı 255 lt, günlük atıksu miktarı 210 lt olarak alınmıştır.) Enerji Türü Proje kapsamında, inşaat ve iskân aşamalarında ihtiyaç duyulacak…"
+          },
+          {
+            "page": 23,
+            "match": "atıksu",
+            "snippet": "…6 05 Sıvı Atıklar ve Özellikleri: TÜİK 2024 verileri doğrultusunda bir kişinin günlük su kullanımı 255 lt, günlük atıksu miktarı 210 lt olarak alınmıştır. İnşaat Aşaması; İnşaat faaliyetleri sırasında personelin içme ve kullanma suyu…"
+          },
+          {
+            "page": 23,
+            "match": "yeraltı suyu",
+            "snippet": "…nması amacıyla serbest piyasadan temin edilecek damacana sularla karşılanacaktır. Proje kapsamında kuyu açılması veya yeraltı suyu kullanılması planlanmamaktadır. Böylece su temini için yeraltı su kaynaklarına başvurulmayacaktır. Herhangi bir nedenl…"
+          },
+          {
+            "page": 23,
+            "match": "16,80 m3/gün",
+            "snippet": "…şamasında Çalışacak kişi sayısı : 80 kişi Kişi başına düşen atık su miktarı : 210 lt/gün Oluşan atık su : 16,80 m3/gün Oluşacak atık suyun kirlilik yükü değerleri aşağıdaki gibidir. Günlük oluşan maksimum atık su : 16,80 m3/gün BO…"
+          }
+        ]
+      },
+      "protected_land_and_olive": {
+        "label": "Protected Zones, Forests & Olive Groves",
+        "page_count": 8,
+        "pages": [
+          3,
+          54,
+          57,
+          59,
+          90,
+          120,
+          123,
+          179
+        ],
+        "samples": [
+          {
+            "page": 3,
+            "match": "orman alanı",
+            "snippet": "…PROJE YERİ VE ETKİ ALANIN MEVCUT ÇEVRESEL ÖZELLİKLERİ .................... 46 a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri. ..............................…"
+          },
+          {
+            "page": 54,
+            "match": "orman alanı",
+            "snippet": "…etaylı analiz sonuçları raporun ekler bölümünde verilmiştir. (Bkz. Ek-2g). a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri. Tarım ve Orman Alanı Pro…"
+          },
+          {
+            "page": 57,
+            "match": "Özel Çevre Koruma",
+            "snippet": "…eliği'nde tanımlanan alanlar bulunmamaktadır. f) Çevre Kanunu’nun 9 uncu maddesi uyarınca Cumhurbaşkanı tarafından \"Özel Çevre Koruma Bölgeleri\" olarak tespit ve ilan edilen alanlar bulunmamaktadır. g) Boğaziçi Kanunu’na göre koruma altına alınan ala…"
+          },
+          {
+            "page": 57,
+            "match": "orman alanı",
+            "snippet": "…ulunmamaktadır. g) Boğaziçi Kanunu’na göre koruma altına alınan alanlar bulunmamaktadır. ğ) Orman Kanunu uyarınca orman alanı sayılan yerler bulunmaktadır. Proje alanı batısında ortalama 45m mesafe de Uşak Kent Ormanlık alanı bulunmamaktadır…"
+          },
+          {
+            "page": 59,
+            "match": "kıyı kenar",
+            "snippet": "…ı olmak üzere canlıların yaşama ortamı olarak önem taşıyan bütün sular, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler, proje alanı ve yakın çevresinde bul…"
+          },
+          {
+            "page": 59,
+            "match": "sulak alan",
+            "snippet": "…ar, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler, proje alanı ve yakın çevresinde bulunmamaktadır. ç) Göller, akarsular, yeraltı suyu işletme sah…"
+          },
+          {
+            "page": 90,
+            "match": "Özel Çevre Koruma",
+            "snippet": "…ik • Ömrünü Tamamlamış Araçların Kontrolü Hakkında Yönetmelik • Ömrünü Tamamlamış Lastiklerin Kontrolü Yönetmeliği • Özel Çevre Koruma Kurumu Başkanlığı Çevre Koruma Projelerinin Yaptırılması Esaslarına Dair Yönetmelik"
+          },
+          {
+            "page": 120,
+            "match": "Doğal Sit",
+            "snippet": "…si talep edilmektedir. Müdürlüğümüz arşiv kayıtlarında yapılan incelemede; söz konusu belirtilen alanlarda herhangi bir Doğal Sit Kararı ve Tabiat Varlığı unsuruna rastlanılmamıştır. Ancak bu alanlarda yapılacak olan çalışmalar sırasında herhangi bi…"
+          }
+        ]
+      },
+      "ecology_and_baseline": {
+        "label": "Flora, Fauna & Baseline Methodology",
+        "page_count": 5,
+        "pages": [
+          55,
+          56,
+          58,
+          59,
+          207
+        ],
+        "samples": [
+          {
+            "page": 55,
+            "match": "mevsimsel",
+            "snippet": "…mesafede bulunmaktadır. Su yüzeyi Uşak İli Merkez İlçesi ve yakın çevresinde yüzeysel su kaynakları; akarsular, mevsimsel dereler, barajlar ve sulama göletlerinden oluşmaktadır. İlçenin önemli yüzeysel su kaynakları arasında Küçükler Baraj…"
+          },
+          {
+            "page": 56,
+            "match": "mevsimsel",
+            "snippet": "…ve akarsu yatakları boyunca gerçekleşen yerel beslenim yoluyla sağlanmaktadır. Yeraltı suyu seviyeleri; yağış miktarı, mevsimsel beslenme koşulları, tarımsal sulama amacıyla yapılan çekimler ve diğer su kullanımlarına bağlı olarak değişkenlik gös…"
+          },
+          {
+            "page": 58,
+            "match": "BERN Sözleşmesi",
+            "snippet": "…özleşmeler uyarınca korunması gerekli alanlar a) \"Avrupa'nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi\" (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan \"Önemli Deniz Kaplumbağası Üreme Alanlarında belirtilen I. ve II. Koruma Bö…"
+          },
+          {
+            "page": 59,
+            "match": "endemik",
+            "snippet": "…d) Bilimsel araştırmalar için önem arzeden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…"
+          },
+          {
+            "page": 59,
+            "match": "flora ve fauna",
+            "snippet": "…Flora-Fauna Proje alanı şehir merkezinin çeperlerinde olmasından dolayı antropojenik yapının bozulmuş olduğu ve flora ve fauna türlerinin olmadığı anlaşılmıştır. Bu sebepten dolayı flora ve fauna türü tespit edilememiştir."
+          },
+          {
+            "page": 207,
+            "match": "endemik",
+            "snippet": "…si sınırları içerisinde geniş yeşil alanlar planlanacaktır. Bölgenin iklim ve toprak yapısına uygun, su ihtiyacı düşük endemik ağaç ve bitki türleri seçilerek bitkilendirme yapılacaktır. Oluşturulacak bu yeşil doku, atmosferdeki karbondioksiti f…"
+          }
+        ]
+      },
+      "pollutants_and_hazards": {
+        "label": "Emissions, Geochemistry & Waste",
+        "page_count": 53,
+        "pages": [
+          9,
+          14,
+          15,
+          21,
+          23,
+          27,
+          28,
+          30,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          54
+        ],
+        "samples": [
+          {
+            "page": 9,
+            "match": "deprem",
+            "snippet": "…rülmemiştir. Projeye ait 1/25.000 ölçekli topoğrafik harita, yer bulduru haritası, uydu görüntüsü, vaziyet planı ve deprem haritası ekte sunulmuştur (Bkz. Ek-1, Ek-2a, Ek-2b, Ek-2c, Ek-2d, Ek-2g)."
+          },
+          {
+            "page": 14,
+            "match": "Gürültü",
+            "snippet": "…le Altyapı ve Çevre Düzenlemesi Proje Tanıtım Dosyası 9 Toz ve Gürültü Emisyonu Hafriyat Aplikasyonu Hafriyat Çalışması Drenaj Çalışması Temel Kolon ve Perdelerin Yapılması Kat Döşemeler…"
+          },
+          {
+            "page": 15,
+            "match": "Deprem",
+            "snippet": "…len en son uygulama teknik ve usullere göre yapılacaktır. Bu bağlamda yapılacak yapılar teknik olarak; • Projeler, Deprem Yönetmeliğine uygun olarak hazırlanması ve son deprem yönetmeliği paralelinde gerekli zemin etütlerinin yapılması, •…"
+          },
+          {
+            "page": 21,
+            "match": "Tehlikeli Atık",
+            "snippet": "…u ve Bertarafı Yöntemi Atık Türü Atık Kodu Bertaraf Yöntemi Diğer motor, şanzıman ve yağlama yağları 13 02 08* (A:Tehlikeli Atık) Lisanslı firmalar aracılığı ile geri dönüşüm/bertaraf"
+          },
+          {
+            "page": 23,
+            "match": "Tehlikeli Atık",
+            "snippet": "…Kodları ve Bertarafı Yöntemi Atık Türü Atık Kodu Bertaraf Yöntemi Kurşunlu piller ve akümülatörler 16 06 01*(A:Tehlikeli Atık) TAP (Taşınabilir Pil Üreticileri ve İthalatçıları Derneği) aracılığı ile bertaraf Nikel kadmiyum piller 16 06 02…"
+          },
+          {
+            "page": 27,
+            "match": "Hidrojen Sülfür",
+            "snippet": "…ve Gaz Halde İnorganik Klorür Bileşikleri 20 2 Hidrojen florür ve Gaz Halde İnorganik Florür Bileşikleri 2 0.2 Hidrojen Sülfür 4 0.4 Karbon Monoksit 500 50 Kükürt Dioksit 60 6 Azot Dioksit [NOx (NO2 cinsinden)] 40 4 Toplam Organik Bi…"
+          },
+          {
+            "page": 28,
+            "match": "Hidrojen Sülfür",
+            "snippet": "…ve Gaz Halde İnorganik Klorür Bileşikleri 20 2 Hidrojen florür ve Gaz Halde İnorganik Florür Bileşikleri 2 0.2 Hidrojen Sülfür 4 0.4 Karbon Monoksit 500 50 Kükürt Dioksit 60 6 Azot Dioksit [NOx (NO2 cinsinden)] 40 4 Toplam Organik Bi…"
+          },
+          {
+            "page": 30,
+            "match": "Toz Emisyon",
+            "snippet": "…s://www.imo.org.tr/resimler/dosya_ekler/27abe7a7df24f39_ek.pdf Hafriyat Toprağı Miktarı 25.932,14 ton/yıl Tablo 23.Toz Emisyon Hesapları Arazi Hazırlık Çalışılacak Gün Sayısı 30 gün/yıl Günde Çalışılacak Saat 8 saat/gün Günlük Bitkisel…"
+          }
+        ]
+      },
+      "cost_and_capacity": {
+        "label": "Proje Bedeli, Güç ve Kapasite",
+        "page_count": 16,
+        "pages": [
+          2,
+          3,
+          10,
+          15,
+          16,
+          17,
+          23,
+          30,
+          31,
+          33,
+          34,
+          49,
+          83,
+          198,
+          204,
+          206
+        ],
+        "samples": [
+          {
+            "page": 2,
+            "match": "PROJE BEDELİ",
+            "snippet": "…JENİN ADI Uşak İli Merkez İlçesi Dikilitaş Mahallesi 340 Adet Konut (+3 Kd) İnşaatı İle Altyapı ve Çevre Düzenlemesi PROJE BEDELİ 753.054.698,50 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) Uşak İli Merkez İlçesi Dikilitaş Maha…"
+          },
+          {
+            "page": 3,
+            "match": "kapasite",
+            "snippet": "…(proje teknolojisinin ve proje alanının seçilme nedenleri) ............................ 4 b) Projenin iş akım şeması, kapasitesi, kapladığı alan, yatırım bedeli, teknolojisi, çalışacak personel sayısı. .. 5 c) Doğal kaynakların kullanımı (arazi…"
+          },
+          {
+            "page": 10,
+            "match": "kapasite",
+            "snippet": "…tında tutulabileceği ve çevreyle uyumlu biçimde yürütülebileceği değerlendirilmektedir. b) Projenin iş akım şeması, kapasitesi, kapladığı alan, yatırım bedeli, teknolojisi, çalışacak personel sayısı. Projenin İş Akım Şeması Projenin inşa…"
+          },
+          {
+            "page": 15,
+            "match": "Kapasite",
+            "snippet": "…Altyapı ve Çevre Düzenlemesi Proje Tanıtım Dosyası 10 Projenin Kapasitesi, Kapladığı Alan İskân aşamasında, her konutta ortalama 4 kişinin yaşayacağı varsayımıyla 340 konut ve 3 kapıcı da…"
+          },
+          {
+            "page": 16,
+            "match": "21.050 TL",
+            "snippet": "…nda Tebliğ kapsamında III. Sınıf B Grubu yapılar olarak değerlendirilmektedir. Tebliğ’de bu yapı grubu için belirlenen 21.050 TL/m2 birim maliyet, toplam inşaat alanına uygulanarak proje bedelinin yaklaşık 753.054.698,50 TL olduğu hesaplanmıştır.…"
+          },
+          {
+            "page": 16,
+            "match": "proje bedeli",
+            "snippet": "…endirilmektedir. Tebliğ’de bu yapı grubu için belirlenen 21.050 TL/m2 birim maliyet, toplam inşaat alanına uygulanarak proje bedelinin yaklaşık 753.054.698,50 TL olduğu hesaplanmıştır. Bu tutar, belirtilen birim maliyet ve toplam alan esas alınarak y…"
+          },
+          {
+            "page": 16,
+            "match": "21.050TL",
+            "snippet": "…n yaklaşık hesaplamayı göstermektedir. Proje Bedeli: Konut İnşaat Emsal Alanı x Yapı birim maliyeti 35.774,57 m2 x 21.050TL/m2 = 753.054.698,50 TL dir. Projenin bedeli ayrıntılı olarak aşağıdaki tabloda değerlendirilmiştir. Tablo 3. Proj…"
+          },
+          {
+            "page": 17,
+            "match": "kapasite",
+            "snippet": "…nda pet şişe, damacana ve benzeri hazır sulardan temin edilecek; kullanma suyu ise proje kapsamında yapılacak 1.000 m3 kapasiteli su deposundan sağlanacaktır. Böylece su temini, kullanım amacına göre düzenlenmiş olacaktır. İçme suyunun teminin…"
+          }
+        ]
+      },
+      "splitting_and_thresholds": {
+        "label": "Proje Parçalama, Kapasite Artışı ve Eşik Değerler",
+        "page_count": 6,
+        "pages": [
+          6,
+          15,
+          16,
+          55,
+          68,
+          125
+        ],
+        "samples": [
+          {
+            "page": 6,
+            "match": "ÇED alanı",
+            "snippet": "…rojenin, 994/7, 994/10, 994/27, 994/28, 994/31, 994/32 ada/parsel sınırları içinde gerçekleştirilmesi planlanmaktadır. ÇED alanı 29.521,09 m2 (2,95 ha) olarak belirlenmiştir. Bu alanda yapı alanı, araç yolu, sert peyzaj ve yeşil alan kullanımları…"
+          },
+          {
+            "page": 15,
+            "match": "ÇED alanı",
+            "snippet": "…Projenin 994/7, 994/10, 994/27, 994/28, 994/31, 994/32 ada/parseller üzerinde gerçekleştirilmesi planlanmaktadır. ÇED alanı 29.521,09 m2 (2,95 ha) olarak belirlenmiştir. Alan içerisinde yapı, araç yolu, sert peyzaj ve yeşil alan kullanımları…"
+          },
+          {
+            "page": 16,
+            "match": "ÇED alanı",
+            "snippet": "…vb.), Arazi Kullanımı ÇED alanında yapı, araç yolu, sert peyzaj ve yeşil alan kullanımları öngörülmektedir. ÇED alanı 29.521,09 m2 (2,95 ha) büyüklüğündedir. Alan sınırları içinde kanalizasyon, yol, su, elektrik ve doğalgaz altyapısının…"
+          },
+          {
+            "page": 55,
+            "match": "ÇED alanı",
+            "snippet": "…anlık alanı bulunmamaktadır. Aynı zamanda doğusunda da sınır durumda ormanlık alan bulunmaktadır. Planlı Alan ÇED alanı 29.521,09 m2 (2,95 ha) olup içerisinde yapı alanı, araç yolu, sert peyzaj ve yeşil alan olacak şekilde arazi kullanımı…"
+          },
+          {
+            "page": 68,
+            "match": "ÇED Alanı",
+            "snippet": "…kullanılacaktır. Kantar fişi kontrol edilecek Aylık Bitkisel topraklar ayrı depolanıyor mu? Bitkisel toprak ÇED Alanı içerisinde koordinatları Ek-1’de verilen alanda depolanacak ve öncelikli olarak peyzaj düzenlenmesinde, yolların…"
+          },
+          {
+            "page": 125,
+            "match": "5403 sayılı",
+            "snippet": "…rselde kayıtlı 17,9727 ha alanda konut amaçlı imar planı yapılması ile ilgili Müdürlüğümüze müracaat edilmiştir. Talep 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanununun 13. maddesi gereği incelenmiş, Bakanlık Makamının 26.03.2025 tarih…"
+          }
+        ]
+      }
+    },
+    "audit_checks": {
+      "mentions_field_survey": true,
+      "mentions_literature_only_cue": false,
+      "mentions_seasonal_sampling": true,
+      "mentions_cumulative_impact": true,
+      "mentions_olive_law_3573": false,
+      "mentions_groundwater_or_aquifer": true,
+      "mentions_iucn_or_endemic": true,
+      "mentions_capacity_or_splitting": false,
+      "mentions_circular_2009_7_or_revision": false
+    }
+  },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-22T00:59:59",
+      "decision_type": "ÇED Süreci Başlayan",
+      "announcement_date": "2026-11-20",
+      "announcement_date_tr": "20.11.2026",
+      "submitted_at": "18/11/2026 04:04:47",
+      "consulting_firm": "AKTEL ÇEVRE DANIŞMANLIK MÜŞAVİRLİK VE MÜHENDİSLİK LTD. ŞTİ.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign7567719719245232891.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-18",
+      "pdf_temp_ad": "sign7567719719245232891.pdf",
+      "pdf_original_name": "e-imza.pdf",
+      "pdf_upload_date": "2026-11-18",
+      "sha256": "1d8d9e12cac8857ad6d3d853b0cd7e2fd401571109bd9bddaef1007af04085ee",
+      "bytes": 25230878,
+      "page_count": 216,
+      "text_pages": 182,
+      "scanned_or_blank_pages": 34,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": true,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": false,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true,
+        "mentions_capacity_or_splitting": false,
+        "mentions_circular_2009_7_or_revision": false
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 34,
+        "water_and_discharge": 22,
+        "protected_land_and_olive": 8,
+        "ecology_and_baseline": 5,
+        "pollutants_and_hazards": 53,
+        "cost_and_capacity": 16,
+        "splitting_and_thresholds": 6
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 38.69863,
+      "geo_lon": 29.3701,
+      "geo_point_count": 54,
+      "detail_text_sha256": "451689103abbb7d0"
+    }
+  ],
+  "llm_synthesis": {
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-11-22T01:00:05",
+    "pages_sent": [
+      1,
+      2,
+      3,
+      9,
+      10,
+      14,
+      15,
+      17,
+      18,
+      21,
+      23,
+      24,
+      51,
+      52,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      68,
+      69,
+      70,
+      71
+    ],
+    "usage": {
+      "prompt_tokens": 22267,
+      "output_tokens": 2050,
+      "thoughts_tokens": null,
+      "total_tokens": 24317
+    },
+    "result": {
+      "executive_summary_tr": "Uşak İli, Merkez İlçesi, Dikilitaş Mahallesi'nde yer alan 994/7, 994/10, 994/27, 994/28, 994/31 ve 994/32 numaralı parsellerde Toplu Konut İdaresi Başkanlığı (TOKİ) tarafından 340 adet konut ve 3 kapıcı dairesi ile altyapı ve çevre düzenlemesi yapılması planlanmaktadır. 29.521,09 m² ÇED alanına sahip projede toplam inşaat alanı 35.774,57 m² olup yatırım bedeli 753.054.698,50 TL'dir. Proje tanıtım dosyasında flora, fauna ve kümülatif etki değerlendirmelerinin yapılmamış olması ve alanın orman ile tarım alanlarına komşu olması temel çevresel riskleri oluşturmaktadır.",
+      "executive_summary_en": "The Housing Development Administration of Turkey (TOKİ) plans to construct 340 residential units, 3 janitor apartments, infrastructure, and landscaping on parcels 994/7, 994/10, 994/27, 994/28, 994/31, and 994/32 in Dikilitaş Neighborhood, Central District, Uşak Province. The project covers a ÇED area of 29,521.09 m² with a total construction area of 35,774.57 m² and an investment cost of 753,054.698.50 TRY. The primary environmental concerns stem from the complete absence of flora-fauna inventories and cumulative impact assessments, alongside the project's proximity to forest and agricultural lands.",
+      "key_facts": [
+        {
+          "label": "Yatırım Bedeli",
+          "value": "753.054.698,50 TL",
+          "page": 2
+        },
+        {
+          "label": "Konut ve Bina Kapasitesi",
+          "value": "340 Adet Konut + 3 Kapıcı Dairesi",
+          "page": 2
+        },
+        {
+          "label": "ÇED Alanı",
+          "value": "29.521,09 m² (2,95 ha)",
+          "page": 15
+        },
+        {
+          "label": "Toplam İnşaat Alanı",
+          "value": "35.774,57 m²",
+          "page": 15
+        },
+        {
+          "label": "Öngörülen Nüfus",
+          "value": "1.372 kişi",
+          "page": 15
+        },
+        {
+          "label": "İnşaat Aşaması Personel Sayısı",
+          "value": "80 kişi",
+          "page": 17
+        },
+        {
+          "label": "İnşaat Aşaması Evsel Atıksu",
+          "value": "16,80 m³/gün",
+          "page": 23
+        },
+        {
+          "label": "İskân Aşaması Evsel Atıksu",
+          "value": "288,12 m³/gün",
+          "page": 24
+        },
+        {
+          "label": "En Yakın Yerleşim Birimi",
+          "value": "45 m",
+          "page": 55
+        },
+        {
+          "label": "Uşak Kent Ormanı Mesafesi",
+          "value": "45 m",
+          "page": 55
+        }
+      ],
+      "baseline_assessment": {
+        "field_survey_status": "literature_only",
+        "seasonal_sampling_status": "not_found",
+        "cumulative_impact_status": "omitted_or_not_found",
+        "olive_and_protected_status": "Proje alanının batısında 45 metre mesafede Uşak Kent Ormanı ve tarım alanı bulunduğu, doğusunda ise ormanlık alanla sınır durumda olduğu belirtilmektedir [s. 55, 57].",
+        "explanation": "Proje tanıtım dosyasında arazi çalışmalarına dayalı özgün bir flora ve fauna envanteri sunulmamış, alanın şehir çeperinde antropojenik olarak bozulduğu iddia edilerek tür tespiti yapılmadığı ifade edilmiştir [s. 59]. Kümülatif etki değerlendirmesi ise yalnızca uydu görüntüsü incelemesine dayandırılarak geçiştirilmiştir [s. 63]."
+      },
+      "red_flags": [
+        {
+          "category": "flora_fauna_mevsimsel",
+          "severity": "high",
+          "title": "Flora ve Fauna Envanterinin Bulunmaması",
+          "detail": "Proje alanında ve yakın çevresinde yer alan ekosistemler için hiçbir saha araştırması veya mevsimsel flora-fauna envanteri yapılmamış, alanın antropojenik bozulmaya uğradığı gerekçesiyle tür tespiti yapılmadığı belirtilmiştir [s. 59]. Bu durum Danıştay içtihatları uyarınca ÇED sürecinde ağır bir eksikliktir.",
+          "pages": [
+            59
+          ]
+        },
+        {
+          "category": "kumulatif_etki",
+          "severity": "high",
+          "title": "Bölgesel Kümülatif Etki Değerlendirmesinin Olmaması",
+          "detail": "Kümülatif etki değerlendirmesi bölümünde yalnızca uydu görüntüsünden yapılan yüzeysel bir incelemeyle değerlendirmeye alınacak faaliyet bulunmadığı iddia edilmiş, bölgedeki diğer yapılaşma ve projelerin kümülatif yükü analiz edilmemiştir [s. 63].",
+          "pages": [
+            63
+          ]
+        },
+        {
+          "category": "tarim_orman_korunan_alan",
+          "severity": "medium",
+          "title": "Orman ve Tarım Alanlarına Yakınlık ve Kurum Görüşleri",
+          "detail": "Proje sahasının batısında tarım alanı ve 45 metre mesafede ormanlık alan bulunduğu, doğusunda ise ormanla sınır olduğu ifade edilmiş olmasına rağmen, ilgili kurumlardan (Orman Genel Müdürlüğü, İl Tarım ve Orman Müdürlüğü) alınması zorunlu resmi izin ve görüşlerin dosyada sunulup sunulmadığı belirsizdir [s. 55, 57].",
+          "pages": [
+            55,
+            57
+          ]
+        }
+      ],
+      "recommended_bilirkisi_disciplines": [
+        "Çevre Mühendisi",
+        "Şehir ve Bölge Plancısı",
+        "Biyolog",
+        "Orman Mühendisi",
+        "Ziraat Mühendisi",
+        "Hidrojeoloji Mühendisi"
+      ],
+      "hkt_and_petition_questions": [
+        {
+          "question_tr": "Proje sahasının batısında ve doğusunda yer alan ormanlık alanlar ile tarım arazilerine yönelik olarak, 6831 sayılı Orman Kanunu ve 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu kapsamında yetkili kurumlardan alınmış resmi izinler ve irtifak hakları dosyada mevcut mudur?",
+          "pages": [
+            55,
+            57
+          ]
+        },
+        {
+          "question_tr": "Proje tanıtım dosyasında hiçbir saha çalışmasına dayalı flora ve fauna envanteri sunulmamış olup, bölgedeki habitatların ve olası endemik türlerin koruma statüleri nasıl göz ardı edilmiştir?",
+          "pages": [
+            59
+          ]
+        },
+        {
+          "question_tr": "Uşak Kent Ormanı'na ve yerleşim birimlerine yalnızca 45 metre mesafede planlanan 340 konutluk projenin inşaat ve işletme aşamalarında yaratacağı gürültü, toz ve trafik yükünün kümülatif etkileri neden coğrafi ve sayısal olarak modellenmemiştir?",
+          "pages": [
+            55,
+            63
+          ]
+        }
+      ],
+      "data_limitations": "Dosyanın toplam 216 sayfa olduğu, bunun 34 sayfasının taranmış/görsel ağırlıklı belgelerden oluştuğu ve metin çıkarılamayan ekler ile haritaların (Ek-1, Ek-2 haritaları) ayrıntılı inceleme dışı kaldığı raporda belirtilmiştir."
+    }
+  }
+}

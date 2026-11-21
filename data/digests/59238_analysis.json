@@ -1,0 +1,963 @@
+{
+  "filing": {
+    "province": "ERZURUM",
+    "district": "PAZARYOLU",
+    "project_name": "ANFO ÜRETİM TESİSİ (30.000 ton/yıl)",
+    "project_owner": "SOLAR MADENCİLİK HİZMETLERİ A.Ş.",
+    "sector": "Kimya",
+    "sub_sector": "Patlayıcı ve Parlayıcı Maddelerin Üretildiği Tesis Projeleri",
+    "decision_type": "ÇED Süreci Başlayan",
+    "announcement_date_tr": "17.11.2026",
+    "project_type": "Ek-2",
+    "detail_text": "ERZURUM ili PAZARYOLU,  ilcesinde ERZURUM ili PAZARYOLU,  ilçesi Yenimahalle/Beşevler Mahalleleri 352 ada 36 Parsel mevkiindeki SOLAR MADENCİLİK HİZMETLERİ A.Ş.  tarafından yapılması planlanan ANFO ÜRETİM TESİSİ (30.000 ton/yıl) projesi ile ilgili olarak ERZURUM Valiliğimize sunulan P.T.D. Dosyası Çevresel Etki Değerlendirmesi Yönetmeliği'nin 16. maddesi doğrultusunda incelenmiş ve projeye ilişkin ÇED Süreci başlamıştır. İlgililere ve kamuoyuna duyurulur.",
+    "detail_links": [
+      {
+        "text": "P.T.D. Dosyası",
+        "href": "http://eced.csb.gov.tr/jsp/ek1/59238"
+      }
+    ],
+    "documents": [
+      {
+        "portal_doc_url": "http://eced.csb.gov.tr/jsp/ek1/59238",
+        "filing_id": "59238",
+        "consulting_firm": "4AÇED MÜHENDİSLİK LİMİTED ŞİRKETİ",
+        "submitted_at": "14/11/2026 12:59:58",
+        "pdf_urls": [
+          {
+            "label": "Dosya Göster",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign917104925120005605.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-14"
+          }
+        ]
+      }
+    ],
+    "announcement_date": "2026-11-17",
+    "statutory_clocks": [
+      {
+        "code": "process_open",
+        "kind": "Karar öncesi inceleme süreci (ÇED Yönetmeliği m. 8/16; süreç boyunca yazılı görüş verilebilir)",
+        "deadline": null,
+        "days_remaining": null
+      }
+    ],
+    "filing_key": "59238:17.11.2026:ÇED Süreci Başlayan",
+    "first_seen_at": "2026-11-20T02:11:16"
+  },
+  "pdf_info": {
+    "filename": "59238.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign917104925120005605.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-14",
+    "bytes": 57580378,
+    "sha256": "7677c7e3dc06b6a100682a04448b6ea7860291e1a6e6aa02b4641ba1104672fb",
+    "cached": false
+  },
+  "analysis": {
+    "page_count": 285,
+    "total_chars": 616170,
+    "text_pages": 262,
+    "scanned_or_blank_pages": 23,
+    "scanned_page_sample": [
+      144,
+      145,
+      146,
+      147,
+      148,
+      161,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      273,
+      274,
+      276
+    ],
+    "headings": [
+      [
+        226,
+        "İÇİNDEKİLER"
+      ],
+      [
+        226,
+        "TABLO LİSTESİ"
+      ],
+      [
+        226,
+        "ŞEKİL LİSTESİ"
+      ],
+      [
+        227,
+        "AMAÇ VE KAPSAM"
+      ],
+      [
+        228,
+        "ÇEVRESEL VE SOSYAL YÖNETİM PLANI"
+      ],
+      [
+        228,
+        "1. Sosyoekonomik yapı,"
+      ],
+      [
+        231,
+        "2. Toplum sağlığı ve güvenliği,"
+      ],
+      [
+        236,
+        "3. İş sağlığı ve güvenliği,"
+      ],
+      [
+        242,
+        "4. Kültürel Değerler ve Miras,"
+      ],
+      [
+        243,
+        "5. Arazi kullanımı,"
+      ],
+      [
+        243,
+        "6. Hava kalitesi,"
+      ],
+      [
+        243,
+        "7.  Su kaynakları ve su kalitesi,"
+      ],
+      [
+        244,
+        "8.  Yeraltı suyu kalitesi,"
+      ],
+      [
+        246,
+        "9. Gürültü,"
+      ],
+      [
+        247,
+        "10. Tesisten Kaynaklanacak Atıklar"
+      ],
+      [
+        260,
+        "11.  Ormanlar ve biyolojik çeşitlilik,"
+      ],
+      [
+        261,
+        "12.  Görsel etki,"
+      ],
+      [
+        262,
+        "13.  Alınacak önlemler, gereklilikler ve tavsiyeler"
+      ],
+      [
+        219,
+        "SERA GAZI AZALTIM PLANI"
+      ],
+      [
+        219,
+        "İÇİNDEKİLER"
+      ],
+      [
+        220,
+        "1. AMAÇ VE KAPSAM"
+      ],
+      [
+        220,
+        "2. PROJENİN İNŞAAT VE İŞLETME AŞAMALARINDA YENİLENEBİLİR ENERJİ KULLANIMINA İLİŞKİN ÇALIŞMALAR"
+      ],
+      [
+        221,
+        "3. YAKIT TÜKETİMİNİ AZALTMAYA YÖNELİK ÇALIŞMALAR,"
+      ],
+      [
+        223,
+        "4. ALTERNATİF VE ÇEVRE DOSTU MALZEME SEÇİMİ, BAKIM-ONARIM-İYİLEŞTİRME ÇALIŞMALARI, STRATEJİK YOL TASARIM ÇALIŞMALARI,"
+      ],
+      [
+        224,
+        "5. PROJE KAPSAMINDA AÇIĞA ÇIKACAK ATIK ISININ DEĞERLENDİRİLMESİ, GERİ KAZANIMI İLE İLGİLİ ÇALIŞMALAR"
+      ]
+    ],
+    "geo": {
+      "precision": "exact_pdf",
+      "lat": 40.44325,
+      "lon": 40.79796,
+      "point_count": 14,
+      "points": [
+        [
+          40.44215,
+          40.79795
+        ],
+        [
+          40.44201,
+          40.79767
+        ],
+        [
+          40.4427,
+          40.7967
+        ],
+        [
+          40.44429,
+          40.79567
+        ],
+        [
+          40.44446,
+          40.7962
+        ],
+        [
+          40.44395,
+          40.79928
+        ],
+        [
+          40.44342,
+          40.7996
+        ],
+        [
+          40.44279,
+          40.79878
+        ],
+        [
+          40.44308,
+          40.79863
+        ],
+        [
+          40.44233,
+          40.79796
+        ],
+        [
+          40.44344,
+          40.79819
+        ],
+        [
+          40.44355,
+          40.79808
+        ],
+        [
+          40.44371,
+          40.79832
+        ],
+        [
+          40.4436,
+          40.79843
+        ]
+      ],
+      "datum": "WGS84",
+      "pages": [
+        136
+      ]
+    },
+    "signals": {
+      "coordinates_and_footprint": {
+        "label": "Coordinates, Parcel & Footprint",
+        "page_count": 52,
+        "pages": [
+          1,
+          2,
+          4,
+          5,
+          8,
+          9,
+          13,
+          18,
+          19,
+          23,
+          29,
+          35,
+          37,
+          38,
+          41,
+          48,
+          54,
+          55,
+          61,
+          63,
+          75,
+          90,
+          100,
+          101,
+          103
+        ],
+        "samples": [
+          {
+            "page": 1,
+            "match": "ada 36 Parsel",
+            "snippet": "…KETİ ANFO ÜRETİM TESİSİ (30.000 TON/YIL) Erzurum ili Pazaryolu ilçesi, Yenimahalle/Beşevler Mahalleleri 352 ada 36 Parsel PROJE TANITIM DOSYASI 4AÇED MÜHENDİSLİK LTD. ŞTİ. 2026"
+          },
+          {
+            "page": 2,
+            "match": "ada 36 Parsel",
+            "snippet": "…Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii) Erzurum ili Pazaryolu ilçesi, Yenimahalle/Beşevler Mahalleleri 352 ada 36 Parsel Projenin ÇED Yönetmeliği Kapsamındaki Yeri (Sektör, Alt Sektör) Ek-2 Listesi; 23- Anfo üretimi, Projenin Ana NAC…"
+          },
+          {
+            "page": 4,
+            "match": "ED50",
+            "snippet": "…icient) DEB Değerli Ekosistem Bileşenleri DKMP Doğa Koruma ve Milli Parklar DSİ Devlet Su İşleri Genel Müdürlüğü ED50 European Datum 1950 (Harita Projeksiyon Datumu) EN Tehlikede (Endangered) EW Doğada Tükenmiş / Vahşi Yaşamda Soyu…"
+          },
+          {
+            "page": 5,
+            "match": "UTM",
+            "snippet": "…l Coğrafi Bilgi Sistemi TÜİK Türkiye İstatistik Kurumu UN Birleşmiş Milletler (Tehlikeli Maddeler Sınıflandırması) UTM Universal Transverse Mercator (Harita Projeksiyonu) VOC Uçucu Organik Bileşikler VU Zarar Görebilir / Hassas (Vuln…"
+          },
+          {
+            "page": 5,
+            "match": "WGS-84",
+            "snippet": "…al Transverse Mercator (Harita Projeksiyonu) VOC Uçucu Organik Bileşikler VU Zarar Görebilir / Hassas (Vulnerable) WGS-84 World Geodetic System 1984 (Harita Datumu) YAS Yeraltı Suyu YHGS Yaban Hayatı Geliştirme Sahası"
+          },
+          {
+            "page": 8,
+            "match": "Koordinat",
+            "snippet": "…LAR MADENCİLİK HİZMETLERİ A.Ş. ANFO ÜRETİM TESİSİ (30.000 TON/YIL) 8 EKLER LİSTESİ 1. Proje İçin Seçilen Yerin Koordinatları 2. Proje Alanı Ve Yakın Çevresinin Mevcut Arazi Kullanımını Değerlendırmek İçin; Yerleşim Alanlarının, Ulaşım Ağl…"
+          },
+          {
+            "page": 9,
+            "match": "ada 36 parsel",
+            "snippet": "…PROJENİN TEKNİK OLMAYAN ÖZETİ Proje konusu yatırım; Erzurum ili Pazaryolu ilçesi Yenimahalle/Beşevler Mahallesi 352 ada 36 parsel adresinde Solar Madencilik Hizmetleri Anonim Şirketi tarafından planlanmakta olan Anfo Üretim Tesisi (30.000 Ton/Yıl)’…"
+          },
+          {
+            "page": 9,
+            "match": "569,34 m2",
+            "snippet": "…pılan incelemede 36 numaralı parselin Hali Arazi vasıflı olduğu görülmektedir. Bahse konu parsel toplam yüzölçümü 321.569,34 m2 olup tesis parsel içerisinde belirlenen 400 m2 alanda inşa edilecektir. Mevcut durumda aynı parselde proje sahibinin…"
+          }
+        ]
+      },
+      "water_and_discharge": {
+        "label": "Water Use, Hydrogeology & Discharge",
+        "page_count": 29,
+        "pages": [
+          5,
+          20,
+          32,
+          33,
+          34,
+          55,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          75,
+          102,
+          106,
+          108,
+          113,
+          121,
+          130,
+          172,
+          228,
+          244,
+          245,
+          258
+        ],
+        "samples": [
+          {
+            "page": 5,
+            "match": "Yeraltı Suyu",
+            "snippet": "…Organik Bileşikler VU Zarar Görebilir / Hassas (Vulnerable) WGS-84 World Geodetic System 1984 (Harita Datumu) YAS Yeraltı Suyu YHGS Yaban Hayatı Geliştirme Sahası"
+          },
+          {
+            "page": 20,
+            "match": "4,215 m3/gün",
+            "snippet": "…işi başı günlük içme ve kullanma suyu ihtiyacı 281 lt/kişi-gün kabulüyle; 15 kişi x 281 lt/kişi-gün = 4.215 lt/gün (4,215 m3/gün ) olarak hesaplanmıştır. İşletme Aşaması İşletme aşamasında görev alacak yaklaşık 10 personelin ihtiyaç duyacağı…"
+          },
+          {
+            "page": 20,
+            "match": "2,81 m3/gün",
+            "snippet": "…işi başı günlük içme ve kullanma suyu ihtiyacı 281 lt/kişi-gün kabulüyle; 10 kişi x 281 lt/kişi-gün = 2.810 lt/gün (2,81 m3/gün ) olarak hesaplanmıştır. Su ihtiyacının yerüstü ve yeraltı suyu kaynaklarından karşılanması planlanmamaktadı…"
+          },
+          {
+            "page": 20,
+            "match": "yeraltı suyu",
+            "snippet": "…yle; 10 kişi x 281 lt/kişi-gün = 2.810 lt/gün (2,81 m3/gün ) olarak hesaplanmıştır. Su ihtiyacının yerüstü ve yeraltı suyu kaynaklarından karşılanması planlanmamaktadır. Bu nedenle Su Tahsisleri Hakkında Yönetmelik kapsamında tahsis belge…"
+          },
+          {
+            "page": 32,
+            "match": "Atıksu",
+            "snippet": "…uhtemel Sıvı Atıklar Atık Türü Miktarı Açıklama Atık Kodu Atıksuların Yönetimi İnşaat İşletme Evsel Nitelikli Atıksu 4,215 m3/gün 2,81 m3/gün İnsani tüketim amaçlı su kullanımından kaynaklı - Sızdırmaz foseptik çukurlarda birik…"
+          },
+          {
+            "page": 32,
+            "match": "4,215 m3/gün",
+            "snippet": "…Sıvı Atıklar Atık Türü Miktarı Açıklama Atık Kodu Atıksuların Yönetimi İnşaat İşletme Evsel Nitelikli Atıksu 4,215 m3/gün 2,81 m3/gün İnsani tüketim amaçlı su kullanımından kaynaklı - Sızdırmaz foseptik çukurlarda biriktirilecek, dene…"
+          },
+          {
+            "page": 32,
+            "match": "2,81 m3/gün",
+            "snippet": "…tık Türü Miktarı Açıklama Atık Kodu Atıksuların Yönetimi İnşaat İşletme Evsel Nitelikli Atıksu 4,215 m3/gün 2,81 m3/gün İnsani tüketim amaçlı su kullanımından kaynaklı - Sızdırmaz foseptik çukurlarda biriktirilecek, denetimli vidanjör…"
+          },
+          {
+            "page": 33,
+            "match": "4,215 m3/gün",
+            "snippet": "…İZMETLERİ A.Ş. ANFO ÜRETİM TESİSİ (30.000 TON/YIL) 33 İnşaat Aşaması 15 kişi x 281 lt/kişi-gün = 4.215 lt/gün (4,215 m3/gün ) olarak hesaplanmıştır. İşletme Aşaması 10 kişi x 281 lt/kişi-gün = 2.810 lt/gün (2,81 m3/gün ) olarak hesaplanm…"
+          }
+        ]
+      },
+      "protected_land_and_olive": {
+        "label": "Protected Zones, Forests & Olive Groves",
+        "page_count": 12,
+        "pages": [
+          3,
+          54,
+          55,
+          62,
+          102,
+          104,
+          106,
+          113,
+          141,
+          242,
+          260,
+          268
+        ],
+        "samples": [
+          {
+            "page": 3,
+            "match": "orman alanı",
+            "snippet": "…2. PROJE YERİ VE ETKİ ALANIN MEVCUT ÇEVRESEL ÖZELLİKLERİ ................ 54 a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri. ..............................…"
+          },
+          {
+            "page": 54,
+            "match": "orman alanı",
+            "snippet": "…00 TON/YIL) 54 2. PROJE YERİ VE ETKİ ALANIN MEVCUT ÇEVRESEL ÖZELLİKLERİ a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri. 1. Tarım alanı, orman alanı…"
+          },
+          {
+            "page": 55,
+            "match": "sulak alan",
+            "snippet": "…az. Şekil 6 Ruhsat alanı arazi varlığı toprak özellikleri Proje alanları içerisinde herhangi bir su yüzeyi veya sulak alan bulunmamaktadır. Proje alanları taşkın alanı içerisinde kalmamaktadır. Proje alanı tahliye kanalları, kurutma kanalla…"
+          },
+          {
+            "page": 62,
+            "match": "sulak alan",
+            "snippet": "…e kalmaktadır. Proje alanı içerisinde akar ya da kuru dere yatağı bulunmamaktadır. Proje alanı ve yakın çevresinde sulak alan bulunmamaktadır. Proje alanına en yakın dere yatağı 735 m güneyinden geçen Çoruh Nehri’dir. Dere yataklarından itib…"
+          },
+          {
+            "page": 102,
+            "match": "Sit alanı",
+            "snippet": "…ılmış olup önem ve özellikleri bakımından Kültür ve Turizm Bakanlığınca korunmalarında gerek görülen taşınmazlar, c) Sit alanı içinde bulunan taşınmaz kültür varlıkları, d) Milli tarihimizdeki önemleri sebebiyle zaman kavramı ve tescil söz konu…"
+          },
+          {
+            "page": 104,
+            "match": "Özel Çevre Koruma",
+            "snippet": "…meliği’nde tanımlanan alanlar bulunmamaktadır. f) Çevre Kanununun 9 uncu maddesi uyarınca Cumhurbaşkanı tarafından \"Özel Çevre Koruma Bölgeleri\" olarak tespit ve ilan edilen alanlar bulunmamaktadır. g) Boğaziçi Kanununa göre koruma altına alınan alan…"
+          },
+          {
+            "page": 104,
+            "match": "orman alanı",
+            "snippet": "…bulunmamaktadır. g) Boğaziçi Kanununa göre koruma altına alınan alanlar bulunmamaktadır. ğ) Orman Kanunu uyarınca orman alanı sayılan yerler bulunmamaktadır. A B"
+          },
+          {
+            "page": 106,
+            "match": "kıyı kenar",
+            "snippet": "…ı olmak üzere canlıların yaşama ortamı olarak önem taşıyan bütün sular, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerlerdir. ÇED alanı bahsi geçen yerler bul…"
+          }
+        ]
+      },
+      "ecology_and_baseline": {
+        "label": "Flora, Fauna & Baseline Methodology",
+        "page_count": 38,
+        "pages": [
+          4,
+          7,
+          63,
+          64,
+          77,
+          78,
+          79,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          91,
+          92,
+          93,
+          94,
+          96,
+          97,
+          98,
+          99,
+          100
+        ],
+        "samples": [
+          {
+            "page": 4,
+            "match": "CITES",
+            "snippet": "…Azaltma Sistemi BERN Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarının Korunması Sözleşmesi CBS Coğrafi Bilgi Sistemi CITES Nesli Tehlike Altında Olan Yabani Hayvan ve Bitki Türlerinin Uluslararası Ticaretine İlişkin Sözleşme CR Çok Tehlik…"
+          },
+          {
+            "page": 4,
+            "match": "IUCN",
+            "snippet": "…Soyu Tükenmiş (Extinct) HP Beygir Gücü (Horse Power) IBC Orta Boy Hacimli Konteyner (Intermediate Bulk Container) IUCN Uluslararası Doğal Hayatı ve Doğal Kaynakları Koruma Birliği KÇED Kümülatif Çevresel Etki Değerlendirmesi KKD Kişi…"
+          },
+          {
+            "page": 7,
+            "match": "Endemik",
+            "snippet": "…m Tehlike Haritasına Göre Konumu .................... 77 Şekil 13. Grid Haritalama Sistemindeki Karelere Göre Yaklaşık Endemik Takson Sayıları ......................................................................................................…"
+          },
+          {
+            "page": 63,
+            "match": "mevsimsel",
+            "snippet": "…olması durumunda, gerekli tedbirlerin faaliyet sahibince alınacağı taahhüt edilmektedir. Mevcut dere yataklarına -mevsimsel akışlı olanlar da dahil olmak üzere- pasa malzeme, katı veya sıvı atık dökülmeyecek, kesitleri daraltılmayacak, dere y…"
+          },
+          {
+            "page": 64,
+            "match": "mevsimsel",
+            "snippet": "…ü çalışmada DSİ Bölge Müdürlüğünün izni dahilinde yapılacaktır. Faaliyetin yapıldığı yerdeki mevcut dere yataklarına-mevsimsel akışlı olanlar da dahil olmak üzere pasa malzeme, katı veya sıvı atık dökülmeyecek, kesitlerin daraltılmayacak, dere…"
+          },
+          {
+            "page": 77,
+            "match": "Flora ve Fauna",
+            "snippet": "…Kaynak: https://deprem.afad.gov.tr/ Şekil 13. Proje Alanının Türkiye Deprem Tehlike Haritasına Göre Konumu 5.Flora ve Fauna Proje Yeri"
+          },
+          {
+            "page": 78,
+            "match": "endemik",
+            "snippet": "…dolayı Avrupa ve Orta Doğu’nun en zengin biyolojik çeşitliliğine sahip ülkeleri arasındadır. Ülkemiz yaklaşık 3800’ ü endemik (sadece ülkemizde yetişen) olmak üzere, yaklaşık 11.000 civarında takson ile oldukça zengin bir bitki çeşitliliğine s…"
+          },
+          {
+            "page": 79,
+            "match": "IUCN",
+            "snippet": "…ı proje sahası ve yakın çevresindeki vejetasyon ile floristik yapının nasıl etkileneceğinin, proje alanı ve çevresinde IUCN ve Bern Sözleşmesi kapsamında korunması gerekli taksonların bulunup bulunmadığının ve IUCN kriterlerine göre (VU, EN…"
+          }
+        ]
+      },
+      "pollutants_and_hazards": {
+        "label": "Emissions, Geochemistry & Waste",
+        "page_count": 76,
+        "pages": [
+          4,
+          5,
+          12,
+          21,
+          24,
+          25,
+          26,
+          30,
+          32,
+          36,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          51,
+          62,
+          68,
+          69,
+          73,
+          76,
+          77
+        ],
+        "samples": [
+          {
+            "page": 4,
+            "match": "Kümülatif",
+            "snippet": "…imli Konteyner (Intermediate Bulk Container) IUCN Uluslararası Doğal Hayatı ve Doğal Kaynakları Koruma Birliği KÇED Kümülatif Çevresel Etki Değerlendirmesi KKD Kişisel Koruyucu Donanım kW Kilowatt LC En Az Endişe Verici / Düşük Riskli (Lea…"
+          },
+          {
+            "page": 4,
+            "match": "Gürültü",
+            "snippet": "…mesi KKD Kişisel Koruyucu Donanım kW Kilowatt LC En Az Endişe Verici / Düşük Riskli (Least Concern) Leq Eşdeğer Gürültü Düzeyi Lp Ses Basınç Düzeyi Lw Ses Gücü Düzeyi MAK Merkez Av Komisyonu MAKK Merkez Av Komisyon Kararları MoYDe…"
+          },
+          {
+            "page": 4,
+            "match": "PM10",
+            "snippet": "…na Girebilir / Tehdide Açık (Near Threatened) OSGB Ortak Sağlık ve Güvenlik Birimi ÖTL Ömrünü Tamamlamış Lastikler PM10 10 Mikrometreden Küçük Partikül Madde (Toz) PPAN Gözenekli Pril Amonyum Nitrat (Prill Poroz Amonyum Nitrat) RAMSAR…"
+          },
+          {
+            "page": 5,
+            "match": "Deprem",
+            "snippet": "…L) 5 SKKY Su Kirliliği Kontrolü Yönetmeliği TAP Taşınabilir Pil (Atık Pil Toplama Kutuları) TBDY Türkiye Bina Deprem Yönetmeliği TOB Tarım ve Orman Bakanlığı TUCBS Türkiye Ulusal Coğrafi Bilgi Sistemi TÜİK Türkiye İstatistik Kurum…"
+          },
+          {
+            "page": 12,
+            "match": "gürültü",
+            "snippet": "…Tesiste gerçekleştirilecek sabit kaynaklı faaliyetler ile üretim ve paketleme işlemlerinden kaynaklanabilecek olası gürültü etkilerinin en aza indirilmesi amacıyla, gürültüye neden olabilecek tüm makine ve ekipmanlara yönelik gerekli mühendis…"
+          },
+          {
+            "page": 21,
+            "match": "gürültü",
+            "snippet": "…n işletme aşamasında tesiste çalışacak personellerden kaynakalanacak çevresel etkiler, üretimden kaynaklanacak toz ve gürültü emisyonları ve oluşacak atıklar olmak üzere tüm çevresel etkiler kümülatif olarak değerlendirilmiştir. 1. Katı Atık…"
+          },
+          {
+            "page": 21,
+            "match": "kümülatif",
+            "snippet": "…resel etkiler, üretimden kaynaklanacak toz ve gürültü emisyonları ve oluşacak atıklar olmak üzere tüm çevresel etkiler kümülatif olarak değerlendirilmiştir. 1. Katı Atıklar a. İnşaat Aşaması: Aşağıdaki tabloda, inşaat faaliyetleri sırası…"
+          },
+          {
+            "page": 24,
+            "match": "tehlikeli atık",
+            "snippet": "…kazanım/bertaraf tesislerine gönderilecektir. Toprağa, suya herhangi bir şekilde tehlikeli atıkların (yağ, filtre, boş tehlikeli atık kapları yada kontamine atıkların tamamı) karışmaması için gerekli önlemler alınacaktır. İnşaat aşamasında gerçekle…"
+          }
+        ]
+      },
+      "cost_and_capacity": {
+        "label": "Proje Bedeli, Güç ve Kapasite",
+        "page_count": 163,
+        "pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "samples": [
+          {
+            "page": 1,
+            "match": "30.000 TON/YIL",
+            "snippet": "SOLAR MADENCİLİK HİZMETLERİ ANONİM ŞİRKETİ ANFO ÜRETİM TESİSİ (30.000 TON/YIL) Erzurum ili Pazaryolu ilçesi, Yenimahalle/Beşevler Mahalleleri 352 ada 36 Parsel PROJE TANITIM DOSYASI…"
+          },
+          {
+            "page": 2,
+            "match": "30.000 TON/YIL",
+            "snippet": "SOLAR MADENCİLİK HİZMETLERİ A.Ş. ANFO ÜRETİM TESİSİ (30.000 TON/YIL) Başlık Sayfası: Proje Sahibinin Adı SOLAR MADENCİLİK HİZMETLERİ A.Ş. Adresi Mustafa Kemal Mah. Dumlupınar Bu…"
+          },
+          {
+            "page": 2,
+            "match": "30.000 ton/yıl",
+            "snippet": "…: 0312 286 32 22 GSM : - E-Posta oropei@hotmail.com; info@solarpatlayici.com Projenin Adı Anfo Üretim Tesisi (30.000 ton/yıl) Proje Bedeli 9,645,000.00 ₺ Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii) Erzurum ili Pazaryolu ilç…"
+          },
+          {
+            "page": 2,
+            "match": "Proje Bedeli",
+            "snippet": "…2 GSM : - E-Posta oropei@hotmail.com; info@solarpatlayici.com Projenin Adı Anfo Üretim Tesisi (30.000 ton/yıl) Proje Bedeli 9,645,000.00 ₺ Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii) Erzurum ili Pazaryolu ilçesi, Yenimahall…"
+          },
+          {
+            "page": 3,
+            "match": "30.000 TON/YIL",
+            "snippet": "SOLAR MADENCİLİK HİZMETLERİ A.Ş. ANFO ÜRETİM TESİSİ (30.000 TON/YIL) 3 İÇİNDEKİLER LİSTESİ İÇİNDEKİLER LİSTESİ ................................................................…"
+          },
+          {
+            "page": 3,
+            "match": "Kapasite",
+            "snippet": "…....................................................................................... 13 b) Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Yatırım bedeli, Teknolojisi, Çalışacak Personel Sayısı ............................................…"
+          },
+          {
+            "page": 4,
+            "match": "30.000 TON/YIL",
+            "snippet": "SOLAR MADENCİLİK HİZMETLERİ A.Ş. ANFO ÜRETİM TESİSİ (30.000 TON/YIL) 4 KISALTMALAR LİSTESİ Kısaltma Açıklama AFAD Afet ve Acil Durum Yönetimi Başkanlığı AN Amonyum Nitrat AN…"
+          },
+          {
+            "page": 5,
+            "match": "30.000 TON/YIL",
+            "snippet": "SOLAR MADENCİLİK HİZMETLERİ A.Ş. ANFO ÜRETİM TESİSİ (30.000 TON/YIL) 5 SKKY Su Kirliliği Kontrolü Yönetmeliği TAP Taşınabilir Pil (Atık Pil Toplama Kutuları) TBDY Türkiye Bina D…"
+          }
+        ]
+      },
+      "splitting_and_thresholds": {
+        "label": "Proje Parçalama, Kapasite Artışı ve Eşik Değerler",
+        "page_count": 14,
+        "pages": [
+          10,
+          11,
+          55,
+          71,
+          100,
+          106,
+          114,
+          130,
+          136,
+          142,
+          159,
+          245,
+          261,
+          269
+        ],
+        "samples": [
+          {
+            "page": 10,
+            "match": "ÇED Alanı",
+            "snippet": "…anına en yakın konut 210 m uzaklıktadır (Bkz. Şekil 1). Lejant: Proje Alanı (Anfo Üretim Tesis Alanı (400m2) ÇED Alanı Parsel Alanı Şekil 1 Proje alanının uydu görüntüsü üzerinde gösterimi Projenin her aşamasında 29.09.1987 Tarih…"
+          },
+          {
+            "page": 11,
+            "match": "kapasite artışı",
+            "snippet": "…n Tüzük\" hükümlerine harfiyen uyulacak şekilde faaliyet gösterilecektir. Proje yerinde değişiklik olması durumunda, kapasite artışı yapılması planlamasında vb. durumlarda ve/veya ÇED Yönetmeliğine tabi bir faaliyetin planlanması halinde, önceden değ…"
+          },
+          {
+            "page": 55,
+            "match": "Ruhsat alanı",
+            "snippet": "…tür bitkileri yetiştirildiği olursa da, bu durumlar VII. sınıf araziler için genel bir özellik sayılamaz. Şekil 6 Ruhsat alanı arazi varlığı toprak özellikleri Proje alanları içerisinde herhangi bir su yüzeyi veya sulak alan bulunmamaktadır.…"
+          },
+          {
+            "page": 71,
+            "match": "ÇED alanı",
+            "snippet": "…erisinde kalmamaktadır. Kaynak: http://yerbilimleri.mta.gov.tr/ Şekil 10 Heyelan Haritası İş bu rapora konu ÇED alanı T.C. Erzurum Valiliği İl Afet ve Acil Durum Müdürlüğü’nün yayınlamış olduğu heyelan tehlike haritasında düşük sınıfta…"
+          },
+          {
+            "page": 100,
+            "match": "ÇED alanı",
+            "snippet": "…proje uygulama alanına çekerek onları tehlikeye sokacak her türlü faaliyet kontrol edilecektir. - İnşaat aşamasında ÇED alanı dışındaki doğal bitki örtüsüne zarar verilmeyecektir. - Proje alanının yakın çevresindeki mevcut yaban hayatı ve bitki…"
+          },
+          {
+            "page": 106,
+            "match": "ÇED alanı",
+            "snippet": "…yeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerlerdir. ÇED alanı bahsi geçen yerler bulunmamaktadır. ç) Göller, akarsular, yeraltı suyu işletme sahaları bulunmamaktadır. d) Bil…"
+          },
+          {
+            "page": 114,
+            "match": "ÇED alanı",
+            "snippet": "…proje uygulama alanına çekerek onları tehlikeye sokacak her türlü faaliyet kontrol edilecektir. İnşaat aşamasında ÇED alanı dışındaki doğal bitki örtüsüne zarar verilmeyecektir. Proje alanının yakın çevresindeki mevcut yaban hayatı ve bitki…"
+          },
+          {
+            "page": 130,
+            "match": "5403 sayılı",
+            "snippet": "…i, Proje Sahibi/Yatırımcı Amaç dışı kullanım izni Hali arazi vasıflı alanlarda Resmi yazılar ile Faaliyet öncesi 5403 sayılı Kanun gereği Yatırımcı üstlenecek Yatırımcı üstlenecek T.C. Tarım ve Orman Bakanlığı, T.C. Erzurum Valiliği, Pro…"
+          }
+        ]
+      }
+    },
+    "audit_checks": {
+      "mentions_field_survey": true,
+      "mentions_literature_only_cue": true,
+      "mentions_seasonal_sampling": true,
+      "mentions_cumulative_impact": true,
+      "mentions_olive_law_3573": false,
+      "mentions_groundwater_or_aquifer": true,
+      "mentions_iucn_or_endemic": true,
+      "mentions_capacity_or_splitting": true,
+      "mentions_circular_2009_7_or_revision": false
+    }
+  },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-22T01:08:11",
+      "decision_type": "ÇED Süreci Başlayan",
+      "announcement_date": "2026-11-17",
+      "announcement_date_tr": "17.11.2026",
+      "submitted_at": "14/11/2026 12:59:58",
+      "consulting_firm": "4AÇED MÜHENDİSLİK LİMİTED ŞİRKETİ",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign917104925120005605.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-14",
+      "pdf_temp_ad": "sign917104925120005605.pdf",
+      "pdf_original_name": "e-imza.pdf",
+      "pdf_upload_date": "2026-11-14",
+      "sha256": "7677c7e3dc06b6a100682a04448b6ea7860291e1a6e6aa02b4641ba1104672fb",
+      "bytes": 57580378,
+      "page_count": 285,
+      "text_pages": 262,
+      "scanned_or_blank_pages": 23,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": true,
+        "mentions_seasonal_sampling": true,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": false,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true,
+        "mentions_capacity_or_splitting": true,
+        "mentions_circular_2009_7_or_revision": false
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 52,
+        "water_and_discharge": 29,
+        "protected_land_and_olive": 12,
+        "ecology_and_baseline": 38,
+        "pollutants_and_hazards": 76,
+        "cost_and_capacity": 163,
+        "splitting_and_thresholds": 14
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 40.44325,
+      "geo_lon": 40.79796,
+      "geo_point_count": 14,
+      "detail_text_sha256": "5b0955ab08cf1ee8"
+    }
+  ],
+  "llm_synthesis": {
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-11-22T01:08:19",
+    "pages_sent": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      20,
+      21,
+      32,
+      33,
+      54,
+      55,
+      62,
+      63,
+      64,
+      228,
+      229
+    ],
+    "usage": {
+      "prompt_tokens": 23518,
+      "output_tokens": 2302,
+      "thoughts_tokens": null,
+      "total_tokens": 25820
+    },
+    "result": {
+      "executive_summary_tr": "Solar Madencilik Hizmetleri A.Ş. tarafından Erzurum ili, Pazaryolu ilçesi, Yenimahalle/Beşevler Mahallesi 352 ada 36 parsel üzerinde yıllık 30.000 ton kapasiteli bir ANFO Üretim Tesisi kurulması planlanmaktadır. 321.569 metrekarelik parselin 400 metrekarelik kısmında gerçekleştirilmesi öngörülen projede, %95 oranında Amonyum Nitrat (PPAN) ile %5 oranında motorinin karıştırılması suretiyle patlayıcı madde imal edilecektir. Aynı parsel üzerinde halihazırda 39 ton kapasiteli bir patlayıcı madde depolama tesisi bulunmaktadır. Proje tanıtım dosyasında arazi kullanımının 'Hali Arazi' ve 1/100.000 ölçekli ÇDP'ye göre 'Mera' vasıflı olduğu belirtilmiş olup, en yakın konuta mesafesi 210 metredir.",
+      "executive_summary_en": "Solar Madencilik Hizmetleri A.Ş. plans to construct an ANFO production facility with an annual capacity of 30,000 tons on parcel 352, block 36 in Yenimahalle/Beşevler Neighborhood, Pazaryolu District, Erzurum Province. The project, planned on a 400 square meter area within a 321,569 square meter parcel, involves mixing approximately 95 percent porous prilled ammonium nitrate (PPAN) and 5 percent diesel fuel to manufacture explosives. An existing explosives storage facility with a capacity of 39 tons is already operating on the same parcel. The project introduction file states that the land use is classified as vacant land and pasture according to the scale environmental plan, with the nearest residence located 210 meters away.",
+      "key_facts": [
+        {
+          "label": "Proje Bedeli",
+          "value": "9.645.000,00 TL",
+          "page": 2
+        },
+        {
+          "label": "Yıllık Üretim Kapasitesi",
+          "value": "30.000 ton/yıl ANFO",
+          "page": 2
+        },
+        {
+          "label": "Yıllık Amonyum Nitrat (PPAN) Kullanımı",
+          "value": "28.500 ton/yıl",
+          "page": 9
+        },
+        {
+          "label": "Yıllık Motorin Kullanımı",
+          "value": "1.500 ton/yıl",
+          "page": 9
+        },
+        {
+          "label": "Parsel Toplam Yüzölçümü",
+          "value": "321.569,34 m2",
+          "page": 9
+        },
+        {
+          "label": "Tesis İnşa Alanı",
+          "value": "400 m2",
+          "page": 9
+        },
+        {
+          "label": "Mevcut Depolama Kapasitesi",
+          "value": "39 Ton",
+          "page": 9
+        },
+        {
+          "label": "En Yakın Konuta Mesafe",
+          "value": "210 m",
+          "page": 10
+        },
+        {
+          "label": "İşletme Aşamasında Çalışacak Personel",
+          "value": "10 kişi",
+          "page": 10
+        },
+        {
+          "label": "İnşaat Aşamasında Çalışacak Personel",
+          "value": "15 kişi",
+          "page": 10
+        }
+      ],
+      "baseline_assessment": {
+        "field_survey_status": "not_found",
+        "seasonal_sampling_status": "not_found",
+        "cumulative_impact_status": "superficial_or_boilerplate",
+        "olive_and_protected_status": "Proje alanının 1/100.000 ölçekli Çevre Düzeni Planı'na göre mera nitelikli alan üzerinde kaldığı, ÇED alanında tarım veya orman sayılan alan bulunmadığı ifade edilmektedir [s. 54].",
+        "explanation": "Dosyada flora, fauna ve ekolojik hassasiyetlere ilişkin kapsamlı bir arazi çalışması veya mevsimsel örnekleme verisi sunulmamış; hidrojeolojik ve jeolojik değerlendirmeler genel nitel ifadelerle geçiştirilmiştir. Proje alanının mera vasfı taşıması ve Çoruh Nehir Havzası içerisinde yer alması, bölgedeki kümülatif ve çevresel risklerin daha detaylı incelenmesini zorunlu kılmaktadır."
+      },
+      "red_flags": [
+        {
+          "category": "tarim_orman_korunan_alan",
+          "severity": "high",
+          "title": "Mera Vasfındaki Alanda Planlanan Tesis ve 4342 Sayılı Mera Kanunu Süreçleri",
+          "detail": "Proje alanı Tapu Kadastro sorgulamasında 'Hali Arazi' vasıflı görünmesine rağmen 1/100.000 ölçekli Çevre Düzeni Planı'nda 'Mera' olarak işaretli alanda kalmaktadır. Mera Kanunu hükümleri ve İl Tarım ve Orman Müdürlüğü izin süreçlerinin dosya sunum aşamasında tamamlanmadığı görülmektedir.",
+          "pages": [
+            54
+          ]
+        },
+        {
+          "category": "su_hidrojeoloji",
+          "severity": "high",
+          "title": "Yeraltı Suyu ve Çoruh Nehri Havzası Etkileşimi ile DSİ Görüşü Eksikliği",
+          "detail": "Proje alanı Çoruh Nehir Havzası içerisinde yer almakta olup, en yakın dere yatağı Çoruh Nehri'dir. Kazı çalışmalarında yeraltı suyu ile karşılaşılma ihtimali dışlanmamasına rağmen, DSİ kurum görüşünün alındığına dair yasal ve bağlayıcı bir onay dosyada sunulmamıştır.",
+          "pages": [
+            62,
+            63
+          ]
+        },
+        {
+          "category": "kumulatif_etki",
+          "severity": "medium",
+          "title": "Mevcut 39 Tonluk Patlayıcı Deposu ile Birikimli Etkilerin Yetersiz Değerlendirilmesi",
+          "detail": "Aynı parsel içerisinde halihazırda 39 ton kapasiteli patlayıcı madde depolama faaliyeti yürütülmesine rağmen, 30.000 ton/yıl kapasiteli yeni ANFO üretim tesisinin bu mevcut tesisle oluşturacağı kümülatif patlayıcı riski ve güvenlik çemberleri sadece sektörel kalıp ifadelerle geçiştirilmiştir.",
+          "pages": [
+            9,
+            10
+          ]
+        },
+        {
+          "category": "izleme_olcum_celiskisi",
+          "severity": "medium",
+          "title": "Su İhtiyacının Tankerlerle Temin Edilmesi ve Foseptik Altyapısının Yetersizliği",
+          "detail": "İşletme aşamasında günlük 2,81 m3 kullanma suyunun tankerlerle piyasadan temin edileceği ve evsel atıksuların sızdırmaz fosseptikte biriktirilerek vidanjörle çekileceği belirtilmiştir. Pazaryolu gibi kırsal bir ilçede bu hacimdeki atıksuyun bertaraf lojistiği ve sürekli denetimi belirsizlik taşımaktadır.",
+          "pages": [
+            20,
+            32,
+            33
+          ]
+        }
+      ],
+      "recommended_bilirkisi_disciplines": [
+        "Çevre Mühendisi",
+        "Hidrojeoloji Mühendisi",
+        "Ziraat Mühendisi",
+        "Şehir ve Bölge Plancısı",
+        "Maden Mühendisi"
+      ],
+      "hkt_and_petition_questions": [
+        {
+          "question_tr": "Proje alanının 1/100.000 ölçekli Çevre Düzeni Planı'nda 'Mera' olarak işaretli olduğu, 4342 sayılı Mera Kanunu kapsamında İl Tarım ve Orman Müdürlüğü'nden alınmış resmi bir meranın vasıf değişikliği veya tahsis amacı değişikliği kararı bulunmakta mıdır?",
+          "pages": [
+            54
+          ]
+        },
+        {
+          "question_tr": "Çoruh Nehir Havzası içerisinde ve Çoruh Nehri'ne 735 metre mesafede yer alan 352 ada 36 numaralı parseldeki üretim ve depolama faaliyetleri için Devlet Su İşleri (DSİ) Genel Müdürlüğü'nden alınmış resmi ve bağlayıcı bir kurum görüşü mevcut mudur?",
+          "pages": [
+            62,
+            63
+          ]
+        },
+        {
+          "question_tr": "Aynı parsel üzerinde halihazırda faaliyette olan 39 tonluk patlayıcı madde deposu ile planlanan yıllık 30.000 ton kapasiteli ANFO üretim tesisinin bir arada yaratacağı toplam risk yarıçapı (güvenlik mesafeleri) Sivil Kullanım Amaçli Patlayıcı Madde İşlemleri Genelgesi'ne uygun olarak hesaplanmış mıdır?",
+          "pages": [
+            9,
+            10
+          ]
+        }
+      ],
+      "data_limitations": "Dosya kapsamında yer alan bazı harita ekleri, kurum görüşü yazıları, vekaletname ve taahhütname belgeleri PDF formatındaki metin taramalarında eksik ya da görsel formatta olduğundan, bu eklerin hukuki geçerlilik tarihleri ve imza yetkileri detaylı olarak incelenememiştir."
+    }
+  }
+}

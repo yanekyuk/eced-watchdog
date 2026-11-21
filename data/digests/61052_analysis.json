@@ -1,0 +1,844 @@
+{
+  "filing": {
+    "row_index": 18,
+    "button_id": "form:duyurTable:18:j_idt67",
+    "province": "İZMİR",
+    "district": "KONAK",
+    "project_name": "Turizm Konaklama Tesisi (110 Oda Kapasiteli Otel)",
+    "project_owner": "ORAN OTEL VE TURİZM A.Ş.",
+    "sector": "Turizm",
+    "sub_sector": "Turistik Tesisler",
+    "decision_type": "ÇED Gerekli Değil/ÇED Olumlu",
+    "announcement_date_tr": "26.10.2026",
+    "project_type": "Ek-2",
+    "detail_text": "İZMİR ili KONAK,  ilcesinde İZMİR ili KONAK,  ilcesi İzmir İli, Konak İlçesi, Akdeniz Mah. Gazi Osman Paşa Blv. Renaissance No:16/Z01 (Tapunun 997 ada 11 nolu parseli) mevkiindeki ORAN OTEL VE TURİZM A.Ş. tarafından yapılması planlanan Turizm Konaklama Tesisi (110 Oda Kapasiteli Otel) projesi ile ilgili olarak Bakanlığımıza sunulan PTD Dosyası incelenmiş ve değerlendirilmiştir  ÇED Yönetmeliği'nin 17. maddesi gereğince Turizm Konaklama Tesisi (110 Oda Kapasiteli Otel) projesi'ne Valiliğimizce 'ÇED Olumlu (Kapsam Ek-2)' kararı verilmiştir.",
+    "detail_links": [
+      {
+        "text": "PTD Dosyası",
+        "href": "http://eced.csb.gov.tr/jsp/ek1/61052"
+      }
+    ],
+    "documents": [
+      {
+        "portal_doc_url": "http://eced.csb.gov.tr/jsp/ek1/61052",
+        "filing_id": "61052",
+        "consulting_firm": "PROÇED ÇEVRE DANIŞMANLIĞI MÜHENDİSLİK SAN.TİC.LTD.ŞTİ",
+        "submitted_at": "11/09/2026 03:45:10",
+        "pdf_urls": [
+          {
+            "label": "Dosya Göster",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign878812613125647858.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-10-12"
+          }
+        ]
+      }
+    ],
+    "announcement_date": "2026-10-26",
+    "statutory_clocks": [
+      {
+        "code": "iyuk_20a",
+        "kind": "İYUK Madde 20/A iptal davası süresi (30 takvim günü; İYUK 11 süreyi durdurmaz)",
+        "deadline": "2026-11-25",
+        "days_remaining": 3
+      }
+    ],
+    "priority_district": false,
+    "filing_key": "61052:26.10.2026:ÇED Gerekli Değil/ÇED Olumlu",
+    "first_seen_at": null
+  },
+  "pdf_info": {
+    "filename": "61052.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign878812613125647858.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-10-12",
+    "bytes": 44366136,
+    "sha256": "58642acbf9c149dac54377463ab945432ba43080999b3fb0bd1e0241107a9157",
+    "cached": false
+  },
+  "analysis": {
+    "page_count": 170,
+    "total_chars": 234197,
+    "text_pages": 138,
+    "scanned_or_blank_pages": 32,
+    "scanned_page_sample": [
+      70,
+      74,
+      75,
+      81,
+      84,
+      86,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100
+    ],
+    "headings": [
+      [
+        2,
+        "Başlık Sayfası"
+      ],
+      [
+        3,
+        "İçindekiler Listesi"
+      ],
+      [
+        4,
+        "Tablolar Dizini"
+      ],
+      [
+        5,
+        "Şekiller Dizini"
+      ],
+      [
+        6,
+        "Projenin Teknik Olmayan Özeti"
+      ],
+      [
+        9,
+        "Bölüm I. Projenin Özellikleri"
+      ],
+      [
+        9,
+        "a) Projenin ve Yerin Alternatifleri (Proje Teknolojisinin ve Proje Alanının Seçilme Nedenleri)"
+      ],
+      [
+        10,
+        "b) Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Teknolojisi, Çalışacak Personel Sayısı"
+      ],
+      [
+        13,
+        "c) Doğal Kaynakların Kullanımı (Arazi Kullanımı, Su Kullanımı, Kullanılan Enerji Türü Vb.)"
+      ],
+      [
+        15,
+        "ç) Projenin İnşaat ve İşletme Aşamasında Oluşan Her Türlü Atığın Özelliği (cinsi, türü, miktarı vb.)  Bertarafı ve Geri Kazanımına Yönelik Değerlendirmeler"
+      ],
+      [
+        23,
+        "d) Kullanılan Teknoloji ve Malzemelerden Kaynaklanabilecek Kaza Riski"
+      ],
+      [
+        30,
+        "Bölüm II. Proje Yeri ve Etki Alanın Mevcut Çevresel Özellikleri"
+      ],
+      [
+        30,
+        "a) Mevcut Arazi Kullanımı ve Kalitesi (Tarım Alanı, Orman Alanı, Planlı Alan, Su Yüzeyi ve Benzeri)"
+      ],
+      [
+        38,
+        "b) Ek-5’teki Duyarlı Yöreler Listesi Dikkate Alınarak Korunması Gereken Alanlar"
+      ],
+      [
+        45,
+        "Bölüm III. Projenin İnşaat ve İşletme Aşamasında Çevresel Etkileri, Öncelikli Etkilerin Belirlenmesi ve Alınacak Önlemler"
+      ],
+      [
+        55,
+        "Bölüm IV. Kümülatif Etki Değerlendirme"
+      ],
+      [
+        58,
+        "Bölüm V. Çevresel ve Sosyal Eylem Planı"
+      ],
+      [
+        58,
+        "V-1. Çevre İzleme Planı"
+      ],
+      [
+        59,
+        "V-2. Sürdürülebilirlik Planı (Sıfır Atık Planı, Trafik Yönetim Planı, Sera Gazı Azaltım Planı, Çevresel ve Sosyal Yönetim Planı vb.)"
+      ],
+      [
+        66,
+        "1- Proje İçin Seçilen Yerin Koordinatları"
+      ],
+      [
+        66,
+        "2- Proje Alanı ve Yakın Çevresinin Mevcut Arazi Kullanımını Değerlendirmek İçin; Yerleşim Alanlarının, Ulaşım Ağlarının, Enerji Nakil Hatlarının, Mevcut Tesislerin ve Ek-5’de Yer Alan Duyarlı Yöreler Listesinde Belirtilen Diğer Alanların (Proje Alanı ..."
+      ],
+      [
+        66,
+        "3- Vekâletname, İmza Sirküleri ve Ticari Sicil Gazetesi"
+      ],
+      [
+        66,
+        "4- Proje Sahibince Onaylı Taahhüt Yazısı"
+      ],
+      [
+        66,
+        "5- Başvuru Bedelinin Ödendiğine Dair Dekont"
+      ],
+      [
+        66,
+        "6- Faaliyet Alanında Yetkili Müşavir Firma Tarafından Yer İncelemesi Yapıldığını Gösterir Tutanak"
+      ]
+    ],
+    "geo": {
+      "precision": "exact_pdf",
+      "lat": 38.42653,
+      "lon": 27.1357,
+      "point_count": 7,
+      "points": [
+        [
+          38.4268,
+          27.1355
+        ],
+        [
+          38.4266,
+          27.1354
+        ],
+        [
+          38.4264,
+          27.1358
+        ],
+        [
+          38.4263,
+          27.1358
+        ],
+        [
+          38.4264,
+          27.1359
+        ],
+        [
+          38.4265,
+          27.1358
+        ],
+        [
+          38.4267,
+          27.1357
+        ]
+      ],
+      "datum": "WGS84",
+      "pages": [
+        68
+      ]
+    },
+    "signals": {
+      "coordinates_and_footprint": {
+        "label": "Coordinates, Parcel & Footprint",
+        "page_count": 29,
+        "pages": [
+          1,
+          2,
+          6,
+          9,
+          10,
+          12,
+          13,
+          21,
+          22,
+          28,
+          30,
+          50,
+          66,
+          67,
+          68,
+          72,
+          78,
+          88,
+          90,
+          113,
+          122,
+          124,
+          126,
+          129,
+          131
+        ],
+        "samples": [
+          {
+            "page": 1,
+            "match": "ada 11 nolu parsel",
+            "snippet": "…ODA KAPASİTELİ OTEL) İzmir İli, Konak İlçesi, Akdeniz Mah. Gazi Osman Paşa Blv. Renaissance No:16/Z01 (Tapunun 997 ada 11 nolu parseli) PROÇED ÇEVRE DANIŞMANLIĞI MÜHENDİSLİK İNŞ. SAN. VE TİC. LTD. ŞTİ. Mansuroğlu Mah. Ankara Cad. Bayraklı To…"
+          },
+          {
+            "page": 2,
+            "match": "ada 11 nolu parsel",
+            "snippet": "…VE TURİZM A.Ş. Adresi: İzmir İli, Konak İlçesi, Akdeniz Mah. Gazi Osman Paşa Blv. Renaissance No:16/Z01 (Tapunun 997 ada 11 nolu parseli) Telefon, GSM ve Faks Numarası: Gsm Vergi Dairesi : - : Konak VD / 6450716740 e-posta: gulsum@sialcevre.com P…"
+          },
+          {
+            "page": 6,
+            "match": "ada 11 nolu parsel",
+            "snippet": "…E TURİZM A.Ş. tarafından İzmir İli, Konak İlçesi, Akdeniz Mah. Gazi Osman Paşa Blv. Renaissance No:16/Z01 (Tapunun 997 ada 11 nolu parseli) adresinde “Turizm Konaklama Tesisi (110 Oda Kapasiteli Otel)” faaliyeti planlanmaktadır. Proje alanı İzmir-Manis…"
+          },
+          {
+            "page": 6,
+            "match": "948,5 m2",
+            "snippet": "…endirilmiş olup iş bu rapor Ek-7.11’de verilmiştir. Projede yer alan turizm işletmesi tek bina üzerinde kurulu olup, 948,5 m2 büyüklüğündeki parsel alanı üzerinde proje kapsamında toplamda 110 oda yer almaktadır. Binaya ait bölümler ilgili bil…"
+          },
+          {
+            "page": 9,
+            "match": "ada 11 nolu parsel",
+            "snippet": "…E TURİZM A.Ş. tarafından İzmir İli, Konak İlçesi, Akdeniz Mah. Gazi Osman Paşa Blv. Renaissance No:16/Z01 (Tapunun 997 ada 11 nolu parseli) adresinde “Turizm Konaklama Tesisi (110 Oda Kapasiteli Otel)” faaliyeti planlanmaktadır. Proje alanı İzmir ilini…"
+          },
+          {
+            "page": 10,
+            "match": "ada 11 nolu parsel",
+            "snippet": "…E TURİZM A.Ş. tarafından İzmir İli, Konak İlçesi, Akdeniz Mah. Gazi Osman Paşa Blv. Renaissance No:16/Z01 (Tapunun 997 ada 11 nolu parseli) adresinde “Turizm Konaklama Tesisi (110 Oda Kapasiteli Otel)” faaliyeti planlanmaktadır. Proje yalnızca işletme…"
+          },
+          {
+            "page": 12,
+            "match": "ada 11 nolu parsel",
+            "snippet": "…E TURİZM A.Ş. tarafından İzmir İli, Konak İlçesi, Akdeniz Mah. Gazi Osman Paşa Blv. Renaissance No:16/Z01 (Tapunun 997 ada 11 nolu parseli) adresinde “Turizm Konaklama Tesisi (110 Oda Kapasiteli Otel)” faaliyeti planlanmaktadır. Proje alanını gösterir…"
+          },
+          {
+            "page": 12,
+            "match": "806,43 m2",
+            "snippet": "…t planları Ek-7.2 de sunulmuştur. Proje kapsamında yer alan otelin yer aldığı parsel alanı 948,5 otelin taban alanı 806,43 m2 olup yapı inşaat alanı 9.519,6 m2’ dir. Şekil 3. Projenin Genel Vaziyet Planı 1.b.4. Çalışacak Personel Sayıs…"
+          }
+        ]
+      },
+      "water_and_discharge": {
+        "label": "Water Use, Hydrogeology & Discharge",
+        "page_count": 14,
+        "pages": [
+          10,
+          14,
+          20,
+          21,
+          37,
+          40,
+          42,
+          43,
+          49,
+          50,
+          52,
+          64,
+          134,
+          135
+        ],
+        "samples": [
+          {
+            "page": 10,
+            "match": "deşarj",
+            "snippet": "…ecektir. Personelden kaynaklı evsel nitelikli atıksular ve bulaşıkhanede oluşacak İZSU kanalizasyon sistemine deşarj edilmektedir. Şekil 2. Otel Faaliyeti İş Akım Şeması ÖN BÜRO Karşılama MİSAFİR KABUL Resepsiyon Santral…"
+          },
+          {
+            "page": 14,
+            "match": "51,6 m3/gün",
+            "snippet": "…miktarı = (215 lt/gün) x (240 kişi) = 51.600 litre/gün = 51,6 m3/gün olacaktır. Projenin işletme aşamasında kullanılacak su, İZSU şebekesinden karşılanmaktadır. Temizlik İşleri İçin…"
+          },
+          {
+            "page": 14,
+            "match": "34,5 m3/yıl",
+            "snippet": "…aktadır. Yılda 1 kez tamamen yenilecek olan havuz suyu için su kullanım miktarı; Havuz için su kullanım miktarı = 34,5 m3/yıl = 0,115 m3 / gün olacaktır. Tablo 4. Proje Su Kullanım Miktarları Proje Aşaması Su Kullanım Alanları Miktar (m3/…"
+          },
+          {
+            "page": 14,
+            "match": "4 m3/gün",
+            "snippet": "…m Alanları Miktar (m3/gün) Temin Yöntemi İşletme Aşaması Evsel Su Kullanımı 51,6 m3/gün İZSU Temizlik İşlemleri 4 m3/gün Havuz 0,115 m3/gün Toplam 55,715 m3/gün Proje kapsamında kullanılacak su İZSU şebekesinden çekilmekte olup pr…"
+          },
+          {
+            "page": 14,
+            "match": "0,115 m3/gün",
+            "snippet": "…(m3/gün) Temin Yöntemi İşletme Aşaması Evsel Su Kullanımı 51,6 m3/gün İZSU Temizlik İşlemleri 4 m3/gün Havuz 0,115 m3/gün Toplam 55,715 m3/gün Proje kapsamında kullanılacak su İZSU şebekesinden çekilmekte olup proje devamında da yine…"
+          },
+          {
+            "page": 14,
+            "match": "55,715 m3/gün",
+            "snippet": "…mi İşletme Aşaması Evsel Su Kullanımı 51,6 m3/gün İZSU Temizlik İşlemleri 4 m3/gün Havuz 0,115 m3/gün Toplam 55,715 m3/gün Proje kapsamında kullanılacak su İZSU şebekesinden çekilmekte olup proje devamında da yine şebekeden temin edilec…"
+          },
+          {
+            "page": 20,
+            "match": "Atıksu",
+            "snippet": "ORAN OTEL VE TURİZM A.Ş. TURİZM KONAKLAMA TESİSİ (110 ODA KAPASİTELİ OTEL) PROJE TANITIM DOSYASI 12 1.ç.2. Atıksu İnşaat Aşaması Projede inşaat aşaması yapılmayacaktır. Konaklama Aşaması Projenin işletme aşamasında günlü…"
+          },
+          {
+            "page": 20,
+            "match": "44,64 m3/gün",
+            "snippet": "…(personel sayısı) Personel su kullanım miktarı = (186 lt/kişi-gün) x (240 kişi) = 44.640 litre/gün = 44,64 m3/gün olacaktır. TÜİK verileri ile yapılan hesaplamaya göre evsel nitelikli atık su miktarı 44,63 m3/gün’dür. Tamamen evs…"
+          }
+        ]
+      },
+      "protected_land_and_olive": {
+        "label": "Protected Zones, Forests & Olive Groves",
+        "page_count": 6,
+        "pages": [
+          3,
+          30,
+          38,
+          40,
+          42,
+          65
+        ],
+        "samples": [
+          {
+            "page": 3,
+            "match": "Orman Alanı",
+            "snippet": "…ut Çevresel Özellikleri ........................................61 a) Mevcut Arazi Kullanımı ve Kalitesi (Tarım Alanı, Orman Alanı, Planlı Alan, Su Yüzeyi ve Benzeri) ..................................................................................…"
+          },
+          {
+            "page": 30,
+            "match": "Orman Alanı",
+            "snippet": "…Bölüm II. Proje Yeri ve Etki Alanın Mevcut Çevresel Özellikleri a) Mevcut Arazi Kullanımı ve Kalitesi (Tarım Alanı, Orman Alanı, Planlı Alan, Su Yüzeyi ve Benzeri) ORAN OTEL VE TURİZM A.Ş. tarafından İzmir İli, Konak İlçesi, Akdeniz Mah. Gazi…"
+          },
+          {
+            "page": 38,
+            "match": "Milli Park",
+            "snippet": "…\"Tabiat Koruma Alanları\", İzmir ili sınırları içindeki korunan alanlar ile ilgili bilgiler aşağıda verilmiştir. -Milli Park (MP): Türkiye’de 49 adet Milli Park bulunmakta olup, projenin gerçekleşeceği İzmir İli sınırları içinde milli park…"
+          },
+          {
+            "page": 38,
+            "match": "Tabiat Parkı",
+            "snippet": "…in gerçekleşeceği İzmir İli sınırları içinde milli park bulunmamaktadır. Şekil 15. Türkiye’deki Milli Parklar -Tabiat Parkı (TP): Projenin gerçekleştirileceği İzmir İli sınırları içinde 8 adet tabiat parkı bulunmaktadır. Proje alanı Konak…"
+          },
+          {
+            "page": 38,
+            "match": "TABİAT PARKI",
+            "snippet": "…onak İlçesi sınırları içerisinde tabiat parkı yer almamaktadır. Tablo 7. İzmir İlinde Yer Alan Tabiat Parkları NO TABİAT PARKI İLİ İLÇESİ 1 Efeoğlu TP İzmir Buca 2 Ekmeksiz Plajı TP İzmir Seferihisar 3 Gümüldür TP İzmir Menderes 4…"
+          },
+          {
+            "page": 40,
+            "match": "Özel Çevre Koruma",
+            "snippet": "…SİTELİ OTEL) PROJE TANITIM DOSYASI 71 f) Çevre Kanununun 9 uncu maddesi uyarınca Cumhurbaşkanı tarafından \"Özel Çevre Koruma Bölgeleri\" olarak tespit ve ilan edilen alanlar Proje alanı ve yakın çevresinde özel çevre koruma bölgesi yer almama…"
+          },
+          {
+            "page": 40,
+            "match": "orman alanı",
+            "snippet": "…u'na Göre Koruma Altına Alınan Alanlar ile proje alanının etkileşimi söz konusu değildir. ğ) Orman Kanunu uyarınca orman alanı sayılan yerler Faaliyet alanı, orman kanunu uyarınca orman sayılan alanlardan değildir. h) Kıyı Kanunu gereğince…"
+          },
+          {
+            "page": 40,
+            "match": "Sulak Alan",
+            "snippet": "…j) Sulak Alanların Korunması Yönetmeliği'nde belirtilen alanlar Türkiye’de 14 Ramsar Alanı, 59 Ulusal Öneme Haiz Sulak Alan, 22 Mahalli Öneme Haiz Sulak Alan bulunmaktadır. Diğer sulak alanlarımızdaki tescil çalışmaları Doğa Koruma ve Milli…"
+          }
+        ]
+      },
+      "ecology_and_baseline": {
+        "label": "Flora, Fauna & Baseline Methodology",
+        "page_count": 3,
+        "pages": [
+          41,
+          43,
+          136
+        ],
+        "samples": [
+          {
+            "page": 41,
+            "match": "BERN Sözleşmesi",
+            "snippet": "…özleşmeler uyarınca korunması gerekli alanlar a) \"Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi\" (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan \"Önemli Deniz Kaplumbağası Üreme Alanları\"nda belirtilen I. ve II. Koruma B…"
+          },
+          {
+            "page": 43,
+            "match": "endemik",
+            "snippet": "…r. d) Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…"
+          },
+          {
+            "page": 43,
+            "match": "Flora ve Fauna",
+            "snippet": "…a olup, proje konusu faaliyetlerin gerçekleştirilmesi aşamasında bu alanlara bir etkisinin olması beklenmemektedir. Flora ve Fauna Faaliyetin yer alacağı parsel, daha önce “Kentsel Yerleşik Alan” olarak belirlenmiş ve buna göre yer seçimi yapılm…"
+          },
+          {
+            "page": 136,
+            "match": "Bern Sözleşmesi",
+            "snippet": "…alanı ile çevresinde; nadir, nesli tehlikede olan ve “Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi (Bern Sözleşmesi)” Ek-I listesine göre koruma altına alınması gereken bir bitki türü bulunmamaktadır. Faaliyet alanı ve çevresinde ende…"
+          },
+          {
+            "page": 136,
+            "match": "endemik",
+            "snippet": "…mesi)” Ek-I listesine göre koruma altına alınması gereken bir bitki türü bulunmamaktadır. Faaliyet alanı ve çevresinde endemik tür bulunmamaktadır. 12. GÖRSEL ETKİ Söz konusu faaliyet kapsamında parsel alanı civarında çeşitli ticari işletm…"
+          }
+        ]
+      },
+      "pollutants_and_hazards": {
+        "label": "Emissions, Geochemistry & Waste",
+        "page_count": 31,
+        "pages": [
+          19,
+          21,
+          22,
+          25,
+          26,
+          27,
+          32,
+          34,
+          35,
+          36,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          58,
+          59,
+          62,
+          63,
+          65,
+          66,
+          121,
+          134
+        ],
+        "samples": [
+          {
+            "page": 19,
+            "match": "Tehlikeli Atık",
+            "snippet": "…uygun hareket edilecektir. Faaliyet alanında oluşacak tüm atıklar için 06.11.2025 tarih ve S-419869970-0-0 numaralı Tehlikeli Atık Zorunlu Mali Sorumluluk Sigorta Poliçesi bulunmaktadır. (Ek-7.13) Poliçe 06.11.2026 tarihine kadar geçerlidir.…"
+          },
+          {
+            "page": 21,
+            "match": "Gürültü",
+            "snippet": "…artlar yerine getirilecek; Çevre İzin ve Lisans Yönetmeliği kapsamında gerekli muafiyet/izinler alınacaktır. 1.ç.4. Gürültü İnşaat Aşaması Projede inşaat çalışması yapılmayacaktır. İşletme Aşaması Planlanan projenin işletme aşaması…"
+          },
+          {
+            "page": 22,
+            "match": "Gürültü",
+            "snippet": "…PROJE TANITIM DOSYASI 14 30.11.2022 tarih ve 32029 sayılı Resmi Gazete’de yayımlanarak yürürlüğe giren “Çevresel Gürültü Kontrol Yönetmeliği (ÇGKY)” Madde 12’de endüstri tesisleri ile işyerleri için çevresel gürültü kriterleri belirtilmişt…"
+          },
+          {
+            "page": 25,
+            "match": "Deprem",
+            "snippet": "…İSİ (110 ODA KAPASİTELİ OTEL) PROJE TANITIM DOSYASI 17 Şekil 5. Yangın Söndürme Kuralları Doğal Afet (Deprem, Sel Baskını vb.) Durumu & Kurtarma Ekibinin Görev ve Sorumlulukları Deprem anında yapılması gerekenler aşağıda det…"
+          },
+          {
+            "page": 26,
+            "match": "Deprem",
+            "snippet": "…pan‐tutun hareketi ile baş ve boyun korunmalıdır. - Pencerelerden ve camdan yapılmış eşyalardan uzak durulmalıdır. Deprem Anında Açık Alandaysanız; - Enerji hatları ve direklerinden, ağaçlardan, diğer binalardan ve duvar diplerinden uzakla…"
+          },
+          {
+            "page": 27,
+            "match": "deprem",
+            "snippet": "…ma ekibinin görev ve sorumlulukları aşağıda detaylandırılmıştır. • İşletme alanında oluşabilecek doğal felaket (sel, deprem vb.), yangın, sabotaj ve endüstriyel kazalarda meydana gelebilecek acil durumlara müdahale edebilmek, meydana gelebil…"
+          },
+          {
+            "page": 32,
+            "match": "deprem",
+            "snippet": "…esinde üst kabuk tektoniğindeki bu asimetrik değişim, farklı jeotermal sistemlerin gelişmesi yanısıra, günümüzde süren deprem kaynakları farklı sismik etkinlikle de uyumludur (Sözbilir H., Dokuz Eylül Üniversitesi Jeoloji Mühendisliği Bölümü,…"
+          },
+          {
+            "page": 34,
+            "match": "deprem",
+            "snippet": "…çizgisellik olmak üzere üç alt gruba ayrılmıştır. Son on bin yılda (Holosen) üzerinde yüzey yırtılması gelişmiş büyük deprem üretmiş faylar diri olarak tanımlanmıştır. Bu faylar bölgede deprem potansiyeli en yüksek kaynaklardır. Kuvatern…"
+          }
+        ]
+      },
+      "cost_and_capacity": {
+        "label": "Proje Bedeli, Güç ve Kapasite",
+        "page_count": 118,
+        "pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "samples": [
+          {
+            "page": 1,
+            "match": "KAPASİTE",
+            "snippet": "ORAN OTEL VE TURİZM A.Ş. TURİZM KONAKLAMA TESİSİ (110 ODA KAPASİTELİ OTEL) İzmir İli, Konak İlçesi, Akdeniz Mah. Gazi Osman Paşa Blv. Renaissance No:16/Z01 (Tapunun 997 ada 11 nolu…"
+          },
+          {
+            "page": 2,
+            "match": "KAPASİTE",
+            "snippet": "ORAN OTEL VE TURİZM A.Ş. TURİZM KONAKLAMA TESİSİ (110 ODA KAPASİTELİ OTEL) PROJE TANITIM DOSYASI i Başlık Sayfası Proje Sahibinin Adı: ORAN OTEL VE TURİZM A.Ş. Adresi: İzmir İli,…"
+          },
+          {
+            "page": 2,
+            "match": "Kapasite",
+            "snippet": "…Dairesi : - : Konak VD / 6450716740 e-posta: gulsum@sialcevre.com Projenin Adı: Turizm Konaklama Tesisi (110 Oda Kapasiteli Otel) Proje Bedeli: 100.000.000 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii): İzmir İli, Konak…"
+          },
+          {
+            "page": 2,
+            "match": "Proje Bedeli",
+            "snippet": "…onak VD / 6450716740 e-posta: gulsum@sialcevre.com Projenin Adı: Turizm Konaklama Tesisi (110 Oda Kapasiteli Otel) Proje Bedeli: 100.000.000 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii): İzmir İli, Konak İlçesi, Akdeniz Mah.…"
+          },
+          {
+            "page": 2,
+            "match": "100.000.000 TL",
+            "snippet": "…16740 e-posta: gulsum@sialcevre.com Projenin Adı: Turizm Konaklama Tesisi (110 Oda Kapasiteli Otel) Proje Bedeli: 100.000.000 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii): İzmir İli, Konak İlçesi, Akdeniz Mah. Gazi Osman Paşa B…"
+          },
+          {
+            "page": 3,
+            "match": "KAPASİTE",
+            "snippet": "ORAN OTEL VE TURİZM A.Ş. TURİZM KONAKLAMA TESİSİ (110 ODA KAPASİTELİ OTEL) PROJE TANITIM DOSYASI ii İçindekiler Listesi Sayfa No: Başlık Sayfası ............................…"
+          },
+          {
+            "page": 3,
+            "match": "Kapasite",
+            "snippet": "…........................................................................................ 1 b) Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Teknolojisi, Çalışacak Personel Sayısı ............................................................…"
+          },
+          {
+            "page": 4,
+            "match": "KAPASİTE",
+            "snippet": "ORAN OTEL VE TURİZM A.Ş. TURİZM KONAKLAMA TESİSİ (110 ODA KAPASİTELİ OTEL) PROJE TANITIM DOSYASI iii Tablolar Dizini Sayfa No: Tablo 1. Projeye Ait Kapasite Bilgileri ........…"
+          }
+        ]
+      },
+      "splitting_and_thresholds": {
+        "label": "Proje Parçalama, Kapasite Artışı ve Eşik Değerler",
+        "page_count": 4,
+        "pages": [
+          43,
+          55,
+          133,
+          135
+        ],
+        "samples": [
+          {
+            "page": 43,
+            "match": "ÇED Alanı",
+            "snippet": "…lliklerdeki jeolojik ve jeomorfolojik oluşumların bulunduğu alanlar. Proje alanında bu tür alanlar bulunmamaktadır. ÇED Alanı, Koruma Alanlarına uzak mesafelerde yer almakta olup, proje konusu faaliyetlerin gerçekleştirilmesi aşamasında bu ala…"
+          },
+          {
+            "page": 55,
+            "match": "ÇED alanı",
+            "snippet": "…alan diğer tesislerin çevresel etkileriyle birlikte değerlendirilerek belirlenmektedir. Projenin etki alanı, ÇED alanı çevresinden itibaren 500 m yarıçaplı alan olarak belirlenmiş olup proje etki alanı gösterir uydu görünümü aşağıdaki su…"
+          },
+          {
+            "page": 133,
+            "match": "ÇED alanı",
+            "snippet": "…üze Müdürlüğüne veya Mülki İdare Amirliğine haber verilecektir. 5. ARAZİ KULLANIMI Proje alanı olarak belirlenen ÇED alanı, tarafından İzmir İli, Konak İlçesi, Akdeniz Mah. Gazi Osman Paşa Blv. Renaissance No:16/Z01 (Tapunun 997 ada 11 nolu…"
+          },
+          {
+            "page": 135,
+            "match": "ÇED alanı",
+            "snippet": "…azanım/bertaraf tesislerine gönderilecektir. 11. ORMANLAR VE BİYOLOJİK ÇEŞİTLİLİK Proje alanı olarak belirlenen ÇED alanı, İzmir İli, Konak İlçesi, Akdeniz Mah. Gazi Osman Paşa Blv. Renaissance No:16/Z01 (Tapunun 997 ada 11 nolu parseli) üz…"
+          }
+        ]
+      }
+    },
+    "audit_checks": {
+      "mentions_field_survey": true,
+      "mentions_literature_only_cue": false,
+      "mentions_seasonal_sampling": false,
+      "mentions_cumulative_impact": true,
+      "mentions_olive_law_3573": false,
+      "mentions_groundwater_or_aquifer": true,
+      "mentions_iucn_or_endemic": true,
+      "mentions_capacity_or_splitting": false,
+      "mentions_circular_2009_7_or_revision": false
+    }
+  },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-22T00:43:16",
+      "decision_type": "ÇED Gerekli Değil/ÇED Olumlu",
+      "announcement_date": "2026-10-26",
+      "announcement_date_tr": "26.10.2026",
+      "submitted_at": "11/09/2026 03:45:10",
+      "consulting_firm": "PROÇED ÇEVRE DANIŞMANLIĞI MÜHENDİSLİK SAN.TİC.LTD.ŞTİ",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign878812613125647858.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-10-12",
+      "pdf_temp_ad": "sign878812613125647858.pdf",
+      "pdf_original_name": "e-imza.pdf",
+      "pdf_upload_date": "2026-10-12",
+      "sha256": "58642acbf9c149dac54377463ab945432ba43080999b3fb0bd1e0241107a9157",
+      "bytes": 44366136,
+      "page_count": 170,
+      "text_pages": 138,
+      "scanned_or_blank_pages": 32,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": false,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": false,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true,
+        "mentions_capacity_or_splitting": false,
+        "mentions_circular_2009_7_or_revision": false
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 29,
+        "water_and_discharge": 14,
+        "protected_land_and_olive": 6,
+        "ecology_and_baseline": 3,
+        "pollutants_and_hazards": 31,
+        "cost_and_capacity": 118,
+        "splitting_and_thresholds": 4
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 38.42653,
+      "geo_lon": 27.1357,
+      "geo_point_count": 7,
+      "detail_text_sha256": "fe9fa82b2061c683"
+    }
+  ],
+  "llm_synthesis": {
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-11-22T00:43:22",
+    "pages_sent": [
+      1,
+      2,
+      3,
+      6,
+      7,
+      10,
+      14,
+      19,
+      20,
+      21,
+      22,
+      25,
+      30,
+      31,
+      38,
+      40,
+      41,
+      43,
+      45,
+      46,
+      55,
+      56,
+      58,
+      59,
+      60,
+      136
+    ],
+    "usage": {
+      "prompt_tokens": 20403,
+      "output_tokens": 2020,
+      "thoughts_tokens": null,
+      "total_tokens": 22423
+    },
+    "result": {
+      "executive_summary_tr": "Oran Otel ve Turizm A.Ş. tarafından İzmir İli, Konak İlçesi, Akdeniz Mahallesi, 997 ada 11 numaralı parselde halihazırda beş yıldızlı Renaissance İzmir Otel adıyla faaliyet gösteren 110 oda kapasiteli turizm konaklama tesisi için hazırlanan Proje Tanıtım Dosyası incelenmiştir. Proje alanı 948,50 m2 yüzölçümlü parsel üzerinde yer almakta olup, inşaat çalışması öngörülmemekte ve tesis 240 toplam kişi (220 konuk, 20 personel) kapasitesiyle işletilmektedir. Faaliyet kapsamında günlük 55,715 m3 su tüketimi ve İZSU kanalizasyon sistemine deşarj edilen evsel/atıksu yükleri bulunmaktadır.",
+      "executive_summary_en": "The Project Presentation File for the existing 110-room 5-star Renaissance İzmir Hotel operated by Oran Otel ve Turizm A.Ş. in Konak, İzmir (Parcel 997/11) has been reviewed. The project occupies a 948.50 m2 plot with no construction phase, serving a total capacity of 240 individuals (220 guests, 20 staff). The facility generates daily water consumption of 55.715 m3 and discharges domestic and process wastewater into the İZSU municipal sewerage system.",
+      "key_facts": [
+        {
+          "label": "Parsel Alanı",
+          "value": "948,5 m2",
+          "page": 6
+        },
+        {
+          "label": "Oda Kapasitesi",
+          "value": "110 Oda",
+          "page": 6
+        },
+        {
+          "label": "Toplam Kişi Sayısı",
+          "value": "240 Kişi (220 konuk + 20 personel)",
+          "page": 14
+        },
+        {
+          "label": "Proje Bedeli",
+          "value": "100.000.000 TL",
+          "page": 2
+        },
+        {
+          "label": "Evsel Su Kullanımı",
+          "value": "51,6 m3/gün",
+          "page": 14
+        },
+        {
+          "label": "Toplam Su Kullanımı",
+          "value": "55,715 m3/gün",
+          "page": 14
+        },
+        {
+          "label": "Evsel Atıksu Miktarı",
+          "value": "44,64 m3/gün",
+          "page": 20
+        },
+        {
+          "label": "Ters Osmoz Atıksuyu",
+          "value": "7,74 m3/gün",
+          "page": 20
+        },
+        {
+          "label": "Denize Uzaklık",
+          "value": "Yaklaşık 300 metre",
+          "page": 30
+        },
+        {
+          "label": "Kültürpark'a Uzaklık",
+          "value": "Yaklaşık 800 metre",
+          "page": 30
+        }
+      ],
+      "baseline_assessment": {
+        "field_survey_status": "literature_only",
+        "seasonal_sampling_status": "not_found",
+        "cumulative_impact_status": "superficial_or_boilerplate",
+        "olive_and_protected_status": "Proje alanı halihazırda kentsel yerleşik alan içerisinde kalmakta olup [s. 6], 3573 sayılı Zeytincilik Kanunu kapsamında zeytinlik alanlarla veya Orman Kanunu uyarınca orman alanlarıyla etkileşimi bulunmamaktadır [s. 71].",
+        "explanation": "Raporda flora ve fauna değerlendirmeleri tamamen kentsel yerleşik alan gerekçesine dayandırılarak literatür düzeyinde geçiştirilmiş, herhangi bir mevsimsel saha çalışması veya ekolojik envanter yürütülmemiştir [s. 43]. Kümülatif etki değerlendirmesi ise yalnızca 500 metrelik yarıçap içindeki mevcut ticari yapılarla sınırlı tutulmuş, bölgesel kümülatif yükleri nicel olarak analiz etmekten uzaktır [s. 55]."
+      },
+      "red_flags": [
+        {
+          "category": "flora_fauna_mevsimsel",
+          "severity": "high",
+          "title": "Mevsimsel ve Saha Tabanlı Flora-Fauna Araştırmasının Bulunmaması",
+          "detail": "Proje tanıtım dosyasında hassas ekosistemler veya kentsel alanlar için zorunlu olan çok mevsimli ve arazi tabanlı flora-fauna verileri yer almamakta, alanın kentsel yerleşik alan olmasından bahisle literatür bilgileriyle yetinilmektedir [s. 43].",
+          "pages": [
+            43
+          ]
+        },
+        {
+          "category": "su_hidrojeoloji",
+          "severity": "medium",
+          "title": "Ters Osmoz Atıksuları ve Kanalizasyon Bağlantı Ruhsatı Eksikliği",
+          "detail": "Tesiste kullanılan ters osmoz sisteminden kaynaklanan günlük 7,74 m3 konsantre atıksuyun evsel kanalizasyona deşarjı öngörülmüş olup, İZSU Bağlantı Kalite Kontrol Ruhsatı'nın henüz alınmadığı, yalnızca başvuru yapıldığı belirtilmiştir [s. 20, 21].",
+          "pages": [
+            20,
+            21
+          ]
+        },
+        {
+          "category": "izleme_olcum_celiskisi",
+          "severity": "medium",
+          "title": "Gürültü İzleme ve Ölçüm Metodolojisinde Belirsizlikler",
+          "detail": "İzleme planında gürültü parametreleri için sürekli gözlemsel izleme taahhüt edilmiş, ancak çevresel gürültü seviyelerinin denetlenmesi yeterlilik almış akredite firmaların ölçümlerine bırakılmış olup tesis içi akustik izolasyon detayları yetersizdir [s. 21, 58].",
+          "pages": [
+            21,
+            58
+          ]
+        }
+      ],
+      "recommended_bilirkisi_disciplines": [
+        "Şehir ve Bölge Plancısı",
+        "Çevre Mühendisi",
+        "İnşaat Mühendisi",
+        "Biyolog"
+      ],
+      "hkt_and_petition_questions": [
+        {
+          "question_tr": "Tesiste kurulan ters osmoz arıtma sisteminden kaynaklanan yıllık 2.825,10 m3 konsantre atıksuyun [s. 20] İZSU kanalizasyon altyapısının hidrolik ve arıtma rejimi üzerindeki kümülatif etkisi hesaplanmış mıdır ve İZSU'dan alınmış resmi bir bağlantı ruhsatı mevcut mudur?",
+          "pages": [
+            20,
+            21
+          ]
+        },
+        {
+          "question_tr": "Proje alanının mülkiyet ve yapı ruhsatı geçmişine ait belgelerde [s. 6] belirtilen eski eser komşuluğu ve Kültür Varlıklarını Koruma Bölge Kurulu kararlarının [s. 6, 7] mevcut otel kapasitesi ve işletme faaliyetleri açısından güncel imar ve koruma mevzuatına uygunluğu denetlenmiş midir?",
+          "pages": [
+            6,
+            7
+          ]
+        },
+        {
+          "question_tr": "Faaliyet alanının etki alanında yer alan kentsel doku içerisinde, 110 odalı otelin ve yakın çevredeki diğer turistik tesislerin ortaklaşa yaratacağı trafik, otopark [s. 6] ve altyapı yükleri için somut bir kümülatif etki analizi neden yapılmamıştır?",
+          "pages": [
+            6,
+            55,
+            56
+          ]
+        }
+      ],
+      "data_limitations": "Dosya içerisindeki bazı ekler (Ek-7.2 vaziyet planları, Ek-7.10 imar durumu ve Ek-7.11 kurul kararları) taranmış/görsel formatta olduğundan ve metin tabanlı alıntılara tam yansıtılmadığından, bu eklerin teknik detayları yalnızca ana metindeki atıflar üzerinden incelenmiştir."
+    }
+  }
+}

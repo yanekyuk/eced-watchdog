@@ -1,0 +1,1081 @@
+{
+  "filing": {
+    "province": "BURDUR",
+    "district": "KARAMANLI",
+    "project_name": "GEPAT Depolamalı GES (GES Kurulu Güç:10 MWm/10 MWe-10,09 ha / Depolama Kurulu Güç: 40 MWh/10 MWe-0,23 ha)",
+    "project_owner": "GEPAT Elektrik Enerjisi Tedarik A.Ş.",
+    "sector": "Enerji",
+    "sub_sector": "Güneş Enerji Santralleri",
+    "decision_type": "ÇED Gerekli Değil/ÇED Olumlu",
+    "announcement_date_tr": "19.11.2026",
+    "project_type": "Ek-2",
+    "detail_text": "BURDUR ili KARAMANLI,  ilcesinde BURDUR ili KARAMANLI,  ilcesi Mürseller Köyü, 162 Ada, 38 Parsel mevkiindeki GEPAT Elektrik Enerjisi Tedarik A.Ş. tarafından yapılması planlanan GEPAT Depolamalı GES (GES Kurulu Güç:10 MWm/10 MWe-10,09 ha / Depolama Kurulu Güç: 40 MWh/10 MWe-0,23 ha) projesi ile ilgili olarak Bakanlığımıza sunulan PTD Dosyası incelenmiş ve değerlendirilmiştir  ÇED Yönetmeliği'nin 17. maddesi gereğince GEPAT Depolamalı GES (GES Kurulu Güç:10 MWm/10 MWe-10,09 ha / Depolama Kurulu Güç: 40 MWh/10 MWe-0,23 ha) projesi'ne Valiliğimizce 'ÇED Olumlu (Kapsam Ek-2)' kararı verilmiştir.",
+    "detail_links": [
+      {
+        "text": "PTD Dosyası",
+        "href": "http://eced.csb.gov.tr/jsp/ek1/60152"
+      }
+    ],
+    "documents": [
+      {
+        "portal_doc_url": "http://eced.csb.gov.tr/jsp/ek1/60152",
+        "filing_id": "60152",
+        "consulting_firm": "BİLGİR MÜHENDİSLİK DANIŞMANLIK ÇEVRE TEKNOLOJİLERİ İNŞAAT SANAYİ TİCARET LİMİTED ŞİRKETİ",
+        "submitted_at": "11/06/2026 02:30:36",
+        "pdf_urls": [
+          {
+            "label": "Dosya Göster",
+            "url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign8035654415019551933.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-11"
+          }
+        ]
+      }
+    ],
+    "announcement_date": "2026-11-19",
+    "statutory_clocks": [
+      {
+        "code": "iyuk_20a",
+        "kind": "İYUK Madde 20/A iptal davası süresi (30 takvim günü; İYUK 11 süreyi durdurmaz)",
+        "deadline": "2026-12-19",
+        "days_remaining": 27
+      }
+    ],
+    "filing_key": "60152:19.11.2026:ÇED Gerekli Değil/ÇED Olumlu",
+    "first_seen_at": "2026-11-20T02:10:45"
+  },
+  "pdf_info": {
+    "filename": "60152.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign8035654415019551933.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-11",
+    "bytes": 105700453,
+    "sha256": "183c8efbec5520337702e8e5fa9d2009e0d4f12763a9c68866ba755c6fc9ac98",
+    "cached": false
+  },
+  "analysis": {
+    "page_count": 461,
+    "total_chars": 788794,
+    "text_pages": 414,
+    "scanned_or_blank_pages": 47,
+    "scanned_page_sample": [
+      112,
+      115,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      126,
+      131,
+      132,
+      133,
+      134
+    ],
+    "headings": [
+      [
+        4,
+        "TABLOLAR DİZİNİ"
+      ],
+      [
+        5,
+        "ŞEKİLLER DİZİNİ"
+      ],
+      [
+        6,
+        "EKLER DİZİNİ"
+      ],
+      [
+        8,
+        "PROJENİN TEKNİK OLMAYAN ÖZETİ"
+      ],
+      [
+        12,
+        "BÖLÜM I. PROJENİN ÖZELLİKLERİ"
+      ],
+      [
+        12,
+        "a) Projenin ve Yerin Alternatifleri (Proje Teknolojisinin ve Proje Alanının Seçilme Nedenleri)"
+      ],
+      [
+        14,
+        "b) Projenin iş akım şeması, kapasitesi, kapladığı alan, yatırım bedeli, teknolojisi, çalışacak personel sayısı."
+      ],
+      [
+        30,
+        "c) Doğal Kaynakların Kullanımı (arazi kullanımı, su kullanımı, kullanılan enerji türü vb.),"
+      ],
+      [
+        34,
+        "ç)  Projenin İnşaat ve İşletme Aşamasında Oluşan Her Türlü Atığın Özelliği (cinsi, türü, miktarı vb.)  Bertarafı ve Geri Kazanımına Yönelik Değerlendirmeler"
+      ],
+      [
+        54,
+        "d) Kullanılan Teknoloji ve Malzemelerden Kaynaklanabilecek Kaza Riski."
+      ],
+      [
+        58,
+        "BÖLÜM II. PROJENİN YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ:"
+      ],
+      [
+        75,
+        "a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri."
+      ],
+      [
+        78,
+        "b) EK-5’deki Duyarlı Yöreler Listesi Dikkate Alınarak Korunması Gereken Alanlar."
+      ],
+      [
+        85,
+        "BÖLÜM III: PROJENIN İNŞAAT VE İŞLETME AŞAMASINDA ÇEVRESEL ETKILERI, ÖNCELİKLİ ETKİLERİN BELİRLENMESİ VE ALINACAK ÖNLEMLER"
+      ],
+      [
+        97,
+        "BÖLÜM IV: KÜMÜLATİF ETKİ DEĞERLENDİRME"
+      ],
+      [
+        99,
+        "BÖLÜM V:ÇEVRESEL SOSYAL EYLEM PLANI"
+      ],
+      [
+        99,
+        "V-1: Çevre İzleme Planı"
+      ],
+      [
+        105,
+        "V-2: Sürdürülebilirlik Planı (Sıfır Atık Planı, Trafik yönetim planı, Sera Gazı Azaltım Planı, Çevresel Ve Sosyal Yönetim Planı Vb.)"
+      ],
+      [
+        106,
+        "BÖLÜM VI: NOTLAR, KAYNAKLAR VE EKLER"
+      ],
+      [
+        1,
+        "4_GEPAT DGES_GPDR_9.11.26_V1.pdf"
+      ],
+      [
+        201,
+        "İÇİNDEKİLER"
+      ],
+      [
+        203,
+        "TABLOLAR DİZİNİ"
+      ],
+      [
+        204,
+        "ŞEKİLLER DİZİNİ"
+      ],
+      [
+        205,
+        "FOTOĞRAFLAR DİZİNİ"
+      ],
+      [
+        206,
+        "HARİTALAR DİZİNİ"
+      ]
+    ],
+    "geo": {
+      "precision": "exact_pdf",
+      "lat": 37.45182,
+      "lon": 29.95352,
+      "point_count": 74,
+      "points": [
+        [
+          37.45354,
+          29.95391
+        ],
+        [
+          37.45337,
+          29.95414
+        ],
+        [
+          37.45342,
+          29.95454
+        ],
+        [
+          37.45333,
+          29.9548
+        ],
+        [
+          37.45309,
+          29.95522
+        ],
+        [
+          37.45294,
+          29.95544
+        ],
+        [
+          37.4527,
+          29.95562
+        ],
+        [
+          37.45267,
+          29.95571
+        ],
+        [
+          37.45262,
+          29.9559
+        ],
+        [
+          37.45262,
+          29.95628
+        ],
+        [
+          37.45246,
+          29.95645
+        ],
+        [
+          37.4524,
+          29.95636
+        ],
+        [
+          37.45225,
+          29.95613
+        ],
+        [
+          37.45214,
+          29.95597
+        ],
+        [
+          37.45204,
+          29.95584
+        ],
+        [
+          37.45193,
+          29.95567
+        ],
+        [
+          37.45186,
+          29.95553
+        ],
+        [
+          37.45177,
+          29.95539
+        ],
+        [
+          37.45171,
+          29.95521
+        ],
+        [
+          37.45156,
+          29.95493
+        ],
+        [
+          37.4514,
+          29.95455
+        ],
+        [
+          37.45109,
+          29.9548
+        ],
+        [
+          37.45063,
+          29.95515
+        ],
+        [
+          37.45044,
+          29.95484
+        ],
+        [
+          37.45023,
+          29.95454
+        ],
+        [
+          37.44991,
+          29.95403
+        ],
+        [
+          37.44931,
+          29.953
+        ],
+        [
+          37.44914,
+          29.95271
+        ],
+        [
+          37.44926,
+          29.95267
+        ],
+        [
+          37.4494,
+          29.95258
+        ],
+        [
+          37.44955,
+          29.95248
+        ],
+        [
+          37.44972,
+          29.95238
+        ],
+        [
+          37.44984,
+          29.95233
+        ],
+        [
+          37.45002,
+          29.95224
+        ],
+        [
+          37.45026,
+          29.95212
+        ],
+        [
+          37.4505,
+          29.95201
+        ],
+        [
+          37.45063,
+          29.95197
+        ],
+        [
+          37.45072,
+          29.95195
+        ],
+        [
+          37.45084,
+          29.95197
+        ],
+        [
+          37.45095,
+          29.95198
+        ]
+      ],
+      "datum": "UTM-Z35/ED50",
+      "pages": [
+        25,
+        109,
+        128,
+        130,
+        271
+      ]
+    },
+    "signals": {
+      "coordinates_and_footprint": {
+        "label": "Coordinates, Parcel & Footprint",
+        "page_count": 122,
+        "pages": [
+          1,
+          2,
+          6,
+          8,
+          9,
+          10,
+          11,
+          12,
+          14,
+          15,
+          16,
+          21,
+          24,
+          25,
+          26,
+          30,
+          32,
+          42,
+          44,
+          58,
+          69,
+          71,
+          75,
+          78,
+          79
+        ],
+        "samples": [
+          {
+            "page": 1,
+            "match": "10,09 HA",
+            "snippet": "…slik.com BURDUR - 2026 GEPAT ELEKTRİK ENERJİSİ TEDARİK A.Ş. GEPAT DEPOLAMALI GES (GES KURULU GÜÇ:10 MWM/10 MWE-10,09 HA / DEPOLAMA KURULU GÜÇ: 40 MWH/10 MWE-0,23 HA) BURDUR İLİ, KARAMANLI İLÇESİ, MÜRSELLER KÖYÜ (162 ADA, 38 PARSEL)"
+          },
+          {
+            "page": 1,
+            "match": "0,23 HA",
+            "snippet": "…Sİ TEDARİK A.Ş. GEPAT DEPOLAMALI GES (GES KURULU GÜÇ:10 MWM/10 MWE-10,09 HA / DEPOLAMA KURULU GÜÇ: 40 MWH/10 MWE-0,23 HA) BURDUR İLİ, KARAMANLI İLÇESİ, MÜRSELLER KÖYÜ (162 ADA, 38 PARSEL)"
+          },
+          {
+            "page": 2,
+            "match": "10,09 ha",
+            "snippet": "…539 939 34 88 E-Posta: b.goksu@dbeenergy.com Projenin Adı: GEPAT Depolamalı GES (GES Kurulu Güç: 10 MWm / 10 MWe - 10,09 ha / Depolama Kurulu Güç: 40 MWh / 10 MWe - 0,23 ha) Proje Bedeli: 97.870.000 TL Proje İçin Seçilen Yerin Açık Adresi…"
+          },
+          {
+            "page": 2,
+            "match": "0,23 ha",
+            "snippet": "…jenin Adı: GEPAT Depolamalı GES (GES Kurulu Güç: 10 MWm / 10 MWe - 10,09 ha / Depolama Kurulu Güç: 40 MWh / 10 MWe - 0,23 ha) Proje Bedeli: 97.870.000 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii): Burdur ili, Karamanlı İl…"
+          },
+          {
+            "page": 2,
+            "match": "7,5 hektar",
+            "snippet": "…eme ve Değerlendirmeye Tabi Projeler, 41-(Değişik:RG-5/3/2026-33187) Güneş enerji santralleri; a) Proje alanı 7,5 hektar ve üzerinde olan arazi güneş enerji santralleri (çatı ve cephe sistemleri hariç), Projenin Ana NACE Kodu: 35.11.19…"
+          },
+          {
+            "page": 6,
+            "match": "KOORDİNAT",
+            "snippet": "…olama Kurulu Güç: 40 MWh/10 MWe-0,23 ha) PROJE TANITIM DOSYASI IV EKLER DİZİNİ EK-1 PROJE İÇİN SEÇİLEN YERİN KOORDİNATLARI EK-2 PROJE ALANI VE YAKIN ÇEVRESİNİN MEVCUT ARAZİ KULLANIMINI DEĞERLENDİRMEK İÇİN; YERLEŞİM ALANLARININ…"
+          },
+          {
+            "page": 8,
+            "match": "10,09 Ha",
+            "snippet": "…l içerisinde GEPAT Elektrik Enerjisi Tedarik A.Ş. tarafından “GEPAT Depolamalı GES (GES Kurulu Güç: 10 MWm / 10 MWe - 10,09 Ha / Depolama Kurulu Güç: 40 MWh / 10 MWe - 0,23 Ha)” projesi planlanmaktadır. 10,32 ha’lık proje alanı içerisinde güne…"
+          },
+          {
+            "page": 8,
+            "match": "0,23 Ha",
+            "snippet": "…tarafından “GEPAT Depolamalı GES (GES Kurulu Güç: 10 MWm / 10 MWe - 10,09 Ha / Depolama Kurulu Güç: 40 MWh / 10 MWe - 0,23 Ha)” projesi planlanmaktadır. 10,32 ha’lık proje alanı içerisinde güneş enerjisinden elektrik üretiminin sağlanabilmesi…"
+          }
+        ]
+      },
+      "water_and_discharge": {
+        "label": "Water Use, Hydrogeology & Discharge",
+        "page_count": 31,
+        "pages": [
+          9,
+          11,
+          12,
+          19,
+          20,
+          21,
+          31,
+          32,
+          34,
+          35,
+          75,
+          80,
+          81,
+          85,
+          86,
+          90,
+          94,
+          102,
+          183,
+          184,
+          190,
+          233,
+          235,
+          265,
+          394
+        ],
+        "samples": [
+          {
+            "page": 9,
+            "match": "atıksu",
+            "snippet": "…letme aşamasında ise yaklaşık 5 kişinin istihdam edilmesi planlanmaktadır. Çalışacak personelin içme ve kullanma suyu, atıksu, sosyal ihtiyaçlar ve diğer günlük gereksinimleri, proje sahası içerisinde kurulacak mobil şantiye alanı vasıtasıyla…"
+          },
+          {
+            "page": 11,
+            "match": "deşarj",
+            "snippet": "…k, yüzeyde göllendirilerek, fosseptik çukuru açılarak yeraltına veya dere yataklarına atık su deşarjı yapılmamalı veya deşarj standartlarına uygun deşarj yapılması gerekmektedir. İşletme çalışmaları esnasında, dere yataklarındaki akışa enge…"
+          },
+          {
+            "page": 12,
+            "match": "sulak alan",
+            "snippet": "…unması, • Ulaşım açısından erişilebilir olması, • Yerleşim alanlarına belirli bir mesafede bulunması, • Orman, sulak alan, milli park, tabiat parkı ve benzeri koruma statülü alanlar üzerinde yer almaması, • Projenin uygulanmasına engel t…"
+          },
+          {
+            "page": 19,
+            "match": "deşarj",
+            "snippet": "…en enerji talep profillerine hızlı şekilde uyum sağlayabilmektedir. Enerji arz ve talebindeki değişimlere göre şarj ve deşarj işlemlerini optimize ederek sistemin ihtiyaçlarına uygun şekilde çalışmaktadır. ➢ Yenilenebilir Enerji Kaynakları i…"
+          },
+          {
+            "page": 20,
+            "match": "deşarj",
+            "snippet": "…dilmesi öngörülmektedir. ➢ Anot (-): Genellikle grafit esaslı malzemelerden üretilen negatif elektrottur. Şarj ve deşarj süreçlerinde lityum iyonlarının depolanmasını sağlamaktadır. ➢ Separatör: Anot ve katot arasında fiziksel teması…"
+          },
+          {
+            "page": 21,
+            "match": "deşarj",
+            "snippet": "…. Proje kapsamında kurulacak elektrik depolama sisteminde kullanılacak lityum iyon bataryaların kullanım ömrü; şarj-deşarj çevrim sayısı, işletme koşulları ve bakım uygulamalarına bağlı olarak değişmekle birlikte, üretici firma kriterleri do…"
+          },
+          {
+            "page": 31,
+            "match": "2,63 m3/gün",
+            "snippet": "…işi gün (TUİK, Burdur 2022) Günlük su ihtiyacı = kişi x ort. su tüketimi = 10 kişi x 263 lt/kişi gün = 2.630 lt/gün (2,63 m3/gün) İşletme aşaması. İşletme aşamasında 5 kişi çalışacaktır. Kişi başına düşen günlük su kullanım miktarı: 26…"
+          },
+          {
+            "page": 31,
+            "match": "1,31 m3/gün",
+            "snippet": "…kişi gün (TUİK, Burdur 2022) Günlük su ihtiyacı = kişi x ort. su tüketimi = 5 kişi x 263 lt/kişi gün = 1.315 lt/gün (1,31 m3/gün) Panel Temizliği Amaçlı Su Miktarı Güneş Panellerinde imalatçı firmaların bakım kılavuzlarına uygun şekilde ve…"
+          }
+        ]
+      },
+      "protected_land_and_olive": {
+        "label": "Protected Zones, Forests & Olive Groves",
+        "page_count": 28,
+        "pages": [
+          3,
+          10,
+          12,
+          58,
+          75,
+          79,
+          80,
+          93,
+          180,
+          182,
+          192,
+          228,
+          235,
+          255,
+          264,
+          291,
+          361,
+          377,
+          393,
+          394,
+          395,
+          402,
+          418,
+          419,
+          420
+        ],
+        "samples": [
+          {
+            "page": 3,
+            "match": "orman alanı",
+            "snippet": "…47 BÖLÜM II. PROJENİN YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ: 51 a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri. ..............................…"
+          },
+          {
+            "page": 10,
+            "match": "3573 Sayılı",
+            "snippet": "…olarak, 4342 Sayılı Mera Kanununun 4 ve 14 üncü maddelerine riayet edilmesi gerekmektedir. Söz konusu proje için 3573 Sayılı Zeytinciliğin Islahı ve Yabanilerin Aşılattırılması Hakkındaki Kanun gereğince bir sakınca bulunmamakta ve belirtilen…"
+          },
+          {
+            "page": 12,
+            "match": "sulak alan",
+            "snippet": "…unması, • Ulaşım açısından erişilebilir olması, • Yerleşim alanlarına belirli bir mesafede bulunması, • Orman, sulak alan, milli park, tabiat parkı ve benzeri koruma statülü alanlar üzerinde yer almaması, • Projenin uygulanmasına engel t…"
+          },
+          {
+            "page": 12,
+            "match": "milli park",
+            "snippet": "…Ulaşım açısından erişilebilir olması, • Yerleşim alanlarına belirli bir mesafede bulunması, • Orman, sulak alan, milli park, tabiat parkı ve benzeri koruma statülü alanlar üzerinde yer almaması, • Projenin uygulanmasına engel teşkil edecek…"
+          },
+          {
+            "page": 12,
+            "match": "tabiat parkı",
+            "snippet": "…ından erişilebilir olması, • Yerleşim alanlarına belirli bir mesafede bulunması, • Orman, sulak alan, milli park, tabiat parkı ve benzeri koruma statülü alanlar üzerinde yer almaması, • Projenin uygulanmasına engel teşkil edecek doğal veya ya…"
+          },
+          {
+            "page": 58,
+            "match": "milli park",
+            "snippet": "…ş olmakla birlikte kırsal ekosistem özelliklerini sürdürmektedir. Proje alanının etki alanı içerisinde herhangi bir milli park, tabiat parkı, tabiatı koruma alanı, yaban hayatı geliştirme sahası veya benzeri koruma statüsüne sahip alanlar bulunm…"
+          },
+          {
+            "page": 58,
+            "match": "tabiat parkı",
+            "snippet": "…irlikte kırsal ekosistem özelliklerini sürdürmektedir. Proje alanının etki alanı içerisinde herhangi bir milli park, tabiat parkı, tabiatı koruma alanı, yaban hayatı geliştirme sahası veya benzeri koruma statüsüne sahip alanlar bulunmamaktadır. Pro…"
+          },
+          {
+            "page": 75,
+            "match": "orman alanı",
+            "snippet": "…ha /Depolama Kurulu Güç: 40 MWh/10 MWe-0,23 ha) PROJE TANITIM DOSYASI 68 a) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri. Tarım Alanı Dosyaya kon…"
+          }
+        ]
+      },
+      "ecology_and_baseline": {
+        "label": "Flora, Fauna & Baseline Methodology",
+        "page_count": 115,
+        "pages": [
+          19,
+          58,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          93,
+          94,
+          106,
+          186,
+          199,
+          202,
+          204,
+          206,
+          208,
+          209,
+          214,
+          215,
+          232,
+          234,
+          235,
+          236,
+          237
+        ],
+        "samples": [
+          {
+            "page": 19,
+            "match": "mevsimsel",
+            "snippet": "…avantajları aşağıda özetlenmiştir: ➢ Yük Takibine Uyum ve Esneklik Elektrik depolama sistemi, günlük, haftalık ve mevsimsel olarak değişen enerji talep profillerine hızlı şekilde uyum sağlayabilmektedir. Enerji arz ve talebindeki değişimlere…"
+          },
+          {
+            "page": 58,
+            "match": "mevsimsel",
+            "snippet": "…göstermektedir. Yaz ayları sıcak ve kurak, kış ayları ise soğuk ve yağışlı geçmektedir. Bölgedeki hâkim rüzgâr yönleri mevsimsel değişiklik göstermekle birlikte genel olarak kuzey ve kuzeybatı yönlerinden esmektedir. Yıllık yağışlar büyük ölçüde…"
+          },
+          {
+            "page": 79,
+            "match": "BERN Sözleşmesi",
+            "snippet": "…özleşmeler uyarınca korunması gerekli alanlar a) \"Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi\" (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan \"Önemli Deniz Kaplumbağası Üreme Alanlarında belirtilen I. ve II. Koruma Bö…"
+          },
+          {
+            "page": 80,
+            "match": "endemik",
+            "snippet": "…. d) Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…"
+          },
+          {
+            "page": 81,
+            "match": "FLORA VE FAUNA",
+            "snippet": "…nı içerisinde kalan alanlar. Proje alanı dahilinde ve yakın çevresinde başlıkta anılan alanlar bulunmamaktadır. FLORA VE FAUNA BİLGİLERİ GEPAT Elektrik Enerjisi Tedarik A.Ş. tarafından Burdur İli, Karamanlı İlçesi, Mürseller Köyü dahilinde 16…"
+          },
+          {
+            "page": 81,
+            "match": "Endemik",
+            "snippet": "…hareketlilikleri, uçuş koridorları, toplanma bölgelerini belirlemek, kapsamlı ornitolojik değerlendirme yapabilmek, ➢ Endemik, nadir veya nesli tehlike altındaki taksonları/türleri belirlemek, ➢ Tespit edilen taksonların/türlerin ulusal veya ul…"
+          },
+          {
+            "page": 81,
+            "match": "IUCN",
+            "snippet": "…/türleri belirlemek, ➢ Tespit edilen taksonların/türlerin ulusal veya uluslararası tehlike kategorilerini belirlemek (IUCN, Bern, Cites, MAKK vb.), ➢ Taksonların/türlerin populasyon yoğunluğunu belirlemek, ➢ Faaliyetin flora (damarlı bitk…"
+          },
+          {
+            "page": 81,
+            "match": "Cites",
+            "snippet": "…irlemek, ➢ Tespit edilen taksonların/türlerin ulusal veya uluslararası tehlike kategorilerini belirlemek (IUCN, Bern, Cites, MAKK vb.), ➢ Taksonların/türlerin populasyon yoğunluğunu belirlemek, ➢ Faaliyetin flora (damarlı bitkiler) ve omur…"
+          }
+        ]
+      },
+      "pollutants_and_hazards": {
+        "label": "Emissions, Geochemistry & Waste",
+        "page_count": 56,
+        "pages": [
+          7,
+          9,
+          16,
+          20,
+          34,
+          39,
+          40,
+          42,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          51,
+          52,
+          54,
+          56,
+          58,
+          59,
+          71,
+          72,
+          73,
+          74,
+          90
+        ],
+        "samples": [
+          {
+            "page": 7,
+            "match": "CO2",
+            "snippet": "…-0,23 ha) PROJE TANITIM DOSYASI V KISALTMALAR ADNKS Adrese Dayalı Nüfus Kayıt Sistemi CO Karbonmonoksit CO2 Karbondioksit ÇED Çevresel Etki Değerlendirmesi ÇGDY Çevresel Gürültü Kontrol Yönetmeliği DSİ Devlet Su İ…"
+          },
+          {
+            "page": 7,
+            "match": "Karbondioksit",
+            "snippet": "…a) PROJE TANITIM DOSYASI V KISALTMALAR ADNKS Adrese Dayalı Nüfus Kayıt Sistemi CO Karbonmonoksit CO2 Karbondioksit ÇED Çevresel Etki Değerlendirmesi ÇGDY Çevresel Gürültü Kontrol Yönetmeliği DSİ Devlet Su İşleri Genel Müdür…"
+          },
+          {
+            "page": 7,
+            "match": "Gürültü",
+            "snippet": "…Nüfus Kayıt Sistemi CO Karbonmonoksit CO2 Karbondioksit ÇED Çevresel Etki Değerlendirmesi ÇGDY Çevresel Gürültü Kontrol Yönetmeliği DSİ Devlet Su İşleri Genel Müdürlüğü Ha Hektar Km Kilometre m Metre m3 Metreküp…"
+          },
+          {
+            "page": 9,
+            "match": "gürültü",
+            "snippet": "…arak evsel nitelikli atıksu ve evsel nitelikli katı atık; kullanılacak ekipmandan kaynaklı olarak egzoz emisyonları ve gürültü oluşacaktır. İşletme aşamasında ise alanda bulunacak personelden kaynaklı olarak evsel nitelikli atıksu ve evsel nitel…"
+          },
+          {
+            "page": 16,
+            "match": "Gürültü",
+            "snippet": "…Ünitelerinin Kurulması Elektrik Enerjisi Üretimi Evirici (DC/AC invertör) Elektrik Panosu Trafo Depolama Ünitesi Gürültü ve Toz Sisteme Bağlantı"
+          },
+          {
+            "page": 20,
+            "match": "gürültü",
+            "snippet": "…asında yakıt tüketimi gerektirmemesi, • Elektrik üretimi sırasında doğrudan sera gazı emisyonu oluşturmaması, • Düşük gürültü seviyesinde çalışması, • Düşük bakım ve işletme maliyetine sahip olması, • Hızlı şarj ve deşarj kabiliyeti sayesinde…"
+          },
+          {
+            "page": 34,
+            "match": "Gürültü",
+            "snippet": "…esisin inşaat ve işletme aşamasında genel olarak, ➢ Sıvı Atıklar ➢ Katı Atıklar ➢ Tehlikeli Atıklar ➢ Emisyon ➢ Gürültü Gibi çevresel etkiler beklenmektedir. Proje kapsamında inşaat ve işletme aşamalarında çalışacak personelin tüm ih…"
+          },
+          {
+            "page": 34,
+            "match": "tehlikeli atık",
+            "snippet": "…lenen özelliklerden bir veya daha fazlasına sahip atıklardır. Atık listesinde (A) işaretli atıklar, ek-3/B’de yer alan tehlikeli atık konsantrasyonuna bakılmaksızın tehlikeli atık sınıfına girer. (M) işaretli atıkların tehlikelilik özelliklerinin belir…"
+          }
+        ]
+      },
+      "cost_and_capacity": {
+        "label": "Proje Bedeli, Güç ve Kapasite",
+        "page_count": 62,
+        "pages": [
+          1,
+          2,
+          3,
+          8,
+          10,
+          11,
+          14,
+          15,
+          21,
+          22,
+          23,
+          30,
+          44,
+          45,
+          46,
+          75,
+          81,
+          85,
+          91,
+          93,
+          97,
+          98,
+          102,
+          113,
+          128
+        ],
+        "samples": [
+          {
+            "page": 1,
+            "match": "KURULU GÜÇ",
+            "snippet": "….com • info@bilgirmuhendislik.com BURDUR - 2026 GEPAT ELEKTRİK ENERJİSİ TEDARİK A.Ş. GEPAT DEPOLAMALI GES (GES KURULU GÜÇ:10 MWM/10 MWE-10,09 HA / DEPOLAMA KURULU GÜÇ: 40 MWH/10 MWE-0,23 HA) BURDUR İLİ, KARAMANLI İLÇESİ, MÜRSELLER KÖYÜ (…"
+          },
+          {
+            "page": 2,
+            "match": "Kurulu Güç",
+            "snippet": "…0 (216) 323 13 33 F: - GSM: 0539 939 34 88 E-Posta: b.goksu@dbeenergy.com Projenin Adı: GEPAT Depolamalı GES (GES Kurulu Güç: 10 MWm / 10 MWe - 10,09 ha / Depolama Kurulu Güç: 40 MWh / 10 MWe - 0,23 ha) Proje Bedeli: 97.870.000 TL Proje İç…"
+          },
+          {
+            "page": 2,
+            "match": "Proje Bedeli",
+            "snippet": "…GEPAT Depolamalı GES (GES Kurulu Güç: 10 MWm / 10 MWe - 10,09 ha / Depolama Kurulu Güç: 40 MWh / 10 MWe - 0,23 ha) Proje Bedeli: 97.870.000 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii): Burdur ili, Karamanlı İlçesi, Mürseller…"
+          },
+          {
+            "page": 2,
+            "match": "97.870.000 TL",
+            "snippet": "…alı GES (GES Kurulu Güç: 10 MWm / 10 MWe - 10,09 ha / Depolama Kurulu Güç: 40 MWh / 10 MWe - 0,23 ha) Proje Bedeli: 97.870.000 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii): Burdur ili, Karamanlı İlçesi, Mürseller Köyü, 162 Ada…"
+          },
+          {
+            "page": 3,
+            "match": "kapasite",
+            "snippet": "…....................................................................................... 5 b) Projenin iş akım şeması, kapasitesi, kapladığı alan, yatırım bedeli, teknolojisi, çalışacak personel sayısı. ...........................................…"
+          },
+          {
+            "page": 8,
+            "match": "Kurulu Güç",
+            "snippet": "…öyü dahilinde 162 Ada, 38 Parsel içerisinde GEPAT Elektrik Enerjisi Tedarik A.Ş. tarafından “GEPAT Depolamalı GES (GES Kurulu Güç: 10 MWm / 10 MWe - 10,09 Ha / Depolama Kurulu Güç: 40 MWh / 10 MWe - 0,23 Ha)” projesi planlanmaktadır. 10,32 ha’lı…"
+          },
+          {
+            "page": 8,
+            "match": "18.458.000 kW",
+            "snippet": "…arıyla yerleştirilecektir. Kurulacak tesisin toplam kurulu gücü 10 MWm / 10 MWe olacak olup, santralde yılda yaklaşık 18.458.000 kWh elektrik enerjisi üretilmesi öngörülmektedir. Üretilen elektrik enerjisinin şebeke işletme koşullarına uygun şekild…"
+          },
+          {
+            "page": 8,
+            "match": "kapasite",
+            "snippet": "…koşullarına uygun şekilde yönetilebilmesi ve enerji arz güvenilirliğinin artırılması amacıyla proje kapsamında 40 MWh kapasiteli elektrik depolama sistemi de tesis edilecektir. Depolama tesisi, enerji üretim ve tüketim dengesinin sağlanmasına k…"
+          }
+        ]
+      },
+      "splitting_and_thresholds": {
+        "label": "Proje Parçalama, Kapasite Artışı ve Eşik Değerler",
+        "page_count": 32,
+        "pages": [
+          8,
+          9,
+          10,
+          24,
+          25,
+          30,
+          31,
+          58,
+          75,
+          79,
+          80,
+          94,
+          95,
+          97,
+          109,
+          128,
+          130,
+          182,
+          191,
+          210,
+          226,
+          291,
+          361,
+          396,
+          398
+        ],
+        "samples": [
+          {
+            "page": 8,
+            "match": "ÇED alanı",
+            "snippet": "…38 Parsel ham toprak vasıflıdır. Antalya-Burdur-Isparta Planlama Bölgesi 1/100.000 Ölçekli Çevre Düzeni Planı'na göre ÇED alanı Tarım alanı ve Çayır- Mera kullanımında kalmaktadır. Proje alanının üzerine işlendiği Çevre Düzeni Planı Ek-2.4’te sun…"
+          },
+          {
+            "page": 9,
+            "match": "ÇED alanı",
+            "snippet": "…ürlüğüne gerekli başvurular faaliyet sahibince yapılacaktır. Planlanan GES faaliyeti kapsamında 162 Ada, 38 Parsel ÇED alanı olarak belirlenmiştir. Güneş enerji santrali kurulum aşamasında, belirlenen proje alanının topoğrafik yapısı oldukça d…"
+          },
+          {
+            "page": 10,
+            "match": "ÇED alanı",
+            "snippet": "…nunu kapsamındaki 162 ada 1 parsel nolu ve 162 ada 6 parsel nolu \"Mera\" vasıflı taşınmazlar bulunmakta olup söz konusu ÇED alanı ile ilgili olarak, 4342 Sayılı Mera Kanununun 4 ve 14 üncü maddelerine riayet edilmesi gerekmektedir. Söz konusu…"
+          },
+          {
+            "page": 10,
+            "match": "5403 Sayılı",
+            "snippet": "…spit edilmiştir. \"Ham Toprak\" vasıflı taşınmazların ise tarım dışı amaçla kullanımı için, faaliyete başlanılmadan önce 5403 Sayılı Toprak Koruma ve Arazi Kullanımı Kanunu kapsamında tarım dışı amaçla kullanım izni alınması gerekli ve zorunludur. ÇE…"
+          },
+          {
+            "page": 24,
+            "match": "ÇED alanı",
+            "snippet": "…Projenin Kapladığı Alan GEPAT Depolamalı Güneş Enerji Santrali projesi kapsamında toplam 10,32 ha büyüklüğündeki ÇED alanı içerisinde güneş enerji santrali üniteleri, enerji depolama sistemi, işletme ve bakım alanları ile proje kapsamında ge…"
+          },
+          {
+            "page": 25,
+            "match": "ÇED ALANI",
+            "snippet": "…DATUM: ED-50 DOM: 27 - ZON: 35 COĞRAFİK DATUM: WGS-84 PAFTA NO ALAN Y (Sağa) X (Yukarı) Y (Boylam) X (Enlem) ÇED ALANI K1 761377.910 4149393.380 29.954334 37.452901 N23-B2 10,32 HA K2 761399.330 4149375.300 29.954570 37.452732…"
+          },
+          {
+            "page": 30,
+            "match": "5403 Sayılı",
+            "snippet": "…Ham Toprak” vasfında kaldığı belirlenmiştir. Söz konusu arazi ile ilgili olarak inşa aşaması öncesinde ilgili kurumdan 5403 Sayılı Toprak Koruma ve Arazi Kullanımı Kanunu kapsamında tarım dışı amaçla kullanım izni alınacaktır. Alınacak izin sonrası…"
+          },
+          {
+            "page": 30,
+            "match": "ÇED alanı",
+            "snippet": "…liyetler gerçekleştirilecektir. Antalya-Burdur-Isparta Planlama Bölgesi 1/100.000 Ölçekli Çevre Düzeni Planı'na göre ÇED alanı Tarım alanı ve Çayır-Mera kullanımında kalmaktadır. Onaylı 1/100.000 Ölçekli Çevre Düzeni Planı, lejantı ve plan hüküm…"
+          }
+        ]
+      }
+    },
+    "audit_checks": {
+      "mentions_field_survey": true,
+      "mentions_literature_only_cue": true,
+      "mentions_seasonal_sampling": true,
+      "mentions_cumulative_impact": true,
+      "mentions_olive_law_3573": true,
+      "mentions_groundwater_or_aquifer": true,
+      "mentions_iucn_or_endemic": true,
+      "mentions_capacity_or_splitting": true,
+      "mentions_circular_2009_7_or_revision": false
+    }
+  },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-22T00:56:29",
+      "decision_type": "ÇED Gerekli Değil/ÇED Olumlu",
+      "announcement_date": "2026-11-19",
+      "announcement_date_tr": "19.11.2026",
+      "submitted_at": "11/06/2026 02:30:36",
+      "consulting_firm": "BİLGİR MÜHENDİSLİK DANIŞMANLIK ÇEVRE TEKNOLOJİLERİ İNŞAAT SANAYİ TİCARET LİMİTED ŞİRKETİ",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign8035654415019551933.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-11",
+      "pdf_temp_ad": "sign8035654415019551933.pdf",
+      "pdf_original_name": "e-imza.pdf",
+      "pdf_upload_date": "2026-11-11",
+      "sha256": "183c8efbec5520337702e8e5fa9d2009e0d4f12763a9c68866ba755c6fc9ac98",
+      "bytes": 105700453,
+      "page_count": 461,
+      "text_pages": 414,
+      "scanned_or_blank_pages": 47,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": true,
+        "mentions_seasonal_sampling": true,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": true,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true,
+        "mentions_capacity_or_splitting": true,
+        "mentions_circular_2009_7_or_revision": false
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 122,
+        "water_and_discharge": 31,
+        "protected_land_and_olive": 28,
+        "ecology_and_baseline": 115,
+        "pollutants_and_hazards": 56,
+        "cost_and_capacity": 62,
+        "splitting_and_thresholds": 32
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 37.45182,
+      "geo_lon": 29.95352,
+      "geo_point_count": 74,
+      "detail_text_sha256": "5dae3774f8815f9e"
+    }
+  ],
+  "llm_synthesis": {
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-11-22T00:56:36",
+    "pages_sent": [
+      1,
+      2,
+      3,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      19,
+      20,
+      58,
+      59,
+      79,
+      80,
+      85,
+      86,
+      105,
+      106
+    ],
+    "usage": {
+      "prompt_tokens": 24002,
+      "output_tokens": 2081,
+      "thoughts_tokens": null,
+      "total_tokens": 26083
+    },
+    "result": {
+      "executive_summary_tr": "Burdur ili, Karamanlı ilçesi, Mürseller köyü 162 ada 38 parsel sınırları içerisinde GEPAT Elektrik Enerjisi Tedarik A.Ş. tarafından planlanan GEPAT Depolamalı GES projesi, 10,09 hektarlık alanda 10 MWm/10 MWe güneş enerji santrali ile 0,23 hektarlık alanda 40 MWh/10 MWe lityum iyon batarya enerji depolama sistemini kapsamaktadır. Proje alanı ham toprak vasfında olup Antalya-Burdur-Isparta 1/100.000 Ölçekli Çevre Düzeni Planı'na göre tarım ve çayır-mera kullanımında kalmaktadır. Faaliyet için Valilikçe ÇED Olumlu (Ek-2) kararı verilmiş olup tarım dışı kullanım izinleri ve Mera Kanunu hükümlerine riayet edilmesi şartları getirilmiştir.",
+      "executive_summary_en": "The proposed GEPAT Storage GES project by GEPAT Elektrik Enerjisi Tedarik A.Ş., located in Burdur province, Karamanlı district, Mürseller village (Parcel 162/38), encompasses a 10 MWm/10 MWe solar power plant spanning 10.09 hectares and a 40 MWh/10 MWe lithium-ion battery energy storage system covering 0.23 hectares. The project site is classified as raw land and falls under agricultural and pasture designations according to the 1/100,000 scale Environmental Plan. An Environmental Impact Assessment (EIA) Waiver / Approval (Annex-2 Positive) decision was issued by the local governorate, subject to future non-agricultural land use permits and compliance with Pasture Law provisions.",
+      "key_facts": [
+        {
+          "label": "GES Kurulu Güç",
+          "value": "10 MWm / 10 MWe",
+          "page": 2
+        },
+        {
+          "label": "Depolama Kurulu Güç",
+          "value": "40 MWh / 10 MWe",
+          "page": 2
+        },
+        {
+          "label": "GES Alanı",
+          "value": "10,09 ha (100.917,12 m2)",
+          "page": 2
+        },
+        {
+          "label": "Depolama Alanı",
+          "value": "0,23 ha (2.300 m2)",
+          "page": 2
+        },
+        {
+          "label": "Toplam Proje Bedeli",
+          "value": "97.870.000 TL",
+          "page": 2
+        },
+        {
+          "label": "Güneş Paneli Sayısı ve Gücü",
+          "value": "20.000 adet, her biri 500 Wp",
+          "page": 8
+        },
+        {
+          "label": "Evirici (İnverter) Sayısı ve Gücü",
+          "value": "100 adet, her biri 100 kW",
+          "page": 8
+        },
+        {
+          "label": "En Yakın Yerleşim Birimi",
+          "value": "Mürseller Köyü (kuş uçuşu ~1.230 m)",
+          "page": 8
+        },
+        {
+          "label": "En Yakın Yapı / Tesis",
+          "value": "Hayvancılık tesisi (~570 m güneybatı)",
+          "page": 8
+        },
+        {
+          "label": "Fosseptik Kapasitesi",
+          "value": "55 m3 (5x2,2x5 m)",
+          "page": 85
+        }
+      ],
+      "baseline_assessment": {
+        "field_survey_status": "literature_only",
+        "seasonal_sampling_status": "not_found",
+        "cumulative_impact_status": "omitted_or_not_found",
+        "olive_and_protected_status": "Proje alanında ve yakın çevresinde 3573 sayılı Zeytincilik Kanunu kapsamında zeytinlik bulunmadığı belirtilmiş; ancak alanın tarım ve çayır-mera vasıflı araziler ile çevrili olduğu, mera parsellerine sınır teşkil ettiği ifade edilmiştir [s. 10, 79].",
+        "explanation": "Proje tanıtım dosyasında flora ve fauna bileşenleri yalnızca literatür taramaları ve genel zoocoğrafi kaynaklara dayanmakta olup, alan bazlı çok mevsimli ve yasal zorunluluk arz eden ekolojik saha çalışmaları belgelenmemiştir. Birikimli (kumulatif) bölgesel etki değerlendirmesi idari ve teknik boyutta ele alınmamıştır."
+      },
+      "red_flags": [
+        {
+          "category": "tarim_orman_korunan_alan",
+          "severity": "high",
+          "title": "5403 Sayılı Kanun Kapsamında Tarım Dışı Kullanım İzninin Eksikliği",
+          "detail": "Proje sahası tarım ve çayır-mera alanında kalmakta olup, İl Tarım ve Orman Müdürlüğü görüşünde ham toprak vasıflı taşınmaz için faaliyete başlanılmadan önce 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu kapsamında tarım dışı amaçla kullanım izninin alınması zorunlu tutulmuştur [s. 10].",
+          "pages": [
+            10,
+            58
+          ]
+        },
+        {
+          "category": "flora_fauna_mevsimsel",
+          "severity": "high",
+          "title": "Saha Özelinde Eksik Flora ve Fauna Envanteri",
+          "detail": "Dosyada yer alan biyolojik çeşitlilik değerlendirmeleri yalnızca genel literatür kaynaklarına (KİZİROĞLU, DEMİRSOY, Flora of Turkey vb.) dayandırılmış olup, proje alanında gerçekleştirilmiş mevsimsel arazi gözlem ve örnekleme verileri sunulmamıştır [s. 106].",
+          "pages": [
+            106
+          ]
+        },
+        {
+          "category": "kumulatif_etki",
+          "severity": "medium",
+          "title": "Bölgesel Birikimli Etki Değerlendirmesinin Bulunmaması",
+          "detail": "Burdur Gölü havzasında ve çevrede planlanan diğer yenilenebilir enerji projeleri ile tarımsal/hayvancılık faaliyetlerinin oluşturacağı kümülatif ekolojik ve hidrojeolojik baskılar raporda incelenmemiştir [s. 51].",
+          "pages": [
+            51
+          ]
+        }
+      ],
+      "recommended_bilirkisi_disciplines": [
+        "Çevre Mühendisi",
+        "Ziraat Mühendisi",
+        "Hidrojeoloji Mühendisi",
+        "Biyolog",
+        "Şehir ve Bölge Plancısı"
+      ],
+      "hkt_and_petition_questions": [
+        {
+          "question_tr": "Proje alanının tarım ve mera niteliği taşıyan 162 ada 38 parsel üzerinde kurulması planlanan GES ve depolama tesisleri için 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu uyarınca henüz alınmamış olan tarım dışı kullanım izinleri tamamlanmadan ÇED Olumlu kararının verilmesi hangi hukuki gerekçeye dayanmaktadır?",
+          "pages": [
+            10,
+            58
+          ]
+        },
+        {
+          "question_tr": "Bölgede yapılması öngörülen Lityum-İyon batarya enerji depolama sistemlerinin (BEDS) olası termal kaçak, yangın ve kimyasal sızıntı risklerine karşı yer altı ve yer üstü su kaynakları ile tarım toprakları üzerinde yaratacağı olumsuz etkiler hangi bilimsel modellemelerle hesaplanmıştır?",
+          "pages": [
+            19,
+            20
+          ]
+        },
+        {
+          "question_tr": "Proje sahası için gerçekleştirildiği iddia edilen ekolojik değerlendirmelerin tamamının ikincil literatür kaynaklarına dayandığı, arazi üzerinde herhangi bir vejetasyon ve faunistik saha çalışması yapılmadığı, bu durumun ÇED mevzuatına ve bilimsel esaslara aykırılık teşkil ettiği hususu nasıl açıklanacaktır?",
+          "pages": [
+            106
+          ]
+        }
+      ],
+      "data_limitations": "İncelenen dosya kapsamında Ek-7 altında yer alan kurum görüşü yazılarının tam metinleri, DKMP GES Projeleri Değerlendirme Raporu ve Sürdürülebilirlik Planı gibi detay ek dokümanlar taranmış veya harici dosya formatında olduğundan metinsel alıntılar yalnızca ana dosya içerisindeki özet ifadelerle sınırlı kalmıştır."
+    }
+  }
+}

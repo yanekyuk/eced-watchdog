@@ -16,6 +16,7 @@ from .fetcher import (
     fetch_announcements,
     merge_filings,
 )
+from .gis import enrich_digests_gis, load_gis_cache
 from .llm import DEFAULT_EK1_MODEL, DEFAULT_EK2_MODEL, resolve_api_key
 from .site import build_site
 
@@ -132,6 +133,8 @@ def main() -> None:
         help=f"Override Gemini model ID (default: Ek-1 -> {DEFAULT_EK1_MODEL}, Ek-2 -> {DEFAULT_EK2_MODEL})",
     )
     parser.add_argument("--drop-pdfs", action="store_true", help="Delete downloaded PDFs after digesting")
+    parser.add_argument("--enrich-gis", action="store_true", help="Query OpenStreetMap/Overpass (3 km) for exact-coord filings not yet in data/gis_cache.json")
+    parser.add_argument("--max-gis", type=int, default=15, help="Max new Overpass GIS queries per run when --enrich-gis is enabled (default: 15)")
     parser.add_argument(
         "--site-url",
         default="https://yanekyuk.github.io/eced-watchdog/",
@@ -253,17 +256,30 @@ def main() -> None:
                         print(f"  Synthesized #{fid} via {llm_m} ({n_flags} findings)")
         print(f"Digests ready ({digested_new} newly extracted, {synthesized_new} newly synthesized)")
 
+    gis_cache_path = data_dir / "gis_cache.json"
+    if args.enrich_gis:
+        gis_cache, gis_new, gis_fail = enrich_digests_gis(
+            digests_dir,
+            gis_cache_path,
+            max_new=args.max_gis,
+        )
+        print(f"GIS 3 km verification: {len(gis_cache)} cached ({gis_new} newly queried, {gis_fail} failed)")
+    else:
+        gis_cache = load_gis_cache(gis_cache_path)
+
     stats = build_site(
         filings,
         digests_dir=digests_dir,
         docs_dir=docs_dir,
         site_url=args.site_url,
         revisions_out=data_dir / "revisions.json",
+        gis_cache=gis_cache,
     )
     print(
         f"Built site: {stats['total']} filings ({stats['provinces']} provinces, "
         f"{stats['active']} active, {stats['digests_rendered']} digests, "
-        f"{stats['exact_geo']} exact-coord, {stats['audit_alerts']} revision/lifecycle alerts) -> {stats['index_path']}"
+        f"{stats['exact_geo']} exact-coord, {stats['audit_alerts']} revision/lifecycle alerts, "
+        f"{stats['gis_verified']} GIS-verified) -> {stats['index_path']}"
     )
 
 

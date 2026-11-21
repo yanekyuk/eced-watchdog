@@ -16,6 +16,7 @@ from typing import Any
 from .cli import parse_provinces
 from .digest import ensure_digest_for_filing
 from .fetcher import _quick_row_signature, fetch_announcements, merge_filings
+from .gis import enrich_digests_gis, load_gis_cache
 from .llm import DEFAULT_EK1_MODEL, DEFAULT_EK2_MODEL, choose_gemini_model, resolve_api_key
 from .revisions import has_pdf_changed
 from .site import build_site
@@ -31,14 +32,52 @@ MODEL_PRICING_PER_1M: dict[str, tuple[float, float]] = {
     "gemini-4-carbon": (2.00, 10.00),
 }
 
-# Typical token footprint for ~24 excerpted PDF pages + structured JSON output (incl. thinking)
-EST_INPUT_TOKENS = 22_000
-EST_OUTPUT_TOKENS = 2_200
+# Empirically calibrated default token footprints (input, output+thinking) per model
+MODEL_EST_TOKENS: dict[str, tuple[int, int]] = {
+    "gemini-3.1-flash-lite": (20_000, 3_200),
+    "gemini-3.5-flash-lite": (20_000, 3_500),
+    "gemini-3.8-flash": (22_000, 6_000),
+    "gemini-4-hydrogen": (23_000, 10_500),
+    "gemini-4-neon": (23_000, 11_000),
+    "gemini-4-argon": (23_000, 9_000),
+    "gemini-4-carbon": (23_000, 9_000),
+}
+DEFAULT_EST_TOKENS = (22_000, 8_000)
 
 
-def estimate_filing_cost(model: str) -> float:
+def calibrate_model_tokens(digests_dir: Path) -> dict[str, tuple[int, int]]:
+    """Refine per-model (input, output+thinking) token estimates from existing cached digests."""
+    calibrated = dict(MODEL_EST_TOKENS)
+    if not digests_dir.exists():
+        return calibrated
+    samples: dict[str, list[tuple[int, int]]] = {}
+    for p in digests_dir.glob("*_analysis.json"):
+        try:
+            saved = json.loads(p.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        ls = saved.get("llm_synthesis") or {}
+        m = ls.get("model")
+        u = ls.get("usage") or {}
+        in_tok = u.get("prompt_tokens")
+        out_tok = (u.get("output_tokens") or 0) + (u.get("thoughts_tokens") or 0)
+        if m and in_tok and out_tok:
+            samples.setdefault(m, []).append((int(in_tok), int(out_tok)))
+    for m, rows in samples.items():
+        if len(rows) >= 3:
+            avg_in = int(round(sum(r[0] for r in rows) / len(rows)))
+            avg_out = int(round(sum(r[1] for r in rows) / len(rows)))
+            calibrated[m] = (avg_in, avg_out)
+    return calibrated
+
+
+def estimate_filing_cost(
+    model: str,
+    token_table: dict[str, tuple[int, int]] | None = None,
+) -> float:
     in_rate, out_rate = MODEL_PRICING_PER_1M.get(model, (1.50, 7.50))
-    return (EST_INPUT_TOKENS / 1_000_000) * in_rate + (EST_OUTPUT_TOKENS / 1_000_000) * out_rate
+    est_in, est_out = (token_table or MODEL_EST_TOKENS).get(model, DEFAULT_EST_TOKENS)
+    return (est_in / 1_000_000) * in_rate + (est_out / 1_000_000) * out_rate
 
 
 def actual_usage_cost(model: str, usage: dict[str, Any] | None) -> float | None:
@@ -101,10 +140,12 @@ def find_missing_llm(
     filings: list[dict[str, Any]],
     digests_dir: Path,
     explicit_model: str | None,
+    token_table: dict[str, tuple[int, int]] | None = None,
 ) -> list[dict[str, Any]]:
     """Return unique PDF filings missing an LLM synthesis, ordered by statutory urgency."""
     candidates: list[dict[str, Any]] = []
     seen_ids: set[str] = set()
+    toks = token_table or calibrate_model_tokens(digests_dir)
 
     for f in filings:
         docs = f.get("documents") or []
@@ -138,7 +179,7 @@ def find_missing_llm(
                     "has_extract": has_pdf_extract,
                     "pdf_changed": pdf_changed,
                     "model": model,
-                    "est_cost": estimate_filing_cost(model),
+                    "est_cost": estimate_filing_cost(model, toks),
                 }
             )
 
@@ -168,6 +209,8 @@ def main() -> None:
     parser.add_argument("--provinces", nargs="+", help="Optional CODE:LABEL province filter (default: all 81)")
     parser.add_argument("--skip-fetch", action="store_true", help="Skip live portal fetch; inspect existing data/filings.json")
     parser.add_argument("--check-revisions", action="store_true", help="Re-check document pages on already-cached rows to detect silent PDF edits")
+    parser.add_argument("--enrich-gis", action="store_true", help="Run polite 3 km OpenStreetMap GIS verification on newly digested exact-coord filings")
+    parser.add_argument("--max-gis", type=int, default=15, help="Max new Overpass GIS lookups when --enrich-gis is set (default: 15)")
     parser.add_argument("--keep-pdfs", action="store_true", help="Keep downloaded PDFs in data/pdfs/ instead of deleting after digest")
     parser.add_argument("--workers", type=int, default=4, help="Parallel workers for PDF parsing & Gemini synthesis (default: 4; downloads stay capped at 2)")
     parser.add_argument(
@@ -244,7 +287,8 @@ def main() -> None:
 
     # 2. Detect missing LLM reports & estimate cost
     print("=== [2/4] Detecting filings without LLM reports (sorted by statutory urgency) ===")
-    missing = find_missing_llm(filings, digests_dir, args.gemini_model)
+    token_table = calibrate_model_tokens(digests_dir)
+    missing = find_missing_llm(filings, digests_dir, args.gemini_model, token_table=token_table)
     ek1_missing = [m for m in missing if m["filing"].get("project_type") == "Ek-1"]
     already_with_llm = len(
         [
@@ -275,7 +319,7 @@ def main() -> None:
             if len(missing) > 15:
                 print(f"  ... and {len(missing) - 15} more pending filings.")
 
-            print("\nEstimated cost options (~22k input + ~2.2k output tokens/report):")
+            print("\nEstimated cost options (calibrated per model, incl. thinking tokens):")
             for label, subset in [
                 ("Next 5", missing[:5]),
                 ("Next 10", missing[:10]),
@@ -329,6 +373,7 @@ def main() -> None:
     total_prompt_tok = 0
     total_out_tok = 0
     generated_ok = 0
+    failed_ids: list[str] = []
     print_lock = threading.Lock()
     done_counter = 0
 
@@ -361,6 +406,7 @@ def main() -> None:
                 fid = item["filing_id"]
                 with print_lock:
                     if exc is not None:
+                        failed_ids.append(fid)
                         print(f"  [{done_counter}/{len(selected)}] WARN #{fid}: {exc}")
                     elif res and res.get("llm_synthesis"):
                         generated_ok += 1
@@ -401,12 +447,24 @@ def main() -> None:
                 except Exception:
                     pass
 
+    gis_cache_path = data_dir / "gis_cache.json"
+    if args.enrich_gis:
+        gis_cache, gis_new, gis_fail = enrich_digests_gis(
+            digests_dir,
+            gis_cache_path,
+            max_new=args.max_gis,
+        )
+        print(f"GIS 3 km verification: {len(gis_cache)} cached ({gis_new} newly queried, {gis_fail} failed)")
+    else:
+        gis_cache = load_gis_cache(gis_cache_path)
+
     stats = build_site(
         filings,
         digests_dir=digests_dir,
         docs_dir=docs_dir,
         site_url=args.site_url,
         revisions_out=data_dir / "revisions.json",
+        gis_cache=gis_cache,
     )
     # Validate RSS XML before offering to commit/push
     rss_tree = ET.parse(docs_dir / "feed.xml")
@@ -415,13 +473,19 @@ def main() -> None:
     print(
         f"\nBuilt site: {stats['total']} filings ({stats['provinces']} provinces, "
         f"{stats['active']} active, {stats['digests_rendered']} digests, "
-        f"{stats['exact_geo']} exact-coord, {stats['audit_alerts']} revision/lifecycle alerts, {rss_items} RSS items)."
+        f"{stats['exact_geo']} exact-coord, {stats['audit_alerts']} revision/lifecycle alerts, "
+        f"{stats['gis_verified']} GIS-verified, {rss_items} RSS items)."
     )
-    if generated_ok:
+    if generated_ok or failed_ids:
         print(
             f"Generated {generated_ok}/{len(selected)} LLM reports "
             f"(tokens: {total_prompt_tok:,} in / {total_out_tok:,} out+think; est. actual cost: ${total_actual_usd:.4f})."
         )
+        if failed_ids:
+            print(
+                f"Failed ({len(failed_ids)}): {', '.join('#' + x for x in failed_ids)} — "
+                "re-run `uv run eced-publish --skip-fetch` to retry."
+            )
 
     # 4. Git commit & push
     print("\n=== [4/4] Git commit & push ===")

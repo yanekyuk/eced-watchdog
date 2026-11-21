@@ -95,6 +95,8 @@ TR_CHECK_LABELS = {
     "mentions_iucn_or_endemic": "Endemik / IUCN / Bern",
     "mentions_capacity_or_splitting": "Kapasite artışı / eşik değer",
     "mentions_circular_2009_7_or_revision": "2009/7 / yargı sonrası revizyon",
+    "mentions_agency_opinions": "Kurum görüşleri (DSİ / İl Tarım / OGM / MAPEG)",
+    "mentions_seismic_or_geotech": "Deprem / fay hattı / jeoteknik stabilite",
 }
 
 
@@ -473,6 +475,29 @@ def build_revision_index(
                         "similar_project_district",
                         f"Aynı ilçede yüksek proje adı benzerliği (%{int(jaccard * 100)})",
                     )
+
+    # Match 2c: exact PDF coordinate proximity (<= 2 km) — catches corporate handovers & re-branded returns
+    geo_fids: list[tuple[str, float, float]] = []
+    for fid in latest_by_fid:
+        geo = ((digests_map.get(fid) or {}).get("analysis") or {}).get("geo") or {}
+        if geo.get("precision") == "exact_pdf" and geo.get("lat") is not None and geo.get("lon") is not None:
+            geo_fids.append((fid, float(geo["lat"]), float(geo["lon"])))
+
+    for i in range(len(geo_fids)):
+        fid_a, lat_a, lon_a = geo_fids[i]
+        for j in range(i + 1, len(geo_fids)):
+            fid_b, lat_b, lon_b = geo_fids[j]
+            # Fast bounding-box pre-filter (~2.5 km) before Haversine
+            if abs(lat_a - lat_b) > 0.025 or abs(lon_a - lon_b) > 0.03:
+                continue
+            dist_m = haversine_meters(lat_a, lon_a, lat_b, lon_b)
+            if dist_m <= 2000.0:
+                link_pair(
+                    fid_a,
+                    fid_b,
+                    "coordinate_proximity",
+                    f"Aynı saha / yakın koordinat ({int(round(dist_m))} m — olası el değiştirme, kümülatif yük veya proje parçalama)",
+                )
 
     # 3. Compute per-filing_id and per-filing_key intelligence
     by_filing_id: dict[str, dict[str, Any]] = {}

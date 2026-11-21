@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>e-ÇED Ön Özet #60185 — İZMİR / TORBALI</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+:root {
+  --bg: #f8f9fb;
+  --surface: #ffffff;
+  --surface-subtle: #f2f4f7;
+  --border: #e4e7ec;
+  --border-strong: #cfd5df;
+  --text: #101828;
+  --text-secondary: #344054;
+  --muted: #667085;
+  --accent: #175cd3;
+  --accent-soft: #eff8ff;
+  --red: #b42318;
+  --red-soft: #fef3f2;
+  --red-border: #fecdca;
+  --amber: #b54708;
+  --amber-soft: #fffaeb;
+  --amber-border: #fedf89;
+  --green: #067647;
+  --green-soft: #ecfdf3;
+  --green-border: #abefc6;
+  --violet: #5925dc;
+  --violet-soft: #f4f3ff;
+  --violet-border: #d9d6fe;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f131a;
+    --surface: #161b24;
+    --surface-subtle: #1d2430;
+    --border: #273040;
+    --border-strong: #39465c;
+    --text: #eaedf2;
+    --text-secondary: #c5cdd9;
+    --muted: #8a95a6;
+    --accent: #6cb0ff;
+    --accent-soft: rgba(108, 176, 255, 0.14);
+    --red: #ff857a;
+    --red-soft: rgba(248, 81, 73, 0.13);
+    --red-border: rgba(248, 81, 73, 0.36);
+    --amber: #f0b849;
+    --amber-soft: rgba(210, 153, 34, 0.13);
+    --amber-border: rgba(210, 153, 34, 0.36);
+    --green: #4cc38a;
+    --green-soft: rgba(63, 185, 80, 0.13);
+    --green-border: rgba(63, 185, 80, 0.36);
+    --violet: #bda3ff;
+    --violet-soft: rgba(158, 119, 237, 0.15);
+    --violet-border: rgba(158, 119, 237, 0.38);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f131a;
+  --surface: #161b24;
+  --surface-subtle: #1d2430;
+  --border: #273040;
+  --border-strong: #39465c;
+  --text: #eaedf2;
+  --text-secondary: #c5cdd9;
+  --muted: #8a95a6;
+  --accent: #6cb0ff;
+  --accent-soft: rgba(108, 176, 255, 0.14);
+  --red: #ff857a;
+  --red-soft: rgba(248, 81, 73, 0.13);
+  --red-border: rgba(248, 81, 73, 0.36);
+  --amber: #f0b849;
+  --amber-soft: rgba(210, 153, 34, 0.13);
+  --amber-border: rgba(210, 153, 34, 0.36);
+  --green: #4cc38a;
+  --green-soft: rgba(63, 185, 80, 0.13);
+  --green-border: rgba(63, 185, 80, 0.36);
+  --violet: #bda3ff;
+  --violet-soft: rgba(158, 119, 237, 0.15);
+  --violet-border: rgba(158, 119, 237, 0.38);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Unified Sticky Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.topbar-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.96rem;
+  letter-spacing: -0.01em;
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+.brand-scope {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+.nav-link {
+  padding: 5px 10px;
+  border-radius: 7px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-link:hover { background: var(--surface-subtle); text-decoration: none; color: var(--text); }
+.nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.theme-btn {
+  margin-left: 4px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.79rem;
+  font-weight: 500;
+}
+.theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
+
+/* Layout */
+.wrap { max-width: 1120px; margin: 0 auto; padding: 22px 20px 72px; }
+.wrap.narrow { max-width: 900px; }
+h1 { margin: 0 0 6px; font-size: 1.5rem; line-height: 1.25; letter-spacing: -0.02em; }
+h2 { margin: 28px 0 10px; font-size: 1.15rem; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { margin: 16px 0 8px; font-size: 0.96rem; line-height: 1.35; }
+.sub { color: var(--muted); font-size: 0.91rem; margin: 0; }
+
+/* Compact Masthead */
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 20px;
+  margin-bottom: 16px;
+}
+.masthead-left { max-width: 720px; }
+.masthead-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.kpi-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 18px;
+  padding: 10px 16px;
+  margin-bottom: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.84rem;
+  color: var(--muted);
+  box-shadow: var(--shadow);
+}
+.kpi-item { display: inline-flex; align-items: baseline; gap: 5px; }
+.kpi-item strong {
+  color: var(--text);
+  font-size: 0.96rem;
+  font-variant-numeric: tabular-nums;
+}
+.kpi-item.accent strong { color: var(--accent); }
+.kpi-item.rev strong { color: var(--violet); }
+.kpi-sep { color: var(--border-strong); user-select: none; }
+
+/* Map Card */
+.map-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.map-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 14px;
+  padding: 9px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.map-box.collapsed .map-bar { border-bottom: none; }
+.map-box.collapsed #map { display: none; }
+.map-legend-inline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+#map { width: 100%; height: 320px; background: var(--surface-subtle); }
+#digest-map { width: 100%; height: 300px; background: var(--surface-subtle); }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+/* Streamlined Controls */
+.controls-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.controls-row + .controls-row {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.advanced-row { display: none; }
+.advanced-row.open { display: flex; }
+input[type="search"], select.filter-select {
+  padding: 7px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.87rem;
+}
+input[type="search"]:focus, select.filter-select:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+input[type="search"] { flex: 1 1 240px; }
+select.filter-select { min-width: 155px; }
+button.pill {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+button.pill:hover { background: var(--surface-subtle); color: var(--text); }
+button.pill.active { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 600; }
+button.pill.rev-pill.active { background: var(--violet); border-color: var(--violet); }
+.ctrl-right { margin-left: auto; display: flex; align-items: center; gap: 6px; }
+button.ghost-btn {
+  padding: 5px 9px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.79rem;
+  font-weight: 500;
+}
+button.ghost-btn:hover { color: var(--text); border-color: var(--border-strong); background: var(--surface-subtle); }
+
+/* Calm Two-Tier Cards */
+.list-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+.cards { display: flex; flex-direction: column; gap: 10px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 15px 18px;
+  box-shadow: var(--shadow);
+  transition: border-color 0.12s;
+}
+.card:hover { border-color: var(--border-strong); }
+.card.urgent-edge { border-left: 3px solid var(--red); }
+.card.ek1 { border-left: 3px solid var(--accent); }
+.card.has-rev { border-left: 3px solid var(--violet); }
+.card.urgent-edge.has-rev { border-left: 3px solid var(--red); }
+
+/* Tier 1: Quiet Metadata Context Row (zero boxes!) */
+.card-ctx {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 12px;
+  font-size: 0.79rem;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+.ctx-left { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.ctx-loc { color: var(--text-secondary); font-weight: 600; }
+.ctx-ek1 { color: var(--accent); font-weight: 600; }
+.ctx-geo { color: var(--green); font-weight: 500; }
+.ctx-sep { color: var(--border-strong); }
+.ctx-right { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.title { font-weight: 650; font-size: 1.01rem; line-height: 1.38; color: var(--text); margin: 0; }
+.title a { color: var(--text); }
+.title a:hover { color: var(--accent); text-decoration: none; }
+.owner-line { font-size: 0.82rem; color: var(--muted); margin: 3px 0 0; }
+
+/* Tier 2: Signal Pills (Status, Clock, Findings, Revision ONLY) */
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.badge.urgent { background: var(--red-soft); border-color: var(--red-border); color: var(--red); font-weight: 600; }
+.badge.warn { background: var(--amber-soft); border-color: var(--amber-border); color: var(--amber); font-weight: 600; }
+.badge.ok { background: var(--green-soft); border-color: var(--green-border); color: var(--green); font-weight: 600; }
+.badge.info { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
+.badge.rev { background: var(--violet-soft); border-color: var(--violet-border); color: var(--violet); font-weight: 600; }
+.badge.muted { color: var(--muted); }
+
+/* Calm 2-line Clamped Summary */
+.summary-clamp {
+  margin: 9px 0 0;
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+  line-height: 1.52;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.summary-clamp.muted { color: var(--muted); }
+
+.rev-inline {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--violet-soft);
+  border: 1px solid var(--violet-border);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+.rev-inline strong { color: var(--violet); }
+
+/* Quiet Action Row */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  font-size: 0.82rem;
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid var(--border);
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.81rem;
+}
+.btn-primary:hover { text-decoration: none; filter: brightness(1.06); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.81rem;
+  cursor: pointer;
+}
+.btn-secondary:hover { text-decoration: none; border-color: var(--border-strong); color: var(--text); }
+.quiet-link { color: var(--muted); font-weight: 500; }
+.quiet-link:hover { color: var(--accent); }
+
+/* Pagination Bar */
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.pager button {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pager button:hover { border-color: var(--accent); color: var(--accent); }
+.pager .pager-all {
+  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Digest & Guide Tables, Accordions, Callouts */
+table.kv {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.88rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+table.kv th, table.kv td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 13px;
+  text-align: left;
+  vertical-align: top;
+}
+table.kv tr:last-child th, table.kv tr:last-child td { border-bottom: none; }
+table.kv th { width: 240px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
+table.data-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.84rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+table.data-tbl th, table.data-tbl td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.data-tbl tr:last-child td { border-bottom: none; }
+code {
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.84em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+blockquote {
+  margin: 10px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface-subtle);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.89rem;
+  color: var(--text-secondary);
+}
+.callout {
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  margin: 14px 0;
+}
+.callout.rev { background: var(--violet-soft); border-color: var(--violet-border); }
+details.accordion {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 10px 0;
+  overflow: hidden;
+}
+details.accordion summary {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
+}
+details.accordion summary::-webkit-details-marker { display: none; }
+details.accordion summary::after {
+  content: "+";
+  font-size: 1.1rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+details.accordion[open] summary::after { content: "−"; }
+details.accordion[open] summary { border-bottom: 1px solid var(--border); background: var(--surface-subtle); }
+.accordion-body { padding: 14px 16px; }
+.timeline {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid var(--border-strong);
+}
+.timeline li { position: relative; margin: 0 0 9px; padding-left: 8px; font-size: 0.86rem; }
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+}
+.hit { margin: 8px 0; font-size: 0.87rem; line-height: 1.55; }
+.pno { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.notice {
+  margin-top: 32px;
+  padding: 13px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.toc-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 20px; }
+.toc-pills a {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.81rem;
+  font-weight: 500;
+}
+.toc-pills a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+.step-num {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+pre.template-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.section-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+@media (max-width: 700px) {
+  table.kv th { width: 140px; }
+  #map { height: 270px; }
+  .topbar-inner { padding: 9px 14px; }
+  .wrap { padding: 16px 14px 54px; }
+}
+@media print {
+  .topbar, .no-print, #digest-map, .map-box { display: none !important; }
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .card, table.kv, table.data-tbl, details.accordion { box-shadow: none; break-inside: avoid; }
+  details.accordion { border: 1px solid #ccc; }
+  a { color: #000000; text-decoration: underline; }
+}
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      <span>Türkiye e-ÇED İzleme</span>
+      <span class="brand-scope">81 İl</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link " href="../index.html">Duyurular</a>
+      <a class="nav-link " href="../rehber.html">Kullanım Rehberi</a>
+      <a class="nav-link" href="../feed.xml">RSS</a>
+      <a class="nav-link" href="https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml" target="_blank" rel="noopener">Resmi e-ÇED ↗</a>
+      <button id="theme-toggle" class="theme-btn" type="button">Tema</button>
+    </div>
+  </div>
+</nav>
+<div class="wrap narrow">
+  <header style="margin-bottom:16px;">
+    <div class="card-ctx no-print" style="margin-bottom:8px;">
+      <span><a href="../index.html">← Duyurulara dön</a> · <strong>İZMİR / TORBALI</strong> · Ek-2 · Gıda</span>
+      <span><code>#60185</code> · 26.10.2026</span>
+    </div>
+    <h1>Alkolsüz, Aromalı Gazlı İçecek ve Enerji İçeceği Üretimi Kapasite Artışı Projesi (960 m3/yıl&#x27;dan 29.875,200 m3/yıl&#x27;a artış)</h1>
+    <p class="sub">HEMA İÇECEK PAZARLAMA GIDA SANAYİ VE TİCARET LİMİTED ŞİRKETİ</p>
+    <div class="badges" style="margin-top:10px;">
+      <span class="badge">ÇED Gerekli Değil/ÇED Olumlu</span>
+      <span class="badge urgent">İYUK 20/A · 3 gün kaldı (2026-11-25)</span>
+      <span class="badge rev">1 İlişkili</span>
+      
+    </div>
+    <div class="actions no-print" style="border-top:none;padding-top:4px;">
+      <a class="btn-primary" href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign9216224860494607408.pdf&amp;orjinalAd=e-imza.pdf&amp;yuklemeTarihi=2026-10-15" target="_blank" rel="noopener">Resmi PDF Dosyası ↗</a>
+      <a class="btn-secondary" href="http://eced.csb.gov.tr/jsp/ek1/60185" target="_blank" rel="noopener">e-ÇED Portal Kaydı ↗</a>
+      <a class="btn-secondary" href="60185.md">Markdown (.md)</a>
+      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF</button>
+    </div>
+  </header>
+
+  <table class="kv">
+    <tr><th>Hazırlayan Kuruluş</th><td>ENVON ÇEVRE DANIŞMANLIK MÜH. İNŞ. TAAH. SAN. TİC. LTD. ŞTİ.</td></tr>
+    <tr><th>Sektör / Alt Sektör</th><td>Gıda / Meyve Türevli içecekler</td></tr>
+    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>26.10.2026</code> · Yükleme: <code>16/06/2026 07:04:07</code></td></tr>
+    <tr><th>PDF Kapsamı</th><td>30.68 MB · 146 sayfa (97 metin / 49 taranmış) · <a href="https://www.openstreetmap.org/?mlat=38.22235&amp;mlon=27.32751#map=12/38.22235/27.32751" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=38.22235,27.32751" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
+  </table>
+
+  <h2>Belge Bütünlüğü, Revizyon ve Süreç Geçmişi</h2>
+<p class="sub">Her PDF dosyasının SHA-256 özeti, yükleme tarihi ve teknik göstergeleri arşivlenir; 2009/7 Genelgesi kapsamındaki değişiklikler sürümler arası fark olarak kaydedilir.</p>
+<table class="data-tbl"><thead><tr><th>Sürüm</th><th>Arşiv Tarihi</th><th>Aşama</th><th>Yükleme Tarihi</th><th>Sayfa</th><th>SHA-256</th></tr></thead><tbody><tr><td><code>v1</code></td><td><code>2026-11-22T00:43:22</code></td><td>ÇED Gerekli Değil/ÇED Olumlu</td><td><code>2026-10-15</code></td><td>146</td><td><code>aec1d0bc00268425…</code></td></tr></tbody></table>
+<h3>Aynı İlçede İlişkili / Tekrar veya Parçalı Başvurular</h3><table class="data-tbl"><thead><tr><th>Dosya</th><th>Tarih</th><th>Aşama</th><th>Proje ve Eşleşme Nedeni</th></tr></thead><tbody><tr><td><a href="61774.html"><strong>#61774 (Ön Özet)</strong></a></td><td>20.11.2026</td><td><span class='badge'>ÇED Süreci Başlayan</span></td><td>Mobilya Üretim Tesisi Kapasite Artışı (152.227 m3/yıldan 164.832 m3/yıl?a artış)<br/><span class='sub'>Aynı saha / yakın koordinat (657 m — olası el değiştirme, kümülatif yük veya proje parçalama)</span></td></tr></tbody></table>
+
+  
+  <h2>Bilimsel Ön Değerlendirme <span class="badge">gemini-3.5-flash-lite</span></h2>
+  <p class="sub">Resmi PDF'ten seçilen 24 sayfa (s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14, s.15, s.16, s.17, s.38, s.42, s.43, s.44, s.53, s.54, s.55) üzerinden üretilmiştir; her bulguyu <code>[s. N]</code> kaynağından doğrulayınız.</p>
+  <section class="card ek1" style="margin-top:10px;">
+    <p style="margin-top:0;"><strong>Özet:</strong> İzmir ili Torbalı ilçesi Yazıbaşı Mahallesi&#x27;nde Hema İçecek Pazarlama Gıda San. ve Tic. Ltd. Şti. tarafından gerçekleştirilmesi planlanan Alkolsüz, Aromalı Gazlı İçecek ve Enerji İçeceği Üretimi Kapasite Artışı Projesi ile mevcut durumda 960 m³/yıl olan üretim kapasitesinin 29.875,200 m³/yıl düzeyine çıkarılması amaçlanmaktadır. Proje alanı İzmir-Manisa Planlama Bölgesi 1/100.000 Ölçekli Çevre Düzeni Planı&#x27;na göre sanayi alanında yer almakta olup, kapasite artışı makine ve ekipman ilavesi ile vardiya sayısının ikiye çıkarılması suretiyle gerçekleştirilecektir. Dosya kapsamında, artan su tüketimi ve oluşacak atıksuların altyapı ve çevre üzerindeki kümülatif etkilerinin irdelenmesi gerekmektedir.</p>
+    <details style="margin-top:10px;font-size:0.85rem;color:var(--muted);"><summary style="cursor:pointer;">English summary</summary><p style="margin:6px 0 0;">The proposed capacity increase project for non-alcoholic flavored carbonated beverages and energy drinks by Hema İçecek in Torbalı, İzmir, aims to raise production from 960 m³/year to 29.875,200 m³/year. Located within an industrial zone designated by the 1/100,000 scale Environmental Plan, the expansion will be achieved by adding machinery and operating two shifts instead of one. The technical review addresses potential environmental stakes such as water consumption, wastewater management, and cumulative regional impacts.</p></details>
+    <div class="badges" style="margin-top:10px;">
+      <span class="badge">Saha: Yalnızca literatür taramasına dayalı</span>
+      <span class="badge">Mevsimsellik: İncelenen sayfalarda tespit edilemedi</span>
+      <span class="badge">Kümülatif: Yüzeysel veya şablon düzeyinde</span>
+    </div>
+    <p class="sub" style="margin-top:10px;color:var(--text-secondary);"><strong>Zeytinlik ve Korunan Alanlar:</strong> Proje alanı ve yakın çevresinde 3573 sayılı Zeytincilik Kanunu kapsamında zeytinlik alan bulunmadığı, ayrıca ÇED Yönetmeliği Ek-5 Duyarlı Yöreler listesindeki korunan alanların sınırları içerisinde yer almadığı beyan edilmiştir [s. 40, 42].<br/>Dosyada sunulan çevresel değerlendirmeler ve duyarlı yöreler incelemeleri araziye ilişkin kapsamlı birer ekolojik saha çalışmasına dayanmamakta, genel literatür ve plan kararlarına dayalı kısıtlı ifadeler içermektedir [s. 40, 42]. Mevcut su kaynakları ve atıksu altyapısına yönelik kümülatif etkiler ise somut nicel modellemelerden uzak, standart taahhütler düzeyinde ele alınmıştır.</p>
+  </section>
+  <h3>Danıştay Ölçütlerine Göre Bilimsel ve Hukuki Bulgular</h3><section class="card"><div class="hit"><span class="badge urgent">YÜKSEK</span> <span class="badge">Su / Hidrojeoloji</span> <strong>Yetersiz Hidrojeolojik ve Su Temini / Atıksu Altyapı Analizi</strong> <span class="pno">[s. 6, s. 7]</span> — Kapasite artışıyla birlikte üretim miktarının yaklaşık 31 katına çıkarılması öngörülmesine rağmen, artan su tüketiminin karşılanacağı su kaynağına ilişkin DSİ görüşü veya hidrojeolojik etüt raporu dosyada sunulmamış; atıksu arıtma tesisi zorunluluğuna dair imar planı hükümlerine rağmen somut arıtma projesi detaylandırılmamıştır [s. 6, 7].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Kümülatif Etki</span> <strong>Bölgesel Kümülatif Etki Değerlendirmesinin Yetersizliği</strong> <span class="pno">[s. 3]</span> — Torbalı gibi yoğun sanayi ve tarım faaliyetlerinin bir arada bulunduğu bir bölgede, benzer gıda ve endüstri tesislerinin yeraltı su kaynakları ve altyapı üzerine bindirdiği kümülatif yükler analitik olarak incelenmemiş, bölüm sadece başlık seviyesinde geçiştirilmiştir [s. 3].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Ölçüm / İç Tutarlılık</span> <strong>Kapasite Hesaplamalarında Darboğaz Kabul Çelişkileri</strong> <span class="pno">[s. 15, s. 17]</span> — Mevcut ve planlanan kapasite hesaplamalarında gazlama ünitelerinin darboğaz oluşturduğu belirtilmiş, ancak 2 vardiyaya geçiş ve yeni makine ilaveleriyle elde edilen nihai kapasite rakamlarının tesisin hammadde ve atıksu dengeleriyle uyumu denetime açık şekilde tam olarak ortaya konulmamıştır [s. 15, 17].</div></section>
+  <h3>Öne Çıkan Sayısal Bulgular</h3><table class="kv"><tr><th>Mevcut Üretim Kapasitesi</th><td>960 m³/yıl (960.000 litre/yıl) <span class="pno">[s. 5]</span></td></tr>
+<tr><th>Planlanan Üretim Kapasitesi</th><td>29.875,200 m³/yıl <span class="pno">[s. 1]</span></td></tr>
+<tr><th>Toplam Tapu Alanı</th><td>5.699,66 m² (167 ada, 17 parsel) <span class="pno">[s. 5]</span></td></tr>
+<tr><th>Faaliyet Gösterilen Alan</th><td>3.230,37 m² <span class="pno">[s. 5]</span></td></tr>
+<tr><th>Proje Bedeli</th><td>9.972.800 TL <span class="pno">[s. 2]</span></td></tr>
+<tr><th>Mevcut Personel Sayısı</th><td>18 kişi <span class="pno">[s. 5]</span></td></tr>
+<tr><th>Planlanan Personel Sayısı</th><td>30 kişi <span class="pno">[s. 5]</span></td></tr>
+<tr><th>Mevcut Çalışma Düzeni</th><td>Günde 1 vardiya (8 saat), yılda 300 gün <span class="pno">[s. 5]</span></td></tr>
+<tr><th>Planlanan Çalışma Düzeni</th><td>Günde 2 vardiya (16 saat), yılda 300 gün <span class="pno">[s. 6]</span></td></tr></table>
+  
+  
+  <h3>Keşif ve Bilirkişi Heyeti İçin Önerilen Uzmanlık Alanları</h3><section class="card"><div class="badges" style="margin-top:0;"><span class="badge info">Çevre Mühendisi</span> <span class="badge info">Hidrojeoloji Mühendisi</span> <span class="badge info">Gıda Mühendisi</span> <span class="badge info">Şehir ve Bölge Plancısı</span></div><p class="sub" style="margin-top:8px;">Bilirkişi heyetinin tek sayıda uzmandan oluşması, proje niteliğine uygun tüm disiplinleri içermesi ve plan kararlarıyla ilişkili davalarda Şehir ve Bölge Plancısına yer verilmesi gerekmektedir.</p></section>
+  <div class="section-head-row" style="margin-top:16px;"><h3 style="margin:0;">HKT Tutanakları ve Bilirkişi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card" style="margin-top:8px;"><ul style="margin:0;padding-left:20px;"><li>Kapasite artışı ile birlikte yaklaşık 31 katına (29.875,200 m³/yıl) çıkacak olan üretim için gerekli su temini hangi kaynaktan sağlanacaktır? Bu hususta DSİ&#x27;den alınmış resmi bir yeraltı suyu kullanma belgesi veya tahsis yazısı mevcut mudur? <span class="pno">[s. 1, s. 6]</span></li>
+<li>Yazıbaşı Mahallesi 2. Etap 1/1.000 ölçekli Uygulama İmar Planı hükümleri gereğince atıksuyu olan sanayi tesislerinin arıtma tesisi kurması zorunlu kılınmışken, artan endüstriyel atıksuların bertarafı ve arıtılmasına ilişkin hangi somut altyapı önlemleri alınmıştır? <span class="pno">[s. 6, s. 7]</span></li>
+<li>Torbalı yöresindeki diğer endüstriyel tesislerin yeraltı su kütleleri ve akiferler üzerindeki birikimli (kümülatif) etkileri PTD dosyasında neden sayısal modellemelerle irdelenmemiştir? <span class="pno">[s. 3]</span></li></ul><textarea id="qs-plain" style="display:none;">1. Kapasite artışı ile birlikte yaklaşık 31 katına (29.875,200 m³/yıl) çıkacak olan üretim için gerekli su temini hangi kaynaktan sağlanacaktır? Bu hususta DSİ&#x27;den alınmış resmi bir yeraltı suyu kullanma belgesi veya tahsis yazısı mevcut mudur? [s. 1, s. 6]
+2. Yazıbaşı Mahallesi 2. Etap 1/1.000 ölçekli Uygulama İmar Planı hükümleri gereğince atıksuyu olan sanayi tesislerinin arıtma tesisi kurması zorunlu kılınmışken, artan endüstriyel atıksuların bertarafı ve arıtılmasına ilişkin hangi somut altyapı önlemleri alınmıştır? [s. 6, s. 7]
+3. Torbalı yöresindeki diğer endüstriyel tesislerin yeraltı su kütleleri ve akiferler üzerindeki birikimli (kümülatif) etkileri PTD dosyasında neden sayısal modellemelerle irdelenmemiştir? [s. 3]</textarea></section>
+  <p class="sub" style="margin-top:10px;"><em>İnceleme sınırları:</em> İnceleme, PTD dosyasının paylaşılan 25 adet sayfası (1-17, 38, 42-44, 53-55) üzerinden gerçekleştirilmiş olup, raporda atıfta bulunulan ve taranmış ekler/dokümanlar (Ek-2, Ek-5, Ek-8, Ek-10, Ek-11, Ek-12, Ek-16, Ek-17, Ek-20) metin dışı kaldığı için doğrudan incelenememiştir.</p>
+
+
+  <h2>Konum Haritası ve 3 km Çevre Taraması</h2>
+  <div class="map-box">
+    <div id="digest-map"></div>
+    <div class="map-bar"><span>PDF metninden çıkarılan kesin proje koordinatları (6 nokta, datum: UTM-Z35/ED50, sayfa: s.58).</span></div>
+  </div>
+  
+
+  <h2>Ham Kayıt ve Derin Teknik Ekler</h2>
+  <details class="accordion">
+    <summary>Resmi Duyuru Metni (Bakanlık İlanı)</summary>
+    <div class="accordion-body"><blockquote>İZMİR ili TORBALI,  ilcesinde İZMİR ili TORBALI,  ilcesi Yazıbaşı Mah. 9222/2 Sok. No: 4 Torbalı/İZMİR  mevkiindeki HEMA İÇECEK PAZARLAMA GIDA SANAYİ VE TİCARET LİMİTED ŞİRKETİ  tarafından yapılması planlanan Alkolsüz, Aromalı Gazlı İçecek ve Enerji İçeceği Üretimi Kapasite Artışı Projesi (960 m3/yıl&#x27;dan 29.875,200 m3/yıl&#x27;a artış) projesi ile ilgili olarak Bakanlığımıza sunulan PTD Dosyası incelenmiş ve değerlendirilmiştir  ÇED Yönetmeliği&#x27;nin 17. maddesi gereğince Alkolsüz, Aromalı Gazlı İçecek ve Enerji İçeceği Üretimi Kapasite Artışı Projesi (960 m3/yıl&#x27;dan 29.875,200 m3/yıl&#x27;a artış) projesi&#x27;ne Valiliğimizce &#x27;ÇED Olumlu (Kapsam Ek-2)&#x27; kararı verilmiştir.</blockquote></div>
+  </details>
+  <details class="accordion">
+    <summary>Otomatik Metin Taraması (9 Deterministik Kontrol)</summary>
+    <div class="accordion-body">
+      <table class="kv" style="margin-top:0;"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Literatür taraması ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
+<tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Kümülatif etki değerlendirmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Yeraltı suyu, akifer veya hidrojeoloji ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge warn">Metinde geçmektedir — parçalama / 2009/7 kontrolü</span></td></tr>
+<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr>
+<tr><th>Kurum görüşleri (DSİ, İl Tarım, OGM, MAPEG)</th><td><span class="badge urgent">Tespit edilemedi — PDF kontrolü gerekir</span></td></tr>
+<tr><th>Deprem, fay hattı veya jeoteknik stabilite ifadesi</th><td><span class="badge muted">Tespit edilmedi</span></td></tr></table>
+      <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik taramaya dahil edilmemiştir.</p>
+    </div>
+  </details>
+  <details class="accordion">
+    <summary>Sayfa Kaynaklı Ham Alıntılar (7 Teknik Başlık)</summary>
+    <div class="accordion-body"><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(27 sayfa: s.5, s.6, s.10, s.12, s.13, s.19, s.21, s.34, s.35, s.36, s.38, s.50, s.54, s.56 (+13 sayfa))</span></h3><div class="hit"><span class="pno">[s. 5]</span> <code>699,66 m2</code> — …i ekte verilmiştir (Bkz.Ek-2). Tapu alanı; 167 numaralı ada, 17 numaralı parsel üzerinde yer almakta olup, toplam 5.699,66 m2 alandan, bağımsız 2 bölümden oluşmaktadır. Proje sahibi tapu alanının 3.230.37 m2 alanında faaliyet göstermektedir.…</div>
+<div class="hit"><span class="pno">[s. 5]</span> <code>230.37 m2</code> — …üzerinde yer almakta olup, toplam 5.699,66 m2 alandan, bağımsız 2 bölümden oluşmaktadır. Proje sahibi tapu alanının 3.230.37 m2 alanında faaliyet göstermektedir. Proje sahibi, proje alanında kiracı olarak faaliyet göstermektedir. Proje alanın…</div>
+<div class="hit"><span class="pno">[s. 5]</span> <code>koordinat</code> — …aliyet göstermektedir. Proje alanına ait tapu belgesi ile kira sözleşmesi ekte yer almaktadır (Bkz.Ek-5). Proje alanı koordinatlarıda ekte yer almaktadır (Bkz.Ek-1). Proje sahibi tarafından proje alanında mevcut durumda 960.000 litre/yıl (960…</div>
+<div class="hit"><span class="pno">[s. 6]</span> <code>ada 17 numaralı parsel</code> — …liyeti kurum görüş yazısında; &quot;… Plan ve Proje Müdürlüğünce yapılan incelemelerde; İlçemiz, Yazıbaşı Mahallesi 167 ada 17 numaralı parselin; Torbalı Belediye Meclisinin 07.03.2021 tarih ve M.35.3.TOR.0.10/10-4/40 sayılı kararı ile uygun görülerek İzmir Bü…</div>
+<div class="hit"><span class="pno">[s. 10]</span> <code>699,66 m2</code> — …ekleştirilmesi planlamaktadır. Tapu alanı; 167 numaralı ada, 17 numaralı parsel üzerinde yer almakta olup, toplam 5.699,66 m2 alandan, bağımsız 2 bölümden oluşmaktadır. Proje sahibi tapu alanının 3.230.37 m2 alanında, kiracı olarak faaliyet gös…</div>
+<div class="hit"><span class="pno">[s. 10]</span> <code>230.37 m2</code> — …üzerinde yer almakta olup, toplam 5.699,66 m2 alandan, bağımsız 2 bölümden oluşmaktadır. Proje sahibi tapu alanının 3.230.37 m2 alanında, kiracı olarak faaliyet göstermektedir. Proje alanına ait tapu belgesi ile kira sözleşmesi ekte yer almaktad…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(62 sayfa: s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14 (+48 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>960 m3/yıl</code> — …İRKETİ PROJE TANITIM DOSYASI “Alkolsüz, Aromalı Gazlı İçecek ve Enerji İçeceği Üretimi Kapasite Artışı Projesi (960 m3/yıl’ dan 29.875,200 m3/yıl’ a artış)” Yazıbaşı Mah. 9222/2 Sok. No: 4 Torbalı/İZMİR (Tapunun 167 numaralı ada, 17 nu…</div>
+<div class="hit"><span class="pno">[s. 1]</span> <code>875,200 m3/yıl</code> — …ITIM DOSYASI “Alkolsüz, Aromalı Gazlı İçecek ve Enerji İçeceği Üretimi Kapasite Artışı Projesi (960 m3/yıl’ dan 29.875,200 m3/yıl’ a artış)” Yazıbaşı Mah. 9222/2 Sok. No: 4 Torbalı/İZMİR (Tapunun 167 numaralı ada, 17 numaralı parselinde)…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>960 m3/yıl</code> — …bruk@hemaicecek.com Projenin Adı: “Alkolsüz, Aromalı Gazlı İçecek ve Enerji İçeceği Üretimi Kapasite Artışı Projesi (960 m3/yıl’ dan 29.875,200 m3/yıl’ a artış)” Proje Bedeli: 9.972.800 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Me…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>875,200 m3/yıl</code> — …Projenin Adı: “Alkolsüz, Aromalı Gazlı İçecek ve Enerji İçeceği Üretimi Kapasite Artışı Projesi (960 m3/yıl’ dan 29.875,200 m3/yıl’ a artış)” Proje Bedeli: 9.972.800 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevki): Yazıbaşı Mah. 922…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>1.000 m3/yıl</code> — …leri Ön İnceleme ve Değerlendirmeye Tabi Projeler) Listesi; Madde 26- Bitkisel ve hayvansal ürünlerin üretimi &quot;ğ)1.000 m3/yıl ve üzeri alkolsüz içecek üretimi yapan tesisler (İnsani tüketim amaçlı sular ve (Ek ibare: RG- 5/3/2026-33187) aroması…</div>
+<div class="hit"><span class="pno">[s. 3]</span> <code>875,200 m3/yıl</code> — …İTED ŞİRKETİ “Alkolsüz, Aromalı Gazlı İçecek ve Enerji İçeceği Üretimi Kapasite Artışı Projesi (960 m3/yıl’dan 29.875,200 m3/yıl’a artış)” 1 İçindekiler Listesi: Projenin Teknik Olmayan Özeti: .............................................…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(6 sayfa: s.3, s.38, s.42, s.44, s.61, s.130)</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>orman alanı</code> — …ellikleri: .................................... 36 a) (Değişik:RG-5/3/2026-33187) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri. ......................... 36…</div>
+<div class="hit"><span class="pno">[s. 38]</span> <code>orman alanı</code> — …ri ve Etki Alanının Mevcut Çevresel Özellikleri: a) (Değişik:RG-5/3/2026-33187) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri. HEMA İÇECEK PAZARLAMA GIDA…</div>
+<div class="hit"><span class="pno">[s. 42]</span> <code>Özel Çevre Koruma</code> — …liği’nde tanımlanan alanlar, bulunmamaktadır. f) Çevre Kanunu’nun 9’uncu maddesi uyarınca Cumhurbaşkanı tarafından &quot;Özel Çevre Koruma Bölgeleri&quot; olarak tespit ve ilan edilen alanlar, bulunmamaktadır. g) Boğaziçi Kanunu’na göre koruma altına alınan al…</div>
+<div class="hit"><span class="pno">[s. 42]</span> <code>orman alanı</code> — …lunmamaktadır. g) Boğaziçi Kanunu’na göre koruma altına alınan alanlar, bulunmamaktadır. ğ) Orman Kanunu uyarınca orman alanı sayılan yerler, bulunmamaktadır. h) Kıyı Kanunu gereğince yapı yasağı getirilen alanlar, bulunmamaktadır. ı) Zeyt…</div>
+<div class="hit"><span class="pno">[s. 44]</span> <code>kıyı kenar</code> — …960 m3/yıl’dan 29.875,200 m3/yıl’a artış)” 42 taşıyan bütün sular, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler, bulunmamaktadır. ç) Göller, akars…</div>
+<div class="hit"><span class="pno">[s. 44]</span> <code>sulak alan</code> — …ar, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler, bulunmamaktadır. ç) Göller, akarsular, yeraltı suyu işletme sahaları, içerisinde yer almamaktadır.…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(3 sayfa: s.43, s.44, s.55)</span></h3><div class="hit"><span class="pno">[s. 43]</span> <code>BERN Sözleşmesi</code> — …Sözleşmeler Uyarınca Korunması Gerekli Alanlar: a) &quot;Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi&quot; (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan &quot;Önemli Deniz Kaplumbağası Üreme Alanları&quot; nda belirtilen I. ve II. Koruma…</div>
+<div class="hit"><span class="pno">[s. 44]</span> <code>endemik</code> — …ır. d) Bilimsel araştırmalar için önem arzeden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…</div>
+<div class="hit"><span class="pno">[s. 55]</span> <code>BERN SÖZLEŞMESİ</code> — …stikleri 2024  Deprem Araştırma Dairesi Başkanlığı, Türkiye Deprem Tehlike Haritaları İnteraktif Web Uygulaması  BERN SÖZLEŞMESİ (Convention on the Conservation of European Wildlife and Natural Habitats), 04.03.1999, “Appendices to the Convention”…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(25 sayfa: s.6, s.11, s.16, s.17, s.18, s.20, s.29, s.30, s.34, s.36, s.39, s.48, s.49, s.50 (+11 sayfa))</span></h3><div class="hit"><span class="pno">[s. 6]</span> <code>Gürültü</code> — …liyet süresince 2872 Sayılı Çevre Kanunu ve ilgili Yönetmelik hükümlerine ve 30.11.2022 Tarih ve 32029 Sayılı Çevresel Gürültü Kontrol Yönetmeliği hükümlerine uyulacaktır. İlgili yönetmeliklerin ek değişik yönetmelik hükümleri de dikkate alınaca…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>CO2</code> — …Üretim Tankı (8 ton) Homojen karışım sağlanır. Ürün Dinlendirme Tankı (8 ton) Ürün dinlendirilir. Gazlama Makinesi CO2 gazı ilavesi Karbonizasyon işlemi Dolum ve Kapatma Makinesi Ürün Dolumu Kapak Kapatma İşlemi Kodlama Makinesi S…</div>
+<div class="hit"><span class="pno">[s. 16]</span> <code>Karbondioksit</code> — …emi Ambalajların üretim hattına otomatik beslenmesini sağlayacaktır. Depaletizer Makinesi ve Aksesuarları 1 Set Karbondioksit Dozajlama Makinesi 1 Set 8 ton/saat Otoklav (Pastörizasyon Amaçlı) 1 Set Pastörizasyon ve ısıl işlem sistemi Azo…</div>
+<div class="hit"><span class="pno">[s. 17]</span> <code>Karbondioksit</code> — …diyada çalıştırılacaktır. Bu sebeple kapasitesi 1.920.000 kg/yıl’a çıkmış olacaktır. İlave Edilecek Kapasite: Karbondioksit dozlama kapasitesi: 8 ton/sa 8 ton/sa * 16 sa/gün * 300 gün/yıl * 0,80 = 30.720.000 kg/yıl Planlanan Kar…</div>
+<div class="hit"><span class="pno">[s. 18]</span> <code>karbondioksit</code> — …artış projesi kapsamında tesise ilave edilecek GZ30-6 ve GZ20-4 kutu dolum hatları; dolum, kutu yıkama, kapak kapatma, karbondioksit/azot dozajlama ve yardımcı proses ekipmanlarını bünyesinde barındıran entegre üretim sistemleri olarak çalışacaktır. B…</div>
+<div class="hit"><span class="pno">[s. 20]</span> <code>Karbondioksit</code> — …i ve Aksesuarları 1 Set 783.360 TL 783.360 TL Depaletizer Makinesi ve Aksesuarları 1 Set 414.720 TL 414.720 TL Karbondioksit Dozajlama Makinesi 1 Set 276.480 TL 276.480 TL Otoklav (Pastörizasyon Amaçlı) 1 Set 368.640 TL 368.640 TL Şur…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(52 sayfa: s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.10, s.12, s.13, s.14, s.15, s.16, s.17 (+38 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>Kapasite</code> — …Yİ VE TİCARET LİMİTED ŞİRKETİ PROJE TANITIM DOSYASI “Alkolsüz, Aromalı Gazlı İçecek ve Enerji İçeceği Üretimi Kapasite Artışı Projesi (960 m3/yıl’ dan 29.875,200 m3/yıl’ a artış)” Yazıbaşı Mah. 9222/2 Sok. No: 4 Torbalı/İZMİR (Tapu…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>Kapasite</code> — …2 799 00 71 e-posta: mabruk@hemaicecek.com Projenin Adı: “Alkolsüz, Aromalı Gazlı İçecek ve Enerji İçeceği Üretimi Kapasite Artışı Projesi (960 m3/yıl’ dan 29.875,200 m3/yıl’ a artış)” Proje Bedeli: 9.972.800 TL Proje İçin Seçilen Yerin Aç…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>Proje Bedeli</code> — …Aromalı Gazlı İçecek ve Enerji İçeceği Üretimi Kapasite Artışı Projesi (960 m3/yıl’ dan 29.875,200 m3/yıl’ a artış)” Proje Bedeli: 9.972.800 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevki): Yazıbaşı Mah. 9222/2 Sok. No: 4 Torbalı/İZ…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>9.972.800 TL</code> — …çecek ve Enerji İçeceği Üretimi Kapasite Artışı Projesi (960 m3/yıl’ dan 29.875,200 m3/yıl’ a artış)” Proje Bedeli: 9.972.800 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevki): Yazıbaşı Mah. 9222/2 Sok. No: 4 Torbalı/İZMİR Tapu alan…</div>
+<div class="hit"><span class="pno">[s. 3]</span> <code>kapasite</code> — …nin ve yerin alternatifleri (proje teknolojisinin ve proje alanının seçilme nedenleri) . 6 b) Projenin iş akım şeması, kapasitesi, kapladığı alan, (Ek ibare:RG-5/3/2026-33187) yatırım bedeli, teknolojisi, çalışacak personel sayısı. ..............…</div>
+<div class="hit"><span class="pno">[s. 4]</span> <code>Kapasite</code> — ….................................................................................. 18 Tablo 5: Tesisin Mevcut Durum ve Kapasite Artışı Sonrası Günlük Su Tüketim Miktarları 23 Tablo 7: Mevcut Durum ve Kapasite Artışı Sonrası Atıksu Miktarları (m³/…</div></div><div style="margin-bottom:14px;"><h3 style="margin-top:4px;">Proje Parçalama, Kapasite Artışı ve Eşik Değerler <span style="color:var(--muted);font-weight:400;font-size:0.83rem">(23 sayfa: s.1, s.2, s.4, s.5, s.6, s.7, s.10, s.15, s.18, s.19, s.22, s.25, s.31, s.33 (+9 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>Kapasite Artışı</code> — …Yİ VE TİCARET LİMİTED ŞİRKETİ PROJE TANITIM DOSYASI “Alkolsüz, Aromalı Gazlı İçecek ve Enerji İçeceği Üretimi Kapasite Artışı Projesi (960 m3/yıl’ dan 29.875,200 m3/yıl’ a artış)” Yazıbaşı Mah. 9222/2 Sok. No: 4 Torbalı/İZMİR (Tapunun 167…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>Kapasite Artışı</code> — …2 799 00 71 e-posta: mabruk@hemaicecek.com Projenin Adı: “Alkolsüz, Aromalı Gazlı İçecek ve Enerji İçeceği Üretimi Kapasite Artışı Projesi (960 m3/yıl’ dan 29.875,200 m3/yıl’ a artış)” Proje Bedeli: 9.972.800 TL Proje İçin Seçilen Yerin Açık Adre…</div>
+<div class="hit"><span class="pno">[s. 4]</span> <code>Kapasite Artışı</code> — ….................................................................................. 18 Tablo 5: Tesisin Mevcut Durum ve Kapasite Artışı Sonrası Günlük Su Tüketim Miktarları 23 Tablo 7: Mevcut Durum ve Kapasite Artışı Sonrası Atıksu Miktarları (m³/gün) ..…</div>
+<div class="hit"><span class="pno">[s. 5]</span> <code>Kapasite Artışı</code> — …ından Yazıbaşı Mah. 9222/2 Sk. No: 4 Torbalı/İZMİR adresinde “Alkolsüz, Aromalı Gazlı İçecek ve Enerji İçeceği Üretimi Kapasite Artışı Projesi (960 m3/yıl’dan 29.875,200 m3/yıl’a artış)” projesinin gerçekleştirilmesi planlamaktadır. Proje alanı; İzmi…</div>
+<div class="hit"><span class="pno">[s. 6]</span> <code>kapasite artışı</code> — …nde inceleme dilekçesi ekte yer almaktadır (Bkz. Ek-11). Proje sahibi tarafından mevcut durumda yapılan faaliyette kapasite artışı planlanmaktadır. Planlanan kapasite artış projesi; 29.07.2022 tarih ve 31907 sayılı Resmî Gazete’ de yayınlanarak yür…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>Kapasite Artışı</code> — …kanun ve yönetmelik hükümlerine uymak şartı ile işletmenin &quot;Alkolsüz, Aromalı Gazlı İçecek ve Enerji İçeceği Üretimi Kapasite Artışı Projesi (960 m /yıl&#x27; dan 29.875,200 m /yıl&#x27; a artış)&quot; olarak faaliyetinde sakınca bulunmadığı mütalaa edildiği hususun…</div></div></div>
+  </details>
+  <details class="accordion">
+    <summary>Belge Bölüm Haritası (25 başlık)</summary>
+    <div class="accordion-body"><ul style="margin:0;padding-left:20px;"><li><span class="pno">[s. 1]</span> KAPAK</li>
+<li><span class="pno">[s. 2]</span> Proje Bedeli:</li>
+<li><span class="pno">[s. 3]</span> PTD_29.09.2026_KAP. ARTIS. REV_1.</li>
+<li><span class="pno">[s. 5]</span> Projenin Teknik Olmayan Özeti:</li>
+<li><span class="pno">[s. 8]</span> a) Projenin ve yerin alternatifleri (proje teknolojisinin ve proje alanının seçilme nedenleri)</li>
+<li><span class="pno">[s. 10]</span> b) Projenin iş akım şeması, kapasitesi, kapladığı alan, (Ek ibare:RG-5/3/2026-33187) yatırım bedeli, teknolojisi, çalışacak personel sayısı.</li>
+<li><span class="pno">[s. 21]</span> c) Doğal kaynakların kullanımı (arazi kullanımı, su kullanımı, kullanılan enerji türü vb.)</li>
+<li><span class="pno">[s. 25]</span> ç) Projenin inşaat ve işletme aşamasında oluşan her türlü atığın özelliği (cinsi, türü, miktarı vb.)  bertarafı ve geri kazanımına yönelik değerlendirmeler</li>
+<li><span class="pno">[s. 34]</span> d) Kullanılan teknoloji ve malzemelerden kaynaklanabilecek kaza riski</li>
+<li><span class="pno">[s. 38]</span> a) (Değişik:RG-5/3/2026-33187) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri.</li>
+<li><span class="pno">[s. 42]</span> b) Ek-5’deki Duyarlı Yöreler Listesi dikkate alınarak korunması gereken alanlar</li>
+<li><span class="pno">[s. 52]</span> V-1: Çevre İzleme Planı</li>
+<li><span class="pno">[s. 53]</span> V-2: Sürdürülebilirlik Planı (Sıfır Atık Planı, Trafik Yönetim Planı, Sera Gazı Azaltım Planı, Çevresel ve Sosyal Yönetim Planı vb.)</li>
+<li><span class="pno">[s. 54]</span> 1- Proje için seçilen yerin koordinatları,</li>
+<li><span class="pno">[s. 54]</span> 2- Proje alanı ve yakın çevresinin mevcut arazi kullanımını değerlendirmek için; yerleşim alanlarının, ulaşım ağlarının, enerji nakil hatlarının, mevcut tesislerin ve Ek-5’te yer alan Duyarlı Yöreler Listesinde belirtilen diğer alanların (proje alanı ...</li>
+<li><span class="pno">[s. 54]</span> 3- Vekâletname, İmza Sirküleri ve (Değişik ibare:RG-5/3/2026-33187) Türkiye Ticaret Sicili Gazetesi,</li>
+<li><span class="pno">[s. 54]</span> 4- Proje sahibince onaylı taahhüt yazısı</li>
+<li><span class="pno">[s. 54]</span> 5- Başvuru bedelinin ödendiğine dair dekont</li>
+<li><span class="pno">[s. 54]</span> 6- (Değişik:RG-5/3/2026-33187) Faaliyet alanında Bakanlıkça yeterlik verilmiş kurum/kuruluş tarafından yer incelemesi yapıldığını gösterir rapor.</li>
+<li><span class="pno">[s. 54]</span> 7- (Ek:RG-5/3/2026-33187) Diğer bilgi ve belgeler.</li></ul></div>
+  </details>
+
+  <div class="notice">
+    Bu sayfa, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın kamuya açık <code>eced-duyuru.csb.gov.tr</code> duyuru portalındaki kayıtlar esas alınarak bilgilendirme amacıyla hazırlanmıştır. Alıntıların tamamı 1 tabanlı PDF sayfa numarasıyla (<code>[s. N]</code>) gösterilmektedir. Yasal sürelerin ve hukuki başvuru yollarının yetkili hukukçular tarafından teyit edilmesi gerekir.
+  </div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+
+(() => {
+  const root = document.documentElement;
+  const saved = localStorage.getItem('eced_theme');
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  function isDarkNow() {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return cur ? cur === 'dark' : prefersDark;
+  }
+  window.__ecedIsDark = isDarkNow;
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function syncLabel() {
+    btn.textContent = isDarkNow() ? 'Açık Tema' : 'Koyu Tema';
+  }
+  syncLabel();
+  btn.addEventListener('click', () => {
+    const next = isDarkNow() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('eced_theme', next);
+    syncLabel();
+    window.dispatchEvent(new CustomEvent('eced-theme-change', { detail: { dark: next === 'dark' } }));
+  });
+})();
+
+
+function createCartoTileLayer(isDark) {
+  const style = isDark ? 'dark_all' : 'light_all';
+  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+    maxZoom: 19,
+    subdomains: 'abcd',
+    attribution: '&copy; OpenStreetMap &copy; CARTO'
+  });
+}
+
+(() => {
+  const copyBtn = document.getElementById('copy-qs-btn');
+  const qsTxt = document.getElementById('qs-plain');
+  if (copyBtn && qsTxt) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(qsTxt.value);
+        copyBtn.textContent = 'Kopyalandı ✓';
+        setTimeout(() => (copyBtn.textContent = 'Soruları Kopyala'), 2200);
+      } catch (e) {
+        copyBtn.textContent = 'Kopyalanamadı';
+      }
+    });
+  }
+  if (typeof L === 'undefined') return;
+  const g = {"lat": 38.22235, "lon": 27.32751, "zoom": 12, "precision": "exact_pdf", "points": [[38.22278, 27.32726], [38.22242, 27.32814], [38.22186, 27.32778], [38.22232, 27.32691], [38.22261, 27.32768], [38.22212, 27.32728]], "gis_markers": [], "label": "İZMİR / TORBALI — Alkolsüz, Aromalı Gazlı İçecek ve Enerji İçeceği Üretimi Kapasite Artışı Projesi (960 m3/y"};
+  const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
+  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
+  window.addEventListener('eced-theme-change', (ev) => {
+    map.removeLayer(tileLayer);
+    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
+  });
+  if (g.precision === 'exact_pdf') {
+    L.circle([g.lat, g.lon], {
+      radius: 3000,
+      color: '#d97706',
+      weight: 1.5,
+      dashArray: '6 5',
+      fillColor: '#d97706',
+      fillOpacity: 0.04
+    }).bindTooltip('3 km yasal referans çemberi (3573 m.20)').addTo(map);
+    for (const gm of (g.gis_markers || [])) {
+      L.circleMarker([gm.lat, gm.lon], {
+        radius: 5,
+        color: '#ffffff',
+        fillColor: gm.color,
+        fillOpacity: 0.9,
+        weight: 1.5
+      }).bindPopup(gm.label).addTo(map);
+    }
+  }
+  if (g.precision === 'exact_pdf' && g.points.length > 1) {
+    const latlngs = g.points.map(p => [p[0], p[1]]);
+    const poly = L.polyline(latlngs, { color: '#175cd3', weight: 3, opacity: 0.85 }).addTo(map);
+    for (const ll of latlngs.slice(0, 30)) {
+      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#d92d20', fillOpacity: 0.9, weight: 1 }).addTo(map);
+    }
+    map.fitBounds(poly.getBounds().pad(0.25));
+  } else {
+    L.circleMarker([g.lat, g.lon], {
+      radius: g.precision === 'exact_pdf' ? 8 : 11,
+      color: '#ffffff',
+      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#175cd3',
+      fillOpacity: g.precision === 'exact_pdf' ? 0.9 : 0.45,
+      weight: 2
+    }).bindPopup(g.label).addTo(map).openPopup();
+  }
+})();
+</script>
+</body>
+</html>
