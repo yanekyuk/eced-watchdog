@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -847,12 +859,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -873,11 +883,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 40.31486, "lon": 27.84667, "zoom": 12, "precision": "exact_pdf", "points": [[40.31312, 27.84864], [40.31255, 27.84814], [40.3123, 27.84793], [40.31205, 27.84775], [40.31184, 27.84759], [40.3116, 27.84742], [40.31141, 27.84727], [40.31117, 27.84711], [40.31092, 27.84694], [40.31066, 27.84675], [40.31043, 27.84657], [40.31028, 27.84644], [40.31011, 27.84622], [40.30985, 27.84583], [40.31008, 27.84564], [40.31063, 27.84517], [40.31096, 27.84485], [40.31108, 27.84471], [40.31115, 27.84465], [40.31123, 27.8446], [40.31232, 27.84378], [40.31232, 27.84384], [40.31231, 27.84438], [40.31231, 27.84452], [40.31228, 27.84485], [40.31269, 27.84503], [40.31345, 27.84532], [40.31405, 27.84548], [40.31422, 27.84489], [40.31438, 27.84438], [40.31475, 27.84354], [40.31559, 27.84434], [40.31535, 27.84479], [40.31519, 27.84514], [40.31465, 27.8463], [40.3143, 27.84692], [40.31406, 27.84733], [40.31397, 27.84747], [40.31376, 27.84776], [40.31357, 27.84802]], "gis_markers": [], "label": "BALIKESİR / BANDIRMA — AVES Bandırma Entegre Bitkisel Yağ ve Protein Üretim Tesisi"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

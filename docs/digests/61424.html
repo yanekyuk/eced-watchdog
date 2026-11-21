@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -853,12 +865,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -879,11 +889,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 40.51059, "lon": 31.11989, "zoom": 12, "precision": "exact_pdf", "points": [[40.51039, 31.12064], [40.50984, 31.12074], [40.50937, 31.1208], [40.50955, 31.12021], [40.51007, 31.11932], [40.51069, 31.11932], [40.51076, 31.11949], [40.51084, 31.11963], [40.5109, 31.11973], [40.51092, 31.11976], [40.51102, 31.11991], [40.51104, 31.11994], [40.51113, 31.12011], [40.51122, 31.12031], [40.51127, 31.12054], [40.51104, 31.12057], [40.51008, 31.11957], [40.51021, 31.11988], [40.51026, 31.11998], [40.51034, 31.12013], [40.51034, 31.12014], [40.5104, 31.12023], [40.51042, 31.12026], [40.51044, 31.1203], [40.51105, 31.11995], [40.5105, 31.12005], [40.51003, 31.1201], [40.51021, 31.11951], [40.51073, 31.11863], [40.51135, 31.11863], [40.51142, 31.11879], [40.5115, 31.11894], [40.51156, 31.11904], [40.51158, 31.11906], [40.51168, 31.11922], [40.5117, 31.11924], [40.51179, 31.11942], [40.51188, 31.11961], [40.51193, 31.11985], [40.5117, 31.11988]], "gis_markers": [], "label": "BOLU / MUDURNU — Asfalt Plent Tesisi (240 Ton/Saat)"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

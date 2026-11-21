@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -849,12 +861,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -875,11 +885,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 37.85475, "lon": 30.5266, "zoom": 12, "precision": "exact_pdf", "points": [[37.85587, 30.52635], [37.856, 30.52631], [37.85628, 30.52769], [37.85616, 30.52773], [37.85615, 30.52773], [37.8542, 30.5288], [37.85383, 30.5279], [37.85566, 30.52699], [37.85552, 30.52643], [37.85581, 30.52632], [37.85451, 30.52567], [37.85464, 30.52659], [37.85463, 30.52659], [37.85462, 30.52659], [37.85461, 30.52659], [37.85461, 30.52658], [37.85386, 30.52627], [37.85384, 30.52623], [37.85394, 30.52585], [37.85395, 30.52584], [37.85395, 30.52583], [37.85396, 30.52582], [37.85397, 30.52581], [37.85397, 30.5258], [37.85399, 30.52579], [37.85587, 30.52631], [37.85603, 30.52769], [37.85628, 30.52772], [37.85617, 30.52873], [37.85418, 30.52789], [37.85381, 30.52705], [37.85565, 30.52643], [37.85551, 30.52632], [37.85453, 30.5266], [37.8546, 30.52625], [37.85386, 30.52623], [37.85384, 30.52586], [37.85394, 30.52584], [37.85395, 30.52582], [37.85396, 30.52581]], "gis_markers": [], "label": "ISPARTA / MERKEZ — Isparta İli Merkez İlçesi Çünür Mahallesi, 4.Etap 405 Adet Konut +3 Kd, 2 Adet 5 Dükkanlı "};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

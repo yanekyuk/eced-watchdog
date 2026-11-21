@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -838,12 +850,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -864,11 +874,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 41.23672, "lon": 26.75394, "zoom": 12, "precision": "exact_pdf", "points": [[41.2375, 26.75294], [41.23751, 26.755], [41.23742, 26.75498], [41.23735, 26.75496], [41.2373, 26.75495], [41.23722, 26.75492], [41.23654, 26.75453], [41.23643, 26.75446], [41.2357, 26.75409], [41.23535, 26.75391], [41.23543, 26.75283], [41.23556, 26.75292], [41.23582, 26.753], [41.23654, 26.75297], [41.23734, 26.75295], [41.23587, 26.75379], [41.23586, 26.75324], [41.23562, 26.75324], [41.23563, 26.7538], [41.23738, 26.7532], [41.2374, 26.75456], [41.2373, 26.75456], [41.23728, 26.7532], [41.2374, 26.75473], [41.23739, 26.75473], [41.23717, 26.75461], [41.23717, 26.75454], [41.23712, 26.75454], [41.23712, 26.75444], [41.23721, 26.75444], [41.23721, 26.75456], [41.23728, 26.75338], [41.23715, 26.75339], [41.23715, 26.7532], [41.23729, 26.75383], [41.23716, 26.75383], [41.23717, 26.75444], [41.23716, 26.75385], [41.23705, 26.75385], [41.23704, 26.7532]], "gis_markers": [], "label": "EDİRNE / UZUNKÖPRÜ — METAL DÖKÜM VE TEHLİKESİZ ATIK GERİ KAZANIM TESİSİ"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

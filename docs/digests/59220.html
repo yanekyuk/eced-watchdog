@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -844,12 +856,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -870,11 +880,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 36.77578, "lon": 36.80026, "zoom": 12, "precision": "exact_pdf", "points": [[36.28683, 37.28804], [36.28712, 37.28838], [36.2872, 37.28839], [36.28736, 37.28835], [37.28866, 36.28627], [37.289, 36.28655], [37.289, 36.28663], [37.28896, 36.28679], [36.2876, 37.28822], [36.28783, 37.28814], [36.28802, 37.2881], [36.28871, 37.28747], [36.28925, 37.28716], [36.28928, 37.28672], [36.28673, 37.28786], [36.28662, 37.28767], [36.28654, 37.2875], [36.28638, 37.28744], [36.28625, 37.28743], [36.2861, 37.28737], [36.28803, 37.28693], [36.28813, 37.28692], [36.28821, 37.28682], [36.28836, 37.28674], [36.2892, 37.2867], [36.28873, 37.2867], [36.28895, 37.28669], [36.28659, 37.28746], [36.28718, 37.28833], [36.28734, 37.28826], [36.28675, 37.28739], [36.28681, 37.28733], [36.2874, 37.2882], [36.28756, 37.28813], [36.28697, 37.28726], [36.28705, 37.28723], [36.28764, 37.2881], [36.2878, 37.28803], [36.28721, 37.28716], [36.28732, 37.28717]], "gis_markers": [], "label": "OSMANİYE / DÜZİÇİ — ETLİK PİLİÇ ÜRETİM TESİSİ KAPASİTE ARTIŞI"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -851,12 +863,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -877,11 +887,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.82291, "lon": 40.5926, "zoom": 12, "precision": "exact_pdf", "points": [[38.82468, 40.59349], [38.82339, 40.59522], [38.82339, 40.59524], [38.82193, 40.59366], [38.82161, 40.59331], [38.82193, 40.59282], [38.82277, 40.59183], [38.82279, 40.59184], [38.82288, 40.59189], [38.82341, 40.59218], [38.82413, 40.59257], [38.82429, 40.59266], [38.82439, 40.59272], [38.82416, 40.59321], [38.82222, 40.59397], [38.8253, 40.59273], [38.82401, 40.59447], [38.824, 40.59448], [38.82255, 40.5929], [38.82223, 40.59255], [38.82255, 40.59206], [38.82339, 40.59107], [38.82341, 40.59108], [38.8235, 40.59113], [38.82403, 40.59142], [38.82475, 40.59181], [38.82491, 40.5919], [38.82501, 40.59196], [38.82478, 40.59245], [38.82284, 40.59321], [38.8227, 40.59212], [38.82282, 40.59225], [38.82195, 40.59356], [38.82182, 40.59343], [38.82175, 40.59313], [38.82182, 40.5932], [38.82176, 40.59329], [38.82169, 40.59322], [38.82181, 40.59304], [38.82188, 40.59312]], "gis_markers": [], "label": "BİNGÖL / MERKEZ — 48.330 Adet/Dönem Kapasiteli Kanatlı Hayvan Yetiştirme Tesisi"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -849,12 +861,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -875,11 +885,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.40396, "lon": 27.23442, "zoom": 12, "precision": "exact_pdf", "points": [[38.40422, 27.23453], [38.40393, 27.23475], [38.40393, 27.2347], [38.40383, 27.23437], [38.40384, 27.2343], [38.40392, 27.23392], [38.40387, 27.23451], [38.4041, 27.2343]], "gis_markers": [{"lat": 38.40293, "lon": 27.2362, "color": "#0284c7", "label": "Dere / Akarsu: Gökdere (~192 m)"}, {"lat": 38.40105, "lon": 27.23388, "color": "#0284c7", "label": "Dere / Akarsu: Adsız (~327 m)"}, {"lat": 38.40785, "lon": 27.23964, "color": "#047857", "label": "Orman / ağaçlık alan: Adsız (~627 m)"}, {"lat": 38.40501, "lon": 27.24277, "color": "#047857", "label": "Orman / ağaçlık alan: Adsız (~737 m)"}, {"lat": 38.42383, "lon": 27.23188, "color": "#7c3aed", "label": "Semt: Işıklar (~2221 m)"}, {"lat": 38.42649, "lon": 27.22953, "color": "#7c3aed", "label": "Semt: Egemenlik (~2541 m)"}, {"lat": 38.39655, "lon": 27.20982, "color": "#ea580c", "label": "Okul: BEGOS Teknik Koleji (~2297 m)"}, {"lat": 38.42396, "lon": 27.22762, "color": "#ea580c", "label": "Okul: Işıkkent İlköğretim Okulu (~2302 m)"}], "label": "İZMİR / BORNOVA — Tehlikeli  ve Tehlikesiz Atıkların Geri Kazanımı"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

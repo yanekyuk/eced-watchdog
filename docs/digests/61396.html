@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -835,12 +847,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -861,11 +871,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.74099, "lon": 34.67734, "zoom": 12, "precision": "exact_pdf", "points": [[38.74247, 34.67814], [38.74228, 34.67858], [38.74187, 34.67916], [38.74157, 34.67913], [38.74064, 34.67952], [38.74028, 34.67918], [38.73967, 34.67853], [38.73923, 34.67816], [38.73925, 34.67811], [38.73944, 34.67772], [38.73955, 34.67746], [38.73956, 34.67742], [38.73968, 34.67704], [38.73982, 34.6766], [38.73985, 34.67644], [38.74054, 34.67686], [38.74096, 34.67716], [38.74109, 34.67724], [38.74161, 34.67755], [38.74181, 34.67764], [38.74221, 34.67773], [38.74236, 34.67794], [38.74004, 34.67669], [38.74046, 34.67702], [38.74039, 34.67716], [38.73997, 34.67684], [38.7431, 34.67754], [38.74292, 34.67798], [38.7425, 34.67856], [38.74221, 34.67853], [38.74127, 34.67892], [38.74091, 34.67858], [38.7403, 34.67793], [38.73986, 34.67756], [38.73988, 34.6775], [38.74008, 34.67712], [38.74018, 34.67686], [38.74019, 34.67682], [38.74032, 34.67644], [38.74045, 34.676]], "gis_markers": [], "label": "NEVŞEHİR / GÜLŞEHİR — Yumurta Tavukçuluğu ve Yumurta Üretim Tesisi Kapasite Artışı"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

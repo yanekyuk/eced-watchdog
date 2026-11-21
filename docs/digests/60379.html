@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -834,12 +846,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -860,11 +870,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.76422, "lon": 39.15202, "zoom": 12, "precision": "exact_pdf", "points": [[38.76847, 39.1509], [38.77206, 39.15608], [38.76493, 39.15402], [38.76344, 39.15472], [38.76243, 39.1559], [38.75945, 39.15318], [38.76005, 39.14973], [38.75971, 39.15341], [38.76127, 39.15127], [38.76266, 39.15009], [38.76667, 39.15065], [38.76666, 39.15451], [38.7636, 39.15119], [38.7641, 39.1512], [38.7641, 39.15149], [38.76457, 39.15203], [38.76435, 39.15264], [38.76384, 39.15275], [38.764, 39.15172], [38.76349, 39.1518], [38.76452, 39.15055], [38.76452, 39.15086], [38.76384, 39.15086], [38.76384, 39.15051], [38.76343, 39.15327], [38.76398, 39.15174], [38.76381, 39.15277], [38.76436, 39.15265], [38.76458, 39.15203], [38.76411, 39.15149], [38.765, 39.15145], [38.76494, 39.15295], [38.76438, 39.15099], [38.76438, 39.15122], [38.76415, 39.1512], [38.76417, 39.15102], [38.76528, 39.15148], [38.76527, 39.1515], [38.76526, 39.15148], [38.76527, 39.15145]], "gis_markers": [], "label": "ELAZIĞ / MERKEZ — KALKER OCAĞI, KIRMA-ELEME TESİSİ KAPASİTE ARTIŞI VE HAZIR BETON SANTRALİ"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

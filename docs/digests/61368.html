@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -842,12 +854,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -868,11 +878,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 39.96369, "lon": 33.33585, "zoom": 12, "precision": "exact_pdf", "points": [[39.96849, 33.33262], [39.96506, 33.33599], [39.96359, 33.33523], [39.96243, 33.33356], [39.96362, 33.33212], [39.96498, 33.33236], [39.96827, 33.33168], [39.9682, 33.33181], [39.96838, 33.33257], [39.96504, 33.33587], [39.96417, 33.33541], [39.96426, 33.33364], [39.96448, 33.33239], [39.96498, 33.33248], [39.9639, 33.33229], [39.96376, 33.33355], [39.96369, 33.33447], [39.96293, 33.33312], [39.96365, 33.33225], [39.96364, 33.33512], [39.96289, 33.33404], [39.96319, 33.33358], [39.96256, 33.33357], [39.9376, 33.36179], [39.95566, 33.35018], [39.97008, 33.33303], [39.96665, 33.33641], [39.96518, 33.33564], [39.96403, 33.33398], [39.96522, 33.33254], [39.96657, 33.33278], [39.96986, 33.3321], [39.96262, 33.33436], [39.96482, 33.33972], [39.96404, 33.33962], [39.96364, 33.3425], [39.9625, 33.3421], [39.96173, 33.34485], [39.96095, 33.3476], [39.96709, 33.33387]], "gis_markers": [], "label": "ANKARA / ELMADAĞ — 06/2019-26 İzin ve 3379457 Erişim Numaralı II-(A) Grubu Topçalıtepe Kalker Ocağı Kapasite "};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

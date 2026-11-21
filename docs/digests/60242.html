@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -858,12 +870,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -884,11 +894,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 36.81607, "lon": 31.31186, "zoom": 12, "precision": "exact_pdf", "points": [[36.81648, 31.31125], [36.81652, 31.31142], [36.8165, 31.31144], [36.81638, 31.31165], [36.81629, 31.31187], [36.81627, 31.31193], [36.81626, 31.31204], [36.81624, 31.31215], [36.81625, 31.31227], [36.81627, 31.31236], [36.81632, 31.31248], [36.81644, 31.31272], [36.81644, 31.31281], [36.81623, 31.31305], [36.81614, 31.31309], [36.81541, 31.31263], [36.81538, 31.31252], [36.81612, 31.31346], [36.8161, 31.31319], [36.81626, 31.31276], [36.81649, 31.3123], [36.81652, 31.31206], [36.81652, 31.31197], [36.81653, 31.31192], [36.81654, 31.3118], [36.81655, 31.31166], [36.81658, 31.31149], [36.81666, 31.31143], [36.81685, 31.31153], [36.81517, 31.31241], [36.81515, 31.31214], [36.81519, 31.31204], [36.81531, 31.31171], [36.81554, 31.31125], [36.81557, 31.31101], [36.81557, 31.31092], [36.81558, 31.31087], [36.81558, 31.31075], [36.8156, 31.31061], [36.81563, 31.31044]], "gis_markers": [], "label": "ANTALYA / MANAVGAT — Turizm Konaklama Tesisi Kapasite Artışı (Seaden Signature Resort & Spa)"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -856,12 +868,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -882,11 +892,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.58614, "lon": 39.48484, "zoom": 12, "precision": "exact_pdf", "points": [[38.58287, 39.45497], [38.58485, 39.45528], [38.58462, 39.45819], [38.58266, 39.45834], [38.5827, 39.45776], [38.58315, 39.45773], [38.58312, 39.4583], [38.5835, 39.45417], [38.58548, 39.45448], [38.58524, 39.4574], [38.58328, 39.45755], [38.58819, 39.49457], [38.58821, 39.49672], [38.58545, 39.49728], [38.58582, 39.49333], [38.58413, 39.49836], [38.58243, 39.49487], [38.58821, 39.49641], [38.58671, 39.49675], [38.58578, 39.49705], [38.58518, 39.49707], [38.58465, 39.49718], [38.58349, 39.49704], [38.58881, 39.49378], [38.58883, 39.49593], [38.58607, 39.49649], [38.58644, 39.49254], [38.58475, 39.49757], [38.58306, 39.49408], [38.5852, 39.45999], [38.5841, 39.45463], [38.58562, 39.4543], [38.58675, 39.50131], [38.5864, 39.49274], [38.58677, 39.49844], [38.58408, 39.4596], [38.58443, 39.45981], [38.58599, 39.45443], [38.58564, 39.49805], [38.586, 39.49826]], "gis_markers": [], "label": "ELAZIĞ / MERKEZ — ELAZIĞ ULUOVA POMPA BİNASI, ELMAPINARI GÖLETİ VE SULAMASI İLE MUHTELİF DSİ PROJELERİNDE KU"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

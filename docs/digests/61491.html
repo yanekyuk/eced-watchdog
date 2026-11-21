@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -835,12 +847,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -861,11 +871,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 36.9914, "lon": 37.39825, "zoom": 12, "precision": "exact_pdf", "points": [[36.9935, 37.39809], [36.99339, 37.39908], [36.99338, 37.39921], [36.99337, 37.39925], [36.99332, 37.39972], [36.99289, 37.40043], [36.99278, 37.40113], [36.99105, 37.40058], [36.99053, 37.39975], [36.99039, 37.39954], [36.99009, 37.3991], [36.9901, 37.39908], [36.99012, 37.39905], [36.99015, 37.399], [36.99017, 37.39895], [36.9902, 37.3989], [36.99022, 37.39884], [36.99046, 37.39809], [36.99049, 37.39801], [36.99052, 37.39793], [36.99055, 37.39785], [36.99059, 37.39778], [36.99063, 37.39771], [36.99067, 37.39764], [36.99072, 37.39757], [36.99077, 37.3975], [36.99082, 37.39744], [36.99087, 37.39739], [36.99092, 37.39733], [36.99121, 37.39706], [36.99145, 37.39684], [36.99152, 37.39678], [36.99168, 37.39663], [36.9917, 37.39661], [36.99181, 37.39679], [36.99242, 37.39778], [36.99243, 37.3978], [36.99244, 37.39781], [36.99245, 37.39782], [36.99246, 37.39782]], "gis_markers": [], "label": "GAZİANTEP / ŞAHİNBEY — Mekanik Ayırma, Biyometanizasyon ve Biyogaz Tesisi İle Atıktan Türetilmiş Yakıt Hazırlama "};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

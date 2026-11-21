@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -857,12 +869,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -883,11 +893,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 40.69199, "lon": 29.41711, "zoom": 12, "precision": "exact_pdf", "points": [[40.69887, 29.41984], [40.69871, 29.42027], [40.69626, 29.41878], [40.69543, 29.42114], [40.69788, 29.42263], [40.69773, 29.42306], [40.69528, 29.42157], [40.69519, 29.42184], [40.69472, 29.42156], [40.69335, 29.42072], [40.69089, 29.41922], [40.69068, 29.41909], [40.69053, 29.41903], [40.69049, 29.41901], [40.69003, 29.41882], [40.68995, 29.41868], [40.68976, 29.41846], [40.68962, 29.4183], [40.68963, 29.41748], [40.68917, 29.41762], [40.68902, 29.41756], [40.6888, 29.41734], [40.68871, 29.41687], [40.68847, 29.41606], [40.6883, 29.41539], [40.68822, 29.41508], [40.68814, 29.41477], [40.68806, 29.41447], [40.68792, 29.41402], [40.68779, 29.41361], [40.68774, 29.41346], [40.68755, 29.41287], [40.68752, 29.41277], [40.68745, 29.41252], [40.6874, 29.41235], [40.6874, 29.41233], [40.68729, 29.41201], [40.6872, 29.41174], [40.68659, 29.40983], [40.68653, 29.40965]], "gis_markers": [], "label": "YALOVA / ÇIFTLIKKÖY — MEMPORT LİMAN"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

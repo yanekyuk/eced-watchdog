@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -856,12 +868,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -882,11 +892,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.98196, "lon": 38.98125, "zoom": 12, "precision": "exact_pdf", "points": [[38.91059, 39.05542], [38.9107, 39.05538], [38.91092, 39.05512], [38.91075, 39.05481], [38.91094, 39.0547], [38.91103, 39.05462], [38.91117, 39.05438], [38.91195, 39.05278], [38.91223, 39.05197], [38.91232, 39.05156], [38.91252, 39.05052], [38.91292, 39.04989], [38.91313, 39.04937], [38.91322, 39.04907], [38.91331, 39.04803], [38.91318, 39.04767], [38.91315, 39.04761], [38.91345, 39.04753], [38.91329, 39.04715], [38.91295, 39.04724], [38.91293, 39.0472], [38.91279, 39.04725], [38.91283, 39.04733], [38.91255, 39.0474], [38.91293, 39.04827], [38.91298, 39.04828], [38.91277, 39.04929], [38.91251, 39.04995], [38.91224, 39.05038], [38.91208, 39.05094], [38.91195, 39.05194], [38.91185, 39.05212], [38.91087, 39.05426], [38.91027, 39.05479], [38.91022, 39.05481], [38.9101, 39.05489], [38.91017, 39.05508], [38.91029, 39.05508], [38.91045, 39.05537], [38.91059, 39.05537]], "gis_markers": [], "label": "TUNCELİ / ÇEMİŞGEZEK — ÇEMİŞGEZEK REGÜLATÖRÜ VE HES KAPASİTE ARTIŞI (0.124 MWm /0,116 MWe'den 2,104 MWm/ 2,062 MW"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

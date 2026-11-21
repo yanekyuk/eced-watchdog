@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -851,12 +863,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -877,11 +887,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.96378, "lon": 43.21622, "zoom": 12, "precision": "exact_pdf", "points": [[38.96037, 43.21199], [38.961, 43.21234], [38.96131, 43.21285], [38.96183, 43.21387], [38.96252, 43.21343], [38.96358, 43.21114], [38.96376, 43.21099], [38.9636, 43.21014], [38.96397, 43.21002], [38.9644, 43.2099], [38.96547, 43.21005], [38.96858, 43.21155], [38.96841, 43.21267], [38.967, 43.21269], [38.96673, 43.21379], [38.96619, 43.21399], [38.96607, 43.2149], [38.96529, 43.21581], [38.96514, 43.21636], [38.96655, 43.21682], [38.9666, 43.21667], [38.96769, 43.21572], [38.96801, 43.2161], [38.96876, 43.21729], [38.96782, 43.21874], [38.96724, 43.21819], [38.96694, 43.21867], [38.96609, 43.22003], [38.96588, 43.21959], [38.96557, 43.21891], [38.96527, 43.21831], [38.96315, 43.21923], [38.96332, 43.22001], [38.96285, 43.22], [38.96108, 43.22105], [38.96099, 43.22183], [38.96082, 43.22169], [38.96026, 43.22181], [38.96014, 43.22134], [38.96002, 43.22064]], "gis_markers": [], "label": "VAN / ERCİŞ — ERCİŞ-2 GÜNEŞ ENERJİ SANTRALİ (40 MWm/40 MWe-55,77 ha) VE ELEKTRİK DEPOLAMA TESİSİ (40 MWe"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

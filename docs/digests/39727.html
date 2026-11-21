@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -826,12 +838,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -852,11 +862,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 41.08294, "lon": 28.80898, "zoom": 12, "precision": "exact_pdf", "points": [[41.0827, 28.809], [41.0823, 28.8091], [41.082, 28.8093], [41.082, 28.8094], [41.082, 28.8095], [41.082, 28.8096], [41.0821, 28.8096], [41.0822, 28.8096], [41.0825, 28.8094], [41.0829, 28.8092], [41.0832, 28.809], [41.0836, 28.8088], [41.0839, 28.8086], [41.084, 28.8085], [41.0841, 28.8084], [41.084, 28.8082], [41.0838, 28.8083], [41.0835, 28.8085], [41.0831, 28.8087]], "gis_markers": [{"lat": 41.08328, "lon": 28.80888, "color": "#0284c7", "label": "Su kanalı: Ayamama Deresi (~38 m)"}, {"lat": 41.08475, "lon": 28.80941, "color": "#0284c7", "label": "Dere / Akarsu: Adsız (~205 m)"}, {"lat": 41.08181, "lon": 28.81116, "color": "#047857", "label": "Orman / ağaçlık alan: Adsız (~222 m)"}, {"lat": 41.0676, "lon": 28.80982, "color": "#047857", "label": "Orman / ağaçlık alan: Adsız (~1707 m)"}, {"lat": 41.06987, "lon": 28.80508, "color": "#7c3aed", "label": "Semt: İkitelli OSB (~1489 m)"}, {"lat": 41.07518, "lon": 28.78791, "color": "#7c3aed", "label": "Semt: Ziya Gökalp (~1966 m)"}, {"lat": 41.08005, "lon": 28.8059, "color": "#ea580c", "label": "Hastane: İstanbullu OSGB (~412 m)"}, {"lat": 41.08818, "lon": 28.80559, "color": "#ea580c", "label": "Okul: Borsa İstanbul Başakşehir Mesleki ve Teknik Anadolu Lisesi (~648 m)"}], "label": "İSTANBUL / BAŞAKŞEHİR — ELOKSAL KAPLAMA TESİSİ"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

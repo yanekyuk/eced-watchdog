@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -842,12 +854,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -868,11 +878,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 40.12896, "lon": 34.24515, "zoom": 12, "precision": "exact_pdf", "points": [[40.12979, 34.24327], [40.12792, 34.24338], [40.12794, 34.24406], [40.12797, 34.24475], [40.12799, 34.24522], [40.128, 34.24547], [40.12802, 34.24603], [40.12804, 34.24607], [40.12852, 34.24616], [40.12871, 34.24618], [40.12874, 34.24614], [40.1289, 34.24551], [40.12907, 34.24536], [40.12906, 34.24531], [40.12906, 34.24529], [40.12906, 34.24526], [40.12907, 34.24524], [40.12907, 34.2452], [40.12908, 34.24518], [40.1291, 34.24517], [40.12911, 34.24515], [40.12913, 34.24515], [40.12915, 34.24513], [40.12917, 34.24513], [40.12919, 34.24513], [40.12921, 34.24515], [40.12923, 34.24515], [40.12926, 34.24518], [40.12928, 34.2452], [40.12928, 34.24522], [40.12929, 34.24526], [40.12929, 34.24527], [40.12928, 34.24529], [40.12982, 34.24477], [40.12982, 34.24464], [40.12982, 34.24451]], "gis_markers": [], "label": "ÇORUM / SUNGURLU — PAMUK SELÜLOZU ÜRETİM TESİSİ"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

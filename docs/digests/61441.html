@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -853,12 +865,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -879,11 +889,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.98913, "lon": 28.18949, "zoom": 12, "precision": "exact_pdf", "points": [[38.9878, 28.1897], [38.9878, 28.1899], [38.988, 28.1901], [38.9881, 28.1902], [38.9882, 28.1903], [38.9883, 28.1904], [38.9885, 28.1905], [38.9886, 28.1906], [38.9887, 28.1906], [38.9888, 28.1907], [38.9889, 28.1908], [38.9889, 28.1906], [38.9889, 28.1904], [38.989, 28.1903], [38.9891, 28.1902], [38.9892, 28.1901], [38.9892, 28.19], [38.9892, 28.1899], [38.9892, 28.1898], [38.9892, 28.1895], [38.9892, 28.1893], [38.9892, 28.189], [38.9892, 28.1889], [38.9875, 28.1886], [38.9876, 28.1891], [38.9877, 28.1893], [38.98946, 28.18841], [38.98956, 28.18854], [38.98881, 28.18947], [38.9887, 28.18934], [38.98967, 28.18859], [38.98977, 28.18872], [38.989, 28.18969], [38.9889, 28.18956], [38.98956, 28.18839], [38.98961, 28.18847], [38.98956, 28.18852], [38.98951, 28.18845], [38.98962, 28.19021], [38.9894, 28.19005]], "gis_markers": [], "label": "MANİSA / GÖRDES — ETLİK PİLİÇ YETİŞTİRME TESİSİ KAPASİTE ARTIŞI (1 adet 1.919,96 m2 Kümes ilavesi ile 19.285"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

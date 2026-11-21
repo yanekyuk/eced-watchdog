@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -844,12 +856,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -870,11 +880,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.75689, "lon": 35.33999, "zoom": 12, "precision": "exact_pdf", "points": [[38.75703, 35.33939], [38.75728, 35.33997], [38.75704, 35.34014], [38.75737, 35.34123], [38.75606, 35.34138], [38.75596, 35.34128], [38.7559, 35.34088], [38.75581, 35.33914], [38.75665, 35.33991], [38.75666, 35.34008], [38.75658, 35.34009], [38.75657, 35.33992], [38.75766, 35.3388], [38.75791, 35.33938], [38.75767, 35.33955], [38.758, 35.34064], [38.75669, 35.34079], [38.75659, 35.34069], [38.75653, 35.34029], [38.75644, 35.33855], [38.75728, 35.33933], [38.75729, 35.3395], [38.75721, 35.33951], [38.7572, 35.33933]], "gis_markers": [], "label": "KAYSERİ / MELİKGAZİ — BİTKİSEL ATIK YAĞ ARA DEPOLAMA TESİSİ  (DEPOLAMA KAPASİTESİ: 394,74 m3)"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

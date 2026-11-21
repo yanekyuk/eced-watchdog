@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -852,12 +864,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -878,11 +888,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 39.39393, "lon": 27.80166, "zoom": 12, "precision": "exact_pdf", "points": [[39.41686, 27.83399], [39.4147, 27.83412], [39.40914, 27.83609], [39.40682, 27.84257], [39.41069, 27.85715], [39.38945, 27.85742], [39.37964, 27.84725], [39.38022, 27.83938], [39.37766, 27.83206], [39.38018, 27.82128], [39.38343, 27.81246], [39.38581, 27.80891], [39.38115, 27.80927], [39.37985, 27.80487], [39.37799, 27.79817], [39.38017, 27.79447], [39.38174, 27.79255], [39.38169, 27.78992], [39.38035, 27.78891], [39.37951, 27.785], [39.38086, 27.78341], [39.37959, 27.78293], [39.37834, 27.78401], [39.376, 27.78037], [39.37158, 27.77621], [39.37251, 27.77318], [39.41752, 27.83352], [39.41536, 27.83365], [39.4098, 27.83562], [39.40748, 27.8421], [39.41135, 27.85668], [39.39011, 27.85695], [39.3803, 27.84678], [39.38089, 27.83891], [39.37833, 27.83159], [39.38084, 27.82081], [39.38409, 27.81199], [39.38647, 27.80844], [39.38181, 27.8088], [39.38051, 27.8044]], "gis_markers": [{"lat": 39.41352, "lon": 27.80239, "color": "#0284c7", "label": "Dere / Akarsu: Adsız (~2179 m)"}, {"lat": 39.39661, "lon": 27.79627, "color": "#7c3aed", "label": "Mahalle: Köseler (~551 m)"}, {"lat": 39.40754, "lon": 27.81109, "color": "#7c3aed", "label": "Köy: Boğatepe (~1717 m)"}], "label": "BALIKESİR / ALTIEYLUL,SAVAŞTEPE — R25-Balıkesir-1 Rüzgar Enerji Santrali (23 adet türbin - 161 MWm/160 MWe)"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -848,12 +860,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -874,11 +884,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 39.73865, "lon": 42.96209, "zoom": 12, "precision": "exact_pdf", "points": [[39.73953, 42.9609], [39.73734, 42.961], [39.73734, 42.96153], [39.73733, 42.96154], [39.7373, 42.96208], [39.73781, 42.96201], [39.73808, 42.96193], [39.73824, 42.96189], [39.73827, 42.96319], [39.73934, 42.96321], [39.73937, 42.96299], [39.7394, 42.96276], [39.73943, 42.96253], [39.73946, 42.96231], [39.73947, 42.96218], [39.73948, 42.96208], [39.73949, 42.96185], [39.73951, 42.96162], [39.73951, 42.96156], [39.73952, 42.96156], [39.73953, 42.96109], [39.73854, 42.96214], [39.73871, 42.96288], [39.73925, 42.96275], [39.73902, 42.962], [39.73953, 42.96093], [39.73734, 42.96154], [39.73734, 42.96208], [39.7373, 42.96203], [39.7378, 42.96194], [39.73808, 42.9619], [39.73826, 42.96319], [39.73827, 42.96324], [39.73933, 42.96299], [39.73936, 42.96276], [39.73939, 42.96253], [39.73942, 42.96231], [39.73946, 42.96218], [39.73947, 42.96208], [39.73947, 42.96185]], "gis_markers": [], "label": "AĞRI / MERKEZ — 150 m3/saat Kapasiteli Hazır Beton Santrali Kapasite Artışı Ve İlave Kırma Yıkama Eleme Te"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -852,12 +864,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -878,11 +888,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.69863, "lon": 29.3701, "zoom": 12, "precision": "exact_pdf", "points": [[38.69759, 29.3699], [38.69754, 29.36977], [38.69742, 29.36961], [38.69727, 29.36972], [38.69722, 29.3696], [38.69761, 29.36932], [38.69814, 29.36912], [38.69851, 29.36901], [38.69928, 29.36868], [38.6993, 29.36882], [38.69936, 29.36886], [38.69962, 29.36982], [38.6996, 29.36991], [38.69955, 29.3699], [38.699, 29.37005], [38.6987, 29.36995], [38.69838, 29.36996], [38.69818, 29.36994], [38.69786, 29.36992], [38.69783, 29.36992], [38.69779, 29.36991], [38.69774, 29.36991], [38.69772, 29.36991], [38.69763, 29.3699], [38.69977, 29.37144], [38.69995, 29.3718], [38.69998, 29.37185], [38.69961, 29.3722], [38.69955, 29.37225], [38.69949, 29.37231], [38.6976, 29.36977], [38.69755, 29.36962], [38.69742, 29.36973], [38.69727, 29.3696], [38.69722, 29.36931], [38.69761, 29.3691], [38.69814, 29.36899], [38.69852, 29.36866], [38.69927, 29.36882], [38.6993, 29.36885]], "gis_markers": [], "label": "UŞAK / MERKEZ — Uşak İli Merkez İlçesi Dikilitaş Mahallesi 340 Adet Konut (+3 Kd) İnşaatı İle Altyapı ve Ç"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

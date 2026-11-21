@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -856,12 +868,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -882,11 +892,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 40.10975, "lon": 42.78519, "zoom": 12, "precision": "exact_pdf", "points": [[40.08818, 42.94639], [40.07945, 42.91221], [40.06323, 42.8337], [40.08156, 42.79039], [40.12013, 42.7597], [40.06287, 42.79497], [40.0894, 42.93537], [40.08433, 42.91647], [40.0926, 42.95071], [40.08938, 42.93547], [40.08326, 42.91545], [40.10093, 42.77805], [40.11986, 42.76165], [40.11985, 42.76176], [40.11982, 42.76187], [40.11903, 42.76428], [40.119, 42.76436], [40.11858, 42.76526], [40.11857, 42.76528], [40.11833, 42.76572], [40.11831, 42.76576], [40.11825, 42.76587], [40.1182, 42.76593], [40.11814, 42.76599], [40.11775, 42.76632], [40.11769, 42.76636], [40.11726, 42.76662], [40.11723, 42.76664], [40.11679, 42.76685], [40.11642, 42.76702], [40.11592, 42.76737], [40.11515, 42.76799], [40.11508, 42.76814], [40.11456, 42.76949], [40.11435, 42.77011], [40.11431, 42.7702], [40.11427, 42.77027], [40.11374, 42.77103], [40.11369, 42.7711], [40.11334, 42.77145]], "gis_markers": [{"lat": 40.11948, "lon": 42.77241, "color": "#0284c7", "label": "Dere / Akarsu: Adsız (~1534 m)"}, {"lat": 40.12122, "lon": 42.77378, "color": "#7c3aed", "label": "Köy: Kalebaşı (~1602 m)"}], "label": "KARS / KAĞIZMAN,SARIKAMIŞ — Arşimet Burgulu Aşağı Aras Kalebaşı HES (9,11 MWm/7,66 MWe), Aşağı Aras Değirmendere HES ("};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

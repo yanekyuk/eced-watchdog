@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -841,12 +853,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -867,11 +877,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 39.79477, "lon": 30.7533, "zoom": 12, "precision": "exact_pdf", "points": [[39.79622, 30.74802], [39.79752, 30.74876], [39.79645, 30.75253], [39.79472, 30.75534], [39.79394, 30.7548], [39.79746, 30.74898], [39.79607, 30.74847], [39.79657, 30.74857], [39.79737, 30.74931], [39.79637, 30.75247], [39.7947, 30.7552], [39.79406, 30.75475], [39.79616, 30.74849], [39.79648, 30.7489], [39.79695, 30.74911], [39.79704, 30.74879], [39.7959, 30.75127], [39.80288, 30.74869], [39.7944, 30.74909], [39.79472, 30.74878], [39.79507, 30.74856], [39.79342, 30.74312], [39.79812, 30.75171], [39.79456, 30.74269], [39.79545, 30.74841], [39.79788, 30.75267], [39.79413, 30.74945], [39.79237, 30.7438], [39.77302, 30.79215], [39.78608, 30.76838], [39.76446, 30.81577], [39.79815, 30.7512], [39.7981, 30.75069], [39.79803, 30.7522], [39.79799, 30.75021], [39.79766, 30.75309], [39.79739, 30.75346], [39.79782, 30.74975], [39.8004, 30.75113]], "gis_markers": [], "label": "ESKİŞEHİR / ODUNPAZARI — 2026/3 İZİN NUMARALI (ER:3545889) I-A GRUBU AĞAPINAR-3 ARİYET OCAĞI"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

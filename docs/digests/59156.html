@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -842,12 +854,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -868,11 +878,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 37.39529, "lon": 35.61546, "zoom": 12, "precision": "exact_pdf", "points": [[37.39549, 35.61464], [37.39556, 35.61482], [37.39584, 35.6148], [37.3961, 35.61444], [37.3964, 35.61518], [37.39622, 35.6154], [37.39606, 35.61579], [37.39597, 35.61596], [37.39581, 35.61606], [37.39561, 35.61615], [37.39528, 35.61621], [37.39527, 35.61609], [37.39511, 35.61568], [37.39482, 35.61549], [37.39496, 35.61556], [37.39468, 35.61543], [37.3944, 35.61503], [37.39462, 35.61462], [37.395, 35.61452], [37.39527, 35.61566], [37.39535, 35.61582], [37.39631, 35.61501], [37.39623, 35.61485], [37.39566, 35.61579], [37.39574, 35.61599], [37.3958, 35.61597], [37.39591, 35.6159], [37.39597, 35.61581], [37.39591, 35.61566], [37.39583, 35.61566], [37.39574, 35.61572], [37.39524, 35.61569], [37.39526, 35.61572], [37.39523, 35.61574], [37.39522, 35.61571], [37.39528, 35.61583], [37.39531, 35.61581], [37.39532, 35.61584], [37.3953, 35.61586], [37.39534, 35.61615]], "gis_markers": [], "label": "ADANA / KOZAN — ETLİK PİLİÇ YETİŞTİRME TESİSİ"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

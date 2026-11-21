@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -828,12 +840,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -854,11 +864,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 37.9401, "lon": 41.90929, "zoom": 12, "precision": "exact_pdf", "points": [[37.94004, 41.90851], [37.94008, 41.90998], [37.94009, 41.91001], [37.94009, 41.91004], [37.94008, 41.91007], [37.94008, 41.9101], [37.94008, 41.91014], [37.94008, 41.91017], [37.94007, 41.9102], [37.94007, 41.91023], [37.94006, 41.91027], [37.94006, 41.91029], [37.94005, 41.91032], [37.94004, 41.91034], [37.94002, 41.91035], [37.94, 41.91037], [37.93998, 41.91038], [37.93996, 41.91038], [37.93994, 41.91038], [37.93967, 41.91034], [37.93962, 41.91033], [37.93888, 41.90999], [37.93884, 41.90992], [37.93886, 41.9089], [37.9389, 41.90861], [37.93893, 41.90845], [37.93899, 41.9084], [37.93999, 41.90845], [37.94071, 41.90739], [37.94075, 41.90886], [37.94076, 41.90889], [37.94076, 41.90892], [37.94075, 41.90895], [37.94075, 41.90898], [37.94075, 41.90902], [37.94075, 41.90905], [37.94074, 41.90908], [37.94074, 41.90911], [37.94073, 41.90915], [37.94073, 41.90917]], "gis_markers": [], "label": "SİİRT / MERKEZ — KONUT VE İŞ MERKEZİ PROJESİ (344 Konutluk Site Yapımı ile 33 Adet İşyeri Yapımı)"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

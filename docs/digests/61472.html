@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -849,12 +861,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -875,11 +885,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 40.85858, "lon": 29.27026, "zoom": 12, "precision": "exact_pdf", "points": [[40.85763, 29.27093], [40.85777, 29.27096], [40.85857, 29.27108], [40.85864, 29.27133], [40.85874, 29.27117], [40.85879, 29.27108], [40.85885, 29.27097], [40.85892, 29.27084], [40.85902, 29.27064], [40.85912, 29.27046], [40.85917, 29.27025], [40.85916, 29.27], [40.85909, 29.26994], [40.85899, 29.26987], [40.85886, 29.2698], [40.85875, 29.26973], [40.85857, 29.26967], [40.85851, 29.26964], [40.85844, 29.26953], [40.8583, 29.26955], [40.85812, 29.26958], [40.85796, 29.2696], [40.85796, 29.26967], [40.85773, 29.2697], [40.85764, 29.27066], [40.85704, 29.27057], [40.85707, 29.27025], [40.85766, 29.27034], [40.85896, 29.26992], [40.85912, 29.27004], [40.85979, 29.27064], [40.85972, 29.27077], [40.8591, 29.27012], [40.85896, 29.27001], [40.85897, 29.27005], [40.85909, 29.27017]], "gis_markers": [], "label": "İSTANBUL / PENDİK — Yüzer Havuz Kapasite Artışı"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

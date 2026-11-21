@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -831,12 +843,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -857,11 +867,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 36.16049, "lon": 36.19199, "zoom": 12, "precision": "exact_pdf", "points": [[36.16106, 36.19089], [36.16142, 36.19232], [36.16084, 36.19275], [36.16045, 36.19301], [36.15961, 36.19344], [36.1598, 36.19322], [36.15998, 36.19303], [36.16011, 36.19282], [36.1601, 36.19274], [36.16009, 36.19255], [36.15995, 36.1927], [36.1598, 36.19282], [36.15979, 36.1928], [36.16026, 36.19198], [36.16002, 36.19193], [36.15986, 36.19192], [36.15977, 36.19174], [36.16046, 36.19112], [36.16168, 36.19], [36.16203, 36.19143], [36.16145, 36.19187], [36.16107, 36.19213], [36.16023, 36.19256], [36.16041, 36.19234], [36.16059, 36.19214], [36.16072, 36.19194], [36.16072, 36.19185], [36.16071, 36.19167], [36.16056, 36.19181], [36.16042, 36.19194], [36.1604, 36.19192], [36.16087, 36.19109], [36.16064, 36.19104], [36.16047, 36.19103], [36.16038, 36.19085], [36.16107, 36.19023]], "gis_markers": [], "label": "HATAY / ALTINÖZÜ — İNŞAAT VE YIKINTI ATIKLARI GERİ DÖNÜŞÜM TESİSİ"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

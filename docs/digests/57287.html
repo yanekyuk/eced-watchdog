@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -852,12 +864,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -878,11 +888,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 39.89611, "lon": 31.37001, "zoom": 12, "precision": "exact_pdf", "points": [[39.89748, 31.31157], [39.90086, 31.32197], [39.90221, 31.32635], [39.90473, 31.33131], [39.90686, 31.33534], [39.90675, 31.34459], [39.90477, 31.35015], [39.90242, 31.35565], [39.90308, 31.36356], [39.90062, 31.37287], [39.90051, 31.37981], [39.89835, 31.3903], [39.89532, 31.39591], [39.89297, 31.4038], [39.89813, 31.31088], [39.90152, 31.32128], [39.90286, 31.32566], [39.90538, 31.33061], [39.90751, 31.33464], [39.9074, 31.3439], [39.90543, 31.34946], [39.90307, 31.35496], [39.90373, 31.36287], [39.90127, 31.37218], [39.90116, 31.37912], [39.899, 31.38961], [39.89597, 31.39522], [39.89362, 31.40311], [39.90661, 31.33467], [39.90303, 31.35502], [39.90152, 31.38065], [39.8815, 31.3207], [39.87776, 31.37948], [39.8912, 31.40593], [39.89304, 31.41371], [39.88924, 31.41248], [39.88643, 31.40894], [39.88535, 31.40404], [39.88629, 31.3991], [39.88788, 31.39696]], "gis_markers": [{"lat": 39.87661, "lon": 31.38106, "color": "#7c3aed", "label": "Köy: Tatarcık (~2364 m)"}], "label": "ESKİŞEHİR / MİHALIÇCIK — Ayşen Depolamalı Rüzgar Enerji Santrali (RES) (14 türbin 105 MWm/99,8 MWe-99,8 MWe/99,8 MW"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

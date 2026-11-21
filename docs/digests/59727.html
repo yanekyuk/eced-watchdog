@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -835,12 +847,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -861,11 +871,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 39.85655, "lon": 29.24604, "zoom": 12, "precision": "exact_pdf", "points": [[39.85865, 29.24481], [39.85994, 29.24759], [39.85629, 29.25074], [39.85539, 29.25043], [39.85474, 29.25006], [39.85413, 29.2495], [39.85354, 29.24742], [39.85417, 29.24511], [39.85332, 29.24251], [39.85279, 29.24171], [39.85251, 29.24158], [39.85364, 29.24095], [39.85595, 29.24055], [39.85678, 29.24082], [39.85753, 29.24186], [39.85879, 29.243], [39.85919, 29.24315], [39.85921, 29.24353], [39.85938, 29.24807], [39.85733, 29.24984], [39.8565, 29.24911], [39.85546, 29.24858], [39.85557, 29.24578], [39.85594, 29.24374], [39.85644, 29.24372], [39.8572, 29.24396], [39.85727, 29.24248], [39.85642, 29.25063], [39.85622, 29.25053], [39.85613, 29.25069], [39.85587, 29.2506], [39.85643, 29.24208], [39.85469, 29.24297], [39.85638, 29.24253], [39.85822, 29.24354], [39.85815, 29.24501], [39.85739, 29.24477], [39.85738, 29.24313], [39.85737, 29.25168], [39.85724, 29.25179]], "gis_markers": [], "label": "BURSA / KELES — 16/2025-07 (ER.3540992) Hammadde Üretim İzin Numaralı Kalker Ocağı ve Kırma Eleme Tesisi"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

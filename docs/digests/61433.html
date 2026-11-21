@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -840,12 +852,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -866,11 +876,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 39.08823, "lon": 28.69746, "zoom": 12, "precision": "exact_pdf", "points": [[39.13515, 28.64212], [39.12391, 28.64941], [39.12085, 28.63178], [39.11718, 28.63339], [39.0893, 28.61429], [39.0882, 28.63946], [39.08367, 28.65818], [39.08949, 28.66171], [39.09099, 28.66396], [39.08841, 28.6673], [39.08537, 28.67846], [39.09909, 28.68286], [39.09879, 28.68511], [39.09848, 28.68752], [39.09379, 28.68693], [39.09368, 28.69163], [39.09049, 28.69259], [39.08993, 28.69109], [39.09087, 28.68631], [39.08943, 28.68473], [39.08849, 28.68529], [39.08017, 28.68386], [39.07299, 28.68268], [39.0721, 28.68696], [39.0781, 28.69191], [39.07678, 28.69465], [39.0706, 28.69031], [39.06861, 28.70198], [39.07983, 28.70504], [39.13581, 28.64167], [39.12457, 28.64896], [39.12151, 28.63133], [39.11784, 28.63294], [39.08995, 28.61385], [39.08886, 28.63901], [39.08433, 28.65773], [39.09015, 28.66126], [39.09165, 28.66351], [39.08907, 28.66685], [39.08603, 28.67801]], "gis_markers": [], "label": "MANİSA / DEMİRCİ — R26 - Manisa Rüzgar Enerji Santrali (34 adet Türbin - 238 MWm / 235 MWe)"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

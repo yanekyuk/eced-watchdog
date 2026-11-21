@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -852,12 +864,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -878,11 +888,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 40.25232, "lon": 29.95275, "zoom": 12, "precision": "exact_pdf", "points": [[40.25281, 29.95197], [40.2525, 29.95365], [40.25213, 29.95382], [40.25189, 29.95385], [40.25158, 29.95385], [40.2517, 29.95325], [40.25168, 29.95254], [40.25203, 29.9523], [40.25265, 29.95185], [40.2527, 29.95206], [40.25248, 29.95326], [40.2523, 29.95321], [40.25253, 29.952], [40.25238, 29.95229], [40.25216, 29.9535], [40.25198, 29.95345], [40.2522, 29.95224], [40.25185, 29.95309], [40.25183, 29.95321], [40.25176, 29.95318], [40.25178, 29.95307], [40.25169, 29.9537], [40.25169, 29.95373], [40.25165, 29.95372], [40.25166, 29.95369], [40.25182, 29.95272], [40.25182, 29.95284], [40.25178, 29.95284], [40.25177, 29.95272], [40.25189, 29.95273], [40.2519, 29.95284], [40.25185, 29.95285], [40.25185, 29.95273], [40.25347, 29.95157], [40.25316, 29.95325], [40.25279, 29.95342], [40.25255, 29.95345], [40.25224, 29.95345], [40.25236, 29.95285], [40.25234, 29.95214]], "gis_markers": [{"lat": 40.25926, "lon": 29.95514, "color": "#047857", "label": "Orman / ağaçlık alan: Adsız (~798 m)"}, {"lat": 40.26017, "lon": 29.95493, "color": "#047857", "label": "Orman / ağaçlık alan: Adsız (~893 m)"}], "label": "BİLECİK / MERKEZ — Etlik Piliç Yetiştirme Tesisi"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

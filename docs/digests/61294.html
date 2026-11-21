@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -851,12 +863,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -877,11 +887,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 41.22593, "lon": 27.71354, "zoom": 12, "precision": "exact_pdf", "points": [[41.23745, 27.70114], [41.23651, 27.70268], [41.2357, 27.70177], [41.23488, 27.70309], [41.23392, 27.70175], [41.23391, 27.70163], [41.23378, 27.70184], [41.23315, 27.70267], [41.2322, 27.7039], [41.23176, 27.70447], [41.23113, 27.7053], [41.23047, 27.70616], [41.22955, 27.70735], [41.22857, 27.70857], [41.22794, 27.70935], [41.22697, 27.71056], [41.2259, 27.7119], [41.22485, 27.71322], [41.22382, 27.71454], [41.22294, 27.71567], [41.22215, 27.71668], [41.22124, 27.71786], [41.22028, 27.71907], [41.21932, 27.72033], [41.21945, 27.72051], [41.21974, 27.72104], [41.21987, 27.72131], [41.22044, 27.72051], [41.22126, 27.72163], [41.22121, 27.7217], [41.22248, 27.72343], [41.22247, 27.72361], [41.22042, 27.72592], [41.2194, 27.72445], [41.21985, 27.72322], [41.21914, 27.72227], [41.21982, 27.72137], [41.23813, 27.70068], [41.23719, 27.70222], [41.23638, 27.70132]], "gis_markers": [], "label": "TEKİRDAĞ / ERGENE — Çorlu-Tekirdağ Birleşik Elektrik Üretim Tesisi (Termik-Kojenerasyon Tesisine Yardımcı Kayn"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

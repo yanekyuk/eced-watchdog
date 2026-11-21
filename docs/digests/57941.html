@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -841,12 +853,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -867,11 +877,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 37.63205, "lon": 27.77316, "zoom": 12, "precision": "exact_pdf", "points": [[37.63268, 27.7724], [37.63052, 27.77356], [37.63043, 27.77344], [37.63037, 27.77338], [37.63024, 27.77335], [37.63009, 27.77324], [37.63003, 27.77318], [37.63333, 27.77191], [37.63117, 27.77307], [37.63108, 27.77295], [37.63102, 27.77289], [37.63089, 27.77285], [37.63074, 27.77275], [37.63068, 27.7727], [37.6326, 27.77215], [37.63264, 27.77253], [37.63262, 27.77265], [37.63262, 27.77294], [37.6326, 27.77299], [37.63254, 27.77315], [37.6325, 27.77324], [37.63248, 27.77335], [37.6325, 27.7735], [37.63256, 27.77359], [37.63261, 27.77386], [37.63239, 27.77407], [37.63238, 27.77408], [37.6323, 27.77401], [37.63222, 27.77397], [37.63213, 27.77395], [37.632, 27.77394], [37.6319, 27.77394], [37.63192, 27.77384], [37.63192, 27.77373], [37.6319, 27.77365], [37.63185, 27.77355], [37.63179, 27.7735], [37.63172, 27.77346], [37.63162, 27.7734], [37.6315, 27.77334]], "gis_markers": [{"lat": 37.62168, "lon": 27.77547, "color": "#0284c7", "label": "Su kütlesi / gölet: Adsız (~1171 m)"}, {"lat": 37.62835, "lon": 27.78601, "color": "#0284c7", "label": "Su kütlesi / gölet: Adsız (~1204 m)"}, {"lat": 37.64349, "lon": 27.7615, "color": "#7c3aed", "label": "Köy: Karaağaç (~1635 m)"}, {"lat": 37.64326, "lon": 27.79001, "color": "#7c3aed", "label": "Mezra: Ören (~1938 m)"}], "label": "AYDIN / KOÇARLI — Güneş Enerjisine Dayalı Elektrik Üretim Santrali (130.636,74 m2 Yüzölçümlü, 12,771 MWm / 1"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

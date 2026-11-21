@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -852,12 +864,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -878,11 +888,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 39.8497, "lon": 30.11428, "zoom": 12, "precision": "exact_pdf", "points": [[39.84925, 30.11348], [39.84939, 30.11391], [39.84945, 30.11405], [39.84951, 30.11425], [39.84975, 30.11507], [39.84977, 30.11521], [39.84972, 30.11529], [39.84969, 30.11524], [39.84966, 30.11528], [39.84958, 30.11536], [39.8491, 30.11586], [39.84851, 30.11468], [39.84881, 30.11375], [39.849, 30.11365], [39.84991, 30.11275], [39.85004, 30.11318], [39.8501, 30.11332], [39.85017, 30.11352], [39.85041, 30.11434], [39.85043, 30.11448], [39.85037, 30.11456], [39.85035, 30.11451], [39.85031, 30.11455], [39.85023, 30.11463], [39.84976, 30.11513], [39.84916, 30.11395], [39.84946, 30.11302], [39.84966, 30.11292]], "gis_markers": [], "label": "ESKİŞEHİR / İNÖNÜ — Seramik Üretim Tesisi Kapasite Artışı"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

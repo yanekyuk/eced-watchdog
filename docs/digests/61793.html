@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -848,12 +860,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -874,11 +884,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 40.21453, "lon": 38.75734, "zoom": 12, "precision": "exact_pdf", "points": [[40.2227, 38.74959], [40.22313, 38.75545], [40.22747, 38.76024], [40.22726, 38.76065], [40.22664, 38.76147], [40.22601, 38.76248], [40.22413, 38.76123], [40.219, 38.76003], [40.21546, 38.76012], [40.20818, 38.7603], [40.20488, 38.76046], [40.20374, 38.75979], [40.20337, 38.75693], [40.20244, 38.75682], [40.20138, 38.75535], [40.2003, 38.7561], [40.19919, 38.75545], [40.1998, 38.7526], [40.20163, 38.75081], [40.20759, 38.74854], [40.21164, 38.74947], [40.21432, 38.74985], [40.21477, 38.74981], [40.21627, 38.75301], [40.21791, 38.75254], [40.22016, 38.75184], [40.21991, 38.75043], [40.22262, 38.74973], [40.22304, 38.75551], [40.22735, 38.76026], [40.22719, 38.76058], [40.22657, 38.76139], [40.22599, 38.76234], [40.22416, 38.76112], [40.219, 38.75991], [40.21546, 38.76], [40.20818, 38.76019], [40.2049, 38.76034], [40.20382, 38.75971], [40.20344, 38.75682]], "gis_markers": [], "label": "GİRESUN / ÇAMOLUK — ŞEBİNKARAHİSAR GÜNEŞ ENERJİ SANTRALİ (150 MWe/150 MWm - 219,71 Hektar) VE ELEKTRİK  DEPOLA"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

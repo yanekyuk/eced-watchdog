@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -837,12 +849,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -863,11 +873,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.78047, "lon": 28.3647, "zoom": 12, "precision": "exact_pdf", "points": [[38.7769, 28.36728], [38.7764, 28.3671], [38.77602, 28.36685], [38.77547, 28.36617], [38.77532, 28.36564], [38.77573, 28.36547], [38.77801, 28.36536], [38.77807, 28.36526], [38.77632, 28.36508], [38.77682, 28.36503], [38.77824, 28.36499], [38.7783, 28.3649], [38.77842, 28.36472], [38.77759, 28.36458], [38.77773, 28.36382], [38.77748, 28.36366], [38.77847, 28.36337], [38.77658, 28.36284], [38.77683, 28.36726], [38.77585, 28.36634], [38.77528, 28.36615], [38.77571, 28.36606], [38.77792, 28.36552], [38.77796, 28.36545], [38.77813, 28.36517], [38.77818, 28.36508], [38.77735, 28.36488], [38.77836, 28.36481], [38.77845, 28.36467], [38.77847, 28.36457], [38.77847, 28.3637], [38.77733, 28.3636], [38.77654, 28.3632], [38.77676, 28.36242], [38.77695, 28.36197], [38.77841, 28.36243], [38.77836, 28.36243], [38.77834, 28.36243], [38.77833, 28.36242], [38.77832, 28.36242]], "gis_markers": [], "label": "MANİSA / KÖPRÜBAŞI — 2 adet (3565 m2 )  kümeste planlanan 57.040 adet/dönem kapasiteli ?Etlik Piliç Yetiştirme "};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -849,12 +861,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -875,11 +885,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 39.16844, "lon": 39.57715, "zoom": 12, "precision": "exact_pdf", "points": [[39.731, 39.012], [39.737, 39.013], [39.737, 39.012], [39.736, 39.011], [39.732, 39.009], [39.732, 39.01], [39.734, 39.012], [39.733, 39.01], [39.01258, 39.72982], [39.01391, 39.73625], [39.01261, 39.7358], [39.01257, 39.7358], [39.01167, 39.735], [39.01161, 39.73524], [39.01001, 39.73105], [39.01026, 39.73117], [39.01246, 39.73013], [39.01303, 39.73289], [39.01081, 39.73262], [39.734, 39.013], [39.736, 39.012], [39.735, 39.011], [39.734, 39.01], [39.734, 39.011], [39.01316, 39.73355], [39.01365, 39.73592], [39.01263, 39.73557], [39.01158, 39.73464], [39.01107, 39.73329], [39.01304, 39.73295], [39.01315, 39.73348], [39.0113, 39.73326], [39.01103, 39.73269], [39.01089, 39.73283], [39.01102, 39.73274], [39.01122, 39.73314], [39.01105, 39.73325], [39.01199, 39.73451], [39.01183, 39.73399], [39.01171, 39.73357]], "gis_markers": [], "label": "TUNCELİ / MAZGİRT — HÜİB: 62/2026-01 (ER:3542248) Numaralı II-A Grubu Kalker Ocağı Kapasite Artışı, İlave Kırm"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

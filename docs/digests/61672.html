@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -843,12 +855,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -869,11 +879,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 40.42809, "lon": 27.94391, "zoom": 12, "precision": "exact_pdf", "points": [[40.41389, 27.94155], [40.41479, 27.94363], [40.41427, 27.94385], [40.4133, 27.94178], [40.4288, 27.94316], [40.42883, 27.94314], [40.42886, 27.94312], [40.42886, 27.94314], [40.42885, 27.94314], [40.4289, 27.94329], [40.42891, 27.94328], [40.42892, 27.9433], [40.42892, 27.94328], [40.42895, 27.94327], [40.42904, 27.94335], [40.42912, 27.94349], [40.42913, 27.94352], [40.42918, 27.94357], [40.42921, 27.94368], [40.42916, 27.94371], [40.42925, 27.94386], [40.42923, 27.94388], [40.4292, 27.94392], [40.42845, 27.94447], [40.42814, 27.94388], [40.42975, 27.94421], [40.42978, 27.94419], [40.42981, 27.94417], [40.42981, 27.94419], [40.4298, 27.94419], [40.42985, 27.94434], [40.42986, 27.94433], [40.42987, 27.94435], [40.42987, 27.94433], [40.4299, 27.94432], [40.42999, 27.9444], [40.43007, 27.94454], [40.43008, 27.94457], [40.43013, 27.94462], [40.43016, 27.94473]], "gis_markers": [], "label": "BALIKESİR / ERDEK — GEMİ KURTARMA ARAÇLARI YANAŞMA RIHTIMI"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

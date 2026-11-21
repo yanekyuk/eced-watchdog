@@ -641,6 +641,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -684,12 +696,10 @@ THEME_JS = """
 """
 
 CARTO_TILE_HELPER_JS = """
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 """
@@ -1348,11 +1358,7 @@ def render_digest_html(
   if (typeof L === 'undefined') return;
   const g = {map_payload};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {{
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  }});
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {{
     L.circle([g.lat, g.lon], {{
       radius: 3000,
@@ -2095,16 +2101,10 @@ def build_site(
 
   let map = null;
   let layerGroup = null;
-  let tileLayer = null;
   if (typeof L !== 'undefined') {{
     map = L.map('map').setView([39.0, 35.2], 6);
-    tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
+    createOsmTileLayer().addTo(map);
     layerGroup = L.layerGroup().addTo(map);
-    window.addEventListener('eced-theme-change', (ev) => {{
-      if (!map || !tileLayer) return;
-      map.removeLayer(tileLayer);
-      tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-    }});
   }}
 
   // Collapsible map state persisted in localStorage

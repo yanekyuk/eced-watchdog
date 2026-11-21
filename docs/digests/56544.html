@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -852,12 +864,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -878,11 +888,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 41.15307, "lon": 42.85176, "zoom": 12, "precision": "exact_pdf", "points": [[41.1543, 42.84656], [41.1568, 42.84767], [41.16062, 42.85247], [41.15715, 42.85562], [41.15627, 42.85623], [41.15604, 42.85589], [41.15346, 42.85281], [41.15221, 42.85444], [41.15153, 42.85316], [41.15076, 42.85397], [41.1491, 42.85328], [41.14878, 42.85142], [41.14998, 42.8514], [41.1503, 42.84991], [41.14984, 42.8488], [41.15232, 42.84871], [41.15765, 42.85687], [41.15726, 42.85726], [41.15386, 42.85262], [41.15211, 42.85108], [41.15021, 42.85016], [41.15433, 42.84775], [41.15689, 42.8526], [41.16068, 42.85551], [41.15716, 42.8562], [41.15627, 42.85588], [41.15598, 42.85272], [41.15349, 42.85439], [41.15218, 42.85314], [41.15154, 42.85395], [41.15075, 42.85323], [41.14906, 42.85142], [41.14878, 42.85144], [41.14995, 42.84992], [41.15028, 42.84879], [41.15247, 42.85704], [41.15766, 42.85724], [41.15717, 42.85252], [41.15383, 42.85103], [41.15209, 42.8501]], "gis_markers": [{"lat": 41.14265, "lon": 42.86315, "color": "#0284c7", "label": "Nehir: Ölçeksuyu Çayı (~1501 m)"}, {"lat": 41.13271, "lon": 42.85393, "color": "#0284c7", "label": "Nehir: Adsız (~2271 m)"}, {"lat": 41.15885, "lon": 42.86801, "color": "#047857", "label": "Orman / ağaçlık alan: Adsız (~1504 m)"}, {"lat": 41.14964, "lon": 42.87457, "color": "#047857", "label": "Orman / ağaçlık alan: Adsız (~1947 m)"}, {"lat": 41.15423, "lon": 42.83748, "color": "#7c3aed", "label": "Köy: Balıkçılar (~1203 m)"}, {"lat": 41.16147, "lon": 42.87429, "color": "#7c3aed", "label": "Köy: Altaş (~2105 m)"}], "label": "ARDAHAN / MERKEZ — Ruhsat:90741 ve Erişim:3425510 Numaralı 391.531,32 ton/yıl Kapasiteli II-A Grubu Patlatmal"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

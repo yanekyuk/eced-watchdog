@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -851,12 +863,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -877,11 +887,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 39.7537, "lon": 37.61709, "zoom": 12, "precision": "exact_pdf", "points": [[39.75866, 37.60973], [39.7588, 37.62141], [39.74979, 37.62158], [39.74977, 37.61983], [39.75614, 37.60978], [39.7538, 37.61929], [39.75383, 37.6215], [39.75024, 37.62157], [39.75022, 37.61915], [39.75288, 37.61627], [39.75814, 37.61203], [39.75781, 37.6151], [39.75595, 37.61943], [39.75533, 37.62124], [39.75458, 37.62125], [39.75459, 37.62149], [39.75022, 37.6195], [39.75623, 37.61002], [39.75812, 37.60998], [39.75448, 37.61241], [39.75015, 37.62158], [39.75013, 37.61928], [39.7583, 37.60974], [39.75833, 37.61205], [39.75798, 37.61517], [39.75611, 37.61953], [39.75545, 37.62147], [39.75093, 37.61838], [39.75175, 37.6175], [39.75267, 37.61874], [39.7531, 37.61955], [39.7534, 37.61977], [39.75555, 37.61423], [39.75479, 37.61558], [39.75362, 37.61413], [39.75441, 37.61288], [39.75456, 37.61611], [39.75435, 37.61653], [39.75405, 37.61689], [39.75379, 37.61644]], "gis_markers": [], "label": "SİVAS / HAFİK,ZARA — RN:200902327 (ER:3210868) Numaralı Stronsiyum Tuzu (Selestit) Ocağı Kapasite Artışı"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

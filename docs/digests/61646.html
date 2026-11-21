@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -852,12 +864,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -878,11 +888,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 41.09844, "lon": 29.43761, "zoom": 12, "precision": "exact_pdf", "points": [[41.09931, 29.444], [41.0934, 29.4397], [41.09652, 29.43059], [41.10095, 29.43404], [41.10078, 29.44207], [41.10021, 29.44144], [41.10092, 29.43558], [41.1002, 29.43565], [41.09644, 29.43711], [41.09862, 29.43222], [41.10088, 29.43738], [41.10021, 29.44138], [41.09762, 29.44225], [41.09725, 29.43883], [41.10016, 29.43752], [41.0972, 29.4354], [41.09549, 29.43704], [41.09549, 29.43533], [41.09454, 29.43636], [41.1009, 29.43642], [41.10072, 29.43645], [41.09998, 29.44359], [41.09407, 29.43929], [41.09719, 29.43018], [41.10162, 29.43363], [41.10145, 29.44166], [41.10088, 29.44103], [41.10159, 29.43518], [41.10086, 29.43524], [41.0971, 29.4367], [41.09929, 29.43182], [41.10155, 29.43697], [41.10088, 29.44097], [41.09828, 29.44184], [41.09792, 29.43842], [41.10083, 29.43711], [41.09786, 29.43499], [41.09615, 29.43663], [41.09615, 29.43493], [41.09521, 29.43596]], "gis_markers": [], "label": "İSTANBUL / ŞİLE — RN:28048 (ER: 2206221) Ruhsat Numaralı Kalker Ocağı ve Kırma-Eleme-Yıkama Tesisi Kapasite "};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

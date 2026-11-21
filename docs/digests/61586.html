@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -853,12 +865,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -879,11 +889,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 37.83677, "lon": 40.3295, "zoom": 12, "precision": "exact_pdf", "points": [[37.87406, 40.37479], [37.74906, 40.37479], [37.74906, 40.24979], [37.87406, 40.24979], [37.84616, 40.28595], [37.8506, 40.28666], [37.84792, 40.29145], [37.84503, 40.28905], [37.84451, 40.31259], [37.83821, 40.32058], [37.83711, 40.32463], [37.83409, 40.32577], [37.83594, 40.31402], [37.87468, 40.37402], [37.74967, 40.37402], [37.74967, 40.24902], [37.87468, 40.24902], [37.84677, 40.28518], [37.85121, 40.28589], [37.84853, 40.29068], [37.84565, 40.28827], [37.84512, 40.31182], [37.83882, 40.31981], [37.83772, 40.32386], [37.8347, 40.325], [37.83655, 40.31325], [37.84253, 40.30417], [37.83591, 40.32722], [37.84192, 40.32751], [37.84439, 40.32875], [37.84383, 40.32976], [37.83896, 40.32972], [37.83431, 40.331], [37.83388, 40.32865], [37.83812, 40.33851], [37.84062, 40.33789], [37.84282, 40.34179], [37.83819, 40.34311], [37.83551, 40.34148], [37.83536, 40.33916]], "gis_markers": [], "label": "DİYARBAKIR / SUR — HEVSEL-2A, HEVSEL-3, HEVSEL-4, HEVSEL-5, HEVSEL-6, HEVSEL-7 VE BOZDEMİR-1 PETROL ARAMA SON"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

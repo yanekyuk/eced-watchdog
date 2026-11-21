@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -856,12 +868,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -882,11 +892,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 41.22407, "lon": 33.52125, "zoom": 12, "precision": "exact_pdf", "points": [[41.22486, 33.51656], [41.22504, 33.51774], [41.22508, 33.51933], [41.22451, 33.51987], [41.22466, 33.52044], [41.22462, 33.52178], [41.22446, 33.52199], [41.22458, 33.52225], [41.22429, 33.5231], [41.22248, 33.52749], [41.22132, 33.52669], [41.2238, 33.5213], [41.22394, 33.52144], [41.22444, 33.51872], [41.22433, 33.51607], [41.22551, 33.51595], [41.22569, 33.51712], [41.22574, 33.51872], [41.22516, 33.51925], [41.22532, 33.51982], [41.22527, 33.52116], [41.22511, 33.52137], [41.22524, 33.52163], [41.22494, 33.52248], [41.22313, 33.52687], [41.22197, 33.52607], [41.22446, 33.52069], [41.22459, 33.52082], [41.22509, 33.5181], [41.22498, 33.51545], [41.22551, 33.51711], [41.22568, 33.51872], [41.22573, 33.51925], [41.22516, 33.51982], [41.22531, 33.52116], [41.22527, 33.52137], [41.22511, 33.52163], [41.22523, 33.52248], [41.22492, 33.52688], [41.22313, 33.52608]], "gis_markers": [], "label": "KASTAMONU / İHSANGAZİ — 2026/04 (ER:3551500) Ruhsat Numaralı  I-A Grubu Kum-Çakıl Ocağı ve Kırma Yıkama Eleme Tesi"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

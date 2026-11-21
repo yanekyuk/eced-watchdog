@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -841,12 +853,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -867,11 +877,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 36.93446, "lon": 36.00325, "zoom": 12, "precision": "exact_pdf", "points": [[36.9349, 35.99771], [36.93514, 35.99848], [36.93517, 35.99949], [36.9352, 35.99999], [36.93522, 36.00055], [36.93523, 36.00093], [36.93523, 36.00145], [36.93524, 36.00152], [36.93532, 36.002], [36.93536, 36.00249], [36.93539, 36.00309], [36.93541, 36.00336], [36.93542, 36.00357], [36.935, 36.00372], [36.93506, 36.00399], [36.93544, 36.00386], [36.93548, 36.00456], [36.93557, 36.00582], [36.93561, 36.00687], [36.93572, 36.00877], [36.93245, 36.00877], [36.93245, 36.00402], [36.93032, 36.00116], [36.9355, 36.00478], [36.93407, 36.00477], [36.93407, 36.00556], [36.93556, 36.00561], [36.93538, 36.00291], [36.93556, 36.00562], [36.93129, 36.00246], [36.93135, 36.00243], [36.93209, 36.00219], [36.93261, 36.00348], [36.93296, 36.00446]], "gis_markers": [], "label": "ADANA / CEYHAN — 1.ÜRETİM HATTI ÇİMENTO ÜRETİMİNDE KAPASİTE ARTIŞI"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

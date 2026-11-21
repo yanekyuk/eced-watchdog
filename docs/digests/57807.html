@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -853,12 +865,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -879,11 +889,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 37.73977, "lon": 30.40695, "zoom": 12, "precision": "exact_pdf", "points": [[37.7454, 30.41225], [37.7345, 30.41263], [37.73721, 30.40454], [37.73863, 30.39944], [37.7395, 30.39984], [37.74573, 30.40424], [37.74613, 30.40678], [37.74197, 30.40534], [37.74208, 30.41031], [37.74011, 30.41037], [37.73979, 30.40909], [37.73897, 30.4076], [37.73814, 30.4066], [37.73822, 30.40547], [37.73846, 30.40816], [37.73918, 30.40948], [37.73942, 30.41029], [37.74154, 30.40796], [37.74057, 30.40725], [37.73992, 30.40677], [37.74065, 30.40579], [37.74072, 30.40581], [37.74086, 30.40577], [37.74095, 30.40574], [37.74109, 30.40566], [37.74132, 30.40555], [37.74146, 30.40595], [37.74204, 30.40832], [37.74155, 30.40535], [37.74186, 30.41031], [37.74009, 30.4103], [37.7399, 30.40953], [37.74157, 30.40907], [37.73993, 30.40753], [37.73977, 30.40743], [37.73951, 30.40731], [37.73951, 30.4075], [37.73878, 30.40775], [37.73873, 30.40813], [37.7383, 30.40914]], "gis_markers": [{"lat": 37.75642, "lon": 30.42323, "color": "#65a30d", "label": "Meyve bahçesi / dikili alan: Adsız (~2340 m)"}, {"lat": 37.75838, "lon": 30.42281, "color": "#65a30d", "label": "Meyve bahçesi / dikili alan: Adsız (~2495 m)"}, {"lat": 37.75982, "lon": 30.41492, "color": "#0284c7", "label": "Su kütlesi / gölet: Gökçebağ Göleti (~2337 m)"}, {"lat": 37.73301, "lon": 30.37685, "color": "#0284c7", "label": "Dere / Akarsu: Adsız (~2752 m)"}, {"lat": 37.7579, "lon": 30.40815, "color": "#047857", "label": "Orman / ağaçlık alan: Adsız (~2019 m)"}, {"lat": 37.76143, "lon": 30.41432, "color": "#047857", "label": "Orman / ağaçlık alan: Adsız (~2494 m)"}, {"lat": 37.7201, "lon": 30.39105, "color": "#7c3aed", "label": "Köy: Günalan (~2596 m)"}], "label": "BURDUR / MERKEZ — II-B Grubu Mermer Ocağı İşletmeciliğinde Alan Genişlemesi"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

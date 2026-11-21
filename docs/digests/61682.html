@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -835,12 +847,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -861,11 +871,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.09716, "lon": 36.22665, "zoom": 12, "precision": "exact_pdf", "points": [[38.09878, 36.2261], [38.09848, 36.227], [38.09856, 36.22789], [38.09848, 36.22812], [38.09828, 36.22826], [38.09818, 36.22866], [38.09751, 36.22834], [38.09708, 36.22843], [38.09686, 36.22843], [38.09636, 36.22809], [38.09609, 36.22802], [38.09514, 36.22692], [38.09513, 36.22668], [38.09534, 36.22611], [38.09526, 36.22586], [38.09552, 36.22533], [38.09552, 36.22523], [38.09575, 36.22477], [38.09602, 36.22458], [38.09627, 36.22424], [38.09651, 36.22397], [38.09698, 36.22373], [38.09772, 36.2235], [38.09761, 36.22415], [38.09758, 36.22549], [38.09627, 36.22427], [38.09647, 36.22405], [38.09693, 36.22379], [38.09758, 36.22356], [38.09751, 36.22413], [38.09751, 36.22551], [38.09871, 36.22606], [38.09845, 36.22694], [38.09852, 36.22749], [38.09855, 36.22782], [38.09944, 36.22908], [38.09923, 36.22922], [38.09916, 36.2296], [38.09851, 36.22931], [38.09807, 36.22942]], "gis_markers": [], "label": "ADANA / SAİMBEYLİ — GÜNEŞ ENERJİ SANTRALİ (10 MWe, 11,8755 MWm, 10,441 Ha.)"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

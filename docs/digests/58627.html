@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -834,12 +846,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -860,11 +870,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 36.89317, "lon": 29.66669, "zoom": 12, "precision": "exact_pdf", "points": [[36.89454, 29.66638], [36.89426, 29.66653], [36.89397, 29.66671], [36.89376, 29.66643], [36.89374, 29.6664], [36.89362, 29.66652], [36.89363, 29.66654], [36.8939, 29.6671], [36.89388, 29.66726], [36.89386, 29.66741], [36.89384, 29.66759], [36.89382, 29.66779], [36.8938, 29.668], [36.89378, 29.66818], [36.89375, 29.66845], [36.89373, 29.66862], [36.89372, 29.66878], [36.89361, 29.6688], [36.89348, 29.66879], [36.89316, 29.66889], [36.89315, 29.66856], [36.89285, 29.66857], [36.89217, 29.66694], [36.89229, 29.6664], [36.89237, 29.66601], [36.89238, 29.666], [36.89232, 29.66587], [36.89219, 29.66552], [36.89223, 29.66523], [36.89219, 29.6652], [36.89208, 29.66497], [36.89204, 29.66494], [36.89224, 29.66471], [36.89259, 29.66441], [36.89259, 29.66428], [36.8926, 29.66427], [36.8931, 29.66438]], "gis_markers": [], "label": "MUĞLA / SEYDİKEMER — Mermer Kesme, İşleme Ve Sayalama Tesisi Kapasite Artışı"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

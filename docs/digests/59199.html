@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -842,12 +854,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -868,11 +878,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 37.18809, "lon": 35.1974, "zoom": 12, "precision": "exact_pdf", "points": [[37.19239, 35.16581], [37.19257, 35.16587], [37.19282, 35.16609], [37.19309, 35.16626], [37.19334, 35.16645], [37.19353, 35.16663], [37.19362, 35.16674], [37.1937, 35.16694], [37.19374, 35.167], [37.19385, 35.16712], [37.1939, 35.1672], [37.19394, 35.16729], [37.19397, 35.16741], [37.19398, 35.16756], [37.19375, 35.16765], [37.19352, 35.16768], [37.19344, 35.16767], [37.19365, 35.16848], [37.19324, 35.16829], [37.19317, 35.16827], [37.19304, 35.16826], [37.1929, 35.16831], [37.19274, 35.16837], [37.19259, 35.16844], [37.19238, 35.16842], [37.19244, 35.1684], [37.19261, 35.16784], [37.19295, 35.16755], [37.1933, 35.16701], [37.1934, 35.16703], [37.19426, 35.16764], [37.1942, 35.16779], [37.19333, 35.16718], [37.19323, 35.16731], [37.19409, 35.16792], [37.19403, 35.16807], [37.19317, 35.16745], [37.1931, 35.16764], [37.19397, 35.16825], [37.1939, 35.1684]], "gis_markers": [], "label": "ADANA / KARAİSALI — ETLİK PİLİÇ ÜRETİM TESİSİ KAPASİTE ARTIŞI"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

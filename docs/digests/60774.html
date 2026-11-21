@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -853,12 +865,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -879,11 +889,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.78691, "lon": 35.30704, "zoom": 12, "precision": "exact_pdf", "points": [[38.79014, 35.30358], [38.79026, 35.30935], [38.78556, 35.30982], [38.78562, 35.30663], [38.78587, 35.30421], [38.78768, 35.30414], [38.79077, 35.303], [38.79089, 35.30877], [38.78619, 35.30924], [38.78626, 35.30604], [38.7865, 35.30362], [38.78831, 35.30356], [38.78811, 35.30747], [38.7881, 35.30898], [38.78703, 35.30889], [38.78673, 35.30868], [38.78651, 35.3084], [38.78622, 35.30794], [38.78623, 35.30747], [38.78584, 35.30729], [38.78583, 35.30805], [38.7856, 35.30805], [38.78561, 35.3073], [38.78566, 35.30632], [38.78619, 35.30635], [38.78615, 35.30727], [38.78922, 35.30607], [38.78918, 35.30733], [38.78646, 35.30747], [38.78647, 35.3067], [38.78678, 35.30669], [38.7868, 35.30618], [38.78796, 35.30565], [38.78872, 35.30562], [38.78624, 35.30671], [38.78629, 35.30574], [38.78682, 35.30577], [38.79172, 35.30405], [38.79184, 35.30982], [38.78714, 35.31029]], "gis_markers": [], "label": "KAYSERİ / KOCASİNAN — 38/2023-02 (ER: 3445531) İzin Numaralı Bazalt Ocağı Kapasite Artışı"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

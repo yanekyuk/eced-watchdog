@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -838,12 +850,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -864,11 +874,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 36.3493, "lon": 33.45225, "zoom": 12, "precision": "exact_pdf", "points": [[36.34931, 33.45207], [36.34934, 33.45225], [36.34946, 33.45286], [36.34951, 33.45318], [36.34957, 33.45349], [36.34962, 33.4538], [36.34962, 33.45383], [36.34924, 33.4534], [36.34909, 33.45323], [36.34889, 33.453], [36.34846, 33.45252], [36.34768, 33.45209], [36.3474, 33.45165], [36.34805, 33.45173], [36.34833, 33.4514], [36.3485, 33.45158], [36.34856, 33.45207], [36.34896, 33.45208], [36.34993, 33.45142], [36.34997, 33.4516], [36.35008, 33.45221], [36.35013, 33.45253], [36.35019, 33.45284], [36.35024, 33.45315], [36.35024, 33.45318], [36.34987, 33.45276], [36.34971, 33.45258], [36.34951, 33.45235], [36.34908, 33.45187], [36.3483, 33.45144], [36.34802, 33.451], [36.34867, 33.45108], [36.34895, 33.45075], [36.34912, 33.45093], [36.34918, 33.45142], [36.34958, 33.45143], [36.34925, 33.45228], [36.34925, 33.45265], [36.34869, 33.45266], [36.34869, 33.45229]], "gis_markers": [], "label": "MERSİN / GÜLNAR (GÜLPINAR) — Asfalt Plent Tesisi"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

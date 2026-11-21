@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -839,12 +851,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -865,11 +875,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 37.91219, "lon": 28.20756, "zoom": 12, "precision": "exact_pdf", "points": [[37.91216, 28.20752], [37.91216, 28.20767], [37.91191, 28.20766], [37.9119, 28.20752], [37.91177, 28.20767], [37.91162, 28.20768], [37.91155, 28.20757], [37.91158, 28.20757], [37.91184, 28.20752], [37.91212, 28.2078], [37.91212, 28.20791], [37.91212, 28.20797], [37.91211, 28.20801], [37.91212, 28.20805], [37.91204, 28.20808], [37.91195, 28.20812], [37.9114, 28.20796], [37.91139, 28.20789], [37.91158, 28.20782], [37.9117, 28.20781], [37.91181, 28.2078], [37.91188, 28.2078], [37.91202, 28.2078], [37.91281, 28.20705], [37.91281, 28.2072], [37.91256, 28.20719], [37.91255, 28.20705], [37.91242, 28.2072], [37.91227, 28.20721], [37.9122, 28.2071], [37.91223, 28.2071], [37.91249, 28.20705], [37.91277, 28.20733], [37.91277, 28.20744], [37.91277, 28.2075], [37.91276, 28.20754], [37.91277, 28.20758], [37.91269, 28.20761], [37.9126, 28.20765], [37.91205, 28.20749]], "gis_markers": [], "label": "AYDIN / SULTANHİSAR — Zeytinyağı ve Pirina Üretimi Kapasite Artışı"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

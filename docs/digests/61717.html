@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -850,12 +862,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -876,11 +886,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 41.27366, "lon": 27.81176, "zoom": 12, "precision": "exact_pdf", "points": [[41.2723, 27.811], [41.2731, 27.8127], [41.2735, 27.8124], [41.2738, 27.8121], [41.2741, 27.8119], [41.2746, 27.812], [41.2746, 27.8119], [41.2747, 27.8117], [41.2747, 27.8116], [41.2747, 27.8114], [41.2747, 27.8113], [41.2748, 27.8111], [41.2748, 27.811], [41.2749, 27.8109], [41.2748, 27.8107], [41.2747, 27.8107], [41.2745, 27.8106], [41.2743, 27.8106], [41.2741, 27.8105], [41.274, 27.8105], [41.2739, 27.8105], [41.2738, 27.8105], [41.2737, 27.8105], [41.2736, 27.8105], [41.2735, 27.8105], [41.2734, 27.8105], [41.2733, 27.8106], [41.2732, 27.8106], [41.2731, 27.8106], [41.273, 27.8106], [41.2729, 27.8107], [41.2728, 27.8107], [41.2727, 27.8108], [41.2726, 27.8108], [41.2725, 27.8109], [41.2733, 27.8126], [41.2728, 27.813], [41.2726, 27.813], [41.2723, 27.8133], [41.2719, 27.8136]], "gis_markers": [], "label": "TEKİRDAĞ / ERGENE — Kauçuk Esaslı Tüp, Boru Ve Hortum İmalatı Kapasite Artışı"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

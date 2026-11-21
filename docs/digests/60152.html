@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -852,12 +864,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -878,11 +888,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 37.45182, "lon": 29.95352, "zoom": 12, "precision": "exact_pdf", "points": [[37.45354, 29.95391], [37.45337, 29.95414], [37.45342, 29.95454], [37.45333, 29.9548], [37.45309, 29.95522], [37.45294, 29.95544], [37.4527, 29.95562], [37.45267, 29.95571], [37.45262, 29.9559], [37.45262, 29.95628], [37.45246, 29.95645], [37.4524, 29.95636], [37.45225, 29.95613], [37.45214, 29.95597], [37.45204, 29.95584], [37.45193, 29.95567], [37.45186, 29.95553], [37.45177, 29.95539], [37.45171, 29.95521], [37.45156, 29.95493], [37.4514, 29.95455], [37.45109, 29.9548], [37.45063, 29.95515], [37.45044, 29.95484], [37.45023, 29.95454], [37.44991, 29.95403], [37.44931, 29.953], [37.44914, 29.95271], [37.44926, 29.95267], [37.4494, 29.95258], [37.44955, 29.95248], [37.44972, 29.95238], [37.44984, 29.95233], [37.45002, 29.95224], [37.45026, 29.95212], [37.4505, 29.95201], [37.45063, 29.95197], [37.45072, 29.95195], [37.45084, 29.95197], [37.45095, 29.95198]], "gis_markers": [], "label": "BURDUR / KARAMANLI — GEPAT Depolamalı GES (GES Kurulu Güç:10 MWm/10 MWe-10,09 ha / Depolama Kurulu Güç: 40 MWh/"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

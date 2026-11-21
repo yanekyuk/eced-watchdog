@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -835,12 +847,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -861,11 +871,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.36692, "lon": 29.72399, "zoom": 12, "precision": "exact_pdf", "points": [[38.3683, 29.72148], [38.36849, 29.72646], [38.36218, 29.72601], [38.36208, 29.72214], [38.36173, 29.72039], [38.36137, 29.71964], [38.36237, 29.71617], [38.36746, 29.7215], [38.36756, 29.725], [38.36733, 29.72498], [38.36735, 29.72464], [38.36757, 29.72465], [38.36798, 29.72599], [38.36726, 29.72594], [38.36728, 29.72537], [38.368, 29.72542], [38.36895, 29.72106], [38.36914, 29.72603], [38.36282, 29.72559], [38.36273, 29.72172], [38.36237, 29.71996], [38.36202, 29.71922], [38.36302, 29.71574], [38.36811, 29.72108], [38.3682, 29.72457], [38.36798, 29.72456], [38.36799, 29.72422], [38.36822, 29.72423], [38.36863, 29.72556], [38.36791, 29.72552], [38.36793, 29.72495], [38.36865, 29.72499], [38.36801, 29.72526], [38.36765, 29.72523], [38.36767, 29.72466], [38.36803, 29.72469], [38.36755, 29.72535], [38.36737, 29.72534], [38.36738, 29.72505], [38.36756, 29.72506]], "gis_markers": [], "label": "DENİZLİ / ÇİVRİL — G26-Denizli Güneş Enerji Santrali (36 MWm / 30 MWe - 44,8 ha.)"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

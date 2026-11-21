@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -855,12 +867,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -881,11 +891,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 37.11634, "lon": 35.62081, "zoom": 12, "precision": "exact_pdf", "points": [[37.1151, 35.61606], [37.116, 35.61766], [37.11617, 35.61798], [37.11634, 35.61828], [37.11632, 35.61834], [37.1164, 35.61898], [37.11645, 35.61952], [37.11676, 35.62278], [37.11679, 35.62317], [37.11667, 35.62298], [37.11664, 35.62287], [37.11659, 35.62269], [37.11655, 35.62251], [37.11572, 35.61547], [37.11662, 35.61707], [37.11679, 35.61739], [37.11696, 35.61769], [37.11694, 35.61775], [37.11702, 35.61839], [37.11707, 35.61893], [37.11738, 35.62219], [37.11741, 35.62258], [37.11729, 35.62239], [37.11726, 35.62228], [37.11721, 35.6221], [37.11717, 35.62192], [37.11645, 35.62228], [37.11632, 35.62207], [37.11614, 35.62184], [37.11594, 35.62163], [37.11567, 35.62138], [37.11545, 35.62121], [37.11529, 35.6211], [37.11514, 35.62103], [37.11506, 35.621], [37.115, 35.62098], [37.11475, 35.62088], [37.11507, 35.62013], [37.11594, 35.62115], [37.1161, 35.62132]], "gis_markers": [{"lat": 37.1156, "lon": 35.59732, "color": "#0284c7", "label": "Su kütlesi / gölet: Adsız (~2084 m)"}, {"lat": 37.09147, "lon": 35.60948, "color": "#0284c7", "label": "Su kütlesi / gölet: Adsız (~2942 m)"}, {"lat": 37.12289, "lon": 35.61042, "color": "#7c3aed", "label": "Köy: Avcılar (~1174 m)"}, {"lat": 37.10219, "lon": 35.61883, "color": "#7c3aed", "label": "Mahalle: Küçükiniş (~1583 m)"}], "label": "ADANA / SARIÇAM — ETLİK PİLİÇ YETİŞTİRİCİLİĞİ"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

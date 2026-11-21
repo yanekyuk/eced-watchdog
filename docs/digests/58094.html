@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -862,12 +874,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -888,11 +898,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 40.38321, "lon": 37.63141, "zoom": 12, "precision": "exact_pdf", "points": [[40.41666, 37.6375], [40.41628, 37.6434], [40.38199, 37.6382], [40.34675, 37.57052], [40.47502, 37.47058], [40.3242, 37.62106], [40.32578, 37.62127], [40.47957, 37.47894], [40.4814, 37.48126], [40.40506, 37.60038], [40.40427, 37.60453], [40.4021, 37.60745], [40.40257, 37.60965], [40.40175, 37.61396], [40.39899, 37.61768], [40.39518, 37.6191], [40.39133, 37.61784], [40.38849, 37.61423], [40.3874, 37.60924], [40.38802, 37.60605], [40.38773, 37.60474], [40.38612, 37.60534], [40.3833, 37.60439], [40.38268, 37.6076], [40.38386, 37.60909], [40.38495, 37.61408], [40.38594, 37.61501], [40.38879, 37.61862], [40.38971, 37.62284], [40.38845, 37.62341], [40.38765, 37.62755], [40.38538, 37.63061], [40.38277, 37.63158], [40.38243, 37.63337], [40.38205, 37.63347], [40.37932, 37.63627], [40.37958, 37.63818], [40.37938, 37.63826], [40.3792, 37.6392], [40.37965, 37.64126]], "gis_markers": [{"lat": 40.38611, "lon": 37.60506, "color": "#047857", "label": "Orman / ağaçlık alan: Adsız (~2255 m)"}], "label": "SİVAS / KOYULHİSAR — ORDU RES (33 TÜRBİN, 99,6 MWm/99,6 MWe) VE ENERJİ DEPOLAMA TESİSİ (99,6 MWe/99,6MWh)"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

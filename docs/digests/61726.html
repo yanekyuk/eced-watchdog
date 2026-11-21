@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -840,12 +852,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -866,11 +876,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 37.73917, "lon": 32.29583, "zoom": 12, "precision": "exact_pdf", "points": [[37.74581, 32.29875], [37.73771, 32.29952], [37.7192, 32.30195], [37.74957, 32.30818], [37.73692, 32.29686], [37.71955, 32.28333], [37.73571, 32.30101], [37.73703, 32.29832], [37.74594, 32.27327], [37.73188, 32.29548], [37.75797, 32.32456], [37.73127, 32.2933], [37.73173, 32.29586], [37.73962, 32.3351], [37.73313, 32.29348], [37.72805, 32.28886], [37.72845, 32.2914], [37.72722, 32.29254], [37.73382, 32.29353], [37.73444, 32.29399], [37.73763, 32.31274], [37.75767, 32.32494], [37.75549, 32.29203], [37.74826, 32.28593], [37.75576, 32.28409], [37.75555, 32.28564], [37.75559, 32.28029], [37.7344, 32.30505], [37.7357, 32.29653], [37.73838, 32.29151], [37.7429, 32.29476], [37.7425, 32.30271], [37.74029, 32.30954], [37.74104, 32.28456], [37.73442, 32.29289], [37.73025, 32.29289], [37.72654, 32.2879], [37.73689, 32.27966], [37.73823, 32.28809], [37.74479, 32.29338]], "gis_markers": [], "label": "KONYA / MERAM — Yıkama Eleme Tesisi"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

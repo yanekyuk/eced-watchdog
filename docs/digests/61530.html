@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -854,12 +866,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -880,11 +890,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 37.9747, "lon": 34.09951, "zoom": 12, "precision": "exact_pdf", "points": [[37.97935, 34.09142], [37.97947, 34.09905], [37.97931, 34.09923], [37.97882, 34.0997], [37.97847, 34.10005], [37.97742, 34.10111], [37.97692, 34.10164], [37.97655, 34.1021], [37.97637, 34.10222], [37.97606, 34.10232], [37.9759, 34.10242], [37.97511, 34.10096], [37.97494, 34.1006], [37.97478, 34.10025], [37.97463, 34.09994], [37.97447, 34.09962], [37.97449, 34.09956], [37.9745, 34.0995], [37.97436, 34.0994], [37.97421, 34.09929], [37.97412, 34.0992], [37.97402, 34.0991], [37.97396, 34.09924], [37.97389, 34.09937], [37.97383, 34.09955], [37.97377, 34.09973], [37.97372, 34.09984], [37.97367, 34.09995], [37.97347, 34.09971], [37.97328, 34.09947], [37.97305, 34.09965], [37.97282, 34.09984], [37.97239, 34.10016], [37.97196, 34.10048], [37.9705, 34.10081], [37.97031, 34.10026], [37.97012, 34.09971], [37.97006, 34.09958], [37.97001, 34.09945], [37.98004, 34.09073]], "gis_markers": [], "label": "NİĞDE / BOR — OBRUK DEPOLAMALI (100 MWe / 100 MWh) GÜNEŞ ENERJİ SANTRALİ (100 MWm / 100 MWe) (175,18 ha)"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

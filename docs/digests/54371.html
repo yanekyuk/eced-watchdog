@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -844,12 +856,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -870,11 +880,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 39.95815, "lon": 30.21003, "zoom": 12, "precision": "exact_pdf", "points": [[39.96059, 30.23385], [39.95899, 30.23414], [39.95777, 30.23245], [39.95675, 30.22938], [39.95531, 30.22657], [39.95498, 30.22543], [39.95371, 30.22365], [39.95193, 30.22294], [39.95099, 30.22306], [39.94947, 30.22351], [39.94681, 30.22245], [39.94682, 30.21946], [39.94662, 30.21249], [39.9558, 30.21293], [39.95753, 30.21293], [39.95629, 30.21239], [39.95304, 30.21128], [39.94981, 30.20742], [39.94953, 30.20576], [39.94867, 30.20475], [39.9482, 30.20259], [39.9484, 30.20134], [39.94844, 30.20126], [39.94855, 30.20089], [39.94899, 30.19894], [39.94857, 30.19658], [39.94834, 30.19539], [39.94779, 30.19441], [39.94711, 30.19367], [39.94595, 30.19358], [39.94454, 30.19432], [39.94175, 30.19257], [39.94061, 30.19185], [39.9403, 30.1862], [39.94004, 30.17819], [39.94167, 30.1759], [39.94438, 30.17509], [39.94893, 30.17879], [39.9491, 30.17979], [39.95156, 30.18321]], "gis_markers": [{"lat": 39.95346, "lon": 30.18772, "color": "#65a30d", "label": "Meyve bahçesi / dikili alan: Adsız (~1972 m)"}, {"lat": 39.94106, "lon": 30.21205, "color": "#0284c7", "label": "Dere / Akarsu: Adsız (~1908 m)"}, {"lat": 39.96494, "lon": 30.18126, "color": "#0284c7", "label": "Dere / Akarsu: Adsız (~2566 m)"}, {"lat": 39.94254, "lon": 30.21808, "color": "#047857", "label": "Orman / ağaçlık alan: Adsız (~1866 m)"}, {"lat": 39.9401, "lon": 30.20334, "color": "#047857", "label": "Orman / ağaçlık alan: Adsız (~2087 m)"}, {"lat": 39.9537, "lon": 30.21835, "color": "#7c3aed", "label": "Köy: Gündüzbey (~864 m)"}, {"lat": 39.94676, "lon": 30.18788, "color": "#7c3aed", "label": "Köy: Hayriyeköy (~2274 m)"}], "label": "BİLECİK / SÖĞÜT — Üyük Depolamalı Rüzgar Enerji Santrali (4 Adet Türbin, 30 MWm/30MWe, EDT 30 MWe/30 MWh)"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

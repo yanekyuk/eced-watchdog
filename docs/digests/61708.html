@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -858,12 +870,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -884,11 +894,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.11632, "lon": 31.16315, "zoom": 12, "precision": "exact_pdf", "points": [[38.11417, 31.16495], [38.11372, 31.16497], [38.11371, 31.16474], [38.11416, 31.16472], [38.11433, 31.16469], [38.11424, 31.16469], [38.11424, 31.16446], [38.11433, 31.16446], [38.11798, 31.15954], [38.11787, 31.15969], [38.11782, 31.15981], [38.11782, 31.16014], [38.11778, 31.16016], [38.11785, 31.16037], [38.11757, 31.16039], [38.11765, 31.16134], [38.11732, 31.16165], [38.11742, 31.16182], [38.11733, 31.16197], [38.11725, 31.16214], [38.11721, 31.16223], [38.11725, 31.16231], [38.1173, 31.16243], [38.117, 31.1628], [38.11681, 31.16286], [38.11646, 31.16268], [38.11625, 31.1627], [38.11621, 31.16286], [38.11609, 31.16326], [38.11621, 31.16345], [38.11626, 31.16358], [38.11629, 31.16369], [38.11631, 31.16417], [38.11631, 31.16437], [38.11626, 31.16449], [38.11622, 31.16466], [38.11623, 31.16496], [38.11611, 31.1652], [38.11608, 31.16541], [38.11603, 31.16555]], "gis_markers": [], "label": "ISPARTA / GELENDOST,SARKIKARAAGAÇ — YEKA G24-ISPARTA GES (56 MWm / 40 MWe- 86,75 ha)"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -852,12 +864,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -878,11 +888,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 36.50726, "lon": 29.89099, "zoom": 12, "precision": "exact_pdf", "points": [[36.51452, 29.8868], [36.51153, 29.89661], [36.50987, 29.89621], [36.50928, 29.89754], [36.50424, 29.896], [36.50563, 29.8909], [36.5027, 29.88972], [36.50356, 29.88445], [36.50683, 29.88656], [36.50875, 29.88685], [36.50836, 29.8933], [36.50698, 29.89303], [36.50526, 29.89226], [36.50527, 29.88745], [36.50842, 29.89236], [36.50715, 29.89263], [36.50532, 29.89229], [36.50569, 29.89146], [36.50585, 29.8909], [36.50576, 29.89025], [36.50568, 29.88866], [36.50722, 29.88874], [36.50729, 29.88834], [36.50863, 29.88888], [36.50539, 29.88865], [36.50555, 29.8902], [36.50548, 29.89143], [36.50714, 29.89304], [36.5087, 29.88888], [36.50528, 29.89319], [36.50727, 29.88752], [36.50536, 29.89088], [36.50584, 29.89147], [36.50699, 29.89235], [36.50524, 29.88875], [36.50712, 29.89304], [36.50931, 29.89618], [36.50984, 29.89756], [36.51154, 29.89627], [36.51428, 29.89672]], "gis_markers": [], "label": "ANTALYA / ELMALI — II-B Grubu Maden (Mermer) Ocağı S:202201104 (ER:3424751)"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

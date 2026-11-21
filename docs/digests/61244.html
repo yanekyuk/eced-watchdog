@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -851,12 +863,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -877,11 +887,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 41.62731, "lon": 35.04279, "zoom": 12, "precision": "exact_pdf", "points": [[41.64607, 35.06707], [41.64517, 35.07321], [41.64363, 35.07907], [41.63782, 35.08128], [41.62863, 35.00416], [41.6339, 35.01912], [41.63684, 35.02905], [41.64276, 35.03113], [41.65109, 35.0707], [41.65091, 35.07657], [41.65122, 35.08022], [41.64945, 35.08454], [41.64564, 35.08665], [41.64185, 35.09032], [41.63784, 35.08964], [41.63523, 35.08628], [41.6352, 35.07935], [41.63393, 35.07748], [41.63241, 35.07762], [41.63074, 35.08051], [41.62754, 35.08261], [41.62398, 35.08152], [41.62076, 35.0806], [41.62107, 35.07273], [41.62262, 35.06868], [41.62519, 35.06666], [41.62237, 35.06423], [41.62135, 35.06038], [41.61911, 35.05987], [41.61673, 35.05757], [41.61542, 35.0538], [41.6123, 35.04955], [41.6121, 35.04587], [41.60952, 35.04268], [41.60475, 35.04118], [41.60286, 35.03736], [41.60005, 35.03527], [41.59833, 35.03014], [41.60017, 35.02396], [41.60369, 35.02159]], "gis_markers": [], "label": "SİNOP / BOYABAT,GERZE — GERZE RÜZGAR ENERJİ SANTRALİ (8ADET TÜRBİN VE 60MWm/48MWe KURULU GÜÇ) VE ELEKTRİK DEPOLAMA"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

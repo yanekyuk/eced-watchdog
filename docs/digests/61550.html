@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -845,12 +857,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -871,11 +881,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 40.22529, "lon": 32.10194, "zoom": 12, "precision": "exact_pdf", "points": [[40.22569, 32.10219], [40.22513, 32.10271], [40.22505, 32.10302], [40.2249, 32.10365], [40.22477, 32.10408], [40.22461, 32.10391], [40.2247, 32.10221], [40.22426, 32.10126], [40.22416, 32.10093], [40.22436, 32.10097], [40.2247, 32.10111], [40.22547, 32.10136], [40.22579, 32.10165], [40.22574, 32.10172], [40.22569, 32.1019], [40.2247, 32.10141], [40.22476, 32.10123], [40.22634, 32.10152], [40.22578, 32.10204], [40.2257, 32.10235], [40.22555, 32.10298], [40.22542, 32.10341], [40.22526, 32.10324], [40.22535, 32.10154], [40.22491, 32.10059], [40.22481, 32.10026], [40.22501, 32.1003], [40.22535, 32.10044], [40.22612, 32.10069], [40.22644, 32.10098], [40.22639, 32.10106], [40.22634, 32.10124], [40.22536, 32.10074], [40.22541, 32.10056], [40.22564, 32.10206], [40.22559, 32.10224], [40.2246, 32.10175], [40.22466, 32.10157], [40.22466, 32.10199], [40.22476, 32.10191]], "gis_markers": [], "label": "ANKARA / GÜDÜL — ETLİK PİLİÇ YETİŞTİRİCİLİĞİ KAPASİTE ARTIŞI"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

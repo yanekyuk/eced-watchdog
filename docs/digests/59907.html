@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -841,12 +853,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -867,11 +877,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 39.50138, "lon": 31.14859, "zoom": 12, "precision": "exact_pdf", "points": [[39.50214, 31.1499], [39.50234, 31.1495], [39.50285, 31.1488], [39.50315, 31.1485], [39.50225, 31.1467], [39.50205, 31.14619], [39.50125, 31.14749], [39.50105, 31.1473], [39.50074, 31.14779], [39.50064, 31.14789], [39.50105, 31.1483], [39.50134, 31.14879], [39.50154, 31.14899], [39.50145, 31.14919], [39.5015, 31.1506], [39.5017, 31.1502], [39.5022, 31.1495], [39.5025, 31.1492], [39.5016, 31.1474], [39.5014, 31.1469], [39.5006, 31.1482], [39.5004, 31.148], [39.5001, 31.1485], [39.5, 31.1486], [39.5004, 31.149], [39.5007, 31.1495], [39.5009, 31.1497], [39.5008, 31.1499]], "gis_markers": [], "label": "ESKİŞEHİR / SİVRİHİSAR — Etlik Damızlık Yumurtlama Tesisi"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

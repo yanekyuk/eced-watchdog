@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -847,12 +859,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -873,11 +883,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 40.36394, "lon": 27.90964, "zoom": 12, "precision": "exact_pdf", "points": [[40.36691, 27.90908], [40.36633, 27.91014], [40.36596, 27.91025], [40.36547, 27.91039], [40.36544, 27.91038], [40.36539, 27.91041], [40.36525, 27.91044], [40.36516, 27.91044], [40.36514, 27.91043], [40.3649, 27.91051], [40.36468, 27.91055], [40.36467, 27.91058], [40.36392, 27.91075], [40.36289, 27.911], [40.36245, 27.91066], [40.36216, 27.91072], [40.36212, 27.91053], [40.36219, 27.91048], [40.3623, 27.91042], [40.36238, 27.9104], [40.36297, 27.91039], [40.36315, 27.91034], [40.36338, 27.91027], [40.36337, 27.90996], [40.36329, 27.90987], [40.36355, 27.90979], [40.36351, 27.90952], [40.36335, 27.90954], [40.3631, 27.90967], [40.36296, 27.90944], [40.36277, 27.90938], [40.36249, 27.9095], [40.362, 27.90979], [40.36199, 27.90958], [40.36188, 27.90925], [40.36182, 27.90911], [40.36155, 27.90815], [40.36124, 27.90696], [40.36138, 27.90693], [40.36249, 27.907]], "gis_markers": [], "label": "BALIKESİR / BANDIRMA — Bandırma Yeni Atık Depolama Tesisleri"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

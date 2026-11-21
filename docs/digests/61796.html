@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -849,12 +861,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -875,11 +885,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 39.66899, "lon": 27.86268, "zoom": 12, "precision": "exact_pdf", "points": [[39.66146, 27.83158], [39.66129, 27.83272], [39.6612, 27.83388], [39.66114, 27.83504], [39.66112, 27.8362], [39.66129, 27.83735], [39.66166, 27.83841], [39.66218, 27.83936], [39.66271, 27.8403], [39.66324, 27.84124], [39.66378, 27.84217], [39.66433, 27.84309], [39.66492, 27.84398], [39.66549, 27.84488], [39.66604, 27.8458], [39.66656, 27.84675], [39.66705, 27.84773], [39.66698, 27.84778], [39.66752, 27.84872], [39.66738, 27.84883], [39.66796, 27.84974], [39.66781, 27.84985], [39.66837, 27.85078], [39.66822, 27.85089], [39.66875, 27.85183], [39.6686, 27.85194], [39.6691, 27.85291], [39.66895, 27.85302], [39.66942, 27.854], [39.66927, 27.85411], [39.66971, 27.8551], [39.66956, 27.85521], [39.66999, 27.85621], [39.66984, 27.85632], [39.67022, 27.85733], [39.67006, 27.85745], [39.67038, 27.85848], [39.67022, 27.85859], [39.67047, 27.85964], [39.6703, 27.85975]], "gis_markers": [], "label": "BALIKESİR / KARESİ — Balıkesir Kuzeybatı Çevre Yolu"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

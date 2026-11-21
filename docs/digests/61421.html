@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -842,12 +854,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -868,11 +878,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.32851, "lon": 29.33367, "zoom": 12, "precision": "exact_pdf", "points": [[38.32838, 29.33184], [38.32838, 29.3324], [38.3285, 29.33284], [38.32867, 29.33349], [38.32771, 29.33392], [38.3275, 29.33223], [38.32735, 29.33263], [38.32727, 29.33234], [38.32857, 29.33348], [38.32848, 29.33351], [38.32846, 29.33343], [38.32854, 29.33339], [38.32941, 29.33413], [38.32926, 29.33419], [38.32896, 29.33311], [38.3291, 29.33305], [38.32872, 29.33322], [38.32887, 29.33315], [38.32917, 29.33423], [38.32902, 29.3343], [38.32937, 29.33455], [38.32938, 29.33459], [38.32936, 29.3346], [38.32935, 29.33457], [38.32896, 29.33478], [38.32892, 29.33479], [38.32891, 29.33475], [38.32894, 29.33473], [38.32886, 29.33477], [38.32887, 29.33482], [38.32884, 29.33483], [38.32883, 29.33479], [38.32877, 29.33479], [38.32879, 29.33485], [38.32869, 29.3349], [38.32867, 29.33484], [38.32845, 29.33308], [38.32831, 29.33314], [38.32801, 29.33207], [38.32815, 29.332]], "gis_markers": [], "label": "UŞAK / ULUBEY — Etlik Piliç Yetiştirme Tesisi"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

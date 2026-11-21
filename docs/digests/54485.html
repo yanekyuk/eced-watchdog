@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -847,12 +859,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -873,11 +883,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 40.6781, "lon": 26.7151, "zoom": 12, "precision": "exact_pdf", "points": [[40.68396, 26.7377], [40.68414, 26.73297], [40.68631, 26.72903], [40.68397, 26.73523], [40.68402, 26.73598], [40.68375, 26.73601], [40.6837, 26.73526], [40.68394, 26.73471], [40.68368, 26.73473], [40.68464, 26.7372], [40.68481, 26.73248], [40.68699, 26.72854], [40.68465, 26.73474], [40.68469, 26.73549], [40.68442, 26.73551], [40.68438, 26.73477], [40.68462, 26.73422], [40.68435, 26.73424], [40.69123, 26.7296], [40.69004, 26.73551], [40.68676, 26.73985], [40.68362, 26.74096], [40.68181, 26.74336], [40.67732, 26.74495], [40.67282, 26.74339], [40.66953, 26.73908], [40.66881, 26.73561], [40.66868, 26.73557], [40.66539, 26.73127], [40.66417, 26.72537], [40.66483, 26.72209], [40.66429, 26.71946], [40.66548, 26.71356], [40.66875, 26.70923], [40.67324, 26.70763], [40.67774, 26.70919], [40.68104, 26.71349], [40.68195, 26.71792], [40.68221, 26.71783], [40.68671, 26.71939]], "gis_markers": [{"lat": 40.66093, "lon": 26.69608, "color": "#0284c7", "label": "Dere / Akarsu: Adsız (~2494 m)"}, {"lat": 40.65831, "lon": 26.69318, "color": "#0284c7", "label": "Su kütlesi / gölet: Adsız (~2874 m)"}, {"lat": 40.67247, "lon": 26.70349, "color": "#047857", "label": "Orman / ağaçlık alan: Adsız (~1162 m)"}, {"lat": 40.69106, "lon": 26.72942, "color": "#047857", "label": "Orman / ağaçlık alan: Adsız (~1880 m)"}], "label": "EDİRNE / KEŞAN — Subaşı Rüzgâr Enerji Santrali (22,5 MWm / 21,00 MWe / 3 Adet Türbin) ve Elektrik Depolama "};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

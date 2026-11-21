@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -854,12 +866,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -880,11 +890,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 39.25949, "lon": 33.46001, "zoom": 12, "precision": "exact_pdf", "points": [[39.28502, 33.45392], [39.30996, 33.50265], [39.29172, 33.54949], [39.28182, 33.50043], [39.26347, 33.45738], [39.2629, 33.45963], [39.25821, 33.45657], [39.25814, 33.45644], [39.25809, 33.45672], [39.25812, 33.45705], [39.25836, 33.45786], [39.25842, 33.45773], [39.26268, 33.46051], [39.26228, 33.46207], [39.25912, 33.46001], [39.25909, 33.45986], [39.25903, 33.45968], [39.25896, 33.45977], [39.25784, 33.45969], [39.25803, 33.46188], [39.2576, 33.4609], [39.25725, 33.46117], [39.25763, 33.46198], [39.25563, 33.46241], [39.25541, 33.46246], [39.25492, 33.46172], [39.25483, 33.4616], [39.25446, 33.46085], [39.2541, 33.46009], [39.2536, 33.45877], [39.25358, 33.45853], [39.25274, 33.45573], [39.25271, 33.45568], [39.25294, 33.45569], [39.25398, 33.45577], [39.25453, 33.45581], [39.25489, 33.45583], [39.25563, 33.4575], [39.25655, 33.4596], [39.25712, 33.46088]], "gis_markers": [{"lat": 39.26675, "lon": 33.47911, "color": "#7c3aed", "label": "Mahalle: Hacıabdullah (~1832 m)"}, {"lat": 39.25617, "lon": 33.48439, "color": "#7c3aed", "label": "Köy: Kuyular (~2131 m)"}], "label": "ANKARA / BALA — BİM ANKARA BALA GES (Kurulu Güç:46 MWm /30 MWe, Alan:72,26 ha)"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

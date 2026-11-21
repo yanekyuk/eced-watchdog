@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -852,12 +864,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -878,11 +888,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 40.89487, "lon": 29.4535, "zoom": 12, "precision": "exact_pdf", "points": [[40.89549, 29.45264], [40.89532, 29.45453], [40.89485, 29.45465], [40.89437, 29.4547], [40.89356, 29.45482], [40.89333, 29.45492], [40.89308, 29.45508], [40.89294, 29.45525], [40.89251, 29.45588], [40.89226, 29.45613], [40.89206, 29.45625], [40.89185, 29.45634], [40.89249, 29.45098], [40.89294, 29.45123], [40.8933, 29.45143], [40.89341, 29.45154], [40.89352, 29.45155], [40.89243, 29.4515], [40.8925, 29.45153], [40.89286, 29.45169], [40.89393, 29.45158], [40.89486, 29.45123], [40.89499, 29.45112], [40.89551, 29.45455], [40.89643, 29.45482], [40.89673, 29.45484], [40.89736, 29.45468], [40.89767, 29.45464], [40.89788, 29.4545], [40.89837, 29.45401], [40.89851, 29.45381], [40.89854, 29.45377], [40.89852, 29.45368], [40.89818, 29.45265], [40.89815, 29.45265], [40.898, 29.45243], [40.89724, 29.45182], [40.89684, 29.45114], [40.89662, 29.45099], [40.89601, 29.45078]], "gis_markers": [], "label": "KOCAELİ / GEBZE — I-A Grubu Ariyet Ocağı ER: 3552407(2026/02)"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

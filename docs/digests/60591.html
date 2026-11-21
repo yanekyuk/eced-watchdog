@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -844,12 +856,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -870,11 +880,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.63187, "lon": 39.03344, "zoom": 12, "precision": "exact_pdf", "points": [[38.63118, 39.03472], [38.63141, 39.0347], [38.63165, 39.03468], [38.63197, 39.03468], [38.63118, 39.03429], [38.63119, 39.03385], [38.632, 39.03358], [38.63177, 39.03352], [38.63158, 39.03344], [38.63123, 39.03339], [38.63159, 39.03339], [38.63128, 39.03321], [38.63144, 39.03341], [38.63144, 39.03453], [38.63128, 39.03453], [38.63128, 39.03341], [38.63191, 39.03375], [38.63188, 39.03375], [38.63191, 39.0337], [38.63188, 39.0337], [38.6318, 39.03392], [38.63203, 39.03389], [38.63228, 39.03388], [38.63259, 39.03387], [38.6318, 39.03349], [38.63181, 39.03305], [38.63262, 39.03277], [38.63239, 39.03272], [38.6322, 39.03264], [38.63185, 39.03259], [38.63221, 39.03259], [38.6319, 39.0324], [38.63207, 39.03261], [38.63207, 39.03372], [38.6319, 39.03372], [38.6319, 39.03261], [38.63253, 39.03295], [38.6325, 39.03295], [38.63253, 39.0329], [38.6325, 39.0329]], "gis_markers": [], "label": "ELAZIĞ / MERKEZ — ETLİK PİLİÇ YETİŞTİRME TESİSİ"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

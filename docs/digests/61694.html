@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -852,12 +864,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -878,11 +888,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 39.11972, "lon": 32.10965, "zoom": 12, "precision": "exact_pdf", "points": [[39.12205, 32.10579], [39.12156, 32.10949], [39.11896, 32.10922], [39.11948, 32.10514], [39.12032, 32.10936], [39.11963, 32.10866], [39.11936, 32.10817], [39.11934, 32.10621], [39.12195, 32.10589], [39.12155, 32.10893], [39.12002, 32.10891], [39.1197, 32.10858], [39.11945, 32.10814], [39.11943, 32.10622], [39.11955, 32.10528], [39.12149, 32.10937], [39.12081, 32.1093], [39.12083, 32.10892], [39.12035, 32.10925], [39.12049, 32.10733], [39.13741, 32.10645], [39.11899, 32.11279], [39.11975, 32.11304], [39.11938, 32.11589], [39.12047, 32.10444], [39.12246, 32.10875], [39.12224, 32.10917], [39.12008, 32.10449], [39.11852, 32.10591], [39.11875, 32.1055], [39.11902, 32.10514], [39.09705, 32.14319], [39.11043, 32.12568]], "gis_markers": [], "label": "ANKARA / POLATLI — (ER.3358259) 06/2017-11 İZİN NUMARALI I-(A) GRUBU ŞEYHAHMETLİ ARİYET OCAĞI"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -858,12 +870,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -884,11 +894,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 40.56688, "lon": 35.2127, "zoom": 12, "precision": "exact_pdf", "points": [[40.58588, 35.22156], [40.58289, 35.22799], [40.57939, 35.22874], [40.57959, 35.21853], [40.58251, 35.21656], [40.58652, 35.22099], [40.58353, 35.22742], [40.58004, 35.22817], [40.58023, 35.21796], [40.58315, 35.21599], [40.21653, 34.90459], [40.21703, 34.90764], [40.58021, 35.22774], [40.5802, 35.22845], [40.57949, 35.2286], [40.5795, 35.2279], [40.58123, 35.22753], [40.58121, 35.22823], [40.58055, 35.22838], [40.58056, 35.22767], [40.58577, 35.22157], [40.58284, 35.22789], [40.5813, 35.22822], [40.58132, 35.22737], [40.5795, 35.22776], [40.57968, 35.2186], [40.58249, 35.21671], [40.5805, 35.22768], [40.58048, 35.22839], [40.58026, 35.22844], [40.58027, 35.22773], [40.58085, 35.22717], [40.58084, 35.22788], [40.58013, 35.22803], [40.58014, 35.22732], [40.58187, 35.22695], [40.58185, 35.22766], [40.58119, 35.2278], [40.5812, 35.2271], [40.58641, 35.221]], "gis_markers": [], "label": "ÇORUM / MECITÖZÜ — Şems Alaca Güneş Enerji Santrali (25 MWm/25 MWe 50 ha) ve Elektrik Depolama Tesisi (25 MWh"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

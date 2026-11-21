@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -853,12 +865,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -879,11 +889,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 37.93728, "lon": 34.78045, "zoom": 12, "precision": "exact_pdf", "points": [[37.97211, 34.77848], [37.97205, 34.80067], [37.93906, 34.80068], [37.93978, 34.83447], [37.92575, 34.83412], [37.91517, 34.80513], [37.93459, 34.78632], [37.93458, 34.77557], [37.9188, 34.77607], [37.9189, 34.76922], [37.93906, 34.769], [37.93915, 34.75948], [37.94226, 34.77433], [37.93774, 34.77479], [37.93513, 34.76905], [37.94045, 34.77452], [37.9379, 34.77301], [37.93816, 34.77188], [37.93784, 34.77125], [37.93773, 34.77068], [37.93775, 34.77027], [37.93828, 34.76964], [37.93685, 34.76902], [37.93718, 34.76982], [37.93494, 34.76812], [37.94284, 34.77197], [37.93616, 34.76688], [37.92256, 34.78286], [37.92573, 34.76572], [37.93551, 34.76743], [37.93448, 34.76892], [37.93413, 34.76981], [37.93908, 34.77137], [37.91868, 34.78052], [37.93953, 34.77024], [37.91899, 34.78071], [37.91821, 34.78098], [37.93901, 34.77154], [37.93308, 34.78549], [37.97306, 34.77953]], "gis_markers": [], "label": "NİĞDE / MERKEZ — 79936 Ruhsat Numaralı Sahada IV.Grup Maden Ocağı Kapasite Artışı"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

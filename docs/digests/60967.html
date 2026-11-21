@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -851,12 +863,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -877,11 +887,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 41.27458, "lon": 27.5921, "zoom": 12, "precision": "exact_pdf", "points": [[41.27463, 27.59408], [41.27479, 27.59376], [41.27486, 27.5936], [41.27488, 27.59355], [41.27502, 27.59321], [41.27511, 27.59297], [41.27519, 27.59276], [41.2752, 27.59274], [41.27528, 27.5925], [41.27528, 27.59249], [41.27533, 27.59235], [41.27536, 27.59226], [41.2754, 27.59213], [41.2754, 27.59212], [41.27544, 27.59202], [41.27582, 27.59082], [41.27593, 27.59047], [41.27598, 27.59032], [41.27595, 27.59021], [41.2756, 27.58994], [41.27558, 27.58986], [41.27592, 27.58879], [41.27535, 27.58853], [41.2753, 27.58872], [41.27525, 27.58891], [41.27519, 27.58915], [41.27515, 27.58925], [41.27511, 27.58938], [41.27508, 27.58948], [41.27503, 27.5896], [41.27494, 27.58982], [41.27488, 27.58996], [41.27481, 27.59013], [41.27472, 27.59036], [41.27463, 27.59058], [41.27456, 27.59076], [41.27453, 27.59083], [41.27448, 27.59096], [41.2744, 27.59114], [41.27434, 27.59128]], "gis_markers": [], "label": "TEKİRDAĞ / ERGENE — Oligonükleotid Platformu ve Kimyasal Sentez Yoluyla İlaç Etken Maddesi (API), Parenteral Ç"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

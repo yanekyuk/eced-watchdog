@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -854,12 +866,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -880,11 +890,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 36.83536, "lon": 31.50732, "zoom": 12, "precision": "exact_pdf", "points": [[36.83219, 31.51855], [36.83682, 31.5044], [36.83792, 31.50174], [36.83054, 31.51014], [36.83215, 31.51857], [36.83673, 31.50444], [36.83799, 31.50176], [36.83058, 31.51018], [36.83261, 31.51057], [36.83819, 31.5059], [36.82743, 31.50839], [36.83899, 31.51342], [36.83831, 31.50657], [36.8382, 31.50658], [36.83786, 31.50673], [36.83761, 31.50691], [36.83752, 31.50687], [36.83695, 31.50653], [36.83701, 31.50765], [36.83629, 31.50729], [36.83625, 31.50758], [36.83577, 31.50757], [36.83563, 31.50686], [36.83578, 31.5068], [36.83563, 31.50658], [36.83534, 31.50689], [36.83492, 31.50647], [36.83488, 31.50641], [36.83477, 31.50656], [36.83473, 31.50663], [36.83468, 31.5067], [36.83465, 31.50676], [36.8347, 31.50731], [36.83499, 31.50756], [36.83414, 31.50778], [36.83425, 31.50739], [36.834, 31.50676], [36.83389, 31.50684], [36.83399, 31.50705], [36.83397, 31.50764]], "gis_markers": [], "label": "ANTALYA / MANAVGAT — Manavgat 1 Güneş Enerji Santrali (13,728 MWm/10 MWe/11,30 ha) ve Elektrik Depolama Tesisi "};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

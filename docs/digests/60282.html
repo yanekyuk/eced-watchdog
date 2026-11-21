@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -852,12 +864,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -878,11 +888,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 39.56742, "lon": 31.70784, "zoom": 12, "precision": "exact_pdf", "points": [[39.571, 31.70293], [39.56636, 31.73066], [39.56117, 31.73076], [39.56083, 31.69992], [39.56529, 31.69576], [39.57095, 31.70324], [39.56978, 31.71023], [39.56647, 31.70796], [39.56876, 31.70014], [39.5708, 31.70276], [39.56733, 31.707], [39.56719, 31.70745], [39.5667, 31.70715], [39.56691, 31.70643], [39.56723, 31.70662], [39.56715, 31.70689], [39.56694, 31.70829], [39.56741, 31.70673], [39.56811, 31.70679], [39.56757, 31.70871], [39.56734, 31.70627], [39.56703, 31.70606], [39.57165, 31.70225], [39.567, 31.72998], [39.56182, 31.73008], [39.56148, 31.69924], [39.56594, 31.69508], [39.5716, 31.70256], [39.57043, 31.70955], [39.56711, 31.70728], [39.56941, 31.69946], [39.57145, 31.70208], [39.56798, 31.70632], [39.56784, 31.70677], [39.56735, 31.70647], [39.56756, 31.70575], [39.56788, 31.70594], [39.5678, 31.7062], [39.56759, 31.7076], [39.56806, 31.70605]], "gis_markers": [], "label": "ESKİŞEHİR / SİVRİHİSAR — 202101367 (ER: 2213339) RUHSAT NUMARALI SEPİYOLİT OCAĞI VE KIRMA ELEME TESİSİ"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -837,12 +849,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -863,11 +873,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 41.28778, "lon": 36.29395, "zoom": 12, "precision": "exact_pdf", "points": [[41.28895, 36.29356], [41.28877, 36.2938], [41.28804, 36.29446], [41.28748, 36.29504], [41.28731, 36.29523], [41.28708, 36.29547], [41.28697, 36.29536], [41.2867, 36.29509], [41.2867, 36.29459], [41.28672, 36.29447], [41.28677, 36.29427], [41.28683, 36.29411], [41.28721, 36.29342], [41.2878, 36.29244], [41.28816, 36.2919], [41.28821, 36.2919], [41.28896, 36.29347], [41.28959, 36.29302], [41.28941, 36.29326], [41.28868, 36.29392], [41.28812, 36.2945], [41.28795, 36.29469], [41.28772, 36.29493], [41.28761, 36.29482], [41.28734, 36.29455], [41.28734, 36.29405], [41.28736, 36.29393], [41.28741, 36.29373], [41.28747, 36.29357], [41.28785, 36.29288], [41.28844, 36.2919], [41.2888, 36.29136], [41.28885, 36.29136], [41.2896, 36.29293], [41.28722, 36.29522], [41.28674, 36.295], [41.28706, 36.29498], [41.28821, 36.29434], [41.288, 36.29222], [41.28694, 36.29537]], "gis_markers": [], "label": "SAMSUN / İLKADIM — Mall Of Samsun AVM ve Konut (215 adet mağaza/işyeri-206.525 m2 ve 186 adet konut-35.756 m2"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

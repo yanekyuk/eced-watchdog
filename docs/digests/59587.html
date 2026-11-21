@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -841,12 +853,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -867,11 +877,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 37.59725, "lon": 34.40712, "zoom": 12, "precision": "exact_pdf", "points": [[37.59939, 34.4064], [37.59722, 34.40848], [37.59505, 34.41055], [37.5949, 34.41054], [37.59513, 34.41027], [37.59528, 34.41005], [37.59551, 34.40961], [37.59574, 34.40917], [37.59607, 34.40837], [37.59631, 34.40779], [37.59659, 34.40714], [37.59681, 34.40649], [37.59703, 34.40598], [37.59717, 34.40566], [37.59831, 34.40611], [37.59827, 34.4063], [37.59718, 34.40594], [37.59722, 34.40574], [37.59824, 34.40643], [37.5982, 34.40663], [37.59711, 34.40627], [37.59715, 34.40607], [37.59709, 34.40643], [37.59705, 34.40659], [37.59714, 34.40663], [37.59718, 34.40646], [37.59704, 34.40669], [37.59702, 34.40674], [37.59706, 34.40676], [37.59708, 34.4067], [37.59872, 34.40628], [37.5987, 34.40637], [37.59861, 34.40634], [37.59863, 34.40625], [37.59865, 34.40659], [37.59863, 34.40667], [37.59854, 34.40664], [37.59856, 34.40656]], "gis_markers": [], "label": "NİĞDE / ULUKIŞLA — ETLİK PİLİÇ YETİŞTİRME TESİSİ"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -851,12 +863,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -877,11 +887,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 41.10348, "lon": 28.68393, "zoom": 12, "precision": "exact_pdf", "points": [[41.10644, 28.68543], [41.10589, 28.68565], [41.10494, 28.68461], [41.10464, 28.68426], [41.1043, 28.684], [41.10407, 28.68405], [41.10386, 28.68409], [41.10366, 28.68419], [41.10361, 28.68422], [41.10349, 28.68429], [41.10338, 28.68447], [41.10323, 28.68462], [41.10307, 28.68478], [41.10291, 28.68493], [41.1027, 28.68503], [41.10262, 28.68503], [41.10247, 28.68504], [41.10235, 28.68513], [41.10241, 28.68413], [41.10242, 28.68395], [41.10242, 28.68391], [41.10243, 28.68391], [41.10246, 28.68391], [41.10248, 28.6839], [41.10251, 28.6839], [41.10254, 28.68389], [41.10256, 28.68388], [41.10259, 28.68386], [41.10261, 28.68385], [41.10264, 28.68383], [41.10266, 28.68381], [41.10268, 28.68379], [41.1027, 28.68377], [41.10272, 28.68375], [41.10274, 28.68372], [41.10276, 28.6837], [41.10278, 28.68367], [41.10288, 28.68349], [41.10292, 28.68343], [41.10296, 28.68338]], "gis_markers": [{"lat": 41.10301, "lon": 28.67096, "color": "#0284c7", "label": "Su kütlesi / gölet: Adsız (~1088 m)"}, {"lat": 41.09251, "lon": 28.67397, "color": "#0284c7", "label": "Su kütlesi / gölet: Adsız (~1478 m)"}, {"lat": 41.10104, "lon": 28.70804, "color": "#047857", "label": "Orman / ağaçlık alan: Adsız (~2039 m)"}, {"lat": 41.11152, "lon": 28.65453, "color": "#7c3aed", "label": "Semt: Deliklikaya (~2621 m)"}, {"lat": 41.08133, "lon": 28.6702, "color": "#7c3aed", "label": "Semt: Boğazköy (~2718 m)"}, {"lat": 41.09955, "lon": 28.6722, "color": "#ea580c", "label": "Okul: Hacı Şöhret Demiröz Fen Lisesi (~1076 m)"}, {"lat": 41.10022, "lon": 28.67117, "color": "#ea580c", "label": "Okul: Demiröz Eğitim ve Yaşam Vadisi (~1129 m)"}], "label": "İSTANBUL / BAŞAKŞEHİR — Toplu Konut Projesi(307 Konut + 4 Ticari Alan)"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

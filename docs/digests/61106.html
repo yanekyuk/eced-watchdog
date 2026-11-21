@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -842,12 +854,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -868,11 +878,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 37.84938, "lon": 40.803, "zoom": 12, "precision": "exact_pdf", "points": [[37.84908, 40.79933], [37.84908, 40.8004], [37.84905, 40.80196], [37.84833, 40.80655], [37.84808, 40.80716], [37.84795, 40.80707], [37.84791, 40.80706], [37.84829, 40.80382], [37.84867, 40.80052], [37.84881, 40.79921], [37.84884, 40.80268], [37.84881, 40.80294], [37.84875, 40.80293], [37.84878, 40.80267], [37.84866, 40.80317], [37.84969, 40.79857], [37.84969, 40.79964], [37.84967, 40.80121], [37.84895, 40.80579], [37.84869, 40.80641], [37.84856, 40.80631], [37.84852, 40.80631], [37.8489, 40.80307], [37.84928, 40.79977], [37.84942, 40.79845], [37.84945, 40.80192], [37.84942, 40.80218], [37.84936, 40.80217], [37.84939, 40.80191], [37.84927, 40.80241], [37.84865, 40.8032], [37.84863, 40.8032], [37.84863, 40.80316], [37.84887, 40.80242], [37.84881, 40.80241], [37.84927, 40.80244], [37.84924, 40.80244], [37.84924, 40.8024], [37.84948, 40.80166], [37.84942, 40.80165]], "gis_markers": [], "label": "DİYARBAKIR / BİSMİL — Akaryakıt, LPG, Kuru Yük Depolama/İkmal Tesisi"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

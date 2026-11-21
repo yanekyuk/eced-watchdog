@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -853,12 +865,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -879,11 +889,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 41.68325, "lon": 32.37086, "zoom": 12, "precision": "exact_pdf", "points": [[41.67816, 32.42245], [41.67821, 32.42448], [41.67685, 32.42481], [41.67759, 32.42651], [41.67824, 32.42836], [41.67338, 32.428], [41.67339, 32.42174], [41.67615, 32.42627], [41.67622, 32.42707], [41.67578, 32.42705], [41.67547, 32.42636], [41.67642, 32.4237], [41.6765, 32.42383], [41.67638, 32.42399], [41.67625, 32.42387], [41.67652, 32.42361], [41.67657, 32.42371], [41.67653, 32.42374], [41.67648, 32.42364], [41.67882, 32.4218], [41.67887, 32.42383], [41.6775, 32.42416], [41.67825, 32.42586], [41.6789, 32.42771], [41.67404, 32.42735], [41.67405, 32.42109], [41.67681, 32.42562], [41.67687, 32.42642], [41.67644, 32.4264], [41.67613, 32.42571], [41.67708, 32.42305], [41.67716, 32.42318], [41.67703, 32.42334], [41.67691, 32.42322], [41.67718, 32.42296], [41.67722, 32.42306], [41.67719, 32.42309], [41.67714, 32.42299], [41.67266, 32.4211], [41.79442, 32.70947]], "gis_markers": [], "label": "BARTIN / MERKEZ — 72582 NOLU (ER:1155435)  IV. GRUP İŞLETME RUHSATLI MONTMORİLLONİT OCAĞI"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

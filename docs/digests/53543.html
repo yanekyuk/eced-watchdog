@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -845,12 +857,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -871,11 +881,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.18959, "lon": 40.08919, "zoom": 12, "precision": "exact_pdf", "points": [[38.37164, 40.06131], [38.36999, 40.06005], [38.36795, 40.05849], [38.36542, 40.05656], [38.36315, 40.05483], [38.3607, 40.05296], [38.3583, 40.05279], [38.35595, 40.05262], [38.35379, 40.05246], [38.35032, 40.05221], [38.34671, 40.05196], [38.34433, 40.05266], [38.34101, 40.05363], [38.33819, 40.05446], [38.3357, 40.05487], [38.33109, 40.05562], [38.32854, 40.05604], [38.32645, 40.05639], [38.32373, 40.05487], [38.3212, 40.05347], [38.3184, 40.05191], [38.31501, 40.05003], [38.31137, 40.048], [38.30761, 40.05002], [38.02389, 40.1506], [38.0221, 40.14973], [38.02068, 40.14838], [38.02046, 40.14554], [38.02132, 40.14297], [38.02189, 40.14181], [38.37208, 40.06114], [38.02203, 40.14135], [38.21157, 40.23671], [38.07885, 40.15022], [38.27674, 40.24007], [38.24752, 40.03101], [38.2658, 40.10728], [38.15494, 39.95271], [38.0967, 40.01467], [38.14748, 39.95911]], "gis_markers": [{"lat": 38.18719, "lon": 40.09736, "color": "#65a30d", "label": "Bağ: Adsız (~763 m)"}, {"lat": 38.18829, "lon": 40.0979, "color": "#65a30d", "label": "Bağ: Adsız (~775 m)"}, {"lat": 38.1959, "lon": 40.08559, "color": "#7c3aed", "label": "Mezra: Adsız (~769 m)"}, {"lat": 38.19018, "lon": 40.10426, "color": "#7c3aed", "label": "Mezra: Yukarı Döşemeler (~1319 m)"}], "label": "DİYARBAKIR / DİCLE,EĞİL,YENİŞEHİR — 154 kV İSDEMİR DİYARBAKIR GES TM-DİYARBAKIR-3 TM ELEKTRİK ENERJİSİ İLETİM HATTI"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

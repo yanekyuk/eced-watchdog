@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -853,12 +865,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -879,11 +889,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 39.73597, "lon": 29.07154, "zoom": 12, "precision": "exact_pdf", "points": [[39.77172, 29.04856], [39.78237, 29.09016], [39.76687, 29.12529], [39.72955, 29.12648], [39.69872, 29.11999], [39.69901, 29.10426], [39.69737, 29.08759], [39.68964, 29.08648], [39.68673, 29.08797], [39.67659, 29.06044], [39.71395, 29.03705], [39.73526, 29.01843], [39.74075, 29.06217], [39.736, 29.06384], [39.72796, 29.05992], [39.69663, 29.07876], [39.71483, 29.07336], [39.76067, 29.05652], [39.7577, 29.06079], [39.75766, 29.06091], [39.75756, 29.06119], [39.7571, 29.06305], [39.75665, 29.06332], [39.75645, 29.06325], [39.75632, 29.06323], [39.75612, 29.06315], [39.75588, 29.06305], [39.75548, 29.06283], [39.75537, 29.06228], [39.75559, 29.06203], [39.75534, 29.06098], [39.75473, 29.06016], [39.7547, 29.05943], [39.75585, 29.05858], [39.75618, 29.05843], [39.75657, 29.05842], [39.75742, 29.05921], [39.75762, 29.05969], [39.75766, 29.06041], [39.77267, 29.04961]], "gis_markers": [], "label": "BURSA / ORHANELİ — Kırma-Eleme, Cevher Hazırlama ve Döküm Yöntemleri ile Yüksek Karbonlu Ferrokrom ve Alterna"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

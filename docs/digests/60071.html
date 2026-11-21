@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -851,12 +863,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -877,11 +887,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.32014, "lon": 34.93753, "zoom": 12, "precision": "exact_pdf", "points": [[38.31954, 34.92544], [38.32118, 34.92787], [38.32104, 34.92865], [38.32073, 34.92931], [38.32095, 34.92947], [38.32083, 34.93002], [38.32072, 34.93052], [38.32033, 34.93019], [38.32015, 34.93033], [38.31988, 34.93007], [38.31967, 34.93025], [38.32002, 34.93068], [38.31969, 34.93097], [38.31956, 34.93077], [38.3191, 34.93138], [38.31875, 34.93135], [38.31838, 34.93157], [38.31847, 34.93219], [38.31848, 34.93219], [38.31882, 34.93294], [38.3186, 34.93287], [38.31863, 34.93333], [38.31912, 34.93334], [38.31919, 34.93403], [38.31941, 34.93417], [38.31946, 34.93442], [38.31979, 34.93426], [38.31998, 34.93463], [38.32126, 34.93498], [38.32174, 34.9348], [38.32188, 34.93494], [38.32224, 34.93494], [38.32281, 34.93531], [38.32281, 34.93532], [38.32205, 34.93599], [38.32258, 34.93649], [38.32253, 34.937], [38.32242, 34.93702], [38.32248, 34.93739], [38.32224, 34.93775]], "gis_markers": [], "label": "NİĞDE / MERKEZ — HSE GÜNEŞ ENERJİ SANTRALİ (100 MWm/100 MWe-153,76 ha) VE ELEKTRİK DEPOLAMA TESİSİ (100 MWe"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

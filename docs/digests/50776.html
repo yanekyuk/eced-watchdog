@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -851,12 +863,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -877,11 +887,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 36.38021, "lon": 29.4593, "zoom": 12, "precision": "exact_pdf", "points": [[36.39391, 29.46077], [36.38903, 29.4666], [36.38568, 29.46897], [36.38198, 29.46832], [36.38094, 29.46557], [36.38292, 29.46124], [36.38605, 29.461], [36.38802, 29.45891], [36.38563, 29.45714], [36.38428, 29.45557], [36.38438, 29.45308], [36.38939, 29.45442], [36.38756, 29.45591], [36.38896, 29.4579], [36.39017, 29.45711], [36.39326, 29.45901], [36.38729, 29.45386], [36.38728, 29.45449], [36.38667, 29.45495], [36.3866, 29.45728], [36.38639, 29.45726], [36.38638, 29.4577], [36.38857, 29.45793], [36.38806, 29.45888], [36.38794, 29.45879], [36.38801, 29.45862], [36.3881, 29.45847], [36.3881, 29.45833], [36.38795, 29.45824], [36.38797, 29.45804], [36.38643, 29.45386], [36.38613, 29.45399], [36.38596, 29.4541], [36.38583, 29.45428], [36.3857, 29.45462], [36.38569, 29.45491], [36.38574, 29.45537], [36.38575, 29.45592], [36.38582, 29.45616], [36.38598, 29.4565]], "gis_markers": [], "label": "ANTALYA / KAŞ — 201701049 RUHSAT NUMARALI (ER:3358816) MERMER OCAĞI"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,

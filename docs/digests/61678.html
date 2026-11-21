@@ -627,6 +627,18 @@ pre.template-box {
   gap: 10px;
 }
 .leaflet-popup-content { color: #101828; font-size: 0.84rem; line-height: 1.45; }
+/* Calm muted editorial map styling on free OSM tiles (markers on overlay-pane stay full color) */
+.leaflet-tile-pane {
+  filter: saturate(0.32) contrast(0.96) brightness(1.03);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+  }
+}
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.32) brightness(0.88) contrast(0.94);
+}
 @media (max-width: 700px) {
   table.kv th { width: 140px; }
   #map { height: 270px; }
@@ -856,12 +868,10 @@ pre.template-box {
 })();
 
 
-function createCartoTileLayer(isDark) {
-  const style = isDark ? 'dark_all' : 'light_all';
-  return L.tileLayer(`https://{s}.basemaps.cartocdn.com/${style}/{z}/{x}/{y}{r}.png`, {
+function createOsmTileLayer() {
+  return L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    subdomains: 'abcd',
-    attribution: '&copy; OpenStreetMap &copy; CARTO'
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
   });
 }
 
@@ -882,11 +892,7 @@ function createCartoTileLayer(isDark) {
   if (typeof L === 'undefined') return;
   const g = {"lat": 41.12985, "lon": 28.69961, "zoom": 12, "precision": "exact_pdf", "points": [[41.13254, 28.69607], [41.13229, 28.69652], [41.13229, 28.69653], [41.13222, 28.69658], [41.13222, 28.69681], [41.13227, 28.69903], [41.13223, 28.6991], [41.13061, 28.69917], [41.13056, 28.69911], [41.13043, 28.69911], [41.13038, 28.69918], [41.12916, 28.69923], [41.12868, 28.70018], [41.12833, 28.70065], [41.12827, 28.70065], [41.12817, 28.70077], [41.12817, 28.70086], [41.12631, 28.70337], [41.12624, 28.70337], [41.12615, 28.70349], [41.12615, 28.70358], [41.12627, 28.70374], [41.12634, 28.70374], [41.12665, 28.70415], [41.12675, 28.70402], [41.127, 28.70368], [41.13253, 28.69653], [41.13229, 28.69658], [41.13219, 28.69903], [41.13227, 28.6991], [41.13223, 28.69921], [41.13061, 28.69911], [41.13056, 28.69912], [41.13043, 28.69918], [41.13038, 28.69926], [41.12915, 28.70019], [41.12867, 28.70066], [41.12826, 28.70078], [41.12814, 28.70341], [41.12624, 28.7035]], "gis_markers": [], "label": "İSTANBUL / ARNAVUTKÖY — İstanbul İli, Arnavutköy İlçesi, Sazlıbosna Mahallesi 19. Bölge 1. Etap 909 Adet Konut (7 "};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
-  let tileLayer = createCartoTileLayer(window.__ecedIsDark && window.__ecedIsDark()).addTo(map);
-  window.addEventListener('eced-theme-change', (ev) => {
-    map.removeLayer(tileLayer);
-    tileLayer = createCartoTileLayer(ev.detail.dark).addTo(map);
-  });
+  createOsmTileLayer().addTo(map);
   if (g.precision === 'exact_pdf') {
     L.circle([g.lat, g.lon], {
       radius: 3000,
