@@ -36,7 +36,7 @@
         "code": "hkt",
         "kind": "Halkın Katılımı Toplantısı (HKT — ÇED Yönetmeliği m. 9)",
         "deadline": "2026-12-17",
-        "days_remaining": 26
+        "days_remaining": 25
       }
     ],
     "filing_key": "61813:20.11.2026:HKT",
@@ -46,7 +46,8 @@
     "filename": "61813.pdf",
     "bytes": 184772237,
     "sha256": "9dd9dc5284a8080ea243b2b6bd7a40847856ad730288194465ab42f63aa04170",
-    "cached": false
+    "cached": false,
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign7251349666506548810.pdf&orjinalAd=CEDBASVURUDOSYASI.pdf&yuklemeTarihi=2026-11-17"
   },
   "analysis": {
     "page_count": 152,
@@ -493,6 +494,48 @@
       "mentions_iucn_or_endemic": true
     }
   },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-21T09:02:53",
+      "decision_type": "HKT",
+      "announcement_date": "2026-11-20",
+      "announcement_date_tr": "20.11.2026",
+      "submitted_at": "17/11/2026 03:41:09",
+      "consulting_firm": "PPM KİR.ÖNL.VE YÖN. DAN. MÜH. İNŞ. TAAH. SAN.VE.TİC. LTD.ŞTİ.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign7251349666506548810.pdf&orjinalAd=CEDBASVURUDOSYASI.pdf&yuklemeTarihi=2026-11-17",
+      "pdf_temp_ad": "sign7251349666506548810.pdf",
+      "pdf_original_name": "CEDBASVURUDOSYASI.pdf",
+      "pdf_upload_date": "2026-11-17",
+      "sha256": "9dd9dc5284a8080ea243b2b6bd7a40847856ad730288194465ab42f63aa04170",
+      "bytes": 184772237,
+      "page_count": 152,
+      "text_pages": 113,
+      "scanned_or_blank_pages": 39,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": false,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": false,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 24,
+        "water_and_discharge": 10,
+        "protected_land_and_olive": 3,
+        "ecology_and_baseline": 3,
+        "pollutants_and_hazards": 83,
+        "cost_and_capacity": 12
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 41.06288,
+      "geo_lon": 28.6319,
+      "geo_point_count": 9,
+      "detail_text_sha256": "e3176bb03864c204"
+    }
+  ],
   "llm_synthesis": {
     "model": "gemini-4-hydrogen",
     "generated_at": "2026-11-20T02:13:28",

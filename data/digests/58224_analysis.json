@@ -36,7 +36,7 @@
         "code": "iyuk_20a",
         "kind": "İYUK Madde 20/A iptal davası süresi (30 takvim günü; İYUK 11 süreyi durdurmaz)",
         "deadline": "2026-12-16",
-        "days_remaining": 25
+        "days_remaining": 24
       }
     ],
     "filing_key": "58224:16.11.2026:ÇED Olumlu",
@@ -46,7 +46,8 @@
     "filename": "58224.pdf",
     "bytes": 40184471,
     "sha256": "0bb72634e1662240a2495aa43daf3a5c1da31edffbe7500e566dbc7e04ba82b1",
-    "cached": true
+    "cached": true,
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=dosya_8199187412168823314.tmp&orjinalAd=58224_Son_Sekli_Verilen_Rapor.pdf&yuklemeTarihi=2026-10-27"
   },
   "analysis": {
     "page_count": 340,
@@ -693,6 +694,50 @@
       "mentions_capacity_or_splitting": true
     }
   },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-20T02:11:24",
+      "decision_type": "ÇED Olumlu",
+      "announcement_date": "2026-11-16",
+      "announcement_date_tr": "16.11.2026",
+      "submitted_at": "05/12/2025 03:51:33",
+      "consulting_firm": "SEREN HAFR. TANITIM TARIM DANIŞ. SAN. VE TİC. LTD. ŞTİ.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=dosya_8199187412168823314.tmp&orjinalAd=58224_Son_Sekli_Verilen_Rapor.pdf&yuklemeTarihi=2026-10-27",
+      "pdf_temp_ad": "dosya_8199187412168823314.tmp",
+      "pdf_original_name": "58224_Son_Sekli_Verilen_Rapor.pdf",
+      "pdf_upload_date": "2026-10-27",
+      "sha256": "0bb72634e1662240a2495aa43daf3a5c1da31edffbe7500e566dbc7e04ba82b1",
+      "bytes": 40184471,
+      "page_count": 340,
+      "text_pages": 267,
+      "scanned_or_blank_pages": 73,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": true,
+        "mentions_seasonal_sampling": true,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": true,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true,
+        "mentions_capacity_or_splitting": true
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 53,
+        "water_and_discharge": 46,
+        "protected_land_and_olive": 12,
+        "ecology_and_baseline": 23,
+        "pollutants_and_hazards": 35,
+        "cost_and_capacity": 203,
+        "splitting_and_thresholds": 203
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 40.21909,
+      "geo_lon": 28.34491,
+      "geo_point_count": 16,
+      "detail_text_sha256": "322933797af60cfa"
+    }
+  ],
   "llm_synthesis": {
     "model": "gemini-4-hydrogen",
     "generated_at": "2026-11-20T12:56:09",

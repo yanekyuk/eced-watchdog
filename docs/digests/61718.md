@@ -81,6 +81,8 @@
 | Olive Law / groves (*3573 / zeytinlik*) | **NOT FOUND (check manually)** |
 | Groundwater / hydrogeology (*akifer / yeraltı suyu*) | Present |
 | Endemic / IUCN / Bern Convention | Present |
+| Capacity expansion / splitting cues (*kapasite artışı / eşik değer*) | Not found |
+| Circular 2009/7 or post-annulment revision cues (*2009/7 / mahkeme kararı*) | Not found |
 
 *(Scanned annex maps/appendices without OCR are excluded from text scan; see scanned-page count above.)*
 
@@ -149,10 +151,17 @@
 - **[s. 154]** Ek-3.4 HİDROLOJİ HARİTASI.pdf (p.24)
 - **[s. 155]** Ek-3.4 JEOLOJİ HARİTASI.pdf (p.25)
 
+## Revision & Document Integrity History
+
+| Version | Observed | Stage | Upload Date | Pages | SHA-256 |
+|---|---|---|---|---|---|
+| `v1` | `2026-11-20T09:02:28` | ÇED Süreci Başlayan | `2026-11-09` | 267 | `b0e1416778c60c36…` |
+
 ## Scientist Audit Notes (1–2h Async Review Template)
 
 - **Baseline & sampling gaps (`[s. N]`):** 
 - **Ecological / hydrological contradictions:** 
 - **Cumulative regional impact omitted:** 
+- **Revision / 2009/7 compliance check (if re-filed):** 
 - **Questions for HKT minutes / İYUK 20/A petition:** 
-- **Recommended hand-off:** İzmir Barosu Çevre Komisyonu / TMMOB / EGEÇEP / Local press
+- **Recommended hand-off:** İlgili TMMOB Odası / Yerel Çevre Derneği / Belediye / Çevre Hukukçuları

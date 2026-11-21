@@ -38,7 +38,7 @@
         "code": "idk",
         "kind": "İnceleme Değerlendirme Komisyonu (İDK — ÇED Yönetmeliği m. 11–12)",
         "deadline": "2026-12-07",
-        "days_remaining": 16
+        "days_remaining": 15
       }
     ],
     "priority_district": true,
@@ -49,7 +49,8 @@
     "bytes": 192735004,
     "sha256": "c886fcee9d5a36a34ab2a5ff4dc96930e9d8d167a0ebf5bea89b640c2f5df50c",
     "cached": false,
-    "filename": "60015.pdf"
+    "filename": "60015.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign8235067367368802982.pdf&orjinalAd=60015_CED_Raporu.pdf&yuklemeTarihi=2026-11-10"
   },
   "analysis": {
     "page_count": 915,
@@ -581,6 +582,48 @@
       "mentions_iucn_or_endemic": true
     }
   },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-16",
+      "decision_type": "IDK",
+      "announcement_date": "2026-11-16",
+      "announcement_date_tr": "16.11.2026",
+      "submitted_at": "09/06/2026 04:17:08",
+      "consulting_firm": "ELEMENT ÇEVRE DANIŞMANLIK VE MÜHENDİSLİK A.Ş.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign8235067367368802982.pdf&orjinalAd=60015_CED_Raporu.pdf&yuklemeTarihi=2026-11-10",
+      "pdf_temp_ad": "sign8235067367368802982.pdf",
+      "pdf_original_name": "60015_CED_Raporu.pdf",
+      "pdf_upload_date": "2026-11-10",
+      "sha256": "c886fcee9d5a36a34ab2a5ff4dc96930e9d8d167a0ebf5bea89b640c2f5df50c",
+      "bytes": 192735004,
+      "page_count": 915,
+      "text_pages": 835,
+      "scanned_or_blank_pages": 80,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": true,
+        "mentions_seasonal_sampling": true,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": true,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 225,
+        "water_and_discharge": 105,
+        "protected_land_and_olive": 90,
+        "ecology_and_baseline": 114,
+        "pollutants_and_hazards": 131,
+        "cost_and_capacity": 60
+      },
+      "geo_precision": null,
+      "geo_lat": null,
+      "geo_lon": null,
+      "geo_point_count": 0,
+      "detail_text_sha256": "3fef3540b65a8bfd"
+    }
+  ],
   "llm_synthesis": {
     "model": "gemini-3.8-flash",
     "generated_at": "2026-11-20T01:22:27",

@@ -16,7 +16,7 @@
 | **Announcement Date** | `14.11.2026` (uploaded `25/05/2026 12:36:02`) |
 
 **Statutory Deadlines (informational aid — verify with legal counsel):**
-- **İnceleme Değerlendirme Komisyonu (İDK — ÇED Yönetmeliği m. 11–12):** `2026-12-01` (`10 days remaining`)
+- **İnceleme Değerlendirme Komisyonu (İDK — ÇED Yönetmeliği m. 11–12):** `2026-12-01` (`9 days remaining`)
 
 ## 2. AI-Assisted Scientific Synthesis (`gemini-4-hydrogen`)
 
@@ -79,6 +79,8 @@
 | Olive Law / groves (*3573 / zeytinlik*) | **NOT FOUND (check manually)** |
 | Groundwater / hydrogeology (*akifer / yeraltı suyu*) | Present |
 | Endemic / IUCN / Bern Convention | Present |
+| Capacity expansion / splitting cues (*kapasite artışı / eşik değer*) | Not found |
+| Circular 2009/7 or post-annulment revision cues (*2009/7 / mahkeme kararı*) | Not found |
 
 *(Scanned annex maps/appendices without OCR are excluded from text scan; see scanned-page count above.)*
 
@@ -147,10 +149,17 @@
 - **[s. 1]** Yaptığı Tezler
 - **[s. 1]** Araştırma Alanları
 
+## Revision & Document Integrity History
+
+| Version | Observed | Stage | Upload Date | Pages | SHA-256 |
+|---|---|---|---|---|---|
+| `v1` | `2026-11-20T09:02:12` | IDK | `2026-10-27` | 671 | `b4a69342d7a734d0…` |
+
 ## Scientist Audit Notes (1–2h Async Review Template)
 
 - **Baseline & sampling gaps (`[s. N]`):** 
 - **Ecological / hydrological contradictions:** 
 - **Cumulative regional impact omitted:** 
+- **Revision / 2009/7 compliance check (if re-filed):** 
 - **Questions for HKT minutes / İYUK 20/A petition:** 
-- **Recommended hand-off:** İzmir Barosu Çevre Komisyonu / TMMOB / EGEÇEP / Local press
+- **Recommended hand-off:** İlgili TMMOB Odası / Yerel Çevre Derneği / Belediye / Çevre Hukukçuları

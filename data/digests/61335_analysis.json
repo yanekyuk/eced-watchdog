@@ -36,7 +36,7 @@
         "code": "iyuk_20a",
         "kind": "İYUK Madde 20/A iptal davası süresi (30 takvim günü; İYUK 11 süreyi durdurmaz)",
         "deadline": "2026-12-09",
-        "days_remaining": 18
+        "days_remaining": 17
       }
     ],
     "priority_district": true,
@@ -47,7 +47,8 @@
     "filename": "61335.pdf",
     "bytes": 55760387,
     "sha256": "6cb8de043440c8ced6bb7c67e270899a398d7e7b2465806d7c5febc1a8c0729b",
-    "cached": false
+    "cached": false,
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign2021536094849303535.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-10-13"
   },
   "analysis": {
     "page_count": 194,
@@ -594,6 +595,48 @@
       "mentions_iucn_or_endemic": true
     }
   },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-20T00:44:16",
+      "decision_type": "ÇED Gerekli Değil/ÇED Olumlu",
+      "announcement_date": "2026-11-09",
+      "announcement_date_tr": "09.11.2026",
+      "submitted_at": "13/10/2026 04:04:51",
+      "consulting_firm": "CANÇED ÇEVRE DANIŞMANLIK VE MÜHENDİSLİK SAN. TİC. LTD. ŞTİ.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign2021536094849303535.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-10-13",
+      "pdf_temp_ad": "sign2021536094849303535.pdf",
+      "pdf_original_name": "e-imza.pdf",
+      "pdf_upload_date": "2026-10-13",
+      "sha256": "6cb8de043440c8ced6bb7c67e270899a398d7e7b2465806d7c5febc1a8c0729b",
+      "bytes": 55760387,
+      "page_count": 194,
+      "text_pages": 134,
+      "scanned_or_blank_pages": 60,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": true,
+        "mentions_seasonal_sampling": true,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": true,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 32,
+        "water_and_discharge": 26,
+        "protected_land_and_olive": 14,
+        "ecology_and_baseline": 13,
+        "pollutants_and_hazards": 19,
+        "cost_and_capacity": 43
+      },
+      "geo_precision": null,
+      "geo_lat": null,
+      "geo_lon": null,
+      "geo_point_count": 0,
+      "detail_text_sha256": "da86c8e1ba4750e5"
+    }
+  ],
   "llm_synthesis": {
     "model": "gemini-4-hydrogen",
     "generated_at": "2026-11-20T01:42:45",

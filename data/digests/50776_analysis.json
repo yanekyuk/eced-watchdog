@@ -36,7 +36,7 @@
         "code": "idk",
         "kind": "İnceleme Değerlendirme Komisyonu (İDK — ÇED Yönetmeliği m. 11–12)",
         "deadline": "2026-12-25",
-        "days_remaining": 34
+        "days_remaining": 33
       }
     ],
     "filing_key": "50776:17.11.2026:IDK",
@@ -46,7 +46,8 @@
     "filename": "50776.pdf",
     "bytes": 129881781,
     "sha256": "02862d9a8c4b9907c75e884f8b6edccbe1ed93668f89401370ff4c4070742835",
-    "cached": false
+    "cached": false,
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign7776274942799570020.pdf&orjinalAd=50776_CED_Raporu.pdf&yuklemeTarihi=2026-11-13"
   },
   "analysis": {
     "page_count": 987,
@@ -803,6 +804,48 @@
       "mentions_iucn_or_endemic": true
     }
   },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-20T02:11:07",
+      "decision_type": "IDK",
+      "announcement_date": "2026-11-17",
+      "announcement_date_tr": "17.11.2026",
+      "submitted_at": "29/04/2024 05:52:20",
+      "consulting_firm": "NOTA ÇEVRE PROJE DAN.MÜH.İNŞ.SAN.VE TİC. LTD. ŞTİ.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign7776274942799570020.pdf&orjinalAd=50776_CED_Raporu.pdf&yuklemeTarihi=2026-11-13",
+      "pdf_temp_ad": "sign7776274942799570020.pdf",
+      "pdf_original_name": "50776_CED_Raporu.pdf",
+      "pdf_upload_date": "2026-11-13",
+      "sha256": "02862d9a8c4b9907c75e884f8b6edccbe1ed93668f89401370ff4c4070742835",
+      "bytes": 129881781,
+      "page_count": 987,
+      "text_pages": 906,
+      "scanned_or_blank_pages": 81,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": true,
+        "mentions_seasonal_sampling": true,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": true,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 202,
+        "water_and_discharge": 109,
+        "protected_land_and_olive": 45,
+        "ecology_and_baseline": 164,
+        "pollutants_and_hazards": 102,
+        "cost_and_capacity": 91
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 36.38021,
+      "geo_lon": 29.4593,
+      "geo_point_count": 80,
+      "detail_text_sha256": "5e99693bd92c10b8"
+    }
+  ],
   "llm_synthesis": {
     "model": "gemini-4-hydrogen",
     "generated_at": "2026-11-20T11:07:34",

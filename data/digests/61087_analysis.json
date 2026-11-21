@@ -36,7 +36,7 @@
         "code": "hkt",
         "kind": "Halkın Katılımı Toplantısı (HKT — ÇED Yönetmeliği m. 9)",
         "deadline": "2026-12-08",
-        "days_remaining": 17
+        "days_remaining": 16
       }
     ],
     "filing_key": "61087:19.11.2026:HKT",
@@ -46,7 +46,8 @@
     "filename": "61087.pdf",
     "bytes": 43376197,
     "sha256": "14cc240b3126f2ddba84b2bab1179ddab68377e634985e99fef379c3699e5c44",
-    "cached": false
+    "cached": false,
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign5484956242178825697.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-09-09"
   },
   "analysis": {
     "page_count": 160,
@@ -610,6 +611,48 @@
       "mentions_iucn_or_endemic": true
     }
   },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-20T02:10:48",
+      "decision_type": "HKT",
+      "announcement_date": "2026-11-19",
+      "announcement_date_tr": "19.11.2026",
+      "submitted_at": "09/09/2026 05:31:54",
+      "consulting_firm": "ELTEM-TEK ELEKTRİK TESİSLERİ MÜHENDİSLİK MÜTEAHHİTLİK DANIŞMANLIK VE TİCARET ANONİM ŞİRKETİ",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign5484956242178825697.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-09-09",
+      "pdf_temp_ad": "sign5484956242178825697.pdf",
+      "pdf_original_name": "e-imza.pdf",
+      "pdf_upload_date": "2026-09-09",
+      "sha256": "14cc240b3126f2ddba84b2bab1179ddab68377e634985e99fef379c3699e5c44",
+      "bytes": 43376197,
+      "page_count": 160,
+      "text_pages": 121,
+      "scanned_or_blank_pages": 39,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": true,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": true,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 93,
+        "water_and_discharge": 10,
+        "protected_land_and_olive": 8,
+        "ecology_and_baseline": 6,
+        "pollutants_and_hazards": 22,
+        "cost_and_capacity": 5
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 38.36692,
+      "geo_lon": 29.72399,
+      "geo_point_count": 56,
+      "detail_text_sha256": "b4f585774402ee4f"
+    }
+  ],
   "llm_synthesis": {
     "model": "gemini-4-hydrogen",
     "generated_at": "2026-11-20T09:08:03",

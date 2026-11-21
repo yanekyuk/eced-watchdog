@@ -46,7 +46,8 @@
     "filename": "61718.pdf",
     "bytes": 93804208,
     "sha256": "b0e1416778c60c3662c6a7c55d012cb72d56493987aee51ee3ea51eb31ea91db",
-    "cached": false
+    "cached": false,
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign3410074410049567359.pdf&orjinalAd=CEDBASDOSYASI..pdf&yuklemeTarihi=2026-11-09"
   },
   "analysis": {
     "page_count": 267,
@@ -605,6 +606,48 @@
       "mentions_iucn_or_endemic": true
     }
   },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-20T09:02:28",
+      "decision_type": "ÇED Süreci Başlayan",
+      "announcement_date": "2026-11-13",
+      "announcement_date_tr": "13.11.2026",
+      "submitted_at": "09/11/2026 01:08:51",
+      "consulting_firm": "ÖZDEMİR ÇEVRE ARIT. MÜH. MÜŞ. ORM. MAD. İNŞ. TAŞ. TEM. HİZ. TUR. SAN. VE TİC. LTD. ŞTİ.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign3410074410049567359.pdf&orjinalAd=CEDBASDOSYASI..pdf&yuklemeTarihi=2026-11-09",
+      "pdf_temp_ad": "sign3410074410049567359.pdf",
+      "pdf_original_name": "CEDBASDOSYASI..pdf",
+      "pdf_upload_date": "2026-11-09",
+      "sha256": "b0e1416778c60c3662c6a7c55d012cb72d56493987aee51ee3ea51eb31ea91db",
+      "bytes": 93804208,
+      "page_count": 267,
+      "text_pages": 231,
+      "scanned_or_blank_pages": 36,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": true,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": false,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 56,
+        "water_and_discharge": 31,
+        "protected_land_and_olive": 14,
+        "ecology_and_baseline": 10,
+        "pollutants_and_hazards": 42,
+        "cost_and_capacity": 163
+      },
+      "geo_precision": "province_centroid",
+      "geo_lat": 36.8969,
+      "geo_lon": 30.7133,
+      "geo_point_count": 0,
+      "detail_text_sha256": "d8a330a3929702ae"
+    }
+  ],
   "llm_synthesis": {
     "model": "gemini-4-hydrogen",
     "generated_at": "2026-11-20T10:45:50",

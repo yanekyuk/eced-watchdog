@@ -43,13 +43,52 @@
     ],
     "priority_district": true,
     "filing_key": "61354:19.11.2026:ÇED Süreci Başlayan",
-    "first_seen_at": null
+    "first_seen_at": null,
+    "change_log": [
+      {
+        "detected_at": "2026-11-22T00:16:27",
+        "changed_fields": [
+          "detail_text"
+        ],
+        "prev_submitted_at": "16/11/2026 04:19:09",
+        "new_submitted_at": "16/11/2026 04:19:09",
+        "prev_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+        "new_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+        "prev_pdf_urls": [
+          "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4195618410608326396.pdf&orjinalAd=KaraburunEIHPTD...pdf&yuklemeTarihi=2026-11-16"
+        ],
+        "new_pdf_urls": [
+          "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4195618410608326396.pdf&orjinalAd=KaraburunEIHPTD...pdf&yuklemeTarihi=2026-11-16"
+        ],
+        "prev_detail_sha256": "26c3a5f30a4fb35c",
+        "new_detail_sha256": "520c0cbd795d8103"
+      },
+      {
+        "detected_at": "2026-11-22T00:16:27",
+        "changed_fields": [
+          "detail_text"
+        ],
+        "prev_submitted_at": "16/11/2026 04:19:09",
+        "new_submitted_at": "16/11/2026 04:19:09",
+        "prev_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+        "new_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+        "prev_pdf_urls": [
+          "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4195618410608326396.pdf&orjinalAd=KaraburunEIHPTD...pdf&yuklemeTarihi=2026-11-16"
+        ],
+        "new_pdf_urls": [
+          "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4195618410608326396.pdf&orjinalAd=KaraburunEIHPTD...pdf&yuklemeTarihi=2026-11-16"
+        ],
+        "prev_detail_sha256": "520c0cbd795d8103",
+        "new_detail_sha256": "26c3a5f30a4fb35c"
+      }
+    ]
   },
   "pdf_info": {
     "bytes": 102777657,
     "sha256": "1dab8f6434d08bc93da6a280dc49d0284acfec7cc6ce310a99ddaa26dc7a6b74",
     "cached": true,
-    "filename": "61354.pdf"
+    "filename": "61354.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4195618410608326396.pdf&orjinalAd=KaraburunEIHPTD...pdf&yuklemeTarihi=2026-11-16"
   },
   "analysis": {
     "page_count": 347,
@@ -548,6 +587,48 @@
       "mentions_iucn_or_endemic": true
     }
   },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-19",
+      "decision_type": "ÇED Süreci Başlayan",
+      "announcement_date": "2026-11-19",
+      "announcement_date_tr": "19.11.2026",
+      "submitted_at": "16/11/2026 04:19:09",
+      "consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4195618410608326396.pdf&orjinalAd=KaraburunEIHPTD...pdf&yuklemeTarihi=2026-11-16",
+      "pdf_temp_ad": "sign4195618410608326396.pdf",
+      "pdf_original_name": "KaraburunEIHPTD...pdf",
+      "pdf_upload_date": "2026-11-16",
+      "sha256": "1dab8f6434d08bc93da6a280dc49d0284acfec7cc6ce310a99ddaa26dc7a6b74",
+      "bytes": 102777657,
+      "page_count": 347,
+      "text_pages": 318,
+      "scanned_or_blank_pages": 29,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": false,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": true,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 70,
+        "water_and_discharge": 29,
+        "protected_land_and_olive": 24,
+        "ecology_and_baseline": 20,
+        "pollutants_and_hazards": 62,
+        "cost_and_capacity": 18
+      },
+      "geo_precision": null,
+      "geo_lat": null,
+      "geo_lon": null,
+      "geo_point_count": 0,
+      "detail_text_sha256": "26c3a5f30a4fb35c"
+    }
+  ],
   "llm_synthesis": {
     "model": "gemini-3.8-flash",
     "generated_at": "2026-11-20T01:16:26",

@@ -36,7 +36,7 @@
         "code": "aski_10d",
         "kind": "ÇED Yönetmeliği Madde 14 kapsamındaki 10 takvim günlük nihai askı ve görüş süresi",
         "deadline": "2026-11-27",
-        "days_remaining": 6
+        "days_remaining": 5
       }
     ],
     "filing_key": "53543:17.11.2026:Nihai Karar",
@@ -46,7 +46,8 @@
     "filename": "53543.pdf",
     "bytes": 343426212,
     "sha256": "009b7cdf1b3b08828a438e8883027702452146356279082d08e5604c1de5f861",
-    "cached": false
+    "cached": false,
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file4862650492096544884.imz&orjinalAd=53543_Son_Sekli_Verilen_Rapor.pdf&yuklemeTarihi=2026-11-13"
   },
   "analysis": {
     "page_count": 953,
@@ -732,6 +733,48 @@
       "mentions_iucn_or_endemic": true
     }
   },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-20T02:11:13",
+      "decision_type": "Nihai Karar",
+      "announcement_date": "2026-11-17",
+      "announcement_date_tr": "17.11.2026",
+      "submitted_at": "24/12/2024 11:18:43",
+      "consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file4862650492096544884.imz&orjinalAd=53543_Son_Sekli_Verilen_Rapor.pdf&yuklemeTarihi=2026-11-13",
+      "pdf_temp_ad": "signature_file4862650492096544884.imz",
+      "pdf_original_name": "53543_Son_Sekli_Verilen_Rapor.pdf",
+      "pdf_upload_date": "2026-11-13",
+      "sha256": "009b7cdf1b3b08828a438e8883027702452146356279082d08e5604c1de5f861",
+      "bytes": 343426212,
+      "page_count": 953,
+      "text_pages": 708,
+      "scanned_or_blank_pages": 245,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": true,
+        "mentions_seasonal_sampling": true,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": true,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 112,
+        "water_and_discharge": 85,
+        "protected_land_and_olive": 48,
+        "ecology_and_baseline": 116,
+        "pollutants_and_hazards": 84,
+        "cost_and_capacity": 16
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 38.18959,
+      "geo_lon": 40.08919,
+      "geo_point_count": 80,
+      "detail_text_sha256": "f9d242dacb767197"
+    }
+  ],
   "llm_synthesis": {
     "model": "gemini-4-hydrogen",
     "generated_at": "2026-11-20T11:03:51",

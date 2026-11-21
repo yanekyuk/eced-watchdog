@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-11-22T00:14:42",
+  "generated_at": "2026-11-22T00:23:53",
   "summary": {
     "pdf_revisions": 0,
-    "circular_2009_7": 0,
+    "circular_2009_7": 1,
     "multi_stage_filings": 14,
     "related_filings": 14,
     "legacy_resurfaced": 35,
-    "portal_text_changes": 0,
+    "portal_text_changes": 2,
     "capacity_expansions": 56,
-    "audit_alerts_total": 61
+    "audit_alerts_total": 62
   },
   "by_filing_id": {
     "61813": {
@@ -114,8 +114,52 @@
         "capacity_expansion"
       ],
       "has_audit_alert": true,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:20:06",
+          "decision_type": "ÇED Süreci Başlayan",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "16/11/2026 06:17:21",
+          "consulting_firm": "BAYSAL ÇEVRE MÜH. HİZM. ARIT.İNŞ. SAN. VE TİC. LTD. ŞTİ.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign5450322743574858910.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-19",
+          "pdf_temp_ad": "sign5450322743574858910.pdf",
+          "pdf_original_name": "e-imza.pdf",
+          "pdf_upload_date": "2026-11-19",
+          "sha256": "beaaffaf933bf7fab8600a5995e24eaee74804b489d068c0ee18a6f40a9382b1",
+          "bytes": 38548707,
+          "page_count": 339,
+          "text_pages": 138,
+          "scanned_or_blank_pages": 201,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": true,
+            "mentions_seasonal_sampling": false,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": false,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 39,
+            "water_and_discharge": 11,
+            "protected_land_and_olive": 5,
+            "ecology_and_baseline": 16,
+            "pollutants_and_hazards": 21,
+            "cost_and_capacity": 117,
+            "splitting_and_thresholds": 116
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 36.55034,
+          "geo_lon": 32.03142,
+          "geo_point_count": 23,
+          "detail_text_sha256": "05a99bb207e7c6e8"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -147,8 +191,52 @@
         "capacity_expansion"
       ],
       "has_audit_alert": false,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:20:14",
+          "decision_type": "ÇED Süreci Başlayan",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "16/11/2026 05:25:30",
+          "consulting_firm": "MERS ÇEVRE MAD.MÜH.PRO.DAN.İŞ SAĞ.VE GÜV. İNŞ. SAN.VE TİC. LTD. ŞTİ",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign8980604984769300739.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-16",
+          "pdf_temp_ad": "sign8980604984769300739.pdf",
+          "pdf_original_name": "e-imza.pdf",
+          "pdf_upload_date": "2026-11-16",
+          "sha256": "b3a27d08c2c267afe4829e0bad822778e9d58b5bd48e42da6e15737befd5b11a",
+          "bytes": 61829117,
+          "page_count": 284,
+          "text_pages": 229,
+          "scanned_or_blank_pages": 55,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": false,
+            "mentions_seasonal_sampling": true,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": false,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 51,
+            "water_and_discharge": 13,
+            "protected_land_and_olive": 3,
+            "ecology_and_baseline": 9,
+            "pollutants_and_hazards": 25,
+            "cost_and_capacity": 113,
+            "splitting_and_thresholds": 121
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 39.7537,
+          "geo_lon": 37.61709,
+          "geo_point_count": 80,
+          "detail_text_sha256": "136406e4cff3ad1f"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -171,8 +259,52 @@
         "multi_stage"
       ],
       "has_audit_alert": true,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:20:22",
+          "decision_type": "ÇED Süreci Başlayan",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "17/11/2026 12:28:19",
+          "consulting_firm": "NOTA ÇEVRE PROJE DAN.MÜH.İNŞ.SAN.VE TİC. LTD. ŞTİ.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign3601414129915716889.pdf&orjinalAd=SEBINKARAHISARDEPOLAMALIGESCBD.pdf&yuklemeTarihi=2026-11-17",
+          "pdf_temp_ad": "sign3601414129915716889.pdf",
+          "pdf_original_name": "SEBINKARAHISARDEPOLAMALIGESCBD.pdf",
+          "pdf_upload_date": "2026-11-17",
+          "sha256": "a1bb86afce347c3713e24b6d5b6b7bad2f8c1a72b07d7dfac0d8b15c75c3d48e",
+          "bytes": 34117913,
+          "page_count": 229,
+          "text_pages": 146,
+          "scanned_or_blank_pages": 83,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": true,
+            "mentions_seasonal_sampling": true,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": false,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 105,
+            "water_and_discharge": 19,
+            "protected_land_and_olive": 6,
+            "ecology_and_baseline": 11,
+            "pollutants_and_hazards": 32,
+            "cost_and_capacity": 13,
+            "splitting_and_thresholds": 28
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 40.21453,
+          "geo_lon": 38.75734,
+          "geo_point_count": 72,
+          "detail_text_sha256": "852a3f93fc730fae"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -250,8 +382,52 @@
       "filing_id": "61708",
       "flags": [],
       "has_audit_alert": false,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:21:26",
+          "decision_type": "ÇED Süreci Başlayan",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "12/11/2026 09:40:08",
+          "consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign331051306848943675.pdf&orjinalAd=YEKAGISPARTAGESCEDBASVURUDOSYASI.pdf&yuklemeTarihi=2026-11-12",
+          "pdf_temp_ad": "sign331051306848943675.pdf",
+          "pdf_original_name": "YEKAGISPARTAGESCEDBASVURUDOSYASI.pdf",
+          "pdf_upload_date": "2026-11-12",
+          "sha256": "b709915d4933ef6db50525aeb89dc1f69621c8aa5426ddd3b55730dc9377a7d8",
+          "bytes": 109419877,
+          "page_count": 263,
+          "text_pages": 222,
+          "scanned_or_blank_pages": 41,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": false,
+            "mentions_seasonal_sampling": false,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": true,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": false,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 170,
+            "water_and_discharge": 15,
+            "protected_land_and_olive": 9,
+            "ecology_and_baseline": 5,
+            "pollutants_and_hazards": 36,
+            "cost_and_capacity": 15,
+            "splitting_and_thresholds": 8
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 38.11632,
+          "geo_lon": 31.16315,
+          "geo_point_count": 42,
+          "detail_text_sha256": "64ee52dd3abc207b"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -366,8 +542,52 @@
         "capacity_expansion"
       ],
       "has_audit_alert": false,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:21:10",
+          "decision_type": "ÇED Süreci Başlayan",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "05/11/2026 02:16:18",
+          "consulting_firm": "TEMÇEV MÜHENDİSLİK MÜŞAVİRLİK ARITMA SİS.SAN.VE TİC.LTD.ŞTİ.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign6519210198939264579.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-18",
+          "pdf_temp_ad": "sign6519210198939264579.pdf",
+          "pdf_original_name": "e-imza.pdf",
+          "pdf_upload_date": "2026-11-18",
+          "sha256": "ca19627f5aa9185bc05a4b3436baf059d262271161605e494b5d7d1019d530da",
+          "bytes": 16639582,
+          "page_count": 196,
+          "text_pages": 165,
+          "scanned_or_blank_pages": 31,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": false,
+            "mentions_seasonal_sampling": false,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": false,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 35,
+            "water_and_discharge": 45,
+            "protected_land_and_olive": 5,
+            "ecology_and_baseline": 4,
+            "pollutants_and_hazards": 45,
+            "cost_and_capacity": 136,
+            "splitting_and_thresholds": 134
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 39.74631,
+          "geo_lon": 30.63908,
+          "geo_point_count": 73,
+          "detail_text_sha256": "60342b1667c5e910"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -388,8 +608,52 @@
       "filing_id": "61659",
       "flags": [],
       "has_audit_alert": false,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:21:15",
+          "decision_type": "ÇED Süreci Başlayan",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "18/11/2026 10:21:16",
+          "consulting_firm": "ÇEVREGEN MÜHENDİSLİK DANIŞMANLIK MARKA PATENT SAN. VE TİC. LTD. ŞTİ.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign7014751106534458074.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-20",
+          "pdf_temp_ad": "sign7014751106534458074.pdf",
+          "pdf_original_name": "e-imza.pdf",
+          "pdf_upload_date": "2026-11-20",
+          "sha256": "01e2d8fc4d621ffdbb04c38daff996387e77cd8394a0e5b8bdf8bdd1f7b76995",
+          "bytes": 27068210,
+          "page_count": 164,
+          "text_pages": 145,
+          "scanned_or_blank_pages": 19,
+          "audit_checks": {
+            "mentions_field_survey": false,
+            "mentions_literature_only_cue": false,
+            "mentions_seasonal_sampling": true,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": false,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 37,
+            "water_and_discharge": 14,
+            "protected_land_and_olive": 5,
+            "ecology_and_baseline": 13,
+            "pollutants_and_hazards": 33,
+            "cost_and_capacity": 16,
+            "splitting_and_thresholds": 14
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 40.56688,
+          "geo_lon": 35.2127,
+          "geo_point_count": 50,
+          "detail_text_sha256": "ed15bf1a8e348905"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -456,8 +720,52 @@
         "capacity_expansion"
       ],
       "has_audit_alert": false,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:21:22",
+          "decision_type": "ÇED Süreci Başlayan",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "21/10/2026 06:01:14",
+          "consulting_firm": "GREENPLAN ÇEVRE DAN. MÜH. MAD. SAN. TİC. LTD. ŞTİ.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign8976086272489727447.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-18",
+          "pdf_temp_ad": "sign8976086272489727447.pdf",
+          "pdf_original_name": "e-imza.pdf",
+          "pdf_upload_date": "2026-11-18",
+          "sha256": "b54515e6a8e8dcf90fb3aee655638238957a3179a78780701fbadcf976b7e087",
+          "bytes": 36370585,
+          "page_count": 253,
+          "text_pages": 223,
+          "scanned_or_blank_pages": 30,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": false,
+            "mentions_seasonal_sampling": true,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": true,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 43,
+            "water_and_discharge": 15,
+            "protected_land_and_olive": 3,
+            "ecology_and_baseline": 10,
+            "pollutants_and_hazards": 24,
+            "cost_and_capacity": 123,
+            "splitting_and_thresholds": 123
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 40.22529,
+          "geo_lon": 32.10194,
+          "geo_point_count": 81,
+          "detail_text_sha256": "567bda3e0e48b567"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -504,8 +812,52 @@
         "capacity_expansion"
       ],
       "has_audit_alert": false,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:22:45",
+          "decision_type": "ÇED Süreci Başlayan",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "26/10/2026 05:38:10",
+          "consulting_firm": "ÇEVKENT ÇEVRE MÜHENDİSLİK YÖNETİM DANIŞMANLIK GIDA TARIM LABORATUVAR İŞ SAĞLIĞI VE GÜVENLİĞİ GERİ DÖNÜŞÜM TURİZM TAŞIMACILIK OTOMOTİV İNŞAAT MAKİNE SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign1288709854886966740.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-18",
+          "pdf_temp_ad": "sign1288709854886966740.pdf",
+          "pdf_original_name": "e-imza.pdf",
+          "pdf_upload_date": "2026-11-18",
+          "sha256": "cd703ed128bb0f0cbe855b9957ef57dcfe94fea5b85fe608bdb5e18d9412e570",
+          "bytes": 214154463,
+          "page_count": 191,
+          "text_pages": 110,
+          "scanned_or_blank_pages": 81,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": false,
+            "mentions_seasonal_sampling": true,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": false,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 29,
+            "water_and_discharge": 12,
+            "protected_land_and_olive": 4,
+            "ecology_and_baseline": 9,
+            "pollutants_and_hazards": 18,
+            "cost_and_capacity": 80,
+            "splitting_and_thresholds": 79
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 36.65968,
+          "geo_lon": 31.65792,
+          "geo_point_count": 15,
+          "detail_text_sha256": "446cadc1da23e66e"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -552,8 +904,52 @@
         "capacity_expansion"
       ],
       "has_audit_alert": false,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:22:16",
+          "decision_type": "ÇED Süreci Başlayan",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "09/10/2026 04:23:58",
+          "consulting_firm": "EKOLART Çevre Müh. Hiz. Dan. İnş. Tur. Mak. İml. İth. İhr. San. ve Tic. Ltd. Şti.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign1338292098026603613.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-12",
+          "pdf_temp_ad": "sign1338292098026603613.pdf",
+          "pdf_original_name": "e-imza.pdf",
+          "pdf_upload_date": "2026-11-12",
+          "sha256": "00bbd5444ddfafd9b168d349ed65e455b1eb42613ebfd84d6492228d95f2d48a",
+          "bytes": 25588172,
+          "page_count": 247,
+          "text_pages": 192,
+          "scanned_or_blank_pages": 55,
+          "audit_checks": {
+            "mentions_field_survey": false,
+            "mentions_literature_only_cue": false,
+            "mentions_seasonal_sampling": false,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": false,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 54,
+            "water_and_discharge": 25,
+            "protected_land_and_olive": 3,
+            "ecology_and_baseline": 12,
+            "pollutants_and_hazards": 17,
+            "cost_and_capacity": 164,
+            "splitting_and_thresholds": 160
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 38.50775,
+          "geo_lon": 28.323,
+          "geo_point_count": 20,
+          "detail_text_sha256": "2f1c3896e2af5d5d"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -683,8 +1079,52 @@
       "filing_id": "60990",
       "flags": [],
       "has_audit_alert": false,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:19:11",
+          "decision_type": "IDK",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "08/09/2026 02:35:06",
+          "consulting_firm": "ENVA ÇEVRE MÜH. MÜŞ. LTD. ŞTİ.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4338561169731134821.pdf&orjinalAd=60990_CED_Raporu.pdf&yuklemeTarihi=2026-11-18",
+          "pdf_temp_ad": "sign4338561169731134821.pdf",
+          "pdf_original_name": "60990_CED_Raporu.pdf",
+          "pdf_upload_date": "2026-11-18",
+          "sha256": "e9967697992c6770c9513dfda5dae1e269f0c74807bf253c721ec104d402acab",
+          "bytes": 116893226,
+          "page_count": 832,
+          "text_pages": 776,
+          "scanned_or_blank_pages": 56,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": false,
+            "mentions_seasonal_sampling": true,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": true,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 157,
+            "water_and_discharge": 158,
+            "protected_land_and_olive": 37,
+            "ecology_and_baseline": 94,
+            "pollutants_and_hazards": 112,
+            "cost_and_capacity": 69,
+            "splitting_and_thresholds": 23
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 40.31486,
+          "geo_lon": 27.84667,
+          "geo_point_count": 79,
+          "detail_text_sha256": "cbb16cddcd4a9042"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -774,8 +1214,52 @@
         "capacity_expansion"
       ],
       "has_audit_alert": false,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:20:02",
+          "decision_type": "IDK",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "23/07/2026 10:56:20",
+          "consulting_firm": "ADADEM Çevre Müh.San. ve Tic. Ltd.Şti.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign1068897642736094028.pdf&orjinalAd=60242_CED_Raporu.pdf&yuklemeTarihi=2026-11-16",
+          "pdf_temp_ad": "sign1068897642736094028.pdf",
+          "pdf_original_name": "60242_CED_Raporu.pdf",
+          "pdf_upload_date": "2026-11-16",
+          "sha256": "2c31941365c7a1415dcdd3772478128f0ab71d51e26aaf67f26a07045cc01531",
+          "bytes": 84332304,
+          "page_count": 704,
+          "text_pages": 480,
+          "scanned_or_blank_pages": 224,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": true,
+            "mentions_seasonal_sampling": true,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": true,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 107,
+            "water_and_discharge": 58,
+            "protected_land_and_olive": 35,
+            "ecology_and_baseline": 49,
+            "pollutants_and_hazards": 97,
+            "cost_and_capacity": 334,
+            "splitting_and_thresholds": 336
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 36.81607,
+          "geo_lon": 31.31186,
+          "geo_point_count": 42,
+          "detail_text_sha256": "f0d2feeb3354caac"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -796,8 +1280,52 @@
       "filing_id": "59907",
       "flags": [],
       "has_audit_alert": false,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:19:20",
+          "decision_type": "IDK",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "10/05/2026 09:29:08",
+          "consulting_firm": "EKOÇED ÇEV. DAN. MÜH. HİZM. LTD. ŞTİ.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign1733030107098366636.pdf&orjinalAd=59907_CED_Raporu.pdf&yuklemeTarihi=2026-11-17",
+          "pdf_temp_ad": "sign1733030107098366636.pdf",
+          "pdf_original_name": "59907_CED_Raporu.pdf",
+          "pdf_upload_date": "2026-11-17",
+          "sha256": "2451611ebea756f5315104c91c6aa4e95541dd5190e8179eb47fae3770eb3537",
+          "bytes": 59300178,
+          "page_count": 499,
+          "text_pages": 430,
+          "scanned_or_blank_pages": 69,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": true,
+            "mentions_seasonal_sampling": true,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": true,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 83,
+            "water_and_discharge": 42,
+            "protected_land_and_olive": 14,
+            "ecology_and_baseline": 74,
+            "pollutants_and_hazards": 60,
+            "cost_and_capacity": 231,
+            "splitting_and_thresholds": 222
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 39.50138,
+          "geo_lon": 31.14859,
+          "geo_point_count": 28,
+          "detail_text_sha256": "13399fc51b587312"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -864,11 +1392,57 @@
     "58094": {
       "filing_id": "58094",
       "flags": [
+        "circular_2009_7",
+        "portal_text_changed",
         "legacy_resurfaced"
       ],
       "has_audit_alert": true,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:19:11",
+          "decision_type": "ÇED Olumlu",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "04/12/2025 05:07:57",
+          "consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file909446482426029187.imz&orjinalAd=58094_Son_Sekli_Verilen_Rapor.pdf&yuklemeTarihi=2026-10-01",
+          "pdf_temp_ad": "signature_file909446482426029187.imz",
+          "pdf_original_name": "58094_Son_Sekli_Verilen_Rapor.pdf",
+          "pdf_upload_date": "2026-10-01",
+          "sha256": "95ac489cbf3e472211c667355d5c48e643bdf6826853d7eeabbb7711ee5c8539",
+          "bytes": 259473961,
+          "page_count": 2043,
+          "text_pages": 1804,
+          "scanned_or_blank_pages": 239,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": true,
+            "mentions_seasonal_sampling": true,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": true,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": true
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 235,
+            "water_and_discharge": 102,
+            "protected_land_and_olive": 85,
+            "ecology_and_baseline": 161,
+            "pollutants_and_hazards": 240,
+            "cost_and_capacity": 130,
+            "splitting_and_thresholds": 63
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 40.38321,
+          "geo_lon": 37.63141,
+          "geo_point_count": 80,
+          "detail_text_sha256": "beb491d8468783e4"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -882,7 +1456,62 @@
         }
       ],
       "related_filings": [],
-      "portal_change_log": [],
+      "portal_change_log": [
+        {
+          "detected_at": "2026-11-22T00:16:27",
+          "changed_fields": [
+            "detail_text"
+          ],
+          "prev_submitted_at": "04/12/2025 05:07:57",
+          "new_submitted_at": "04/12/2025 05:07:57",
+          "prev_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "new_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "prev_pdf_urls": [
+            "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file909446482426029187.imz&orjinalAd=58094_Son_Sekli_Verilen_Rapor.pdf&yuklemeTarihi=2026-10-01"
+          ],
+          "new_pdf_urls": [
+            "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file909446482426029187.imz&orjinalAd=58094_Son_Sekli_Verilen_Rapor.pdf&yuklemeTarihi=2026-10-01"
+          ],
+          "prev_detail_sha256": "beb491d8468783e4",
+          "new_detail_sha256": "c56260a7164c64f3"
+        },
+        {
+          "detected_at": "2026-11-22T00:16:27",
+          "changed_fields": [
+            "detail_text"
+          ],
+          "prev_submitted_at": "04/12/2025 05:07:57",
+          "new_submitted_at": "04/12/2025 05:07:57",
+          "prev_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "new_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "prev_pdf_urls": [
+            "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file909446482426029187.imz&orjinalAd=58094_Son_Sekli_Verilen_Rapor.pdf&yuklemeTarihi=2026-10-01"
+          ],
+          "new_pdf_urls": [
+            "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file909446482426029187.imz&orjinalAd=58094_Son_Sekli_Verilen_Rapor.pdf&yuklemeTarihi=2026-10-01"
+          ],
+          "prev_detail_sha256": "c56260a7164c64f3",
+          "new_detail_sha256": "3f77f6436120311f"
+        },
+        {
+          "detected_at": "2026-11-22T00:16:27",
+          "changed_fields": [
+            "detail_text"
+          ],
+          "prev_submitted_at": "04/12/2025 05:07:57",
+          "new_submitted_at": "04/12/2025 05:07:57",
+          "prev_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "new_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "prev_pdf_urls": [
+            "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file909446482426029187.imz&orjinalAd=58094_Son_Sekli_Verilen_Rapor.pdf&yuklemeTarihi=2026-10-01"
+          ],
+          "new_pdf_urls": [
+            "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file909446482426029187.imz&orjinalAd=58094_Son_Sekli_Verilen_Rapor.pdf&yuklemeTarihi=2026-10-01"
+          ],
+          "prev_detail_sha256": "3f77f6436120311f",
+          "new_detail_sha256": "beb491d8468783e4"
+        }
+      ],
       "legacy_gap_years": 1
     },
     "57441": {
@@ -963,8 +1592,52 @@
         "legacy_resurfaced"
       ],
       "has_audit_alert": true,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:18:45",
+          "decision_type": "IDK",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "17/03/2025 11:13:05",
+          "consulting_firm": "ECOFİRM MAD. TAR. ORM. ENERJİ MÜH. İNŞ.  ATIKSU SU ARITMA LAB. HİZ. VE TEKN. HİZ. SAN. VE TİC. LTD. ŞTİ.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file6418609477039204720.imz&orjinalAd=54734_CED_Raporu.pdf&yuklemeTarihi=2026-11-16",
+          "pdf_temp_ad": "signature_file6418609477039204720.imz",
+          "pdf_original_name": "54734_CED_Raporu.pdf",
+          "pdf_upload_date": "2026-11-16",
+          "sha256": "520a59c8a620fb7c3c3ae123be565c58a9ce85662efe359c7c1eca7570ee72ce",
+          "bytes": 142625323,
+          "page_count": 574,
+          "text_pages": 406,
+          "scanned_or_blank_pages": 168,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": true,
+            "mentions_seasonal_sampling": true,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": false,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 104,
+            "water_and_discharge": 109,
+            "protected_land_and_olive": 18,
+            "ecology_and_baseline": 62,
+            "pollutants_and_hazards": 69,
+            "cost_and_capacity": 40,
+            "splitting_and_thresholds": 86
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 39.23203,
+          "geo_lon": 29.88535,
+          "geo_point_count": 80,
+          "detail_text_sha256": "65b2647a29f90cb3"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -1647,8 +2320,10 @@
     },
     "61354": {
       "filing_id": "61354",
-      "flags": [],
-      "has_audit_alert": false,
+      "flags": [
+        "portal_text_changed"
+      ],
+      "has_audit_alert": true,
       "revision_count": 1,
       "revision_history": [
         {
@@ -1705,7 +2380,44 @@
         }
       ],
       "related_filings": [],
-      "portal_change_log": [],
+      "portal_change_log": [
+        {
+          "detected_at": "2026-11-22T00:16:27",
+          "changed_fields": [
+            "detail_text"
+          ],
+          "prev_submitted_at": "16/11/2026 04:19:09",
+          "new_submitted_at": "16/11/2026 04:19:09",
+          "prev_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "new_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "prev_pdf_urls": [
+            "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4195618410608326396.pdf&orjinalAd=KaraburunEIHPTD...pdf&yuklemeTarihi=2026-11-16"
+          ],
+          "new_pdf_urls": [
+            "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4195618410608326396.pdf&orjinalAd=KaraburunEIHPTD...pdf&yuklemeTarihi=2026-11-16"
+          ],
+          "prev_detail_sha256": "26c3a5f30a4fb35c",
+          "new_detail_sha256": "520c0cbd795d8103"
+        },
+        {
+          "detected_at": "2026-11-22T00:16:27",
+          "changed_fields": [
+            "detail_text"
+          ],
+          "prev_submitted_at": "16/11/2026 04:19:09",
+          "new_submitted_at": "16/11/2026 04:19:09",
+          "prev_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "new_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "prev_pdf_urls": [
+            "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4195618410608326396.pdf&orjinalAd=KaraburunEIHPTD...pdf&yuklemeTarihi=2026-11-16"
+          ],
+          "new_pdf_urls": [
+            "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4195618410608326396.pdf&orjinalAd=KaraburunEIHPTD...pdf&yuklemeTarihi=2026-11-16"
+          ],
+          "prev_detail_sha256": "520c0cbd795d8103",
+          "new_detail_sha256": "26c3a5f30a4fb35c"
+        }
+      ],
       "legacy_gap_years": null
     },
     "61087": {
@@ -7531,8 +8243,52 @@
         "capacity_expansion"
       ],
       "has_audit_alert": true,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:20:06",
+          "decision_type": "ÇED Süreci Başlayan",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "16/11/2026 06:17:21",
+          "consulting_firm": "BAYSAL ÇEVRE MÜH. HİZM. ARIT.İNŞ. SAN. VE TİC. LTD. ŞTİ.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign5450322743574858910.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-19",
+          "pdf_temp_ad": "sign5450322743574858910.pdf",
+          "pdf_original_name": "e-imza.pdf",
+          "pdf_upload_date": "2026-11-19",
+          "sha256": "beaaffaf933bf7fab8600a5995e24eaee74804b489d068c0ee18a6f40a9382b1",
+          "bytes": 38548707,
+          "page_count": 339,
+          "text_pages": 138,
+          "scanned_or_blank_pages": 201,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": true,
+            "mentions_seasonal_sampling": false,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": false,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 39,
+            "water_and_discharge": 11,
+            "protected_land_and_olive": 5,
+            "ecology_and_baseline": 16,
+            "pollutants_and_hazards": 21,
+            "cost_and_capacity": 117,
+            "splitting_and_thresholds": 116
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 36.55034,
+          "geo_lon": 32.03142,
+          "geo_point_count": 23,
+          "detail_text_sha256": "05a99bb207e7c6e8"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -7565,8 +8321,52 @@
         "capacity_expansion"
       ],
       "has_audit_alert": true,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:20:06",
+          "decision_type": "ÇED Süreci Başlayan",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "16/11/2026 06:17:21",
+          "consulting_firm": "BAYSAL ÇEVRE MÜH. HİZM. ARIT.İNŞ. SAN. VE TİC. LTD. ŞTİ.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign5450322743574858910.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-19",
+          "pdf_temp_ad": "sign5450322743574858910.pdf",
+          "pdf_original_name": "e-imza.pdf",
+          "pdf_upload_date": "2026-11-19",
+          "sha256": "beaaffaf933bf7fab8600a5995e24eaee74804b489d068c0ee18a6f40a9382b1",
+          "bytes": 38548707,
+          "page_count": 339,
+          "text_pages": 138,
+          "scanned_or_blank_pages": 201,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": true,
+            "mentions_seasonal_sampling": false,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": false,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 39,
+            "water_and_discharge": 11,
+            "protected_land_and_olive": 5,
+            "ecology_and_baseline": 16,
+            "pollutants_and_hazards": 21,
+            "cost_and_capacity": 117,
+            "splitting_and_thresholds": 116
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 36.55034,
+          "geo_lon": 32.03142,
+          "geo_point_count": 23,
+          "detail_text_sha256": "05a99bb207e7c6e8"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -7598,8 +8398,52 @@
         "capacity_expansion"
       ],
       "has_audit_alert": false,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:20:14",
+          "decision_type": "ÇED Süreci Başlayan",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "16/11/2026 05:25:30",
+          "consulting_firm": "MERS ÇEVRE MAD.MÜH.PRO.DAN.İŞ SAĞ.VE GÜV. İNŞ. SAN.VE TİC. LTD. ŞTİ",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign8980604984769300739.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-16",
+          "pdf_temp_ad": "sign8980604984769300739.pdf",
+          "pdf_original_name": "e-imza.pdf",
+          "pdf_upload_date": "2026-11-16",
+          "sha256": "b3a27d08c2c267afe4829e0bad822778e9d58b5bd48e42da6e15737befd5b11a",
+          "bytes": 61829117,
+          "page_count": 284,
+          "text_pages": 229,
+          "scanned_or_blank_pages": 55,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": false,
+            "mentions_seasonal_sampling": true,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": false,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 51,
+            "water_and_discharge": 13,
+            "protected_land_and_olive": 3,
+            "ecology_and_baseline": 9,
+            "pollutants_and_hazards": 25,
+            "cost_and_capacity": 113,
+            "splitting_and_thresholds": 121
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 39.7537,
+          "geo_lon": 37.61709,
+          "geo_point_count": 80,
+          "detail_text_sha256": "136406e4cff3ad1f"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -7622,8 +8466,52 @@
         "multi_stage"
       ],
       "has_audit_alert": true,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:20:22",
+          "decision_type": "ÇED Süreci Başlayan",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "17/11/2026 12:28:19",
+          "consulting_firm": "NOTA ÇEVRE PROJE DAN.MÜH.İNŞ.SAN.VE TİC. LTD. ŞTİ.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign3601414129915716889.pdf&orjinalAd=SEBINKARAHISARDEPOLAMALIGESCBD.pdf&yuklemeTarihi=2026-11-17",
+          "pdf_temp_ad": "sign3601414129915716889.pdf",
+          "pdf_original_name": "SEBINKARAHISARDEPOLAMALIGESCBD.pdf",
+          "pdf_upload_date": "2026-11-17",
+          "sha256": "a1bb86afce347c3713e24b6d5b6b7bad2f8c1a72b07d7dfac0d8b15c75c3d48e",
+          "bytes": 34117913,
+          "page_count": 229,
+          "text_pages": 146,
+          "scanned_or_blank_pages": 83,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": true,
+            "mentions_seasonal_sampling": true,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": false,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 105,
+            "water_and_discharge": 19,
+            "protected_land_and_olive": 6,
+            "ecology_and_baseline": 11,
+            "pollutants_and_hazards": 32,
+            "cost_and_capacity": 13,
+            "splitting_and_thresholds": 28
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 40.21453,
+          "geo_lon": 38.75734,
+          "geo_point_count": 72,
+          "detail_text_sha256": "852a3f93fc730fae"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -7655,8 +8543,52 @@
         "multi_stage"
       ],
       "has_audit_alert": true,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:20:22",
+          "decision_type": "ÇED Süreci Başlayan",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "17/11/2026 12:28:19",
+          "consulting_firm": "NOTA ÇEVRE PROJE DAN.MÜH.İNŞ.SAN.VE TİC. LTD. ŞTİ.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign3601414129915716889.pdf&orjinalAd=SEBINKARAHISARDEPOLAMALIGESCBD.pdf&yuklemeTarihi=2026-11-17",
+          "pdf_temp_ad": "sign3601414129915716889.pdf",
+          "pdf_original_name": "SEBINKARAHISARDEPOLAMALIGESCBD.pdf",
+          "pdf_upload_date": "2026-11-17",
+          "sha256": "a1bb86afce347c3713e24b6d5b6b7bad2f8c1a72b07d7dfac0d8b15c75c3d48e",
+          "bytes": 34117913,
+          "page_count": 229,
+          "text_pages": 146,
+          "scanned_or_blank_pages": 83,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": true,
+            "mentions_seasonal_sampling": true,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": false,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 105,
+            "water_and_discharge": 19,
+            "protected_land_and_olive": 6,
+            "ecology_and_baseline": 11,
+            "pollutants_and_hazards": 32,
+            "cost_and_capacity": 13,
+            "splitting_and_thresholds": 28
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 40.21453,
+          "geo_lon": 38.75734,
+          "geo_point_count": 72,
+          "detail_text_sha256": "852a3f93fc730fae"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -7734,8 +8666,52 @@
       "filing_id": "61708",
       "flags": [],
       "has_audit_alert": false,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:21:26",
+          "decision_type": "ÇED Süreci Başlayan",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "12/11/2026 09:40:08",
+          "consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign331051306848943675.pdf&orjinalAd=YEKAGISPARTAGESCEDBASVURUDOSYASI.pdf&yuklemeTarihi=2026-11-12",
+          "pdf_temp_ad": "sign331051306848943675.pdf",
+          "pdf_original_name": "YEKAGISPARTAGESCEDBASVURUDOSYASI.pdf",
+          "pdf_upload_date": "2026-11-12",
+          "sha256": "b709915d4933ef6db50525aeb89dc1f69621c8aa5426ddd3b55730dc9377a7d8",
+          "bytes": 109419877,
+          "page_count": 263,
+          "text_pages": 222,
+          "scanned_or_blank_pages": 41,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": false,
+            "mentions_seasonal_sampling": false,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": true,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": false,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 170,
+            "water_and_discharge": 15,
+            "protected_land_and_olive": 9,
+            "ecology_and_baseline": 5,
+            "pollutants_and_hazards": 36,
+            "cost_and_capacity": 15,
+            "splitting_and_thresholds": 8
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 38.11632,
+          "geo_lon": 31.16315,
+          "geo_point_count": 42,
+          "detail_text_sha256": "64ee52dd3abc207b"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -7850,8 +8826,52 @@
         "capacity_expansion"
       ],
       "has_audit_alert": false,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:21:10",
+          "decision_type": "ÇED Süreci Başlayan",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "05/11/2026 02:16:18",
+          "consulting_firm": "TEMÇEV MÜHENDİSLİK MÜŞAVİRLİK ARITMA SİS.SAN.VE TİC.LTD.ŞTİ.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign6519210198939264579.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-18",
+          "pdf_temp_ad": "sign6519210198939264579.pdf",
+          "pdf_original_name": "e-imza.pdf",
+          "pdf_upload_date": "2026-11-18",
+          "sha256": "ca19627f5aa9185bc05a4b3436baf059d262271161605e494b5d7d1019d530da",
+          "bytes": 16639582,
+          "page_count": 196,
+          "text_pages": 165,
+          "scanned_or_blank_pages": 31,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": false,
+            "mentions_seasonal_sampling": false,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": false,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 35,
+            "water_and_discharge": 45,
+            "protected_land_and_olive": 5,
+            "ecology_and_baseline": 4,
+            "pollutants_and_hazards": 45,
+            "cost_and_capacity": 136,
+            "splitting_and_thresholds": 134
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 39.74631,
+          "geo_lon": 30.63908,
+          "geo_point_count": 73,
+          "detail_text_sha256": "60342b1667c5e910"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -7872,8 +8892,52 @@
       "filing_id": "61659",
       "flags": [],
       "has_audit_alert": false,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:21:15",
+          "decision_type": "ÇED Süreci Başlayan",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "18/11/2026 10:21:16",
+          "consulting_firm": "ÇEVREGEN MÜHENDİSLİK DANIŞMANLIK MARKA PATENT SAN. VE TİC. LTD. ŞTİ.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign7014751106534458074.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-20",
+          "pdf_temp_ad": "sign7014751106534458074.pdf",
+          "pdf_original_name": "e-imza.pdf",
+          "pdf_upload_date": "2026-11-20",
+          "sha256": "01e2d8fc4d621ffdbb04c38daff996387e77cd8394a0e5b8bdf8bdd1f7b76995",
+          "bytes": 27068210,
+          "page_count": 164,
+          "text_pages": 145,
+          "scanned_or_blank_pages": 19,
+          "audit_checks": {
+            "mentions_field_survey": false,
+            "mentions_literature_only_cue": false,
+            "mentions_seasonal_sampling": true,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": false,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 37,
+            "water_and_discharge": 14,
+            "protected_land_and_olive": 5,
+            "ecology_and_baseline": 13,
+            "pollutants_and_hazards": 33,
+            "cost_and_capacity": 16,
+            "splitting_and_thresholds": 14
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 40.56688,
+          "geo_lon": 35.2127,
+          "geo_point_count": 50,
+          "detail_text_sha256": "ed15bf1a8e348905"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -7940,8 +9004,52 @@
         "capacity_expansion"
       ],
       "has_audit_alert": false,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:21:22",
+          "decision_type": "ÇED Süreci Başlayan",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "21/10/2026 06:01:14",
+          "consulting_firm": "GREENPLAN ÇEVRE DAN. MÜH. MAD. SAN. TİC. LTD. ŞTİ.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign8976086272489727447.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-18",
+          "pdf_temp_ad": "sign8976086272489727447.pdf",
+          "pdf_original_name": "e-imza.pdf",
+          "pdf_upload_date": "2026-11-18",
+          "sha256": "b54515e6a8e8dcf90fb3aee655638238957a3179a78780701fbadcf976b7e087",
+          "bytes": 36370585,
+          "page_count": 253,
+          "text_pages": 223,
+          "scanned_or_blank_pages": 30,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": false,
+            "mentions_seasonal_sampling": true,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": true,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 43,
+            "water_and_discharge": 15,
+            "protected_land_and_olive": 3,
+            "ecology_and_baseline": 10,
+            "pollutants_and_hazards": 24,
+            "cost_and_capacity": 123,
+            "splitting_and_thresholds": 123
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 40.22529,
+          "geo_lon": 32.10194,
+          "geo_point_count": 81,
+          "detail_text_sha256": "567bda3e0e48b567"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -7988,8 +9096,52 @@
         "capacity_expansion"
       ],
       "has_audit_alert": false,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:22:45",
+          "decision_type": "ÇED Süreci Başlayan",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "26/10/2026 05:38:10",
+          "consulting_firm": "ÇEVKENT ÇEVRE MÜHENDİSLİK YÖNETİM DANIŞMANLIK GIDA TARIM LABORATUVAR İŞ SAĞLIĞI VE GÜVENLİĞİ GERİ DÖNÜŞÜM TURİZM TAŞIMACILIK OTOMOTİV İNŞAAT MAKİNE SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign1288709854886966740.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-18",
+          "pdf_temp_ad": "sign1288709854886966740.pdf",
+          "pdf_original_name": "e-imza.pdf",
+          "pdf_upload_date": "2026-11-18",
+          "sha256": "cd703ed128bb0f0cbe855b9957ef57dcfe94fea5b85fe608bdb5e18d9412e570",
+          "bytes": 214154463,
+          "page_count": 191,
+          "text_pages": 110,
+          "scanned_or_blank_pages": 81,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": false,
+            "mentions_seasonal_sampling": true,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": false,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 29,
+            "water_and_discharge": 12,
+            "protected_land_and_olive": 4,
+            "ecology_and_baseline": 9,
+            "pollutants_and_hazards": 18,
+            "cost_and_capacity": 80,
+            "splitting_and_thresholds": 79
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 36.65968,
+          "geo_lon": 31.65792,
+          "geo_point_count": 15,
+          "detail_text_sha256": "446cadc1da23e66e"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -8036,8 +9188,52 @@
         "capacity_expansion"
       ],
       "has_audit_alert": false,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:22:16",
+          "decision_type": "ÇED Süreci Başlayan",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "09/10/2026 04:23:58",
+          "consulting_firm": "EKOLART Çevre Müh. Hiz. Dan. İnş. Tur. Mak. İml. İth. İhr. San. ve Tic. Ltd. Şti.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign1338292098026603613.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-12",
+          "pdf_temp_ad": "sign1338292098026603613.pdf",
+          "pdf_original_name": "e-imza.pdf",
+          "pdf_upload_date": "2026-11-12",
+          "sha256": "00bbd5444ddfafd9b168d349ed65e455b1eb42613ebfd84d6492228d95f2d48a",
+          "bytes": 25588172,
+          "page_count": 247,
+          "text_pages": 192,
+          "scanned_or_blank_pages": 55,
+          "audit_checks": {
+            "mentions_field_survey": false,
+            "mentions_literature_only_cue": false,
+            "mentions_seasonal_sampling": false,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": false,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 54,
+            "water_and_discharge": 25,
+            "protected_land_and_olive": 3,
+            "ecology_and_baseline": 12,
+            "pollutants_and_hazards": 17,
+            "cost_and_capacity": 164,
+            "splitting_and_thresholds": 160
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 38.50775,
+          "geo_lon": 28.323,
+          "geo_point_count": 20,
+          "detail_text_sha256": "2f1c3896e2af5d5d"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -8167,8 +9363,52 @@
       "filing_id": "60990",
       "flags": [],
       "has_audit_alert": false,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:19:11",
+          "decision_type": "IDK",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "08/09/2026 02:35:06",
+          "consulting_firm": "ENVA ÇEVRE MÜH. MÜŞ. LTD. ŞTİ.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4338561169731134821.pdf&orjinalAd=60990_CED_Raporu.pdf&yuklemeTarihi=2026-11-18",
+          "pdf_temp_ad": "sign4338561169731134821.pdf",
+          "pdf_original_name": "60990_CED_Raporu.pdf",
+          "pdf_upload_date": "2026-11-18",
+          "sha256": "e9967697992c6770c9513dfda5dae1e269f0c74807bf253c721ec104d402acab",
+          "bytes": 116893226,
+          "page_count": 832,
+          "text_pages": 776,
+          "scanned_or_blank_pages": 56,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": false,
+            "mentions_seasonal_sampling": true,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": true,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 157,
+            "water_and_discharge": 158,
+            "protected_land_and_olive": 37,
+            "ecology_and_baseline": 94,
+            "pollutants_and_hazards": 112,
+            "cost_and_capacity": 69,
+            "splitting_and_thresholds": 23
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 40.31486,
+          "geo_lon": 27.84667,
+          "geo_point_count": 79,
+          "detail_text_sha256": "cbb16cddcd4a9042"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -8258,8 +9498,52 @@
         "capacity_expansion"
       ],
       "has_audit_alert": false,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:20:02",
+          "decision_type": "IDK",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "23/07/2026 10:56:20",
+          "consulting_firm": "ADADEM Çevre Müh.San. ve Tic. Ltd.Şti.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign1068897642736094028.pdf&orjinalAd=60242_CED_Raporu.pdf&yuklemeTarihi=2026-11-16",
+          "pdf_temp_ad": "sign1068897642736094028.pdf",
+          "pdf_original_name": "60242_CED_Raporu.pdf",
+          "pdf_upload_date": "2026-11-16",
+          "sha256": "2c31941365c7a1415dcdd3772478128f0ab71d51e26aaf67f26a07045cc01531",
+          "bytes": 84332304,
+          "page_count": 704,
+          "text_pages": 480,
+          "scanned_or_blank_pages": 224,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": true,
+            "mentions_seasonal_sampling": true,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": true,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 107,
+            "water_and_discharge": 58,
+            "protected_land_and_olive": 35,
+            "ecology_and_baseline": 49,
+            "pollutants_and_hazards": 97,
+            "cost_and_capacity": 334,
+            "splitting_and_thresholds": 336
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 36.81607,
+          "geo_lon": 31.31186,
+          "geo_point_count": 42,
+          "detail_text_sha256": "f0d2feeb3354caac"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -8280,8 +9564,52 @@
       "filing_id": "59907",
       "flags": [],
       "has_audit_alert": false,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:19:20",
+          "decision_type": "IDK",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "10/05/2026 09:29:08",
+          "consulting_firm": "EKOÇED ÇEV. DAN. MÜH. HİZM. LTD. ŞTİ.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign1733030107098366636.pdf&orjinalAd=59907_CED_Raporu.pdf&yuklemeTarihi=2026-11-17",
+          "pdf_temp_ad": "sign1733030107098366636.pdf",
+          "pdf_original_name": "59907_CED_Raporu.pdf",
+          "pdf_upload_date": "2026-11-17",
+          "sha256": "2451611ebea756f5315104c91c6aa4e95541dd5190e8179eb47fae3770eb3537",
+          "bytes": 59300178,
+          "page_count": 499,
+          "text_pages": 430,
+          "scanned_or_blank_pages": 69,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": true,
+            "mentions_seasonal_sampling": true,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": true,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 83,
+            "water_and_discharge": 42,
+            "protected_land_and_olive": 14,
+            "ecology_and_baseline": 74,
+            "pollutants_and_hazards": 60,
+            "cost_and_capacity": 231,
+            "splitting_and_thresholds": 222
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 39.50138,
+          "geo_lon": 31.14859,
+          "geo_point_count": 28,
+          "detail_text_sha256": "13399fc51b587312"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -8348,11 +9676,57 @@
     "58094:20.11.2026:ÇED Olumlu": {
       "filing_id": "58094",
       "flags": [
+        "circular_2009_7",
+        "portal_text_changed",
         "legacy_resurfaced"
       ],
       "has_audit_alert": true,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:19:11",
+          "decision_type": "ÇED Olumlu",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "04/12/2025 05:07:57",
+          "consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file909446482426029187.imz&orjinalAd=58094_Son_Sekli_Verilen_Rapor.pdf&yuklemeTarihi=2026-10-01",
+          "pdf_temp_ad": "signature_file909446482426029187.imz",
+          "pdf_original_name": "58094_Son_Sekli_Verilen_Rapor.pdf",
+          "pdf_upload_date": "2026-10-01",
+          "sha256": "95ac489cbf3e472211c667355d5c48e643bdf6826853d7eeabbb7711ee5c8539",
+          "bytes": 259473961,
+          "page_count": 2043,
+          "text_pages": 1804,
+          "scanned_or_blank_pages": 239,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": true,
+            "mentions_seasonal_sampling": true,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": true,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": true
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 235,
+            "water_and_discharge": 102,
+            "protected_land_and_olive": 85,
+            "ecology_and_baseline": 161,
+            "pollutants_and_hazards": 240,
+            "cost_and_capacity": 130,
+            "splitting_and_thresholds": 63
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 40.38321,
+          "geo_lon": 37.63141,
+          "geo_point_count": 80,
+          "detail_text_sha256": "beb491d8468783e4"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -8366,7 +9740,62 @@
         }
       ],
       "related_filings": [],
-      "portal_change_log": [],
+      "portal_change_log": [
+        {
+          "detected_at": "2026-11-22T00:16:27",
+          "changed_fields": [
+            "detail_text"
+          ],
+          "prev_submitted_at": "04/12/2025 05:07:57",
+          "new_submitted_at": "04/12/2025 05:07:57",
+          "prev_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "new_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "prev_pdf_urls": [
+            "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file909446482426029187.imz&orjinalAd=58094_Son_Sekli_Verilen_Rapor.pdf&yuklemeTarihi=2026-10-01"
+          ],
+          "new_pdf_urls": [
+            "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file909446482426029187.imz&orjinalAd=58094_Son_Sekli_Verilen_Rapor.pdf&yuklemeTarihi=2026-10-01"
+          ],
+          "prev_detail_sha256": "beb491d8468783e4",
+          "new_detail_sha256": "c56260a7164c64f3"
+        },
+        {
+          "detected_at": "2026-11-22T00:16:27",
+          "changed_fields": [
+            "detail_text"
+          ],
+          "prev_submitted_at": "04/12/2025 05:07:57",
+          "new_submitted_at": "04/12/2025 05:07:57",
+          "prev_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "new_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "prev_pdf_urls": [
+            "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file909446482426029187.imz&orjinalAd=58094_Son_Sekli_Verilen_Rapor.pdf&yuklemeTarihi=2026-10-01"
+          ],
+          "new_pdf_urls": [
+            "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file909446482426029187.imz&orjinalAd=58094_Son_Sekli_Verilen_Rapor.pdf&yuklemeTarihi=2026-10-01"
+          ],
+          "prev_detail_sha256": "c56260a7164c64f3",
+          "new_detail_sha256": "3f77f6436120311f"
+        },
+        {
+          "detected_at": "2026-11-22T00:16:27",
+          "changed_fields": [
+            "detail_text"
+          ],
+          "prev_submitted_at": "04/12/2025 05:07:57",
+          "new_submitted_at": "04/12/2025 05:07:57",
+          "prev_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "new_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "prev_pdf_urls": [
+            "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file909446482426029187.imz&orjinalAd=58094_Son_Sekli_Verilen_Rapor.pdf&yuklemeTarihi=2026-10-01"
+          ],
+          "new_pdf_urls": [
+            "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file909446482426029187.imz&orjinalAd=58094_Son_Sekli_Verilen_Rapor.pdf&yuklemeTarihi=2026-10-01"
+          ],
+          "prev_detail_sha256": "3f77f6436120311f",
+          "new_detail_sha256": "beb491d8468783e4"
+        }
+      ],
       "legacy_gap_years": 1
     },
     "57441:20.11.2026:ÇED Gerekli Değil/ÇED Olumlu": {
@@ -8447,8 +9876,52 @@
         "legacy_resurfaced"
       ],
       "has_audit_alert": true,
-      "revision_count": 0,
-      "revision_history": [],
+      "revision_count": 1,
+      "revision_history": [
+        {
+          "version": 1,
+          "observed_at": "2026-11-22T00:18:45",
+          "decision_type": "IDK",
+          "announcement_date": "2026-11-20",
+          "announcement_date_tr": "20.11.2026",
+          "submitted_at": "17/03/2025 11:13:05",
+          "consulting_firm": "ECOFİRM MAD. TAR. ORM. ENERJİ MÜH. İNŞ.  ATIKSU SU ARITMA LAB. HİZ. VE TEKN. HİZ. SAN. VE TİC. LTD. ŞTİ.",
+          "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file6418609477039204720.imz&orjinalAd=54734_CED_Raporu.pdf&yuklemeTarihi=2026-11-16",
+          "pdf_temp_ad": "signature_file6418609477039204720.imz",
+          "pdf_original_name": "54734_CED_Raporu.pdf",
+          "pdf_upload_date": "2026-11-16",
+          "sha256": "520a59c8a620fb7c3c3ae123be565c58a9ce85662efe359c7c1eca7570ee72ce",
+          "bytes": 142625323,
+          "page_count": 574,
+          "text_pages": 406,
+          "scanned_or_blank_pages": 168,
+          "audit_checks": {
+            "mentions_field_survey": true,
+            "mentions_literature_only_cue": true,
+            "mentions_seasonal_sampling": true,
+            "mentions_cumulative_impact": true,
+            "mentions_olive_law_3573": false,
+            "mentions_groundwater_or_aquifer": true,
+            "mentions_iucn_or_endemic": true,
+            "mentions_capacity_or_splitting": true,
+            "mentions_circular_2009_7_or_revision": false
+          },
+          "signal_page_counts": {
+            "coordinates_and_footprint": 104,
+            "water_and_discharge": 109,
+            "protected_land_and_olive": 18,
+            "ecology_and_baseline": 62,
+            "pollutants_and_hazards": 69,
+            "cost_and_capacity": 40,
+            "splitting_and_thresholds": 86
+          },
+          "geo_precision": "exact_pdf",
+          "geo_lat": 39.23203,
+          "geo_lon": 29.88535,
+          "geo_point_count": 80,
+          "detail_text_sha256": "65b2647a29f90cb3"
+        }
+      ],
       "latest_pdf_diff": null,
       "timeline": [
         {
@@ -9354,8 +10827,10 @@
     },
     "61354:19.11.2026:ÇED Süreci Başlayan": {
       "filing_id": "61354",
-      "flags": [],
-      "has_audit_alert": false,
+      "flags": [
+        "portal_text_changed"
+      ],
+      "has_audit_alert": true,
       "revision_count": 1,
       "revision_history": [
         {
@@ -9412,7 +10887,44 @@
         }
       ],
       "related_filings": [],
-      "portal_change_log": [],
+      "portal_change_log": [
+        {
+          "detected_at": "2026-11-22T00:16:27",
+          "changed_fields": [
+            "detail_text"
+          ],
+          "prev_submitted_at": "16/11/2026 04:19:09",
+          "new_submitted_at": "16/11/2026 04:19:09",
+          "prev_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "new_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "prev_pdf_urls": [
+            "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4195618410608326396.pdf&orjinalAd=KaraburunEIHPTD...pdf&yuklemeTarihi=2026-11-16"
+          ],
+          "new_pdf_urls": [
+            "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4195618410608326396.pdf&orjinalAd=KaraburunEIHPTD...pdf&yuklemeTarihi=2026-11-16"
+          ],
+          "prev_detail_sha256": "26c3a5f30a4fb35c",
+          "new_detail_sha256": "520c0cbd795d8103"
+        },
+        {
+          "detected_at": "2026-11-22T00:16:27",
+          "changed_fields": [
+            "detail_text"
+          ],
+          "prev_submitted_at": "16/11/2026 04:19:09",
+          "new_submitted_at": "16/11/2026 04:19:09",
+          "prev_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "new_consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+          "prev_pdf_urls": [
+            "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4195618410608326396.pdf&orjinalAd=KaraburunEIHPTD...pdf&yuklemeTarihi=2026-11-16"
+          ],
+          "new_pdf_urls": [
+            "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign4195618410608326396.pdf&orjinalAd=KaraburunEIHPTD...pdf&yuklemeTarihi=2026-11-16"
+          ],
+          "prev_detail_sha256": "520c0cbd795d8103",
+          "new_detail_sha256": "26c3a5f30a4fb35c"
+        }
+      ],
       "legacy_gap_years": null
     },
     "61087:19.11.2026:HKT": {

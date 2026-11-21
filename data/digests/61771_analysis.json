@@ -46,7 +46,8 @@
     "filename": "61771.pdf",
     "bytes": 73665290,
     "sha256": "17bfd790a4ad9e0febf90645855c11fa1b82b28c406e2790c880359391b54690",
-    "cached": false
+    "cached": false,
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign1507507940130905256.pdf&orjinalAd=CANOGULLARICBDREV.pdf&yuklemeTarihi=2026-11-18"
   },
   "analysis": {
     "page_count": 320,
@@ -646,6 +647,48 @@
       "mentions_iucn_or_endemic": true
     }
   },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-20T02:10:52",
+      "decision_type": "ÇED Süreci Başlayan",
+      "announcement_date": "2026-11-19",
+      "announcement_date_tr": "19.11.2026",
+      "submitted_at": "13/11/2026 02:49:58",
+      "consulting_firm": "GAİA ÇEVRE DANIŞMANLIK A.Ş.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign1507507940130905256.pdf&orjinalAd=CANOGULLARICBDREV.pdf&yuklemeTarihi=2026-11-18",
+      "pdf_temp_ad": "sign1507507940130905256.pdf",
+      "pdf_original_name": "CANOGULLARICBDREV.pdf",
+      "pdf_upload_date": "2026-11-18",
+      "sha256": "17bfd790a4ad9e0febf90645855c11fa1b82b28c406e2790c880359391b54690",
+      "bytes": 73665290,
+      "page_count": 320,
+      "text_pages": 184,
+      "scanned_or_blank_pages": 136,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": true,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": false,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 47,
+        "water_and_discharge": 26,
+        "protected_land_and_olive": 5,
+        "ecology_and_baseline": 8,
+        "pollutants_and_hazards": 27,
+        "cost_and_capacity": 120
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 38.27015,
+      "geo_lon": 38.44961,
+      "geo_point_count": 11,
+      "detail_text_sha256": "6b1212e8f5a3783f"
+    }
+  ],
   "llm_synthesis": {
     "model": "gemini-4-hydrogen",
     "generated_at": "2026-11-20T02:14:43",

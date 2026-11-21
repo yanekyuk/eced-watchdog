@@ -49,7 +49,8 @@
     "filename": "61693.pdf",
     "bytes": 61351316,
     "sha256": "61292982c886fef4bc3e61259150f4fc8007eb256243679a7c4bda2172236d6e",
-    "cached": false
+    "cached": false,
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign3001897172830461903.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-09"
   },
   "analysis": {
     "page_count": 290,
@@ -562,6 +563,48 @@
       "mentions_iucn_or_endemic": true
     }
   },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-11",
+      "decision_type": "ÇED Süreci Başlayan",
+      "announcement_date": "2026-11-11",
+      "announcement_date_tr": "11.11.2026",
+      "submitted_at": "09/11/2026 11:29:48",
+      "consulting_firm": "PROÇED ÇEVRE DANIŞMANLIĞI MÜHENDİSLİK SAN.TİC.LTD.ŞTİ",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign3001897172830461903.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-09",
+      "pdf_temp_ad": "sign3001897172830461903.pdf",
+      "pdf_original_name": "e-imza.pdf",
+      "pdf_upload_date": "2026-11-09",
+      "sha256": "61292982c886fef4bc3e61259150f4fc8007eb256243679a7c4bda2172236d6e",
+      "bytes": 61351316,
+      "page_count": 290,
+      "text_pages": 193,
+      "scanned_or_blank_pages": 97,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": false,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": false,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 37,
+        "water_and_discharge": 18,
+        "protected_land_and_olive": 9,
+        "ecology_and_baseline": 4,
+        "pollutants_and_hazards": 35,
+        "cost_and_capacity": 21
+      },
+      "geo_precision": null,
+      "geo_lat": null,
+      "geo_lon": null,
+      "geo_point_count": 0,
+      "detail_text_sha256": "bfed6352ee9aad0a"
+    }
+  ],
   "llm_synthesis": {
     "model": "gemini-3.8-flash",
     "generated_at": "2026-11-20T01:25:28",

@@ -46,7 +46,8 @@
     "filename": "61543.pdf",
     "bytes": 46374497,
     "sha256": "938f7ada38ea832ad8ed809add4fd09b8ace62bd28f861062f1ee467d48c9283",
-    "cached": false
+    "cached": false,
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign5619636152080628534.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-18"
   },
   "analysis": {
     "page_count": 271,
@@ -702,6 +703,48 @@
       "mentions_iucn_or_endemic": true
     }
   },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-20T02:10:53",
+      "decision_type": "ÇED Süreci Başlayan",
+      "announcement_date": "2026-11-19",
+      "announcement_date_tr": "19.11.2026",
+      "submitted_at": "18/11/2026 04:03:50",
+      "consulting_firm": "ANATOLİA ÇEVRE MÜHENDİSLİK MÜŞ. MAD. İNŞ. ARAÇ KİR. TİC. LTD. ŞTİ.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign5619636152080628534.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-18",
+      "pdf_temp_ad": "sign5619636152080628534.pdf",
+      "pdf_original_name": "e-imza.pdf",
+      "pdf_upload_date": "2026-11-18",
+      "sha256": "938f7ada38ea832ad8ed809add4fd09b8ace62bd28f861062f1ee467d48c9283",
+      "bytes": 46374497,
+      "page_count": 271,
+      "text_pages": 214,
+      "scanned_or_blank_pages": 57,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": true,
+        "mentions_seasonal_sampling": true,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": true,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 53,
+        "water_and_discharge": 20,
+        "protected_land_and_olive": 17,
+        "ecology_and_baseline": 19,
+        "pollutants_and_hazards": 53,
+        "cost_and_capacity": 11
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 40.36394,
+      "geo_lon": 27.90964,
+      "geo_point_count": 81,
+      "detail_text_sha256": "7d532bd93518a973"
+    }
+  ],
   "llm_synthesis": {
     "model": "gemini-4-hydrogen",
     "generated_at": "2026-11-20T09:03:49",

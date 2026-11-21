@@ -43,7 +43,8 @@
     "filename": "61587.pdf",
     "bytes": 132937,
     "sha256": "d6ed8a3f5f912443573ad3afae66d9799af680ed9ff0601339c68ac56d5695f6",
-    "cached": false
+    "cached": false,
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?orjinalAd=61587_5_33081.pdf&yuklemeTarihi=2026-11-18&projeIptalEk1=ek1"
   },
   "analysis": {
     "page_count": 1,
@@ -109,6 +110,48 @@
       "mentions_iucn_or_endemic": false
     }
   },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-20T02:11:04",
+      "decision_type": "İptal/İade",
+      "announcement_date": "2026-11-18",
+      "announcement_date_tr": "18.11.2026",
+      "submitted_at": "11/11/2026 03:18:26",
+      "consulting_firm": "AK-KO MEDİKAL MÜHENDİSLİK VE PATENT DAN. SAN.TİC. LTD. ŞTİ.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?orjinalAd=61587_5_33081.pdf&yuklemeTarihi=2026-11-18&projeIptalEk1=ek1",
+      "pdf_temp_ad": null,
+      "pdf_original_name": "61587_5_33081.pdf",
+      "pdf_upload_date": "2026-11-18",
+      "sha256": "d6ed8a3f5f912443573ad3afae66d9799af680ed9ff0601339c68ac56d5695f6",
+      "bytes": 132937,
+      "page_count": 1,
+      "text_pages": 1,
+      "scanned_or_blank_pages": 0,
+      "audit_checks": {
+        "mentions_field_survey": false,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": false,
+        "mentions_cumulative_impact": false,
+        "mentions_olive_law_3573": false,
+        "mentions_groundwater_or_aquifer": false,
+        "mentions_iucn_or_endemic": false
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 0,
+        "water_and_discharge": 0,
+        "protected_land_and_olive": 0,
+        "ecology_and_baseline": 0,
+        "pollutants_and_hazards": 0,
+        "cost_and_capacity": 0
+      },
+      "geo_precision": "province_centroid",
+      "geo_lat": 37.8746,
+      "geo_lon": 32.4932,
+      "geo_point_count": 0,
+      "detail_text_sha256": "a6163265e8857bdb"
+    }
+  ],
   "llm_synthesis": {
     "model": "gemini-4-hydrogen",
     "generated_at": "2026-11-20T11:11:00",

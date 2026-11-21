@@ -1,0 +1,819 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>e-ÇED Ön Özet #61664 — ESKİŞEHİR / ODUNPAZARI</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+:root {
+  --bg: #f6f8fa;
+  --surface: #ffffff;
+  --surface-subtle: #f1f4f8;
+  --border: #d8dee6;
+  --border-strong: #bcc6d4;
+  --text: #161b22;
+  --text-secondary: #424a53;
+  --muted: #5c6670;
+  --accent: #0b5ed7;
+  --accent-soft: #e7f1ff;
+  --red: #b42318;
+  --red-soft: #fef3f2;
+  --red-border: #fecdca;
+  --amber: #9a5b00;
+  --amber-soft: #fffaeb;
+  --amber-border: #fedf89;
+  --green: #067647;
+  --green-soft: #ecfdf3;
+  --green-border: #abefc6;
+  --violet: #5925dc;
+  --violet-soft: #f4f3ff;
+  --violet-border: #d9d6fe;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface-subtle: #1c222b;
+    --border: #2b333e;
+    --border-strong: #3d4756;
+    --text: #e6edf3;
+    --text-secondary: #c9d1d9;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --accent-soft: rgba(88, 166, 255, 0.14);
+    --red: #ff7b72;
+    --red-soft: rgba(248, 81, 73, 0.14);
+    --red-border: rgba(248, 81, 73, 0.4);
+    --amber: #e3b341;
+    --amber-soft: rgba(210, 153, 34, 0.14);
+    --amber-border: rgba(210, 153, 34, 0.4);
+    --green: #3fb950;
+    --green-soft: rgba(63, 185, 80, 0.14);
+    --green-border: rgba(63, 185, 80, 0.4);
+    --violet: #b692f6;
+    --violet-soft: rgba(158, 119, 237, 0.16);
+    --violet-border: rgba(158, 119, 237, 0.42);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface-subtle: #1c222b;
+  --border: #2b333e;
+  --border-strong: #3d4756;
+  --text: #e6edf3;
+  --text-secondary: #c9d1d9;
+  --muted: #8b949e;
+  --accent: #58a6ff;
+  --accent-soft: rgba(88, 166, 255, 0.14);
+  --red: #ff7b72;
+  --red-soft: rgba(248, 81, 73, 0.14);
+  --red-border: rgba(248, 81, 73, 0.4);
+  --amber: #e3b341;
+  --amber-soft: rgba(210, 153, 34, 0.14);
+  --amber-border: rgba(210, 153, 34, 0.4);
+  --green: #3fb950;
+  --green-soft: rgba(63, 185, 80, 0.14);
+  --green-border: rgba(63, 185, 80, 0.4);
+  --violet: #b692f6;
+  --violet-soft: rgba(158, 119, 237, 0.16);
+  --violet-border: rgba(158, 119, 237, 0.42);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Unified Sticky Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.topbar-inner {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 11px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: -0.01em;
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+.brand-scope {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.nav-link {
+  padding: 5px 11px;
+  border-radius: 7px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-link:hover { background: var(--surface-subtle); text-decoration: none; color: var(--text); }
+.nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.theme-btn {
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
+
+/* Layout */
+.wrap { max-width: 1220px; margin: 0 auto; padding: 24px 20px 68px; }
+.wrap.narrow { max-width: 960px; }
+header.page-head { margin-bottom: 20px; }
+h1 { margin: 0 0 8px; font-size: 1.62rem; line-height: 1.25; letter-spacing: -0.02em; }
+h2 { margin: 28px 0 12px; font-size: 1.2rem; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { margin: 16px 0 8px; font-size: 0.98rem; line-height: 1.35; }
+.sub { color: var(--muted); font-size: 0.93rem; margin: 0; }
+.meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin-top: 12px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+
+/* Orientation Banner */
+.hero-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+.hero-strip p { margin: 0; font-size: 0.9rem; color: var(--text-secondary); max-width: 820px; }
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.hero-cta:hover { text-decoration: none; filter: brightness(1.06); }
+
+/* KPI Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  gap: 12px;
+  margin: 0 0 18px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 13px 16px;
+  box-shadow: var(--shadow);
+}
+.stat .num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+.stat .lbl { font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
+.stat.accent .num { color: var(--accent); }
+.stat.rev .num { color: var(--violet); }
+
+/* Map */
+.map-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+#map { width: 100%; height: 400px; background: var(--surface-subtle); }
+#digest-map { width: 100%; height: 320px; background: var(--surface-subtle); }
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  padding: 10px 16px;
+  font-size: 0.79rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: var(--surface-subtle);
+}
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+/* Controls */
+.controls-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.controls-row + .controls-row { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+input[type="search"], select.filter-select {
+  padding: 8px 12px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.88rem;
+}
+input[type="search"]:focus, select.filter-select:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+input[type="search"] { flex: 1 1 250px; }
+select.filter-select { min-width: 165px; }
+button.pill {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.81rem;
+  font-weight: 500;
+  transition: background 0.12s, border-color 0.12s;
+}
+button.pill:hover { border-color: var(--border-strong); color: var(--text); }
+button.pill.active { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 600; }
+button.pill.rev-pill.active { background: var(--violet); border-color: var(--violet); }
+button.reset-btn {
+  margin-left: auto;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+button.reset-btn:hover { color: var(--text); border-color: var(--border-strong); }
+
+/* Cards & Badges */
+.cards { display: flex; flex-direction: column; gap: 11px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+}
+.card.ek1 { border-left: 4px solid var(--accent); }
+.card.has-rev { border-left: 4px solid var(--violet); }
+.card.ek1.has-rev { border-left: 4px solid var(--violet); }
+.row-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 14px;
+  align-items: flex-start;
+}
+.title { font-weight: 650; font-size: 1rem; line-height: 1.38; color: var(--text); flex: 1 1 320px; }
+.title a { color: var(--text); }
+.title a:hover { color: var(--accent); text-decoration: none; }
+.date-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.badge.urgent { background: var(--red-soft); border-color: var(--red-border); color: var(--red); font-weight: 600; }
+.badge.warn { background: var(--amber-soft); border-color: var(--amber-border); color: var(--amber); font-weight: 600; }
+.badge.ok { background: var(--green-soft); border-color: var(--green-border); color: var(--green); font-weight: 600; }
+.badge.info { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
+.badge.rev { background: var(--violet-soft); border-color: var(--violet-border); color: var(--violet); font-weight: 600; }
+.badge.muted { color: var(--muted); }
+.detail { font-size: 0.88rem; color: var(--text-secondary); margin: 9px 0 0; }
+.detail.muted { color: var(--muted); }
+
+/* Revision inline strip on cards */
+.rev-strip {
+  margin-top: 10px;
+  padding: 8px 11px;
+  border-radius: 7px;
+  background: var(--violet-soft);
+  border: 1px solid var(--violet-border);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.rev-strip strong { color: var(--violet); }
+
+/* Action Buttons */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  font-size: 0.83rem;
+  margin-top: 11px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+.btn-primary:hover { text-decoration: none; filter: brightness(1.06); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.btn-secondary:hover { text-decoration: none; border-color: var(--border-strong); color: var(--text); }
+
+/* Tables, Code, Callouts, Timeline */
+table.kv {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.89rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+table.kv th, table.kv td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 13px;
+  text-align: left;
+  vertical-align: top;
+}
+table.kv tr:last-child th, table.kv tr:last-child td { border-bottom: none; }
+table.kv th { width: 250px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
+table.data-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.85rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+table.data-tbl th, table.data-tbl td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.data-tbl tr:last-child td { border-bottom: none; }
+code {
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.84em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+blockquote {
+  margin: 10px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.callout {
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  margin: 14px 0;
+}
+.callout.rev {
+  background: var(--violet-soft);
+  border-color: var(--violet-border);
+}
+.callout.warn {
+  background: var(--amber-soft);
+  border-color: var(--amber-border);
+}
+.timeline {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid var(--border-strong);
+}
+.timeline li {
+  position: relative;
+  margin: 0 0 10px;
+  padding-left: 8px;
+  font-size: 0.87rem;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+}
+.hit { margin: 8px 0; font-size: 0.88rem; line-height: 1.55; }
+.pno { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.notice {
+  margin-top: 32px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+.toc-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 20px; }
+.toc-pills a {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.81rem;
+  font-weight: 500;
+}
+.toc-pills a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+.step-num {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+pre.template-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.section-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.leaflet-popup-content { color: #161b22; font-size: 0.85rem; line-height: 1.45; }
+@media (max-width: 700px) {
+  table.kv th { width: 145px; }
+  #map { height: 320px; }
+  .topbar-inner { padding: 10px 14px; }
+  .wrap { padding: 18px 14px 54px; }
+}
+@media print {
+  .topbar, .no-print, #digest-map, .map-box { display: none !important; }
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .card, table.kv, table.data-tbl { box-shadow: none; break-inside: avoid; }
+  a { color: #000000; text-decoration: underline; }
+}
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      <span>Türkiye e-ÇED İzleme</span>
+      <span class="brand-scope">81 İl</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link " href="../index.html">Duyurular ve Harita</a>
+      <a class="nav-link " href="../rehber.html">Kullanım Rehberi</a>
+      <a class="nav-link" href="../feed.xml">RSS 2.0</a>
+      <a class="nav-link" href="https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml" target="_blank" rel="noopener">Resmi e-ÇED ↗</a>
+      <button id="theme-toggle" class="theme-btn" type="button">Tema</button>
+    </div>
+  </div>
+</nav>
+<div class="wrap narrow">
+  <header class="page-head">
+    <div style="font-size:0.84rem;color:var(--muted);margin-bottom:8px;" class="no-print">
+      <a href="../index.html">← Duyurular listesine dön</a> · Dosya <code>#61664</code>
+    </div>
+    <h1>Muhtelif Cins Bisküvi, Kraker, Kek Ve Gofret, Muhtelif Cins Çikolatalı Mamuller (Tablet Ve Bar Halinde Dolgulu/Dolgusuz Ürünler) İle Kaplamalı Ve Kaplamasız Gofret, Muhtelif Cins Kek Muhtelif Cins Bisküvi, Kraker Ve Müsli Bar Üretimi Kapasite Artışı</h1>
+    <p class="sub">ESKİŞEHİR / ODUNPAZARI · ETİ GIDA SANAYİ VE TİCARET A.Ş.</p>
+    <div class="badges" style="margin-top:11px;">
+      <span class="badge">ÇED Süreci Başlayan</span>
+      <span class="badge info">Ek-1</span>
+      <span class="badge info">Karar Öncesi İnceleme (m. 8/16)</span>
+      
+    </div>
+    <div class="actions no-print" style="border-top:none;padding-top:4px;">
+      <a class="btn-primary" href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign6519210198939264579.pdf&amp;orjinalAd=e-imza.pdf&amp;yuklemeTarihi=2026-11-18" target="_blank" rel="noopener">Resmi PDF Dosyası ↗</a>
+      <a class="btn-secondary" href="http://eced.csb.gov.tr/jsp/ek1/61664" target="_blank" rel="noopener">e-ÇED Portal Kaydı ↗</a>
+      <a class="btn-secondary" href="61664.md">Ham Markdown (.md)</a>
+      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF Kaydet</button>
+    </div>
+  </header>
+
+  <table class="kv">
+    <tr><th>Proje Sahibi</th><td>ETİ GIDA SANAYİ VE TİCARET A.Ş.</td></tr>
+    <tr><th>Hazırlayan Kuruluş</th><td>TEMÇEV MÜHENDİSLİK MÜŞAVİRLİK ARITMA SİS.SAN.VE TİC.LTD.ŞTİ.</td></tr>
+    <tr><th>Sektör / Alt Sektör</th><td>Gıda / Çikolata veya Kakolu Ürün Üretimi Yapan Tesisler</td></tr>
+    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>20.11.2026</code> · Belge yükleme: <code>05/11/2026 02:16:18</code></td></tr>
+    <tr><th>PDF Kapsamı ve Bütünlük</th><td>15.87 MB · 196 sayfa (165 metin / 31 taranmış) · SHA-256 <code>ca19627f5aa9185b…</code></td></tr>
+    <tr><th>Harita Bağlantıları</th><td><a href="https://www.openstreetmap.org/?mlat=39.74631&amp;mlon=30.63908#map=12/39.74631/30.63908" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=39.74631,30.63908" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
+  </table>
+
+  <h2>Belge Bütünlüğü, Revizyon ve Süreç Geçmişi</h2>
+<p class="sub">Her PDF dosyasının SHA-256 özeti, yükleme tarihi ve teknik göstergeleri arşivlenir. Bakanlık portalında rapor değiştirildiğinde veya 2009/7 Genelgesi kapsamında yeniden yüklendiğinde sürümler arası fark (v1 → v2) otomatik olarak kaydedilir.</p>
+<table class="data-tbl"><thead><tr><th>Sürüm</th><th>Arşiv Tarihi</th><th>Aşama</th><th>Yükleme Tarihi</th><th>Sayfa</th><th>SHA-256</th></tr></thead><tbody><tr><td><code>v1</code></td><td><code>2026-11-22T00:21:10</code></td><td>ÇED Süreci Başlayan</td><td><code>2026-11-18</code></td><td>196</td><td><code>ca19627f5aa9185b…</code></td></tr></tbody></table>
+
+  <h2>Konum Haritası</h2>
+  <div class="map-box">
+    <div id="digest-map"></div>
+    <div class="map-legend"><span>PDF metninden çıkarılan kesin proje koordinatları (73 nokta, datum: UTM-Z36/ED50, sayfa: s.17, s.18, s.19, s.20, s.160).</span></div>
+  </div>
+
+  
+  <h2>Yapay Zeka Destekli Bilimsel Ön Değerlendirme <span class="badge">gemini-4-hydrogen</span></h2>
+  <p class="sub">Bu değerlendirme, resmi PDF dosyasından seçilen 26 sayfa (s.1, s.2, s.3, s.4, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.14, s.16, s.17, s.18, s.19, s.21, s.22, s.24, s.28, s.33, s.41, s.42, s.43, s.44, s.126) esas alınarak hazırlanmıştır. Tüm sayısal verilerin ve tespitlerin resmi PDF belgesindeki ilgili <code>[s. N]</code> sayfalarından doğrulanması gerekir.</p>
+  <section class="card ek1" style="margin-top:10px;">
+    <p style="margin-top:0;"><strong>Özet:</strong> ETİ Gıda Sanayi ve Ticaret A.Ş. tarafından Eskişehir İli, Odunpazarı İlçesi, 75. Yıl Organize Sanayi Bölgesi sınırları içerisindeki Bisküvi, Çikolata, Kek ve Kraker fabrikalarında eş zamanlı üretim kapasitesi artışı planlanmaktadır [s. 1, 9]. Çevre, Şehircilik ve İklim Değişikliği Bakanlığının 30.09.2026 tarihli görüşü doğrultusunda kümülatif olarak tek bir ÇED Başvuru Dosyası altında toplanan 4.729.800.000 TL bedelli proje, Ek-1 Madde 52 ve Ek-2 Madde 26-s kapsamında değerlendirilmektedir [s. 2, 9, 12]. Proje ile Bisküvi Fabrikasına 4, Kek Fabrikasına 1 yeni üretim hattı eklenmesi ve dört tesiste de çalışma düzeninin yılda 300 gün ve günde 8 saatten yılda 350 gün ve 24 saate (3 vardiya) çıkarılmasıyla toplam yıllık üretimin 183,0 milyon kg düzeyinden 767,4 milyon kg düzeyine yükseltilmesi öngörülmektedir [s. 9, 10, 11, 12]. Başvuru dosyasında yeni bina inşaatı olmayacağı belirtilmesine rağmen, yaklaşık dört katı aşan kapasite artışının ve 7/24 vardiya düzeninin su temini, atıksu deşarjı, Sakarya Havzası alıcı ortamları (Porsuk Çayı ve Kanlıpınar Göleti), hava emisyonları, trafik ve biyolojik çeşitlilik üzerindeki kümülatif etkilerine ilişkin nicel veriler sunulmayıp ÇED Raporu aşamasına ertelenmiştir [s. 12, 28, 33, 41].</p>
+    <details style="margin-top:10px;font-size:0.86rem;color:var(--muted);"><summary style="cursor:pointer;">İngilizce özet (English summary)</summary><p style="margin:6px 0 0;">ETİ Gıda Sanayi ve Ticaret A.Ş. proposes a simultaneous capacity expansion across its four existing biscuit, chocolate, cake, and cracker plants located within the 75. Yıl Organized Industrial Zone in Odunpazarı, Eskişehir, with a total investment value of 4,729,800,000 TL [s. 1, 2, 9]. Following a Ministry directive dated 30.09.2026 requiring cumulative assessment under a single Annex-1 EIA application, the project proposes adding five new production lines (four in the biscuit plant and one in the cake plant) and expanding operating schedules across all four facilities from 300 days/year and 8 hours/day to 350 days/year and 24 hours/day [s. 9, 10, 11]. Combined annual output across the four plants is projected to rise more than fourfold from roughly 183.0 million kg/year to 767.4 million kg/year, while total employment increases from 5,111 to approximately 5,880 [s. 9, 10, 11, 12]. Although the application file states that all expansion will occur within existing buildings without new construction, it defers quantitative baseline and impact assessments for water consumption, wastewater discharge to the Organized Industrial Zone sewerage system and Sakarya Basin receiving waters (Porsuk Stream and Kanlıpınar Pond), air emissions, traffic, and field flora-fauna surveys to the subsequent full EIA Report while simultaneously asserting the absence of sensitive or endemic species [s. 12, 16, 28, 33, 41, 126].</p></details>
+    <div class="badges" style="margin-top:10px;">
+      <span class="badge">Saha çalışması: Karışık veya yöntemi belirsiz</span>
+      <span class="badge">Mevsimsel örnekleme: İncelenen sayfalarda tespit edilemedi</span>
+      <span class="badge">Kümülatif etki: Yüzeysel veya şablon düzeyinde</span>
+    </div>
+    <p class="detail" style="margin-top:10px;"><strong>Zeytinlik ve Korunan Alanlar:</strong> Dosyada dört tesisin de 1/100.000 ölçekli Çevre Düzeni Planında Eskişehir Organize Sanayi Bölgesi yerleşimi içinde kaldığı, parsellerde tarım, orman, mera, turizm, rekreasyon ve zeytinlik (3573 sayılı Kanun) alanı ile milli park, ÖÇK veya sit alanı bulunmadığı beyan edilmektedir [s. 24, 42, 43, 44, 126]. Buna karşın yakın çevredeki korunan alanlar, kültür varlıkları ve sit alanlarının güncel resmi haritalar ve kurum kayıtları üzerinden doğrulanmasının ÇED Raporu aşamasına bırakıldığı ifade edilmektedir [s. 41].<br/>İncelenen ÇED Başvuru Dosyası sayfalarında proje öncesi tamamlanmış mevsimsel flora-fauna arazi çalışması, toprak-su kimyası başlangıç analizi veya nicel hidrojeolojik ölçüm verisi sunulmamıştır [s. 28, 33]. Dosyanın bir bölümünde sahada ve çevresinde nadir, hassas, tehlike altındaki veya endemik türlerin bulunmadığı kesin biçimde beyan edilirken, başka bir bölümde saha incelemelerinin, tür tespitlerinin, su tüketimi ve atıksu hesaplamalarının ileride hazırlanacak ÇED Raporunda yapılacağı belirtilmektedir [s. 16, 28, 33, 126]. Dört fabrikanın aynı başvuruda birleştirilmesine karşın kümülatif çevresel yükler henüz sayısallaştırılmamıştır [s. 9, 33].</p>
+  </section>
+  <h3>Öne Çıkan Sayısal Bulgular</h3><table class="kv"><tr><th>Proje Bedeli</th><td>4.729.800.000 TL <span class="pno">[s. 2]</span></td></tr>
+<tr><th>Bisküvi Fabrikası Parsel Alanı</th><td>70.867,66 m² (19596 ada / 5 parsel) <span class="pno">[s. 17]</span></td></tr>
+<tr><th>Çikolata Fabrikası Parsel Alanı</th><td>40.386,81 m² (19573 ada / 1 parsel) <span class="pno">[s. 18]</span></td></tr>
+<tr><th>Kek Fabrikası Parsel Alanı</th><td>180.272,51 m² (19563 ada / 1 parsel) <span class="pno">[s. 19]</span></td></tr>
+<tr><th>Bisküvi Fabrikası Kapasite Artışı</th><td>75.607.913 kg/yıl&#x27;dan 363.747.695,5 kg/yıl&#x27;a (1.039.279,13 kg/gün); 4 yeni hat <span class="pno">[s. 9]</span></td></tr>
+<tr><th>Çikolata Fabrikası Kapasite Artışı</th><td>38.218.048 kg/yıl&#x27;dan 133.763.168,01 kg/yıl&#x27;a (382.180,48 kg/gün) <span class="pno">[s. 10]</span></td></tr>
+<tr><th>Kek Fabrikası Kapasite Artışı</th><td>42.374.490 kg/yıl&#x27;dan 176.030.715 kg/yıl&#x27;a (502.944,9 kg/gün); 1 yeni hat <span class="pno">[s. 11]</span></td></tr>
+<tr><th>Kraker Fabrikası Toplam Kapasite Artışı</th><td>26.810.164 kg/yıl&#x27;dan 93.835.560 kg/yıl&#x27;a (268.102 kg/gün) <span class="pno">[s. 12]</span></td></tr>
+<tr><th>Çalışma Süresi Değişikliği</th><td>300 gün/yıl ve 8 saat/gün&#x27;den 350 gün/yıl ve 24 saat/gün&#x27;e (3 vardiya) <span class="pno">[s. 9]</span></td></tr>
+<tr><th>Toplam Çalışan Sayısı</th><td>Mevcut 5.111 kişi, planlanan yaklaşık 5.880 kişi <span class="pno">[s. 12]</span></td></tr></table>
+  <h3>Danıştay Ölçütlerine Göre Bilimsel ve Hukuki Bulgular</h3><section class="card"><div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Su / Hidrojeoloji</span> <strong>Dört katı aşan kapasite artışı için su tüketimi, atıksu yükü ve Sakarya Havzası alıcı ortam verilerinin eksikliği</strong> <span class="pno">[s. 9, s. 10, s. 11, s. 12, s. 33, s. 42, s. 44]</span> — Dört fabrikada toplam yıllık üretimin yaklaşık 183 milyon kg&#x27;dan 767 milyon kg&#x27;ın üzerine çıkması ve çalışan sayısının 5.111&#x27;den 5.880&#x27;e yükselmesi planlanmasına karşın, incelenen sayfalarda tesislerin mevcut ve planlanan su tüketimi, atıksu debisi ve kirlilik yükü ile Eskişehir OSB altyapısının ve arıtma sisteminin bu artışı karşılama kapasitesine dair hiçbir nicel veri ve kurum görüşü yer almamaktadır [s. 9, 10, 11, 12, 33]. Proje alanının yeraltı suyu taşıma potansiyelli güncel alüvyonlar üzerinde ve Sakarya Havzası (Porsuk Çayı ve Kanlıpınar Göleti) etki alanında bulunduğu belirtilmesine rağmen, hidrojeolojik etkiler ve olası yeraltı suyu kuyusu planlaması ÇED Raporuna bırakılmış, ayrıca Ek-V tablosunda göl, akarsu ve yeraltı suyu işletme sahalarının bulunmadığı işaretlenmiştir [s. 33, 42, 44].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Ölçüm / İç Tutarlılık</span> <strong>Henüz arazi ve kurum doğrulaması yapılmadan korunan alan ve endemik tür yokluğunun kesin beyan edilmesi ile inşaat/ekipman çelişkisi</strong> <span class="pno">[s. 4, s. 9, s. 10, s. 12, s. 14, s. 16, s. 28, s. 41, s. 43, s. 126]</span> — Başvuru dosyasında proje alanı ve yakın çevresinde nadir, hassas, tehlike altındaki veya endemik türlerin bulunmadığı kesin hüküm olarak belirtilmekte, ancak sonraki sayfalarda flora-fauna saha incelemelerinin, koruma statülerinin kurum kayıtlarından doğrulanmasının ve kültür varlığı mesafelerinin ÇED Raporunda ele alınacağı yazılmaktadır [s. 16, 28, 41, 126]. Benzer biçimde 12. sayfada hiçbir inşaat, kazı, temel açma veya yeni yapılaşma olmayacağı ifade edilirken içindekiler bölümünde inşaat aşaması trafik yönetimi başlığı yer almakta, 14. sayfada ise 5 yeni üretim hattı için ilave makine-ekipman ve yardımcı ünite düzenlemeleri öngörülmektedir; ayrıca 43. sayfada orman alanları için hem &#x27;bulunmaktadır&#x27; hem &#x27;Bulunmamaktadır&#x27; ifadeleri yan yana yer almaktadır [s. 4, 9, 10, 12, 14, 43].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Proje Parçalama / Eşik Değer</span> <strong>Aynı OSB içindeki dört fabrikanın geçmiş ÇED Kapsam Dışı kararları ve vardiya artışıyla kapasite hesabı</strong> <span class="pno">[s. 2, s. 9, s. 10, s. 11, s. 12]</span> — Aynı tüzel kişiliğe ait dört fabrikanın 2013, 2014, 2015, 2016 ve 28.05.2024 tarihli ayrı ÇED Kapsam Dışı belgeleriyle faaliyet gösterdiği, özellikle Çikolata Fabrikasının mevcut kapasitesinin 127.393,49 kg/gün (yaklaşık 127,4 ton/gün) ile Ek-1 Madde 52&#x27;deki 100 ton/gün eşiğinin zaten üzerinde bulunduğu, ancak Bakanlığın 30.09.2026 tarihli yazısı sonrasında dört tesisin kümülatif tek bir ÇED dosyasında birleştirildiği görülmektedir [s. 2, 9, 10, 11]. Ayrıca kapasite tablolarında mevcut durumun 300 gün x 8 saat, planlanan durumun ise 350 gün x 24 saat üzerinden hesaplandığı görüldüğünden, saatlik kurulu makine kapasitelerinin ve geçmiş kapsam dışı kararlarının fiili üretimle uyumunun teknik olarak denetlenmesi gerekmektedir [s. 9, 10, 11, 12].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Kümülatif Etki</span> <strong>Bölgesel kümülatif emisyon, koku, gürültü ve trafik değerlendirmesi ile yer alternatiflerinin eksikliği</strong> <span class="pno">[s. 9, s. 10, s. 11, s. 12, s. 17, s. 28, s. 33]</span> — Çalışma süresinin dört ayrı tesiste aynı anda günde 8 saatten kesintisiz 24 saate (yılda 350 gün) çıkarılması ve 5 yeni üretim hattı eklenmesi; fırın/kazan kaynaklı hava emisyonlarını, koku, gece gürültüsünü ve OSB içi/dışı ağır taşıt trafiğini sürekli hale getirecek olmasına karşın incelenen sayfalarda kümülatif etki modellemesine yer verilmemiştir [s. 9, 10, 11, 28, 33]. Bununla birlikte dosyada yer seçimi alternatiflerinin hiç değerlendirilmediği açıkça ifade edilmiş, makine yerleşim ve vaziyet planlarının ise EÇED sisteminde yayın dışı evrak olarak ayrıldığı belirtilmiştir [s. 12, 17].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Flora / Fauna &amp; Mevsimsellik</span> <strong>Saha gözlemlerine ve çok mevsimli arazi envanterine dayanmayan flora ve fauna beyanları</strong> <span class="pno">[s. 16, s. 28, s. 126]</span> — Bölgesel fauna ve fabrika sahalarındaki yeşil alanlar ile çevredeki boş parsellerin bazı türlerce kullanılabileceği kabul edilmesine rağmen, incelenen başvuru dosyasında tamamlanmış bir saha envanteri, gözlem tarihi veya tür listesi sunulmamıştır [s. 28]. Buna karşın endemik ve Bern Sözleşmesi Ek-I kapsamındaki bitki türlerinin bulunmadığı sonucu önceden ilan edilerek saha incelemeleri ÇED Raporu sürecine ertelenmiştir [s. 16, 28, 126].</div></section>
+  <h3>Keşif ve Bilirkişi Heyeti İçin Önerilen Uzmanlık Alanları</h3><section class="card"><div class="badges" style="margin-top:0;"><span class="badge info">Çevre Mühendisi</span> <span class="badge info">Hidrojeoloji Mühendisi</span> <span class="badge info">Gıda Mühendisi</span> <span class="badge info">Biyolog</span> <span class="badge info">Ziraat Mühendisi</span> <span class="badge info">Şehir ve Bölge Plancısı</span></div><p class="detail muted">Danıştay içtihatları uyarınca bilirkişi heyetinin tek sayıda uzmandan oluşması, proje niteliğine uygun tüm disiplinleri içermesi ve plan kararlarıyla ilişkili davalarda Şehir ve Bölge Plancısına yer verilmesi gerekmektedir.</p></section>
+  <div class="section-head-row"><h3>HKT Tutanakları ve Bilirkişi İncelemesi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card"><ul style="margin:0;padding-left:20px;"><li>Dört fabrikadaki toplam üretimin yaklaşık 183 milyon kg/yıl düzeyinden 767 milyon kg/yıl düzeyine çıkması ve çalışan sayısının 5.880&#x27;e ulaşması karşısında, ilave günlük su çekimi ve proses/evsel atıksu debisinin Eskişehir OSB su şebekesi ve merkezi atıksu arıtma tesisi kapasitesi ile Sakarya Havzası (Porsuk Çayı ve Kanlıpınar Göleti) su bütçesi üzerindeki kümülatif etkileri hangi DSİ ve OSB kurum görüşleriyle belgelenmiştir? <span class="pno">[s. 9, s. 10, s. 11, s. 12, s. 33]</span></li>
+<li>Çikolata Fabrikasının 127,39 ton/gün düzeyindeki mevcut üretimi Ek-1 Madde 52 kapsamındaki 100 ton/gün eşiğini halihazırda aşmasına rağmen 28.05.2024 tarihine kadar ÇED Kapsam Dışı kararlarıyla faaliyet gösterilmiş olması karşısında, dört tesisin 300 gün/8 saat esaslı geçmiş fiili kapasite raporları ile 350 gün/24 saat esaslı yeni hat projeksiyonlarının makine parkuru bazında teknik doğrulaması yapılmış mıdır? <span class="pno">[s. 2, s. 9, s. 10, s. 11, s. 12]</span></li>
+<li>Başvuru dosyasında saha flora-fauna incelemelerinin ve korunan alan/kültür varlığı mesafe doğrulamalarının henüz ÇED Raporu aşamasında yapılacağı belirtildiği halde, hangi tamamlanmış bilimsel arazi çalışmasına dayanılarak proje alanı ve yakın çevresinde nadir, hassas veya endemik türlerin bulunmadığı sonucuna varılmıştır? <span class="pno">[s. 16, s. 28, s. 41, s. 126]</span></li>
+<li>Bisküvi Fabrikasına 4 ve Kek Fabrikasına 1 yeni üretim hattı kurulması, yardımcı ünitelerin yenilenmesi ve çalışma düzeninin dört tesiste birden 350 gün x 24 saate çıkarılması sonucunda oluşacak gece gürültüsü, fırın/baca emisyonları, koku ve ağır vasıta trafiği artışı için çevre OSB tesisleriyle birlikte kümülatif dağılım modellemesi hazırlanacak mıdır? <span class="pno">[s. 9, s. 10, s. 12, s. 14, s. 17, s. 28]</span></li></ul><textarea id="qs-plain" style="display:none;">1. Dört fabrikadaki toplam üretimin yaklaşık 183 milyon kg/yıl düzeyinden 767 milyon kg/yıl düzeyine çıkması ve çalışan sayısının 5.880&#x27;e ulaşması karşısında, ilave günlük su çekimi ve proses/evsel atıksu debisinin Eskişehir OSB su şebekesi ve merkezi atıksu arıtma tesisi kapasitesi ile Sakarya Havzası (Porsuk Çayı ve Kanlıpınar Göleti) su bütçesi üzerindeki kümülatif etkileri hangi DSİ ve OSB kurum görüşleriyle belgelenmiştir? [s. 9, s. 10, s. 11, s. 12, s. 33]
+2. Çikolata Fabrikasının 127,39 ton/gün düzeyindeki mevcut üretimi Ek-1 Madde 52 kapsamındaki 100 ton/gün eşiğini halihazırda aşmasına rağmen 28.05.2024 tarihine kadar ÇED Kapsam Dışı kararlarıyla faaliyet gösterilmiş olması karşısında, dört tesisin 300 gün/8 saat esaslı geçmiş fiili kapasite raporları ile 350 gün/24 saat esaslı yeni hat projeksiyonlarının makine parkuru bazında teknik doğrulaması yapılmış mıdır? [s. 2, s. 9, s. 10, s. 11, s. 12]
+3. Başvuru dosyasında saha flora-fauna incelemelerinin ve korunan alan/kültür varlığı mesafe doğrulamalarının henüz ÇED Raporu aşamasında yapılacağı belirtildiği halde, hangi tamamlanmış bilimsel arazi çalışmasına dayanılarak proje alanı ve yakın çevresinde nadir, hassas veya endemik türlerin bulunmadığı sonucuna varılmıştır? [s. 16, s. 28, s. 41, s. 126]
+4. Bisküvi Fabrikasına 4 ve Kek Fabrikasına 1 yeni üretim hattı kurulması, yardımcı ünitelerin yenilenmesi ve çalışma düzeninin dört tesiste birden 350 gün x 24 saate çıkarılması sonucunda oluşacak gece gürültüsü, fırın/baca emisyonları, koku ve ağır vasıta trafiği artışı için çevre OSB tesisleriyle birlikte kümülatif dağılım modellemesi hazırlanacak mıdır? [s. 9, s. 10, s. 12, s. 14, s. 17, s. 28]</textarea></section>
+  <p class="sub" style="margin-top:10px;"><em>İnceleme sınırları:</em> Toplam 196 sayfadan oluşan ÇED Başvuru Dosyası PDF&#x27;inin 165 sayfası metin çıkarılabilir, 31 sayfası ise taranmış/görüntü formatındadır. Bu incelemede yalnızca sağlanan 26 sayfa (1-4, 6-12, 14, 16-19, 21-22, 24, 28, 33, 41-44 ve 126. sayfalar) değerlendirilebilmiş; 45-125. ve 127-196. sayfalar arasındaki detaylı üretim ve atık tabloları, Çevre İzleme Planı (97-102. sayfalar), Sera Gazı/Trafik planları, taranmış ekler (Bakanlık görüş yazısı Ek-7, 1/100.000 ÇDP Ek-3 vb.) ile EÇED sisteminde yayın dışı bırakıldığı belirtilen makine yerleşim ve genel vaziyet planları incelenememiştir [s. 3, 4, 6, 9, 12].</p>
+
+
+  <h2>Resmi Duyuru Metni</h2>
+  <blockquote>ESKİŞEHİR ili ODUNPAZARI,  ilcesinde ESKİŞEHİR il ODUNPAZARI,  ilce 75.Yıl OSB Mah.  mevkiinde ETİ GIDA SANAYİ VE TİCARET A.Ş. tarafından yapılması planlanan Muhtelif Cins Bisküvi, Kraker, Kek Ve Gofret, Muhtelif Cins Çikolatalı Mamuller (Tablet Ve Bar Halinde Dolgulu/Dolgusuz Ürünler) İle Kaplamalı Ve Kaplamasız Gofret, Muhtelif Cins Kek Muhtelif Cins Bisküvi, Kraker Ve Müsli Bar Üretimi Kapasite Artışı projesi ile ilgili olarak Bakanlığımıza sunulan ÇED Başvuru Dosyası Çevresel Etki Değerlendirmesi Yönetmeliği&#x27;nin 8. maddesi doğrultusunda incelenmiş ve başvurunun ÇED Genel Formatına uygun hazırlandığı anlaşılmış olup, projeye ilişkin ÇED Süreci başlatılmıştır. Çevresel Etki Değerlendirmesi süreci tamamlanana kadar, süreç ile ilgili her türlü bilgiler ve projeye ilişkin görüş, soru ve öneriler ESKİŞEHİR Valiliğine (Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü) veya Çevre, Şehircilik ve İklim Değişikliği Bakanlığına gönderilebilir.İlgililere ve kamuoyuna duyurulur.</blockquote>
+
+  <h2>Otomatik Metin Taraması (Deterministik)</h2>
+  <table class="kv"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Literatür taraması ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr>
+<tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge urgent">Metinde tespit edilemedi — doğrudan PDF üzerinden kontrol ediniz</span></td></tr>
+<tr><th>Kümülatif etki değerlendirmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge urgent">Metinde tespit edilemedi — doğrudan PDF üzerinden kontrol ediniz</span></td></tr>
+<tr><th>Yeraltı suyu, akifer veya hidrojeoloji ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge warn">Metinde geçmektedir — proje parçalama / 2009/7 yönünden inceleyiniz</span></td></tr>
+<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr></table>
+  <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik metin taramasına dahil edilmemiştir.</p>
+
+  <h2>Sayfa Kaynaklı Çıkarılan Bulgular</h2>
+  <div class="cards"><section class="card"><h3>Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(35 sayfa: s.16, s.17, s.18, s.19, s.20, s.24, s.25, s.38, s.41, s.46, s.47, s.50, s.56, s.57 (+21 sayfa))</span></h3><div class="hit"><span class="pno">[s. 16]</span> <code>Koordinat</code> — …ullarına uyum sağlanması hedeflenmektedir. I.b. Projenin Yer Teknolojileri Alternatifleri, Proje İçin Seçilen Yerin Koordinatları Proje; Eskişehir İli, Odunpazarı İlçesi, 75. Yıl OSB Mahallesi sınırları içerisinde ETİ Gıda Sanayi ve Ticaret…</div>
+<div class="hit"><span class="pno">[s. 17]</span> <code>Koordinat</code> — …, bu nedenle proje yeri alternatifleri değerlendirilmemiştir. ETİ Gıda Sanayi ve Ticaret A.Ş. / Bisküvi Fabrikası Koordinatları UTM KOORDİNATLARI COĞRAFİK KOORDİNATLARI DATUM ED-50 DATUM WGS–84 PROJEKSİYON 6 DERECE TÜRÜ DERECE. KESİR…</div>
+<div class="hit"><span class="pno">[s. 17]</span> <code>UTM</code> — …oje yeri alternatifleri değerlendirilmemiştir. ETİ Gıda Sanayi ve Ticaret A.Ş. / Bisküvi Fabrikası Koordinatları UTM KOORDİNATLARI COĞRAFİK KOORDİNATLARI DATUM ED-50 DATUM WGS–84 PROJEKSİYON 6 DERECE TÜRÜ DERECE. KESİR ELEMANL…</div>
+<div class="hit"><span class="pno">[s. 17]</span> <code>KOORDİNAT</code> — …yeri alternatifleri değerlendirilmemiştir. ETİ Gıda Sanayi ve Ticaret A.Ş. / Bisküvi Fabrikası Koordinatları UTM KOORDİNATLARI COĞRAFİK KOORDİNATLARI DATUM ED-50 DATUM WGS–84 PROJEKSİYON 6 DERECE TÜRÜ DERECE. KESİR ELEMANLARIN SIRA…</div>
+<div class="hit"><span class="pno">[s. 17]</span> <code>ED-50</code> — …ETİ Gıda Sanayi ve Ticaret A.Ş. / Bisküvi Fabrikası Koordinatları UTM KOORDİNATLARI COĞRAFİK KOORDİNATLARI DATUM ED-50 DATUM WGS–84 PROJEKSİYON 6 DERECE TÜRÜ DERECE. KESİR ELEMANLARIN SIRASI SAĞA DEĞER, YUKARI DEĞER ELEMANLARIN…</div>
+<div class="hit"><span class="pno">[s. 17]</span> <code>867,66 m2</code> — …İSAR14 39.74657008 30.6372089 BİSAR15 297616.010 4402527.100 BİSAR15 39.74703099 30.63747102 Toplam Alan: 70.867,66 m2</div></section><section class="card"><h3>Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(45 sayfa: s.2, s.12, s.14, s.33, s.41, s.42, s.44, s.46, s.47, s.48, s.50, s.54, s.55, s.57 (+31 sayfa))</span></h3><div class="hit"><span class="pno">[s. 2]</span> <code>100 ton/gün</code> — …ELİĞİ KAPSAMINDAKİ YERİ (SEKTÖR, ALT SELTÖR) : Ek-1 Listesi Madde 52: (Değişik:RG-5/3/2026-33187) Üretim kapasitesi 100 ton/gün ve üzeri çikolata, çikolatalı ürün, kakao likörü, kakao tozu, kakao yağı gibi kakaolu ürün üretimi yapan tesisler,…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>5 ton/gün</code> — …akaolu ürün üretimi yapan tesisler, Ek-2 Listesi 26. Maddesi s) bendi, (Değişik:RG-5/3/2026-33187) Üretim kapasitesi 5 ton/gün ve üzeri şekerleme (sitrik asit, tartarik asit veya potasyum bitartarat kullanılarak üretilen), şeker şurubu ürün üret…</div>
+<div class="hit"><span class="pno">[s. 12]</span> <code>100 ton/gün</code> — …giren Çevresel Etki Değerlendirmesi Yönetmeliği Ek 1 Listesi Madde 52: (Değişik:RG-5/3/2026-33187) Üretim kapasitesi 100 ton/gün ve üzeri çikolata, çikolatalı ürün, kakao likörü, kakao tozu, kakao yağı gibi kakaolu ürün üretimi yapan tesisler, ve…</div>
+<div class="hit"><span class="pno">[s. 12]</span> <code>5 ton/gün</code> — …kaolu ürün üretimi yapan tesisler, ve Ek-2 Listesi 26. Maddesi s) bendi, (Değişik:RG- 5/3/2026-33187) Üretim kapasitesi 5 ton/gün ve üzeri şekerleme (sitrik asit, tartarik asit veya potasyum bitartarat kullanılarak üretilen), şeker şurubu ürün üret…</div>
+<div class="hit"><span class="pno">[s. 14]</span> <code>atıksu</code> — …si öngörülmektedir. Kapasite artışı ile birlikte üretim faaliyetlerinin mevcut altyapı, enerji ve su temin sistemleri, atıksu yönetimi, atık yönetimi ve diğer yardımcı işletme üniteleri ile entegre olarak yürütülmesi planlanmaktadır. Söz kon…</div>
+<div class="hit"><span class="pno">[s. 33]</span> <code>yeraltı suyu</code> — …rafik yapı tarafından belirlenmektedir. Bölgedeki alüvyal birimler, içerdikleri kum ve çakıl seviyelerine bağlı olarak yeraltı suyu taşıma potansiyeline sahiptir. Kil ve kiltaşı gibi düşük geçirgenlikli birimler ise yeraltı suyu hareketini sınırland…</div></section><section class="card"><h3>Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(5 sayfa: s.24, s.41, s.42, s.43, s.44)</span></h3><div class="hit"><span class="pno">[s. 24]</span> <code>Orman Alanı</code> — …ım Alanları :Faaliyet alanı kapsamında Tarım Alanları bulunmamaktadır. Orman Alanları :Faaliyet alanı kapsamında Orman Alanı bulunmamaktadır. Turizm Alanları :Anılan yer 2634 sayılı yasa gereğince ilan edilen herhangi bir ‘Turizm Alanı’ ve…</div>
+<div class="hit"><span class="pno">[s. 41]</span> <code>arkeolojik sit</code> — …lmesinde 2863 sayılı Kültür ve Tabiat Varlıklarını Koruma Kanunu kapsamında tescil edilmiş taşınmaz kültür varlıkları, arkeolojik sit alanları, kentsel sit alanları ve diğer koruma statüsüne sahip alanlar dikkate alınacaktır. Proje alanlarının yakın…</div>
+<div class="hit"><span class="pno">[s. 41]</span> <code>sit alanı</code> — …koruma statüsüne sahip alanlar dikkate alınacaktır. Proje alanlarının yakın çevresinde tescilli kültür varlığı veya sit alanı bulunması halinde bunların konumları, koruma özellikleri ve tesislere olan mesafeleri belirtilecektir. Proje alanları…</div>
+<div class="hit"><span class="pno">[s. 41]</span> <code>özel çevre koruma</code> — …i parklar, tabiat parkları, tabiat anıtları, tabiatı koruma alanları, yaban hayatı geliştirme sahaları, sulak alanlar, özel çevre koruma bölgeleri, kültür varlıkları, sit alanları, orman alanları, tarım alanları, mera alanları, içme ve kullanma suyu korum…</div>
+<div class="hit"><span class="pno">[s. 42]</span> <code>sit alanı</code> — …ı suyuyla ilişkili ekosistemler üzerinde etkili olabilmektedir. Proje alanlarının yakın çevresinde kültür varlığı veya sit alanı bulunması halinde ilgili idareye ivedilikle bilgi verilecek, gerekli iş ve işlemler titizlikle yürütülecek ve yeraltı…</div>
+<div class="hit"><span class="pno">[s. 42]</span> <code>Milli Park</code> — …anlanan su kullanımı ve ilgili koruma alanlarının özellikleri birlikte dikkate alınacaktır. Proje alanı içerisinde; Milli Park, Tabiat Parkı, Tabiat Anıtı, Tabiatı Koruma Alanı, Yaban Hayatı Koruma Alanı, Biyogenetik Rezerv Alanı, Biyosfer Rezer…</div></section><section class="card"><h3>Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(4 sayfa: s.16, s.28, s.44, s.126)</span></h3><div class="hit"><span class="pno">[s. 16]</span> <code>endemik</code> — …Ayrıca, proje alanı ve yakın çevresinde zarar görebilecek nitelikte nadir, hassas veya nesli tehlike altında bulunan endemik türler bulunmamaktadır. Projeye konu fabrika alanları 1/100.000 Ölçekli Çevre Düzeni Planı haritasında ‘’Eskişehir Org…</div>
+<div class="hit"><span class="pno">[s. 28]</span> <code>IUCN</code> — …ilimsel çalışmalar ve gerekli saha incelemeleri kullanılacaktır. Tespit edilmesi durumunda türlerin endemizm durumu, IUCN koruma kategorisi ve ilgili ulusal ve uluslararası koruma hükümleri bakımından değerlendirilecektir. Planlanan kapa…</div>
+<div class="hit"><span class="pno">[s. 28]</span> <code>Kırmızı Liste</code> — …ğrudan tespit edilen türler birbirinden ayrılacaktır. Tespit edilmesi halinde türlerin koruma durumları güncel IUCN Kırmızı Liste kategorileri, Bern Sözleşmesi ve ilgili ulusal mevzuat çerçevesinde değerlendirilecektir. Kapasite artışlarına bağl…</div>
+<div class="hit"><span class="pno">[s. 28]</span> <code>Bern Sözleşmesi</code> — …birbirinden ayrılacaktır. Tespit edilmesi halinde türlerin koruma durumları güncel IUCN Kırmızı Liste kategorileri, Bern Sözleşmesi ve ilgili ulusal mevzuat çerçevesinde değerlendirilecektir. Kapasite artışlarına bağlı olarak ortaya çıkabilecek gür…</div>
+<div class="hit"><span class="pno">[s. 44]</span> <code>BERN Sözleşmesi</code> — …ı Sözleşmeler Uyarınca Korunması Gerekli Alanlar a) &quot;Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi&quot; (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan &quot;Önemli Deniz Kaplumbağası Üreme Alanları&quot;nda belirtilen I. ve II. Koruma…</div>
+<div class="hit"><span class="pno">[s. 44]</span> <code>endemik</code> — …dır. d) Bilimsel araştırmalar için önem arz eden ve/veya nesli tehlikeye düşmüş veya düşebilir türler ve ülkemiz için endemik olan türlerin yaşama ortamı olan alanlar, biyosfer rezervi, biyotoplar, biyogenetik rezerv alanları, benzersiz özellik…</div></section><section class="card"><h3>Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(45 sayfa: s.9, s.14, s.28, s.33, s.34, s.35, s.36, s.37, s.38, s.39, s.40, s.45, s.49, s.50 (+31 sayfa))</span></h3><div class="hit"><span class="pno">[s. 9]</span> <code>kümülatif</code> — …ı görüş yazısında; Çikolata, Bisküvi, Kraker ve Kek Fabrikalarında gerçekleştirilmesi planlanan kapasite artışlarının kümülatif olarak değerlendirilerek tek bir ÇED başvurusu kapsamında yürütülmesi hususunun uygun mütalaa edildiği tarafımıza bild…</div>
+<div class="hit"><span class="pno">[s. 14]</span> <code>gürültü</code> — …sinde yürütülen mevcut faaliyetler kapsamında su tüketimi, atıksu oluşumu ve deşarjı, hava emisyonları, atık yönetimi, gürültü oluşumu ve doğal kaynak kullanımı başta olmak üzere çevresel etkiler, ilgili çevre mevzuatı hükümleri doğrultusunda ko…</div>
+<div class="hit"><span class="pno">[s. 28]</span> <code>gürültü</code> — …esi ve ilgili ulusal mevzuat çerçevesinde değerlendirilecektir. Kapasite artışlarına bağlı olarak ortaya çıkabilecek gürültü, aydınlatma, taşıt hareketleri ve diğer çevresel etkilerin fauna üzerindeki olası sonuçları ayrıca ele alınacaktır.…</div>
+<div class="hit"><span class="pno">[s. 33]</span> <code>deprem</code> — …kelerin coğrafik sınırları ile tanımlanamayacağını belirtmiştir. Örneğin, 17 Ağustos 1999 Gölcük depreminde (Mw 7,4), deprem dış merkez lokasyonuna yaklaşık 100 km mesafede yer alan Avcılar’da (İstanbul) yerel zemin koşulları nedeniyle 920 vat…</div>
+<div class="hit"><span class="pno">[s. 34]</span> <code>deprem</code> — …lışmaları yürütülmüştür. Toplam uzunluğu 10 km’dir. Holosen Fayı olarak tanımlanmıştır. Raporlama aşamasındadır. Olası deprem büyüklüğü 6,28 Mw olarak belirlenmiştir. 2- Gazlıgöl Fayı: Gazlıgöl Fayı üzerinde 2020 yılında MTA tarafından paleos…</div>
+<div class="hit"><span class="pno">[s. 35]</span> <code>deprem</code> — …, KRAKER VE MÜSLİ BAR ÜRETİMİ KAPASİTE ARTIŞI ÇED BAŞVURU DOSYASI km’dir ve Holosen Fayı olarak tanımlanmıştır. Olası deprem büyüklüğü 6,45 Mw olarak belirlenmiştir. 11- Eskişehir Fayı: UDAP projesi kapsamında Altunel vd. (2015) (ESOGÜ) tar…</div></section><section class="card"><h3>Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(136 sayfa: s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14 (+122 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>KAPASİTE</code> — …SUZ ÜRÜNLER) İLE KAPLAMALI VE KAPLAMASIZ GOFRET, MUHTELİF CİNS KEK MUHTELİF CİNS BİSKÜVİ, KRAKER VE MÜSLİ BAR ÜRETİMİ KAPASİTE ARTIŞI ÇED BAŞVURU DOSYASI Eskişehir İli, Odunpazarı İlçesi, 75. Yıl OSB Mahallesi Orhan Erden Bulvarı No:3…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>KAPASİTE</code> — …SUZ ÜRÜNLER) İLE KAPLAMALI VE KAPLAMASIZ GOFRET, MUHTELİF CİNS KEK MUHTELİF CİNS BİSKÜVİ, KRAKER VE MÜSLİ BAR ÜRETİMİ KAPASİTE ARTIŞI ÇED BAŞVURU DOSYASI PROJE SAHİBİNİN ADI : ETİ GIDA SANAYİ VE TİCARET A.Ş. ADRESİ : Hoşnudiye Mah. Kızılcıklı…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>Kapasite</code> — …usuz Ürünler) İle Kaplamalı Ve Kaplamasız Gofret, Muhtelif Cins Kek Muhtelif Cins Bisküvi, Kraker Ve Müsli Bar Üretimi Kapasite Artışı PROJE BEDELİ : 4.729.800.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) : Eskişehir İ…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>PROJE BEDELİ</code> — …Kaplamalı Ve Kaplamasız Gofret, Muhtelif Cins Kek Muhtelif Cins Bisküvi, Kraker Ve Müsli Bar Üretimi Kapasite Artışı PROJE BEDELİ : 4.729.800.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) : Eskişehir İli, Odunpazarı İlçesi…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>4.729.800.000 TL</code> — …plamasız Gofret, Muhtelif Cins Kek Muhtelif Cins Bisküvi, Kraker Ve Müsli Bar Üretimi Kapasite Artışı PROJE BEDELİ : 4.729.800.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) : Eskişehir İli, Odunpazarı İlçesi, 75. Yıl OSB Mahall…</div>
+<div class="hit"><span class="pno">[s. 3]</span> <code>KAPASİTE</code> — …SUZ ÜRÜNLER) İLE KAPLAMALI VE KAPLAMASIZ GOFRET, MUHTELİF CİNS KEK MUHTELİF CİNS BİSKÜVİ, KRAKER VE MÜSLİ BAR ÜRETİMİ KAPASİTE ARTIŞI ÇED BAŞVURU DOSYASI İÇİNDEKİLER PROJENİN TEKNİK OLMAYAN ÖZETİ ................................................…</div></section><section class="card"><h3>Proje Parçalama, Kapasite Artışı ve Eşik Değerler <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(134 sayfa: s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14 (+120 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>KAPASİTE ARTIŞI</code> — …SUZ ÜRÜNLER) İLE KAPLAMALI VE KAPLAMASIZ GOFRET, MUHTELİF CİNS KEK MUHTELİF CİNS BİSKÜVİ, KRAKER VE MÜSLİ BAR ÜRETİMİ KAPASİTE ARTIŞI ÇED BAŞVURU DOSYASI Eskişehir İli, Odunpazarı İlçesi, 75. Yıl OSB Mahallesi Orhan Erden Bulvarı No:3, Orha…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>KAPASİTE ARTIŞI</code> — …SUZ ÜRÜNLER) İLE KAPLAMALI VE KAPLAMASIZ GOFRET, MUHTELİF CİNS KEK MUHTELİF CİNS BİSKÜVİ, KRAKER VE MÜSLİ BAR ÜRETİMİ KAPASİTE ARTIŞI ÇED BAŞVURU DOSYASI PROJE SAHİBİNİN ADI : ETİ GIDA SANAYİ VE TİCARET A.Ş. ADRESİ : Hoşnudiye Mah. Kızılcıklı Mahmut…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>Kapasite Artışı</code> — …usuz Ürünler) İle Kaplamalı Ve Kaplamasız Gofret, Muhtelif Cins Kek Muhtelif Cins Bisküvi, Kraker Ve Müsli Bar Üretimi Kapasite Artışı PROJE BEDELİ : 4.729.800.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) : Eskişehir İli, Odu…</div>
+<div class="hit"><span class="pno">[s. 3]</span> <code>KAPASİTE ARTIŞI</code> — …SUZ ÜRÜNLER) İLE KAPLAMALI VE KAPLAMASIZ GOFRET, MUHTELİF CİNS KEK MUHTELİF CİNS BİSKÜVİ, KRAKER VE MÜSLİ BAR ÜRETİMİ KAPASİTE ARTIŞI ÇED BAŞVURU DOSYASI İÇİNDEKİLER PROJENİN TEKNİK OLMAYAN ÖZETİ .......................................................…</div>
+<div class="hit"><span class="pno">[s. 4]</span> <code>KAPASİTE ARTIŞI</code> — …SUZ ÜRÜNLER) İLE KAPLAMALI VE KAPLAMASIZ GOFRET, MUHTELİF CİNS KEK MUHTELİF CİNS BİSKÜVİ, KRAKER VE MÜSLİ BAR ÜRETİMİ KAPASİTE ARTIŞI ÇED BAŞVURU DOSYASI V-1 ÇEVRE İZLEME PLANI ...........................................................................…</div>
+<div class="hit"><span class="pno">[s. 5]</span> <code>KAPASİTE ARTIŞI</code> — …SUZ ÜRÜNLER) İLE KAPLAMALI VE KAPLAMASIZ GOFRET, MUHTELİF CİNS KEK MUHTELİF CİNS BİSKÜVİ, KRAKER VE MÜSLİ BAR ÜRETİMİ KAPASİTE ARTIŞI ÇED BAŞVURU DOSYASI V.2.4.10.TESİSTEN KAYNAKLANACAK ATIKLAR (İNŞAAT VE İŞLETME DÖNEMİ): ..............................…</div></section></div>
+
+  <h2>Belge Bölüm Haritası</h2>
+  <ul><li><span class="pno">[s. 1]</span> REVİZE 17.11 ETİ FORMAT ÇED BAŞVURU DOSYASI</li>
+<li><span class="pno">[s. 1]</span> ESKİŞEHİR</li>
+<li><span class="pno">[s. 8]</span> TANIMLAR</li>
+<li><span class="pno">[s. 9]</span> PROJENİN TEKNİK OLMAYAN ÖZETİ</li>
+<li><span class="pno">[s. 9]</span> Tablo 1. Bisküvi Fabrikası Kapasite Miktarları</li>
+<li><span class="pno">[s. 10]</span> Tablo 2. Çikolata Fabrikası Kapasite Miktarları</li>
+<li><span class="pno">[s. 11]</span> Tablo 3. Kek Fabrikası Kapasite Miktarları</li>
+<li><span class="pno">[s. 11]</span> Tablo 4. Kraker Fabrikası Sadece Kakaolu ve Çikolatalı Ürünlerin Kapasite Miktarları</li>
+<li><span class="pno">[s. 12]</span> Tablo 5. Kraker Fabrikası Kakaolu ve Kakao İçermeyen Tüm Ürünlerin Toplam Kapasite Miktarları</li>
+<li><span class="pno">[s. 14]</span> BÖLÜM I. PROJENİN TANIMI VE ÖZELLİKLERİ:</li>
+<li><span class="pno">[s. 14]</span> I.a. Proje Konusu Yatırımın Tanımı, Özellikleri, (Ek İbare:RG5/3/2026-33187) Bedeli, Ömrü, Hizmet Maksatları, Önem ve Gerekliliği</li>
+<li><span class="pno">[s. 16]</span> I.b. Projenin Yer Teknolojileri Alternatifleri, Proje İçin Seçilen Yerin Koordinatları</li>
+<li><span class="pno">[s. 17]</span> Tablo 6. ETİ Gıda Sanayi ve Ticaret A.Ş. / Bisküvi Fabrikası Koordinatları</li>
+<li><span class="pno">[s. 18]</span> Tablo 7. ETİ Gıda Sanayi ve Ticaret A.Ş. / Çikolata Fabrikası Koordinatları</li>
+<li><span class="pno">[s. 19]</span> Tablo 8. ETİ Gıda Sanayi ve Ticaret A.Ş. / Kek Fabrikası Koordinatları</li>
+<li><span class="pno">[s. 20]</span> Tablo 9. ETİ Gıda Sanayi ve Ticaret A.Ş. / Kraker Fabrikası Koordinatları</li>
+<li><span class="pno">[s. 21]</span> BÖLÜM II. PROJENİN YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ</li>
+<li><span class="pno">[s. 21]</span> Proje alanının ve önerilen proje nedeniyle etkilenmesi muhtemel olan çevrenin; nüfus, fauna, flora, jeolojik ve hidrojeolojik özellikler, doğal afet durumu, toprak, su, hava, atmosferik koşullar, iklimsel faktörler, mülkiyet durumu, kültür varlığı ve ...</li>
+<li><span class="pno">[s. 23]</span> Şekil.1 En Yakın Yerleşimi Gösterir Uydu Haritası</li>
+<li><span class="pno">[s. 23]</span> Şekil.2 Fabrika Alanlarını Gösterir Uydu Görüntüsü</li></ul>
+
+  <div class="notice">
+    Bu sayfa, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın kamuya açık <code>eced-duyuru.csb.gov.tr</code> duyuru portalındaki kayıtlar esas alınarak bilgilendirme amacıyla hazırlanmıştır. Alıntıların tamamı 1 tabanlı PDF sayfa numarasıyla (<code>[s. N]</code>) gösterilmektedir. Yasal süreler otomatik olarak hesaplanır; kesin sürelerin ve hukuki başvuru yollarının yetkili hukukçular tarafından teyit edilmesi gerekir.
+  </div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+
+(() => {
+  const root = document.documentElement;
+  const saved = localStorage.getItem('eced_theme');
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function syncLabel() {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = cur ? cur === 'dark' : prefersDark;
+    btn.textContent = isDark ? 'Açık Tema' : 'Koyu Tema';
+  }
+  syncLabel();
+  btn.addEventListener('click', () => {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = cur ? cur === 'dark' : prefersDark;
+    const next = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('eced_theme', next);
+    syncLabel();
+  });
+})();
+
+(() => {
+  const copyBtn = document.getElementById('copy-qs-btn');
+  const qsTxt = document.getElementById('qs-plain');
+  if (copyBtn && qsTxt) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(qsTxt.value);
+        copyBtn.textContent = 'Kopyalandı ✓';
+        setTimeout(() => (copyBtn.textContent = 'Soruları Kopyala'), 2200);
+      } catch (e) {
+        copyBtn.textContent = 'Kopyalanamadı';
+      }
+    });
+  }
+  if (typeof L === 'undefined') return;
+  const g = {"lat": 39.74631, "lon": 30.63908, "zoom": 12, "precision": "exact_pdf", "points": [[39.74799, 30.63693], [39.74752, 30.63838], [39.74797, 30.63864], [39.74749, 30.64008], [39.74689, 30.63974], [39.74627, 30.63939], [39.74515, 30.63876], [39.74512, 30.63872], [39.74513, 30.63866], [39.74557, 30.63728], [39.74602, 30.63591], [39.74606, 30.63587], [39.74611, 30.63587], [39.74722, 30.6365], [39.74768, 30.63676], [39.74676, 30.6321], [39.74695, 30.6321], [39.7523, 30.66153], [39.75435, 30.65645], [39.75322, 30.65999], [39.753, 30.66068], [39.75015, 30.65411], [39.74092, 30.62911], [39.74161, 30.62674], [39.74184, 30.62664], [39.74539, 30.63696], [39.74542, 30.63745], [39.7463, 30.63746], [39.7463, 30.6375], [39.74639, 30.63985], [39.74561, 30.6398], [39.74549, 30.63979], [39.74549, 30.63977], [39.74544, 30.63987], [39.7454, 30.63989], [39.74544, 30.63997], [39.74542, 30.63967], [39.74488, 30.63967], [39.74488, 30.63949], [39.74456, 30.63843]], "label": "ESKİŞEHİR / ODUNPAZARI — Muhtelif Cins Bisküvi, Kraker, Kek Ve Gofret, Muhtelif Cins Çikolatalı Mamuller (Tablet Ve"};
+  const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
+  }).addTo(map);
+  if (g.precision === 'exact_pdf' && g.points.length > 1) {
+    const latlngs = g.points.map(p => [p[0], p[1]]);
+    const poly = L.polyline(latlngs, { color: '#0b5ed7', weight: 3, opacity: 0.85 }).addTo(map);
+    for (const ll of latlngs.slice(0, 30)) {
+      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#d92d20', fillOpacity: 0.9, weight: 1 }).addTo(map);
+    }
+    map.fitBounds(poly.getBounds().pad(0.25));
+  } else {
+    L.circleMarker([g.lat, g.lon], {
+      radius: g.precision === 'exact_pdf' ? 8 : 11,
+      color: '#ffffff',
+      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#0b5ed7',
+      fillOpacity: g.precision === 'exact_pdf' ? 0.9 : 0.45,
+      weight: 2
+    }).bindPopup(g.label).addTo(map).openPopup();
+  }
+})();
+</script>
+</body>
+</html>

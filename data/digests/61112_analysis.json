@@ -38,7 +38,7 @@
         "code": "hkt",
         "kind": "Halkın Katılımı Toplantısı (HKT — ÇED Yönetmeliği m. 9)",
         "deadline": "2026-12-02",
-        "days_remaining": 11
+        "days_remaining": 10
       }
     ],
     "priority_district": true,
@@ -49,7 +49,8 @@
     "bytes": 145348025,
     "sha256": "841128c9252197bc395db1222b5886ffb1f09e49b5bd65a5be5499aad33a7342",
     "cached": false,
-    "filename": "61112.pdf"
+    "filename": "61112.pdf",
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign1016664841067059309.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-10-16"
   },
   "analysis": {
     "page_count": 656,
@@ -574,6 +575,48 @@
       "mentions_iucn_or_endemic": true
     }
   },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-04",
+      "decision_type": "HKT",
+      "announcement_date": "2026-11-04",
+      "announcement_date_tr": "04.11.2026",
+      "submitted_at": "16/10/2026 10:51:45",
+      "consulting_firm": "EN-ÇEV ENERJİ ÇEVRE YATIRIMLARI DANIŞMANLIĞI HARİTACILIK İMAR İNŞAAT A.Ş",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign1016664841067059309.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-10-16",
+      "pdf_temp_ad": "sign1016664841067059309.pdf",
+      "pdf_original_name": "e-imza.pdf",
+      "pdf_upload_date": "2026-10-16",
+      "sha256": "841128c9252197bc395db1222b5886ffb1f09e49b5bd65a5be5499aad33a7342",
+      "bytes": 145348025,
+      "page_count": 656,
+      "text_pages": 608,
+      "scanned_or_blank_pages": 48,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": false,
+        "mentions_seasonal_sampling": true,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": true,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 448,
+        "water_and_discharge": 37,
+        "protected_land_and_olive": 29,
+        "ecology_and_baseline": 46,
+        "pollutants_and_hazards": 59,
+        "cost_and_capacity": 14
+      },
+      "geo_precision": null,
+      "geo_lat": null,
+      "geo_lon": null,
+      "geo_point_count": 0,
+      "detail_text_sha256": "137626e08e5dea70"
+    }
+  ],
   "llm_synthesis": {
     "model": "gemini-3.8-flash",
     "generated_at": "2026-11-20T01:29:01",

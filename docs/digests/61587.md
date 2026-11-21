@@ -74,6 +74,8 @@
 | Olive Law / groves (*3573 / zeytinlik*) | **NOT FOUND (check manually)** |
 | Groundwater / hydrogeology (*akifer / yeraltı suyu*) | **NOT FOUND (check manually)** |
 | Endemic / IUCN / Bern Convention | **NOT FOUND (check manually)** |
+| Capacity expansion / splitting cues (*kapasite artışı / eşik değer*) | Not found |
+| Circular 2009/7 or post-annulment revision cues (*2009/7 / mahkeme kararı*) | Not found |
 
 *(Scanned annex maps/appendices without OCR are excluded from text scan; see scanned-page count above.)*
 
@@ -97,10 +99,17 @@
 ### Project Cost, Power & Capacity (0 pages: none)
 - *No text matches found.*
 
+## Revision & Document Integrity History
+
+| Version | Observed | Stage | Upload Date | Pages | SHA-256 |
+|---|---|---|---|---|---|
+| `v1` | `2026-11-20T02:11:04` | İptal/İade | `2026-11-18` | 1 | `d6ed8a3f5f912443…` |
+
 ## Scientist Audit Notes (1–2h Async Review Template)
 
 - **Baseline & sampling gaps (`[s. N]`):** 
 - **Ecological / hydrological contradictions:** 
 - **Cumulative regional impact omitted:** 
+- **Revision / 2009/7 compliance check (if re-filed):** 
 - **Questions for HKT minutes / İYUK 20/A petition:** 
-- **Recommended hand-off:** İzmir Barosu Çevre Komisyonu / TMMOB / EGEÇEP / Local press
+- **Recommended hand-off:** İlgili TMMOB Odası / Yerel Çevre Derneği / Belediye / Çevre Hukukçuları

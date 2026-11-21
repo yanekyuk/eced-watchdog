@@ -16,7 +16,7 @@
 | **Announcement Date** | `17.11.2026` (uploaded `03/04/2026 12:16:08`) |
 
 **Statutory Deadlines (informational aid — verify with legal counsel):**
-- **İYUK Madde 20/A iptal davası süresi (30 takvim günü; İYUK 11 süreyi durdurmaz):** `2026-12-17` (`26 days remaining`)
+- **İYUK Madde 20/A iptal davası süresi (30 takvim günü; İYUK 11 süreyi durdurmaz):** `2026-12-17` (`25 days remaining`)
 
 ## 2. AI-Assisted Scientific Synthesis (`gemini-4-hydrogen`)
 
@@ -79,6 +79,8 @@
 | Olive Law / groves (*3573 / zeytinlik*) | **NOT FOUND (check manually)** |
 | Groundwater / hydrogeology (*akifer / yeraltı suyu*) | Present |
 | Endemic / IUCN / Bern Convention | Present |
+| Capacity expansion / splitting cues (*kapasite artışı / eşik değer*) | Not found |
+| Circular 2009/7 or post-annulment revision cues (*2009/7 / mahkeme kararı*) | Not found |
 
 *(Scanned annex maps/appendices without OCR are excluded from text scan; see scanned-page count above.)*
 
@@ -147,10 +149,17 @@
 - **[s. 604]** E. İnşaat ve işletme aşamasında çevresel titreşimle ilgili olarak Mevzuat kapsamında değerlendirme yapılması,
 - **[s. 604]** F. İnşaat ve işletme aşamasında oluşması muhtemel gürültü ve titreşim için uygulamaya konulabilecek kontrol tedbirleri hakkında bilgiler ve gerekli tedbirlerin alınacağının taahhüt edilmesi.
 
+## Revision & Document Integrity History
+
+| Version | Observed | Stage | Upload Date | Pages | SHA-256 |
+|---|---|---|---|---|---|
+| `v1` | `2026-11-20T02:11:11` | ÇED Olumlu | `2026-11-02` | 685 | `16b1a794499f8216…` |
+
 ## Scientist Audit Notes (1–2h Async Review Template)
 
 - **Baseline & sampling gaps (`[s. N]`):** 
 - **Ecological / hydrological contradictions:** 
 - **Cumulative regional impact omitted:** 
+- **Revision / 2009/7 compliance check (if re-filed):** 
 - **Questions for HKT minutes / İYUK 20/A petition:** 
-- **Recommended hand-off:** İzmir Barosu Çevre Komisyonu / TMMOB / EGEÇEP / Local press
+- **Recommended hand-off:** İlgili TMMOB Odası / Yerel Çevre Derneği / Belediye / Çevre Hukukçuları

@@ -16,7 +16,7 @@
 | **Announcement Date** | `19.11.2026` (uploaded `09/09/2026 05:31:54`) |
 
 **Statutory Deadlines (informational aid — verify with legal counsel):**
-- **Halkın Katılımı Toplantısı (HKT — ÇED Yönetmeliği m. 9):** `2026-12-08` (`17 days remaining`)
+- **Halkın Katılımı Toplantısı (HKT — ÇED Yönetmeliği m. 9):** `2026-12-08` (`16 days remaining`)
 
 ## 2. AI-Assisted Scientific Synthesis (`gemini-4-hydrogen`)
 
@@ -81,6 +81,8 @@
 | Olive Law / groves (*3573 / zeytinlik*) | Present |
 | Groundwater / hydrogeology (*akifer / yeraltı suyu*) | Present |
 | Endemic / IUCN / Bern Convention | Present |
+| Capacity expansion / splitting cues (*kapasite artışı / eşik değer*) | Not found |
+| Circular 2009/7 or post-annulment revision cues (*2009/7 / mahkeme kararı*) | Not found |
 
 *(Scanned annex maps/appendices without OCR are excluded from text scan; see scanned-page count above.)*
 
@@ -128,10 +130,17 @@
 - **[s. 13]** `PROJE BEDELİ` — …307.800.000,00 Diğer (varsa) Eğitim, yazılım, donanım, otomasyon, - sertifikalandırma vb. idari giderler TOPLAM PROJE BEDELİ (KDV dâhil) 324.000.000,00 I.a.4. Projenin Ömrü Gerçekleştirilmesi planlanan güneş enerji santralinin ekonomik ö…
 - **[s. 83]** `kapasite` — …Tüm araçlar kış aylarında kış lastiği kullanacaktır. • İnşaat malzemelerinin proje sahasına nakli sırasında araçlara kapasitesinden fazla yükleme yapılmayacaktır. 4. Yol ve Araç Bakımı Proje kapsamında mümkün olduğunca mevcut yolların kullanı…
 
+## Revision & Document Integrity History
+
+| Version | Observed | Stage | Upload Date | Pages | SHA-256 |
+|---|---|---|---|---|---|
+| `v1` | `2026-11-20T02:10:48` | HKT | `2026-09-09` | 160 | `14cc240b3126f2dd…` |
+
 ## Scientist Audit Notes (1–2h Async Review Template)
 
 - **Baseline & sampling gaps (`[s. N]`):** 
 - **Ecological / hydrological contradictions:** 
 - **Cumulative regional impact omitted:** 
+- **Revision / 2009/7 compliance check (if re-filed):** 
 - **Questions for HKT minutes / İYUK 20/A petition:** 
-- **Recommended hand-off:** İzmir Barosu Çevre Komisyonu / TMMOB / EGEÇEP / Local press
+- **Recommended hand-off:** İlgili TMMOB Odası / Yerel Çevre Derneği / Belediye / Çevre Hukukçuları

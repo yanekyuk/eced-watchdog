@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>e-ÇED Ön Özet #60242 — ANTALYA / MANAVGAT</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+:root {
+  --bg: #f6f8fa;
+  --surface: #ffffff;
+  --surface-subtle: #f1f4f8;
+  --border: #d8dee6;
+  --border-strong: #bcc6d4;
+  --text: #161b22;
+  --text-secondary: #424a53;
+  --muted: #5c6670;
+  --accent: #0b5ed7;
+  --accent-soft: #e7f1ff;
+  --red: #b42318;
+  --red-soft: #fef3f2;
+  --red-border: #fecdca;
+  --amber: #9a5b00;
+  --amber-soft: #fffaeb;
+  --amber-border: #fedf89;
+  --green: #067647;
+  --green-soft: #ecfdf3;
+  --green-border: #abefc6;
+  --violet: #5925dc;
+  --violet-soft: #f4f3ff;
+  --violet-border: #d9d6fe;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface-subtle: #1c222b;
+    --border: #2b333e;
+    --border-strong: #3d4756;
+    --text: #e6edf3;
+    --text-secondary: #c9d1d9;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --accent-soft: rgba(88, 166, 255, 0.14);
+    --red: #ff7b72;
+    --red-soft: rgba(248, 81, 73, 0.14);
+    --red-border: rgba(248, 81, 73, 0.4);
+    --amber: #e3b341;
+    --amber-soft: rgba(210, 153, 34, 0.14);
+    --amber-border: rgba(210, 153, 34, 0.4);
+    --green: #3fb950;
+    --green-soft: rgba(63, 185, 80, 0.14);
+    --green-border: rgba(63, 185, 80, 0.4);
+    --violet: #b692f6;
+    --violet-soft: rgba(158, 119, 237, 0.16);
+    --violet-border: rgba(158, 119, 237, 0.42);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface-subtle: #1c222b;
+  --border: #2b333e;
+  --border-strong: #3d4756;
+  --text: #e6edf3;
+  --text-secondary: #c9d1d9;
+  --muted: #8b949e;
+  --accent: #58a6ff;
+  --accent-soft: rgba(88, 166, 255, 0.14);
+  --red: #ff7b72;
+  --red-soft: rgba(248, 81, 73, 0.14);
+  --red-border: rgba(248, 81, 73, 0.4);
+  --amber: #e3b341;
+  --amber-soft: rgba(210, 153, 34, 0.14);
+  --amber-border: rgba(210, 153, 34, 0.4);
+  --green: #3fb950;
+  --green-soft: rgba(63, 185, 80, 0.14);
+  --green-border: rgba(63, 185, 80, 0.4);
+  --violet: #b692f6;
+  --violet-soft: rgba(158, 119, 237, 0.16);
+  --violet-border: rgba(158, 119, 237, 0.42);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Unified Sticky Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.topbar-inner {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 11px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: -0.01em;
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+.brand-scope {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.nav-link {
+  padding: 5px 11px;
+  border-radius: 7px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-link:hover { background: var(--surface-subtle); text-decoration: none; color: var(--text); }
+.nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.theme-btn {
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
+
+/* Layout */
+.wrap { max-width: 1220px; margin: 0 auto; padding: 24px 20px 68px; }
+.wrap.narrow { max-width: 960px; }
+header.page-head { margin-bottom: 20px; }
+h1 { margin: 0 0 8px; font-size: 1.62rem; line-height: 1.25; letter-spacing: -0.02em; }
+h2 { margin: 28px 0 12px; font-size: 1.2rem; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { margin: 16px 0 8px; font-size: 0.98rem; line-height: 1.35; }
+.sub { color: var(--muted); font-size: 0.93rem; margin: 0; }
+.meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin-top: 12px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+
+/* Orientation Banner */
+.hero-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+.hero-strip p { margin: 0; font-size: 0.9rem; color: var(--text-secondary); max-width: 820px; }
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.hero-cta:hover { text-decoration: none; filter: brightness(1.06); }
+
+/* KPI Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  gap: 12px;
+  margin: 0 0 18px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 13px 16px;
+  box-shadow: var(--shadow);
+}
+.stat .num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+.stat .lbl { font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
+.stat.accent .num { color: var(--accent); }
+.stat.rev .num { color: var(--violet); }
+
+/* Map */
+.map-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+#map { width: 100%; height: 400px; background: var(--surface-subtle); }
+#digest-map { width: 100%; height: 320px; background: var(--surface-subtle); }
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  padding: 10px 16px;
+  font-size: 0.79rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: var(--surface-subtle);
+}
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+/* Controls */
+.controls-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.controls-row + .controls-row { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+input[type="search"], select.filter-select {
+  padding: 8px 12px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.88rem;
+}
+input[type="search"]:focus, select.filter-select:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+input[type="search"] { flex: 1 1 250px; }
+select.filter-select { min-width: 165px; }
+button.pill {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.81rem;
+  font-weight: 500;
+  transition: background 0.12s, border-color 0.12s;
+}
+button.pill:hover { border-color: var(--border-strong); color: var(--text); }
+button.pill.active { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 600; }
+button.pill.rev-pill.active { background: var(--violet); border-color: var(--violet); }
+button.reset-btn {
+  margin-left: auto;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+button.reset-btn:hover { color: var(--text); border-color: var(--border-strong); }
+
+/* Cards & Badges */
+.cards { display: flex; flex-direction: column; gap: 11px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+}
+.card.ek1 { border-left: 4px solid var(--accent); }
+.card.has-rev { border-left: 4px solid var(--violet); }
+.card.ek1.has-rev { border-left: 4px solid var(--violet); }
+.row-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 14px;
+  align-items: flex-start;
+}
+.title { font-weight: 650; font-size: 1rem; line-height: 1.38; color: var(--text); flex: 1 1 320px; }
+.title a { color: var(--text); }
+.title a:hover { color: var(--accent); text-decoration: none; }
+.date-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.badge.urgent { background: var(--red-soft); border-color: var(--red-border); color: var(--red); font-weight: 600; }
+.badge.warn { background: var(--amber-soft); border-color: var(--amber-border); color: var(--amber); font-weight: 600; }
+.badge.ok { background: var(--green-soft); border-color: var(--green-border); color: var(--green); font-weight: 600; }
+.badge.info { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
+.badge.rev { background: var(--violet-soft); border-color: var(--violet-border); color: var(--violet); font-weight: 600; }
+.badge.muted { color: var(--muted); }
+.detail { font-size: 0.88rem; color: var(--text-secondary); margin: 9px 0 0; }
+.detail.muted { color: var(--muted); }
+
+/* Revision inline strip on cards */
+.rev-strip {
+  margin-top: 10px;
+  padding: 8px 11px;
+  border-radius: 7px;
+  background: var(--violet-soft);
+  border: 1px solid var(--violet-border);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.rev-strip strong { color: var(--violet); }
+
+/* Action Buttons */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  font-size: 0.83rem;
+  margin-top: 11px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+.btn-primary:hover { text-decoration: none; filter: brightness(1.06); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.btn-secondary:hover { text-decoration: none; border-color: var(--border-strong); color: var(--text); }
+
+/* Tables, Code, Callouts, Timeline */
+table.kv {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.89rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+table.kv th, table.kv td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 13px;
+  text-align: left;
+  vertical-align: top;
+}
+table.kv tr:last-child th, table.kv tr:last-child td { border-bottom: none; }
+table.kv th { width: 250px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
+table.data-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.85rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+table.data-tbl th, table.data-tbl td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.data-tbl tr:last-child td { border-bottom: none; }
+code {
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.84em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+blockquote {
+  margin: 10px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.callout {
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  margin: 14px 0;
+}
+.callout.rev {
+  background: var(--violet-soft);
+  border-color: var(--violet-border);
+}
+.callout.warn {
+  background: var(--amber-soft);
+  border-color: var(--amber-border);
+}
+.timeline {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid var(--border-strong);
+}
+.timeline li {
+  position: relative;
+  margin: 0 0 10px;
+  padding-left: 8px;
+  font-size: 0.87rem;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+}
+.hit { margin: 8px 0; font-size: 0.88rem; line-height: 1.55; }
+.pno { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.notice {
+  margin-top: 32px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+.toc-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 20px; }
+.toc-pills a {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.81rem;
+  font-weight: 500;
+}
+.toc-pills a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+.step-num {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+pre.template-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.section-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.leaflet-popup-content { color: #161b22; font-size: 0.85rem; line-height: 1.45; }
+@media (max-width: 700px) {
+  table.kv th { width: 145px; }
+  #map { height: 320px; }
+  .topbar-inner { padding: 10px 14px; }
+  .wrap { padding: 18px 14px 54px; }
+}
+@media print {
+  .topbar, .no-print, #digest-map, .map-box { display: none !important; }
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .card, table.kv, table.data-tbl { box-shadow: none; break-inside: avoid; }
+  a { color: #000000; text-decoration: underline; }
+}
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      <span>Türkiye e-ÇED İzleme</span>
+      <span class="brand-scope">81 İl</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link " href="../index.html">Duyurular ve Harita</a>
+      <a class="nav-link " href="../rehber.html">Kullanım Rehberi</a>
+      <a class="nav-link" href="../feed.xml">RSS 2.0</a>
+      <a class="nav-link" href="https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml" target="_blank" rel="noopener">Resmi e-ÇED ↗</a>
+      <button id="theme-toggle" class="theme-btn" type="button">Tema</button>
+    </div>
+  </div>
+</nav>
+<div class="wrap narrow">
+  <header class="page-head">
+    <div style="font-size:0.84rem;color:var(--muted);margin-bottom:8px;" class="no-print">
+      <a href="../index.html">← Duyurular listesine dön</a> · Dosya <code>#60242</code>
+    </div>
+    <h1>Turizm Konaklama Tesisi Kapasite Artışı (Seaden Signature Resort &amp; Spa)</h1>
+    <p class="sub">ANTALYA / MANAVGAT · Polen Turizm Yatırımları A.Ş.</p>
+    <div class="badges" style="margin-top:11px;">
+      <span class="badge">IDK</span>
+      <span class="badge info">Ek-1</span>
+      <span class="badge ok">İDK İncelemesi · 26 gün kaldı (2026-12-18)</span>
+      
+    </div>
+    <div class="actions no-print" style="border-top:none;padding-top:4px;">
+      <a class="btn-primary" href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign1068897642736094028.pdf&amp;orjinalAd=60242_CED_Raporu.pdf&amp;yuklemeTarihi=2026-11-16" target="_blank" rel="noopener">Resmi PDF Dosyası ↗</a>
+      <a class="btn-secondary" href="http://eced.csb.gov.tr/jsp/ek1/60242" target="_blank" rel="noopener">e-ÇED Portal Kaydı ↗</a>
+      <a class="btn-secondary" href="60242.md">Ham Markdown (.md)</a>
+      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF Kaydet</button>
+    </div>
+  </header>
+
+  <table class="kv">
+    <tr><th>Proje Sahibi</th><td>Polen Turizm Yatırımları A.Ş.</td></tr>
+    <tr><th>Hazırlayan Kuruluş</th><td>ADADEM Çevre Müh.San. ve Tic. Ltd.Şti.</td></tr>
+    <tr><th>Sektör / Alt Sektör</th><td>Turizm / Turistik Tesisler</td></tr>
+    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>20.11.2026</code> · Belge yükleme: <code>23/07/2026 10:56:20</code></td></tr>
+    <tr><th>PDF Kapsamı ve Bütünlük</th><td>80.43 MB · 704 sayfa (480 metin / 224 taranmış) · SHA-256 <code>2c31941365c7a141…</code></td></tr>
+    <tr><th>Harita Bağlantıları</th><td><a href="https://www.openstreetmap.org/?mlat=36.81607&amp;mlon=31.31186#map=12/36.81607/31.31186" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=36.81607,31.31186" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
+  </table>
+
+  <h2>Belge Bütünlüğü, Revizyon ve Süreç Geçmişi</h2>
+<p class="sub">Her PDF dosyasının SHA-256 özeti, yükleme tarihi ve teknik göstergeleri arşivlenir. Bakanlık portalında rapor değiştirildiğinde veya 2009/7 Genelgesi kapsamında yeniden yüklendiğinde sürümler arası fark (v1 → v2) otomatik olarak kaydedilir.</p>
+<table class="data-tbl"><thead><tr><th>Sürüm</th><th>Arşiv Tarihi</th><th>Aşama</th><th>Yükleme Tarihi</th><th>Sayfa</th><th>SHA-256</th></tr></thead><tbody><tr><td><code>v1</code></td><td><code>2026-11-22T00:20:02</code></td><td>IDK</td><td><code>2026-11-16</code></td><td>704</td><td><code>2c31941365c7a141…</code></td></tr></tbody></table>
+
+  <h2>Konum Haritası</h2>
+  <div class="map-box">
+    <div id="digest-map"></div>
+    <div class="map-legend"><span>PDF metninden çıkarılan kesin proje koordinatları (42 nokta, datum: UTM-Z36/ED50, sayfa: s.26, s.27, s.298).</span></div>
+  </div>
+
+  
+  <h2>Yapay Zeka Destekli Bilimsel Ön Değerlendirme <span class="badge">gemini-4-hydrogen</span></h2>
+  <p class="sub">Bu değerlendirme, resmi PDF dosyasından seçilen 21 sayfa (s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14, s.15, s.16, s.17, s.18, s.19, s.20, s.22) esas alınarak hazırlanmıştır. Tüm sayısal verilerin ve tespitlerin resmi PDF belgesindeki ilgili <code>[s. N]</code> sayfalarından doğrulanması gerekir.</p>
+  <section class="card ek1" style="margin-top:10px;">
+    <p style="margin-top:0;"><strong>Özet:</strong> Polen Turizm Yatırımları A.Ş. tarafından Antalya ili, Manavgat ilçesi, Çolaklı Mahallesi, 870 ada 2-3 parseldeki 21.824,47 m2&#x27;lik alanda mevcut 248 oda 562 yatak kapasiteli Seaden Signature Resort &amp; Spa projesine 123 oda 383 yatak ilave edilerek tesisin 371 oda 945 yatak kapasiteye çıkarılması planlanmaktadır [s. 1, 17]. Toplam yatırım bedeli 287.081.040,00 TL olarak beyan edilen ve yaklaşık 2 yıllık inşaat sürecinde 500, işletme döneminde 350 personel istihdam edeceği belirtilen proje, ÇED Yönetmeliği Ek-1 Madde 40 (250 oda ve üzeri oteller) ve Madde 20 kapsamında incelenmektedir [s. 2, 17, 18]. Proje alanı Belek Özel Çevre Koruma Bölgesi (ÖÇK) sınırları içinde yer almakta olup denize kuşuçumu yaklaşık 200 m, en yakın haneye ise yaklaşık 145 m mesafededir [s. 20]. İncelenen bölümlerde, 06.05.2026 tarihinde Ek-1 eşiğinin yalnızca 2 oda altında (248 oda) Ek-2 ÇED Olumlu kararı alındıktan bir aydan kısa süre sonra 03.06.2026 tarihli yer görme işlemiyle Ek-1 kapasite artışına gidilmesi, 1. bodrum katta 70 yeni oda planlanması ve raporun içindekiler kısmında inşaat aşamasının bulunmadığına dair çelişkili ifadeler yer alması başlıca teknik ve hukuki risk alanları olarak öne çıkmaktadır [s. 11, 17, 19, 20].</p>
+    <details style="margin-top:10px;font-size:0.86rem;color:var(--muted);"><summary style="cursor:pointer;">İngilizce özet (English summary)</summary><p style="margin:6px 0 0;">Polen Turizm Yatırımları A.Ş. proposes a capacity expansion of the Seaden Signature Resort &amp; Spa tourism accommodation facility on a 21,824.47 m2 site (Block 870, Parcels 2-3) in Çolaklı Neighborhood, Manavgat District, Antalya Province, increasing capacity from 248 rooms and 562 beds to 371 rooms and 945 beds [s. 1, 17]. With a declared project cost of 287,081,040.00 TL, an estimated 2-year construction phase employing 500 workers, and an operational workforce of 350, the expansion triggers Annex-1 Item 40 (hotels with 250 rooms or more) and Article 20 of the Turkish EIA Regulation [s. 2, 17, 18]. The site lies entirely within the Belek Special Environmental Protection Area (ÖÇK), approximately 200 m from the coastline and 145 m from the nearest residence [s. 20]. Key environmental and legal concerns apparent in the available excerpts include potential threshold evasion and staged permitting (an Annex-2 EIA Positive decision for 248 rooms—just two rooms below the Annex-1 threshold—issued on 06.05.2026 followed within weeks by a 03.06.2026 site visit for an expansion to 371 rooms), the placement of 70 new rooms in the first basement level near the sea, and internal contradictions regarding whether a construction phase exists [s. 11, 17, 19, 20].</p></details>
+    <div class="badges" style="margin-top:10px;">
+      <span class="badge">Saha çalışması: İncelenen sayfalarda tespit edilemedi</span>
+      <span class="badge">Mevsimsel örnekleme: İncelenen sayfalarda tespit edilemedi</span>
+      <span class="badge">Kümülatif etki: Eksik veya tespit edilemedi</span>
+    </div>
+    <p class="detail" style="margin-top:10px;"><strong>Zeytinlik ve Korunan Alanlar:</strong> Proje alanı Belek Özel Çevre Koruma Bölgesi (ÖÇK) sınırları içerisinde, yürürlükteki 1/100.000 ölçekli Çevre Düzeni Planı&#x27;nda Turizm Bölgesi ve Özel Çevre Koruma Bölgesi kullanımında ve denize kuşuçumu yaklaşık 200 m, tarım alanına yaklaşık 850 m mesafede yer almaktadır [s. 18, 20, 22]. Zeytinlik (3573 sayılı Kanun), orman veya arkeolojik/doğal SİT statülerine ilişkin ayrıntılı bölümler (Bölüm 2.3 ve 2.9) sunulan sayfa alıntılarının kapsamı dışındadır [s. 5, 6].<br/>Sunulan alıntılar yalnızca raporun ön sayfalarını, içindekiler dizinini, teknik olmayan özetini ve Bölüm 1.1&#x27;in başlangıcını içerdiğinden flora-fauna arazi çalışmaları (Bölüm 2.8), su kalitesi analizleri (Bölüm 2.6, 2.13, 2.14) ve kümülatif etki değerlendirmesi (Bölüm 4) doğrudan incelenememiştir [s. 5, 6, 10]. Bununla birlikte, içindekiler kısmındaki Tablo 17 başlığının Proje Alanı ve Yakın Çevresinde Yayılış Göstermesi Muhtemel Bitki Türleri şeklinde adlandırılması ve tek günlük yer görme işleminin 03.06.2026 tarihinde yalnızca bir Çevre Yüksek Mühendisi tarafından yapıldığının belirtilmesi, biyolojik çeşitlilik başlangıç verilerinin mevsimsellik ve arazi doğrulaması açısından denetlenmesi gerektiğini göstermektedir [s. 14, 19].</p>
+  </section>
+  <h3>Öne Çıkan Sayısal Bulgular</h3><table class="kv"><tr><th>ÇED Alanı Büyüklüğü</th><td>21.824,47 m2 (870 Ada, 2-3 Parsel) [s. 17] <span class="pno">[s. 17]</span></td></tr>
+<tr><th>Proje Bedeli</th><td>287.081.040,00 TL (KDV dahil) [s. 2, 19] <span class="pno">[s. 2]</span></td></tr>
+<tr><th>Mevcut Onaylı Kapasite (Ek-2, 06.05.2026)</th><td>248 oda, 562 yatak [s. 17] <span class="pno">[s. 17]</span></td></tr>
+<tr><th>Planlanan Kapasite Artışı</th><td>123 oda, 383 yatak (4.121,20 m2 toplam oda artışı) [s. 17, 19] <span class="pno">[s. 17]</span></td></tr>
+<tr><th>Nihai Toplam Kapasite</th><td>371 oda, 945 yatak [s. 17] <span class="pno">[s. 17]</span></td></tr>
+<tr><th>Katlara Göre Oda Artışı</th><td>1. Bodrum Kat: 70 oda; Zemin Kat: 53 oda [s. 20] <span class="pno">[s. 20]</span></td></tr>
+<tr><th>İnşaat Süresi ve İstihdam</th><td>Yaklaşık 2 yıl, 500 personel (2 vardiya) [s. 18] <span class="pno">[s. 18]</span></td></tr>
+<tr><th>İşletme İstihdamı</th><td>350 personel (3 vardiya) [s. 18] <span class="pno">[s. 18]</span></td></tr>
+<tr><th>Denize Kuşuçumu Mesafe</th><td>Yaklaşık 200 m [s. 20] <span class="pno">[s. 20]</span></td></tr>
+<tr><th>En Yakın Haneye Mesafe</th><td>Yaklaşık 145 m (kuşuçumu) [s. 20] <span class="pno">[s. 20]</span></td></tr></table>
+  <h3>Danıştay Ölçütlerine Göre Bilimsel ve Hukuki Bulgular</h3><section class="card"><div class="hit"><span class="badge urgent">YÜKSEK</span> <span class="badge">Proje Parçalama / Eşik Değer</span> <strong>Ek-1 Eşik Değerinin İki Oda Altında Alınan Ek-2 Kararı ve Hemen Ardından Yapılan Kapasite Artışı Başvurusu</strong> <span class="pno">[s. 2, s. 17, s. 18, s. 19, s. 20]</span> — ÇED Yönetmeliği Ek-1 Madde 40 kapsamında 250 oda ve üzeri oteller Ek-1&#x27;e tabi iken, 06.05.2026 tarih ve E-2026470 karar numarası ile 248 oda 562 yatak için Ek-2 kapsamında ÇED Olumlu kararı alınmıştır [s. 2, 17, 18]. Bu karardan bir aydan kısa süre sonra, 03.06.2026 tarihinde yer görme işlemi gerçekleştirilerek aynı parsellerde mevcut binaların yıkıldığı ve henüz inşaat başlamadığı halde zemin kat ile 1. bodrum kattaki boşlukların odaya çevrilmesi suretiyle 123 oda 383 yatak artışla 371 odaya ulaşan yeni bir Ek-1 başvurusu yapılmıştır [s. 17, 18, 19, 20]. Bütünleşik tek bir yatırımın önce Ek-1 eşiğinin hemen altında Ek-2 süreciyle geçirilip halkın katılımı ve kapsamlı ÇED incelemesinden ayrıştırılması, Danıştay içtihatları uyarınca proje parçalama ve eşik değer dolanılması yönünden ağır bir inceleme konusudur [s. 17, 18, 20].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Ölçüm / İç Tutarlılık</span> <strong>İnşaat Aşamasının Varlığı Konusunda Rapor İçi Açık Çelişki ve 1. Bodrum Katta 70 Oda Planlanması</strong> <span class="pno">[s. 7, s. 11, s. 14, s. 15, s. 18, s. 20]</span> — Raporun İçindekiler bölümünde 5.2.3 Sera Gazı Azaltım Planı ile 5.2.4 Çevresel ve Sosyal Yönetim Planı başlıkları altında projenin inşaat aşaması olmadığından yalnızca işletme aşaması için hazırlanacağı belirtilirken [s. 11], Teknik Olmayan Özet&#x27;te inşaatın yaklaşık 2 yıl süreceği ve 500 personel çalıştırılacağı, ayrıca Bölüm 3.1&#x27;de kazı fazlası malzeme, Tablo 35-42&#x27;de iş makinesi gürültüsü ve Tablo 60&#x27;ta inşaat aşaması trafik yükü hesaplarının bulunduğu görülmektedir [s. 7, 14, 15, 18]. Ayrıca ÇED Başvuru Dosyası aşamasında 3. kat, zemin kat ve 1. bodrum katta öngörülen oda artışının, ÇED Raporu aşamasında mimari proje değişikliğiyle tamamen zemin kat (53 oda) ve 1. bodrum kata (70 oda) kaydırıldığı belirtilmiştir [s. 18, 20].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">5403 / Orman / Korunan Alan</span> <strong>Belek Özel Çevre Koruma Bölgesi İçinde Kapasite Artışı ve Hazırlık Grubunda Şehir Plancısı Eksikliği</strong> <span class="pno">[s. 12, s. 18, s. 20, s. 22]</span> — Proje alanı Belek Özel Çevre Koruma Bölgesi (ÖÇK) sınırları içinde ve denize kuşuçumu yaklaşık 200 m mesafede konumlanmaktadır [s. 18, 20]. Yüksek yatak yoğunluğu (945 yatak) ve 1. bodrum katta 70 konaklama odası oluşturulması, 1/100.000, 1/25.000, 1/5.000 ve 1/1.000 ölçekli plan hükümleri ile ÖÇK koruma-kullanma esaslarına uygunluk açısından doğrudan şehircilik denetimi gerektirmesine rağmen, Komisyon tarafından belirlenen ÇED hazırlama meslek grupları arasında Şehir ve Bölge Plancısı yer almamıştır [s. 12, 18, 20, 22].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Flora / Fauna &amp; Mevsimsellik</span> <strong>Belek ÖÇK ve Kuş Göç Güzergahı Yakınında Muhtemel Bitki Türleri Başlıklı Flora Listesi</strong> <span class="pno">[s. 13, s. 14, s. 19]</span> — İçindekiler ve Tablolar Listesi&#x27;nde Şekil 27&#x27;nin Proje Alanı&#x27;nın Kuş Göç Yollarına Göre Konumu (Trakuş; 2026) başlığını taşıdığı [s. 13], Tablo 17&#x27;nin ise Proje Alanı ve Yakın Çevresinde Yayılış Göstermesi Muhtemel Bitki Türleri olarak adlandırıldığı görülmektedir [s. 14]. Belek ÖÇK gibi hassas bir kıyı ekosisteminde flora envanterinin muhtemel tür listesine mi yoksa çok mevsimli arazi tespitine mi dayandığının ve 03.06.2026 tarihli tek seferlik saha ziyaretinin [s. 19] dışında biyologlarca mevsimsel arazi çalışması yapılıp yapılmadığının tam raporda doğrulanması gerekmektedir [s. 13, 14, 19].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Su / Hidrojeoloji</span> <strong>Kıyıya 200 m Mesafede 1. Bodrum Kat Odaları ve 945 Yatak Kapasitesi İçin Hidrojeolojik-Altyapı Riski</strong> <span class="pno">[s. 8, s. 13, s. 14, s. 17, s. 20]</span> — Denize kuşuçumu yaklaşık 200 m mesafedeki parselde kapasitenin 562 yataktan 945 yatağa çıkarılması ve 70 yeni odanın 1. bodrum katta planlanması [s. 17, 20], yeraltı suyu seviyesi, temel drenajı/susuzlaştırma ihtiyacı, artacak içme-kullanma suyu temini ve atıksu bertaraf kapasitesi yönünden hidrojeolojik ve çevresel altyapı değerlendirmesini kritik kılmaktadır [s. 13, 14]. Bu teknik bölümler alıntılanan sayfalarda yer almadığından DSİ ve altyapı idarelerinin görüşleri ile su dengesi hesaplarının incelenmesi gerekmektedir [s. 8, 13].</div></section>
+  <h3>Keşif ve Bilirkişi Heyeti İçin Önerilen Uzmanlık Alanları</h3><section class="card"><div class="badges" style="margin-top:0;"><span class="badge info">Şehir ve Bölge Plancısı</span> <span class="badge info">Çevre Mühendisi</span> <span class="badge info">Biyolog</span> <span class="badge info">Hidrojeoloji Mühendisi</span> <span class="badge info">Jeoloji Mühendisi</span> <span class="badge info">İnşaat Mühendisi</span></div><p class="detail muted">Danıştay içtihatları uyarınca bilirkişi heyetinin tek sayıda uzmandan oluşması, proje niteliğine uygun tüm disiplinleri içermesi ve plan kararlarıyla ilişkili davalarda Şehir ve Bölge Plancısına yer verilmesi gerekmektedir.</p></section>
+  <div class="section-head-row"><h3>HKT Tutanakları ve Bilirkişi İncelemesi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card"><ul style="margin:0;padding-left:20px;"><li>06.05.2026 tarihinde Ek-1 eşiği olan 250 odanın yalnızca 2 oda altında (248 oda) Ek-2 ÇED Olumlu kararı verilmesinin hemen ardından, mevcut yapıların yıkıldığı ve henüz kapasite artışına yönelik inşaatın başlamadığı sahada 03.06.2026 tarihli yer görme işlemiyle 371 odaya çıkan bir artışa gidilmesinin proje parçalama ve eşik değer dolanılması kapsamında değerlendirilip değerlendirilmediği açıklanmalı ve 248 odalık onaylı mimari proje ile 371 odalık yeni mimari proje karşılaştırılmalıdır. <span class="pno">[s. 2, s. 17, s. 18, s. 19, s. 20]</span></li>
+<li>Raporun İçindekiler bölümünde 5.2.3 ve 5.2.4 maddelerinde projede inşaat aşaması bulunmadığı ifade edilirken [s. 11], Teknik Olmayan Özet ve Bölüm 3 başlıklarında 2 yıllık inşaat süresi, 500 inşaat işçisi, hafriyat/kazı fazlası, iş makinesi gürültüsü ve inşaat trafiği öngörülmesinin [s. 7, 14, 15, 18] gerekçesi nedir ve bu çelişki Yönetim Planlarından nasıl giderilecektir? <span class="pno">[s. 7, s. 11, s. 14, s. 15, s. 18]</span></li>
+<li>Belek Özel Çevre Koruma Bölgesi içinde ve denize yaklaşık 200 m mesafede yer alan projede, toplam oda artışının 70 adedinin 1. bodrum katta planlanmasının yürürlükteki 1/100.000, 1/25.000, 1/5.000 ve 1/1.000 ölçekli imar ve ÖÇK plan hükümlerine uygunluğu neden ÇED çalışma grubunda bir Şehir ve Bölge Plancısı yer almadan değerlendirilmiştir? <span class="pno">[s. 12, s. 18, s. 20, s. 22]</span></li>
+<li>Tablo 17&#x27;de Proje Alanı ve Yakın Çevresinde Yayılış Göstermesi Muhtemel Bitki Türleri ifadesi kullanıldığından [s. 14], Belek ÖÇK ve Şekil 27&#x27;de belirtilen kuş göç yolları [s. 13] dikkate alınarak uzman biyologlar tarafından birden fazla mevsimi kapsayan fiili saha çalışması yapılıp yapılmadığı tarih ve yöntemleriyle belgelenmelidir. <span class="pno">[s. 13, s. 14, s. 19]</span></li>
+<li>Yatak kapasitesinin 562&#x27;den 945&#x27;e çıkarılması ve en yakın haneye 145 m, denize 200 m mesafede 1. bodrum katta 70 konaklama odası inşa edilmesinin yeraltı suyu seviyesi, atıksu arıtma/deşarj kapasitesi, trafik yükü ve çevre tesislerle oluşturacağı kümülatif etki nicel verilerle ortaya konulmalıdır. <span class="pno">[s. 10, s. 17, s. 20]</span></li></ul><textarea id="qs-plain" style="display:none;">1. 06.05.2026 tarihinde Ek-1 eşiği olan 250 odanın yalnızca 2 oda altında (248 oda) Ek-2 ÇED Olumlu kararı verilmesinin hemen ardından, mevcut yapıların yıkıldığı ve henüz kapasite artışına yönelik inşaatın başlamadığı sahada 03.06.2026 tarihli yer görme işlemiyle 371 odaya çıkan bir artışa gidilmesinin proje parçalama ve eşik değer dolanılması kapsamında değerlendirilip değerlendirilmediği açıklanmalı ve 248 odalık onaylı mimari proje ile 371 odalık yeni mimari proje karşılaştırılmalıdır. [s. 2, s. 17, s. 18, s. 19, s. 20]
+2. Raporun İçindekiler bölümünde 5.2.3 ve 5.2.4 maddelerinde projede inşaat aşaması bulunmadığı ifade edilirken [s. 11], Teknik Olmayan Özet ve Bölüm 3 başlıklarında 2 yıllık inşaat süresi, 500 inşaat işçisi, hafriyat/kazı fazlası, iş makinesi gürültüsü ve inşaat trafiği öngörülmesinin [s. 7, 14, 15, 18] gerekçesi nedir ve bu çelişki Yönetim Planlarından nasıl giderilecektir? [s. 7, s. 11, s. 14, s. 15, s. 18]
+3. Belek Özel Çevre Koruma Bölgesi içinde ve denize yaklaşık 200 m mesafede yer alan projede, toplam oda artışının 70 adedinin 1. bodrum katta planlanmasının yürürlükteki 1/100.000, 1/25.000, 1/5.000 ve 1/1.000 ölçekli imar ve ÖÇK plan hükümlerine uygunluğu neden ÇED çalışma grubunda bir Şehir ve Bölge Plancısı yer almadan değerlendirilmiştir? [s. 12, s. 18, s. 20, s. 22]
+4. Tablo 17&#x27;de Proje Alanı ve Yakın Çevresinde Yayılış Göstermesi Muhtemel Bitki Türleri ifadesi kullanıldığından [s. 14], Belek ÖÇK ve Şekil 27&#x27;de belirtilen kuş göç yolları [s. 13] dikkate alınarak uzman biyologlar tarafından birden fazla mevsimi kapsayan fiili saha çalışması yapılıp yapılmadığı tarih ve yöntemleriyle belgelenmelidir. [s. 13, s. 14, s. 19]
+5. Yatak kapasitesinin 562&#x27;den 945&#x27;e çıkarılması ve en yakın haneye 145 m, denize 200 m mesafede 1. bodrum katta 70 konaklama odası inşa edilmesinin yeraltı suyu seviyesi, atıksu arıtma/deşarj kapasitesi, trafik yükü ve çevre tesislerle oluşturacağı kümülatif etki nicel verilerle ortaya konulmalıdır. [s. 10, s. 17, s. 20]</textarea></section>
+  <p class="sub" style="margin-top:10px;"><em>İnceleme sınırları:</em> Toplam 704 sayfadan oluşan (480 sayfası metin çıkarılabilir, 224 sayfası taranmış/görüntü formatında) ÇED Raporu dosyasının yalnızca 1–20 ve 22 numaralı sayfaları (kapak, proje künyesi, içindekiler/şekil/tablo dizinleri, Teknik Olmayan Özet ve Bölüm 1.1&#x27;in girişi) incelemeye sunulmuştur. Bu nedenle imar planı ve ÖÇK dokümanları (Bölüm 2.2–2.3), deniz ve yüzey/yeraltı suyu analizleri (Bölüm 2.6, 2.13–2.14), flora-fauna arazi verileri (Bölüm 2.8), atık, gürültü ve emisyon hesapları (Bölüm 3), Kümülatif Etki Değerlendirmesi (Bölüm 4), Çevre İzleme ve Yönetim Planları (Bölüm 5), halkın katılımı kayıtları (Bölüm 6) ile 224 sayfalık taranmış ekler bölümü doğrudan incelenememiştir.</p>
+
+
+  <h2>Resmi Duyuru Metni</h2>
+  <blockquote>ANTALYA ili MANAVGAT,  ilcesinde ANTALYA ili MANAVGAT ilçesi sınırları içerisinde Polen Turizm Yatırımları A.Ş. tarafından yapılması planlanan Turizm Konaklama Tesisi Kapasite Artışı (Seaden Signature Resort &amp; Spa) projesi ile ilgili olarak hazırlanan ÇED Raporu, ÇED Yönetmeliği&#x27;nin 11. maddesi kapsamında Bakanlığımıza sunulmuş olup, inceleme değerlendirme süreci başlamıştır. Proje ile ilgili olarak 18/12/2026 tarihinde İDK toplantısı gerçekleştirilecektir. Bakanlığımıza sunulan ÇED Raporu https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml adresinde yer almaktadır. ÇED Raporu ilgililere ve kamuoyuna duyurulur.</blockquote>
+
+  <h2>Otomatik Metin Taraması (Deterministik)</h2>
+  <table class="kv"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Literatür taraması ifadesi</th><td><span class="badge warn">Literatür ifadesi mevcut — saha çalışması ile karşılaştırınız</span></td></tr>
+<tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kümülatif etki değerlendirmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Yeraltı suyu, akifer veya hidrojeoloji ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge warn">Metinde geçmektedir — proje parçalama / 2009/7 yönünden inceleyiniz</span></td></tr>
+<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr></table>
+  <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik metin taramasına dahil edilmemiştir.</p>
+
+  <h2>Sayfa Kaynaklı Çıkarılan Bulgular</h2>
+  <div class="cards"><section class="card"><h3>Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(107 sayfa: s.7, s.17, s.19, s.22, s.24, s.26, s.27, s.28, s.29, s.30, s.34, s.35, s.36, s.40 (+93 sayfa))</span></h3><div class="hit"><span class="pno">[s. 7]</span> <code>utm</code> — …............. 161 3.5. İnşaat ve İşletme Aşamasında Oluşacak Emisyon Kaynakları (toz emisyonu, ısınma, aydınlanma, soğutma vb. amaçlı kullanılacak yakıt cinsine bağlı olarak oluşacak emisyonlar vb.) ve Alınacak Önlemler (XVI) ..............…</div>
+<div class="hit"><span class="pno">[s. 17]</span> <code>21824,47 m2</code> — …z Caddesi, Bina No:27 İç Kapı No:1 (870 Ada, 2-3 Parsel) adresinde Polen Turizm Yatırımları A.Ş. tarafından planlanan 21824,47 m2’lik ÇED alanında 371 oda 945 yatak kapasiteli “Turizm Konaklama Tesisi Kapasite Artışı (Seaden Signature Resort &amp; Spa)…</div>
+<div class="hit"><span class="pno">[s. 19]</span> <code>614,30 m2</code> — …oplam Oda m2’si 4121,20 4121,20 İş bu ÇED Raporu kapsamında; Artış Yapılacak A Blok Toplam Oda m2’si : 614,30 m2 Artış Yapılacak B Blok Toplam Oda m2’si : 1089,20 m2 Artış Yapılacak C Blok Toplam Oda m2’si : 860,80 m2…</div>
+<div class="hit"><span class="pno">[s. 19]</span> <code>1089,20 m2</code> — …apsamında; Artış Yapılacak A Blok Toplam Oda m2’si : 614,30 m2 Artış Yapılacak B Blok Toplam Oda m2’si : 1089,20 m2 Artış Yapılacak C Blok Toplam Oda m2’si : 860,80 m2 Artış Yapılacak D Blok Toplam Oda m2’si : 606,90 m2 Ar…</div>
+<div class="hit"><span class="pno">[s. 19]</span> <code>860,80 m2</code> — …: 614,30 m2 Artış Yapılacak B Blok Toplam Oda m2’si : 1089,20 m2 Artış Yapılacak C Blok Toplam Oda m2’si : 860,80 m2 Artış Yapılacak D Blok Toplam Oda m2’si : 606,90 m2 Artış Yapılacak E Blok Toplam Oda m2’si : 950 m2 Artı…</div>
+<div class="hit"><span class="pno">[s. 19]</span> <code>606,90 m2</code> — …: 1089,20 m2 Artış Yapılacak C Blok Toplam Oda m2’si : 860,80 m2 Artış Yapılacak D Blok Toplam Oda m2’si : 606,90 m2 Artış Yapılacak E Blok Toplam Oda m2’si : 950 m2 Artış Yapılcak Toplam Oda m2’si = 4121,20 m2 Söz konu…</div></section><section class="card"><h3>Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(58 sayfa: s.5, s.8, s.14, s.16, s.19, s.26, s.35, s.42, s.49, s.60, s.69, s.70, s.73, s.74 (+44 sayfa))</span></h3><div class="hit"><span class="pno">[s. 5]</span> <code>Deniz Suyu</code> — …Alanındaki Hava, Su, Toprak Kirliliği (VI) ............................. 72 2.6. Proje Alanı ve Etki Alanının Mevcut Deniz Suyu Kalitesi (Deniz ve Kıyı Yönetimi Dairesi Başkanlığı’nın Görüşü Doğrultusunda Yapılacak İş ve İşlemler) ...............…</div>
+<div class="hit"><span class="pno">[s. 8]</span> <code>Yeraltı Suyu</code> — …anlığı vb. …))........................ 187 3.10. Proje Kapsamında Gerçekleştirilecek Faaliyetler Sonucunda Yüzeysel ve Yeraltı Suyu Kaynaklarının Etkilenme Durumları ve Alınacak Tedbirler (DSİ 13. Bölge Müdürlüğü’nden görüş alınması, ilgili kurum gör…</div>
+<div class="hit"><span class="pno">[s. 14]</span> <code>Deniz Suyu</code> — …ları (μg/m3) (havaizleme.gov.tr, 2025) ....... 73 Tablo 15:SKKY Tablo 4: Deniz Suyunun Genel Kalite Kriterleri’ne Göre Deniz Suyu Analizi Sonuçları ....................................................................................................…</div>
+<div class="hit"><span class="pno">[s. 16]</span> <code>Yeraltı Suyu</code> — …küp MTA: Maden Tetkik ve Arama pm: Partikül Madde sn: saniye TÜİK: Türkiye İstatistik Kurumu vb.: ve benzeri YAS: Yeraltı Suyu % yüzde TBDY: Türkiye Bina Deprem Yönetmeliği…</div>
+<div class="hit"><span class="pno">[s. 19]</span> <code>deşarj</code> — …, depo, idari ve/veya sosyal bina, köprü, alt ve üst yapılar (arıtma, kanalizasyon, içme/kullanma su hatları, su alma/deşarj hatları vb. dahil) viyadük vb. sanat yapıları, drenaj, tesviye vb. gibi araziyi kullanılabilir duruma getirmek için y…</div>
+<div class="hit"><span class="pno">[s. 26]</span> <code>ATIKSU</code> — …341078 Ç17 349582.080 4075824.020 36.81468010 31.31330143 YERLİ TURİST YABANCI TURİST KONAKLAMA &amp; HİZMET ATIKSU ORGANİK ATIK Çöp Kutusu ve Konteyner ATIK YAĞLAR Lisanslı Firma ÇIKIŞ AMBALAJ ATIĞI Lisanslı Geri Kaza…</div></section><section class="card"><h3>Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(35 sayfa: s.18, s.20, s.22, s.42, s.46, s.49, s.59, s.60, s.63, s.64, s.65, s.66, s.68, s.69 (+21 sayfa))</span></h3><div class="hit"><span class="pno">[s. 18]</span> <code>Özel Çevre Koruma</code> — …alınan onaylı Antalya-Burdur-Isparta Planlama Bölgesi 1/100.000 ölçekli Çevre Düzeni Planına göre “Turizm Bölgesi ve Özel Çevre Koruma Bölgesi”nde kalmaktadır. (Bkz.Ek-3.5) Proje alanı, T.C. Manavgat Belediye Başkanlığı, Plan ve Proje Müdürlüğü’nün…</div>
+<div class="hit"><span class="pno">[s. 20]</span> <code>Özel Çevre Koruma</code> — …lumlu” kararı verilmiş olup oda sayısında artış ile kapasite artışı yapılması planlanmaktadır. - Proje alanı Belek Özel Çevre Koruma Bölgesi içerisinde kalmaktadır. - Söz konusu faaliyet alanının mülkiyeti Polen Turizm Yatırımları A.Ş.’ye ait olup…</div>
+<div class="hit"><span class="pno">[s. 22]</span> <code>Özel Çevre Koruma</code> — …alınan onaylı Antalya-Burdur-Isparta Planlama Bölgesi 1/100.000 ölçekli Çevre Düzeni Planına göre “Turizm Bölgesi ve Özel Çevre Koruma Bölgesi”nde kalmaktadır. (Bkz.Ek-3.5) Proje alanı, T.C. Manavgat Belediye Başkanlığı, Plan ve Proje Müdürlüğü’nün…</div>
+<div class="hit"><span class="pno">[s. 42]</span> <code>Özel Çevre Koruma</code> — …lumlu” kararı verilmiş olup oda sayısında artış ile kapasite artışı yapılması planlanmaktadır. - Proje alanı Belek Özel Çevre Koruma Bölgesi içerisinde kalmaktadır.</div>
+<div class="hit"><span class="pno">[s. 46]</span> <code>Özel Çevre Koruma</code> — …alınan onaylı Antalya-Burdur-Isparta Planlama Bölgesi 1/100.000 ölçekli Çevre Düzeni Planına göre “Turizm Bölgesi ve Özel Çevre Koruma Bölgesi”nde kalmaktadır. (Bkz.Ek-3.5)</div>
+<div class="hit"><span class="pno">[s. 49]</span> <code>Doğal Sit</code> — …Ek-3.8’ de verilmiştir. Ek-3.8’de sunulan Duyarlı Yöreler Haritası’na göre proje alanı; Birinci Derece Yola 1800 m, Doğal Sit Alanına 900 m, Atıksu Tesisleri Alanına 1700 m mesafededir. Ayrıca proje sahası; Belek Özel Çevre Koruma Bölgesinde ka…</div></section><section class="card"><h3>Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(49 sayfa: s.5, s.23, s.49, s.69, s.70, s.83, s.85, s.86, s.87, s.90, s.91, s.92, s.93, s.94 (+35 sayfa))</span></h3><div class="hit"><span class="pno">[s. 5]</span> <code>Flora ve Fauna</code> — …rafından Yapılacağı (Karayolları 13. Bölge Müdürlüğü’ne başvuru yapılması)..... 78 2.8. Proje Alanı ve Etki Alanındaki Flora ve Fauna Bilgisi (Doğa Koruma ve Milli Parklar Genel Müdürlüğü Görüşü Doğrultusunda Yapılacak İş ve İşlemler) .................…</div>
+<div class="hit"><span class="pno">[s. 5]</span> <code>Arazi Çalışması</code> — …arı ........................................................ 84 2.8.4. Proje Alanı ve Etki Alanı Üzerinde Kapsamlı Bir Arazi Çalışması Yapılarak Flora ve Fauna Türlerinin Belirlenmesi, Araştırılan Türlerin Tehlike Kategorileri, Endemiklik Durumları, Ni…</div>
+<div class="hit"><span class="pno">[s. 5]</span> <code>Bern Sözleşmesi</code> — …, Araştırılan Türlerin Tehlike Kategorileri, Endemiklik Durumları, Nispi Bolluk Dereceleri, Uluslararası Anlaşmalarla (Bern Sözleşmesi, IUCN vb.) Koruma Altına Alınan Tür Olup Olmadığının Tablo Halinde Verilmesi .........................................…</div>
+<div class="hit"><span class="pno">[s. 5]</span> <code>IUCN</code> — …erin Tehlike Kategorileri, Endemiklik Durumları, Nispi Bolluk Dereceleri, Uluslararası Anlaşmalarla (Bern Sözleşmesi, IUCN vb.) Koruma Altına Alınan Tür Olup Olmadığının Tablo Halinde Verilmesi ...............................................…</div>
+<div class="hit"><span class="pno">[s. 23]</span> <code>mevsimsel</code> — …pa bulunmaktadır. Şekil 1:Proje Çevresinde Bulunan Tesisler Projenin işletme aşamasında otel arz ve talebe göre mevsimsel veya 12 ay boyunca açık kalacaktır. Ekonomik ve Sosyal Yönden Ülke, Bölge ve/veya İl Ölçeğinde Önem ve Gerekliliği…</div>
+<div class="hit"><span class="pno">[s. 49]</span> <code>flora ve fauna</code> — …oz oluşumu, gürültü, trafik ve ulaşım, atıksu, katı ve tehlikeli atıklar, yüzeysel su ve drenaj, yeraltı suyu, toprak, flora ve fauna, peyzaj, sosyo-ekonomik etkiler değerlendirilmiştir. İnşaat aşamasında etki alanının belirlenmesinde özellikle hafriy…</div></section><section class="card"><h3>Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(97 sayfa: s.4, s.10, s.13, s.15, s.16, s.25, s.40, s.44, s.49, s.50, s.55, s.56, s.63, s.64 (+83 sayfa))</span></h3><div class="hit"><span class="pno">[s. 4]</span> <code>Deprem</code> — …................... 48 2.1.3. Proje Alanı ve Yakın Çevresinde Bulunan Tarım Arazilerinin, Yeraltı ve Yüzey Sularının, Deprem Kuşaklarının, Jeolojik Yapının, Yerleşim Alanlarının, Ulaşım Ağının, Enerji İletim Hatlarının, Boru Hatlarının, Arazi…</div>
+<div class="hit"><span class="pno">[s. 10]</span> <code>KÜMÜLATİF</code> — …......................................................................................................... 245 BÖLÜM 4: KÜMÜLATİF ETKİ DEĞERLENDİRME (Projenin geçmişteki, mevcuttaki veya gelecekteki etki alanı içerisinde kalan başka faaliyet…</div>
+<div class="hit"><span class="pno">[s. 13]</span> <code>Deprem</code> — …Tehlike Haritası ...................................................................... 127 Şekil 39:Faaliyet Alanı Deprem Tehlike Haritası (https://tdth.afad.gov.tr/TDTH/main.xhtml) ........................................................…</div>
+<div class="hit"><span class="pno">[s. 15]</span> <code>Gürültü</code> — …rmesi MÇK: Mahalli Çevre Kurulu Kararı SKHKKY: Sanayi Kaynaklı Hava Kirliliğinin Kontrolü Yönetmeliği ÇGKY: Çevresel Gürültü Kontrol Yönetmeliği SKKY: Su Kirliliği Kontrolü Yönetmeliği DSİ: Devlet Su İşleri ÇSYP: Çevresel Sosyal Yönetim Pla…</div>
+<div class="hit"><span class="pno">[s. 16]</span> <code>Gürültü</code> — …RİZM KONAKLAMA TESİSİ KAPASİTE ARTIŞI (SEADEN SİGNATURE RESORT &amp; SPA) ÇED RAPORU 14 Lgag: Gündüz-Akşam-Gece Gürültü Düzeyi Lp: ses şiddeti seviyesi m2 :metrekare m³ metreküp MTA: Maden Tetkik ve Arama pm: Partikül Madde sn: saniy…</div>
+<div class="hit"><span class="pno">[s. 16]</span> <code>Deprem</code> — …kül Madde sn: saniye TÜİK: Türkiye İstatistik Kurumu vb.: ve benzeri YAS: Yeraltı Suyu % yüzde TBDY: Türkiye Bina Deprem Yönetmeliği</div></section><section class="card"><h3>Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(334 sayfa: s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14 (+320 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>KAPASİTE</code> — POLEN TURİZM YATIRIMLARI A.Ş. TURİZM KONAKLAMA TESİSİ KAPASİTE ARTIŞI (SEADEN SİGNATURE RESORT &amp; SPA) ANTALYA İLİ, MANAVGAT İLÇESİ, ÇOLAKLI MAHALLESİ, DENİZ CADDESİ, BİNA NO…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>Kapasite</code> — …hotels.com VERGİ NUMARASI / TİCARET ODASI SİCİL NO (İSTEĞE BAĞLI) 7320082252 PROJENİN ADI Turizm Konaklama Tesisi Kapasite Artışı (Seaden Signature Resort &amp; Spa) PROJE BEDELİ 287.081.040,00 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İ…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>PROJE BEDELİ</code> — …NO (İSTEĞE BAĞLI) 7320082252 PROJENİN ADI Turizm Konaklama Tesisi Kapasite Artışı (Seaden Signature Resort &amp; Spa) PROJE BEDELİ 287.081.040,00 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ MEVKİİ) Antalya İli, Manavgat İlçesi, Çolaklı…</div>
+<div class="hit"><span class="pno">[s. 3]</span> <code>KAPASİTE</code> — POLEN TURİZM YATIRIMLARI A.Ş. TURİZM KONAKLAMA TESİSİ KAPASİTE ARTIŞI (SEADEN SİGNATURE RESORT &amp; SPA) ÇED RAPORU 1 İÇİNDEKİLER LİSTESİ ŞEKİLLER LİSTESİ ....................…</div>
+<div class="hit"><span class="pno">[s. 4]</span> <code>KAPASİTE</code> — POLEN TURİZM YATIRIMLARI A.Ş. TURİZM KONAKLAMA TESİSİ KAPASİTE ARTIŞI (SEADEN SİGNATURE RESORT &amp; SPA) ÇED RAPORU 2 1.5.1. Proje Alanının ve Etrafındaki Alanın Mülkiyetine İl…</div>
+<div class="hit"><span class="pno">[s. 5]</span> <code>KAPASİTE</code> — POLEN TURİZM YATIRIMLARI A.Ş. TURİZM KONAKLAMA TESİSİ KAPASİTE ARTIŞI (SEADEN SİGNATURE RESORT &amp; SPA) ÇED RAPORU 3 2.3 Proje ve Etki Alanının ÇED Yönetmeliği’nin Ek-5: Duyar…</div></section><section class="card"><h3>Proje Parçalama, Kapasite Artışı ve Eşik Değerler <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(336 sayfa: s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14 (+322 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>KAPASİTE ARTIŞI</code> — POLEN TURİZM YATIRIMLARI A.Ş. TURİZM KONAKLAMA TESİSİ KAPASİTE ARTIŞI (SEADEN SİGNATURE RESORT &amp; SPA) ANTALYA İLİ, MANAVGAT İLÇESİ, ÇOLAKLI MAHALLESİ, DENİZ CADDESİ, BİNA NO:27 İÇ…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>Kapasite Artışı</code> — …hotels.com VERGİ NUMARASI / TİCARET ODASI SİCİL NO (İSTEĞE BAĞLI) 7320082252 PROJENİN ADI Turizm Konaklama Tesisi Kapasite Artışı (Seaden Signature Resort &amp; Spa) PROJE BEDELİ 287.081.040,00 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>eşik değer</code> — …r bir kapasite artışı miktarının mevcut proje kapasitesi ile toplanması ve bu toplamın; a) Ek-1’deki listede yer alan eşik değer ve üzerinde kalması durumunda, 8 inci madde kapsamında başvuru yapılması gerekmektedir. Sektör: Turizm Alt Sektör: Tu…</div>
+<div class="hit"><span class="pno">[s. 3]</span> <code>KAPASİTE ARTIŞI</code> — POLEN TURİZM YATIRIMLARI A.Ş. TURİZM KONAKLAMA TESİSİ KAPASİTE ARTIŞI (SEADEN SİGNATURE RESORT &amp; SPA) ÇED RAPORU 1 İÇİNDEKİLER LİSTESİ ŞEKİLLER LİSTESİ ............................…</div>
+<div class="hit"><span class="pno">[s. 4]</span> <code>KAPASİTE ARTIŞI</code> — POLEN TURİZM YATIRIMLARI A.Ş. TURİZM KONAKLAMA TESİSİ KAPASİTE ARTIŞI (SEADEN SİGNATURE RESORT &amp; SPA) ÇED RAPORU 2 1.5.1. Proje Alanının ve Etrafındaki Alanın Mülkiyetine İlişkin Bi…</div>
+<div class="hit"><span class="pno">[s. 5]</span> <code>KAPASİTE ARTIŞI</code> — POLEN TURİZM YATIRIMLARI A.Ş. TURİZM KONAKLAMA TESİSİ KAPASİTE ARTIŞI (SEADEN SİGNATURE RESORT &amp; SPA) ÇED RAPORU 3 2.3 Proje ve Etki Alanının ÇED Yönetmeliği’nin Ek-5: Duyarlı Yörel…</div></section></div>
+
+  <h2>Belge Bölüm Haritası</h2>
+  <ul><li><span class="pno">[s. 404]</span> 1. SOSYOEKONOMİK YAPI</li>
+<li><span class="pno">[s. 404]</span> 2. TOPLUM SAĞLIĞI VE GÜVENLİĞİ</li>
+<li><span class="pno">[s. 404]</span> 3. İŞ SAĞLIĞI VE GÜVENLİĞİ</li>
+<li><span class="pno">[s. 405]</span> 4. KÜLTÜREL DEĞERLER VE MİRAS</li>
+<li><span class="pno">[s. 406]</span> 5. ARAZİ KULLANIMI</li>
+<li><span class="pno">[s. 406]</span> 6. HAVA KALİTESİ</li>
+<li><span class="pno">[s. 406]</span> 7. SU KAYNAKLARI VE SU KALİTESİ</li>
+<li><span class="pno">[s. 407]</span> 8. YERALTI SUYU KALİTESİ</li>
+<li><span class="pno">[s. 407]</span> 9. GÜRÜLTÜ</li>
+<li><span class="pno">[s. 407]</span> 10. TESİSTEN KAYNAKLANACAK ATIKLAR (İNŞAAT VE İŞLETME DÖNEMİ)</li>
+<li><span class="pno">[s. 407]</span> 11. ORMANLAR VE BİYOLOJİK ÇEŞİTLİLİK</li>
+<li><span class="pno">[s. 408]</span> 12. GÖRSEL ETKİ</li>
+<li><span class="pno">[s. 408]</span> 13. ALINACAK ÖNLEMLER, GEREKLİLİKLER VE TAVSİYELER</li>
+<li><span class="pno">[s. 643]</span> AMAÇ</li>
+<li><span class="pno">[s. 643]</span> KAPSAM</li>
+<li><span class="pno">[s. 643]</span> TANIMLAR</li>
+<li><span class="pno">[s. 643]</span> ACİL DURUM UYARISININ VERİLMESİ</li>
+<li><span class="pno">[s. 644]</span> ACİL DURUMLARDA ÇALIŞANLARIN SORUMLULUKLARI</li>
+<li><span class="pno">[s. 644]</span> Çalışanlar:</li>
+<li><span class="pno">[s. 644]</span> Güvenlik(Bekçi):</li></ul>
+
+  <div class="notice">
+    Bu sayfa, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın kamuya açık <code>eced-duyuru.csb.gov.tr</code> duyuru portalındaki kayıtlar esas alınarak bilgilendirme amacıyla hazırlanmıştır. Alıntıların tamamı 1 tabanlı PDF sayfa numarasıyla (<code>[s. N]</code>) gösterilmektedir. Yasal süreler otomatik olarak hesaplanır; kesin sürelerin ve hukuki başvuru yollarının yetkili hukukçular tarafından teyit edilmesi gerekir.
+  </div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+
+(() => {
+  const root = document.documentElement;
+  const saved = localStorage.getItem('eced_theme');
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function syncLabel() {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = cur ? cur === 'dark' : prefersDark;
+    btn.textContent = isDark ? 'Açık Tema' : 'Koyu Tema';
+  }
+  syncLabel();
+  btn.addEventListener('click', () => {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = cur ? cur === 'dark' : prefersDark;
+    const next = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('eced_theme', next);
+    syncLabel();
+  });
+})();
+
+(() => {
+  const copyBtn = document.getElementById('copy-qs-btn');
+  const qsTxt = document.getElementById('qs-plain');
+  if (copyBtn && qsTxt) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(qsTxt.value);
+        copyBtn.textContent = 'Kopyalandı ✓';
+        setTimeout(() => (copyBtn.textContent = 'Soruları Kopyala'), 2200);
+      } catch (e) {
+        copyBtn.textContent = 'Kopyalanamadı';
+      }
+    });
+  }
+  if (typeof L === 'undefined') return;
+  const g = {"lat": 36.81607, "lon": 31.31186, "zoom": 12, "precision": "exact_pdf", "points": [[36.81648, 31.31125], [36.81652, 31.31142], [36.8165, 31.31144], [36.81638, 31.31165], [36.81629, 31.31187], [36.81627, 31.31193], [36.81626, 31.31204], [36.81624, 31.31215], [36.81625, 31.31227], [36.81627, 31.31236], [36.81632, 31.31248], [36.81644, 31.31272], [36.81644, 31.31281], [36.81623, 31.31305], [36.81614, 31.31309], [36.81541, 31.31263], [36.81538, 31.31252], [36.81612, 31.31346], [36.8161, 31.31319], [36.81626, 31.31276], [36.81649, 31.3123], [36.81652, 31.31206], [36.81652, 31.31197], [36.81653, 31.31192], [36.81654, 31.3118], [36.81655, 31.31166], [36.81658, 31.31149], [36.81666, 31.31143], [36.81685, 31.31153], [36.81517, 31.31241], [36.81515, 31.31214], [36.81519, 31.31204], [36.81531, 31.31171], [36.81554, 31.31125], [36.81557, 31.31101], [36.81557, 31.31092], [36.81558, 31.31087], [36.81558, 31.31075], [36.8156, 31.31061], [36.81563, 31.31044]], "label": "ANTALYA / MANAVGAT — Turizm Konaklama Tesisi Kapasite Artışı (Seaden Signature Resort & Spa)"};
+  const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
+  }).addTo(map);
+  if (g.precision === 'exact_pdf' && g.points.length > 1) {
+    const latlngs = g.points.map(p => [p[0], p[1]]);
+    const poly = L.polyline(latlngs, { color: '#0b5ed7', weight: 3, opacity: 0.85 }).addTo(map);
+    for (const ll of latlngs.slice(0, 30)) {
+      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#d92d20', fillOpacity: 0.9, weight: 1 }).addTo(map);
+    }
+    map.fitBounds(poly.getBounds().pad(0.25));
+  } else {
+    L.circleMarker([g.lat, g.lon], {
+      radius: g.precision === 'exact_pdf' ? 8 : 11,
+      color: '#ffffff',
+      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#0b5ed7',
+      fillOpacity: g.precision === 'exact_pdf' ? 0.9 : 0.45,
+      weight: 2
+    }).bindPopup(g.label).addTo(map).openPopup();
+  }
+})();
+</script>
+</body>
+</html>

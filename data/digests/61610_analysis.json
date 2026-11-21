@@ -46,7 +46,8 @@
     "filename": "61610.pdf",
     "bytes": 87952359,
     "sha256": "4bbf715dc724f5d78c7b3d96a464745fbe476eebe01dc6253a82ad4e930b18b9",
-    "cached": false
+    "cached": false,
+    "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign2675455215003939365.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-10"
   },
   "analysis": {
     "page_count": 193,
@@ -610,6 +611,48 @@
       "mentions_iucn_or_endemic": true
     }
   },
+  "revision_history": [
+    {
+      "version": 1,
+      "observed_at": "2026-11-20T02:11:18",
+      "decision_type": "ÇED Süreci Başlayan",
+      "announcement_date": "2026-11-16",
+      "announcement_date_tr": "16.11.2026",
+      "submitted_at": "10/11/2026 04:11:02",
+      "consulting_firm": "BAYSAL ÇEVRE MÜH. HİZM. ARIT.İNŞ. SAN. VE TİC. LTD. ŞTİ.",
+      "source_url": "http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign2675455215003939365.pdf&orjinalAd=e-imza.pdf&yuklemeTarihi=2026-11-10",
+      "pdf_temp_ad": "sign2675455215003939365.pdf",
+      "pdf_original_name": "e-imza.pdf",
+      "pdf_upload_date": "2026-11-10",
+      "sha256": "4bbf715dc724f5d78c7b3d96a464745fbe476eebe01dc6253a82ad4e930b18b9",
+      "bytes": 87952359,
+      "page_count": 193,
+      "text_pages": 139,
+      "scanned_or_blank_pages": 54,
+      "audit_checks": {
+        "mentions_field_survey": true,
+        "mentions_literature_only_cue": true,
+        "mentions_seasonal_sampling": false,
+        "mentions_cumulative_impact": true,
+        "mentions_olive_law_3573": false,
+        "mentions_groundwater_or_aquifer": true,
+        "mentions_iucn_or_endemic": true
+      },
+      "signal_page_counts": {
+        "coordinates_and_footprint": 35,
+        "water_and_discharge": 14,
+        "protected_land_and_olive": 5,
+        "ecology_and_baseline": 16,
+        "pollutants_and_hazards": 21,
+        "cost_and_capacity": 95
+      },
+      "geo_precision": "exact_pdf",
+      "geo_lat": 36.53192,
+      "geo_lon": 32.04167,
+      "geo_point_count": 20,
+      "detail_text_sha256": "9093d115eb41e9b5"
+    }
+  ],
   "llm_synthesis": {
     "model": "gemini-4-hydrogen",
     "generated_at": "2026-11-20T10:56:26",

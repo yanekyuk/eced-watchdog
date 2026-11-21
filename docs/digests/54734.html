@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>e-ÇED Ön Özet #54734 — KÜTAHYA / ASLANAPA</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+:root {
+  --bg: #f6f8fa;
+  --surface: #ffffff;
+  --surface-subtle: #f1f4f8;
+  --border: #d8dee6;
+  --border-strong: #bcc6d4;
+  --text: #161b22;
+  --text-secondary: #424a53;
+  --muted: #5c6670;
+  --accent: #0b5ed7;
+  --accent-soft: #e7f1ff;
+  --red: #b42318;
+  --red-soft: #fef3f2;
+  --red-border: #fecdca;
+  --amber: #9a5b00;
+  --amber-soft: #fffaeb;
+  --amber-border: #fedf89;
+  --green: #067647;
+  --green-soft: #ecfdf3;
+  --green-border: #abefc6;
+  --violet: #5925dc;
+  --violet-soft: #f4f3ff;
+  --violet-border: #d9d6fe;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface-subtle: #1c222b;
+    --border: #2b333e;
+    --border-strong: #3d4756;
+    --text: #e6edf3;
+    --text-secondary: #c9d1d9;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --accent-soft: rgba(88, 166, 255, 0.14);
+    --red: #ff7b72;
+    --red-soft: rgba(248, 81, 73, 0.14);
+    --red-border: rgba(248, 81, 73, 0.4);
+    --amber: #e3b341;
+    --amber-soft: rgba(210, 153, 34, 0.14);
+    --amber-border: rgba(210, 153, 34, 0.4);
+    --green: #3fb950;
+    --green-soft: rgba(63, 185, 80, 0.14);
+    --green-border: rgba(63, 185, 80, 0.4);
+    --violet: #b692f6;
+    --violet-soft: rgba(158, 119, 237, 0.16);
+    --violet-border: rgba(158, 119, 237, 0.42);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface-subtle: #1c222b;
+  --border: #2b333e;
+  --border-strong: #3d4756;
+  --text: #e6edf3;
+  --text-secondary: #c9d1d9;
+  --muted: #8b949e;
+  --accent: #58a6ff;
+  --accent-soft: rgba(88, 166, 255, 0.14);
+  --red: #ff7b72;
+  --red-soft: rgba(248, 81, 73, 0.14);
+  --red-border: rgba(248, 81, 73, 0.4);
+  --amber: #e3b341;
+  --amber-soft: rgba(210, 153, 34, 0.14);
+  --amber-border: rgba(210, 153, 34, 0.4);
+  --green: #3fb950;
+  --green-soft: rgba(63, 185, 80, 0.14);
+  --green-border: rgba(63, 185, 80, 0.4);
+  --violet: #b692f6;
+  --violet-soft: rgba(158, 119, 237, 0.16);
+  --violet-border: rgba(158, 119, 237, 0.42);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Unified Sticky Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.topbar-inner {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 11px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: -0.01em;
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+.brand-scope {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.nav-link {
+  padding: 5px 11px;
+  border-radius: 7px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-link:hover { background: var(--surface-subtle); text-decoration: none; color: var(--text); }
+.nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.theme-btn {
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
+
+/* Layout */
+.wrap { max-width: 1220px; margin: 0 auto; padding: 24px 20px 68px; }
+.wrap.narrow { max-width: 960px; }
+header.page-head { margin-bottom: 20px; }
+h1 { margin: 0 0 8px; font-size: 1.62rem; line-height: 1.25; letter-spacing: -0.02em; }
+h2 { margin: 28px 0 12px; font-size: 1.2rem; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { margin: 16px 0 8px; font-size: 0.98rem; line-height: 1.35; }
+.sub { color: var(--muted); font-size: 0.93rem; margin: 0; }
+.meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin-top: 12px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+
+/* Orientation Banner */
+.hero-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+.hero-strip p { margin: 0; font-size: 0.9rem; color: var(--text-secondary); max-width: 820px; }
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.hero-cta:hover { text-decoration: none; filter: brightness(1.06); }
+
+/* KPI Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  gap: 12px;
+  margin: 0 0 18px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 13px 16px;
+  box-shadow: var(--shadow);
+}
+.stat .num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+.stat .lbl { font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
+.stat.accent .num { color: var(--accent); }
+.stat.rev .num { color: var(--violet); }
+
+/* Map */
+.map-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+#map { width: 100%; height: 400px; background: var(--surface-subtle); }
+#digest-map { width: 100%; height: 320px; background: var(--surface-subtle); }
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  padding: 10px 16px;
+  font-size: 0.79rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: var(--surface-subtle);
+}
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+/* Controls */
+.controls-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.controls-row + .controls-row { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+input[type="search"], select.filter-select {
+  padding: 8px 12px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.88rem;
+}
+input[type="search"]:focus, select.filter-select:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+input[type="search"] { flex: 1 1 250px; }
+select.filter-select { min-width: 165px; }
+button.pill {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.81rem;
+  font-weight: 500;
+  transition: background 0.12s, border-color 0.12s;
+}
+button.pill:hover { border-color: var(--border-strong); color: var(--text); }
+button.pill.active { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 600; }
+button.pill.rev-pill.active { background: var(--violet); border-color: var(--violet); }
+button.reset-btn {
+  margin-left: auto;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+button.reset-btn:hover { color: var(--text); border-color: var(--border-strong); }
+
+/* Cards & Badges */
+.cards { display: flex; flex-direction: column; gap: 11px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+}
+.card.ek1 { border-left: 4px solid var(--accent); }
+.card.has-rev { border-left: 4px solid var(--violet); }
+.card.ek1.has-rev { border-left: 4px solid var(--violet); }
+.row-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 14px;
+  align-items: flex-start;
+}
+.title { font-weight: 650; font-size: 1rem; line-height: 1.38; color: var(--text); flex: 1 1 320px; }
+.title a { color: var(--text); }
+.title a:hover { color: var(--accent); text-decoration: none; }
+.date-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.badge.urgent { background: var(--red-soft); border-color: var(--red-border); color: var(--red); font-weight: 600; }
+.badge.warn { background: var(--amber-soft); border-color: var(--amber-border); color: var(--amber); font-weight: 600; }
+.badge.ok { background: var(--green-soft); border-color: var(--green-border); color: var(--green); font-weight: 600; }
+.badge.info { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
+.badge.rev { background: var(--violet-soft); border-color: var(--violet-border); color: var(--violet); font-weight: 600; }
+.badge.muted { color: var(--muted); }
+.detail { font-size: 0.88rem; color: var(--text-secondary); margin: 9px 0 0; }
+.detail.muted { color: var(--muted); }
+
+/* Revision inline strip on cards */
+.rev-strip {
+  margin-top: 10px;
+  padding: 8px 11px;
+  border-radius: 7px;
+  background: var(--violet-soft);
+  border: 1px solid var(--violet-border);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.rev-strip strong { color: var(--violet); }
+
+/* Action Buttons */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  font-size: 0.83rem;
+  margin-top: 11px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+.btn-primary:hover { text-decoration: none; filter: brightness(1.06); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.btn-secondary:hover { text-decoration: none; border-color: var(--border-strong); color: var(--text); }
+
+/* Tables, Code, Callouts, Timeline */
+table.kv {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.89rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+table.kv th, table.kv td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 13px;
+  text-align: left;
+  vertical-align: top;
+}
+table.kv tr:last-child th, table.kv tr:last-child td { border-bottom: none; }
+table.kv th { width: 250px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
+table.data-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.85rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+table.data-tbl th, table.data-tbl td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.data-tbl tr:last-child td { border-bottom: none; }
+code {
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.84em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+blockquote {
+  margin: 10px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.callout {
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  margin: 14px 0;
+}
+.callout.rev {
+  background: var(--violet-soft);
+  border-color: var(--violet-border);
+}
+.callout.warn {
+  background: var(--amber-soft);
+  border-color: var(--amber-border);
+}
+.timeline {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid var(--border-strong);
+}
+.timeline li {
+  position: relative;
+  margin: 0 0 10px;
+  padding-left: 8px;
+  font-size: 0.87rem;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+}
+.hit { margin: 8px 0; font-size: 0.88rem; line-height: 1.55; }
+.pno { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.notice {
+  margin-top: 32px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+.toc-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 20px; }
+.toc-pills a {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.81rem;
+  font-weight: 500;
+}
+.toc-pills a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+.step-num {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+pre.template-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.section-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.leaflet-popup-content { color: #161b22; font-size: 0.85rem; line-height: 1.45; }
+@media (max-width: 700px) {
+  table.kv th { width: 145px; }
+  #map { height: 320px; }
+  .topbar-inner { padding: 10px 14px; }
+  .wrap { padding: 18px 14px 54px; }
+}
+@media print {
+  .topbar, .no-print, #digest-map, .map-box { display: none !important; }
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .card, table.kv, table.data-tbl { box-shadow: none; break-inside: avoid; }
+  a { color: #000000; text-decoration: underline; }
+}
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      <span>Türkiye e-ÇED İzleme</span>
+      <span class="brand-scope">81 İl</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link " href="../index.html">Duyurular ve Harita</a>
+      <a class="nav-link " href="../rehber.html">Kullanım Rehberi</a>
+      <a class="nav-link" href="../feed.xml">RSS 2.0</a>
+      <a class="nav-link" href="https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml" target="_blank" rel="noopener">Resmi e-ÇED ↗</a>
+      <button id="theme-toggle" class="theme-btn" type="button">Tema</button>
+    </div>
+  </div>
+</nav>
+<div class="wrap narrow">
+  <header class="page-head">
+    <div style="font-size:0.84rem;color:var(--muted);margin-bottom:8px;" class="no-print">
+      <a href="../index.html">← Duyurular listesine dön</a> · Dosya <code>#54734</code>
+    </div>
+    <h1>Kütahya Aslanapa Tarıma Dayalı İhtisas Organize Sanayi Bölgesi ve Biyogaz Tesisi Projesi</h1>
+    <p class="sub">KÜTAHYA / ASLANAPA · T.C. KÜTAHYA VALİLİĞİ İLTARIM VE ORMAN MÜDÜRLÜĞÜ</p>
+    <div class="badges" style="margin-top:11px;">
+      <span class="badge">IDK</span>
+      <span class="badge info">Ek-1</span>
+      <span class="badge ok">İDK İncelemesi · 18 gün kaldı (2026-12-10)</span>
+      <span class="badge warn">Eski Dosya Yeniden Açıldı (1+ yıl)</span>
+    </div>
+    <div class="actions no-print" style="border-top:none;padding-top:4px;">
+      <a class="btn-primary" href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file6418609477039204720.imz&amp;orjinalAd=54734_CED_Raporu.pdf&amp;yuklemeTarihi=2026-11-16" target="_blank" rel="noopener">Resmi PDF Dosyası ↗</a>
+      <a class="btn-secondary" href="http://eced.csb.gov.tr/jsp/ek1/54734" target="_blank" rel="noopener">e-ÇED Portal Kaydı ↗</a>
+      <a class="btn-secondary" href="54734.md">Ham Markdown (.md)</a>
+      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF Kaydet</button>
+    </div>
+  </header>
+
+  <table class="kv">
+    <tr><th>Proje Sahibi</th><td>T.C. KÜTAHYA VALİLİĞİ İLTARIM VE ORMAN MÜDÜRLÜĞÜ</td></tr>
+    <tr><th>Hazırlayan Kuruluş</th><td>ECOFİRM MAD. TAR. ORM. ENERJİ MÜH. İNŞ.  ATIKSU SU ARITMA LAB. HİZ. VE TEKN. HİZ. SAN. VE TİC. LTD. ŞTİ.</td></tr>
+    <tr><th>Sektör / Alt Sektör</th><td>Hayvancılık / Büyükbaş-Küçükbaş Hayvan Besi Tesisleri</td></tr>
+    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>20.11.2026</code> · Belge yükleme: <code>17/03/2025 11:13:05</code></td></tr>
+    <tr><th>PDF Kapsamı ve Bütünlük</th><td>136.02 MB · 574 sayfa (406 metin / 168 taranmış) · SHA-256 <code>520a59c8a620fb7c…</code></td></tr>
+    <tr><th>Harita Bağlantıları</th><td><a href="https://www.openstreetmap.org/?mlat=39.23203&amp;mlon=29.88535#map=12/39.23203/29.88535" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=39.23203,29.88535" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
+  </table>
+
+  <h2>Belge Bütünlüğü, Revizyon ve Süreç Geçmişi</h2>
+<p class="sub">Her PDF dosyasının SHA-256 özeti, yükleme tarihi ve teknik göstergeleri arşivlenir. Bakanlık portalında rapor değiştirildiğinde veya 2009/7 Genelgesi kapsamında yeniden yüklendiğinde sürümler arası fark (v1 → v2) otomatik olarak kaydedilir.</p>
+<table class="data-tbl"><thead><tr><th>Sürüm</th><th>Arşiv Tarihi</th><th>Aşama</th><th>Yükleme Tarihi</th><th>Sayfa</th><th>SHA-256</th></tr></thead><tbody><tr><td><code>v1</code></td><td><code>2026-11-22T00:18:45</code></td><td>IDK</td><td><code>2026-11-16</code></td><td>574</td><td><code>520a59c8a620fb7c…</code></td></tr></tbody></table>
+
+  <h2>Konum Haritası</h2>
+  <div class="map-box">
+    <div id="digest-map"></div>
+    <div class="map-legend"><span>PDF metninden çıkarılan kesin proje koordinatları (80 nokta, datum: UTM-Z35/ED50, sayfa: s.23).</span></div>
+  </div>
+
+  
+  <h2>Yapay Zeka Destekli Bilimsel Ön Değerlendirme <span class="badge">gemini-4-hydrogen</span></h2>
+  <p class="sub">Bu değerlendirme, resmi PDF dosyasından seçilen 19 sayfa (s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14, s.15, s.25, s.26, s.55, s.70) esas alınarak hazırlanmıştır. Tüm sayısal verilerin ve tespitlerin resmi PDF belgesindeki ilgili <code>[s. N]</code> sayfalarından doğrulanması gerekir.</p>
+  <section class="card ek1" style="margin-top:10px;">
+    <p style="margin-top:0;"><strong>Özet:</strong> T.C. Kütahya Valiliği İl Tarım ve Orman Müdürlüğü tarafından Kütahya ili, Aslanapa ilçesi, Cumhuriyet Mahallesi, 130 ada 97 parselde bulunan Maliye Hazinesine ait 818.123,99 m2 yüzölçümlü taşınmazın 480.388,3 m2&#x27;lik ÇED alanında Kütahya Aslanapa Tarıma Dayalı İhtisas Organize Sanayi Bölgesi ve Biyogaz Tesisi Projesi planlanmaktadır [s. 1, 11]. Toplam 3.115.603.100 TL yatırım bedelli projede 57 adet besi işletmesi kapsamında toplam 14.620 büyükbaş besi hayvanı, günlük 150 büyükbaş kapasiteli mezbaha ve et entegre tesisi, yıllık 100.000 ton kapasiteli yem fabrikası, 1.666,5 kW gücünde biyogaz tesisi ve 1.000 m3/gün kapasiteli atıksu arıtma tesisi yer almaktadır [s. 2, 11, 12]. En yakın yerleşim birimi olan Aslanapa ilçe merkezi proje alanının 1.725 metre güneybatısında, Yalnızsaray, Çukurca ve Esen köyleri ise 2.620 ila 2.740 metre mesafede konumlanmaktadır [s. 12]. ÇED sürecinde katı atık ve atıksu yönetimine ilişkin talepler doğrultusunda biyogaz tesisi projeye eklenerek rapor revize edilmiş olmakla birlikte, alıntılanan sayfalarda fauna envanterinin yalnızca eski tarihli literatüre dayanması, 1.000 m3/günlük atıksu arıtma tesisinin başlık dışı bırakılması ve çok sayıda bağımsız işletmenin koku, atıksu ve su kaynakları üzerindeki kümülatif etkilerine dair bölümlerin kapsamı teknik inceleme gerektirmektedir [s. 6, 11, 26].</p>
+    <details style="margin-top:10px;font-size:0.86rem;color:var(--muted);"><summary style="cursor:pointer;">İngilizce özet (English summary)</summary><p style="margin:6px 0 0;">The Kütahya Provincial Directorate of Agriculture and Forestry proposes to establish and operate the Kütahya Aslanapa Agriculture-Based Specialized Organized Industrial Zone (TDİOSB) and Biogas Facility on a 480,388.3 m2 EIA footprint within an 818,123.99 m2 state-owned parcel in Cumhuriyet Neighborhood, Aslanapa District, Kütahya [s. 1, 11]. With a total investment cost of 3,115,603,100 TL, the integrated complex comprises 57 cattle fattening operations totaling 14,620 head, a slaughterhouse and meat processing plant rated at 150 cattle per day, a 100,000 ton/year feed mill, a 1,666.5 kW biogas plant, and a 1,000 m3/day wastewater treatment plant [s. 2, 11, 12]. The nearest settlement is Aslanapa town center located 1,725 meters southwest of the site, while Yalnızsaray, Çukurca, and Esen villages lie between 2,620 and 2,740 meters away [s. 12]. Although the EIA report was revised to incorporate the biogas plant for manure and waste management, the excerpted sections show that the fauna baseline relies solely on outdated literature, the 1,000 m3/day treatment plant is omitted from the project title, and key hydrogeological, wastewater discharge, and cumulative impact evaluations require full-record verification [s. 6, 11, 26].</p></details>
+    <div class="badges" style="margin-top:10px;">
+      <span class="badge">Saha çalışması: Karışık veya yöntemi belirsiz</span>
+      <span class="badge">Mevsimsel örnekleme: Belirsiz</span>
+      <span class="badge">Kümülatif etki: Eksik veya tespit edilemedi</span>
+    </div>
+    <p class="detail" style="margin-top:10px;"><strong>Zeytinlik ve Korunan Alanlar:</strong> Doğa Koruma ve Milli Parklar 5. Bölge Müdürlüğünün 30.09.2025 tarihli yazısı ile Kütahya Tabiat Varlıklarını Koruma Şube Müdürlüğünün 25.03.2025 tarihli yazısına göre saha; 2873 sayılı Milli Parklar Kanunu, 4915 sayılı Kara Avcılığı Kanunu, 2863 sayılı Kültür ve Tabiat Varlıklarını Koruma Kanunu (doğal sit, tabiat varlığı, ÖÇK), Su Ürünleri Kanunu ve Sulak Alanların Korunması Yönetmeliği kapsamındaki korunan alanlar içinde yer almamaktadır [s. 26, 70]. Yakın çevrede göl, gölet veya sulak alan bulunmadığı, en yakın yüzeysel su kaynağının 7,2 km mesafedeki Kureyşler Barajı olduğu belirtilmiştir [s. 55]. Zeytinlik (3573 sayılı Kanun) ve orman kadastro durumuna (rapor s. 61) ilişkin ayrıntılar sağlanan sayfa alıntılarında yer almamaktadır [s. 4, 9].<br/>Flora çalışmalarının 2025 yılında iki üniversite öğretim üyesi tarafından saha çalışması ve literatür taramasıyla yürütüldüğü, sahada 120 bitki taksonu belirlendiği ve saha dışında LC kategorisinde endemik Stachys cretica subsp. anatolica taksonunun gözlendiği ifade edilmektedir [s. 26]. Ancak flora saha çalışmasının hangi mevsimlerde yapıldığı ana metinde belirtilmeyip Ek-16&#x27;ya atıf yapılmış, koruma kontrolleri ise inşaat öncesi döneme ertelenmiştir [s. 26]. Fauna envanteri ise herhangi bir saha araştırması belgelenmeksizin 1994-1997 yıllarına ait temel literatür eserleri ile IUCN 2010.2 verilerine dayandırılmıştır [s. 26]. İçindekiler dizinine göre Bölüm IV Kümülatif Çevresel Etki Değerlendirme bölümü yalnızca bir sayfa (rapor s. 122) olarak planlanmış olup bu sayfa incelenen alıntılar arasında bulunmamaktadır [s. 6].</p>
+  </section>
+  <h3>Öne Çıkan Sayısal Bulgular</h3><table class="kv"><tr><th>Toplam Parsel Alanı</th><td>818.123,99 m2 (130 ada, 97 parsel, Maliye Hazinesi) <span class="pno">[s. 11]</span></td></tr>
+<tr><th>ÇED Alanı Büyüklüğü</th><td>480.388,3 m2 <span class="pno">[s. 11]</span></td></tr>
+<tr><th>Toplam Proje Bedeli</th><td>3.115.603.100 TL <span class="pno">[s. 2]</span></td></tr>
+<tr><th>Toplam Besi Hayvanı Kapasitesi</th><td>14.620 adet büyükbaş (57 adet besi işletmesi) <span class="pno">[s. 12]</span></td></tr>
+<tr><th>Mezbaha ve Et Entegre Kapasitesi</th><td>150 adet/gün büyükbaş (10.046 m2) <span class="pno">[s. 11]</span></td></tr>
+<tr><th>Biyogaz Tesisi Kapasitesi</th><td>1.666,5 kW (40.130 m2) <span class="pno">[s. 11]</span></td></tr>
+<tr><th>Yem Fabrikası Kapasitesi</th><td>100.000 ton/yıl (10.037 m2) <span class="pno">[s. 11]</span></td></tr>
+<tr><th>Atıksu Arıtma Tesisi Kapasitesi</th><td>1.000 m3/gün (11.878 m2) <span class="pno">[s. 11]</span></td></tr>
+<tr><th>En Yakın Yerleşim Birimi</th><td>Aslanapa ilçe merkezi (güneybatıda 1.725 m) <span class="pno">[s. 12]</span></td></tr>
+<tr><th>En Yakın Baraj Mesafesi</th><td>Kureyşler Barajı (kuzeybatıda yaklaşık 7,2 km) <span class="pno">[s. 55]</span></td></tr></table>
+  <h3>Danıştay Ölçütlerine Göre Bilimsel ve Hukuki Bulgular</h3><section class="card"><div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Flora / Fauna &amp; Mevsimsellik</span> <strong>Fauna Envanterinin Yalnızca Eski Literatüre Dayanması ve Flora Mevsimsellik Belirsizliği</strong> <span class="pno">[s. 26]</span> — Raporun türler ve ekosistemler bölümünde, flora için 2025 yılında iki akademisyen tarafından arazi çalışması yapıldığı belirtilmekle birlikte çalışmanın hangi mevsim ve aylarda gerçekleştirildiği ana metinde yer almamakta, saha dışında gözlenen endemik Stachys cretica subsp. anatolica taksonuna yönelik kontroller inşaat öncesine bırakılmaktadır [s. 26]. Buna karşın fauna listesi herhangi bir güncel arazi gözlemi yapılmaksızın 1994-1997 tarihli genel literatür kaynakları ile IUCN 2010.2 sürümü üzerinden oluşturulmuştur [s. 26]. Bu nedenle biyolojik çeşitlilik tespitlerinin mevsimsel temsil yeterliliği mahallinde bilirkişi incelemesiyle doğrulanmalıdır.</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Su / Hidrojeoloji</span> <strong>Yüksek Kapasiteli Hayvancılık ve Arıtma Tesisleri İçin Su Temini ve Deşarj Verilerinin Alıntı Dışında Kalması</strong> <span class="pno">[s. 4, s. 5, s. 9, s. 11, s. 55]</span> — Projede 14.620 büyükbaş hayvan barındıracak 57 besi işletmesi, günlük 150 büyükbaş kesim kapasiteli mezbaha, 1.666,5 kW biyogaz tesisi ve 1.000 m3/gün kapasiteli atıksu arıtma tesisi planlanmaktadır [s. 11, 12]. Sayfa 55&#x27;te dere yataklarına 20 metrelik şeritvari koruma bandı bırakılacağı ve yeraltı suyu seviyesinin (YAS) altına inilmeyeceği taahhüt edilse de, İçindekiler ve Şekiller Dizininden projenin Sakarya Havzası içinde kaldığı ve yakın çevrede dereler, kuyu ve çeşmeler bulunduğu anlaşılmaktadır [s. 4, 9, 55]. İşletme suyu çekim miktarları, atıksu arıtma tesisi deşarj noktası ve akifer koruma hesapları incelenen sayfalarda yer almadığından hidrojeolojik etkinin denetimi gerekmektedir.</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Ölçüm / İç Tutarlılık</span> <strong>1.000 m3/Gün Kapasiteli Atıksu Arıtma Tesisinin Proje Başlığından Hariç Tutulması ve Çoklu İşletme Yönetimi</strong> <span class="pno">[s. 11, s. 12, s. 14, s. 15]</span> — Raporda 1.000 m3/gün kapasiteli atıksu arıtma tesisinin ÇED Yönetmeliği eşik değerlerinin altında kaldığı gerekçesiyle proje başlığında zikredilmediği açıklanmaktadır [s. 11, 14]. Ayrıca tesis faaliyete geçtikten sonra 57 ayrı besi işletmesi ve sanayi ünitesinin yatırımcı firmalara parsel tahsisi yoluyla kurdurulup işletileceği belirtilmiştir [s. 12, 15]. Aslanapa ilçe merkezine 1.725 metre mesafedeki bu entegre alanda arıtma, biyogaz sindirim artığı (fermente gübre) ve koku yönetiminin tekil yatırımcılar arasında parçalanmadan bütüncül ve bağlayıcı biçimde nasıl denetleneceği açıklığa kavuşturulmalıdır.</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Kümülatif Etki</span> <strong>Kümülatif Çevresel Etki Değerlendirmesinin Yapısal Olarak Tek Sayfayla Sınırlı Görünmesi</strong> <span class="pno">[s. 6, s. 11, s. 12]</span> — 574 sayfalık ÇED dosyasında İçindekiler dizinine göre Bölüm IV (Kümülatif Çevresel Etki Değerlendirme) başlığı yalnızca rapor sayfa 122 ile 123 arasında bir sayfalık yer kaplamaktadır [s. 6]. 14.620 büyükbaş kapasiteli besi bölgesi, mezbaha, yem fabrikası, biyogaz tesisi ve 1.000 m3/günlük atıksu arıtma tesisinin bölgedeki mevcut hayvancılık faaliyetleri, trafik yükü, hava kalitesi ve Sakarya Havzası su bütçesiyle birleşik etkilerinin nicel olarak değerlendirilip değerlendirilmediği tam metin üzerinden incelenmelidir.</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">5403 / Orman / Korunan Alan</span> <strong>İmar Planı, Toprak Koruma ve Kurum Görüşü Belgelerinin Eklerde ve Alıntı Dışı Sayfalarda Kalması</strong> <span class="pno">[s. 3, s. 4, s. 11, s. 13]</span> — Hazine mülkiyetindeki arsa vasıflı 818.123,99 m2&#x27;lik parsel için 28.08.2024 tarihinde Yer Seçimi Komisyonunca oy birliğiyle uygun görüş verildiği belirtilmiş, ancak komisyon tutanağı (Ek-12) ile onaylı imar planı durumu, arazi kullanım kabiliyet sınıfı ve orman kadastro bilgileri alıntılanan sayfalarda sunulmamıştır [s. 3, 4, 11, 13]. 5403 sayılı Kanun kapsamındaki toprak koruma kararları, DSİ ve OGM şartlı görüşlerinin varlığı eksiksiz olarak denetlenmelidir.</div></section>
+  <h3>Keşif ve Bilirkişi Heyeti İçin Önerilen Uzmanlık Alanları</h3><section class="card"><div class="badges" style="margin-top:0;"><span class="badge info">Çevre Mühendisi</span> <span class="badge info">Hidrojeoloji Mühendisi</span> <span class="badge info">Ziraat Mühendisi</span> <span class="badge info">Biyolog</span> <span class="badge info">Şehir ve Bölge Plancısı</span></div><p class="detail muted">Danıştay içtihatları uyarınca bilirkişi heyetinin tek sayıda uzmandan oluşması, proje niteliğine uygun tüm disiplinleri içermesi ve plan kararlarıyla ilişkili davalarda Şehir ve Bölge Plancısına yer verilmesi gerekmektedir.</p></section>
+  <div class="section-head-row"><h3>HKT Tutanakları ve Bilirkişi İncelemesi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card"><ul style="margin:0;padding-left:20px;"><li>14.620 büyükbaş hayvan kapasiteli 57 besi işletmesi, günlük 150 baş kapasiteli mezbaha, 1.666,5 kW biyogaz tesisi ve 1.000 m3/günlük atıksu arıtma tesisinin güneybatıda 1.725 metre mesafedeki Aslanapa ilçe merkezine yönelik koku, amonyak, metan ve partikül madde etkileri hangi meteorolojik verilerle modellenmiş ve hakim rüzgar yönleri yerleşim yerini nasıl etkilemektedir? <span class="pno">[s. 11, s. 12]</span></li>
+<li>Proje sahasında faaliyete geçecek 57 ayrı besi işletmesinin yatırımcı firmalara parsel tahsisi yoluyla işletilecek olması karşısında, 1.000 m3/gün kapasiteli atıksu arıtma tesisinin deşarj standartları, arıtma çamuru ile biyogaz tesisi fermente atıklarının bertarafı ve çevresel izleme sorumluluğu tek elden ve bağlayıcı biçimde nasıl sağlanacaktır? <span class="pno">[s. 11, s. 12, s. 14, s. 15]</span></li>
+<li>Tesislerin işletme döneminde ihtiyaç duyacağı toplam su miktarı hangi yeraltı veya yüzeysel su kaynaklarından karşılanacaktır; Sakarya Havzası içindeki yakın dere, kuyu ve çeşmeler ile Kureyşler Barajı havzası açısından yeraltı suyu seviyesi ve alıcı ortam kalitesi üzerindeki etkiler hangi başlangıç analizleriyle doğrulanmıştır? <span class="pno">[s. 4, s. 5, s. 9, s. 55]</span></li>
+<li>Fauna envanterinin saha gözlemi olmaksızın 1994-1997 tarihli literatüre dayandırılması ve 2025 yılı floristik arazi çalışmasının hangi vejetasyon dönemlerini kapsadığının ana metinde yer almaması karşısında, saha ve yakın çevresindeki türler için çok mevsimli güncel arazi tespiti yapılmış mıdır? <span class="pno">[s. 26]</span></li>
+<li>İçindekiler dizininde yalnızca bir sayfa olarak görünen Bölüm IV Kümülatif Çevresel Etki Değerlendirmesi kapsamında, projenin Aslanapa karayolu trafik yoğunluğu, bölgesel hayvancılık atık yükü ve hava-su kalitesi üzerindeki birikimli etkileri nicel verilerle analiz edilmiş midir? <span class="pno">[s. 6, s. 8, s. 12]</span></li></ul><textarea id="qs-plain" style="display:none;">1. 14.620 büyükbaş hayvan kapasiteli 57 besi işletmesi, günlük 150 baş kapasiteli mezbaha, 1.666,5 kW biyogaz tesisi ve 1.000 m3/günlük atıksu arıtma tesisinin güneybatıda 1.725 metre mesafedeki Aslanapa ilçe merkezine yönelik koku, amonyak, metan ve partikül madde etkileri hangi meteorolojik verilerle modellenmiş ve hakim rüzgar yönleri yerleşim yerini nasıl etkilemektedir? [s. 11, s. 12]
+2. Proje sahasında faaliyete geçecek 57 ayrı besi işletmesinin yatırımcı firmalara parsel tahsisi yoluyla işletilecek olması karşısında, 1.000 m3/gün kapasiteli atıksu arıtma tesisinin deşarj standartları, arıtma çamuru ile biyogaz tesisi fermente atıklarının bertarafı ve çevresel izleme sorumluluğu tek elden ve bağlayıcı biçimde nasıl sağlanacaktır? [s. 11, s. 12, s. 14, s. 15]
+3. Tesislerin işletme döneminde ihtiyaç duyacağı toplam su miktarı hangi yeraltı veya yüzeysel su kaynaklarından karşılanacaktır; Sakarya Havzası içindeki yakın dere, kuyu ve çeşmeler ile Kureyşler Barajı havzası açısından yeraltı suyu seviyesi ve alıcı ortam kalitesi üzerindeki etkiler hangi başlangıç analizleriyle doğrulanmıştır? [s. 4, s. 5, s. 9, s. 55]
+4. Fauna envanterinin saha gözlemi olmaksızın 1994-1997 tarihli literatüre dayandırılması ve 2025 yılı floristik arazi çalışmasının hangi vejetasyon dönemlerini kapsadığının ana metinde yer almaması karşısında, saha ve yakın çevresindeki türler için çok mevsimli güncel arazi tespiti yapılmış mıdır? [s. 26]
+5. İçindekiler dizininde yalnızca bir sayfa olarak görünen Bölüm IV Kümülatif Çevresel Etki Değerlendirmesi kapsamında, projenin Aslanapa karayolu trafik yoğunluğu, bölgesel hayvancılık atık yükü ve hava-su kalitesi üzerindeki birikimli etkileri nicel verilerle analiz edilmiş midir? [s. 6, s. 8, s. 12]</textarea></section>
+  <p class="sub" style="margin-top:10px;"><em>İnceleme sınırları:</em> Toplam 574 sayfalık ÇED raporunun 406 sayfası metin çıkarılabilir, 168 sayfası ise taranmış görüntü biçimindedir; bu inceleme yalnızca sağlanan 19 sayfalık alıntılara (s. 1-15, 25-26, 55, 70) dayanmaktadır. İmar planı durumu (rapor s. 8), jeoloji ve hidrojeoloji (rapor s. 18-42), toprak ve arazi kabiliyeti (rapor s. 52), tarım ve orman alanları (rapor s. 53-61), mevcut kirlilik yükü (rapor s. 62), su temini, atıksu arıtma, emisyon ve koku modellemeleri (rapor s. 67-116), kümülatif etki bölümü (rapor s. 122), çevre izleme planı (rapor s. 123), halkın katılımı (rapor s. 128) ile Ek-12 (yer seçimi), Ek-16 (flora raporu) ve Ek-25 (kurum görüşleri) dahil tüm ekler incelenen alıntıların dışında kalmıştır.</p>
+
+
+  <h2>Resmi Duyuru Metni</h2>
+  <blockquote>KÜTAHYA ili ASLANAPA,  ilcesinde KÜTAHYA ili ASLANAPA ilçesi sınırları içerisinde T.C. KÜTAHYA VALİLİĞİ İLTARIM VE ORMAN MÜDÜRLÜĞÜ tarafından yapılması planlanan Kütahya Aslanapa Tarıma Dayalı İhtisas Organize Sanayi Bölgesi ve Biyogaz Tesisi Projesi projesi ile ilgili olarak hazırlanan ÇED Raporu, ÇED Yönetmeliği&#x27;nin 11. maddesi kapsamında Bakanlığımıza sunulmuş olup, inceleme değerlendirme süreci başlamıştır. Proje ile ilgili olarak 10/12/2026 tarihinde İDK toplantısı gerçekleştirilecektir. Bakanlığımıza sunulan ÇED Raporu https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml adresinde yer almaktadır. ÇED Raporu ilgililere ve kamuoyuna duyurulur.</blockquote>
+
+  <h2>Otomatik Metin Taraması (Deterministik)</h2>
+  <table class="kv"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Literatür taraması ifadesi</th><td><span class="badge warn">Literatür ifadesi mevcut — saha çalışması ile karşılaştırınız</span></td></tr>
+<tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kümülatif etki değerlendirmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge urgent">Metinde tespit edilemedi — doğrudan PDF üzerinden kontrol ediniz</span></td></tr>
+<tr><th>Yeraltı suyu, akifer veya hidrojeoloji ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge warn">Metinde geçmektedir — proje parçalama / 2009/7 yönünden inceleyiniz</span></td></tr>
+<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr></table>
+  <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik metin taramasına dahil edilmemiştir.</p>
+
+  <h2>Sayfa Kaynaklı Çıkarılan Bulgular</h2>
+  <div class="cards"><section class="card"><h3>Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(104 sayfa: s.3, s.7, s.11, s.13, s.14, s.19, s.20, s.22, s.23, s.24, s.29, s.44, s.46, s.47 (+90 sayfa))</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>koordinat</code> — …t adetleri ve yükseklikleri, atık su ön arıtma tesisi, depolama alanları, yollar), 10 I.7. Arazinin mülkiyet durumu, koordinatları, yer bulduru haritası, faaliyet alanı ve çevresinin fotoğrafları. 10 BÖLÜM II: PROJE YERİ VE ETKİ ALANININ M…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>Koordinat</code> — …a TDİOSB Kapsamında Yer Alacak İşletmelere ait Alan Büyüklükleri 10 Tablo I.7. Kütahya Aslanapa TDİOSB (Parsel) Alanı Koordinatları 11 Tablo I.8. Tesisler ÇED Alanı Koordinatları 12 Tablo II.1. Türkiye’deki Üç Fitocoğrafik Bölgeye Göre Endemik…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>123,99 m2</code> — …mesi planlanmaktadır. Söz konusu arsa vasfındaki parselin mülkiyeti maliye hazinesine aittir (Bkz.Ek.3). Toplam 818.123,99 m2 yüzölçümüne sahip Kütahya Aslanapa TDİOSB parseli içerisinde, “Kütahya Aslanapa TDİOSB ve Biyogaz Tesisi” projesi kaps…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>388,3 m2</code> — …ri, mezbaha/ et entegre işletmesi, yem fabrikası, biyogaz tesisi ve atıksu arıtma tesisi yer alacak şekilde toplam 480.388,3 m2’lik ÇED alanı belirlenmiştir. Bununla birlikte Kütahya Aslanapa TDİOSB parsel alanında tır parkı alanı, idari hizmet a…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>3.000 m2</code> — …er aşağıda listelenmiştir. İŞLETME/ ÜNİTE ADI KAPASİTESİ Besi İşletmeleri 20 adet 77 büyükbaş hayvan kapasiteli 3.000 m2/tesis 29 adet 280 büyükbaş hayvan kapasiteli 5.000 m2/tesis 8 adet 620 büyükbaş hayvan kapasiteli 10.000 m2/tesis…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>5.000 m2</code> — …ESİ Besi İşletmeleri 20 adet 77 büyükbaş hayvan kapasiteli 3.000 m2/tesis 29 adet 280 büyükbaş hayvan kapasiteli 5.000 m2/tesis 8 adet 620 büyükbaş hayvan kapasiteli 10.000 m2/tesis Mezbaha/ Et Entegre İşletmesi 150 adet/gün 10.046 m2…</div></section><section class="card"><h3>Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(109 sayfa: s.2, s.5, s.8, s.10, s.11, s.12, s.13, s.14, s.17, s.18, s.19, s.22, s.23, s.45 (+95 sayfa))</span></h3><div class="hit"><span class="pno">[s. 2]</span> <code>ATIKSU</code> — …nda yetiştiriciliği RAPORU HAZIRLAYAN ÇALIŞMA GRUBUNUN /KURULUŞUN ADI ECOFİRM MADEN TARIM ORMAN ENERJİ MÜH. İNŞ. ATIKSU‐SU ARITMA LAB. HİZ. TEKNİK HİZ. SAN. VE TİC. LTD. ŞTİ. ADRESİ ZAFERTEPE MAHALESİ, DR. SADIK AHMET CADDESİ, NO:142A/…</div>
+<div class="hit"><span class="pno">[s. 5]</span> <code>deşarj</code> — …ve ekipmanların adet ve kapasiteleri, 100 III.B.5. Oluşacak atık suların cins ve miktarları bertaraf yöntemleri ve deşarj edileceği ortamlar ve uzaklığı, atık suların deşarj değerleri, arıtma tesisi akım şeması, iş termin planı, kapasitesi,…</div>
+<div class="hit"><span class="pno">[s. 5]</span> <code>atıksu</code> — …dileceği ortamlar ve uzaklığı, atık suların deşarj değerleri, arıtma tesisi akım şeması, iş termin planı, kapasitesi, atıksu arıtma tesisin devreye alınması ile birlikte oluşacak arıtma tesisi arıtma çamurlarının miktarı ve bertarafı ile ilgil…</div>
+<div class="hit"><span class="pno">[s. 8]</span> <code>Atıksu</code> — …lanan Faaliyetlerde Kullanılabilecek Makine-Ekipmanlar 100 Tablo III.37. Proje Kapsamında İşletme Aşamasında Oluşacak Atıksu Miktarları 103 Tablo III.38. Biyogaz İçin Emisyon Faktörleri 111 Tablo III.39. Kütlesel Debiler 111 Tablo III.40.…</div>
+<div class="hit"><span class="pno">[s. 10]</span> <code>Atıksu</code> — …13. Yem Fabrikası İş Akım Şeması 97 Şekil III.14. Yem Fabrikası Örnek Yerleşim Planı (Ölçeksizdir) 98 Şekil III.15. Atıksu Arıtma Tesisi Örnek Yerleşim Planı (Ölçeksizdir) 104 Şekil III.16. Asgari Mesafe Eğrisi 113 Şekil III.17. Asgari Me…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>atıksu</code> — …ojesi kapsamında kurulması planlanan besi işletmeleri, mezbaha/ et entegre işletmesi, yem fabrikası, biyogaz tesisi ve atıksu arıtma tesisi yer alacak şekilde toplam 480.388,3 m2’lik ÇED alanı belirlenmiştir. Bununla birlikte Kütahya Aslanapa T…</div></section><section class="card"><h3>Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(18 sayfa: s.4, s.26, s.55, s.70, s.71, s.72, s.100, s.101, s.144, s.153, s.154, s.289, s.298, s.309 (+4 sayfa))</span></h3><div class="hit"><span class="pno">[s. 4]</span> <code>Özel Çevre Koruma</code> — …nları, Kültür Varlıkları, Tabiat Varlıkları, Sit ve Koruma Alanları, Biyogenetik Rezerv Alanları, Biyosfer Rezervleri, Özel Çevre Koruma Bölgeleri, Özel Koruma Alanları, içme ve kullanma su kaynakları ile ilgili koruma alanları, Turizm Alan ve Merkezleri…</div>
+<div class="hit"><span class="pno">[s. 26]</span> <code>Milli Park</code> — …Müdürlüğü’nün 30.09.2025 tarih ve E.21255902 sayılı görüş yazısında söz konusu alanın2873 sayılı Milli Parklar Kanunu (Milli Park, Tabiat Parkı, Tabiat Anıtı ve Tabiatı Koruma Alanı), 4915sayılı Kara Avcılığı Kanunu (Yaban Hayatı Koruma Sahası, Yab…</div>
+<div class="hit"><span class="pno">[s. 26]</span> <code>Tabiat Parkı</code> — …n 30.09.2025 tarih ve E.21255902 sayılı görüş yazısında söz konusu alanın2873 sayılı Milli Parklar Kanunu (Milli Park, Tabiat Parkı, Tabiat Anıtı ve Tabiatı Koruma Alanı), 4915sayılı Kara Avcılığı Kanunu (Yaban Hayatı Koruma Sahası, Yaban Hayatı Gel…</div>
+<div class="hit"><span class="pno">[s. 55]</span> <code>sulak alan</code> — …SANAYİ BÖLGESİ VE BİYOGAZ TESİSİ ÇED RAPORU Sayfa 43 / 148 ÇED alanı yakın civarında göl, gölet, sulak alan, koruma alanı, sulama sahası mevcut değildir. Proje sahasının kuş uçumu yaklaşık 7,2 km kuzeybatısında Kureyşler Baraj…</div>
+<div class="hit"><span class="pno">[s. 70]</span> <code>Özel Çevre Koruma</code> — …nları, Kültür Varlıkları, Tabiat Varlıkları, Sit ve Koruma Alanları, Biyogenetik Rezerv Alanları, Biyosfer Rezervleri, Özel Çevre Koruma Bölgeleri, Özel Koruma Alanları, içme ve kullanma su kaynakları ile ilgili koruma alanları, Turizm Alan ve Merkezleri…</div>
+<div class="hit"><span class="pno">[s. 70]</span> <code>doğal sit</code> — …eri ve olası etkileri, Proje alanında, 2863 Sayılı Kültür ve Tabiat Varlıklarını Koruma Kanunu kapsamında tescilli doğal sit alanı, tabiat varlığı ve özel çevre koruma bölgesi bulunmadığı hususunda 25.03.2025 tarih ve E.12120125 sayılı Kütahya…</div></section><section class="card"><h3>Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(62 sayfa: s.3, s.5, s.7, s.25, s.26, s.27, s.28, s.29, s.30, s.45, s.46, s.51, s.52, s.71 (+48 sayfa))</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>endemik</code> — …nıflandırılması, yaşama ortamları (Beslenme veya üreme alanları), popülasyon yoğunlukları, uluslar arası sözleşmelerle endemik, nadir, nesli tehlikede, tehlike dışı vb. kategorilerinin tablo halinde belirtilmesi (koruma altında olan türler varsa…</div>
+<div class="hit"><span class="pno">[s. 3]</span> <code>flora ve fauna</code> — …bilgilerinin TÜBİVES e göre verilmesi (çalışmaların hangi tarihte kim tarafından yapıldığının belirtilmesi), -Mevcut flora ve fauna yapısını içeren bilgilerin faaliyet alanı ve yakın çevresinde, dar veya geniş yayılışlı endemik, nesli tehlike kategor…</div>
+<div class="hit"><span class="pno">[s. 3]</span> <code>IUCN</code> — …içeren bilgilerin faaliyet alanı ve yakın çevresinde, dar veya geniş yayılışlı endemik, nesli tehlike kategorilerinde (IUCN’e göre ve Türkiye Kırmızı Kitabına göre) olan türlerin olup olmadığı, uluslararası sözleşmeler (Bern sözleşmesi) ve fa…</div>
+<div class="hit"><span class="pno">[s. 3]</span> <code>Bern sözleşmesi</code> — …kategorilerinde (IUCN’e göre ve Türkiye Kırmızı Kitabına göre) olan türlerin olup olmadığı, uluslararası sözleşmeler (Bern sözleşmesi) ve fauna incelemelerinde Merkez Av Komisyonu kararları ve eklerine göre koruma altında olan tür olup olmadığının bel…</div>
+<div class="hit"><span class="pno">[s. 5]</span> <code>Endemik</code> — …göre konumu) 86 III.A.9. Proje alanının hazırlanması ve inşaat aşamalarında zarar görebilecek flora- fauna türleri (Endemik, nesli tehlikede türler vb.) proje için seçilen yer ve etki alanında bulunan tür popülasyonlarının etkilenmesi, 87 I…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>Endemik</code> — …ordinatları 11 Tablo I.8. Tesisler ÇED Alanı Koordinatları 12 Tablo II.1. Türkiye’deki Üç Fitocoğrafik Bölgeye Göre Endemik Bitkilerin Dağılımı 13 Tablo II.2. Fauna Türleri 15 Tablo II.3. Kütahya İli ve Yakın Çevresinde Meydana Gelen Depre…</div></section><section class="card"><h3>Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(69 sayfa: s.3, s.6, s.7, s.8, s.9, s.17, s.21, s.30, s.36, s.40, s.41, s.42, s.43, s.47 (+55 sayfa))</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>deprem</code> — …lik halihazır harita üzerinde faaliyet alanı merkezli 1 km lik yarıçap üzerinde yer altı sularını, yerüstü sularını ve deprem kuşaklarını gösterir analiz, jeolojik yapı, köy yerleşik ve sanayi alanları, ulaşım ağı, enerji nakil hatları, güneş e…</div>
+<div class="hit"><span class="pno">[s. 6]</span> <code>deprem</code> — …ar, alınacak önlemler 119 III.B.16. Çevresel Acil eylem planı (ünitelerde meydana gelebilecek muhtemel kaza, yangın, deprem, sel ve sabotaja karşı alınması gerekli önlemler), 120 III.B.17. İşletme Faaliyete Kapandıktan Sonra Olabilecek ve S…</div>
+<div class="hit"><span class="pno">[s. 6]</span> <code>KÜMÜLATİF</code> — …ve izlenmesi) 120 III. B.18. Sera gazı emisyonların belirlenmesi ve iklim değişikliğine etkileri. 120 BÖLÜM IV: KÜMÜLATİF ÇEVRESEL ETKİ DEĞERLENDİRME ÇED Başvuru Dosyasının bu bölümünde planlanan projenin/faaliyetin geçmişteki, mevcuttaki…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>Gürültü</code> — …ablo III.5. Teçhizat Tipi ve Bunların Net Güç Seviyesine Uygun Olarak Tanımlanan Ses Gücü Seviyeleri 70 Tablo III.6. Gürültü Kaynakları ve Ses Gücü Seviyeleri 70 Tablo III.7. Ekskavatör İçin 4 Oktav Bandında Ses Basıncı Hesabı 70</div>
+<div class="hit"><span class="pno">[s. 8]</span> <code>Gürültü</code> — …Tablo III.13. Hesaplanan Ses Düzeyi 73 Tablo III.14. Mesafelere Bağlı Lgündüz Değerleri 74 Tablo III.15. Çevresel Gürültü Düzeyi Sınır Değerleri 75 Tablo III.16. İnşaat Alanlarına Göre Kütlesel Debi Miktarları 76 Tablo III.17. Kütlesel D…</div>
+<div class="hit"><span class="pno">[s. 9]</span> <code>Deprem</code> — …il II.9. 01.01.1950 – 01.06.2018 Türkiye’de Meydana Gelen Çığ Olaylarının İl Bazında Sayıları 28 Şekil II.10. Türkiye Deprem Tehlike Haritası 29 Şekil II.11. Proje Alanını Gösterir Deprem Tehlike Haritası 30 Şekil II.12. Kütahya İli Diri Fa…</div></section><section class="card"><h3>Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(40 sayfa: s.2, s.5, s.8, s.11, s.14, s.80, s.81, s.82, s.98, s.101, s.103, s.104, s.105, s.106 (+26 sayfa))</span></h3><div class="hit"><span class="pno">[s. 2]</span> <code>PROJE BEDELİ</code> — …rimorman.gov.tr PROJENİN ADI KÜTAHYA ASLANAPA TARIMA DAYALI İHTİSAS ORGANİZE SANAYİ BÖLGESİ VE BİYOGAZ TESİSİ PROJE BEDELİ GİDER KALEMLERİ MALİYET ALT YAPI‐ İNŞAAT GİDERLERİ (Elektrik hattı, Telekomünikasyon, Aydınlatma, Doğalgaz hattı, A…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>385.500.000 TL</code> — …ALT YAPI‐ İNŞAAT GİDERLERİ (Elektrik hattı, Telekomünikasyon, Aydınlatma, Doğalgaz hattı, Arıtma, Kanalizasyon, vb.) 385.500.000 TL BESİ İŞLETMELERİ İNŞAAT VE KURULUM GİDERLERİ 1.643.801.500 TL MEZBAHA/ ET ENTEGRE İŞLETMESİ İNŞAAT VE KURULUM GİDERLE…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>1.643.801.500 TL</code> — …, Aydınlatma, Doğalgaz hattı, Arıtma, Kanalizasyon, vb.) 385.500.000 TL BESİ İŞLETMELERİ İNŞAAT VE KURULUM GİDERLERİ 1.643.801.500 TL MEZBAHA/ ET ENTEGRE İŞLETMESİ İNŞAAT VE KURULUM GİDERLERİ 103.740.000 TL YEM FABRİKASI İNŞAAT VE KURULUM GİDERLERİ 5…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>103.740.000 TL</code> — …İ İŞLETMELERİ İNŞAAT VE KURULUM GİDERLERİ 1.643.801.500 TL MEZBAHA/ ET ENTEGRE İŞLETMESİ İNŞAAT VE KURULUM GİDERLERİ 103.740.000 TL YEM FABRİKASI İNŞAAT VE KURULUM GİDERLERİ 50.245.000 TL BİYOGAZ TESİSİ İNŞAAT VE KURULUM GİDERLERİ 630.185.400 TL İDA…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>50.245.000 TL</code> — …L MEZBAHA/ ET ENTEGRE İŞLETMESİ İNŞAAT VE KURULUM GİDERLERİ 103.740.000 TL YEM FABRİKASI İNŞAAT VE KURULUM GİDERLERİ 50.245.000 TL BİYOGAZ TESİSİ İNŞAAT VE KURULUM GİDERLERİ 630.185.400 TL İDARİ HİZMET BİNASI İNŞAAT VE KURULUM GİDERLERİ 145.927.600…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>630.185.400 TL</code> — …Rİ 103.740.000 TL YEM FABRİKASI İNŞAAT VE KURULUM GİDERLERİ 50.245.000 TL BİYOGAZ TESİSİ İNŞAAT VE KURULUM GİDERLERİ 630.185.400 TL İDARİ HİZMET BİNASI İNŞAAT VE KURULUM GİDERLERİ 145.927.600 TL EĞİTİM HİZMET BİNASI İNŞAAT VE KURULUM GİDERLERİ 153.0…</div></section><section class="card"><h3>Proje Parçalama, Kapasite Artışı ve Eşik Değerler <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(86 sayfa: s.7, s.9, s.11, s.12, s.13, s.14, s.19, s.20, s.21, s.22, s.23, s.24, s.30, s.44 (+72 sayfa))</span></h3><div class="hit"><span class="pno">[s. 7]</span> <code>ÇED Alanı</code> — …ere ait Alan Büyüklükleri 10 Tablo I.7. Kütahya Aslanapa TDİOSB (Parsel) Alanı Koordinatları 11 Tablo I.8. Tesisler ÇED Alanı Koordinatları 12 Tablo II.1. Türkiye’deki Üç Fitocoğrafik Bölgeye Göre Endemik Bitkilerin Dağılımı 13 Tablo II.2. F…</div>
+<div class="hit"><span class="pno">[s. 9]</span> <code>ÇED Alanı</code> — …ının Yerini Gösterir Harita 33 Şekil I.14. Proje Alanı Civarında Yer Alan Su Noktaları 34 Şekil II.15. Şekil II.15. ÇED Alanı Sınırlarına Yakın Kuyu ve Çeşmeleri Gösterir Harita 36 Şekil II.16. Sakarya Havzası ve Alt Havzalarının Sınırlarının…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>ÇED alanı</code> — …et entegre işletmesi, yem fabrikası, biyogaz tesisi ve atıksu arıtma tesisi yer alacak şekilde toplam 480.388,3 m2’lik ÇED alanı belirlenmiştir. Bununla birlikte Kütahya Aslanapa TDİOSB parsel alanında tır parkı alanı, idari hizmet alanı, eğitim h…</div>
+<div class="hit"><span class="pno">[s. 11]</span> <code>eşik değer</code> — …m3/gün kapasiteli atıksu arıtma tesisi, Çevresel Etki Değerlendirmesi Yönetmeliği Ek-1 ve EK-2 Listelerinde belirtilen eşik değer altında kaldığından proje başlığında bahsedilmemiştir. Kurulacak olan Kütahya Aslanapa TDİOSB kapsamında yer alacak…</div>
+<div class="hit"><span class="pno">[s. 12]</span> <code>ÇED alanı</code> — …14.620 adet besi hayvanı olacaktır. Kütahya Aslanapa TDİOSB parsel alanında hazırlanan proje kapsamında belirlenen ÇED alanı içerisinde besi işletmeleri, mezbaha/ et entegre işletmesi, yem fabrikası, biyogaz tesisi ve atıksu arıtma tesisi yer…</div>
+<div class="hit"><span class="pno">[s. 13]</span> <code>ÇED alanı</code> — …eri, mezbaha/ et entegre işletmesi, yem fabrikası, biyogaz tesisi ve atıksu arıtma tesisi için toplam 480.388,3 m2’lik ÇED alanı belirlenmiştir. Bununla birlikte Kütahya Aslanapa TDİOSB parsel alanında tır parkı alanı, idari hizmet alanı, eğitim…</div></section></div>
+
+  <h2>Belge Bölüm Haritası</h2>
+  <ul><li><span class="pno">[s. 1]</span> RAPOR BÖLÜMÜ.pdf (p.1-160)</li>
+<li><span class="pno">[s. 161]</span> EKLER.pdf (p.161-574)</li>
+<li><span class="pno">[s. 259]</span> ŞEKİLLER DİZİNİ</li>
+<li><span class="pno">[s. 259]</span> Şekil- 2.1. Proje Sahasına ait Yer Bulduru Haritası. 7</li>
+<li><span class="pno">[s. 259]</span> Şekil- 2.2. Proje Sahasına ait Google Earth Uydu Görüntüleri (ölçeksiz). 8</li>
+<li><span class="pno">[s. 259]</span> Şekil- 2.3. Aslanapa İklim Grafiği (Kaynak: https://tr.climate-data.org/). 9</li>
+<li><span class="pno">[s. 259]</span> Şekil- 2.4. Aslanapa İklim Verileri (Kaynak: https://tr.climate-data.org/). 9</li>
+<li><span class="pno">[s. 259]</span> Şekil- 4.1. Türkiye ’nin ana tektonik yapıları ve kenet kuşaklarını gösteren harita (Okay ve Tüysüz, 1999’dan alınmıştır). 15</li>
+<li><span class="pno">[s. 259]</span> Şekil- 4.2. Türkiye ve çevresinin ana neotektonik bölgelerini ve aktif fay segmentlerini gösteren harita (Özsayın, 2007;Özsayın ve Dirik, 2011; Gürboğa, 2011&#x27;den derlenmiştir). 15</li>
+<li><span class="pno">[s. 259]</span> Şekil- 4.3. Proje Alanı ve Civarına ait Genelleştirilmiş Stratigrafik Kesit (MTA, 2018). 17</li>
+<li><span class="pno">[s. 259]</span> Şekil- 4.4. Çalışma alanında bulunan fayları gösteren harita (Alan ve ark., 2018; Elibol ve ark., 2018; Sarıfakıoğlu, 2011; 1/250000 ölçekli Türkiye Diri Fay Haritaları (Emre ve ark., 2011a;2011b ) ve Koçyiğit ve Bozkurt (1997)’den derlenmiştir). 22</li>
+<li><span class="pno">[s. 259]</span> Şekil- 4.5. Diri Fay Haritası (Kaynak: yerbilimleri.mta.gov.tr). 23</li>
+<li><span class="pno">[s. 259]</span> Şekil- 4.6. Proje Alanını Gösterir Deprem Tehlike Haritası. 25</li>
+<li><span class="pno">[s. 259]</span> Şekil- 5.1. Proje Alanı Civarında Yer Alan Dereler. 26</li>
+<li><span class="pno">[s. 259]</span> Şekil- 5.2. Proje Sahası Civarında Yer alan Su Noktaları. 30</li>
+<li><span class="pno">[s. 259]</span> Şekil- 5.3. Su Kütleleri Haritası. 34</li>
+<li><span class="pno">[s. 259]</span> Şekil- 6.1. Porsuk Havzası yükseklik haritası (DSİ, 2014). 35</li>
+<li><span class="pno">[s. 259]</span> Şekil- 6.2. Etüt Sahasında Yer alan Birimlerin Akifer Niteliklerine göre Sınıflaması. 37</li>
+<li><span class="pno">[s. 259]</span> Şekil- 6.3. Pompa Tecrübeleri Değerlendirelen Kuyuların Lokasyonu. 39</li>
+<li><span class="pno">[s. 259]</span> Şekil- 6.4. Proje Alanı Civarında Yer Alan Su Noktaları. 41</li></ul>
+
+  <div class="notice">
+    Bu sayfa, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın kamuya açık <code>eced-duyuru.csb.gov.tr</code> duyuru portalındaki kayıtlar esas alınarak bilgilendirme amacıyla hazırlanmıştır. Alıntıların tamamı 1 tabanlı PDF sayfa numarasıyla (<code>[s. N]</code>) gösterilmektedir. Yasal süreler otomatik olarak hesaplanır; kesin sürelerin ve hukuki başvuru yollarının yetkili hukukçular tarafından teyit edilmesi gerekir.
+  </div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+
+(() => {
+  const root = document.documentElement;
+  const saved = localStorage.getItem('eced_theme');
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function syncLabel() {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = cur ? cur === 'dark' : prefersDark;
+    btn.textContent = isDark ? 'Açık Tema' : 'Koyu Tema';
+  }
+  syncLabel();
+  btn.addEventListener('click', () => {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = cur ? cur === 'dark' : prefersDark;
+    const next = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('eced_theme', next);
+    syncLabel();
+  });
+})();
+
+(() => {
+  const copyBtn = document.getElementById('copy-qs-btn');
+  const qsTxt = document.getElementById('qs-plain');
+  if (copyBtn && qsTxt) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(qsTxt.value);
+        copyBtn.textContent = 'Kopyalandı ✓';
+        setTimeout(() => (copyBtn.textContent = 'Soruları Kopyala'), 2200);
+      } catch (e) {
+        copyBtn.textContent = 'Kopyalanamadı';
+      }
+    });
+  }
+  if (typeof L === 'undefined') return;
+  const g = {"lat": 39.23203, "lon": 29.88535, "zoom": 12, "precision": "exact_pdf", "points": [[39.2374, 29.88249], [39.22751, 29.88254], [39.2347, 29.89541], [39.22802, 29.8815], [39.23472, 29.89526], [39.22828, 29.88088], [39.23481, 29.89484], [39.22843, 29.88057], [39.23493, 29.89417], [39.22889, 29.87985], [39.23493, 29.89403], [39.22912, 29.87995], [39.23486, 29.89349], [39.22943, 29.88005], [39.23485, 29.89325], [39.23013, 29.88008], [39.23484, 29.89283], [39.23033, 29.88012], [39.23481, 29.89273], [39.23049, 29.88015], [39.23477, 29.89269], [39.23069, 29.88013], [39.23466, 29.8926], [39.23088, 29.88009], [39.23456, 29.89255], [39.23112, 29.87994], [39.23414, 29.89248], [39.23139, 29.87971], [39.23365, 29.89241], [39.23163, 29.87958], [39.23346, 29.89235], [39.23181, 29.87951], [39.23327, 29.89225], [39.23186, 29.87952], [39.23311, 29.8921], [39.23197, 29.87954], [39.23281, 29.89175], [39.2323, 29.87964], [39.2327, 29.89159], [39.23239, 29.87969]], "label": "KÜTAHYA / ASLANAPA — Kütahya Aslanapa Tarıma Dayalı İhtisas Organize Sanayi Bölgesi ve Biyogaz Tesisi Projesi"};
+  const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
+  }).addTo(map);
+  if (g.precision === 'exact_pdf' && g.points.length > 1) {
+    const latlngs = g.points.map(p => [p[0], p[1]]);
+    const poly = L.polyline(latlngs, { color: '#0b5ed7', weight: 3, opacity: 0.85 }).addTo(map);
+    for (const ll of latlngs.slice(0, 30)) {
+      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#d92d20', fillOpacity: 0.9, weight: 1 }).addTo(map);
+    }
+    map.fitBounds(poly.getBounds().pad(0.25));
+  } else {
+    L.circleMarker([g.lat, g.lon], {
+      radius: g.precision === 'exact_pdf' ? 8 : 11,
+      color: '#ffffff',
+      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#0b5ed7',
+      fillOpacity: g.precision === 'exact_pdf' ? 0.9 : 0.45,
+      weight: 2
+    }).bindPopup(g.label).addTo(map).openPopup();
+  }
+})();
+</script>
+</body>
+</html>
