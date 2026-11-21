@@ -122,6 +122,7 @@ def main() -> None:
     )
     parser.add_argument("--workers", type=int, default=4, help="Parallel workers for PDF parsing & Gemini synthesis (default: 4)")
     parser.add_argument("--skip-fetch", action="store_true", help="Rebuild site/digests from existing data/filings.json")
+    parser.add_argument("--check-revisions", action="store_true", help="Re-check document pages on already-cached rows to detect silent PDF/metadata edits")
     parser.add_argument("--skip-digests", action="store_true", help="Skip downloading/digesting new PDFs")
     parser.add_argument("--skip-llm", action="store_true", help="Disable Gemini API synthesis even if GEMINI_API_KEY is set")
     parser.add_argument("--re-synthesize", action="store_true", help="Re-run Gemini synthesis even on already-synthesized digests")
@@ -166,6 +167,7 @@ def main() -> None:
                         cert_path=cert_path,
                         existing_by_sig=existing_by_sig,
                         max_records=args.max_records,
+                        check_revisions=args.check_revisions,
                     )
                 )
             scope_meta = [f"{c}:{l}" for c, l in provinces]
@@ -175,6 +177,7 @@ def main() -> None:
                 cert_path=cert_path,
                 existing_by_sig=existing_by_sig,
                 max_records=args.max_records,
+                check_revisions=args.check_revisions,
             )
             scope_meta = ["ALL:TÜRKİYE"]
 
@@ -232,7 +235,10 @@ def main() -> None:
                     if exc is not None:
                         print(f"  WARN: failed to digest #{fid}: {exc}")
                         continue
-                    if res and not res["cached"]:
+                    if res and res.get("pdf_revised_now"):
+                        diff_s = (res.get("latest_pdf_diff") or {}).get("summary_tr", "")
+                        print(f"  REVISED PDF #{fid} ({f['province']}/{f['district']}): {diff_s}")
+                    elif res and not res["cached"]:
                         digested_new += 1
                         geo = res["analysis"].get("geo") or {}
                         print(
@@ -252,11 +258,12 @@ def main() -> None:
         digests_dir=digests_dir,
         docs_dir=docs_dir,
         site_url=args.site_url,
+        revisions_out=data_dir / "revisions.json",
     )
     print(
         f"Built site: {stats['total']} filings ({stats['provinces']} provinces, "
         f"{stats['active']} active, {stats['digests_rendered']} digests, "
-        f"{stats['exact_geo']} exact-coord) -> {stats['index_path']}"
+        f"{stats['exact_geo']} exact-coord, {stats['audit_alerts']} revision/lifecycle alerts) -> {stats['index_path']}"
     )
 
 

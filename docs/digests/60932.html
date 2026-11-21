@@ -7,145 +7,608 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
 :root {
-  --bg: #0f1216;
-  --surface: #171c22;
-  --border: #262e38;
-  --text: #e6edf3;
-  --muted: #8b949e;
-  --accent: #58a6ff;
-  --red: #f85149;
-  --amber: #d29922;
-  --green: #3fb950;
-  --badge-bg: #212830;
+  --bg: #f6f8fa;
+  --surface: #ffffff;
+  --surface-subtle: #f1f4f8;
+  --border: #d8dee6;
+  --border-strong: #bcc6d4;
+  --text: #161b22;
+  --text-secondary: #424a53;
+  --muted: #5c6670;
+  --accent: #0b5ed7;
+  --accent-soft: #e7f1ff;
+  --red: #b42318;
+  --red-soft: #fef3f2;
+  --red-border: #fecdca;
+  --amber: #9a5b00;
+  --amber-soft: #fffaeb;
+  --amber-border: #fedf89;
+  --green: #067647;
+  --green-soft: #ecfdf3;
+  --green-border: #abefc6;
+  --violet: #5925dc;
+  --violet-soft: #f4f3ff;
+  --violet-border: #d9d6fe;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --radius: 10px;
 }
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg: #f6f8fa;
-    --surface: #ffffff;
-    --border: #d0d7de;
-    --text: #1f2328;
-    --muted: #656d76;
-    --accent: #0969da;
-    --red: #cf222e;
-    --amber: #9a6700;
-    --green: #1a7f37;
-    --badge-bg: #eef2f6;
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface-subtle: #1c222b;
+    --border: #2b333e;
+    --border-strong: #3d4756;
+    --text: #e6edf3;
+    --text-secondary: #c9d1d9;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --accent-soft: rgba(88, 166, 255, 0.14);
+    --red: #ff7b72;
+    --red-soft: rgba(248, 81, 73, 0.14);
+    --red-border: rgba(248, 81, 73, 0.4);
+    --amber: #e3b341;
+    --amber-soft: rgba(210, 153, 34, 0.14);
+    --amber-border: rgba(210, 153, 34, 0.4);
+    --green: #3fb950;
+    --green-soft: rgba(63, 185, 80, 0.14);
+    --green-border: rgba(63, 185, 80, 0.4);
+    --violet: #b692f6;
+    --violet-soft: rgba(158, 119, 237, 0.16);
+    --violet-border: rgba(158, 119, 237, 0.42);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
   }
 }
+:root[data-theme="dark"] {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface-subtle: #1c222b;
+  --border: #2b333e;
+  --border-strong: #3d4756;
+  --text: #e6edf3;
+  --text-secondary: #c9d1d9;
+  --muted: #8b949e;
+  --accent: #58a6ff;
+  --accent-soft: rgba(88, 166, 255, 0.14);
+  --red: #ff7b72;
+  --red-soft: rgba(248, 81, 73, 0.14);
+  --red-border: rgba(248, 81, 73, 0.4);
+  --amber: #e3b341;
+  --amber-soft: rgba(210, 153, 34, 0.14);
+  --amber-border: rgba(210, 153, 34, 0.4);
+  --green: #3fb950;
+  --green-soft: rgba(63, 185, 80, 0.14);
+  --green-border: rgba(63, 185, 80, 0.4);
+  --violet: #b692f6;
+  --violet-soft: rgba(158, 119, 237, 0.16);
+  --violet-border: rgba(158, 119, 237, 0.42);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
 }
-.wrap { max-width: 1240px; margin: 0 auto; padding: 24px 18px 64px; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
-header { border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 20px; }
-h1 { margin: 0 0 6px; font-size: 1.55rem; }
-h2 { margin: 26px 0 10px; font-size: 1.2rem; }
-h3 { margin: 16px 0 8px; font-size: 1rem; }
-.sub { color: var(--muted); font-size: 0.92rem; margin: 0; }
-.meta-bar { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-size: 0.85rem; color: var(--muted); }
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin: 16px 0 18px; }
-.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
-.stat .num { font-size: 1.45rem; font-weight: 700; }
-.stat .lbl { font-size: 0.78rem; color: var(--muted); }
+
+/* Unified Sticky Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.topbar-inner {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 11px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: -0.01em;
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+.brand-scope {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.nav-link {
+  padding: 5px 11px;
+  border-radius: 7px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-link:hover { background: var(--surface-subtle); text-decoration: none; color: var(--text); }
+.nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.theme-btn {
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
+
+/* Layout */
+.wrap { max-width: 1220px; margin: 0 auto; padding: 24px 20px 68px; }
+.wrap.narrow { max-width: 960px; }
+header.page-head { margin-bottom: 20px; }
+h1 { margin: 0 0 8px; font-size: 1.62rem; line-height: 1.25; letter-spacing: -0.02em; }
+h2 { margin: 28px 0 12px; font-size: 1.2rem; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { margin: 16px 0 8px; font-size: 0.98rem; line-height: 1.35; }
+.sub { color: var(--muted); font-size: 0.93rem; margin: 0; }
+.meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin-top: 12px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+
+/* Orientation Banner */
+.hero-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+.hero-strip p { margin: 0; font-size: 0.9rem; color: var(--text-secondary); max-width: 820px; }
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.hero-cta:hover { text-decoration: none; filter: brightness(1.06); }
+
+/* KPI Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  gap: 12px;
+  margin: 0 0 18px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 13px 16px;
+  box-shadow: var(--shadow);
+}
+.stat .num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+.stat .lbl { font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
+.stat.accent .num { color: var(--accent); }
+.stat.rev .num { color: var(--violet); }
+
+/* Map */
 .map-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+#map { width: 100%; height: 400px; background: var(--surface-subtle); }
+#digest-map { width: 100%; height: 320px; background: var(--surface-subtle); }
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  padding: 10px 16px;
+  font-size: 0.79rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: var(--surface-subtle);
+}
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+/* Controls */
+.controls-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.controls-row + .controls-row { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+input[type="search"], select.filter-select {
+  padding: 8px 12px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.88rem;
+}
+input[type="search"]:focus, select.filter-select:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+input[type="search"] { flex: 1 1 250px; }
+select.filter-select { min-width: 165px; }
+button.pill {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.81rem;
+  font-weight: 500;
+  transition: background 0.12s, border-color 0.12s;
+}
+button.pill:hover { border-color: var(--border-strong); color: var(--text); }
+button.pill.active { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 600; }
+button.pill.rev-pill.active { background: var(--violet); border-color: var(--violet); }
+button.reset-btn {
+  margin-left: auto;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+button.reset-btn:hover { color: var(--text); border-color: var(--border-strong); }
+
+/* Cards & Badges */
+.cards { display: flex; flex-direction: column; gap: 11px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+}
+.card.ek1 { border-left: 4px solid var(--accent); }
+.card.has-rev { border-left: 4px solid var(--violet); }
+.card.ek1.has-rev { border-left: 4px solid var(--violet); }
+.row-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 14px;
+  align-items: flex-start;
+}
+.title { font-weight: 650; font-size: 1rem; line-height: 1.38; color: var(--text); flex: 1 1 320px; }
+.title a { color: var(--text); }
+.title a:hover { color: var(--accent); text-decoration: none; }
+.date-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.badge.urgent { background: var(--red-soft); border-color: var(--red-border); color: var(--red); font-weight: 600; }
+.badge.warn { background: var(--amber-soft); border-color: var(--amber-border); color: var(--amber); font-weight: 600; }
+.badge.ok { background: var(--green-soft); border-color: var(--green-border); color: var(--green); font-weight: 600; }
+.badge.info { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
+.badge.rev { background: var(--violet-soft); border-color: var(--violet-border); color: var(--violet); font-weight: 600; }
+.badge.muted { color: var(--muted); }
+.detail { font-size: 0.88rem; color: var(--text-secondary); margin: 9px 0 0; }
+.detail.muted { color: var(--muted); }
+
+/* Revision inline strip on cards */
+.rev-strip {
+  margin-top: 10px;
+  padding: 8px 11px;
+  border-radius: 7px;
+  background: var(--violet-soft);
+  border: 1px solid var(--violet-border);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.rev-strip strong { color: var(--violet); }
+
+/* Action Buttons */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  font-size: 0.83rem;
+  margin-top: 11px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+.btn-primary:hover { text-decoration: none; filter: brightness(1.06); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.btn-secondary:hover { text-decoration: none; border-color: var(--border-strong); color: var(--text); }
+
+/* Tables, Code, Callouts, Timeline */
+table.kv {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.89rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+table.kv th, table.kv td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 13px;
+  text-align: left;
+  vertical-align: top;
+}
+table.kv tr:last-child th, table.kv tr:last-child td { border-bottom: none; }
+table.kv th { width: 250px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
+table.data-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.85rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
   overflow: hidden;
-  margin-bottom: 18px;
 }
-#map { width: 100%; height: 420px; background: var(--badge-bg); }
-#digest-map { width: 100%; height: 320px; background: var(--badge-bg); }
-.map-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  padding: 9px 14px;
-  font-size: 0.8rem;
-  color: var(--muted);
-  border-top: 1px solid var(--border);
+table.data-tbl th, table.data-tbl td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
 }
-.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
-.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; }
-input[type="search"], select.filter-select {
-  padding: 8px 12px;
-  border-radius: 6px;
+table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.data-tbl tr:last-child td { border-bottom: none; }
+code {
+  background: var(--surface-subtle);
   border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.84em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+blockquote {
+  margin: 10px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
   background: var(--surface);
-  color: var(--text);
+  border-radius: 0 8px 8px 0;
   font-size: 0.9rem;
+  color: var(--text-secondary);
 }
-input[type="search"] { flex: 1 1 240px; }
-select.filter-select { min-width: 170px; }
-button.pill {
-  padding: 7px 12px;
-  border-radius: 999px;
+.callout {
+  padding: 14px 16px;
+  border-radius: var(--radius);
   border: 1px solid var(--border);
   background: var(--surface);
-  color: var(--text);
-  cursor: pointer;
-  font-size: 0.82rem;
+  margin: 14px 0;
 }
-button.pill.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
-.cards { display: flex; flex-direction: column; gap: 10px; }
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 15px 17px;
+.callout.rev {
+  background: var(--violet-soft);
+  border-color: var(--violet-border);
 }
-.card.ek1 { border-left: 4px solid var(--accent); }
-.row-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline; }
-.title { font-weight: 600; font-size: 0.98rem; }
-.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 7px; }
-.badge {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  background: var(--badge-bg);
-  border: 1px solid var(--border);
+.callout.warn {
+  background: var(--amber-soft);
+  border-color: var(--amber-border);
 }
-.badge.urgent { border-color: var(--red); color: var(--red); font-weight: 600; }
-.badge.warn { border-color: var(--amber); color: var(--amber); font-weight: 600; }
-.badge.ok { border-color: var(--green); color: var(--green); }
-.badge.muted { color: var(--muted); }
-.detail { font-size: 0.87rem; color: var(--muted); margin: 8px 0; }
-.actions { display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.84rem; margin-top: 8px; }
+.timeline {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid var(--border-strong);
+}
+.timeline li {
+  position: relative;
+  margin: 0 0 10px;
+  padding-left: 8px;
+  font-size: 0.87rem;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+}
+.hit { margin: 8px 0; font-size: 0.88rem; line-height: 1.55; }
+.pno { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
 .notice {
-  margin-top: 28px;
+  margin-top: 32px;
   padding: 14px 16px;
   border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 0.84rem;
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+  font-size: 0.83rem;
   color: var(--muted);
 }
-table.kv { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9rem; }
-table.kv th, table.kv td { border: 1px solid var(--border); padding: 8px 11px; text-align: left; vertical-align: top; }
-table.kv th { width: 240px; background: var(--badge-bg); }
-code { background: var(--badge-bg); padding: 1px 5px; border-radius: 4px; font-size: 0.85em; }
-blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--accent); background: var(--surface); font-size: 0.9rem; }
-.hit { margin: 7px 0; font-size: 0.88rem; }
-.pno { font-weight: 700; color: var(--accent); }
-.leaflet-popup-content { color: #1f2328; font-size: 0.85rem; line-height: 1.45; }
+.toc-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 20px; }
+.toc-pills a {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.81rem;
+  font-weight: 500;
+}
+.toc-pills a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+.step-num {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+pre.template-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.section-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.leaflet-popup-content { color: #161b22; font-size: 0.85rem; line-height: 1.45; }
+@media (max-width: 700px) {
+  table.kv th { width: 145px; }
+  #map { height: 320px; }
+  .topbar-inner { padding: 10px 14px; }
+  .wrap { padding: 18px 14px 54px; }
+}
+@media print {
+  .topbar, .no-print, #digest-map, .map-box { display: none !important; }
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .card, table.kv, table.data-tbl { box-shadow: none; break-inside: avoid; }
+  a { color: #000000; text-decoration: underline; }
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div style="font-size:0.85rem;margin-bottom:8px;"><a href="../index.html">← Türkiye e-ÇED İzleme listesine dön</a> · <a href="../rehber.html">Kullanım ve İnceleme Rehberi</a> · <a href="60932.md">Ham Markdown (.md)</a></div>
-    <h1>e-ÇED Ön Özet #60932 — MANİSA / AKHİSAR</h1>
-    <p class="sub">Zeytinyağı Üretim Tesisi (80 ton/gün zeytin işleme, 20 ton/gün zeytinyağı üretimi) ve Sofralık  Zeytin ( 276 ton/yıl )</p>
-    <div class="badges" style="margin-top:10px;">
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      <span>Türkiye e-ÇED İzleme</span>
+      <span class="brand-scope">81 İl</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link " href="../index.html">Duyurular ve Harita</a>
+      <a class="nav-link " href="../rehber.html">Kullanım Rehberi</a>
+      <a class="nav-link" href="../feed.xml">RSS 2.0</a>
+      <a class="nav-link" href="https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml" target="_blank" rel="noopener">Resmi e-ÇED ↗</a>
+      <button id="theme-toggle" class="theme-btn" type="button">Tema</button>
+    </div>
+  </div>
+</nav>
+<div class="wrap narrow">
+  <header class="page-head">
+    <div style="font-size:0.84rem;color:var(--muted);margin-bottom:8px;" class="no-print">
+      <a href="../index.html">← Duyurular listesine dön</a> · Dosya <code>#60932</code>
+    </div>
+    <h1>Zeytinyağı Üretim Tesisi (80 ton/gün zeytin işleme, 20 ton/gün zeytinyağı üretimi) ve Sofralık  Zeytin ( 276 ton/yıl )</h1>
+    <p class="sub">MANİSA / AKHİSAR · Adnan ÇİÇER</p>
+    <div class="badges" style="margin-top:11px;">
       <span class="badge">ÇED Gerekli Değil/ÇED Olumlu</span>
-      <span class="badge">Ek-2</span>
-      <span class="badge warn">İYUK 20/A (30g) · 14 gün kaldı (2026-12-04)</span>
+      <span class="badge info">Ek-2</span>
+      <span class="badge warn">İYUK 20/A (30g) · 13 gün kaldı (2026-12-04)</span>
+      
+    </div>
+    <div class="actions no-print" style="border-top:none;padding-top:4px;">
+      <a class="btn-primary" href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign3212377813301395117.pdf&amp;orjinalAd=e-imza.pdf&amp;yuklemeTarihi=2026-10-23" target="_blank" rel="noopener">Resmi PDF Dosyası ↗</a>
+      <a class="btn-secondary" href="http://eced.csb.gov.tr/jsp/ek1/60932" target="_blank" rel="noopener">e-ÇED Portal Kaydı ↗</a>
+      <a class="btn-secondary" href="60932.md">Ham Markdown (.md)</a>
+      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF Kaydet</button>
     </div>
   </header>
 
@@ -153,10 +616,14 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
     <tr><th>Proje Sahibi</th><td>Adnan ÇİÇER</td></tr>
     <tr><th>Hazırlayan Kuruluş</th><td>YEŞİLMAVI MÜH. ÇEVRE YÖN. VE DAN. HİZ. LTD. ŞTİ.</td></tr>
     <tr><th>Sektör / Alt Sektör</th><td>Gıda / Bitkisel, Hayvansal Yağ Üretimi</td></tr>
-    <tr><th>Duyuru Tarihi</th><td><code>04.11.2026</code> (belge yükleme tarihi: <code>08/09/2026 05:18:55</code>)</td></tr>
-    <tr><th>PDF Kapsamı</th><td>12.21 MB · 165 sayfa (120 metin sayfası / 45 taranmış veya görüntü sayfası) · SHA-256 <code>12fec09d072dc4b4…</code></td></tr>
-    <tr><th>Resmi Bağlantılar</th><td><a href="http://eced.csb.gov.tr/jsp/ek1/60932" target="_blank" rel="noopener">e-ÇED Portal Kaydı</a> · <a href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign3212377813301395117.pdf&amp;orjinalAd=e-imza.pdf&amp;yuklemeTarihi=2026-10-23" target="_blank" rel="noopener">Resmi PDF Dosyası</a> · <a href="https://www.openstreetmap.org/?mlat=38.6191&amp;mlon=27.4289#map=8/38.6191/27.4289" target="_blank" rel="noopener">OpenStreetMap</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=38.6191,27.4289" target="_blank" rel="noopener">Google Haritalar</a></td></tr>
+    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>04.11.2026</code> · Belge yükleme: <code>08/09/2026 05:18:55</code></td></tr>
+    <tr><th>PDF Kapsamı ve Bütünlük</th><td>12.21 MB · 165 sayfa (120 metin / 45 taranmış) · SHA-256 <code>12fec09d072dc4b4…</code></td></tr>
+    <tr><th>Harita Bağlantıları</th><td><a href="https://www.openstreetmap.org/?mlat=38.6191&amp;mlon=27.4289#map=8/38.6191/27.4289" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=38.6191,27.4289" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
   </table>
+
+  <h2>Belge Bütünlüğü, Revizyon ve Süreç Geçmişi</h2>
+<p class="sub">Her PDF dosyasının SHA-256 özeti, yükleme tarihi ve teknik göstergeleri arşivlenir. Bakanlık portalında rapor değiştirildiğinde veya 2009/7 Genelgesi kapsamında yeniden yüklendiğinde sürümler arası fark (v1 → v2) otomatik olarak kaydedilir.</p>
+<table class="data-tbl"><thead><tr><th>Sürüm</th><th>Arşiv Tarihi</th><th>Aşama</th><th>Yükleme Tarihi</th><th>Sayfa</th><th>SHA-256</th></tr></thead><tbody><tr><td><code>v1</code></td><td><code>2026-11-20T00:44:19</code></td><td>ÇED Gerekli Değil/ÇED Olumlu</td><td><code>2026-10-23</code></td><td>165</td><td><code>12fec09d072dc4b4…</code></td></tr></tbody></table>
 
   <h2>Konum Haritası</h2>
   <div class="map-box">
@@ -167,9 +634,9 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
   
   <h2>Yapay Zeka Destekli Bilimsel Ön Değerlendirme <span class="badge">gemini-4-hydrogen</span></h2>
   <p class="sub">Bu değerlendirme, resmi PDF dosyasından seçilen 26 sayfa (s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.13, s.22, s.30, s.31, s.37, s.38, s.40, s.41, s.48, s.52, s.53, s.62, s.63, s.102, s.103) esas alınarak hazırlanmıştır. Tüm sayısal verilerin ve tespitlerin resmi PDF belgesindeki ilgili <code>[s. N]</code> sayfalarından doğrulanması gerekir.</p>
-  <section class="card ek1">
-    <p><strong>Özet:</strong> Manisa İli, Akhisar İlçesi, Kayalıoğlu Mahallesi, Tamburlu Mevkii, 269 ada, 46 parseldeki 2.797,11 m2 alanda Adnan ÇİÇER tarafından 80 ton/gün zeytin işleme ve 20 ton/gün zeytinyağı üretimi kapasiteli 2 fazlı Zeytinyağı Üretim Tesisi ile 276 ton/yıl kapasiteli Sofralık Zeytin işleme faaliyeti planlanmaktadır [s. 5, 10]. Mevcut 789 m2 kapalı alan ve 32 m2 pirina havuzuyla toplam 821 m2 kullanım alanına sahip olacak tesiste ilave bina inşaatı öngörülmemekte, sezonluk 100 gün ve günde 24 saat çalışma düzeniyle faaliyet yürütülmesi hedeflenmektedir [s. 5, 10]. Çevre Düzeni Planı&#x27;nda Tarım Arazisi olarak görünen parsel, Rahmiye Mahallesi yerleşiminin yaklaşık 50 m kuzeyinde ve 1. derece deprem kuşağında yer almaktadır [s. 11, 30, 48]. Başlıca çevresel riskler arasında konutlara olan yakınlık, günlük 76,6 m3/gün düzeyindeki sulu pirina ve proses atık suyunun yönetimi, evsel atık su bertarafı ile kazan yakıtına dair rapor içi teknik çelişkiler ve tamamlanmış mevsimsel saha verilerinin eksikliği bulunmaktadır [s. 11, 22, 37, 52, 63].</p>
-    <details style="margin-top:8px;font-size:0.86rem;color:var(--muted);"><summary style="cursor:pointer;">İngilizce özet (English summary)</summary><p style="margin:6px 0 0;">Adnan ÇİÇER proposes to operate a two-phase olive oil production facility (80 tonnes/day olive processing, 20 tonnes/day olive oil output) alongside a table olive processing unit (276 tonnes/year) on parcel 269/46 (2,797.11 m2) in Kayalıoğlu Neighborhood, Akhisar District, Manisa [s. 5, 10]. Utilizing existing structures totaling 789 m2 of enclosed space and a 32 m2 pomace (pirina) pit without new building construction, the facility is scheduled to operate seasonally for 100 days per year on a 24-hour basis [s. 5, 10]. Designated as Agricultural Land in the regional spatial plan, the site lies approximately 50 meters north of Rahmiye Neighborhood residences within a first-degree seismic zone [s. 11, 30, 48]. Primary environmental stakes involve close proximity to dwellings, handling and daily transport of 76.6 m3/day of wet pomace and process wastewater, internal technical contradictions regarding domestic wastewater disposal and boiler fuel, and the absence of documented pre-project seasonal ecological baseline surveys [s. 11, 22, 37, 52, 63].</p></details>
+  <section class="card ek1" style="margin-top:10px;">
+    <p style="margin-top:0;"><strong>Özet:</strong> Manisa İli, Akhisar İlçesi, Kayalıoğlu Mahallesi, Tamburlu Mevkii, 269 ada, 46 parseldeki 2.797,11 m2 alanda Adnan ÇİÇER tarafından 80 ton/gün zeytin işleme ve 20 ton/gün zeytinyağı üretimi kapasiteli 2 fazlı Zeytinyağı Üretim Tesisi ile 276 ton/yıl kapasiteli Sofralık Zeytin işleme faaliyeti planlanmaktadır [s. 5, 10]. Mevcut 789 m2 kapalı alan ve 32 m2 pirina havuzuyla toplam 821 m2 kullanım alanına sahip olacak tesiste ilave bina inşaatı öngörülmemekte, sezonluk 100 gün ve günde 24 saat çalışma düzeniyle faaliyet yürütülmesi hedeflenmektedir [s. 5, 10]. Çevre Düzeni Planı&#x27;nda Tarım Arazisi olarak görünen parsel, Rahmiye Mahallesi yerleşiminin yaklaşık 50 m kuzeyinde ve 1. derece deprem kuşağında yer almaktadır [s. 11, 30, 48]. Başlıca çevresel riskler arasında konutlara olan yakınlık, günlük 76,6 m3/gün düzeyindeki sulu pirina ve proses atık suyunun yönetimi, evsel atık su bertarafı ile kazan yakıtına dair rapor içi teknik çelişkiler ve tamamlanmış mevsimsel saha verilerinin eksikliği bulunmaktadır [s. 11, 22, 37, 52, 63].</p>
+    <details style="margin-top:10px;font-size:0.86rem;color:var(--muted);"><summary style="cursor:pointer;">İngilizce özet (English summary)</summary><p style="margin:6px 0 0;">Adnan ÇİÇER proposes to operate a two-phase olive oil production facility (80 tonnes/day olive processing, 20 tonnes/day olive oil output) alongside a table olive processing unit (276 tonnes/year) on parcel 269/46 (2,797.11 m2) in Kayalıoğlu Neighborhood, Akhisar District, Manisa [s. 5, 10]. Utilizing existing structures totaling 789 m2 of enclosed space and a 32 m2 pomace (pirina) pit without new building construction, the facility is scheduled to operate seasonally for 100 days per year on a 24-hour basis [s. 5, 10]. Designated as Agricultural Land in the regional spatial plan, the site lies approximately 50 meters north of Rahmiye Neighborhood residences within a first-degree seismic zone [s. 11, 30, 48]. Primary environmental stakes involve close proximity to dwellings, handling and daily transport of 76.6 m3/day of wet pomace and process wastewater, internal technical contradictions regarding domestic wastewater disposal and boiler fuel, and the absence of documented pre-project seasonal ecological baseline surveys [s. 11, 22, 37, 52, 63].</p></details>
     <div class="badges" style="margin-top:10px;">
       <span class="badge">Saha çalışması: Karışık veya yöntemi belirsiz</span>
       <span class="badge">Mevsimsel örnekleme: İncelenen sayfalarda tespit edilemedi</span>
@@ -194,11 +661,14 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
 <div class="hit"><span class="badge warn">ORTA</span> <strong>Su temin kaynağının belirsizliği ve Gediz Havzası baskısı</strong> <span class="pno">[s. 52, s. 103]</span> — Çevresel ve Sosyal Yönetim Planı&#x27;nda yeraltı suyu kullanılmayacağı belirtilmesine ve Gediz Nehri su kalitesinin düşük kalite olarak tespit edildiği aktarılmasına karşın [s. 103], günlük toplam 20 m3&#x27;ü aşan yıkama ve seperatör suyu [s. 52] ile evsel su ihtiyacının hangi kaynaktan temin edileceği sunulan sayfalarda açıklanmamıştır.</div>
 <div class="hit"><span class="badge warn">ORTA</span> <strong>Flora-fauna saha çalışması kanıtlarının ve 3573 sayılı Kanun analizinin eksikliği</strong> <span class="pno">[s. 37, s. 38, s. 40, s. 41]</span> — Proje alanı çevresindeki 5 km&#x27;lik alanda doğrudan ve dolaylı gözlem yapıldığı ifade edilmesine rağmen sunulan sayfalarda saha çalışması tarihleri, mevsimsel tekrarlar ve tür listeleri bulunmamakta; çevredeki olası zeytinliklere (3573 sayılı Kanun) ilişkin mesafe değerlendirmesi de yer almamaktadır.</div></section>
   
-  <h3>HKT Tutanakları ve Bilirkişi İncelemesi İçin Taslak Teknik Sorular</h3><ul><li>Raporun 2. bölümünde sahada MASKİ kanalizasyon ve yağmur suyu altyapısının bulunmadığı belirtilmesine rağmen V-1 Çevresel İzleme Planı&#x27;nda evsel atık suların MASKİ kanalizasyonuna verileceğinin yazılması arasındaki çelişki nasıl açıklanmaktadır ve evsel atık sular fiilen hangi sızdırmaz sistemle bertaraf edilecektir? <span class="pno">[s. 37, s. 63]</span></li>
+  <div class="section-head-row"><h3>HKT Tutanakları ve Bilirkişi İncelemesi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card"><ul style="margin:0;padding-left:20px;"><li>Raporun 2. bölümünde sahada MASKİ kanalizasyon ve yağmur suyu altyapısının bulunmadığı belirtilmesine rağmen V-1 Çevresel İzleme Planı&#x27;nda evsel atık suların MASKİ kanalizasyonuna verileceğinin yazılması arasındaki çelişki nasıl açıklanmaktadır ve evsel atık sular fiilen hangi sızdırmaz sistemle bertaraf edilecektir? <span class="pno">[s. 37, s. 63]</span></li>
 <li>Tablo-2&#x27;de pirina yakıtlı olarak gösterilen sıcak su kazanının gaz atık bölümünde yılda 25 ton kömür yakıtlı olarak belirtilmesinin gerekçesi nedir; 1. derece deprem kuşağındaki sahada Rahmiye Mahallesi konutlarına yaklaşık 50 m mesafede günde 24 saat çalışacak kazanın ve zeytin/pirina depolamasının emisyon, koku ve gürültü etkileri nasıl kontrol edilecektir? <span class="pno">[s. 10, s. 11, s. 22, s. 30, s. 48]</span></li>
 <li>Günlük zeytin işleme kapasitesine bağlı pirina ve proses suyu miktarlarının 60 ton/gün, 45 ton/gün ve 76,6 m3/gün şeklinde farklı değerlerle raporlanmasının nedeni nedir ve 160 m3&#x27;lük pirina havuzunda günlük 6 seferlik silobas sevkiyatının aksaması durumunda sızıntı veya taşmayı önleyecek hangi yedek kapasite bulunmaktadır? <span class="pno">[s. 10, s. 52]</span></li>
-<li>Çevre Düzeni Planı&#x27;nda Tarım Arazisi niteliğindeki parsel için tarım dışı kullanım izni ve 3573 sayılı Zeytincilik Kanunu kapsamında çevre zeytinliklere uygunluk görüşü alınmış mıdır; ayrıca yeraltı suyu kullanılmayacağı beyan edilen tesiste günlük en az 20 m3&#x27;lük proses suyu ihtiyacı hangi şebekeden veya kaynaktan karşılanacaktır? <span class="pno">[s. 11, s. 31, s. 52, s. 103]</span></li></ul>
-  <p class="sub"><em>İnceleme sınırları:</em> Toplam 165 sayfalık PTD dosyasının 45 sayfası taranmış/görüntü formatında olup yalnızca metni çıkarılabilen 26 sayfalık kesit incelenebilmiştir. İçindekiler ve Tablolar Dizini&#x27;nde yer alan su kullanım tablosu (Tablo 4), gürültü dağılım tabloları (Tablo 6-9), flora-fauna tür listeleri (Tablo 12-16), Bölüm 4 Kümülatif Etki Değerlendirmesi (sayfa 60), vaziyet planı, tapu, ÇED kapsam dışı yazısı ve pirina bertaraf belgesi gibi ekler sunulan metin kesiti dışında kaldığından doğrudan doğrulanamamıştır [s. 3, 4].</p>
+<li>Çevre Düzeni Planı&#x27;nda Tarım Arazisi niteliğindeki parsel için tarım dışı kullanım izni ve 3573 sayılı Zeytincilik Kanunu kapsamında çevre zeytinliklere uygunluk görüşü alınmış mıdır; ayrıca yeraltı suyu kullanılmayacağı beyan edilen tesiste günlük en az 20 m3&#x27;lük proses suyu ihtiyacı hangi şebekeden veya kaynaktan karşılanacaktır? <span class="pno">[s. 11, s. 31, s. 52, s. 103]</span></li></ul><textarea id="qs-plain" style="display:none;">1. Raporun 2. bölümünde sahada MASKİ kanalizasyon ve yağmur suyu altyapısının bulunmadığı belirtilmesine rağmen V-1 Çevresel İzleme Planı&#x27;nda evsel atık suların MASKİ kanalizasyonuna verileceğinin yazılması arasındaki çelişki nasıl açıklanmaktadır ve evsel atık sular fiilen hangi sızdırmaz sistemle bertaraf edilecektir? [s. 37, s. 63]
+2. Tablo-2&#x27;de pirina yakıtlı olarak gösterilen sıcak su kazanının gaz atık bölümünde yılda 25 ton kömür yakıtlı olarak belirtilmesinin gerekçesi nedir; 1. derece deprem kuşağındaki sahada Rahmiye Mahallesi konutlarına yaklaşık 50 m mesafede günde 24 saat çalışacak kazanın ve zeytin/pirina depolamasının emisyon, koku ve gürültü etkileri nasıl kontrol edilecektir? [s. 10, s. 11, s. 22, s. 30, s. 48]
+3. Günlük zeytin işleme kapasitesine bağlı pirina ve proses suyu miktarlarının 60 ton/gün, 45 ton/gün ve 76,6 m3/gün şeklinde farklı değerlerle raporlanmasının nedeni nedir ve 160 m3&#x27;lük pirina havuzunda günlük 6 seferlik silobas sevkiyatının aksaması durumunda sızıntı veya taşmayı önleyecek hangi yedek kapasite bulunmaktadır? [s. 10, s. 52]
+4. Çevre Düzeni Planı&#x27;nda Tarım Arazisi niteliğindeki parsel için tarım dışı kullanım izni ve 3573 sayılı Zeytincilik Kanunu kapsamında çevre zeytinliklere uygunluk görüşü alınmış mıdır; ayrıca yeraltı suyu kullanılmayacağı beyan edilen tesiste günlük en az 20 m3&#x27;lük proses suyu ihtiyacı hangi şebekeden veya kaynaktan karşılanacaktır? [s. 11, s. 31, s. 52, s. 103]</textarea></section>
+  <p class="sub" style="margin-top:10px;"><em>İnceleme sınırları:</em> Toplam 165 sayfalık PTD dosyasının 45 sayfası taranmış/görüntü formatında olup yalnızca metni çıkarılabilen 26 sayfalık kesit incelenebilmiştir. İçindekiler ve Tablolar Dizini&#x27;nde yer alan su kullanım tablosu (Tablo 4), gürültü dağılım tabloları (Tablo 6-9), flora-fauna tür listeleri (Tablo 12-16), Bölüm 4 Kümülatif Etki Değerlendirmesi (sayfa 60), vaziyet planı, tapu, ÇED kapsam dışı yazısı ve pirina bertaraf belgesi gibi ekler sunulan metin kesiti dışında kaldığından doğrudan doğrulanamamıştır [s. 3, 4].</p>
 
 
   <h2>Resmi Duyuru Metni</h2>
@@ -206,41 +676,43 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
 
   <h2>Otomatik Metin Taraması (Deterministik)</h2>
   <table class="kv"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
-<tr><th>Literatür taraması ifadesi</th><td><span class="badge urgent">Metinde tespit edilemedi; doğrudan PDF üzerinden kontrol ediniz</span></td></tr>
-<tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge urgent">Metinde tespit edilemedi; doğrudan PDF üzerinden kontrol ediniz</span></td></tr>
+<tr><th>Literatür taraması ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr>
+<tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge urgent">Metinde tespit edilemedi — doğrudan PDF üzerinden kontrol ediniz</span></td></tr>
 <tr><th>Kümülatif etki değerlendirmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
 <tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
 <tr><th>Yeraltı suyu, akifer veya hidrojeoloji ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
-<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr></table>
+<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr>
+<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr></table>
   <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik metin taramasına dahil edilmemiştir.</p>
 
   <h2>Sayfa Kaynaklı Çıkarılan Bulgular</h2>
-  <div class="cards"><section class="card"><h3>Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(17 sayfa: s.5, s.7, s.11, s.13, s.16, s.23, s.30, s.31, s.42, s.60, s.67, s.68, s.69, s.83 (+3 sayfa))</span></h3><div class="hit"><span class="pno">[s. 5]</span> <code>2797,11 m2</code> — …KNİK OLMAYAN ÖZETİ: Manisa İli, Akhisar İlçesi, Kayalıoğlu mah.,Tamburlu mevkii, 269 ada, 46 parsel üzerinde toplam 2797,11 m2 alanda Adnan ÇİÇER tarafından Zeytinyağı Üretim Tesisi (80 ton/gün zeytin işleme, 20 ton/gün zeytinyağı üretimi) ve 27…</div>
+  <div class="cards"><section class="card"><h3>Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(17 sayfa: s.5, s.7, s.11, s.13, s.16, s.23, s.30, s.31, s.42, s.60, s.67, s.68, s.69, s.83 (+3 sayfa))</span></h3><div class="hit"><span class="pno">[s. 5]</span> <code>2797,11 m2</code> — …KNİK OLMAYAN ÖZETİ: Manisa İli, Akhisar İlçesi, Kayalıoğlu mah.,Tamburlu mevkii, 269 ada, 46 parsel üzerinde toplam 2797,11 m2 alanda Adnan ÇİÇER tarafından Zeytinyağı Üretim Tesisi (80 ton/gün zeytin işleme, 20 ton/gün zeytinyağı üretimi) ve 27…</div>
 <div class="hit"><span class="pno">[s. 7]</span> <code>2797,11 m2</code> — …erin alternatifleri Manisa İli, Akhisar İlçesi, Kayalıoğlu mah.,Tamburlu mevkii, 269 ada, 46 parsel üzerinde toplam 2797,11 m2 alanda Adnan ÇİÇER tarafından Zeytinyağı Üretim Tesisi (80 ton/gün zeytin işleme, 20 ton/gün zeytinyağı üretimi) ve 27…</div>
 <div class="hit"><span class="pno">[s. 11]</span> <code>2797,11 m2</code> — …Kapladığı Alan Manisa İli, Akhisar İlçesi, Kayalıoğlu mah.,Tamburlu mevkii, 269 ada, 46 parselin toplam alanı 2797,11 m2 olup bu alanda 342 m2 zeytinyağı işletmesi, 415 m2 zeytin kuyusu ve deposu ve 32 m2 idari bina için toplam 789 m2 ka…</div>
 <div class="hit"><span class="pno">[s. 13]</span> <code>2797,11 m2</code> — …Arazi kullanımı Manisa İli, Akhisar İlçesi, Kayalıoğlu mah.,Tamburlu mevkii, 269 ada, 46 parselin toplam alanı 2797,11 m2 olup bu alanda 342 m2 zeytinyağı işletmesi, 415 m2 zeytin kuyusu ve deposu ve 32 m2 idari bina için toplam 789 m2 ka…</div>
 <div class="hit"><span class="pno">[s. 16]</span> <code>ada 46 parsel</code> — …yer almaktadır. Bu doğrultuda Planlama Şube Müdürlüğümüzce yapılan incelemede; Akhisar ilçesi Kayalıoğlu Mahallesi 269 ada 46 parselin 1/5000 ölçekli Nazım İmar Planı bilgisinin bulunmadığı tespit edilmiştir. 1/1000 ölçekli Uygulama İmar Planı bilgis…</div>
-<div class="hit"><span class="pno">[s. 23]</span> <code>utm</code> — …0 MW’a kadar olan tesislerde %10’a, yanma öncesi,yanma esnasında veya yanma sonrasında tatbik edilebilecek bir kükürt tutma işlemi uygulanarak paragraf (2.1.4.1.) deki sınırların altında kalınmaya çalışılır. Buna rağmen (2.1.4.1.) deki sını…</div></section><section class="card"><h3>Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(36 sayfa: s.1, s.2, s.5, s.7, s.10, s.12, s.13, s.14, s.15, s.16, s.18, s.19, s.20, s.21 (+22 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>80 ton/gün</code> — ADNAN ÇİÇER Zeytinyağı Üretim Tesisi (80 ton/gün zeytin işleme, 20 ton/gün zeytinyağı üretimi) ve Sofralık Zeytin ( 276 ton/yıl ) PROJE TANITIM DOSYASI…</div>
+<div class="hit"><span class="pno">[s. 23]</span> <code>utm</code> — …0 MW’a kadar olan tesislerde %10’a, yanma öncesi,yanma esnasında veya yanma sonrasında tatbik edilebilecek bir kükürt tutma işlemi uygulanarak paragraf (2.1.4.1.) deki sınırların altında kalınmaya çalışılır. Buna rağmen (2.1.4.1.) deki sını…</div></section><section class="card"><h3>Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(36 sayfa: s.1, s.2, s.5, s.7, s.10, s.12, s.13, s.14, s.15, s.16, s.18, s.19, s.20, s.21 (+22 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>80 ton/gün</code> — ADNAN ÇİÇER Zeytinyağı Üretim Tesisi (80 ton/gün zeytin işleme, 20 ton/gün zeytinyağı üretimi) ve Sofralık Zeytin ( 276 ton/yıl ) PROJE TANITIM DOSYASI…</div>
 <div class="hit"><span class="pno">[s. 1]</span> <code>20 ton/gün</code> — ADNAN ÇİÇER Zeytinyağı Üretim Tesisi (80 ton/gün zeytin işleme, 20 ton/gün zeytinyağı üretimi) ve Sofralık Zeytin ( 276 ton/yıl ) PROJE TANITIM DOSYASI MANİSA…</div>
 <div class="hit"><span class="pno">[s. 2]</span> <code>80 ton/gün</code> — …NİSA Telefon, GSM ve Faks Numarası: 05355708169 36541915688 e-posta: - Projenin Adı: Zeytinyağı Üretim Tesisi (80 ton/gün zeytin işleme, 20 ton/gün zeytinyağı üretimi) ve Sofralık Zeytin ( 276 ton/yıl ) Proje Bedeli: 9.900.000 TL…</div>
 <div class="hit"><span class="pno">[s. 2]</span> <code>20 ton/gün</code> — …s Numarası: 05355708169 36541915688 e-posta: - Projenin Adı: Zeytinyağı Üretim Tesisi (80 ton/gün zeytin işleme, 20 ton/gün zeytinyağı üretimi) ve Sofralık Zeytin ( 276 ton/yıl ) Proje Bedeli: 9.900.000 TL Proje İçin Seçilen Yerin…</div>
 <div class="hit"><span class="pno">[s. 5]</span> <code>80 ton/gün</code> — …Tamburlu mevkii, 269 ada, 46 parsel üzerinde toplam 2797,11 m2 alanda Adnan ÇİÇER tarafından Zeytinyağı Üretim Tesisi (80 ton/gün zeytin işleme, 20 ton/gün zeytinyağı üretimi) ve 276 ton/yıl Sofralık Zeytin işleme faaliyeti planlanmaktadır. P…</div>
-<div class="hit"><span class="pno">[s. 5]</span> <code>20 ton/gün</code> — …6 parsel üzerinde toplam 2797,11 m2 alanda Adnan ÇİÇER tarafından Zeytinyağı Üretim Tesisi (80 ton/gün zeytin işleme, 20 ton/gün zeytinyağı üretimi) ve 276 ton/yıl Sofralık Zeytin işleme faaliyeti planlanmaktadır. Proje kapsamında Zeytinyağı…</div></section><section class="card"><h3>Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(7 sayfa: s.3, s.30, s.31, s.48, s.49, s.50, s.101)</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>Orman Alanı</code> — …Proje Yeri Ve Etki Alanın Mevcut Çevresel Özellikleri: 29 a) Mevcut Arazi Kullanımı Ve Kalitesi (Tarım Alanı, Orman Alanı, Planlı Alan, Su Yüzeyi Ve Benzeri), 29 b) Ek-5’deki Duyarlı Yöreler Listesi Dikkate Alınarak Korunması Gereken…</div>
+<div class="hit"><span class="pno">[s. 5]</span> <code>20 ton/gün</code> — …6 parsel üzerinde toplam 2797,11 m2 alanda Adnan ÇİÇER tarafından Zeytinyağı Üretim Tesisi (80 ton/gün zeytin işleme, 20 ton/gün zeytinyağı üretimi) ve 276 ton/yıl Sofralık Zeytin işleme faaliyeti planlanmaktadır. Proje kapsamında Zeytinyağı…</div></section><section class="card"><h3>Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(7 sayfa: s.3, s.30, s.31, s.48, s.49, s.50, s.101)</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>Orman Alanı</code> — …Proje Yeri Ve Etki Alanın Mevcut Çevresel Özellikleri: 29 a) Mevcut Arazi Kullanımı Ve Kalitesi (Tarım Alanı, Orman Alanı, Planlı Alan, Su Yüzeyi Ve Benzeri), 29 b) Ek-5’deki Duyarlı Yöreler Listesi Dikkate Alınarak Korunması Gereken…</div>
 <div class="hit"><span class="pno">[s. 30]</span> <code>orman alanı</code> — …YERİ VE ETKİ ALANIN MEVCUT ÇEVRESEL ÖZELLİKLERİ: 2.a) (Değişik:RG-5/3/2026-33187) Mevcut arazi kullanımı (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ve kalitesi, jeolojik ve hidrojeolojik özellikleri Manisa İli, Akhisar İlçesi,…</div>
 <div class="hit"><span class="pno">[s. 31]</span> <code>Orman Alanı</code> — …iştir. Faaliyet ile ilgili olarak tarım dışı kullanım izni alınmadan sahada faaliyet gösterilmeyecektir. Orman Alanı Proje alanı tapulu arazi olup, Proje alanında, orman alanı bulunmamaktadır.</div>
 <div class="hit"><span class="pno">[s. 48]</span> <code>milli park</code> — …Bern Sözleşmesine ve Av Komisyon kararlarına uyulacaktır. Faaliyet alanı milli park, av, yaban hayvanı, av üretme sahası, turizm alanı, özel çevre koruma bölgesi, askeri yasak bölge dışında kalmaktadır.…</div>
 <div class="hit"><span class="pno">[s. 48]</span> <code>özel çevre koruma</code> — …e Av Komisyon kararlarına uyulacaktır. Faaliyet alanı milli park, av, yaban hayvanı, av üretme sahası, turizm alanı, özel çevre koruma bölgesi, askeri yasak bölge dışında kalmaktadır. Üretim faaliyetleri sırasında 2863 ve 33386 sayılı Kültür ve Tabiat…</div>
-<div class="hit"><span class="pno">[s. 49]</span> <code>milli park</code> — …Parklar”, “Tabiat Parkları”, “Tabiat Anıtları” ve “Tabiat Koruma Alanları”, Spil dağı Milli Parkı, Proje alanında milli park, tabiat parkı, tabiat anıtı ve tabiat koruma alanı bulunmamaktadır. b) Kara Avcılığı Kanunu uyarınca Çe…</div></section><section class="card"><h3>Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(13 sayfa: s.37, s.38, s.40, s.41, s.42, s.43, s.44, s.45, s.46, s.47, s.50, s.51, s.63)</span></h3><div class="hit"><span class="pno">[s. 37]</span> <code>IUCN</code> — …d the East Aegean Islands,P. H Davis” (Davis,1965-1988). kaynak olarak kullanılmıştır. Tespit Edilen Bitki Türleri IUCN Kategorisi İçin “Türkiye Bitkileri Kırmızı Kitabı (Eğrelti ve Tohumlu Bitkiler) Red Data Book Of Turkish Plants (Pteri…</div>
+<div class="hit"><span class="pno">[s. 49]</span> <code>milli park</code> — …Parklar”, “Tabiat Parkları”, “Tabiat Anıtları” ve “Tabiat Koruma Alanları”, Spil dağı Milli Parkı, Proje alanında milli park, tabiat parkı, tabiat anıtı ve tabiat koruma alanı bulunmamaktadır. b) Kara Avcılığı Kanunu uyarınca Çe…</div></section><section class="card"><h3>Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(13 sayfa: s.37, s.38, s.40, s.41, s.42, s.43, s.44, s.45, s.46, s.47, s.50, s.51, s.63)</span></h3><div class="hit"><span class="pno">[s. 37]</span> <code>IUCN</code> — …d the East Aegean Islands,P. H Davis” (Davis,1965-1988). kaynak olarak kullanılmıştır. Tespit Edilen Bitki Türleri IUCN Kategorisi İçin “Türkiye Bitkileri Kırmızı Kitabı (Eğrelti ve Tohumlu Bitkiler) Red Data Book Of Turkish Plants (Pteri…</div>
 <div class="hit"><span class="pno">[s. 38]</span> <code>endemik</code> — …n önemli habitatlarının belirlenmesi amaçlanmıştır. Bu aşamada özellikle bitki çeşitliliğini ve korunması gerekli olan endemik ve nadir olan türler ile endemik olmayan fakat korunması gereken bitki türlerinin tespitine ağırlık verilmiştir. Diğe…</div>
 <div class="hit"><span class="pno">[s. 38]</span> <code>örnekleme</code> — …var ise endemik ve nadir türler belirtilmiştir. Proje alanının 5 km lik mesafeyi içine alacak şekilde planlanan örnekleme düzeni, hedef türlerin tipik habitatlarının ele alınmasını sağlayacak şekilde çalışma yapılmıştır. Başlıca vejetasyon…</div>
 <div class="hit"><span class="pno">[s. 40]</span> <code>IUCN</code> — …Şekil.11. Proje Alanının Davis Grid Kareleme Sistemine Göre Yeri Flora Türlerinin Endemizm, IUCN Red Data Book, Bern Sözleşmesi ve CITES Sözleşmesine Göre Değerlendirilmesi Floristik türlerin korunma durumları iç…</div>
 <div class="hit"><span class="pno">[s. 40]</span> <code>Bern Sözleşmesi</code> — …Şekil.11. Proje Alanının Davis Grid Kareleme Sistemine Göre Yeri Flora Türlerinin Endemizm, IUCN Red Data Book, Bern Sözleşmesi ve CITES Sözleşmesine Göre Değerlendirilmesi Floristik türlerin korunma durumları için kullanılan sözleşmeler, koru…</div>
-<div class="hit"><span class="pno">[s. 40]</span> <code>CITES</code> — …Alanının Davis Grid Kareleme Sistemine Göre Yeri Flora Türlerinin Endemizm, IUCN Red Data Book, Bern Sözleşmesi ve CITES Sözleşmesine Göre Değerlendirilmesi Floristik türlerin korunma durumları için kullanılan sözleşmeler, korunma stat…</div></section><section class="card"><h3>Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(18 sayfa: s.3, s.4, s.8, s.22, s.24, s.25, s.26, s.33, s.34, s.48, s.54, s.61, s.63, s.64 (+4 sayfa))</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>Kümülatif</code> — …ojenin İnşaat Ve İşletme Aşamasında Çevresel Etkileri, Öncelikli Etkilerin Belirlenmesi Ve Alınacak Önlemler 51 4 Kümülatif Etki Değerlendirme 60 5 Çevresel ve Sosyal Eylem Planı 61 V-1: Çevre İzleme Planı 62 V-2: Sürdürülebilir…</div>
+<div class="hit"><span class="pno">[s. 40]</span> <code>CITES</code> — …Alanının Davis Grid Kareleme Sistemine Göre Yeri Flora Türlerinin Endemizm, IUCN Red Data Book, Bern Sözleşmesi ve CITES Sözleşmesine Göre Değerlendirilmesi Floristik türlerin korunma durumları için kullanılan sözleşmeler, korunma stat…</div></section><section class="card"><h3>Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(18 sayfa: s.3, s.4, s.8, s.22, s.24, s.25, s.26, s.33, s.34, s.48, s.54, s.61, s.63, s.64 (+4 sayfa))</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>Kümülatif</code> — …ojenin İnşaat Ve İşletme Aşamasında Çevresel Etkileri, Öncelikli Etkilerin Belirlenmesi Ve Alınacak Önlemler 51 4 Kümülatif Etki Değerlendirme 60 5 Çevresel ve Sosyal Eylem Planı 61 V-1: Çevre İzleme Planı 62 V-2: Sürdürülebilir…</div>
 <div class="hit"><span class="pno">[s. 4]</span> <code>gürültü</code> — …İş Akış Şeması 8 Şekil-4: Zeytinyağı üretim prosesleri (Demicheli ve Bontoux, 1996) 11 Şekil–5: Faaliyet esnasında gürültü dağılımı 23 Şekil 6 Proje alanı en yakın konut, tarım arazisi, kreş, cami, okul, mezarlık, hastane vb mesafeleri gö…</div>
 <div class="hit"><span class="pno">[s. 4]</span> <code>Deprem</code> — …nut, tarım arazisi, kreş, cami, okul, mezarlık, hastane vb mesafeleri gösteren uygu görüntüleri 30 Şekil 7. Türkiye Deprem Tehlike Haritası 33 Şekil 8. Manisa İli Depremsellik Haritası 33 Şekil.9: Türkiye Fitocoğrafik Bölgeler Haritası…</div>
 <div class="hit"><span class="pno">[s. 8]</span> <code>Gürültü</code> — …r Seperatör Naturel Zeytinyağı Yaprak Atığı Yıkama Suyu Emisyon Sulu Prina Atık Su Sıcak Su Yıkama Suyu Kırma Gürültü Gürültü Pirina havuzu Pirina işleme tesisi Müşteriye teslimat</div>
 <div class="hit"><span class="pno">[s. 22]</span> <code>tehlikeli atık</code> — …hangi bir atık pil ve akümülatör oluşması söz konusu olmayacaktır. Tehlikeli Atıklar Tesiste işletme aşamasında tehlikeli atık oluşması beklenmemektedir. Ancak oluşması durumunda tehlikeli atıklar, sızdırmaz alan üzerinde özel bidonlarda birikti…</div>
-<div class="hit"><span class="pno">[s. 24]</span> <code>Gürültü</code> — …netmeliğine göre Ek-5’inde yer alan “2.1 Katı yakıtlı yakma tesisleri” kapsamında belirtilen hükümlere uyulacaktır. Gürültü İşletme aşamasında; Tesisin çalışması sırasında kullanılacak olan makine ve ekipmanlar aşağıda verilmiştir.…</div></section><section class="card"><h3>Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(19 sayfa: s.2, s.3, s.4, s.5, s.8, s.10, s.11, s.12, s.13, s.18, s.20, s.23, s.31, s.52 (+5 sayfa))</span></h3><div class="hit"><span class="pno">[s. 2]</span> <code>Proje Bedeli</code> — …nyağı Üretim Tesisi (80 ton/gün zeytin işleme, 20 ton/gün zeytinyağı üretimi) ve Sofralık Zeytin ( 276 ton/yıl ) Proje Bedeli: 9.900.000 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii): Manisa İli, Akhisar İlçesi, Kayalıo…</div>
+<div class="hit"><span class="pno">[s. 24]</span> <code>Gürültü</code> — …netmeliğine göre Ek-5’inde yer alan “2.1 Katı yakıtlı yakma tesisleri” kapsamında belirtilen hükümlere uyulacaktır. Gürültü İşletme aşamasında; Tesisin çalışması sırasında kullanılacak olan makine ve ekipmanlar aşağıda verilmiştir.…</div></section><section class="card"><h3>Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(19 sayfa: s.2, s.3, s.4, s.5, s.8, s.10, s.11, s.12, s.13, s.18, s.20, s.23, s.31, s.52 (+5 sayfa))</span></h3><div class="hit"><span class="pno">[s. 2]</span> <code>Proje Bedeli</code> — …nyağı Üretim Tesisi (80 ton/gün zeytin işleme, 20 ton/gün zeytinyağı üretimi) ve Sofralık Zeytin ( 276 ton/yıl ) Proje Bedeli: 9.900.000 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii): Manisa İli, Akhisar İlçesi, Kayalıo…</div>
 <div class="hit"><span class="pno">[s. 2]</span> <code>9.900.000 TL</code> — …si (80 ton/gün zeytin işleme, 20 ton/gün zeytinyağı üretimi) ve Sofralık Zeytin ( 276 ton/yıl ) Proje Bedeli: 9.900.000 TL Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevkii): Manisa İli, Akhisar İlçesi, Kayalıoğlu mah.,Tamburlu…</div>
 <div class="hit"><span class="pno">[s. 3]</span> <code>Kapasite</code> — …Ve Yerin Alternatifleri (Proje Teknolojisinin Ve Proje Alanının Seçilme Nedenleri), 6 b)Projenin İş Akım Şeması, Kapasitesi, Kapladığı Alan, Teknolojisi, Çalışacak Personel Sayısı, 7 c)Doğal Kaynakların Kullanımı (Arazi Kullanımı, Su…</div>
 <div class="hit"><span class="pno">[s. 4]</span> <code>Kapasite</code> — …, hastane vb mesafeleri gösteren uygu görüntüleri 61 Tablolar Dizini Sayfa Tablo 1. Tesiste Planlanan Üretim Kapasitesi 9 Tablo–2: Tesiste Kullanılacak Ekipman Cinsi ve Sayısı 10 Tablo- 3: Tesiste çalışacak Personel Sayısı 12 Tablo…</div>
@@ -261,7 +733,45 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
+
 (() => {
+  const root = document.documentElement;
+  const saved = localStorage.getItem('eced_theme');
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function syncLabel() {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = cur ? cur === 'dark' : prefersDark;
+    btn.textContent = isDark ? 'Açık Tema' : 'Koyu Tema';
+  }
+  syncLabel();
+  btn.addEventListener('click', () => {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = cur ? cur === 'dark' : prefersDark;
+    const next = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('eced_theme', next);
+    syncLabel();
+  });
+})();
+
+(() => {
+  const copyBtn = document.getElementById('copy-qs-btn');
+  const qsTxt = document.getElementById('qs-plain');
+  if (copyBtn && qsTxt) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(qsTxt.value);
+        copyBtn.textContent = 'Kopyalandı ✓';
+        setTimeout(() => (copyBtn.textContent = 'Soruları Kopyala'), 2200);
+      } catch (e) {
+        copyBtn.textContent = 'Kopyalanamadı';
+      }
+    });
+  }
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.6191, "lon": 27.4289, "zoom": 8, "precision": "province_centroid", "points": [], "label": "MANİSA / AKHİSAR — Zeytinyağı Üretim Tesisi (80 ton/gün zeytin işleme, 20 ton/gün zeytinyağı üretimi) ve Sofr"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
@@ -271,16 +781,16 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
   }).addTo(map);
   if (g.precision === 'exact_pdf' && g.points.length > 1) {
     const latlngs = g.points.map(p => [p[0], p[1]]);
-    const poly = L.polyline(latlngs, { color: '#58a6ff', weight: 3, opacity: 0.85 }).addTo(map);
+    const poly = L.polyline(latlngs, { color: '#0b5ed7', weight: 3, opacity: 0.85 }).addTo(map);
     for (const ll of latlngs.slice(0, 30)) {
-      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#f85149', fillOpacity: 0.9, weight: 1 }).addTo(map);
+      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#d92d20', fillOpacity: 0.9, weight: 1 }).addTo(map);
     }
     map.fitBounds(poly.getBounds().pad(0.25));
   } else {
     L.circleMarker([g.lat, g.lon], {
       radius: g.precision === 'exact_pdf' ? 8 : 11,
       color: '#ffffff',
-      fillColor: g.precision === 'exact_pdf' ? '#f85149' : '#58a6ff',
+      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#0b5ed7',
       fillOpacity: g.precision === 'exact_pdf' ? 0.9 : 0.45,
       weight: 2
     }).bindPopup(g.label).addTo(map).openPopup();

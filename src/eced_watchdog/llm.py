@@ -239,8 +239,9 @@ def synthesize_with_gemini(
     *,
     api_key: str,
     model: str | None = None,
+    revision_diff: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """Run strict schema-constrained Gemini Flash synthesis over selected PDF pages."""
+    """Run strict schema-constrained Gemini synthesis over selected PDF pages (with optional v1->v2 diff context)."""
     from google import genai
     from google.genai import types
 
@@ -262,8 +263,20 @@ def synthesize_with_gemini(
         "   - 'low' severity for secondary procedural or administrative omissions.\n"
         "4. Explicitly distinguish completed pre-project baseline field/seasonal surveys from future post-approval monitoring commitments.\n"
         "5. Recommend the exact university expert disciplines (bilirkişi heyeti — always include 'Şehir ve Bölge Plancısı' when land-use/plan compliance is implicated) needed for an on-site court inspection.\n"
-        "6. Write all fields except executive_summary_en in fluent, complete, formal Turkish sentences (zero fragments, zero partisan commentary)."
+        "6. If a REVISION DIFF (v1 -> v2) or 2009/7 Circular re-submission context is provided, explicitly examine whether the revised PDF genuinely resolved prior scientific/legal gaps or merely patched wording / removed sensitive terms.\n"
+        "7. Write all fields except executive_summary_en in fluent, complete, formal Turkish sentences (zero fragments, zero partisan commentary)."
     )
+
+    revision_blob = ""
+    if revision_diff:
+        revision_blob = (
+            f"\nREVISION DIFF DETECTED (v{revision_diff.get('from_version')} -> v{revision_diff.get('to_version')}):\n"
+            f"- Summary: {revision_diff.get('summary_tr')}\n"
+            f"- Page delta: {revision_diff.get('page_delta')}\n"
+            f"- Upload dates: {revision_diff.get('from_upload_date')} -> {revision_diff.get('to_upload_date')}\n"
+            f"- Audit check changes: {revision_diff.get('audit_check_changes')}\n"
+            f"- Coordinate shift (m): {revision_diff.get('coordinate_shift_m')}\n"
+        )
 
     user_prompt = (
         f"FILING METADATA:\n"
@@ -275,7 +288,8 @@ def synthesize_with_gemini(
         f"- Announcement Date: {filing.get('announcement_date_tr')}\n"
         f"- Total PDF Pages: {analysis.get('page_count')} "
         f"(extractable text: {analysis.get('text_pages')}, scanned/image-only: {analysis.get('scanned_or_blank_pages')})\n"
-        f"- Pages Included Below: {used_pages}\n\n"
+        f"- Pages Included Below: {used_pages}\n"
+        f"{revision_blob}\n"
         f"OFFICIAL ANNOUNCEMENT:\n{filing.get('detail_text', '')}\n\n"
         f"EXCERPTED PDF PAGES:\n{excerpt_blob}"
     )

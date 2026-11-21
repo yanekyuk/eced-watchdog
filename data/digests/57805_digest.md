@@ -16,7 +16,7 @@
 | **Announcement Date** | `10.11.2026` (uploaded `26/02/2026 11:59:22`) |
 
 **Statutory Deadlines (informational aid — verify with legal counsel):**
-- **İYUK Madde 20/A iptal davası süresi (30 takvim günü; İYUK 11 süreyi durdurmaz):** `2026-12-10` (`20 days remaining`)
+- **İYUK Madde 20/A iptal davası süresi (30 takvim günü; İYUK 11 süreyi durdurmaz):** `2026-12-10` (`19 days remaining`)
 
 ## 2. AI-Assisted Scientific Synthesis (`gemini-3.8-flash`)
 

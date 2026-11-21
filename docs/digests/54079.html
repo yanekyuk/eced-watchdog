@@ -1,0 +1,819 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>e-ÇED Ön Özet #54079 — KARS / KAĞIZMAN,SARIKAMIŞ</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+:root {
+  --bg: #f6f8fa;
+  --surface: #ffffff;
+  --surface-subtle: #f1f4f8;
+  --border: #d8dee6;
+  --border-strong: #bcc6d4;
+  --text: #161b22;
+  --text-secondary: #424a53;
+  --muted: #5c6670;
+  --accent: #0b5ed7;
+  --accent-soft: #e7f1ff;
+  --red: #b42318;
+  --red-soft: #fef3f2;
+  --red-border: #fecdca;
+  --amber: #9a5b00;
+  --amber-soft: #fffaeb;
+  --amber-border: #fedf89;
+  --green: #067647;
+  --green-soft: #ecfdf3;
+  --green-border: #abefc6;
+  --violet: #5925dc;
+  --violet-soft: #f4f3ff;
+  --violet-border: #d9d6fe;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface-subtle: #1c222b;
+    --border: #2b333e;
+    --border-strong: #3d4756;
+    --text: #e6edf3;
+    --text-secondary: #c9d1d9;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --accent-soft: rgba(88, 166, 255, 0.14);
+    --red: #ff7b72;
+    --red-soft: rgba(248, 81, 73, 0.14);
+    --red-border: rgba(248, 81, 73, 0.4);
+    --amber: #e3b341;
+    --amber-soft: rgba(210, 153, 34, 0.14);
+    --amber-border: rgba(210, 153, 34, 0.4);
+    --green: #3fb950;
+    --green-soft: rgba(63, 185, 80, 0.14);
+    --green-border: rgba(63, 185, 80, 0.4);
+    --violet: #b692f6;
+    --violet-soft: rgba(158, 119, 237, 0.16);
+    --violet-border: rgba(158, 119, 237, 0.42);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface-subtle: #1c222b;
+  --border: #2b333e;
+  --border-strong: #3d4756;
+  --text: #e6edf3;
+  --text-secondary: #c9d1d9;
+  --muted: #8b949e;
+  --accent: #58a6ff;
+  --accent-soft: rgba(88, 166, 255, 0.14);
+  --red: #ff7b72;
+  --red-soft: rgba(248, 81, 73, 0.14);
+  --red-border: rgba(248, 81, 73, 0.4);
+  --amber: #e3b341;
+  --amber-soft: rgba(210, 153, 34, 0.14);
+  --amber-border: rgba(210, 153, 34, 0.4);
+  --green: #3fb950;
+  --green-soft: rgba(63, 185, 80, 0.14);
+  --green-border: rgba(63, 185, 80, 0.4);
+  --violet: #b692f6;
+  --violet-soft: rgba(158, 119, 237, 0.16);
+  --violet-border: rgba(158, 119, 237, 0.42);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Unified Sticky Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.topbar-inner {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 11px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: -0.01em;
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+.brand-scope {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.nav-link {
+  padding: 5px 11px;
+  border-radius: 7px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-link:hover { background: var(--surface-subtle); text-decoration: none; color: var(--text); }
+.nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.theme-btn {
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
+
+/* Layout */
+.wrap { max-width: 1220px; margin: 0 auto; padding: 24px 20px 68px; }
+.wrap.narrow { max-width: 960px; }
+header.page-head { margin-bottom: 20px; }
+h1 { margin: 0 0 8px; font-size: 1.62rem; line-height: 1.25; letter-spacing: -0.02em; }
+h2 { margin: 28px 0 12px; font-size: 1.2rem; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { margin: 16px 0 8px; font-size: 0.98rem; line-height: 1.35; }
+.sub { color: var(--muted); font-size: 0.93rem; margin: 0; }
+.meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin-top: 12px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+
+/* Orientation Banner */
+.hero-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+.hero-strip p { margin: 0; font-size: 0.9rem; color: var(--text-secondary); max-width: 820px; }
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.hero-cta:hover { text-decoration: none; filter: brightness(1.06); }
+
+/* KPI Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  gap: 12px;
+  margin: 0 0 18px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 13px 16px;
+  box-shadow: var(--shadow);
+}
+.stat .num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+.stat .lbl { font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
+.stat.accent .num { color: var(--accent); }
+.stat.rev .num { color: var(--violet); }
+
+/* Map */
+.map-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+#map { width: 100%; height: 400px; background: var(--surface-subtle); }
+#digest-map { width: 100%; height: 320px; background: var(--surface-subtle); }
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  padding: 10px 16px;
+  font-size: 0.79rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: var(--surface-subtle);
+}
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+/* Controls */
+.controls-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.controls-row + .controls-row { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+input[type="search"], select.filter-select {
+  padding: 8px 12px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.88rem;
+}
+input[type="search"]:focus, select.filter-select:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+input[type="search"] { flex: 1 1 250px; }
+select.filter-select { min-width: 165px; }
+button.pill {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.81rem;
+  font-weight: 500;
+  transition: background 0.12s, border-color 0.12s;
+}
+button.pill:hover { border-color: var(--border-strong); color: var(--text); }
+button.pill.active { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 600; }
+button.pill.rev-pill.active { background: var(--violet); border-color: var(--violet); }
+button.reset-btn {
+  margin-left: auto;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+button.reset-btn:hover { color: var(--text); border-color: var(--border-strong); }
+
+/* Cards & Badges */
+.cards { display: flex; flex-direction: column; gap: 11px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+}
+.card.ek1 { border-left: 4px solid var(--accent); }
+.card.has-rev { border-left: 4px solid var(--violet); }
+.card.ek1.has-rev { border-left: 4px solid var(--violet); }
+.row-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 14px;
+  align-items: flex-start;
+}
+.title { font-weight: 650; font-size: 1rem; line-height: 1.38; color: var(--text); flex: 1 1 320px; }
+.title a { color: var(--text); }
+.title a:hover { color: var(--accent); text-decoration: none; }
+.date-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.badge.urgent { background: var(--red-soft); border-color: var(--red-border); color: var(--red); font-weight: 600; }
+.badge.warn { background: var(--amber-soft); border-color: var(--amber-border); color: var(--amber); font-weight: 600; }
+.badge.ok { background: var(--green-soft); border-color: var(--green-border); color: var(--green); font-weight: 600; }
+.badge.info { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
+.badge.rev { background: var(--violet-soft); border-color: var(--violet-border); color: var(--violet); font-weight: 600; }
+.badge.muted { color: var(--muted); }
+.detail { font-size: 0.88rem; color: var(--text-secondary); margin: 9px 0 0; }
+.detail.muted { color: var(--muted); }
+
+/* Revision inline strip on cards */
+.rev-strip {
+  margin-top: 10px;
+  padding: 8px 11px;
+  border-radius: 7px;
+  background: var(--violet-soft);
+  border: 1px solid var(--violet-border);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.rev-strip strong { color: var(--violet); }
+
+/* Action Buttons */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  font-size: 0.83rem;
+  margin-top: 11px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+.btn-primary:hover { text-decoration: none; filter: brightness(1.06); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.btn-secondary:hover { text-decoration: none; border-color: var(--border-strong); color: var(--text); }
+
+/* Tables, Code, Callouts, Timeline */
+table.kv {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.89rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+table.kv th, table.kv td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 13px;
+  text-align: left;
+  vertical-align: top;
+}
+table.kv tr:last-child th, table.kv tr:last-child td { border-bottom: none; }
+table.kv th { width: 250px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
+table.data-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.85rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+table.data-tbl th, table.data-tbl td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.data-tbl tr:last-child td { border-bottom: none; }
+code {
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.84em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+blockquote {
+  margin: 10px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.callout {
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  margin: 14px 0;
+}
+.callout.rev {
+  background: var(--violet-soft);
+  border-color: var(--violet-border);
+}
+.callout.warn {
+  background: var(--amber-soft);
+  border-color: var(--amber-border);
+}
+.timeline {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid var(--border-strong);
+}
+.timeline li {
+  position: relative;
+  margin: 0 0 10px;
+  padding-left: 8px;
+  font-size: 0.87rem;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+}
+.hit { margin: 8px 0; font-size: 0.88rem; line-height: 1.55; }
+.pno { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.notice {
+  margin-top: 32px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+.toc-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 20px; }
+.toc-pills a {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.81rem;
+  font-weight: 500;
+}
+.toc-pills a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+.step-num {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+pre.template-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.section-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.leaflet-popup-content { color: #161b22; font-size: 0.85rem; line-height: 1.45; }
+@media (max-width: 700px) {
+  table.kv th { width: 145px; }
+  #map { height: 320px; }
+  .topbar-inner { padding: 10px 14px; }
+  .wrap { padding: 18px 14px 54px; }
+}
+@media print {
+  .topbar, .no-print, #digest-map, .map-box { display: none !important; }
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .card, table.kv, table.data-tbl { box-shadow: none; break-inside: avoid; }
+  a { color: #000000; text-decoration: underline; }
+}
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      <span>Türkiye e-ÇED İzleme</span>
+      <span class="brand-scope">81 İl</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link " href="../index.html">Duyurular ve Harita</a>
+      <a class="nav-link " href="../rehber.html">Kullanım Rehberi</a>
+      <a class="nav-link" href="../feed.xml">RSS 2.0</a>
+      <a class="nav-link" href="https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml" target="_blank" rel="noopener">Resmi e-ÇED ↗</a>
+      <button id="theme-toggle" class="theme-btn" type="button">Tema</button>
+    </div>
+  </div>
+</nav>
+<div class="wrap narrow">
+  <header class="page-head">
+    <div style="font-size:0.84rem;color:var(--muted);margin-bottom:8px;" class="no-print">
+      <a href="../index.html">← Duyurular listesine dön</a> · Dosya <code>#54079</code>
+    </div>
+    <h1>Arşimet Burgulu Aşağı Aras Kalebaşı HES (9,11 MWm/7,66 MWe), Aşağı Aras Değirmendere HES (8,105 MWm/6,896 MWe), Aşağı Aras Demirkapı HES (12,147 MWm/10,240 MWe), Aşağı Aras Boztepe HES (8,604 MWm/7,150 MWe)</h1>
+    <p class="sub">KARS / KAĞIZMAN,SARIKAMIŞ · CALL ENERJİ A.Ş.</p>
+    <div class="badges" style="margin-top:11px;">
+      <span class="badge">Nihai Karar</span>
+      <span class="badge info">Ek-1</span>
+      <span class="badge warn">Madde 14 Askı (10g) · 9 gün kaldı (2026-11-30)</span>
+      <span class="badge warn">Eski Dosya Yeniden Açıldı (1+ yıl)</span>
+    </div>
+    <div class="actions no-print" style="border-top:none;padding-top:4px;">
+      <a class="btn-primary" href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file947650547908857217.imz&amp;orjinalAd=54079_Son_Sekli_Verilen_Rapor.pdf&amp;yuklemeTarihi=2026-11-04" target="_blank" rel="noopener">Resmi PDF Dosyası ↗</a>
+      <a class="btn-secondary" href="http://eced.csb.gov.tr/jsp/ek1/54079" target="_blank" rel="noopener">e-ÇED Portal Kaydı ↗</a>
+      <a class="btn-secondary" href="54079.md">Ham Markdown (.md)</a>
+      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF Kaydet</button>
+    </div>
+  </header>
+
+  <table class="kv">
+    <tr><th>Proje Sahibi</th><td>CALL ENERJİ A.Ş.</td></tr>
+    <tr><th>Hazırlayan Kuruluş</th><td>ÇINAR MÜH. MÜŞ. A.Ş.</td></tr>
+    <tr><th>Sektör / Alt Sektör</th><td>Enerji / Hidroelektrik Santraller</td></tr>
+    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>20.11.2026</code> · Belge yükleme: <code>22/01/2025 03:47:18</code></td></tr>
+    <tr><th>PDF Kapsamı ve Bütünlük</th><td>380.89 MB · 3094 sayfa (2878 metin / 216 taranmış) · SHA-256 <code>7f36b273df23f763…</code></td></tr>
+    <tr><th>Harita Bağlantıları</th><td><a href="https://www.openstreetmap.org/?mlat=40.10975&amp;mlon=42.78519#map=12/40.10975/42.78519" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=40.10975,42.78519" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
+  </table>
+
+  <h2>Belge Bütünlüğü, Revizyon ve Süreç Geçmişi</h2>
+<p class="sub">Her PDF dosyasının SHA-256 özeti, yükleme tarihi ve teknik göstergeleri arşivlenir. Bakanlık portalında rapor değiştirildiğinde veya 2009/7 Genelgesi kapsamında yeniden yüklendiğinde sürümler arası fark (v1 → v2) otomatik olarak kaydedilir.</p>
+<table class="data-tbl"><thead><tr><th>Sürüm</th><th>Arşiv Tarihi</th><th>Aşama</th><th>Yükleme Tarihi</th><th>Sayfa</th><th>SHA-256</th></tr></thead><tbody><tr><td><code>v1</code></td><td><code>2026-11-21T09:03:01</code></td><td>Nihai Karar</td><td><code>2026-11-04</code></td><td>3094</td><td><code>7f36b273df23f763…</code></td></tr></tbody></table>
+
+  <h2>Konum Haritası</h2>
+  <div class="map-box">
+    <div id="digest-map"></div>
+    <div class="map-legend"><span>PDF metninden çıkarılan kesin proje koordinatları (81 nokta, datum: UTM-Z38/ED50, sayfa: s.196, s.428, s.429).</span></div>
+  </div>
+
+  
+  <h2>Yapay Zeka Destekli Bilimsel Ön Değerlendirme <span class="badge">gemini-4-hydrogen</span></h2>
+  <p class="sub">Bu değerlendirme, resmi PDF dosyasından seçilen 21 sayfa (s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14, s.15, s.17, s.18, s.20, s.21, s.22, s.23) esas alınarak hazırlanmıştır. Tüm sayısal verilerin ve tespitlerin resmi PDF belgesindeki ilgili <code>[s. N]</code> sayfalarından doğrulanması gerekir.</p>
+  <section class="card ek1" style="margin-top:10px;">
+    <p style="margin-top:0;"><strong>Özet:</strong> Call Enerji A.Ş. tarafından Kars ili, Sarıkamış ve Kağızman ilçeleri sınırlarındaki Kuloğlu, Denizgölü, Değirmendere ve Çayarası köyleri mevkiinde, Aras Nehri üzerinde kademeli olarak planlanan lastik şişme savaklı dört adet Arşimet burgulu hidroelektrik santrali (Kalebaşı, Değirmendere, Demirkapı ve Boztepe HES) için Son Şekli Verilen ÇED Raporu sunulmuştur. ÇED Yönetmeliği Ek-1 Madde 14 kapsamında değerlendirilen projelerin toplam kurulu gücü 37,966 MWm / 31,946 MWe, toplam yatırım bedeli 4.105.575.226,00 TL, yıllık elektrik üretim hedefi ise 137.370.000 kWh olarak belirtilmektedir. Dört santralle birlikte toplam 19,7 km uzunluğunda dört ayrı 477 MCM enerji nakil hattının Karakurt Havza Trafo Merkezi&#x27;ne bağlanması, ayrıca malzeme ocakları, kırma-eleme-yıkama tesisi ve beton santrali gibi yan ünitelerin kurulması öngörülmektedir. İncelenebilen kısıtlı özet ve dizin sayfalarında sulak alan, sucul ekosistem, mansap su hakları, orman alanları ve tek günlük sonbahar arazi etüdüne ilişkin teknik ayrıntıların ana metin ve eklerde kaldığı görülmektedir.</p>
+    <details style="margin-top:10px;font-size:0.86rem;color:var(--muted);"><summary style="cursor:pointer;">İngilizce özet (English summary)</summary><p style="margin:6px 0 0;">Call Enerji A.Ş. has submitted a Final EIA Report (Annex-1, Item 14) for four cascaded Archimedes-screw hydroelectric power plants with inflatable rubber weirs (Kalebaşı, Değirmendere, Demirkapı, and Boztepe HPPs) along the Aras River near Kuloğlu, Denizgölü, Değirmendere, and Çayarası villages in Sarıkamış and Kağızman districts, Kars province. The four plants have a combined capacity of 37.966 MWm / 31.946 MWe, an estimated annual output of 137,370,000 kWh, and a total investment cost of 4,105,575,226.00 TL, with reservoir areas totaling 2.128 km² and four separate 477 MCM overhead transmission lines totaling 19.7 km connecting to the Karakurt Basin Substation. While the table of contents and appendices index reference wetland, aquatic ecosystem, hydrogeology, cumulative impact, and agency opinion documents, only the cover, indices, and non-technical summary (21 of 3,094 pages) were available in the excerpts. Primary environmental stakes center on Aras River aquatic habitat continuity, downstream water rights, wetland and forest impacts, and the cumulative effects of four cascaded plants plus auxiliary quarries and batching facilities.</p></details>
+    <div class="badges" style="margin-top:10px;">
+      <span class="badge">Saha çalışması: Karışık veya yöntemi belirsiz</span>
+      <span class="badge">Mevsimsel örnekleme: Belirsiz</span>
+      <span class="badge">Kümülatif etki: Eksik veya tespit edilemedi</span>
+    </div>
+    <p class="detail" style="margin-top:10px;"><strong>Zeytinlik ve Korunan Alanlar:</strong> Alıntılanan sayfalarda 3573 sayılı Kanun kapsamında zeytinlik varlığına dair bir bilgi yer almamaktadır. Koruma alanları (Bölüm II.2.10), orman alanları (Bölüm II.2.8) ve mera/tarım alanlarına (Bölüm II.2.7) ilişkin değerlendirmeler ile Tabiat Varlıklarını Koruma Genel Müdürlüğü (Ek-2.22), Kültür Varlıklarını Koruma Bölge Kurulu (Ek-2.19) görüşleri ve Sulak Alan Ekolojik Etki Değerlendirme Raporu (Ek-17.1) dizinlerde listelenmiş olup içerikleri incelenen sayfalarda bulunmamaktadır [s. 4, 5, 17, 18].<br/>Teknik Olmayan Özet&#x27;te proje hazırlık sürecinde 19.11.2024 tarihinde uzman ekiplerce arazi etüdü yapıldığı ifade edilmekte, Ekler Dizini&#x27;nde ise Ek-17 altında sulak alan, flora, balık/sucul ekosistem, fauna ve hidrojeoloji etki değerlendirme raporları ile üniversite üst yazıları listelenmektedir [s. 18, 23]. Ancak Bölüm II.2.9, Bölüm II.2.11, Bölüm IV ve Ek-17 metinleri alıntılanan sayfalar arasında yer almadığından çok mevsimli saha örneklemesi yapılıp yapılmadığı ve kümülatif etki analizinin nicel niteliği bu aşamada doğrulanamamaktadır [s. 4, 5, 10, 18, 23].</p>
+  </section>
+  <h3>Öne Çıkan Sayısal Bulgular</h3><table class="kv"><tr><th>Toplam Kurulu Güç (4 HES)</th><td>37,966 MWm / 31,946 MWe (Kalebaşı 9,11 MWm/7,66 MWe; Değirmendere 8,105 MWm/6,896 MWe; Demirkapı 12,147 MWm/10,240 MWe; Boztepe 8,604 MWm/7,150 MWe) <span class="pno">[s. 2]</span></td></tr>
+<tr><th>Proje Yatırım Bedeli</th><td>4.105.575.226,00 TL (%20 özkaynak, %80 kredi) <span class="pno">[s. 22]</span></td></tr>
+<tr><th>Yıllık Elektrik Üretimi</th><td>137.370.000 kWh/yıl (yaklaşık 40.522 kişinin yıllık tüketimi) <span class="pno">[s. 21]</span></td></tr>
+<tr><th>Kalebaşı HES Rezervuarı ve ENH</th><td>0,242 km² rezervuar alanı; yaklaşık 3,4 km 477 MCM enerji nakil hattı <span class="pno">[s. 21]</span></td></tr>
+<tr><th>Değirmendere HES Rezervuarı ve ENH</th><td>0,362 km² rezervuar alanı; yaklaşık 4,7 km 477 MCM enerji nakil hattı <span class="pno">[s. 21]</span></td></tr>
+<tr><th>Demirkapı HES Rezervuarı ve ENH</th><td>1,156 km² rezervuar alanı; yaklaşık 6,80 km 477 MCM enerji nakil hattı <span class="pno">[s. 22]</span></td></tr>
+<tr><th>Boztepe HES Rezervuarı ve ENH</th><td>0,368 km² rezervuar alanı; yaklaşık 4,8 km 477 MCM enerji nakil hattı <span class="pno">[s. 22]</span></td></tr>
+<tr><th>Ekonomik Ömür</th><td>49 yıl <span class="pno">[s. 22]</span></td></tr>
+<tr><th>İstihdam (İnşaat / İşletme)</th><td>İnşaat aşamasında ortalama 100 kişi, işletme aşamasında yaklaşık 10 kişi <span class="pno">[s. 22]</span></td></tr>
+<tr><th>Belirtilen Arazi Etüdü Tarihi</th><td>19.11.2024 <span class="pno">[s. 23]</span></td></tr></table>
+  <h3>Danıştay Ölçütlerine Göre Bilimsel ve Hukuki Bulgular</h3><section class="card"><div class="hit"><span class="badge warn">ORTA</span> <span class="badge">5403 / Orman / Korunan Alan</span> <strong>Güncel Proje Alanı İçin OGM Kurum Görüşü Yerine Yalnızca Talep Dilekçesinin Listelenmesi</strong> <span class="pno">[s. 11, s. 18]</span> — Ekler Dizini&#x27;nde diğer kurumlara ait görüş yazıları açıkça yer alırken, Ek-2.26&#x27;da güncel proje alanına ilişkin olarak yalnızca &#x27;Orman Genel Müdürlüğüne Sunulan Güncel Proje Alanına İlişkin Kurum Görüşü Talep Dilekçesi&#x27; başlığı listelenmiştir [s. 18]. Ayrıca başvuru dosyası sürecinde meslek grubuna sonradan Orman Mühendisi eklenmesine karar verildiği belirtilmekte olup, bağlayıcı OGM görüşünün Ek-2.29 içinde bulunup bulunmadığı incelenen sayfalardan teyit edilememektedir [s. 11, 18].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Flora / Fauna &amp; Mevsimsellik</span> <strong>Özet Metinde Yalnızca Kasım Ayı Saha Etüdünün Anılması ve Sulak Alan/Sucul Riskin Doğrulanamaması</strong> <span class="pno">[s. 4, s. 5, s. 18, s. 21, s. 22, s. 23]</span> — Teknik Olmayan Özet&#x27;te proje alanı ve çevresinde 19.11.2024 tarihinde arazi etüdü çalışması gerçekleştirildiği bildirilmekte, Ekler Dizini&#x27;nde ise Ek-17.1 &#x27;Sulak Alan Ekolojik Etki Değerlendirme Raporu&#x27; ile flora, fauna ve balık/sucul ekosistem raporları sıralanmaktadır [s. 18, 23]. Aras Nehri üzerinde dört kademeli regülatör ve toplam 2,128 km² rezervuar alanı oluşturacak projenin ilkbahar-yaz vejetasyon ve balık üreme dönemlerini kapsayan çok mevsimli saha verisine dayanıp dayanmadığı, ana metin ve Ek-17 üzerinden bilirkişi incelemesiyle doğrulanmalıdır [s. 4, 5, 18, 21, 22, 23].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Su / Hidrojeoloji</span> <strong>Su Temini, Fosseptik Çekimi ve Katı Atık Bertarafında Yalnızca İdare Yazışmalarının Belirtilmesi</strong> <span class="pno">[s. 9, s. 17, s. 22, s. 23]</span> — Teknik Olmayan Özet&#x27;te inşaat ve işletme dönemlerinde kullanma suyunun tankerlerle temini ve sızdırmaz fosseptikte birikecek evsel atıksuların çektirilmesi için ilgili idarelere &#x27;üst yazı yazıldığı&#x27; (Ek-2.13), evsel katı atıkların bertarafı için de &#x27;görüş yazısı yazıldığı&#x27; (Ek-2.14) belirtilmektedir [s. 22]. Son şekli verilen ÇED raporunda bu hizmetlere ilişkin bağlayıcı kabul/kapasite onaylarının tamamlanıp tamamlanmadığı ile mansap su hakları ve can suyu hesaplarının yeterliliği Ek-2.13, Ek-2.14, Ek-21 ve Bölüm III.2.2 incelenerek doğrulanmalıdır [s. 9, 17, 22, 23].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Kümülatif Etki</span> <strong>Dört Kademeli HES ile 19,7 km Enerji Nakil Hattı ve Yan Ocak/Tesislerin Bütüncül Etkisi</strong> <span class="pno">[s. 6, s. 7, s. 10, s. 21, s. 22, s. 23]</span> — Proje kapsamında dört adet HES ünitesinin yanı sıra Karakurt Havza Trafo Merkezi&#x27;ne bağlanacak sırasıyla 3,4 km, 4,7 km, 6,80 km ve 4,8 km uzunluklarında dört ayrı enerji nakil hattı öngörülmekte, İçindekiler dizininde ise malzeme ocakları, patlatma, kırma-eleme-yıkama tesisi, beton santrali ve derivasyon üniteleri yer almaktadır [s. 6, 7, 21, 22]. Dört santral ile yan tesislerin Aras Nehri havzasındaki diğer mevcut/planlanan projelerle birlikte oluşturacağı birikimli ekolojik ve hidrolojik etkilerin Bölüm IV kapsamında nicel olarak ortaya konulup konulmadığı mahallinde ve tam dosya üzerinde denetlenmelidir [s. 6, 10, 21, 22, 23].</div>
+<div class="hit"><span class="badge muted">DÜŞÜK</span> <span class="badge">Ölçüm / İç Tutarlılık</span> <strong>Teknik Olmayan Özet ile İçindekiler ve Ekler Dizinleri Arasındaki Atıf Tutarsızlıkları</strong> <span class="pno">[s. 7, s. 12, s. 18, s. 22]</span> — Teknik Olmayan Özet&#x27;te iş termin planı için &#x27;Tablo I.5.10&#x27; numarasına atıf yapıldığı halde Tablolar Dizininde ilgili tablo &#x27;Tablo I.5.2&#x27; olarak yer almaktadır [s. 12, 22]. Aynı sayfada atıksu yönetimine dair bilgilerin toz yayıcı işlemleri konu alan &#x27;Bölüm III.1.10&#x27;da bulunduğu belirtilmekte, ayrıca Ek-9 Hidroloji Haritasının ölçeği özet metinde &#x27;1/25.000&#x27;, Ekler Dizininde ise &#x27;1/40.000&#x27; olarak ifade edilmektedir [s. 7, 18, 22].</div></section>
+  <h3>Keşif ve Bilirkişi Heyeti İçin Önerilen Uzmanlık Alanları</h3><section class="card"><div class="badges" style="margin-top:0;"><span class="badge info">Çevre Mühendisi</span> <span class="badge info">Hidrojeoloji Mühendisi</span> <span class="badge info">İnşaat Mühendisi (Hidrolik / Su Yapıları Uzmanı)</span> <span class="badge info">Biyolog (Karasal ve Sucul Ekoloji / Hidrobiyoloji Uzmanı)</span> <span class="badge info">Orman Mühendisi</span> <span class="badge info">Ziraat Mühendisi</span> <span class="badge info">Jeoloji Mühendisi</span> <span class="badge info">Şehir ve Bölge Plancısı</span></div><p class="detail muted">Danıştay içtihatları uyarınca bilirkişi heyetinin tek sayıda uzmandan oluşması, proje niteliğine uygun tüm disiplinleri içermesi ve plan kararlarıyla ilişkili davalarda Şehir ve Bölge Plancısına yer verilmesi gerekmektedir.</p></section>
+  <div class="section-head-row"><h3>HKT Tutanakları ve Bilirkişi İncelemesi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card"><ul style="margin:0;padding-left:20px;"><li>Ekler Dizini&#x27;nde Ek-2.26 başlığı altında Orman Genel Müdürlüğünün nihai kurum görüşü yerine yalnızca &#x27;Kurum Görüşü Talep Dilekçesi&#x27; listelendiği görülmektedir; güncellenen proje sahası ve orman alanları (Bölüm II.2.8 ve III.1.14) hakkında OGM&#x27;den alınmış kesin izin/uygunluk görüşü mevcut mudur ve Ek-2.29 kapsamında dosyaya eklenmiş midir? <span class="pno">[s. 4, s. 8, s. 18]</span></li>
+<li>Teknik Olmayan Özet&#x27;te arazi etüdü tarihi olarak 19.11.2024 belirtilirken Ek-17.1&#x27;de Sulak Alan Ekolojik Etki Değerlendirme Raporu ile flora, fauna ve sucul ekosistem raporları listelenmektedir; Aras Nehri ve çevresindeki hassas türler için ilkbahar ve yaz üreme/vejetasyon dönemlerini kapsayan çok mevsimli arazi örneklemesi yapılmış mıdır ve şişirilebilir lastik savaklar ile balık geçitlerinin göçmen balık türleri için işlevselliği nasıl modellenmiştir? <span class="pno">[s. 18, s. 21, s. 23]</span></li>
+<li>Aras Nehri üzerinde kademeli olarak planlanan dört HES (toplam 2,128 km² rezervuar alanı) ile toplam 19,7 km uzunluğundaki enerji nakil hatlarının, malzeme ocaklarının, patlatma faaliyetlerinin, kırma-eleme-yıkama tesisinin ve beton santralinin mansap can suyu, teessüs etmiş su hakları ve su kalitesi üzerindeki birikimli etkileri Bölüm III.2.2 ve Bölüm IV kapsamında havzadaki diğer projelerle birlikte nicel olarak değerlendirilmiş midir? <span class="pno">[s. 6, s. 9, s. 10, s. 21, s. 22, s. 23]</span></li>
+<li>İnşaat ve işletme aşamalarında kullanma suyu temini, sızdırmaz fosseptikten atıksu çektirilmesi (Ek-2.13) ve evsel nitelikli katı atıkların bertarafı (Ek-2.14) konularında ilgili idarelere &#x27;üst yazı / görüş yazısı yazıldığı&#x27; ifade edilmektedir; ilgili belediye veya il özel idaresinden alınmış bağlayıcı kapasite ve kabul onay yazıları rapor eklerinde yer almakta mıdır? <span class="pno">[s. 17, s. 22]</span></li></ul><textarea id="qs-plain" style="display:none;">1. Ekler Dizini&#x27;nde Ek-2.26 başlığı altında Orman Genel Müdürlüğünün nihai kurum görüşü yerine yalnızca &#x27;Kurum Görüşü Talep Dilekçesi&#x27; listelendiği görülmektedir; güncellenen proje sahası ve orman alanları (Bölüm II.2.8 ve III.1.14) hakkında OGM&#x27;den alınmış kesin izin/uygunluk görüşü mevcut mudur ve Ek-2.29 kapsamında dosyaya eklenmiş midir? [s. 4, s. 8, s. 18]
+2. Teknik Olmayan Özet&#x27;te arazi etüdü tarihi olarak 19.11.2024 belirtilirken Ek-17.1&#x27;de Sulak Alan Ekolojik Etki Değerlendirme Raporu ile flora, fauna ve sucul ekosistem raporları listelenmektedir; Aras Nehri ve çevresindeki hassas türler için ilkbahar ve yaz üreme/vejetasyon dönemlerini kapsayan çok mevsimli arazi örneklemesi yapılmış mıdır ve şişirilebilir lastik savaklar ile balık geçitlerinin göçmen balık türleri için işlevselliği nasıl modellenmiştir? [s. 18, s. 21, s. 23]
+3. Aras Nehri üzerinde kademeli olarak planlanan dört HES (toplam 2,128 km² rezervuar alanı) ile toplam 19,7 km uzunluğundaki enerji nakil hatlarının, malzeme ocaklarının, patlatma faaliyetlerinin, kırma-eleme-yıkama tesisinin ve beton santralinin mansap can suyu, teessüs etmiş su hakları ve su kalitesi üzerindeki birikimli etkileri Bölüm III.2.2 ve Bölüm IV kapsamında havzadaki diğer projelerle birlikte nicel olarak değerlendirilmiş midir? [s. 6, s. 9, s. 10, s. 21, s. 22, s. 23]
+4. İnşaat ve işletme aşamalarında kullanma suyu temini, sızdırmaz fosseptikten atıksu çektirilmesi (Ek-2.13) ve evsel nitelikli katı atıkların bertarafı (Ek-2.14) konularında ilgili idarelere &#x27;üst yazı / görüş yazısı yazıldığı&#x27; ifade edilmektedir; ilgili belediye veya il özel idaresinden alınmış bağlayıcı kapasite ve kabul onay yazıları rapor eklerinde yer almakta mıdır? [s. 17, s. 22]</textarea></section>
+  <p class="sub" style="margin-top:10px;"><em>İnceleme sınırları:</em> Toplam 3.094 sayfadan oluşan dosyanın (2.878 metin sayfası, 216 taranmış/görüntü sayfası) yalnızca kapak, İçindekiler, Tablolar/Şekiller/Ekler Dizinleri, Kısaltmalar ve Teknik Olmayan Özet bölümlerini kapsayan 21 sayfası ([1-15, 17-18, 20-23]) incelenebilmiştir. Raporun Bölüm I-VIII ana teknik metinleri (rapor s. 1-388), koordinat ve harita ekleri, DSİ fizibilite/su hakları onayları, kurum görüşleri, flora-fauna-sulak alan-hidrojeoloji raporları (Ek-17), hava kalitesi/akustik modellemeleri, kümülatif etki değerlendirmesi (Bölüm IV), HKT tutanakları ve 216 adet taranmış sayfa alıntılar dışında kaldığından içerikleri doğrudan doğrulanamamıştır.</p>
+
+
+  <h2>Resmi Duyuru Metni</h2>
+  <blockquote>KARS ili KAĞIZMAN, SARIKAMIŞ ilcesinde KARS İli KAĞIZMAN, SARIKAMIŞ ilcesinde CALL ENERJİ A.Ş.tarafından yapılması planlanan Arşimet Burgulu Aşağı Aras Kalebaşı HES (9,11 MWm/7,66 MWe), Aşağı Aras Değirmendere HES (8,105 MWm/6,896 MWe), Aşağı Aras Demirkapı HES (12,147 MWm/10,240 MWe), Aşağı Aras Boztepe HES (8,604 MWm/7,150 MWe) projesi ile ilgili olarak hazırlanan ÇED Raporu , İnceleme ve Değerlendirme Komisyonu (İDK) tarafından incelenerek son şekli verilmiş olup, söz konusu rapor halkın görüş ve önerilerini almak üzere ÇED Yönetmeliği&#x27;nin 14.Maddesi (1) no&#x27;lu bendi kapsamında Bakanlıkta ve Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü&#x27;nde on (10) takvim günü görüşe açılmıştır. Bakanlığa/Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü&#x27;ne iletilen görüşler projeyle ilgili karar alma sürecinde dikkate alınacaktır. Görüş ve öneriler için bu süreç içerisinde Çevre, Şehircilik ve İklim Değişikliği Bakanlığı&#x27;na veya KARS Çevre ve Şehircilik İl Müdürlüklerine müracaat edilebilir. İlgililere ve kamuoyuna duyurulur.</blockquote>
+
+  <h2>Otomatik Metin Taraması (Deterministik)</h2>
+  <table class="kv"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Literatür taraması ifadesi</th><td><span class="badge warn">Literatür ifadesi mevcut — saha çalışması ile karşılaştırınız</span></td></tr>
+<tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kümülatif etki değerlendirmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Yeraltı suyu, akifer veya hidrojeoloji ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge warn">Metinde geçmektedir — proje parçalama / 2009/7 yönünden inceleyiniz</span></td></tr>
+<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr></table>
+  <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik metin taramasına dahil edilmemiştir.</p>
+
+  <h2>Sayfa Kaynaklı Çıkarılan Bulgular</h2>
+  <div class="cards"><section class="card"><h3>Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(396 sayfa: s.17, s.21, s.22, s.25, s.26, s.27, s.33, s.34, s.35, s.36, s.37, s.38, s.40, s.54 (+382 sayfa))</span></h3><div class="hit"><span class="pno">[s. 17]</span> <code>Koordinat</code> — …EPE HES (8,604 MWm/7,150 MWe) PROJELERİ SON ŞEKLİ VERİLEN ÇED RAPORU xv EKLER DİZİNİ Ek-1 Proje Alanına Ait Koordinatlar Ek-2 Resmi Yazılar ve Dokümanlar Ek-2.1 Kalebaşı HES 18.10.2024 Tarih ve 5097217 Sayılı Fizibilite Onay Yazı…</div>
+<div class="hit"><span class="pno">[s. 21]</span> <code>koordinat</code> — …)” projelerinin gerçekleştirilmesi planlanmaktadır. Planlanan projeler kapsamında belirlenen kullanım alanlarına ait koordinatlar Ek-1’de verilmiştir. “Arşimet Burgulu Aşağı Aras Kalebaşı HES (9,11 MWm/7,66 MWe), Aşağı Aras Değirmendere HES…</div>
+<div class="hit"><span class="pno">[s. 21]</span> <code>0,242 km²</code> — …tarih ve 5579980 sayılı yazısında koordinatların projeyle genel hatlarıyla uyumlu olduğu ve toplam rezervuar alanının 0,242 km² olduğu belirtilmiştir (Bkz. Ek-2.2). EPDK’dan 01.08.2025 tarihli ÖN/13638/06506 numaralı Önlisans alınmıştır (Bkz. Ek-…</div>
+<div class="hit"><span class="pno">[s. 21]</span> <code>3,4 km</code> — …-2.2). EPDK’dan 01.08.2025 tarihli ÖN/13638/06506 numaralı Önlisans alınmıştır (Bkz. Ek-2.3). Üretilen enerji yaklaşık 3,4 km uzunluğundaki 477 MCM kesitli enerji nakil hattı ile Karakurt Havza Trafo Merkezi’ne bağlanacaktır. Değirmendere HE…</div>
+<div class="hit"><span class="pno">[s. 21]</span> <code>0,362 km²</code> — …nat düzeltmelerine ilişkin 06.03.2025 tarih ve 5580278 sayılı DSİ yazısında uyum teyit edilmiş; toplam rezervuar alanı 0,362 km² olarak hesaplanmıştır (Bkz. Ek-2.5). EPDK’dan 01.08.2025 tarihli ÖN/13636/06507 numaralı Önlisans alınmıştır (Bkz. Ek…</div>
+<div class="hit"><span class="pno">[s. 21]</span> <code>4,7 km</code> — …(Bkz. Ek-2.5). EPDK’dan 01.08.2025 tarihli ÖN/13636/06507 numaralı Önlisans alınmıştır (Bkz. Ek-2.6). Enerji, yaklaşık 4,7 km uzunluğundaki 477 MCM kesitli enerji nakil hattı ile Karakurt Havza Trafo Merkezi’ne bağlanacaktır. 1 Türkiye E…</div></section><section class="card"><h3>Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(270 sayfa: s.7, s.8, s.17, s.18, s.20, s.22, s.63, s.68, s.90, s.98, s.107, s.148, s.149, s.151 (+256 sayfa))</span></h3><div class="hit"><span class="pno">[s. 7]</span> <code>yeraltı suyu</code> — …rem, heyelan, çığ, sel, kaya düşmesi vb. oluşumlar halinde alınacak önlemler; yüzeysel (kuru dere yatakları dahil) ve yeraltı suyu kaynaklarının etkilenme durumları ve alınacak önlemler; “Dere Yatakları ve Taşkınlar” konulu 2006/27 sayılı Başbakanl…</div>
+<div class="hit"><span class="pno">[s. 8]</span> <code>deşarj</code> — …nım amaçlarına göre miktarların ayrı ayrı belirtilmesi; oluşacak atık suların cins ve miktarları, bertaraf yöntemleri, deşarj edileceği ortamlar, olası çevresel etkileri ile birlikte kümülatif etkilerin belirlenmesi, olabilecek olumsuz etkiler…</div>
+<div class="hit"><span class="pno">[s. 17]</span> <code>Atıksu</code> — …Onay Yazısı Ek-2.12 Boztepe HES 21.07.2025 Tarihli ÖN/13635/06505 Numaralı Önlisans Belgesi Ek-2.13 Su Temini ve Atıksu Bertarafına İlişkin Kurum Yazışmaları Ek-2.14 Evsel Nitelikli Katı Atıkların Bertarafına İlişkin Kurum Yazışmaları…</div>
+<div class="hit"><span class="pno">[s. 18]</span> <code>Sulak Alan</code> — …16 Paydaş Katılım Planı Ek-17 Ekolojik ve Hidrolojik-Hidrojeolojik Faaliyetler Değerlendirme Raporu Ek-17.1 Sulak Alan Ekolojik Etki Değerlendirme Raporu Ek-17.1.1 Flora Ekolojik Etki Değerlendirme Raporu ve Üniversite Üst Yazısı E…</div>
+<div class="hit"><span class="pno">[s. 20]</span> <code>Atıksu</code> — …RAS BOZTEPE HES (8,604 MWm/7,150 MWe) PROJELERİ SON ŞEKLİ VERİLEN ÇED RAPORU xviii KISALTMALAR/ TANIMLAR AAT Atıksu Arıtma Tesisi AB Avrupa Birliği ADNKS Adrese Dayalı Nüfus Kayıt Sistemi AFAD Afet ve Acil Durum Yönetimi Başkanlı…</div>
+<div class="hit"><span class="pno">[s. 22]</span> <code>atıksu</code> — …anan proje kapsamında ortaya çıkabilecek çevresel etkilerden; atıklara ilişkin hususlar Bölüm III.1.17 ve III.2.16’da, atıksu yönetimine dair bilgiler Bölüm III.1.10 ve III.1.16 ve III.2.15’te, gürültü etkileri Bölüm III.1.18 ve III.2.11’de, ha…</div></section><section class="card"><h3>Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(102 sayfa: s.4, s.5, s.18, s.20, s.120, s.148, s.149, s.150, s.151, s.152, s.155, s.157, s.158, s.161 (+88 sayfa))</span></h3><div class="hit"><span class="pno">[s. 4]</span> <code>orman alanı</code> — …......................................................................................... 91 II.2.8. Orman alanları (orman alanı miktarı -m2 -), meşçere tipi, kapalılığı, mevcut ve planlanan koruma ve/veya kullanım amaçları, proje sahasının işaret…</div>
+<div class="hit"><span class="pno">[s. 5]</span> <code>doğal sit</code> — …at anıtları, tabiatı koruma alanları, yaban hayatı korunma alanları, biyogenetik rezerv alanları, biyosfer rezervleri, doğal sit ve anıtlar, arkeolojik, tarihi, kültürel sitler, özel çevre koruma bölgeleri, özel koruma alanları, turizm alan ve me…</div>
+<div class="hit"><span class="pno">[s. 5]</span> <code>özel çevre koruma</code> — …alanları, biyogenetik rezerv alanları, biyosfer rezervleri, doğal sit ve anıtlar, arkeolojik, tarihi, kültürel sitler, özel çevre koruma bölgeleri, özel koruma alanları, turizm alan ve merkezleri, Mera Kanunu kapsamındaki vb. alanlar, hassasiyet derecesi…</div>
+<div class="hit"><span class="pno">[s. 18]</span> <code>Sulak Alan</code> — …16 Paydaş Katılım Planı Ek-17 Ekolojik ve Hidrolojik-Hidrojeolojik Faaliyetler Değerlendirme Raporu Ek-17.1 Sulak Alan Ekolojik Etki Değerlendirme Raporu Ek-17.1.1 Flora Ekolojik Etki Değerlendirme Raporu ve Üniversite Üst Yazısı E…</div>
+<div class="hit"><span class="pno">[s. 20]</span> <code>Tabiat Parkı</code> — …t Ton T.C. Türkiye Cumhuriyeti TEİAŞ Türkiye Elektrik İletim Anonim Şirketi Tic. Ticaret TL Türk Lirası TP Tabiat Parkı TÜİK Türkiye İstatistik Kurumu vb. ve benzeri Yatırımcı Firma Call Enerji A.Ş. YHGS Yaban Hayatı Geliştirme Sah…</div>
+<div class="hit"><span class="pno">[s. 120]</span> <code>orman alanı</code> — …, AŞAĞI ARAS BOZTEPE HES (8,604 MWm/7,150 MWe) PROJELERİ SON ŞEKLİ VERİLEN ÇED RAPORU 95 II.2.8. Orman alanları (orman alanı miktarı -m2 -), meşçere tipi, kapalılığı, mevcut ve planlanan koruma ve/veya kullanım amaçları, proje sahasının işaret…</div></section><section class="card"><h3>Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(325 sayfa: s.4, s.20, s.23, s.59, s.105, s.121, s.122, s.123, s.124, s.125, s.126, s.127, s.128, s.129 (+311 sayfa))</span></h3><div class="hit"><span class="pno">[s. 4]</span> <code>Flora ve Fauna</code> — …......................................................................................................... 95 II.2.9. Flora ve Fauna (türlerin belirlenmesi; belirlenen türlerin tehlike kategorileri, endemiklik durumları, nispi bolluk dereceleri, Ulusl…</div>
+<div class="hit"><span class="pno">[s. 4]</span> <code>Bern Sözleşmesi</code> — …i; belirlenen türlerin tehlike kategorileri, endemiklik durumları, nispi bolluk dereceleri, Uluslararası anlaşmalarla (Bern Sözleşmesi vb.) koruma altına alınan türler; nadir ve nesli tehlikeye düşmüş türler ve bunların yaşama ortamları, av hayvanları,…</div>
+<div class="hit"><span class="pno">[s. 20]</span> <code>Bern Sözleşmesi</code> — …tal Protection Agency) Regulatory Model AKM Askıda Katı Madde A.Ş. Anonim Şirketi AYY Atık Yönetimi Yönetmeliği Bern Sözleşmesi Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi BOİ Biyolojik Oksijen İhtiyacı ÇDP Çevre Düzeni Pla…</div>
+<div class="hit"><span class="pno">[s. 20]</span> <code>IUCN</code> — …anışmanlık DEB Değerli Ekosistem Bileşenleri DKMP Doğa Koruma ve Milli Parklar EPA Environment Protection Agency IUCN Doğal Hayatı ve Doğal Kaynakları Koruma Birliği (International Union for Conservation of Nature) HES Hidroelektrik s…</div>
+<div class="hit"><span class="pno">[s. 23]</span> <code>Flora ve fauna</code> — …geçitleri, çakıl geçitleri ve can suyu düzenlemelerine ilişkin bilgiler Bölüm III.2.2 ve Bölüm III.2.4’te sunulmuştur. Flora ve fauna ile biyolojik çeşitliliğe ilişkin tespit ve değerlendirmeler Bölüm II.2.9, Bölüm II.2.11, Bölüm III.1.8 ve Bölüm III.2…</div>
+<div class="hit"><span class="pno">[s. 59]</span> <code>mevsimsel</code> — …r hem proje tasarımı hem de çevresel değerlendirmeler için esas alınmıştır. Ayrıca, biyolojik çeşitlilik tespitleri ve mevsimsel ekolojik çalışmalar, farklı disiplinlerde uzman ekiplerce yürütülmüş ve proje alanına ilişkin ayrıntılı ekolojik veri…</div></section><section class="card"><h3>Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(220 sayfa: s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.13, s.20, s.22, s.23, s.42, s.44, s.63 (+206 sayfa))</span></h3><div class="hit"><span class="pno">[s. 4]</span> <code>deprem</code> — …, çığ, su baskını vb.), duyarlılık analizi; heyelan yağış ilişkisi, yamaç stabilitesi, kayma analizi; depremsellik ve deprem riski; heyelan risk haritası, faaliyet alanını da içine alan büyük ölçekli diri fay haritası ile Türkiye Deprem Tehlik…</div>
+<div class="hit"><span class="pno">[s. 5]</span> <code>gürültü</code> — …..................... 169 II.2.15. ÇED inceleme alanının ve etki alanının mevcut kirlilik yükü (hava, su, toprak ve gürültü açısından mevcut kirlilik yükünün belirlenmesi, bu çalışma yapılırken hangi tarihler arasında ne tür çalışmalar yapıld…</div>
+<div class="hit"><span class="pno">[s. 5]</span> <code>kümülatif</code> — …hacmi; kazı fazlası malzeme ve bitkisel toprağın hangi amaçlar için kullanılacağı; olası çevresel etkiler ile birlikte kümülatif etkilerin belirlenmesi, olabilecek olumsuz etkilerinin azaltılması için alınacak önlemlerin açıklanması; düzenleme ve…</div>
+<div class="hit"><span class="pno">[s. 6]</span> <code>kümülatif</code> — …aletler ve makineler, bu aletler ve makinelerde kullanılacak yakıtların türleri, olası çevresel etkiler ile birlikte kümülatif etkilerin belirlenmesi, olabilecek olumsuz etkilerinin azaltılması için alınacak önlemlerin açıklanması, .............…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>deprem</code> — …işlemlerin nerelerde ve nasıl yapılacağı; zemin emniyetinin sağlanması ve su kaçağı olmaması için yapılacak işlemler; deprem, heyelan, çığ, sel, kaya düşmesi vb. oluşumlar halinde alınacak önlemler; yüzeysel (kuru dere yatakları dahil) ve yer…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>kümülatif</code> — …Kontrolü Yönetmeliği gibi) ilgili hükümleri kapsamında değerlendirmeler yapılması, olası çevresel etkiler ile birlikte kümülatif etkilerin belirlenmesi, olabilecek olumsuz etkilerinin azaltılması için alınacak önlemlerin açıklanması (Enerji Amaçl…</div></section><section class="card"><h3>Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(859 sayfa: s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14 (+845 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>8,105 MW</code> — …ru Nihai ÇED Raporu ARŞİMET BURGULU AŞAĞI ARAS KALEBAŞI HES (9,11 MWm/7,66 MWe), AŞAĞI ARAS DEĞİRMENDERE HES (8,105 MWm/6,896 MWe), AŞAĞI ARAS DEMİRKAPI HES (12,147 MWm/10,240 MWe), AŞAĞI ARAS BOZTEPE HES (8,604 MWm/7,150 MWe) PROJELERİ…</div>
+<div class="hit"><span class="pno">[s. 1]</span> <code>6,896 MW</code> — …ÇED Raporu ARŞİMET BURGULU AŞAĞI ARAS KALEBAŞI HES (9,11 MWm/7,66 MWe), AŞAĞI ARAS DEĞİRMENDERE HES (8,105 MWm/6,896 MWe), AŞAĞI ARAS DEMİRKAPI HES (12,147 MWm/10,240 MWe), AŞAĞI ARAS BOZTEPE HES (8,604 MWm/7,150 MWe) PROJELERİ KARS İLİ…</div>
+<div class="hit"><span class="pno">[s. 1]</span> <code>12,147 MW</code> — …ARAS KALEBAŞI HES (9,11 MWm/7,66 MWe), AŞAĞI ARAS DEĞİRMENDERE HES (8,105 MWm/6,896 MWe), AŞAĞI ARAS DEMİRKAPI HES (12,147 MWm/10,240 MWe), AŞAĞI ARAS BOZTEPE HES (8,604 MWm/7,150 MWe) PROJELERİ KARS İLİ, SARIKAMIŞ VE KAĞIZMAN İLÇELERİ, KULOĞ…</div>
+<div class="hit"><span class="pno">[s. 1]</span> <code>10,240 MW</code> — …AŞI HES (9,11 MWm/7,66 MWe), AŞAĞI ARAS DEĞİRMENDERE HES (8,105 MWm/6,896 MWe), AŞAĞI ARAS DEMİRKAPI HES (12,147 MWm/10,240 MWe), AŞAĞI ARAS BOZTEPE HES (8,604 MWm/7,150 MWe) PROJELERİ KARS İLİ, SARIKAMIŞ VE KAĞIZMAN İLÇELERİ, KULOĞLU, DENİZGÖ…</div>
+<div class="hit"><span class="pno">[s. 1]</span> <code>8,604 MW</code> — …AS DEĞİRMENDERE HES (8,105 MWm/6,896 MWe), AŞAĞI ARAS DEMİRKAPI HES (12,147 MWm/10,240 MWe), AŞAĞI ARAS BOZTEPE HES (8,604 MWm/7,150 MWe) PROJELERİ KARS İLİ, SARIKAMIŞ VE KAĞIZMAN İLÇELERİ, KULOĞLU, DENİZGÖLÜ, DEĞİRMENDERE, ÇAYARASI KÖYLERİ M…</div>
+<div class="hit"><span class="pno">[s. 1]</span> <code>7,150 MW</code> — …NDERE HES (8,105 MWm/6,896 MWe), AŞAĞI ARAS DEMİRKAPI HES (12,147 MWm/10,240 MWe), AŞAĞI ARAS BOZTEPE HES (8,604 MWm/7,150 MWe) PROJELERİ KARS İLİ, SARIKAMIŞ VE KAĞIZMAN İLÇELERİ, KULOĞLU, DENİZGÖLÜ, DEĞİRMENDERE, ÇAYARASI KÖYLERİ MEVKİİ…</div></section><section class="card"><h3>Proje Parçalama, Kapasite Artışı ve Eşik Değerler <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(126 sayfa: s.23, s.30, s.40, s.42, s.44, s.50, s.62, s.70, s.116, s.119, s.177, s.187, s.188, s.232 (+112 sayfa))</span></h3><div class="hit"><span class="pno">[s. 23]</span> <code>can suyu</code> — …lı olarak Bölüm III.2.2’de değerlendirilmiş; sucul ekosistemin korunması amacıyla balık geçitleri, çakıl geçitleri ve can suyu düzenlemelerine ilişkin bilgiler Bölüm III.2.2 ve Bölüm III.2.4’te sunulmuştur. Flora ve fauna ile biyolojik çeşitlili…</div>
+<div class="hit"><span class="pno">[s. 30]</span> <code>can suyu</code> — …a birlikte, proje kapsamında sucul ekosistemin korunmasına ilişkin değerlendirmeler, balık geçitleri, çakıl geçitleri, can suyu düzenlemeleri ve diğer önlemler raporun ilgili bölümlerinde ayrıca ele alınmıştır. Yenilenebilir enerji üretimi sağ…</div>
+<div class="hit"><span class="pno">[s. 40]</span> <code>can suyu</code> — …abilecek çevresel etkiler de oluşmayacaktır. Yapılan değerlendirmeler sonucunda, gerekli çevresel önlemlerin alınması, can suyu, balık geçidi, çakıl geçidi, izleme ve yönetim planlarının uygulanması koşuluyla projenin gerçekleştirilmesi tercih ed…</div>
+<div class="hit"><span class="pno">[s. 42]</span> <code>can suyu</code> — …ri azaltmaya yönelik avantajlar sunmaktadır. Bununla birlikte, proje kapsamında sucul ekosistemin korunmasına ilişkin can suyu, balık geçidi, çakıl geçidi, ızgara sistemi ve izleme önlemleri raporun ilgili bölümlerinde ayrıca değerlendirilmiştir…</div>
+<div class="hit"><span class="pno">[s. 44]</span> <code>can suyu</code> — …türbin sistemlerine kıyasla sucul yaşam üzerindeki etkileri azaltmaya yönelik avantajlar sunmaktadır. Balık geçitleri, can suyu düzenlemeleri ve izleme önlemleriyle ekolojik sürekliliğin desteklenmesi hedeflenmektedir. Basit mekanik yapısı saye…</div>
+<div class="hit"><span class="pno">[s. 50]</span> <code>can suyu</code> — …ileri azaltmaya yönelik avantajlar sunan bir teknoloji olarak değerlendirilmektedir. Sucul ekosisteme ilişkin etkiler, can suyu, balık geçidi, çakıl geçidi ve izleme önlemleri raporun ilgili bölümlerinde ayrıca değerlendirilmiştir. Arşimet bur…</div></section></div>
+
+  <h2>Belge Bölüm Haritası</h2>
+  <ul><li><span class="pno">[s. 3]</span> İÇİNDEKİLER</li>
+<li><span class="pno">[s. 12]</span> TABLOLAR DİZİNİ</li>
+<li><span class="pno">[s. 15]</span> ŞEKİLLER DİZİNİ</li>
+<li><span class="pno">[s. 17]</span> EKLER DİZİNİ</li>
+<li><span class="pno">[s. 20]</span> KISALTMALAR/ TANIMLAR</li>
+<li><span class="pno">[s. 21]</span> PROJENİN TEKNİK OLMAYAN BİR ÖZETİ</li>
+<li><span class="pno">[s. 25]</span> BÖLÜM I. PROJENİN TANIMI, KONUMU VE ÖZELLİKLERİ</li>
+<li><span class="pno">[s. 25]</span> I.1. Proje konusu yatırımın tanımı, özellikleri, ömrü, hizmet maksatları, önem ve gerekliliği,</li>
+<li><span class="pno">[s. 38]</span> I.2. Proje için seçilen yerin konumu (Yürürlükteki Planlama Bölgesi 1/100.000 ölçekli Çevre Düzeni Planı&#x27;nın ilgili plan paftaları, lejand ve plan hükümlerinin hangi iş kapsamında alındığını belirtir &quot;aslı gibidir&quot; kaşeli, orijinal boyuttaki kopyaları...</li>
+<li><span class="pno">[s. 40]</span> I.3. Projenin yer ve teknoloji alternatifleri (yer ve teknoloji alternatiflerin karşılaştırılması ve tercih sıralamasının yapılması ile eylemsizlik alternatifinin belirtilmesi), -varsa-projede kullanılacak ulusal ve uluslararası standartların belirtil...</li>
+<li><span class="pno">[s. 44]</span> I.4. Proje kapsamındaki teknik altyapı üniteleri, idari ve sosyal üniteler, varsa diğer ünitelerin konumu; mevcut yollar ve açılacak yollarla birlikte, yerleşim yerlerinin ve hassas alanlara mesafelerin ayrı ayrı verilmesi ve harita üzerinde mesafeler...</li>
+<li><span class="pno">[s. 47]</span> I.5. Projenin ekonomik özellikleri (ilgili yatırım programı, finans kaynakları, bu kaynakların nereden temin edileceği, iş akım şeması, zamanlama tablosu, fayda-maliyet analizi; ÇED sürecinden sonra alınacak izinler),</li>
+<li><span class="pno">[s. 58]</span> I.6. Projeye İlişkin Yasal ve İdari Çerçeve</li>
+<li><span class="pno">[s. 58]</span> I.6.1. Proje İle İlgili Olarak Bu Aşamaya Kadar Gerçekleştirilmiş Olan İş ve İşlemlerin (Kapasite Artışına İlişkin Projelerde Mevcut Duruma İlişkin) Kısaca Açıklanması</li>
+<li><span class="pno">[s. 59]</span> I.6.2. Projeye İlişkin İzin Prosedürü (ÇED sürecinden sonra alınacak izinler)</li>
+<li><span class="pno">[s. 62]</span> I.6.3. Projede Kullanılacak Ulusal ve Uluslararası Standartlar</li>
+<li><span class="pno">[s. 66]</span> I.7. Diğer hususlar (proje kapsamında olmayan ancak projenin gerçekleşebilmesi için zaruri olan veya gerçekleşmesine bağlı olarak, yatırımcı firma veya diğer firmalar tarafından gerçekleştirilmesi tasarlanan diğer ekonomik, sosyal ve altyapı faaliyetl...</li>
+<li><span class="pno">[s. 68]</span> BÖLÜM II. PROJE ALANI VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ (*)</li>
+<li><span class="pno">[s. 68]</span> II.1. Projeden Etkilenecek Alanın Belirlenmesi</li>
+<li><span class="pno">[s. 68]</span> II.1.1. Proje alanı (ÇED inceleme alanı) ve etki alanının nasıl ve neye göre belirlendiği açıklanarak, bu alanların harita üzerinde gösterilmesi,</li></ul>
+
+  <div class="notice">
+    Bu sayfa, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın kamuya açık <code>eced-duyuru.csb.gov.tr</code> duyuru portalındaki kayıtlar esas alınarak bilgilendirme amacıyla hazırlanmıştır. Alıntıların tamamı 1 tabanlı PDF sayfa numarasıyla (<code>[s. N]</code>) gösterilmektedir. Yasal süreler otomatik olarak hesaplanır; kesin sürelerin ve hukuki başvuru yollarının yetkili hukukçular tarafından teyit edilmesi gerekir.
+  </div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+
+(() => {
+  const root = document.documentElement;
+  const saved = localStorage.getItem('eced_theme');
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function syncLabel() {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = cur ? cur === 'dark' : prefersDark;
+    btn.textContent = isDark ? 'Açık Tema' : 'Koyu Tema';
+  }
+  syncLabel();
+  btn.addEventListener('click', () => {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = cur ? cur === 'dark' : prefersDark;
+    const next = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('eced_theme', next);
+    syncLabel();
+  });
+})();
+
+(() => {
+  const copyBtn = document.getElementById('copy-qs-btn');
+  const qsTxt = document.getElementById('qs-plain');
+  if (copyBtn && qsTxt) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(qsTxt.value);
+        copyBtn.textContent = 'Kopyalandı ✓';
+        setTimeout(() => (copyBtn.textContent = 'Soruları Kopyala'), 2200);
+      } catch (e) {
+        copyBtn.textContent = 'Kopyalanamadı';
+      }
+    });
+  }
+  if (typeof L === 'undefined') return;
+  const g = {"lat": 40.10975, "lon": 42.78519, "zoom": 12, "precision": "exact_pdf", "points": [[40.08818, 42.94639], [40.07945, 42.91221], [40.06323, 42.8337], [40.08156, 42.79039], [40.12013, 42.7597], [40.06287, 42.79497], [40.0894, 42.93537], [40.08433, 42.91647], [40.0926, 42.95071], [40.08938, 42.93547], [40.08326, 42.91545], [40.10093, 42.77805], [40.11986, 42.76165], [40.11985, 42.76176], [40.11982, 42.76187], [40.11903, 42.76428], [40.119, 42.76436], [40.11858, 42.76526], [40.11857, 42.76528], [40.11833, 42.76572], [40.11831, 42.76576], [40.11825, 42.76587], [40.1182, 42.76593], [40.11814, 42.76599], [40.11775, 42.76632], [40.11769, 42.76636], [40.11726, 42.76662], [40.11723, 42.76664], [40.11679, 42.76685], [40.11642, 42.76702], [40.11592, 42.76737], [40.11515, 42.76799], [40.11508, 42.76814], [40.11456, 42.76949], [40.11435, 42.77011], [40.11431, 42.7702], [40.11427, 42.77027], [40.11374, 42.77103], [40.11369, 42.7711], [40.11334, 42.77145]], "label": "KARS / KAĞIZMAN,SARIKAMIŞ — Arşimet Burgulu Aşağı Aras Kalebaşı HES (9,11 MWm/7,66 MWe), Aşağı Aras Değirmendere HES ("};
+  const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
+  }).addTo(map);
+  if (g.precision === 'exact_pdf' && g.points.length > 1) {
+    const latlngs = g.points.map(p => [p[0], p[1]]);
+    const poly = L.polyline(latlngs, { color: '#0b5ed7', weight: 3, opacity: 0.85 }).addTo(map);
+    for (const ll of latlngs.slice(0, 30)) {
+      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#d92d20', fillOpacity: 0.9, weight: 1 }).addTo(map);
+    }
+    map.fitBounds(poly.getBounds().pad(0.25));
+  } else {
+    L.circleMarker([g.lat, g.lon], {
+      radius: g.precision === 'exact_pdf' ? 8 : 11,
+      color: '#ffffff',
+      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#0b5ed7',
+      fillOpacity: g.precision === 'exact_pdf' ? 0.9 : 0.45,
+      weight: 2
+    }).bindPopup(g.label).addTo(map).openPopup();
+  }
+})();
+</script>
+</body>
+</html>

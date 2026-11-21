@@ -16,7 +16,7 @@
 | **Announcement Date** | `17.11.2026` (uploaded `30/10/2025 08:57:05`) |
 
 **Statutory Deadlines (informational aid — verify with legal counsel):**
-- **İnceleme Değerlendirme Komisyonu (İDK — ÇED Yönetmeliği m. 11–12):** `2026-12-11` (`21 days remaining`)
+- **İnceleme Değerlendirme Komisyonu (İDK — ÇED Yönetmeliği m. 11–12):** `2026-12-11` (`20 days remaining`)
 
 ## 2. AI-Assisted Scientific Synthesis (`gemini-4-hydrogen`)
 

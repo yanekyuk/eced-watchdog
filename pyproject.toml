@@ -1,6 +1,6 @@
 [project]
 name = "eced-watchdog"
-version = "0.3.0"
+version = "0.4.0"
 description = "Türkiye-wide open-source e-ÇED watcher, interactive map, statutory deadline tracker, and page-cited ecological PDF pre-digest"
 readme = "README.md"
 requires-python = ">=3.12"

@@ -7,145 +7,608 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
 :root {
-  --bg: #0f1216;
-  --surface: #171c22;
-  --border: #262e38;
-  --text: #e6edf3;
-  --muted: #8b949e;
-  --accent: #58a6ff;
-  --red: #f85149;
-  --amber: #d29922;
-  --green: #3fb950;
-  --badge-bg: #212830;
+  --bg: #f6f8fa;
+  --surface: #ffffff;
+  --surface-subtle: #f1f4f8;
+  --border: #d8dee6;
+  --border-strong: #bcc6d4;
+  --text: #161b22;
+  --text-secondary: #424a53;
+  --muted: #5c6670;
+  --accent: #0b5ed7;
+  --accent-soft: #e7f1ff;
+  --red: #b42318;
+  --red-soft: #fef3f2;
+  --red-border: #fecdca;
+  --amber: #9a5b00;
+  --amber-soft: #fffaeb;
+  --amber-border: #fedf89;
+  --green: #067647;
+  --green-soft: #ecfdf3;
+  --green-border: #abefc6;
+  --violet: #5925dc;
+  --violet-soft: #f4f3ff;
+  --violet-border: #d9d6fe;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --radius: 10px;
 }
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg: #f6f8fa;
-    --surface: #ffffff;
-    --border: #d0d7de;
-    --text: #1f2328;
-    --muted: #656d76;
-    --accent: #0969da;
-    --red: #cf222e;
-    --amber: #9a6700;
-    --green: #1a7f37;
-    --badge-bg: #eef2f6;
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface-subtle: #1c222b;
+    --border: #2b333e;
+    --border-strong: #3d4756;
+    --text: #e6edf3;
+    --text-secondary: #c9d1d9;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --accent-soft: rgba(88, 166, 255, 0.14);
+    --red: #ff7b72;
+    --red-soft: rgba(248, 81, 73, 0.14);
+    --red-border: rgba(248, 81, 73, 0.4);
+    --amber: #e3b341;
+    --amber-soft: rgba(210, 153, 34, 0.14);
+    --amber-border: rgba(210, 153, 34, 0.4);
+    --green: #3fb950;
+    --green-soft: rgba(63, 185, 80, 0.14);
+    --green-border: rgba(63, 185, 80, 0.4);
+    --violet: #b692f6;
+    --violet-soft: rgba(158, 119, 237, 0.16);
+    --violet-border: rgba(158, 119, 237, 0.42);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
   }
 }
+:root[data-theme="dark"] {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface-subtle: #1c222b;
+  --border: #2b333e;
+  --border-strong: #3d4756;
+  --text: #e6edf3;
+  --text-secondary: #c9d1d9;
+  --muted: #8b949e;
+  --accent: #58a6ff;
+  --accent-soft: rgba(88, 166, 255, 0.14);
+  --red: #ff7b72;
+  --red-soft: rgba(248, 81, 73, 0.14);
+  --red-border: rgba(248, 81, 73, 0.4);
+  --amber: #e3b341;
+  --amber-soft: rgba(210, 153, 34, 0.14);
+  --amber-border: rgba(210, 153, 34, 0.4);
+  --green: #3fb950;
+  --green-soft: rgba(63, 185, 80, 0.14);
+  --green-border: rgba(63, 185, 80, 0.4);
+  --violet: #b692f6;
+  --violet-soft: rgba(158, 119, 237, 0.16);
+  --violet-border: rgba(158, 119, 237, 0.42);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
 }
-.wrap { max-width: 1240px; margin: 0 auto; padding: 24px 18px 64px; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
-header { border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 20px; }
-h1 { margin: 0 0 6px; font-size: 1.55rem; }
-h2 { margin: 26px 0 10px; font-size: 1.2rem; }
-h3 { margin: 16px 0 8px; font-size: 1rem; }
-.sub { color: var(--muted); font-size: 0.92rem; margin: 0; }
-.meta-bar { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-size: 0.85rem; color: var(--muted); }
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin: 16px 0 18px; }
-.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
-.stat .num { font-size: 1.45rem; font-weight: 700; }
-.stat .lbl { font-size: 0.78rem; color: var(--muted); }
+
+/* Unified Sticky Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.topbar-inner {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 11px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: -0.01em;
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+.brand-scope {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.nav-link {
+  padding: 5px 11px;
+  border-radius: 7px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-link:hover { background: var(--surface-subtle); text-decoration: none; color: var(--text); }
+.nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.theme-btn {
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
+
+/* Layout */
+.wrap { max-width: 1220px; margin: 0 auto; padding: 24px 20px 68px; }
+.wrap.narrow { max-width: 960px; }
+header.page-head { margin-bottom: 20px; }
+h1 { margin: 0 0 8px; font-size: 1.62rem; line-height: 1.25; letter-spacing: -0.02em; }
+h2 { margin: 28px 0 12px; font-size: 1.2rem; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { margin: 16px 0 8px; font-size: 0.98rem; line-height: 1.35; }
+.sub { color: var(--muted); font-size: 0.93rem; margin: 0; }
+.meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin-top: 12px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+
+/* Orientation Banner */
+.hero-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+.hero-strip p { margin: 0; font-size: 0.9rem; color: var(--text-secondary); max-width: 820px; }
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.hero-cta:hover { text-decoration: none; filter: brightness(1.06); }
+
+/* KPI Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  gap: 12px;
+  margin: 0 0 18px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 13px 16px;
+  box-shadow: var(--shadow);
+}
+.stat .num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+.stat .lbl { font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
+.stat.accent .num { color: var(--accent); }
+.stat.rev .num { color: var(--violet); }
+
+/* Map */
 .map-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+#map { width: 100%; height: 400px; background: var(--surface-subtle); }
+#digest-map { width: 100%; height: 320px; background: var(--surface-subtle); }
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  padding: 10px 16px;
+  font-size: 0.79rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: var(--surface-subtle);
+}
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+/* Controls */
+.controls-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.controls-row + .controls-row { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+input[type="search"], select.filter-select {
+  padding: 8px 12px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.88rem;
+}
+input[type="search"]:focus, select.filter-select:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+input[type="search"] { flex: 1 1 250px; }
+select.filter-select { min-width: 165px; }
+button.pill {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.81rem;
+  font-weight: 500;
+  transition: background 0.12s, border-color 0.12s;
+}
+button.pill:hover { border-color: var(--border-strong); color: var(--text); }
+button.pill.active { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 600; }
+button.pill.rev-pill.active { background: var(--violet); border-color: var(--violet); }
+button.reset-btn {
+  margin-left: auto;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+button.reset-btn:hover { color: var(--text); border-color: var(--border-strong); }
+
+/* Cards & Badges */
+.cards { display: flex; flex-direction: column; gap: 11px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+}
+.card.ek1 { border-left: 4px solid var(--accent); }
+.card.has-rev { border-left: 4px solid var(--violet); }
+.card.ek1.has-rev { border-left: 4px solid var(--violet); }
+.row-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 14px;
+  align-items: flex-start;
+}
+.title { font-weight: 650; font-size: 1rem; line-height: 1.38; color: var(--text); flex: 1 1 320px; }
+.title a { color: var(--text); }
+.title a:hover { color: var(--accent); text-decoration: none; }
+.date-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.badge.urgent { background: var(--red-soft); border-color: var(--red-border); color: var(--red); font-weight: 600; }
+.badge.warn { background: var(--amber-soft); border-color: var(--amber-border); color: var(--amber); font-weight: 600; }
+.badge.ok { background: var(--green-soft); border-color: var(--green-border); color: var(--green); font-weight: 600; }
+.badge.info { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
+.badge.rev { background: var(--violet-soft); border-color: var(--violet-border); color: var(--violet); font-weight: 600; }
+.badge.muted { color: var(--muted); }
+.detail { font-size: 0.88rem; color: var(--text-secondary); margin: 9px 0 0; }
+.detail.muted { color: var(--muted); }
+
+/* Revision inline strip on cards */
+.rev-strip {
+  margin-top: 10px;
+  padding: 8px 11px;
+  border-radius: 7px;
+  background: var(--violet-soft);
+  border: 1px solid var(--violet-border);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.rev-strip strong { color: var(--violet); }
+
+/* Action Buttons */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  font-size: 0.83rem;
+  margin-top: 11px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+.btn-primary:hover { text-decoration: none; filter: brightness(1.06); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.btn-secondary:hover { text-decoration: none; border-color: var(--border-strong); color: var(--text); }
+
+/* Tables, Code, Callouts, Timeline */
+table.kv {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.89rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+table.kv th, table.kv td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 13px;
+  text-align: left;
+  vertical-align: top;
+}
+table.kv tr:last-child th, table.kv tr:last-child td { border-bottom: none; }
+table.kv th { width: 250px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
+table.data-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.85rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
   overflow: hidden;
-  margin-bottom: 18px;
 }
-#map { width: 100%; height: 420px; background: var(--badge-bg); }
-#digest-map { width: 100%; height: 320px; background: var(--badge-bg); }
-.map-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  padding: 9px 14px;
-  font-size: 0.8rem;
-  color: var(--muted);
-  border-top: 1px solid var(--border);
+table.data-tbl th, table.data-tbl td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
 }
-.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
-.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; }
-input[type="search"], select.filter-select {
-  padding: 8px 12px;
-  border-radius: 6px;
+table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.data-tbl tr:last-child td { border-bottom: none; }
+code {
+  background: var(--surface-subtle);
   border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.84em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+blockquote {
+  margin: 10px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
   background: var(--surface);
-  color: var(--text);
+  border-radius: 0 8px 8px 0;
   font-size: 0.9rem;
+  color: var(--text-secondary);
 }
-input[type="search"] { flex: 1 1 240px; }
-select.filter-select { min-width: 170px; }
-button.pill {
-  padding: 7px 12px;
-  border-radius: 999px;
+.callout {
+  padding: 14px 16px;
+  border-radius: var(--radius);
   border: 1px solid var(--border);
   background: var(--surface);
-  color: var(--text);
-  cursor: pointer;
-  font-size: 0.82rem;
+  margin: 14px 0;
 }
-button.pill.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
-.cards { display: flex; flex-direction: column; gap: 10px; }
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 15px 17px;
+.callout.rev {
+  background: var(--violet-soft);
+  border-color: var(--violet-border);
 }
-.card.ek1 { border-left: 4px solid var(--accent); }
-.row-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline; }
-.title { font-weight: 600; font-size: 0.98rem; }
-.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 7px; }
-.badge {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  background: var(--badge-bg);
-  border: 1px solid var(--border);
+.callout.warn {
+  background: var(--amber-soft);
+  border-color: var(--amber-border);
 }
-.badge.urgent { border-color: var(--red); color: var(--red); font-weight: 600; }
-.badge.warn { border-color: var(--amber); color: var(--amber); font-weight: 600; }
-.badge.ok { border-color: var(--green); color: var(--green); }
-.badge.muted { color: var(--muted); }
-.detail { font-size: 0.87rem; color: var(--muted); margin: 8px 0; }
-.actions { display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.84rem; margin-top: 8px; }
+.timeline {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid var(--border-strong);
+}
+.timeline li {
+  position: relative;
+  margin: 0 0 10px;
+  padding-left: 8px;
+  font-size: 0.87rem;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+}
+.hit { margin: 8px 0; font-size: 0.88rem; line-height: 1.55; }
+.pno { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
 .notice {
-  margin-top: 28px;
+  margin-top: 32px;
   padding: 14px 16px;
   border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 0.84rem;
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+  font-size: 0.83rem;
   color: var(--muted);
 }
-table.kv { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9rem; }
-table.kv th, table.kv td { border: 1px solid var(--border); padding: 8px 11px; text-align: left; vertical-align: top; }
-table.kv th { width: 240px; background: var(--badge-bg); }
-code { background: var(--badge-bg); padding: 1px 5px; border-radius: 4px; font-size: 0.85em; }
-blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--accent); background: var(--surface); font-size: 0.9rem; }
-.hit { margin: 7px 0; font-size: 0.88rem; }
-.pno { font-weight: 700; color: var(--accent); }
-.leaflet-popup-content { color: #1f2328; font-size: 0.85rem; line-height: 1.45; }
+.toc-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 20px; }
+.toc-pills a {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.81rem;
+  font-weight: 500;
+}
+.toc-pills a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+.step-num {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+pre.template-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.section-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.leaflet-popup-content { color: #161b22; font-size: 0.85rem; line-height: 1.45; }
+@media (max-width: 700px) {
+  table.kv th { width: 145px; }
+  #map { height: 320px; }
+  .topbar-inner { padding: 10px 14px; }
+  .wrap { padding: 18px 14px 54px; }
+}
+@media print {
+  .topbar, .no-print, #digest-map, .map-box { display: none !important; }
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .card, table.kv, table.data-tbl { box-shadow: none; break-inside: avoid; }
+  a { color: #000000; text-decoration: underline; }
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div style="font-size:0.85rem;margin-bottom:8px;"><a href="../index.html">← Türkiye e-ÇED İzleme listesine dön</a> · <a href="../rehber.html">Kullanım ve İnceleme Rehberi</a> · <a href="61736.md">Ham Markdown (.md)</a></div>
-    <h1>e-ÇED Ön Özet #61736 — YALOVA / ÇIFTLIKKÖY</h1>
-    <p class="sub">MEMPORT LİMAN</p>
-    <div class="badges" style="margin-top:10px;">
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      <span>Türkiye e-ÇED İzleme</span>
+      <span class="brand-scope">81 İl</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link " href="../index.html">Duyurular ve Harita</a>
+      <a class="nav-link " href="../rehber.html">Kullanım Rehberi</a>
+      <a class="nav-link" href="../feed.xml">RSS 2.0</a>
+      <a class="nav-link" href="https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml" target="_blank" rel="noopener">Resmi e-ÇED ↗</a>
+      <button id="theme-toggle" class="theme-btn" type="button">Tema</button>
+    </div>
+  </div>
+</nav>
+<div class="wrap narrow">
+  <header class="page-head">
+    <div style="font-size:0.84rem;color:var(--muted);margin-bottom:8px;" class="no-print">
+      <a href="../index.html">← Duyurular listesine dön</a> · Dosya <code>#61736</code>
+    </div>
+    <h1>MEMPORT LİMAN</h1>
+    <p class="sub">YALOVA / ÇIFTLIKKÖY · MEM GEMİ SANAYİ VE TİCARET A.Ş.</p>
+    <div class="badges" style="margin-top:11px;">
       <span class="badge">HKT</span>
-      <span class="badge">Ek-1</span>
-      <span class="badge ok">HKT Toplantısı · 25 gün kaldı (2026-12-15)</span>
+      <span class="badge info">Ek-1</span>
+      <span class="badge ok">HKT Toplantısı · 24 gün kaldı (2026-12-15)</span>
+      <span class="badge rev">Süreç Takibi (2 aşama)</span>
+    </div>
+    <div class="actions no-print" style="border-top:none;padding-top:4px;">
+      <a class="btn-primary" href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign5861658199507577599.pdf&amp;orjinalAd=e-imza.pdf&amp;yuklemeTarihi=2026-11-17" target="_blank" rel="noopener">Resmi PDF Dosyası ↗</a>
+      <a class="btn-secondary" href="http://eced.csb.gov.tr/jsp/ek1/61736" target="_blank" rel="noopener">e-ÇED Portal Kaydı ↗</a>
+      <a class="btn-secondary" href="61736.md">Ham Markdown (.md)</a>
+      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF Kaydet</button>
     </div>
   </header>
 
@@ -153,10 +616,15 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
     <tr><th>Proje Sahibi</th><td>MEM GEMİ SANAYİ VE TİCARET A.Ş.</td></tr>
     <tr><th>Hazırlayan Kuruluş</th><td>GİSAŞ GEMİ İNŞA SANAYİ A.Ş.</td></tr>
     <tr><th>Sektör / Alt Sektör</th><td>Kıyı / Limanlar (Yat Limanları Dahil)</td></tr>
-    <tr><th>Duyuru Tarihi</th><td><code>19.11.2026</code> (belge yükleme tarihi: <code>17/11/2026 03:05:21</code>)</td></tr>
-    <tr><th>PDF Kapsamı</th><td>83.69 MB · 396 sayfa (351 metin sayfası / 45 taranmış veya görüntü sayfası) · SHA-256 <code>e2168d63b0d197a2…</code></td></tr>
-    <tr><th>Resmi Bağlantılar</th><td><a href="http://eced.csb.gov.tr/jsp/ek1/61736" target="_blank" rel="noopener">e-ÇED Portal Kaydı</a> · <a href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign5861658199507577599.pdf&amp;orjinalAd=e-imza.pdf&amp;yuklemeTarihi=2026-11-17" target="_blank" rel="noopener">Resmi PDF Dosyası</a> · <a href="https://www.openstreetmap.org/?mlat=40.69199&amp;mlon=29.41711#map=12/40.69199/29.41711" target="_blank" rel="noopener">OpenStreetMap</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=40.69199,29.41711" target="_blank" rel="noopener">Google Haritalar</a></td></tr>
+    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>19.11.2026</code> · Belge yükleme: <code>17/11/2026 03:05:21</code></td></tr>
+    <tr><th>PDF Kapsamı ve Bütünlük</th><td>83.69 MB · 396 sayfa (351 metin / 45 taranmış) · SHA-256 <code>e2168d63b0d197a2…</code></td></tr>
+    <tr><th>Harita Bağlantıları</th><td><a href="https://www.openstreetmap.org/?mlat=40.69199&amp;mlon=29.41711#map=12/40.69199/29.41711" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=40.69199,29.41711" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
   </table>
+
+  <h2>Belge Bütünlüğü, Revizyon ve Süreç Geçmişi</h2>
+<p class="sub">Her PDF dosyasının SHA-256 özeti, yükleme tarihi ve teknik göstergeleri arşivlenir. Bakanlık portalında rapor değiştirildiğinde veya 2009/7 Genelgesi kapsamında yeniden yüklendiğinde sürümler arası fark (v1 → v2) otomatik olarak kaydedilir.</p>
+<table class="data-tbl"><thead><tr><th>Sürüm</th><th>Arşiv Tarihi</th><th>Aşama</th><th>Yükleme Tarihi</th><th>Sayfa</th><th>SHA-256</th></tr></thead><tbody><tr><td><code>v1</code></td><td><code>2026-11-20T02:10:44</code></td><td>HKT</td><td><code>2026-11-17</code></td><td>396</td><td><code>e2168d63b0d197a2…</code></td></tr></tbody></table>
+<h3>Aynı Dosya (#61736) Süreç Zaman Çizelgesi</h3><ul class="timeline"><li><strong>18.11.2026</strong> — <span class="badge">ÇED Süreci Başlayan</span> <span class="sub">(belge yükleme: <code>2026-11-17</code>)</span></li><li><strong>19.11.2026</strong> — <span class="badge">HKT</span> <span class="sub">(belge yükleme: <code>2026-11-17</code>)</span></li></ul>
 
   <h2>Konum Haritası</h2>
   <div class="map-box">
@@ -167,9 +635,9 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
   
   <h2>Yapay Zeka Destekli Bilimsel Ön Değerlendirme <span class="badge">gemini-4-hydrogen</span></h2>
   <p class="sub">Bu değerlendirme, resmi PDF dosyasından seçilen 26 sayfa (s.1, s.2, s.6, s.7, s.10, s.19, s.20, s.49, s.61, s.78, s.79, s.83, s.97, s.104, s.106, s.108, s.110, s.112, s.113, s.117, s.167, s.168, s.196, s.197, s.203, s.204) esas alınarak hazırlanmıştır. Tüm sayısal verilerin ve tespitlerin resmi PDF belgesindeki ilgili <code>[s. N]</code> sayfalarından doğrulanması gerekir.</p>
-  <section class="card ek1">
-    <p><strong>Özet:</strong> MEM Gemi Sanayi ve Ticaret A.Ş. tarafından Yalova ili, Çiftlikköy ilçesi, Taşköprü beldesi, Denizçalı mahallesi, 140 ada 22, 24, 26 ve 29 parseller ile kuzeyindeki deniz alanında yaklaşık 47,4 ha büyüklüğünde MEMPORT Liman Projesi planlanmaktadır [s. 19, 49]. Proje kapsamında 251.536,86 m² kara parseli ve 222.924,79 m² ön izinli deniz alanında 1.600.000 m³ dolgu, 49.270 m³ dip taraması, iki iskele, üç rıhtım, dört Ro-Ro rampası, katlı otopark ve 41.622 m² kuru yük stok alanı inşa edilmesi öngörülmektedir [s. 49, 167]. Proje bedeli 8.127.130.000 TL olup ÇED Yönetmeliği Ek-1 Madde 10/b ve Ek-2 Madde 28/i kapsamında ÇED Başvuru Dosyası aşamasındadır [s. 2]. Projenin deniz kesiminin Marmara Denizi ve Adalar Özel Çevre Koruma Bölgesi sınırları içinde yer alması ve ÇED alanı sınırına yaklaşık 8 m mesafede apartman ve yazlık yapıların bulunması başlıca çevresel hassasiyet unsurlarıdır [s. 83, 167].</p>
-    <details style="margin-top:8px;font-size:0.86rem;color:var(--muted);"><summary style="cursor:pointer;">İngilizce özet (English summary)</summary><p style="margin:6px 0 0;">MEM Gemi Sanayi ve Ticaret A.Ş. proposes the MEMPORT Port Project covering approximately 47.4 ha across land parcels (Block 140, Parcels 22, 24, 26, and 29) and the adjacent marine area in Denizçalı Mahallesi, Taşköprü, Çiftlikköy, Yalova [s. 19, 49]. The 8,127,130,000 TL investment—subject to EIA Annex-1 Article 10(b) and Annex-2 Article 28(i)—includes 1,600,000 m³ of marine reclamation, 49,270 m³ of seabed dredging, two piers, three quays, four Ro-Ro ramps, a multi-story car park, and a 41,622 m² dry bulk storage yard [s. 2, 167]. Key environmental stakes stem from the marine footprint lying within the Marmara Sea and Islands Special Environmental Protection Area (ÖÇKB) and the presence of residential apartments and summer houses approximately 8 m from the EIA boundary [s. 83, 167]. Because this filing is an initial EIA Application File (ÇED Başvuru Dosyası), core baseline ecosystem findings and several construction-phase engineering parameters are deferred to the forthcoming full EIA Report [s. 83, 167].</p></details>
+  <section class="card ek1" style="margin-top:10px;">
+    <p style="margin-top:0;"><strong>Özet:</strong> MEM Gemi Sanayi ve Ticaret A.Ş. tarafından Yalova ili, Çiftlikköy ilçesi, Taşköprü beldesi, Denizçalı mahallesi, 140 ada 22, 24, 26 ve 29 parseller ile kuzeyindeki deniz alanında yaklaşık 47,4 ha büyüklüğünde MEMPORT Liman Projesi planlanmaktadır [s. 19, 49]. Proje kapsamında 251.536,86 m² kara parseli ve 222.924,79 m² ön izinli deniz alanında 1.600.000 m³ dolgu, 49.270 m³ dip taraması, iki iskele, üç rıhtım, dört Ro-Ro rampası, katlı otopark ve 41.622 m² kuru yük stok alanı inşa edilmesi öngörülmektedir [s. 49, 167]. Proje bedeli 8.127.130.000 TL olup ÇED Yönetmeliği Ek-1 Madde 10/b ve Ek-2 Madde 28/i kapsamında ÇED Başvuru Dosyası aşamasındadır [s. 2]. Projenin deniz kesiminin Marmara Denizi ve Adalar Özel Çevre Koruma Bölgesi sınırları içinde yer alması ve ÇED alanı sınırına yaklaşık 8 m mesafede apartman ve yazlık yapıların bulunması başlıca çevresel hassasiyet unsurlarıdır [s. 83, 167].</p>
+    <details style="margin-top:10px;font-size:0.86rem;color:var(--muted);"><summary style="cursor:pointer;">İngilizce özet (English summary)</summary><p style="margin:6px 0 0;">MEM Gemi Sanayi ve Ticaret A.Ş. proposes the MEMPORT Port Project covering approximately 47.4 ha across land parcels (Block 140, Parcels 22, 24, 26, and 29) and the adjacent marine area in Denizçalı Mahallesi, Taşköprü, Çiftlikköy, Yalova [s. 19, 49]. The 8,127,130,000 TL investment—subject to EIA Annex-1 Article 10(b) and Annex-2 Article 28(i)—includes 1,600,000 m³ of marine reclamation, 49,270 m³ of seabed dredging, two piers, three quays, four Ro-Ro ramps, a multi-story car park, and a 41,622 m² dry bulk storage yard [s. 2, 167]. Key environmental stakes stem from the marine footprint lying within the Marmara Sea and Islands Special Environmental Protection Area (ÖÇKB) and the presence of residential apartments and summer houses approximately 8 m from the EIA boundary [s. 83, 167]. Because this filing is an initial EIA Application File (ÇED Başvuru Dosyası), core baseline ecosystem findings and several construction-phase engineering parameters are deferred to the forthcoming full EIA Report [s. 83, 167].</p></details>
     <div class="badges" style="margin-top:10px;">
       <span class="badge">Saha çalışması: Karışık veya yöntemi belirsiz</span>
       <span class="badge">Mevsimsel örnekleme: İncelenen sayfalarda tespit edilemedi</span>
@@ -194,12 +662,16 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
 <div class="hit"><span class="badge warn">ORTA</span> <strong>Kümülatif Etkilerin Nicel Değerlendirmeden Yoksun Olması</strong> <span class="pno">[s. 19, s. 167, s. 168]</span> — Sahanın sanayi ve kıyı kullanımının yoğun olduğu Taşköprü-Denizçalı kesiminde yer aldığı belirtilmesine karşın [s. 19], diğer liman, sanayi ve yerleşimlerle oluşabilecek kümülatif etkiler yalnızca Tablo 41 ve Tablo 42&#x27;de madde başlığı olarak anılmış [s. 167, 168], nicel bir değerlendirme yapılmamıştır.</div>
 <div class="hit"><span class="badge warn">ORTA</span> <strong>Taşköprü Ovası Akiferi ve Tuzlu Su Girişimi Etkileşiminin Değerlendirilmemesi</strong> <span class="pno">[s. 19, s. 113, s. 117]</span> — Taşköprü Ovası alüvyon akiferinde yeraltı suyu seviyesinin ortalama 7 m olduğu, deniz yönüne boşaldığı, aşırı düşümlerin tuzlu su girişimi riskini artırdığı ve tuzluluk, nitrat ile amonyum kalite sorunlarının gözlendiği belirtilmesine karşın [s. 113, 117], 47,4 ha alanda yapılacak dolgu ve kıyı yapılarının akifer boşalımına etkisi incelenen sayfalarda analiz edilmemiştir [s. 19, 113, 117].</div></section>
   
-  <h3>HKT Tutanakları ve Bilirkişi İncelemesi İçin Taslak Teknik Sorular</h3><ul><li>Marmara Denizi ve Adalar ÖÇKB içinde planlanan 1.600.000 m³ dolgu ve 49.270 m³ dip taraması öncesinde, yalnızca 17.11.2025 tarihli tek gün gözlemi yerine dört mevsimi kapsayan denizel ve karasal biyolojik çeşitlilik etütleri yapılacak mıdır ve Ekosistem Değerlendirme Raporu hangi aşamada kamuoyunun incelemesine açılacaktır? <span class="pno">[s. 83, s. 167]</span></li>
+  <div class="section-head-row"><h3>HKT Tutanakları ve Bilirkişi İncelemesi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card"><ul style="margin:0;padding-left:20px;"><li>Marmara Denizi ve Adalar ÖÇKB içinde planlanan 1.600.000 m³ dolgu ve 49.270 m³ dip taraması öncesinde, yalnızca 17.11.2025 tarihli tek gün gözlemi yerine dört mevsimi kapsayan denizel ve karasal biyolojik çeşitlilik etütleri yapılacak mıdır ve Ekosistem Değerlendirme Raporu hangi aşamada kamuoyunun incelemesine açılacaktır? <span class="pno">[s. 83, s. 167]</span></li>
 <li>Yandan taramalı sonar kayıtlarında deniz tabanında batık iskele ve deşarj boru hattı tespit edildiği belirtildiğinden [s. 106], taranacak toplam 49.270 m³ dip sedimentinde ağır metal, PAH ve organik kirletici analizleri nasıl yürütülecek ve kirlenmiş malzeme çıkması durumunda hangi bertaraf yöntemi uygulanacaktır? <span class="pno">[s. 106, s. 167]</span></li>
 <li>ÇED alanı sınırına yaklaşık 8 m mesafedeki apartman ve yazlık yapılar için [s. 167], kazık çakma/fore kazık kaynaklı gürültü ve titreşim ile 41.622 m² kuru yük stok alanı ve inşaat taşımacılığından doğacak partikül madde emisyonları hangi sayısal modellerle hesaplanacak ve hangi fiziksel koruma önlemleri alınacaktır? <span class="pno">[s. 167, s. 168]</span></li>
 <li>1.600.000 m³ dolgu malzemesinin hangi ruhsatlı ocaklardan ve hangi karayolu güzergâhlarından taşınacağı, bu taşımacılığın günlük ağır vasıta trafik yüküne etkisi ve Taşköprü-Denizçalı kesimindeki mevcut sanayi/liman tesisleriyle oluşacak kümülatif hava ve deniz suyu kalitesi etkileri nasıl modellenecektir? <span class="pno">[s. 19, s. 167, s. 168]</span></li>
-<li>Taşköprü Ovası kıyı akiferinde ortalama 7 m düzeyinde bulunan yeraltı suyunun Marmara Denizi&#x27;ne boşalımı ve mevcut tuzlu su girişimi riski dikkate alındığında [s. 113, 117], 47,4 ha alandaki dolgu ve geçirimsiz geri saha düzenlemelerinin kıyı hidrojeolojisi üzerindeki etkileri araştırılacak mıdır? <span class="pno">[s. 19, s. 113, s. 117]</span></li></ul>
-  <p class="sub"><em>İnceleme sınırları:</em> Toplam 396 sayfalık dosyanın 45 sayfası taranmış/görüntü formatında olup bu inceleme yalnızca sunulan 26 örnek sayfadaki metinlere dayanmaktadır. İçindekiler listesinde yer alan sediment tane boyu analizleri (s. 80-81), akıntı ve CTD ölçümleri, deprem tehlike analizleri (s. 127-135), kıyı su kalitesi ve hava kalitesi ölçümleri (s. 138-144), en yakın korunan alan haritası (s. 149), gürültü/hava/atık hesaplamaları ve Sürdürülebilirlik Planı ekleri (EK-8.1 ila EK-8.4) ile Tablo 43&#x27;ün devam sayfaları incelenen kesitlerde bulunmadığından doğrulanamamıştır.</p>
+<li>Taşköprü Ovası kıyı akiferinde ortalama 7 m düzeyinde bulunan yeraltı suyunun Marmara Denizi&#x27;ne boşalımı ve mevcut tuzlu su girişimi riski dikkate alındığında [s. 113, 117], 47,4 ha alandaki dolgu ve geçirimsiz geri saha düzenlemelerinin kıyı hidrojeolojisi üzerindeki etkileri araştırılacak mıdır? <span class="pno">[s. 19, s. 113, s. 117]</span></li></ul><textarea id="qs-plain" style="display:none;">1. Marmara Denizi ve Adalar ÖÇKB içinde planlanan 1.600.000 m³ dolgu ve 49.270 m³ dip taraması öncesinde, yalnızca 17.11.2025 tarihli tek gün gözlemi yerine dört mevsimi kapsayan denizel ve karasal biyolojik çeşitlilik etütleri yapılacak mıdır ve Ekosistem Değerlendirme Raporu hangi aşamada kamuoyunun incelemesine açılacaktır? [s. 83, s. 167]
+2. Yandan taramalı sonar kayıtlarında deniz tabanında batık iskele ve deşarj boru hattı tespit edildiği belirtildiğinden [s. 106], taranacak toplam 49.270 m³ dip sedimentinde ağır metal, PAH ve organik kirletici analizleri nasıl yürütülecek ve kirlenmiş malzeme çıkması durumunda hangi bertaraf yöntemi uygulanacaktır? [s. 106, s. 167]
+3. ÇED alanı sınırına yaklaşık 8 m mesafedeki apartman ve yazlık yapılar için [s. 167], kazık çakma/fore kazık kaynaklı gürültü ve titreşim ile 41.622 m² kuru yük stok alanı ve inşaat taşımacılığından doğacak partikül madde emisyonları hangi sayısal modellerle hesaplanacak ve hangi fiziksel koruma önlemleri alınacaktır? [s. 167, s. 168]
+4. 1.600.000 m³ dolgu malzemesinin hangi ruhsatlı ocaklardan ve hangi karayolu güzergâhlarından taşınacağı, bu taşımacılığın günlük ağır vasıta trafik yüküne etkisi ve Taşköprü-Denizçalı kesimindeki mevcut sanayi/liman tesisleriyle oluşacak kümülatif hava ve deniz suyu kalitesi etkileri nasıl modellenecektir? [s. 19, s. 167, s. 168]
+5. Taşköprü Ovası kıyı akiferinde ortalama 7 m düzeyinde bulunan yeraltı suyunun Marmara Denizi&#x27;ne boşalımı ve mevcut tuzlu su girişimi riski dikkate alındığında [s. 113, 117], 47,4 ha alandaki dolgu ve geçirimsiz geri saha düzenlemelerinin kıyı hidrojeolojisi üzerindeki etkileri araştırılacak mıdır? [s. 19, s. 113, s. 117]</textarea></section>
+  <p class="sub" style="margin-top:10px;"><em>İnceleme sınırları:</em> Toplam 396 sayfalık dosyanın 45 sayfası taranmış/görüntü formatında olup bu inceleme yalnızca sunulan 26 örnek sayfadaki metinlere dayanmaktadır. İçindekiler listesinde yer alan sediment tane boyu analizleri (s. 80-81), akıntı ve CTD ölçümleri, deprem tehlike analizleri (s. 127-135), kıyı su kalitesi ve hava kalitesi ölçümleri (s. 138-144), en yakın korunan alan haritası (s. 149), gürültü/hava/atık hesaplamaları ve Sürdürülebilirlik Planı ekleri (EK-8.1 ila EK-8.4) ile Tablo 43&#x27;ün devam sayfaları incelenen kesitlerde bulunmadığından doğrulanamamıştır.</p>
 
 
   <h2>Resmi Duyuru Metni</h2>
@@ -207,41 +679,43 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
 
   <h2>Otomatik Metin Taraması (Deterministik)</h2>
   <table class="kv"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
-<tr><th>Literatür taraması ifadesi</th><td><span class="badge urgent">Metinde tespit edilemedi; doğrudan PDF üzerinden kontrol ediniz</span></td></tr>
+<tr><th>Literatür taraması ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr>
 <tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
 <tr><th>Kümülatif etki değerlendirmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
 <tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
 <tr><th>Yeraltı suyu, akifer veya hidrojeoloji ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
-<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr></table>
+<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr>
+<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr></table>
   <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik metin taramasına dahil edilmemiştir.</p>
 
   <h2>Sayfa Kaynaklı Çıkarılan Bulgular</h2>
-  <div class="cards"><section class="card"><h3>Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(75 sayfa: s.9, s.10, s.12, s.17, s.19, s.22, s.30, s.41, s.42, s.47, s.49, s.58, s.61, s.62 (+61 sayfa))</span></h3><div class="hit"><span class="pno">[s. 9]</span> <code>KOORDİNAT</code> — …E BELGELER İLE RAPORDA KULLANILAN TEKNİKLERDEN RAPOR METNİNDE SUNULAMAYAN BELGELER EK-2 PROJE İÇİN SEÇİLEN YERİN KOORDİNATLARI EK-3 PROJE İÇİN BELİRLENEN YER VE ALTERNATİFLERİNİN VARSA; ÇEVRE DÜZENİ, NAZIM, UYGULAMA İMAR PLANI, VAZİYET PL…</div>
+  <div class="cards"><section class="card"><h3>Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(75 sayfa: s.9, s.10, s.12, s.17, s.19, s.22, s.30, s.41, s.42, s.47, s.49, s.58, s.61, s.62 (+61 sayfa))</span></h3><div class="hit"><span class="pno">[s. 9]</span> <code>KOORDİNAT</code> — …E BELGELER İLE RAPORDA KULLANILAN TEKNİKLERDEN RAPOR METNİNDE SUNULAMAYAN BELGELER EK-2 PROJE İÇİN SEÇİLEN YERİN KOORDİNATLARI EK-3 PROJE İÇİN BELİRLENEN YER VE ALTERNATİFLERİNİN VARSA; ÇEVRE DÜZENİ, NAZIM, UYGULAMA İMAR PLANI, VAZİYET PL…</div>
 <div class="hit"><span class="pno">[s. 10]</span> <code>ED-50</code> — …, Şehircilik ve İklim Değişikliği İl Müdürlüğü DGM Denizcilik Genel Müdürlüğü DSİ Devlet Su İşleri Genel Müdürlüğü ED-50 European Datum 1950 – Avrupa Datumu 1950 GİSAŞ Gemi İnşa Sanayi A.Ş. GPS Global Positioning System – Küresel Konum…</div>
 <div class="hit"><span class="pno">[s. 10]</span> <code>UTM</code> — …ğı Denizcilik Genel Müdürlüğü UNCTAD United Nations Trade and Development – Birleşmiş Milletler Ticaret ve Kalkınma UTM Universal Transverse Mercator – Evrensel Enine Merkator Koordinat Sistemi WGS 84 World Geodetic System 1984 – Dünya…</div>
 <div class="hit"><span class="pno">[s. 10]</span> <code>Koordinat</code> — …nd Development – Birleşmiş Milletler Ticaret ve Kalkınma UTM Universal Transverse Mercator – Evrensel Enine Merkator Koordinat Sistemi WGS 84 World Geodetic System 1984 – Dünya Jeodezik Sistemi 1984</div>
 <div class="hit"><span class="pno">[s. 10]</span> <code>WGS 84</code> — …leşmiş Milletler Ticaret ve Kalkınma UTM Universal Transverse Mercator – Evrensel Enine Merkator Koordinat Sistemi WGS 84 World Geodetic System 1984 – Dünya Jeodezik Sistemi 1984</div>
-<div class="hit"><span class="pno">[s. 12]</span> <code>536,86 m2</code> — …Ada, 22-24-26-29 Parsel ve Deniz Kesiminde “MEMPORT Liman Projesi” planlanmaktadır. Söz konusu liman projesinin 251.536,86 m2 geri saha, 222.924,79 m2 deniz dolgusu olmak üzere toplam 474.461,65 m2 alandan meydana gelmektedir. Tesisin konumu…</div></section><section class="card"><h3>Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(47 sayfa: s.7, s.106, s.112, s.113, s.114, s.115, s.117, s.118, s.122, s.123, s.148, s.149, s.150, s.151 (+33 sayfa))</span></h3><div class="hit"><span class="pno">[s. 7]</span> <code>Yeraltı Suyu</code> — …altı Suyu Potansiyeli (Yalova İl Tarım ve Orman Müdürlüğü, 2025) .......... 101 Tablo 23. Alüvyon Akiferlerinin Yıllık Yeraltı Suyu Potansiyeli (DSİ Genel Müdürlüğü 1. Bölge Müdürlüğü, 2025) ...........................................................…</div>
+<div class="hit"><span class="pno">[s. 12]</span> <code>536,86 m2</code> — …Ada, 22-24-26-29 Parsel ve Deniz Kesiminde “MEMPORT Liman Projesi” planlanmaktadır. Söz konusu liman projesinin 251.536,86 m2 geri saha, 222.924,79 m2 deniz dolgusu olmak üzere toplam 474.461,65 m2 alandan meydana gelmektedir. Tesisin konumu…</div></section><section class="card"><h3>Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(47 sayfa: s.7, s.106, s.112, s.113, s.114, s.115, s.117, s.118, s.122, s.123, s.148, s.149, s.150, s.151 (+33 sayfa))</span></h3><div class="hit"><span class="pno">[s. 7]</span> <code>Yeraltı Suyu</code> — …altı Suyu Potansiyeli (Yalova İl Tarım ve Orman Müdürlüğü, 2025) .......... 101 Tablo 23. Alüvyon Akiferlerinin Yıllık Yeraltı Suyu Potansiyeli (DSİ Genel Müdürlüğü 1. Bölge Müdürlüğü, 2025) ...........................................................…</div>
 <div class="hit"><span class="pno">[s. 106]</span> <code>deşarj</code> — …nelde düzgün bir yapıda olduğu görülmüş, Deniz tabanı üzerinde doğal olmayan yapı olarak bazı yerleri batık iskele ve deşarj boru hattı olduğu gözlenmiştir. Elde edilen tüm yandan taramalı sonar hatlarına ait kayıtlar resim ve sayısal ortam…</div>
 <div class="hit"><span class="pno">[s. 112]</span> <code>70 l/s</code> — …ezervuar yüzey alanı yaklaşık 5,5 ha ve drenaj alanı 17,80 km²’dir. Dolusavak kapasitesi 85 m³/s, isale kapasitesi ise 70 l/s’dir. Gölete bağlı arıtma tesisinin kapasitesi 70 l/s veya yaklaşık 6.048 m³/gün olarak belirtilmektedir. Armutlu G…</div>
 <div class="hit"><span class="pno">[s. 112]</span> <code>6.048 m³/gün</code> — …vak kapasitesi 85 m³/s, isale kapasitesi ise 70 l/s’dir. Gölete bağlı arıtma tesisinin kapasitesi 70 l/s veya yaklaşık 6.048 m³/gün olarak belirtilmektedir. Armutlu Göleti, Armutlu ilçesinin içme suyu ihtiyacının karşılanması amacıyla kullanılmak…</div>
 <div class="hit"><span class="pno">[s. 113]</span> <code>yeraltı suyu</code> — …dere Göleti Kaya 882*103 192 664.103 Sulama Hidrojeolojik Özellikler Yalova Merkez ilçesi ve yakın çevresi, yeraltı suyu potansiyeli bakımından genel olarak verimli bir bölge değildir. Bu alanlarda yaygın olarak gözlenen fliş birimleri, g…</div>
-<div class="hit"><span class="pno">[s. 113]</span> <code>akifer</code> — …birimleri, gözeneklilik ve geçirgenlik özellikleri bakımından önemli miktarda yeraltı suyu depolayabilecek nitelikte akifer birimleri oluşturmamaktadır. Buna karşılık Yalova, Taşköprü ve Hersek ovalarında bulunan alüvyon birimleri, yeraltı…</div></section><section class="card"><h3>Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(23 sayfa: s.10, s.19, s.49, s.61, s.83, s.115, s.160, s.161, s.163, s.165, s.167, s.174, s.175, s.183 (+9 sayfa))</span></h3><div class="hit"><span class="pno">[s. 10]</span> <code>Özel Çevre Koruma</code> — …Zonu MGM Meteoroloji Genel Müdürlüğü MTA Maden Tetkik ve Arama Genel Müdürlüğü NO₂ Azot Dioksit O₃ Ozon ÖÇKB Özel Çevre Koruma Bölgesi PM₁₀ Aerodinamik çapı 10 µm ve daha küçük partikül madde PM₂,₅ Aerodinamik çapı 2,5 µm ve daha küçük partik…</div>
+<div class="hit"><span class="pno">[s. 113]</span> <code>akifer</code> — …birimleri, gözeneklilik ve geçirgenlik özellikleri bakımından önemli miktarda yeraltı suyu depolayabilecek nitelikte akifer birimleri oluşturmamaktadır. Buna karşılık Yalova, Taşköprü ve Hersek ovalarında bulunan alüvyon birimleri, yeraltı…</div></section><section class="card"><h3>Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(23 sayfa: s.10, s.19, s.49, s.61, s.83, s.115, s.160, s.161, s.163, s.165, s.167, s.174, s.175, s.183 (+9 sayfa))</span></h3><div class="hit"><span class="pno">[s. 10]</span> <code>Özel Çevre Koruma</code> — …Zonu MGM Meteoroloji Genel Müdürlüğü MTA Maden Tetkik ve Arama Genel Müdürlüğü NO₂ Azot Dioksit O₃ Ozon ÖÇKB Özel Çevre Koruma Bölgesi PM₁₀ Aerodinamik çapı 10 µm ve daha küçük partikül madde PM₂,₅ Aerodinamik çapı 2,5 µm ve daha küçük partik…</div>
 <div class="hit"><span class="pno">[s. 19]</span> <code>kıyı kenar</code> — …sislerin oluşturulması planlanmaktadır. Proje Alanı yaklaşık 47,4 ha olarak belirlenmiş olup proje alanı içerisinde; kıyı kenar çizgisi, Proje/ÇED alanı, ön izin talep edilen dolgu alanı, tapu alanları, İskele-1 alanı, İskele- 2 alanı, otopark al…</div>
 <div class="hit"><span class="pno">[s. 49]</span> <code>Kıyı kenar</code> — …140 22 79.962,53 m² 140 24 132.203,85 m² 140 26 25.199,07 m² 140 29 14.171,41 m² Toplam 251.536,86 m² Kıyı kenar çizgisinin deniz tarafında kalan ve Devletin hüküm ve tasarrufu altında bulunan 222.924,79 m² büyüklüğündeki alan için…</div>
 <div class="hit"><span class="pno">[s. 61]</span> <code>kıyı kenar</code> — …decek kıyı yapılarının oluşturulması planlanmaktadır. Proje için hazırlanan Genel Vaziyet Planında; Proje/ÇED Alanı, kıyı kenar çizgisi, ön izin talep edilen dolgu alanı, tapu alanları, İskele-1 Alanı, İskele-2 Alanı, Rıhtım Alanları, rampa alan…</div>
 <div class="hit"><span class="pno">[s. 83]</span> <code>Özel Çevre Koruma</code> — …Gazete’de yayımlanan 04.11.2021 tarihli ve 4758 sayılı Cumhurbaşkanı Kararı ile ilan edilen Marmara Denizi ve Adalar Özel Çevre Koruma Bölgesi sınırları içerisinde yer almaktadır. Bu kapsamda, MEM Gemi Sanayi ve Ticaret A.Ş. tarafından planlanan MEMPO…</div>
-<div class="hit"><span class="pno">[s. 115]</span> <code>kıyı kenar</code> — …t Raporu” kapsamında proje sahasının hidrojeolojik özellikleri ayrıca değerlendirilmiştir. Rapora göre inceleme alanı kıyı kenar çizgisinin deniz tarafında kalmakta olup, deniz sondajlarında deniz suyu derinlikleri 2,30 m ile 25,50 m arasında deği…</div></section><section class="card"><h3>Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(19 sayfa: s.83, s.108, s.110, s.117, s.118, s.122, s.153, s.164, s.165, s.168, s.174, s.191, s.198, s.200 (+5 sayfa))</span></h3><div class="hit"><span class="pno">[s. 83]</span> <code>arazi çalışması</code> — …tirilmiştir. Söz konusu çalışma kapsamında 17.11.2025 tarihinde saat 13:30’da proje sahasında uzman ekip tarafından arazi çalışması gerçekleştirilmiştir. Arazi çalışmasına uzman olarak Prof. Dr. Aydın Akbulut, Dr. Öğr. Üyesi Uğur Erdem Dokuz ve Dr. Ö…</div>
+<div class="hit"><span class="pno">[s. 115]</span> <code>kıyı kenar</code> — …t Raporu” kapsamında proje sahasının hidrojeolojik özellikleri ayrıca değerlendirilmiştir. Rapora göre inceleme alanı kıyı kenar çizgisinin deniz tarafında kalmakta olup, deniz sondajlarında deniz suyu derinlikleri 2,30 m ile 25,50 m arasında deği…</div></section><section class="card"><h3>Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(19 sayfa: s.83, s.108, s.110, s.117, s.118, s.122, s.153, s.164, s.165, s.168, s.174, s.191, s.198, s.200 (+5 sayfa))</span></h3><div class="hit"><span class="pno">[s. 83]</span> <code>arazi çalışması</code> — …tirilmiştir. Söz konusu çalışma kapsamında 17.11.2025 tarihinde saat 13:30’da proje sahasında uzman ekip tarafından arazi çalışması gerçekleştirilmiştir. Arazi çalışmasına uzman olarak Prof. Dr. Aydın Akbulut, Dr. Öğr. Üyesi Uğur Erdem Dokuz ve Dr. Ö…</div>
 <div class="hit"><span class="pno">[s. 83]</span> <code>örnekleme</code> — …denizel biyolojik bileşenlerin ve habitat özelliklerinin belirlenmesine yönelik dalış/sualtı gözlemleri ile gözlem ve örnekleme çalışmaları yürütülmüştür. Düzenlenen Arazi Tutanağında, çalışma bölgesinin deniz canlılarına ilişkin gözlem ve örnek…</div>
 <div class="hit"><span class="pno">[s. 108]</span> <code>mevsimsel</code> — …En düşük akış değerleri genellikle yaz sonuna rastlamaktadır. Bunların dışında, yaz aylarında genellikle su bulunmayan mevsimsel dereler de bulunmaktadır. Yalova ili sınırları içerisinde yer alan başlıca akarsular aşağıda sıralanmaktadır1. 1. K…</div>
 <div class="hit"><span class="pno">[s. 110]</span> <code>mevsimsel</code> — …çevresinin yüzeysel drenaj özelliklerinin ortaya konulması amacıyla, proje sınırları ile birlikte bölgedeki akarsular, mevsimsel dereler, kuru dereler ile kaynak-pınar, çeşme, su yapısı, kuyu ve keson kuyu gibi su unsurlarının gösterildiği Hidrol…</div>
 <div class="hit"><span class="pno">[s. 117]</span> <code>mevsimsel</code> — …ojik birimlerin litolojik özelliklerine, gözeneklilik ve geçirgenlik durumuna, topografik koşullara, yağış miktarına, mevsimsel beslenime ve yeraltı suyu kullanım miktarına bağlı olarak değişiklik göstermektedir. Yeraltı suyu seviyeleri yağışl…</div>
-<div class="hit"><span class="pno">[s. 118]</span> <code>örnekleme</code> — …OORDİNAT (WGS-84) E DERİNLİK (m) AK-1 40° 41&#x27; 44.59&quot; N 29° 25&#x27; 12.39&quot; E 18,51 Akıntı ölçümlerinde, veri toplama örnekleme aralığı 15 dakika olarak seçilmiş ve cihazın hafızasına kayıt edilmiştir.</div></section><section class="card"><h3>Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(61 sayfa: s.6, s.97, s.104, s.118, s.131, s.133, s.139, s.140, s.141, s.142, s.143, s.144, s.145, s.146 (+47 sayfa))</span></h3><div class="hit"><span class="pno">[s. 6]</span> <code>PM10</code> — …e Bulunan Hava Kirliliği Ölçüm Cihazlarının Yerleri .................. 141 Şekil 101. 2024 Yılında Yalova İstasyonları PM10 Parametresi Günlük Ortalama Değerler Grafiği (Marmara Temiz Hava Merkezi, 2025) ......................................…</div>
+<div class="hit"><span class="pno">[s. 118]</span> <code>örnekleme</code> — …OORDİNAT (WGS-84) E DERİNLİK (m) AK-1 40° 41&#x27; 44.59&quot; N 29° 25&#x27; 12.39&quot; E 18,51 Akıntı ölçümlerinde, veri toplama örnekleme aralığı 15 dakika olarak seçilmiş ve cihazın hafızasına kayıt edilmiştir.</div></section><section class="card"><h3>Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(61 sayfa: s.6, s.97, s.104, s.118, s.131, s.133, s.139, s.140, s.141, s.142, s.143, s.144, s.145, s.146 (+47 sayfa))</span></h3><div class="hit"><span class="pno">[s. 6]</span> <code>PM10</code> — …e Bulunan Hava Kirliliği Ölçüm Cihazlarının Yerleri .................. 141 Şekil 101. 2024 Yılında Yalova İstasyonları PM10 Parametresi Günlük Ortalama Değerler Grafiği (Marmara Temiz Hava Merkezi, 2025) ......................................…</div>
 <div class="hit"><span class="pno">[s. 6]</span> <code>PM2.5</code> — …2025) ............................................................... 143 Şekil 104. 2024 yılında Yalova İstasyonları PM2.5 Parametresi Günlük Ortalama Değerler Grafiği (Marmara Temiz Hava Merkezi, 2025) ......................................…</div>
 <div class="hit"><span class="pno">[s. 97]</span> <code>gürültü</code> — …istemi ile mühendislik sismiği çalışması gerçekleştirilmiştir. Kötü deniz ve hava şartları sismik sinyaller üzerinde gürültü oluşturarak sinyalin kalitesini etkileyeceğinden, ölçümler mümkün olan en sakin deniz ve hava şartlarında gerçekleşti…</div>
 <div class="hit"><span class="pno">[s. 104]</span> <code>Gürültü</code> — …arına PCIWorks adlı yazılımın, resim işleme (image processing) fonksiyonu kullanılarak sonar verilerine sırasıyla; Gürültü kaldırma (Remove niose) 3x3 Gaussian filtre Sharpening filtre Uygulanarak sonar verilerinin görüntü kalitesi yük…</div>
 <div class="hit"><span class="pno">[s. 118]</span> <code>ağır metal</code> — …apsamda yeraltı sularının pH, elektriksel iletkenlik, toplam çözünmüş madde, klorür, sülfat, nitrat, nitrit, amonyum, ağır metal ve mikrobiyolojik parametreler bakımından analiz edilmesi gerekmektedir. Yeraltı sularının kullanım amacına uygunlu…</div>
-<div class="hit"><span class="pno">[s. 131]</span> <code>deprem</code> — …k-Jeoteknik Zemin Etüt Raporu” hazırlanmıştır. Söz konusu çalışma kapsamında proje sahasının doğal afet tehlikeleri ve deprem durumu ile heyelan, kaya düşmesi ve diğer jeolojik kökenli afet tehlikeleri proje sahasına özgü olarak değerlendirilm…</div></section><section class="card"><h3>Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(29 sayfa: s.2, s.4, s.13, s.16, s.22, s.23, s.30, s.31, s.32, s.33, s.34, s.50, s.51, s.56 (+15 sayfa))</span></h3><div class="hit"><span class="pno">[s. 2]</span> <code>PROJE BEDELİ</code> — …0 (344) 236 28 14 GSM: +90 (532) 745 88 06 E-POSTA: memgemisanayi@hs01.kep.tr PROJENİN ADI: MEMPORT LİMAN PROJESİ PROJE BEDELİ: 8.127.130.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİ): YALOVA İLİ, ÇİFTLİKKÖY İLÇESİ, DENİZÇ…</div>
+<div class="hit"><span class="pno">[s. 131]</span> <code>deprem</code> — …k-Jeoteknik Zemin Etüt Raporu” hazırlanmıştır. Söz konusu çalışma kapsamında proje sahasının doğal afet tehlikeleri ve deprem durumu ile heyelan, kaya düşmesi ve diğer jeolojik kökenli afet tehlikeleri proje sahasına özgü olarak değerlendirilm…</div></section><section class="card"><h3>Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(29 sayfa: s.2, s.4, s.13, s.16, s.22, s.23, s.30, s.31, s.32, s.33, s.34, s.50, s.51, s.56 (+15 sayfa))</span></h3><div class="hit"><span class="pno">[s. 2]</span> <code>PROJE BEDELİ</code> — …0 (344) 236 28 14 GSM: +90 (532) 745 88 06 E-POSTA: memgemisanayi@hs01.kep.tr PROJENİN ADI: MEMPORT LİMAN PROJESİ PROJE BEDELİ: 8.127.130.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİ): YALOVA İLİ, ÇİFTLİKKÖY İLÇESİ, DENİZÇ…</div>
 <div class="hit"><span class="pno">[s. 2]</span> <code>8.127.130.000 TL</code> — …14 GSM: +90 (532) 745 88 06 E-POSTA: memgemisanayi@hs01.kep.tr PROJENİN ADI: MEMPORT LİMAN PROJESİ PROJE BEDELİ: 8.127.130.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİ): YALOVA İLİ, ÇİFTLİKKÖY İLÇESİ, DENİZÇALI MAHALLESİ, TOP…</div>
 <div class="hit"><span class="pno">[s. 4]</span> <code>Kapasite</code> — …B-DGM, 2026c) .............................................................................. 44 Şekil 31. Modern Liman Kapasitesinin Temel Bileşenleri ve Genişletilmiş Kapasite Yaklaşımı (Kaynak: TÜRKLİM, 2026b&#x27;den uyarlanmıştır) ................…</div>
 <div class="hit"><span class="pno">[s. 13]</span> <code>kapasite</code> — …l-off) araç taşımacılığında CEU, Car Equivalent Unit (Otomobil Eşdeğer Birimi) anlamına gelir. Araç taşıyan gemilerin kapasitesini ifade etmek için kullanılan standart bir ölçü birimidir. Araç türleri standart otomobile dönüştürülerek hesaplanab…</div>
@@ -276,7 +750,45 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
+
 (() => {
+  const root = document.documentElement;
+  const saved = localStorage.getItem('eced_theme');
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function syncLabel() {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = cur ? cur === 'dark' : prefersDark;
+    btn.textContent = isDark ? 'Açık Tema' : 'Koyu Tema';
+  }
+  syncLabel();
+  btn.addEventListener('click', () => {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = cur ? cur === 'dark' : prefersDark;
+    const next = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('eced_theme', next);
+    syncLabel();
+  });
+})();
+
+(() => {
+  const copyBtn = document.getElementById('copy-qs-btn');
+  const qsTxt = document.getElementById('qs-plain');
+  if (copyBtn && qsTxt) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(qsTxt.value);
+        copyBtn.textContent = 'Kopyalandı ✓';
+        setTimeout(() => (copyBtn.textContent = 'Soruları Kopyala'), 2200);
+      } catch (e) {
+        copyBtn.textContent = 'Kopyalanamadı';
+      }
+    });
+  }
   if (typeof L === 'undefined') return;
   const g = {"lat": 40.69199, "lon": 29.41711, "zoom": 12, "precision": "exact_pdf", "points": [[40.69887, 29.41984], [40.69871, 29.42027], [40.69626, 29.41878], [40.69543, 29.42114], [40.69788, 29.42263], [40.69773, 29.42306], [40.69528, 29.42157], [40.69519, 29.42184], [40.69472, 29.42156], [40.69335, 29.42072], [40.69089, 29.41922], [40.69068, 29.41909], [40.69053, 29.41903], [40.69049, 29.41901], [40.69003, 29.41882], [40.68995, 29.41868], [40.68976, 29.41846], [40.68962, 29.4183], [40.68963, 29.41748], [40.68917, 29.41762], [40.68902, 29.41756], [40.6888, 29.41734], [40.68871, 29.41687], [40.68847, 29.41606], [40.6883, 29.41539], [40.68822, 29.41508], [40.68814, 29.41477], [40.68806, 29.41447], [40.68792, 29.41402], [40.68779, 29.41361], [40.68774, 29.41346], [40.68755, 29.41287], [40.68752, 29.41277], [40.68745, 29.41252], [40.6874, 29.41235], [40.6874, 29.41233], [40.68729, 29.41201], [40.6872, 29.41174], [40.68659, 29.40983], [40.68653, 29.40965]], "label": "YALOVA / ÇIFTLIKKÖY — MEMPORT LİMAN"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
@@ -286,16 +798,16 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
   }).addTo(map);
   if (g.precision === 'exact_pdf' && g.points.length > 1) {
     const latlngs = g.points.map(p => [p[0], p[1]]);
-    const poly = L.polyline(latlngs, { color: '#58a6ff', weight: 3, opacity: 0.85 }).addTo(map);
+    const poly = L.polyline(latlngs, { color: '#0b5ed7', weight: 3, opacity: 0.85 }).addTo(map);
     for (const ll of latlngs.slice(0, 30)) {
-      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#f85149', fillOpacity: 0.9, weight: 1 }).addTo(map);
+      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#d92d20', fillOpacity: 0.9, weight: 1 }).addTo(map);
     }
     map.fitBounds(poly.getBounds().pad(0.25));
   } else {
     L.circleMarker([g.lat, g.lon], {
       radius: g.precision === 'exact_pdf' ? 8 : 11,
       color: '#ffffff',
-      fillColor: g.precision === 'exact_pdf' ? '#f85149' : '#58a6ff',
+      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#0b5ed7',
       fillOpacity: g.precision === 'exact_pdf' ? 0.9 : 0.45,
       weight: 2
     }).bindPopup(g.label).addTo(map).openPopup();

@@ -7,145 +7,608 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
 :root {
-  --bg: #0f1216;
-  --surface: #171c22;
-  --border: #262e38;
-  --text: #e6edf3;
-  --muted: #8b949e;
-  --accent: #58a6ff;
-  --red: #f85149;
-  --amber: #d29922;
-  --green: #3fb950;
-  --badge-bg: #212830;
+  --bg: #f6f8fa;
+  --surface: #ffffff;
+  --surface-subtle: #f1f4f8;
+  --border: #d8dee6;
+  --border-strong: #bcc6d4;
+  --text: #161b22;
+  --text-secondary: #424a53;
+  --muted: #5c6670;
+  --accent: #0b5ed7;
+  --accent-soft: #e7f1ff;
+  --red: #b42318;
+  --red-soft: #fef3f2;
+  --red-border: #fecdca;
+  --amber: #9a5b00;
+  --amber-soft: #fffaeb;
+  --amber-border: #fedf89;
+  --green: #067647;
+  --green-soft: #ecfdf3;
+  --green-border: #abefc6;
+  --violet: #5925dc;
+  --violet-soft: #f4f3ff;
+  --violet-border: #d9d6fe;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --radius: 10px;
 }
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg: #f6f8fa;
-    --surface: #ffffff;
-    --border: #d0d7de;
-    --text: #1f2328;
-    --muted: #656d76;
-    --accent: #0969da;
-    --red: #cf222e;
-    --amber: #9a6700;
-    --green: #1a7f37;
-    --badge-bg: #eef2f6;
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface-subtle: #1c222b;
+    --border: #2b333e;
+    --border-strong: #3d4756;
+    --text: #e6edf3;
+    --text-secondary: #c9d1d9;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --accent-soft: rgba(88, 166, 255, 0.14);
+    --red: #ff7b72;
+    --red-soft: rgba(248, 81, 73, 0.14);
+    --red-border: rgba(248, 81, 73, 0.4);
+    --amber: #e3b341;
+    --amber-soft: rgba(210, 153, 34, 0.14);
+    --amber-border: rgba(210, 153, 34, 0.4);
+    --green: #3fb950;
+    --green-soft: rgba(63, 185, 80, 0.14);
+    --green-border: rgba(63, 185, 80, 0.4);
+    --violet: #b692f6;
+    --violet-soft: rgba(158, 119, 237, 0.16);
+    --violet-border: rgba(158, 119, 237, 0.42);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
   }
 }
+:root[data-theme="dark"] {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface-subtle: #1c222b;
+  --border: #2b333e;
+  --border-strong: #3d4756;
+  --text: #e6edf3;
+  --text-secondary: #c9d1d9;
+  --muted: #8b949e;
+  --accent: #58a6ff;
+  --accent-soft: rgba(88, 166, 255, 0.14);
+  --red: #ff7b72;
+  --red-soft: rgba(248, 81, 73, 0.14);
+  --red-border: rgba(248, 81, 73, 0.4);
+  --amber: #e3b341;
+  --amber-soft: rgba(210, 153, 34, 0.14);
+  --amber-border: rgba(210, 153, 34, 0.4);
+  --green: #3fb950;
+  --green-soft: rgba(63, 185, 80, 0.14);
+  --green-border: rgba(63, 185, 80, 0.4);
+  --violet: #b692f6;
+  --violet-soft: rgba(158, 119, 237, 0.16);
+  --violet-border: rgba(158, 119, 237, 0.42);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
 }
-.wrap { max-width: 1240px; margin: 0 auto; padding: 24px 18px 64px; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
-header { border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 20px; }
-h1 { margin: 0 0 6px; font-size: 1.55rem; }
-h2 { margin: 26px 0 10px; font-size: 1.2rem; }
-h3 { margin: 16px 0 8px; font-size: 1rem; }
-.sub { color: var(--muted); font-size: 0.92rem; margin: 0; }
-.meta-bar { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-size: 0.85rem; color: var(--muted); }
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin: 16px 0 18px; }
-.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
-.stat .num { font-size: 1.45rem; font-weight: 700; }
-.stat .lbl { font-size: 0.78rem; color: var(--muted); }
+
+/* Unified Sticky Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.topbar-inner {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 11px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: -0.01em;
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+.brand-scope {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.nav-link {
+  padding: 5px 11px;
+  border-radius: 7px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-link:hover { background: var(--surface-subtle); text-decoration: none; color: var(--text); }
+.nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.theme-btn {
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
+
+/* Layout */
+.wrap { max-width: 1220px; margin: 0 auto; padding: 24px 20px 68px; }
+.wrap.narrow { max-width: 960px; }
+header.page-head { margin-bottom: 20px; }
+h1 { margin: 0 0 8px; font-size: 1.62rem; line-height: 1.25; letter-spacing: -0.02em; }
+h2 { margin: 28px 0 12px; font-size: 1.2rem; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { margin: 16px 0 8px; font-size: 0.98rem; line-height: 1.35; }
+.sub { color: var(--muted); font-size: 0.93rem; margin: 0; }
+.meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin-top: 12px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+
+/* Orientation Banner */
+.hero-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+.hero-strip p { margin: 0; font-size: 0.9rem; color: var(--text-secondary); max-width: 820px; }
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.hero-cta:hover { text-decoration: none; filter: brightness(1.06); }
+
+/* KPI Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  gap: 12px;
+  margin: 0 0 18px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 13px 16px;
+  box-shadow: var(--shadow);
+}
+.stat .num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+.stat .lbl { font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
+.stat.accent .num { color: var(--accent); }
+.stat.rev .num { color: var(--violet); }
+
+/* Map */
 .map-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+#map { width: 100%; height: 400px; background: var(--surface-subtle); }
+#digest-map { width: 100%; height: 320px; background: var(--surface-subtle); }
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  padding: 10px 16px;
+  font-size: 0.79rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: var(--surface-subtle);
+}
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+/* Controls */
+.controls-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.controls-row + .controls-row { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+input[type="search"], select.filter-select {
+  padding: 8px 12px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.88rem;
+}
+input[type="search"]:focus, select.filter-select:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+input[type="search"] { flex: 1 1 250px; }
+select.filter-select { min-width: 165px; }
+button.pill {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.81rem;
+  font-weight: 500;
+  transition: background 0.12s, border-color 0.12s;
+}
+button.pill:hover { border-color: var(--border-strong); color: var(--text); }
+button.pill.active { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 600; }
+button.pill.rev-pill.active { background: var(--violet); border-color: var(--violet); }
+button.reset-btn {
+  margin-left: auto;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+button.reset-btn:hover { color: var(--text); border-color: var(--border-strong); }
+
+/* Cards & Badges */
+.cards { display: flex; flex-direction: column; gap: 11px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+}
+.card.ek1 { border-left: 4px solid var(--accent); }
+.card.has-rev { border-left: 4px solid var(--violet); }
+.card.ek1.has-rev { border-left: 4px solid var(--violet); }
+.row-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 14px;
+  align-items: flex-start;
+}
+.title { font-weight: 650; font-size: 1rem; line-height: 1.38; color: var(--text); flex: 1 1 320px; }
+.title a { color: var(--text); }
+.title a:hover { color: var(--accent); text-decoration: none; }
+.date-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.badge.urgent { background: var(--red-soft); border-color: var(--red-border); color: var(--red); font-weight: 600; }
+.badge.warn { background: var(--amber-soft); border-color: var(--amber-border); color: var(--amber); font-weight: 600; }
+.badge.ok { background: var(--green-soft); border-color: var(--green-border); color: var(--green); font-weight: 600; }
+.badge.info { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
+.badge.rev { background: var(--violet-soft); border-color: var(--violet-border); color: var(--violet); font-weight: 600; }
+.badge.muted { color: var(--muted); }
+.detail { font-size: 0.88rem; color: var(--text-secondary); margin: 9px 0 0; }
+.detail.muted { color: var(--muted); }
+
+/* Revision inline strip on cards */
+.rev-strip {
+  margin-top: 10px;
+  padding: 8px 11px;
+  border-radius: 7px;
+  background: var(--violet-soft);
+  border: 1px solid var(--violet-border);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.rev-strip strong { color: var(--violet); }
+
+/* Action Buttons */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  font-size: 0.83rem;
+  margin-top: 11px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+.btn-primary:hover { text-decoration: none; filter: brightness(1.06); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.btn-secondary:hover { text-decoration: none; border-color: var(--border-strong); color: var(--text); }
+
+/* Tables, Code, Callouts, Timeline */
+table.kv {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.89rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+table.kv th, table.kv td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 13px;
+  text-align: left;
+  vertical-align: top;
+}
+table.kv tr:last-child th, table.kv tr:last-child td { border-bottom: none; }
+table.kv th { width: 250px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
+table.data-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.85rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
   overflow: hidden;
-  margin-bottom: 18px;
 }
-#map { width: 100%; height: 420px; background: var(--badge-bg); }
-#digest-map { width: 100%; height: 320px; background: var(--badge-bg); }
-.map-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  padding: 9px 14px;
-  font-size: 0.8rem;
-  color: var(--muted);
-  border-top: 1px solid var(--border);
+table.data-tbl th, table.data-tbl td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
 }
-.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
-.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; }
-input[type="search"], select.filter-select {
-  padding: 8px 12px;
-  border-radius: 6px;
+table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.data-tbl tr:last-child td { border-bottom: none; }
+code {
+  background: var(--surface-subtle);
   border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.84em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+blockquote {
+  margin: 10px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
   background: var(--surface);
-  color: var(--text);
+  border-radius: 0 8px 8px 0;
   font-size: 0.9rem;
+  color: var(--text-secondary);
 }
-input[type="search"] { flex: 1 1 240px; }
-select.filter-select { min-width: 170px; }
-button.pill {
-  padding: 7px 12px;
-  border-radius: 999px;
+.callout {
+  padding: 14px 16px;
+  border-radius: var(--radius);
   border: 1px solid var(--border);
   background: var(--surface);
-  color: var(--text);
-  cursor: pointer;
-  font-size: 0.82rem;
+  margin: 14px 0;
 }
-button.pill.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
-.cards { display: flex; flex-direction: column; gap: 10px; }
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 15px 17px;
+.callout.rev {
+  background: var(--violet-soft);
+  border-color: var(--violet-border);
 }
-.card.ek1 { border-left: 4px solid var(--accent); }
-.row-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline; }
-.title { font-weight: 600; font-size: 0.98rem; }
-.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 7px; }
-.badge {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  background: var(--badge-bg);
-  border: 1px solid var(--border);
+.callout.warn {
+  background: var(--amber-soft);
+  border-color: var(--amber-border);
 }
-.badge.urgent { border-color: var(--red); color: var(--red); font-weight: 600; }
-.badge.warn { border-color: var(--amber); color: var(--amber); font-weight: 600; }
-.badge.ok { border-color: var(--green); color: var(--green); }
-.badge.muted { color: var(--muted); }
-.detail { font-size: 0.87rem; color: var(--muted); margin: 8px 0; }
-.actions { display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.84rem; margin-top: 8px; }
+.timeline {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid var(--border-strong);
+}
+.timeline li {
+  position: relative;
+  margin: 0 0 10px;
+  padding-left: 8px;
+  font-size: 0.87rem;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+}
+.hit { margin: 8px 0; font-size: 0.88rem; line-height: 1.55; }
+.pno { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
 .notice {
-  margin-top: 28px;
+  margin-top: 32px;
   padding: 14px 16px;
   border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 0.84rem;
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+  font-size: 0.83rem;
   color: var(--muted);
 }
-table.kv { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9rem; }
-table.kv th, table.kv td { border: 1px solid var(--border); padding: 8px 11px; text-align: left; vertical-align: top; }
-table.kv th { width: 240px; background: var(--badge-bg); }
-code { background: var(--badge-bg); padding: 1px 5px; border-radius: 4px; font-size: 0.85em; }
-blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--accent); background: var(--surface); font-size: 0.9rem; }
-.hit { margin: 7px 0; font-size: 0.88rem; }
-.pno { font-weight: 700; color: var(--accent); }
-.leaflet-popup-content { color: #1f2328; font-size: 0.85rem; line-height: 1.45; }
+.toc-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 20px; }
+.toc-pills a {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.81rem;
+  font-weight: 500;
+}
+.toc-pills a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+.step-num {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+pre.template-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.section-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.leaflet-popup-content { color: #161b22; font-size: 0.85rem; line-height: 1.45; }
+@media (max-width: 700px) {
+  table.kv th { width: 145px; }
+  #map { height: 320px; }
+  .topbar-inner { padding: 10px 14px; }
+  .wrap { padding: 18px 14px 54px; }
+}
+@media print {
+  .topbar, .no-print, #digest-map, .map-box { display: none !important; }
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .card, table.kv, table.data-tbl { box-shadow: none; break-inside: avoid; }
+  a { color: #000000; text-decoration: underline; }
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div style="font-size:0.85rem;margin-bottom:8px;"><a href="../index.html">← Türkiye e-ÇED İzleme listesine dön</a> · <a href="../rehber.html">Kullanım ve İnceleme Rehberi</a> · <a href="60015.md">Ham Markdown (.md)</a></div>
-    <h1>e-ÇED Ön Özet #60015 — İZMİR / ÇEŞME</h1>
-    <p class="sub">CASTELLO FONTANA OTEL</p>
-    <div class="badges" style="margin-top:10px;">
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      <span>Türkiye e-ÇED İzleme</span>
+      <span class="brand-scope">81 İl</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link " href="../index.html">Duyurular ve Harita</a>
+      <a class="nav-link " href="../rehber.html">Kullanım Rehberi</a>
+      <a class="nav-link" href="../feed.xml">RSS 2.0</a>
+      <a class="nav-link" href="https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml" target="_blank" rel="noopener">Resmi e-ÇED ↗</a>
+      <button id="theme-toggle" class="theme-btn" type="button">Tema</button>
+    </div>
+  </div>
+</nav>
+<div class="wrap narrow">
+  <header class="page-head">
+    <div style="font-size:0.84rem;color:var(--muted);margin-bottom:8px;" class="no-print">
+      <a href="../index.html">← Duyurular listesine dön</a> · Dosya <code>#60015</code>
+    </div>
+    <h1>CASTELLO FONTANA OTEL</h1>
+    <p class="sub">İZMİR / ÇEŞME · ARIKAN PROJE GELİŞTİRME A.Ş.</p>
+    <div class="badges" style="margin-top:11px;">
       <span class="badge">IDK</span>
-      <span class="badge">Ek-1</span>
-      <span class="badge ok">İDK İncelemesi · 17 gün kaldı (2026-12-07)</span>
+      <span class="badge info">Ek-1</span>
+      <span class="badge ok">İDK İncelemesi · 16 gün kaldı (2026-12-07)</span>
+      
+    </div>
+    <div class="actions no-print" style="border-top:none;padding-top:4px;">
+      <a class="btn-primary" href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign8235067367368802982.pdf&amp;orjinalAd=60015_CED_Raporu.pdf&amp;yuklemeTarihi=2026-11-10" target="_blank" rel="noopener">Resmi PDF Dosyası ↗</a>
+      <a class="btn-secondary" href="http://eced.csb.gov.tr/jsp/ek1/60015" target="_blank" rel="noopener">e-ÇED Portal Kaydı ↗</a>
+      <a class="btn-secondary" href="60015.md">Ham Markdown (.md)</a>
+      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF Kaydet</button>
     </div>
   </header>
 
@@ -153,10 +616,14 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
     <tr><th>Proje Sahibi</th><td>ARIKAN PROJE GELİŞTİRME A.Ş.</td></tr>
     <tr><th>Hazırlayan Kuruluş</th><td>ELEMENT ÇEVRE DANIŞMANLIK VE MÜHENDİSLİK A.Ş.</td></tr>
     <tr><th>Sektör / Alt Sektör</th><td>Turizm / Turistik Tesisler</td></tr>
-    <tr><th>Duyuru Tarihi</th><td><code>16.11.2026</code> (belge yükleme tarihi: <code>09/06/2026 04:17:08</code>)</td></tr>
-    <tr><th>PDF Kapsamı</th><td>183.81 MB · 915 sayfa (835 metin sayfası / 80 taranmış veya görüntü sayfası) · SHA-256 <code>c886fcee9d5a36a3…</code></td></tr>
-    <tr><th>Resmi Bağlantılar</th><td><a href="http://eced.csb.gov.tr/jsp/ek1/60015" target="_blank" rel="noopener">e-ÇED Portal Kaydı</a> · <a href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign8235067367368802982.pdf&amp;orjinalAd=60015_CED_Raporu.pdf&amp;yuklemeTarihi=2026-11-10" target="_blank" rel="noopener">Resmi PDF Dosyası</a> · <a href="https://www.openstreetmap.org/?mlat=38.4237&amp;mlon=27.1428#map=8/38.4237/27.1428" target="_blank" rel="noopener">OpenStreetMap</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=38.4237,27.1428" target="_blank" rel="noopener">Google Haritalar</a></td></tr>
+    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>16.11.2026</code> · Belge yükleme: <code>09/06/2026 04:17:08</code></td></tr>
+    <tr><th>PDF Kapsamı ve Bütünlük</th><td>183.81 MB · 915 sayfa (835 metin / 80 taranmış) · SHA-256 <code>c886fcee9d5a36a3…</code></td></tr>
+    <tr><th>Harita Bağlantıları</th><td><a href="https://www.openstreetmap.org/?mlat=38.4237&amp;mlon=27.1428#map=8/38.4237/27.1428" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=38.4237,27.1428" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
   </table>
+
+  <h2>Belge Bütünlüğü, Revizyon ve Süreç Geçmişi</h2>
+<p class="sub">Her PDF dosyasının SHA-256 özeti, yükleme tarihi ve teknik göstergeleri arşivlenir. Bakanlık portalında rapor değiştirildiğinde veya 2009/7 Genelgesi kapsamında yeniden yüklendiğinde sürümler arası fark (v1 → v2) otomatik olarak kaydedilir.</p>
+<table class="data-tbl"><thead><tr><th>Sürüm</th><th>Arşiv Tarihi</th><th>Aşama</th><th>Yükleme Tarihi</th><th>Sayfa</th><th>SHA-256</th></tr></thead><tbody><tr><td><code>v1</code></td><td><code>2026-11-16</code></td><td>IDK</td><td><code>2026-11-10</code></td><td>915</td><td><code>c886fcee9d5a36a3…</code></td></tr></tbody></table>
 
   <h2>Konum Haritası</h2>
   <div class="map-box">
@@ -167,9 +634,9 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
   
   <h2>Yapay Zeka Destekli Bilimsel Ön Değerlendirme <span class="badge">gemini-3.8-flash</span></h2>
   <p class="sub">Bu değerlendirme, resmi PDF dosyasından seçilen 25 sayfa (s.1, s.2, s.3, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14, s.15, s.16, s.17, s.18, s.22, s.23, s.25, s.26, s.27, s.29, s.38, s.45) esas alınarak hazırlanmıştır. Tüm sayısal verilerin ve tespitlerin resmi PDF belgesindeki ilgili <code>[s. N]</code> sayfalarından doğrulanması gerekir.</p>
-  <section class="card ek1">
-    <p><strong>Özet:</strong> Proje, İzmir ili, Çeşme ilçesi, Çakabey Mahallesi 507 ada 173 parselde yer alan 180.407,15 m² yüzölçümlü taşınmaz üzerinde ARIKAN PROJE GELİŞTİRME A.Ş. tarafından kurulması planlanan 769 oda ve 1.538 yatak kapasiteli Castello Fontana Otel projesidir [s. 2, 23, 29]. Proje alanı, İzmir 2 No&#x27;lu Tabiat Varlıklarını Koruma Komisyonu kararı uyarınca &#x27;Sürdürülebilir Koruma Kontrollü Kullanım Alanı&#x27; statüsündeki Doğal Sit Alanı sınırları içerisinde ve Çevre Düzeni Planı&#x27;nda Turizm Tesis Alanı lejantında kalmaktadır [s. 25, 26, 45]. Tesis kapsamında 272 adet blok, 41 açık yüzme havuzu, 473 araçlık otopark ve 535 m³/gün kapasiteli paket atıksu arıtma tesisi öngörülmektedir [s. 23, 27, 29]. Başlıca çevresel etkenler; doğal sit alanındaki yoğun yapılaşma baskısı, inşaat ve işletme aşamasındaki su temini/tüketimi ve bitişikteki rüzgâr türbinleri ile kümülatif etkileşimdir [s. 25, 27, 45].</p>
-    <details style="margin-top:8px;font-size:0.86rem;color:var(--muted);"><summary style="cursor:pointer;">İngilizce özet (English summary)</summary><p style="margin:6px 0 0;">The proposed project comprises the construction and operation of the 769-room and 1,538-bed &#x27;Castello Fontana Hotel&#x27; by ARIKAN PROJE GELİŞTİRME A.Ş. on a 180,407.15 m² plot in Çakabey District, Çeşme, İzmir [s. 2, 23, 29]. The project footprint falls within a legally designated &#x27;Sustainable Conservation and Controlled Use Area&#x27; Natural Site and is zoned as Tourism Facility Area in the regional environmental master plan [s. 25, 26, 45]. The development includes 272 accommodation blocks, 41 outdoor swimming pools, a 473-vehicle parking lot, and an on-site 535 m³/day wastewater treatment plant designed for irrigation reuse [s. 23, 27, 29]. Key environmental stakes center on large-scale development inside a protected area, high water demand in a water-stressed peninsula, and cumulative interactions with adjacent wind energy installations [s. 25, 27, 45].</p></details>
+  <section class="card ek1" style="margin-top:10px;">
+    <p style="margin-top:0;"><strong>Özet:</strong> Proje, İzmir ili, Çeşme ilçesi, Çakabey Mahallesi 507 ada 173 parselde yer alan 180.407,15 m² yüzölçümlü taşınmaz üzerinde ARIKAN PROJE GELİŞTİRME A.Ş. tarafından kurulması planlanan 769 oda ve 1.538 yatak kapasiteli Castello Fontana Otel projesidir [s. 2, 23, 29]. Proje alanı, İzmir 2 No&#x27;lu Tabiat Varlıklarını Koruma Komisyonu kararı uyarınca &#x27;Sürdürülebilir Koruma Kontrollü Kullanım Alanı&#x27; statüsündeki Doğal Sit Alanı sınırları içerisinde ve Çevre Düzeni Planı&#x27;nda Turizm Tesis Alanı lejantında kalmaktadır [s. 25, 26, 45]. Tesis kapsamında 272 adet blok, 41 açık yüzme havuzu, 473 araçlık otopark ve 535 m³/gün kapasiteli paket atıksu arıtma tesisi öngörülmektedir [s. 23, 27, 29]. Başlıca çevresel etkenler; doğal sit alanındaki yoğun yapılaşma baskısı, inşaat ve işletme aşamasındaki su temini/tüketimi ve bitişikteki rüzgâr türbinleri ile kümülatif etkileşimdir [s. 25, 27, 45].</p>
+    <details style="margin-top:10px;font-size:0.86rem;color:var(--muted);"><summary style="cursor:pointer;">İngilizce özet (English summary)</summary><p style="margin:6px 0 0;">The proposed project comprises the construction and operation of the 769-room and 1,538-bed &#x27;Castello Fontana Hotel&#x27; by ARIKAN PROJE GELİŞTİRME A.Ş. on a 180,407.15 m² plot in Çakabey District, Çeşme, İzmir [s. 2, 23, 29]. The project footprint falls within a legally designated &#x27;Sustainable Conservation and Controlled Use Area&#x27; Natural Site and is zoned as Tourism Facility Area in the regional environmental master plan [s. 25, 26, 45]. The development includes 272 accommodation blocks, 41 outdoor swimming pools, a 473-vehicle parking lot, and an on-site 535 m³/day wastewater treatment plant designed for irrigation reuse [s. 23, 27, 29]. Key environmental stakes center on large-scale development inside a protected area, high water demand in a water-stressed peninsula, and cumulative interactions with adjacent wind energy installations [s. 25, 27, 45].</p></details>
     <div class="badges" style="margin-top:10px;">
       <span class="badge">Saha çalışması: Karışık veya yöntemi belirsiz</span>
       <span class="badge">Mevsimsel örnekleme: Belirsiz</span>
@@ -192,11 +659,14 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
 <div class="hit"><span class="badge warn">ORTA</span> <strong>Bitişikteki Rüzgar Enerji Santrali (RES) Türbinleri ile Etkileşim Riski</strong> <span class="pno">[s. 12, s. 45]</span> — Proje alanının sadece 300-500 metre doğusunda 4 adet rüzgar türbini ve bir elektrik şalt merkezinin yer aldığı belirtilmektedir [s. 45]. Bu denli yakın mesafedeki türbinlerin yaratacağı kanat gürültüsü, düşük frekanslı ses, gölge titremesi (shadow flicker) ve buz fırlatma risklerinin 1.538 yataklı turizm tesisi sakinleri üzerindeki etkileri kritik bir kümülatif değerlendirme konusudur [s. 12, 45].</div>
 <div class="hit"><span class="badge warn">ORTA</span> <strong>Arıtılmış Atıksuyun Peyzaj Sulamasında Kullanımının Hidrojeolojik Riski</strong> <span class="pno">[s. 9, s. 27, s. 29]</span> — İşletme aşamasında oluşacak atıksuların 535 m³/gün kapasiteli AAT&#x27;de arıtılarak Sınıf A sulama suyu kriterlerine göre 104.953,54 m² yeşil alanın sulanmasında kullanılacağı taahhüt edilmektedir [s. 27, 29]. Kış aylarında veya turizm sezonu dışındaki düşük buharlaşma/sulama ihtiyacı dönemlerinde arıtılmış suyun nasıl depolanacağı veya alıcı ortama deşarj edilip edilmeyeceği hususunda risk yönetimi eksikliği bulunmaktadır [s. 9, 27].</div></section>
   
-  <h3>HKT Tutanakları ve Bilirkişi İncelemesi İçin Taslak Teknik Sorular</h3><ul><li>Sürdürülebilir Koruma Kontrollü Kullanım Doğal Sit Alanı statüsündeki parselde, 20 odalık ilk kapsam dışı projeden 769 oda ve 272 blokluk devasa bir komplekse geçilmesinin doğal sit ekosistemi ve peyzaj bütünlüğü üzerindeki taşıma kapasitesi analizleri hangi bilimsel yöntemlerle yapılmıştır? [s. 23, 25, 29] <span class="pno">[s. 23, s. 25, s. 29]</span></li>
+  <div class="section-head-row"><h3>HKT Tutanakları ve Bilirkişi İncelemesi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card"><ul style="margin:0;padding-left:20px;"><li>Sürdürülebilir Koruma Kontrollü Kullanım Doğal Sit Alanı statüsündeki parselde, 20 odalık ilk kapsam dışı projeden 769 oda ve 272 blokluk devasa bir komplekse geçilmesinin doğal sit ekosistemi ve peyzaj bütünlüğü üzerindeki taşıma kapasitesi analizleri hangi bilimsel yöntemlerle yapılmıştır? [s. 23, 25, 29] <span class="pno">[s. 23, s. 25, s. 29]</span></li>
 <li>Yaz aylarında ciddi su stresi ve altyapı yetersizliği çeken Çeşme Yarımadası&#x27;nda, 1.538 misafir ve personelin şebeke suyu tüketimi ile 41 adet açık yüzme havuzunun dolumu için İZSU&#x27;dan debi garantili resmi bağlantı izni alınmış mıdır? [s. 23, 27] <span class="pno">[s. 23, s. 27]</span></li>
 <li>Proje sınırına 300-500 m mesafede yer alan 4 adet rüzgar türbini ve şalt merkezinin konaklama birimlerinde yaratacağı gürültü, alçak frekanslı titreşim ve gölge kırpışması (flicker) etkilerine karşı yapılmış kümülatif modelleme ve akustik etüt çalışması mevcut mudur? [s. 45] <span class="pno">[s. 12, s. 45]</span></li>
-<li>Günlük 535 m³ arıtılmış atıksuyun yeşil alan sulamasında kullanılması planlanırken, bitkilerin su ihtiyacının olmadığı kış aylarında veya aşırı yağış dönemlerinde bu suyun depolanması ya da bertarafı için sahada hangi alternatif altyapı ve deşarj izinleri öngörülmektedir? [s. 9, 27] <span class="pno">[s. 9, s. 27]</span></li></ul>
-  <p class="sub"><em>İnceleme sınırları:</em> Sağlanan metin excerptsleri toplam 915 sayfalık nihai ÇED raporunun ağırlıklı olarak içindekiler listesi, kapak sayfaları, teknik olmayan özet ve Bölüm 1&#x27;in giriş sayfalarından (toplam 25 sayfa) oluşmaktadır. Flora-fauna envanter tablolarının detay metinleri (s. 81-137), hidrojeolojik analizler (s. 167-171), kümülatif etki bölümü (s. 277-284) ve kurum görüş yazılarının yer aldığı ekler sağlanan sayfalar arasında yer almadığı için detaylı teknik hesaplamalar bu sayfalar üzerinden doğrudan doğrulanamamıştır.</p>
+<li>Günlük 535 m³ arıtılmış atıksuyun yeşil alan sulamasında kullanılması planlanırken, bitkilerin su ihtiyacının olmadığı kış aylarında veya aşırı yağış dönemlerinde bu suyun depolanması ya da bertarafı için sahada hangi alternatif altyapı ve deşarj izinleri öngörülmektedir? [s. 9, 27] <span class="pno">[s. 9, s. 27]</span></li></ul><textarea id="qs-plain" style="display:none;">1. Sürdürülebilir Koruma Kontrollü Kullanım Doğal Sit Alanı statüsündeki parselde, 20 odalık ilk kapsam dışı projeden 769 oda ve 272 blokluk devasa bir komplekse geçilmesinin doğal sit ekosistemi ve peyzaj bütünlüğü üzerindeki taşıma kapasitesi analizleri hangi bilimsel yöntemlerle yapılmıştır? [s. 23, 25, 29] [s. 23, s. 25, s. 29]
+2. Yaz aylarında ciddi su stresi ve altyapı yetersizliği çeken Çeşme Yarımadası&#x27;nda, 1.538 misafir ve personelin şebeke suyu tüketimi ile 41 adet açık yüzme havuzunun dolumu için İZSU&#x27;dan debi garantili resmi bağlantı izni alınmış mıdır? [s. 23, 27] [s. 23, s. 27]
+3. Proje sınırına 300-500 m mesafede yer alan 4 adet rüzgar türbini ve şalt merkezinin konaklama birimlerinde yaratacağı gürültü, alçak frekanslı titreşim ve gölge kırpışması (flicker) etkilerine karşı yapılmış kümülatif modelleme ve akustik etüt çalışması mevcut mudur? [s. 45] [s. 12, s. 45]
+4. Günlük 535 m³ arıtılmış atıksuyun yeşil alan sulamasında kullanılması planlanırken, bitkilerin su ihtiyacının olmadığı kış aylarında veya aşırı yağış dönemlerinde bu suyun depolanması ya da bertarafı için sahada hangi alternatif altyapı ve deşarj izinleri öngörülmektedir? [s. 9, 27] [s. 9, s. 27]</textarea></section>
+  <p class="sub" style="margin-top:10px;"><em>İnceleme sınırları:</em> Sağlanan metin excerptsleri toplam 915 sayfalık nihai ÇED raporunun ağırlıklı olarak içindekiler listesi, kapak sayfaları, teknik olmayan özet ve Bölüm 1&#x27;in giriş sayfalarından (toplam 25 sayfa) oluşmaktadır. Flora-fauna envanter tablolarının detay metinleri (s. 81-137), hidrojeolojik analizler (s. 167-171), kümülatif etki bölümü (s. 277-284) ve kurum görüş yazılarının yer aldığı ekler sağlanan sayfalar arasında yer almadığı için detaylı teknik hesaplamalar bu sayfalar üzerinden doğrudan doğrulanamamıştır.</p>
 
 
   <h2>Resmi Duyuru Metni</h2>
@@ -204,41 +674,43 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
 
   <h2>Otomatik Metin Taraması (Deterministik)</h2>
   <table class="kv"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
-<tr><th>Literatür taraması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Literatür taraması ifadesi</th><td><span class="badge warn">Literatür ifadesi mevcut — saha çalışması ile karşılaştırınız</span></td></tr>
 <tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
 <tr><th>Kümülatif etki değerlendirmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
 <tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
 <tr><th>Yeraltı suyu, akifer veya hidrojeoloji ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
-<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr></table>
+<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr>
+<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr></table>
   <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik metin taramasına dahil edilmemiştir.</p>
 
   <h2>Sayfa Kaynaklı Çıkarılan Bulgular</h2>
-  <div class="cards"><section class="card"><h3>Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(225 sayfa: s.1, s.9, s.10, s.23, s.29, s.30, s.32, s.35, s.40, s.42, s.44, s.45, s.46, s.48 (+211 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>ada 173 parsel</code> — …ARIKAN PROJE GELİŞTİRME A.Ş. CASTELLO FONTANA OTEL İzmir İli, Çeşme ilçesi, Çakabey Mahallesi, 507 ada 173 parsel ELEMENT ÇEVRE DANIŞMANLIK VE MÜHENDİSLİK A.Ş. Mansuroğlu Mah. 1593/1 Sok. No:2 Lider Centrio A Blok No: 78 Bay…</div>
+  <div class="cards"><section class="card"><h3>Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(225 sayfa: s.1, s.9, s.10, s.23, s.29, s.30, s.32, s.35, s.40, s.42, s.44, s.45, s.46, s.48 (+211 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>ada 173 parsel</code> — …ARIKAN PROJE GELİŞTİRME A.Ş. CASTELLO FONTANA OTEL İzmir İli, Çeşme ilçesi, Çakabey Mahallesi, 507 ada 173 parsel ELEMENT ÇEVRE DANIŞMANLIK VE MÜHENDİSLİK A.Ş. Mansuroğlu Mah. 1593/1 Sok. No:2 Lider Centrio A Blok No: 78 Bay…</div>
 <div class="hit"><span class="pno">[s. 9]</span> <code>koordinat</code> — …i Amaçlar İçin Kullanılacakları (kazı fazlası malzeme ve bitkisel toprak miktarı ayrı ayrı hesaplanmalı, depo alanları koordinatlarıyla birlikte gösterilmeli, bitkisel toprağın ne şekilde depolanacağı ve nasıl değerlendirileceği açıklanmalıdır.) .…</div>
 <div class="hit"><span class="pno">[s. 10]</span> <code>utm</code> — …............. 199 3.6. İnşaat ve İşletme Aşamasında Oluşacak Emisyon Kaynakları (toz emisyonu, ısınma, aydınlanma, soğutma vb. amaçlı kullanılacak yakıt cinsine bağlı olarak oluşacak misyonlar vb.) ve Alınacak Önlemler (Hesaplamaların inşaa…</div>
 <div class="hit"><span class="pno">[s. 23]</span> <code>407,15 m2</code> — …N PROJE GELİŞTİRME A.Ş.1 tarafından İzmir ili, Çeşme ilçesi, Çakabey Mahallesi, 507 ada ve 173 parselinde yer alan 180.407,15 m2’lik taşınmaz üzerinde “CASTELLO FONTANA OTEL” projesinin gerçekleştirilmesi planlanmaktadır. Proje alanında 180.407,1…</div>
 <div class="hit"><span class="pno">[s. 23]</span> <code>10.500 m2</code> — …e “CASTELLO FONTANA OTEL” projesinin gerçekleştirilmesi planlanmaktadır. Proje alanında 180.407,15 m2 parsel alanının 10.500 m2 lik kısmında “Otel (20 Oda)” projesi planlanmakta idi. Planlanan projeye ilişkin 06.10.2025 tarih ve 13734597 sayı ile…</div>
-<div class="hit"><span class="pno">[s. 23]</span> <code>393,02 m2</code> — …Tablo 1.Tapu Alanı Ada Parsel Tapu Alanı (m2) Niteliği 507 173 180.407,15 Arsa Planlanan proje kapsamında, 88.393,02 m2lik inşaat alanı olacaktır. Söz konusu proje kapsamında otel ve apart oteller yapılacak olup bloklar A, C, D, E, E2, F,…</div></section><section class="card"><h3>Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(105 sayfa: s.9, s.11, s.16, s.18, s.27, s.38, s.49, s.50, s.52, s.54, s.59, s.72, s.73, s.87 (+91 sayfa))</span></h3><div class="hit"><span class="pno">[s. 9]</span> <code>Deşarj</code> — …rı (her atıksu kaynağı için ayrı ayrı hesaplanmalıdır) .............. 186 3.3.3. Sıvı Atıkların Bertaraf Yöntemleri ve Deşarj Edileceği Ortamlar (Evsel atık su, hamam, sauna ve havuz suyu ve diğer sıvı atıkların bertaraf şekli, deşarj edildiği/…</div>
+<div class="hit"><span class="pno">[s. 23]</span> <code>393,02 m2</code> — …Tablo 1.Tapu Alanı Ada Parsel Tapu Alanı (m2) Niteliği 507 173 180.407,15 Arsa Planlanan proje kapsamında, 88.393,02 m2lik inşaat alanı olacaktır. Söz konusu proje kapsamında otel ve apart oteller yapılacak olup bloklar A, C, D, E, E2, F,…</div></section><section class="card"><h3>Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(105 sayfa: s.9, s.11, s.16, s.18, s.27, s.38, s.49, s.50, s.52, s.54, s.59, s.72, s.73, s.87 (+91 sayfa))</span></h3><div class="hit"><span class="pno">[s. 9]</span> <code>Deşarj</code> — …rı (her atıksu kaynağı için ayrı ayrı hesaplanmalıdır) .............. 186 3.3.3. Sıvı Atıkların Bertaraf Yöntemleri ve Deşarj Edileceği Ortamlar (Evsel atık su, hamam, sauna ve havuz suyu ve diğer sıvı atıkların bertaraf şekli, deşarj edildiği/…</div>
 <div class="hit"><span class="pno">[s. 11]</span> <code>Yeraltı Suyu</code> — …....................................... 224 3.9. Proje Kapsamında Gerçekleştirilecek Faaliyetler Sonucunda Yüzeysel ve Yeraltı Suyu Kaynaklarının Etkilenme Durumları ve Alınacak Tedbirler (Yeraltısuyu Akiferlerine, Su Kaynaklarına Olan Etkisi İle İl…</div>
 <div class="hit"><span class="pno">[s. 11]</span> <code>Yeraltısuyu</code> — …ekleştirilecek Faaliyetler Sonucunda Yüzeysel ve Yeraltı Suyu Kaynaklarının Etkilenme Durumları ve Alınacak Tedbirler (Yeraltısuyu Akiferlerine, Su Kaynaklarına Olan Etkisi İle İlgili Değerlendirmeler) ...............................................…</div>
 <div class="hit"><span class="pno">[s. 16]</span> <code>Atıksu</code> — …........................................................................................................ 187 Tablo 40. Atıksu Arıtma Tesisleri Teknik Usuller Tebliğ “Tablo E7.1 Sulamada Geri Kullanılacak Arıtılmış ..............................…</div>
 <div class="hit"><span class="pno">[s. 18]</span> <code>Yeraltısuyu</code> — …....................................... 139 Şekil 42. Bölgesel Jeoloji (Kazanasmaz, E. (2008), “Kentimiz ve Çevresinin Yeraltısuyu Kaynakları, Yeraltısuyunu Kirletici Etkenler ve Su Kıtlığı Riski”, TMMOB İzmir Kent Sempozyumu) .....................…</div>
-<div class="hit"><span class="pno">[s. 27]</span> <code>atıksu</code> — …en temin edilecektir. Projenin inşaat ve işletme aşamalarında çalışacak personelden kaynaklı olarak evsel nitelikli atıksu oluşması beklenmektedir. İnşaat aşamasında oluşacak evsel nitelikli atıksular, proje alanında oluşturulacak 80 m³ kapa…</div></section><section class="card"><h3>Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(90 sayfa: s.6, s.25, s.26, s.45, s.55, s.56, s.60, s.62, s.73, s.74, s.75, s.76, s.77, s.79 (+76 sayfa))</span></h3><div class="hit"><span class="pno">[s. 6]</span> <code>Doğal Sit</code> — …IKAN PROJE GELİŞTİRME A.Ş. CASTELLO FONTANA OTEL 2.3.2. Var İse Proje Alanı ve Çevresinde Bulunan Tabiat Varlığı ve Doğal Sit Alanları (Tabiat Varlıklarını Koruma Genel Müdürlüğü’nün 16166497 sayılı görüşleri kapsamında yapılacak iş ve işlemle…</div>
+<div class="hit"><span class="pno">[s. 27]</span> <code>atıksu</code> — …en temin edilecektir. Projenin inşaat ve işletme aşamalarında çalışacak personelden kaynaklı olarak evsel nitelikli atıksu oluşması beklenmektedir. İnşaat aşamasında oluşacak evsel nitelikli atıksular, proje alanında oluşturulacak 80 m³ kapa…</div></section><section class="card"><h3>Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(90 sayfa: s.6, s.25, s.26, s.45, s.55, s.56, s.60, s.62, s.73, s.74, s.75, s.76, s.77, s.79 (+76 sayfa))</span></h3><div class="hit"><span class="pno">[s. 6]</span> <code>Doğal Sit</code> — …IKAN PROJE GELİŞTİRME A.Ş. CASTELLO FONTANA OTEL 2.3.2. Var İse Proje Alanı ve Çevresinde Bulunan Tabiat Varlığı ve Doğal Sit Alanları (Tabiat Varlıklarını Koruma Genel Müdürlüğü’nün 16166497 sayılı görüşleri kapsamında yapılacak iş ve işlemle…</div>
 <div class="hit"><span class="pno">[s. 25]</span> <code>Doğal Sit</code> — …parsel 24.06.2021 tarih ve 1133 sayılı İzmir 2 No’lu TVK kararı gereği Sürdürülebilir Koruma Kontrollü Kullanım Alanı Doğal Sit Alanında kalmaktadır. 1/1000 ölçekli Koruma Amaçlı İmar Planında Otel Alanında kalmaktadır. Proje kapsamında 769 oda…</div>
 <div class="hit"><span class="pno">[s. 26]</span> <code>Doğal Sit</code> — …e alanı, İzmir - Manisa İli 1/100.000 ölçekli Çevre Düzeni Planı’nın L16 paftasında kalmakta ve “Turizm Tesis Alanı ve Doğal Sit Alanı” olarak belirlenen sınırlar içerisinde yer almaktadır. (Bkz.Ek-2.3). Proje alanını gösterir 1/25.000 Ölçekli To…</div>
 <div class="hit"><span class="pno">[s. 45]</span> <code>Doğal Sit</code> — …e alanı, İzmir - Manisa İli 1/100.000 ölçekli Çevre Düzeni Planı’nın L16 paftasında kalmakta ve “Turizm Tesis Alanı ve Doğal Sit Alanı” olarak belirlenen sınırlar içerisinde yer almaktadır. (Bkz.Ek-2.2). Proje alanına ulaşım problemi bulunmamakt…</div>
 <div class="hit"><span class="pno">[s. 55]</span> <code>Doğal Sit</code> — …parsel 24.06.2021 tarih ve 1133 sayılı İzmir 2 No’lu TVK kararı gereği Sürdürülebilir Koruma Kontrollü Kullanım Alanı Doğal Sit Alanında kalmaktadır. 1/1000 ölçekli Koruma Amaçlı İmar Planında Otel Alanında kalmaktadır. 14.07.2026 tarih ve 30848…</div>
-<div class="hit"><span class="pno">[s. 56]</span> <code>doğal sit</code> — …k Planlara Dair Yönetmelik’in 5/d maddesinde yer alan &quot;Koruma amaçlı imar planlarının varsa etkileşim-geçiş sahası ile doğal sit alanının bütününü kapsayacak şekilde veya Genel Müdürlükçe uygun görülen etaplar halinde, içinde bulunduğu yerleşme il…</div></section><section class="card"><h3>Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(114 sayfa: s.7, s.10, s.22, s.38, s.52, s.72, s.86, s.88, s.92, s.93, s.104, s.106, s.107, s.109 (+100 sayfa))</span></h3><div class="hit"><span class="pno">[s. 7]</span> <code>IUCN</code> — vi ARIKAN PROJE GELİŞTİRME A.Ş. CASTELLO FONTANA OTEL IUCN ve Türkiye Bitkileri Kırmızı Kitabı Tehlike Kategorilerine göre değerlendirme yapılması, tespit şeklinin arazi/literat…</div>
+<div class="hit"><span class="pno">[s. 56]</span> <code>doğal sit</code> — …k Planlara Dair Yönetmelik’in 5/d maddesinde yer alan &quot;Koruma amaçlı imar planlarının varsa etkileşim-geçiş sahası ile doğal sit alanının bütününü kapsayacak şekilde veya Genel Müdürlükçe uygun görülen etaplar halinde, içinde bulunduğu yerleşme il…</div></section><section class="card"><h3>Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(114 sayfa: s.7, s.10, s.22, s.38, s.52, s.72, s.86, s.88, s.92, s.93, s.104, s.106, s.107, s.109 (+100 sayfa))</span></h3><div class="hit"><span class="pno">[s. 7]</span> <code>IUCN</code> — vi ARIKAN PROJE GELİŞTİRME A.Ş. CASTELLO FONTANA OTEL IUCN ve Türkiye Bitkileri Kırmızı Kitabı Tehlike Kategorilerine göre değerlendirme yapılması, tespit şeklinin arazi/literat…</div>
 <div class="hit"><span class="pno">[s. 7]</span> <code>Bern Sözleşmesi</code> — …Türleri (türlerinin tehlike kategorileri, endemiklik durumları, nispi bolluk dereceleri, Uluslararası Antlaşmalar İle (Bern Sözleşmesi vb.) Koruma Altına Alınan Tür Olup Olmadığı) .........................................................................…</div>
 <div class="hit"><span class="pno">[s. 10]</span> <code>mevsimsel</code> — …ücadele ve Su Kaynaklarının Verimli Kullanılması İçin Alınacak Önlemler ve Yapılacak Çalışmalar (Projenin bölgede mevsimsel değişikliğe olan etkileri konusunda kıyı erozyonu, plaj alanı kaybına neden olup olmayacağı, bölgenin yer…</div>
 <div class="hit"><span class="pno">[s. 22]</span> <code>CITES</code> — …EL KISALTMALAR Bkz. Bakınız ºC Santigrat derece CBS Coğrafi Bilgi Sistemi ÇED Çevresel Etki Değerlendirme CITES Nesli Tehlikedeki Yabani Hayvan ve Bitki Türlerinin Uluslararası Ticaretine İlişkin Sözleşme (Convention on Internati…</div>
 <div class="hit"><span class="pno">[s. 22]</span> <code>IUCN</code> — …liği cm Santimetre dB Desibel dba A-Ağırlıklı Desibel DSİ Devlet Su İşleri GPS Küresel Yer Belirleme Sistemi IUCN Dünya Doğayı Koruma Birliği kg Kilogram km Kilometre km2 Kilometrekare KVS Kısa Vadeli Sınır Değer m Metre…</div>
-<div class="hit"><span class="pno">[s. 38]</span> <code>mevsimsel</code> — …ım Süresi ve İşletme Süresi Planlanan turizm konaklama tesisinin işletme faaliyetleri, bölgenin turizm potansiyeli, mevsimsel talep ve konaklama ihtiyaçları doğrultusunda şekillenecektir. Tesisin hizmet vereceği dönemler ve işletme düzeni, turi…</div></section><section class="card"><h3>Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(131 sayfa: s.5, s.8, s.12, s.17, s.18, s.19, s.22, s.38, s.56, s.57, s.59, s.60, s.63, s.72 (+117 sayfa))</span></h3><div class="hit"><span class="pno">[s. 5]</span> <code>Deprem</code> — …...... 42 2.1.3. Proje Alanı ve Yakın Çevresinde Bulunan Diğer Kullanımların (Tarım Arazisi, Yeraltı ve Yüzey Suları, Deprem Kuşakları, Jeolojik Yapı, Yerleşim Alanları, Ulaşım Ağı, Enerji İletim Hatları, Boru Hatları, Sanayi Bölgeleri vb.) 1/…</div>
+<div class="hit"><span class="pno">[s. 38]</span> <code>mevsimsel</code> — …ım Süresi ve İşletme Süresi Planlanan turizm konaklama tesisinin işletme faaliyetleri, bölgenin turizm potansiyeli, mevsimsel talep ve konaklama ihtiyaçları doğrultusunda şekillenecektir. Tesisin hizmet vereceği dönemler ve işletme düzeni, turi…</div></section><section class="card"><h3>Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(131 sayfa: s.5, s.8, s.12, s.17, s.18, s.19, s.22, s.38, s.56, s.57, s.59, s.60, s.63, s.72 (+117 sayfa))</span></h3><div class="hit"><span class="pno">[s. 5]</span> <code>Deprem</code> — …...... 42 2.1.3. Proje Alanı ve Yakın Çevresinde Bulunan Diğer Kullanımların (Tarım Arazisi, Yeraltı ve Yüzey Suları, Deprem Kuşakları, Jeolojik Yapı, Yerleşim Alanları, Ulaşım Ağı, Enerji İletim Hatları, Boru Hatları, Sanayi Bölgeleri vb.) 1/…</div>
 <div class="hit"><span class="pno">[s. 8]</span> <code>deprem</code> — …GELİŞTİRME A.Ş. CASTELLO FONTANA OTEL 2.9. Proje ve Etki Alanının Doğal Afet Durumu (7269 sayılı yasada belirtilen deprem dışındaki heyelan, su baskını, çığ, kaya düşmesi, vb. afet riskleri hakkında bilgi verilmeli. Proje alanında daha önc…</div>
 <div class="hit"><span class="pno">[s. 12]</span> <code>Deprem</code> — …emin Emniyetinin Sağlanması İçin Yapılacak İşlemler .......................................... 249 3.21. Doğal Afet ve Deprem Durumuna İlişkin Alınacak Koruyucu ve Önleyici Tedbirler ............................................................…</div>
 <div class="hit"><span class="pno">[s. 12]</span> <code>KÜMÜLATİF</code> — …kurum/kuruluşlar tarafından talep edilenler. (Uyulması Gereken Mevzuatlar Dışındaki Özel Taahhütler)... 253 BÖLÜM 4: KÜMÜLATİF ETKİ DEĞERLENDİRME (Projenin geçmişteki, mevcuttaki veya gelecekteki etki alanı içerisinde kalan başka faaliyet…</div>
 <div class="hit"><span class="pno">[s. 17]</span> <code>Gürültü</code> — ….İnşaat Aşamasında Sahada Kullanılacak Makine-Ekipman Oktav Bandı Dağılımı 212 Tablo 57.İnşaat Aşamasında Kullanılacak Gürültü Kaynaklarının Mesafelere Göre Ses Basınç Düzeyleri(dBA) ..............................................................…</div>
-<div class="hit"><span class="pno">[s. 18]</span> <code>Deprem</code> — …je Alanının En Yakın Camiye Olan Konumunu Gösterir Uydu Görüntüsü ........ 49 Şekil 23. Proje Alanını Gösterir Türkiye Deprem Tehlike Haritası ve Proje Alanına En Yakın Diri Fayın Konumu ve Mesafesi .............................................…</div></section><section class="card"><h3>Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(60 sayfa: s.2, s.3, s.27, s.29, s.32, s.46, s.48, s.49, s.50, s.53, s.54, s.90, s.97, s.189 (+46 sayfa))</span></h3><div class="hit"><span class="pno">[s. 2]</span> <code>PROJE BEDELİ</code> — …AKS NUMARASI TEL : +90 532 271 14 09 FAKS : - E-POSTA ozlemcesme@gmail.com PROJENİN ADI CASTELLO FONTANA OTEL PROJE BEDELİ 1.993.240.834,20 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) İzmir ili, Çeşme ilçesi, Çakabey M…</div>
+<div class="hit"><span class="pno">[s. 18]</span> <code>Deprem</code> — …je Alanının En Yakın Camiye Olan Konumunu Gösterir Uydu Görüntüsü ........ 49 Şekil 23. Proje Alanını Gösterir Türkiye Deprem Tehlike Haritası ve Proje Alanına En Yakın Diri Fayın Konumu ve Mesafesi .............................................…</div></section><section class="card"><h3>Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(60 sayfa: s.2, s.3, s.27, s.29, s.32, s.46, s.48, s.49, s.50, s.53, s.54, s.90, s.97, s.189 (+46 sayfa))</span></h3><div class="hit"><span class="pno">[s. 2]</span> <code>PROJE BEDELİ</code> — …AKS NUMARASI TEL : +90 532 271 14 09 FAKS : - E-POSTA ozlemcesme@gmail.com PROJENİN ADI CASTELLO FONTANA OTEL PROJE BEDELİ 1.993.240.834,20 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) İzmir ili, Çeşme ilçesi, Çakabey M…</div>
 <div class="hit"><span class="pno">[s. 3]</span> <code>Kapasite</code> — …................................................... 23 1.2.3. Kara Alanında Yapılması Planlanan Üniteler, Özellikleri, Kapasiteleri, Bu Ünitelerde Verilecek Olan Hizmetler (Otel İçin Yapılması Planlanan Bina Sayısı, Binalardaki Kat Adedi, Oda Sa…</div>
 <div class="hit"><span class="pno">[s. 27]</span> <code>kapasite</code> — …ıksu oluşması beklenmektedir. İnşaat aşamasında oluşacak evsel nitelikli atıksular, proje alanında oluşturulacak 80 m³ kapasiteli sızdırmaz fosseptikte toplanacak, vidanjör ile çektirilerek İZSU Atıksu Arıtma Tesislerine gönderilecektir. Bu husus…</div>
 <div class="hit"><span class="pno">[s. 29]</span> <code>kapasite</code> — …ktedir. Söz konusu yapılaşma kapsamında 34 odalı butik otel ile apart otel birimlerinde toplam 769 oda ve 1.538 yatak kapasitesi oluşturulacaktır. Yapılaşma dışında kalan alanlarda ise açık yüzme havuzları, otopark alanları ve peyzaj düzenlemele…</div>
@@ -267,7 +739,45 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
+
 (() => {
+  const root = document.documentElement;
+  const saved = localStorage.getItem('eced_theme');
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function syncLabel() {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = cur ? cur === 'dark' : prefersDark;
+    btn.textContent = isDark ? 'Açık Tema' : 'Koyu Tema';
+  }
+  syncLabel();
+  btn.addEventListener('click', () => {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = cur ? cur === 'dark' : prefersDark;
+    const next = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('eced_theme', next);
+    syncLabel();
+  });
+})();
+
+(() => {
+  const copyBtn = document.getElementById('copy-qs-btn');
+  const qsTxt = document.getElementById('qs-plain');
+  if (copyBtn && qsTxt) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(qsTxt.value);
+        copyBtn.textContent = 'Kopyalandı ✓';
+        setTimeout(() => (copyBtn.textContent = 'Soruları Kopyala'), 2200);
+      } catch (e) {
+        copyBtn.textContent = 'Kopyalanamadı';
+      }
+    });
+  }
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.4237, "lon": 27.1428, "zoom": 8, "precision": "province_centroid", "points": [], "label": "İZMİR / ÇEŞME — CASTELLO FONTANA OTEL"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
@@ -277,16 +787,16 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
   }).addTo(map);
   if (g.precision === 'exact_pdf' && g.points.length > 1) {
     const latlngs = g.points.map(p => [p[0], p[1]]);
-    const poly = L.polyline(latlngs, { color: '#58a6ff', weight: 3, opacity: 0.85 }).addTo(map);
+    const poly = L.polyline(latlngs, { color: '#0b5ed7', weight: 3, opacity: 0.85 }).addTo(map);
     for (const ll of latlngs.slice(0, 30)) {
-      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#f85149', fillOpacity: 0.9, weight: 1 }).addTo(map);
+      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#d92d20', fillOpacity: 0.9, weight: 1 }).addTo(map);
     }
     map.fitBounds(poly.getBounds().pad(0.25));
   } else {
     L.circleMarker([g.lat, g.lon], {
       radius: g.precision === 'exact_pdf' ? 8 : 11,
       color: '#ffffff',
-      fillColor: g.precision === 'exact_pdf' ? '#f85149' : '#58a6ff',
+      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#0b5ed7',
       fillOpacity: g.precision === 'exact_pdf' ? 0.9 : 0.45,
       weight: 2
     }).bindPopup(g.label).addTo(map).openPopup();

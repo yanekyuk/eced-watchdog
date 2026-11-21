@@ -16,7 +16,7 @@
 | **Announcement Date** | `04.11.2026` (uploaded `16/10/2026 10:51:45`) |
 
 **Statutory Deadlines (informational aid — verify with legal counsel):**
-- **Halkın Katılımı Toplantısı (HKT — ÇED Yönetmeliği m. 9):** `2026-12-02` (`12 days remaining`)
+- **Halkın Katılımı Toplantısı (HKT — ÇED Yönetmeliği m. 9):** `2026-12-02` (`11 days remaining`)
 
 ## 2. AI-Assisted Scientific Synthesis (`gemini-3.8-flash`)
 

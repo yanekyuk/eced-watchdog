@@ -12,11 +12,11 @@
 | **Owner** | Atuksan Geri Kazanım Sanayi ve Ticaret Anonim Şirketi |
 | **Consulting Firm** | PPM KİR.ÖNL.VE YÖN. DAN. MÜH. İNŞ. TAAH. SAN.VE.TİC. LTD.ŞTİ. |
 | **District / Sector** | ESENYURT · Atık / Atık Bertaraf /Geri Kazanım/ Depolama Tesisi Projeleri |
-| **Stage / Annex** | `ÇED Süreci Başlayan` · `Ek-1` |
-| **Announcement Date** | `19.11.2026` (uploaded `17/11/2026 03:41:09`) |
+| **Stage / Annex** | `HKT` · `Ek-1` |
+| **Announcement Date** | `20.11.2026` (uploaded `17/11/2026 03:41:09`) |
 
 **Statutory Deadlines (informational aid — verify with legal counsel):**
-- **Karar öncesi inceleme süreci (ÇED Yönetmeliği m. 8/16; süreç boyunca yazılı görüş verilebilir):** `see text` 
+- **Halkın Katılımı Toplantısı (HKT — ÇED Yönetmeliği m. 9):** `2026-12-17` (`26 days remaining`)
 
 ## 2. AI-Assisted Scientific Synthesis (`gemini-4-hydrogen`)
 
@@ -67,7 +67,7 @@
 
 ## Official Announcement Text
 
-> İSTANBUL ili ESENYURT,  ilcesinde İSTANBUL il ESENYURT,  ilce Akçaburgaz Mahallesi, 3114. Sokak No:4 adresinde (1120 parsel)  mevkiinde Atuksan Geri Kazanım Sanayi ve Ticaret Anonim Şirketi  tarafından yapılması planlanan Tehlikesiz ve Tehlikeli Atık Değerli Metal (Maden) Geri Kazanım Tesisi projesi ile ilgili olarak Bakanlığımıza sunulan ÇED Başvuru Dosyası Çevresel Etki Değerlendirmesi Yönetmeliği'nin 8. maddesi doğrultusunda incelenmiş ve başvurunun ÇED Genel Formatına uygun hazırlandığı anlaşılmış olup, projeye ilişkin ÇED Süreci başlatılmıştır. Çevresel Etki Değerlendirmesi süreci tamamlanana kadar, süreç ile ilgili her türlü bilgiler ve projeye ilişkin görüş, soru ve öneriler İSTANBUL Valiliğine (Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü) veya Çevre, Şehircilik ve İklim Değişikliği Bakanlığına gönderilebilir.İlgililere ve kamuoyuna duyurulur.
+> İSTANBUL ili ESENYURT,  ilcesinde İSTANBUL ili ESENYURT ilçesi sınırları içerisinde Atuksan Geri Kazanım Sanayi ve Ticaret Anonim Şirketi  tarafından yapılması planlanan Tehlikesiz ve Tehlikeli Atık Değerli Metal (Maden) Geri Kazanım Tesisi projesi ile ilgili Çevresel Etki Değerlendirme süreci başlamış ve Çevresel Etki Değerlendirmesi Başvuru Dosyası halkın görüşüne açılmıştır.Söz konusu projeye ilişkin, halkı proje hakkında bilgilendirmek, görüş ve önerilerini almak amacıyla ÇED Yönetmeliğinin 9. maddesi gereğince 17/12/2026 tarihinde Halkın Katılım Toplantısı düzenlenecektir.ÇED Başvuru Dosyasını İncelemek isteyenler Bakanlık Merkezinde veya İSTANBUL Çevre ve Şehircilik İl Müdürlüklerinde duyuru tarihinden itibaren raporu inceleyerek, zamanlama takvimi içerisinde proje hakkında Bakanlığa veya Valiliğe görüş bildirebilirler. Halkın Katılımı Toplantısı yeri ve saati ile ilgili ÇED İzin Denetim Genel Müdürlüğü ve İSTANBUL Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğünden bilgi alınabilir. İlgililere ve kamuoyuna duyurulur.
 
 ## Deterministic Baseline & Red-Flag Scan
 

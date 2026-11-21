@@ -7,145 +7,608 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
 :root {
-  --bg: #0f1216;
-  --surface: #171c22;
-  --border: #262e38;
-  --text: #e6edf3;
-  --muted: #8b949e;
-  --accent: #58a6ff;
-  --red: #f85149;
-  --amber: #d29922;
-  --green: #3fb950;
-  --badge-bg: #212830;
+  --bg: #f6f8fa;
+  --surface: #ffffff;
+  --surface-subtle: #f1f4f8;
+  --border: #d8dee6;
+  --border-strong: #bcc6d4;
+  --text: #161b22;
+  --text-secondary: #424a53;
+  --muted: #5c6670;
+  --accent: #0b5ed7;
+  --accent-soft: #e7f1ff;
+  --red: #b42318;
+  --red-soft: #fef3f2;
+  --red-border: #fecdca;
+  --amber: #9a5b00;
+  --amber-soft: #fffaeb;
+  --amber-border: #fedf89;
+  --green: #067647;
+  --green-soft: #ecfdf3;
+  --green-border: #abefc6;
+  --violet: #5925dc;
+  --violet-soft: #f4f3ff;
+  --violet-border: #d9d6fe;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --radius: 10px;
 }
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg: #f6f8fa;
-    --surface: #ffffff;
-    --border: #d0d7de;
-    --text: #1f2328;
-    --muted: #656d76;
-    --accent: #0969da;
-    --red: #cf222e;
-    --amber: #9a6700;
-    --green: #1a7f37;
-    --badge-bg: #eef2f6;
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface-subtle: #1c222b;
+    --border: #2b333e;
+    --border-strong: #3d4756;
+    --text: #e6edf3;
+    --text-secondary: #c9d1d9;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --accent-soft: rgba(88, 166, 255, 0.14);
+    --red: #ff7b72;
+    --red-soft: rgba(248, 81, 73, 0.14);
+    --red-border: rgba(248, 81, 73, 0.4);
+    --amber: #e3b341;
+    --amber-soft: rgba(210, 153, 34, 0.14);
+    --amber-border: rgba(210, 153, 34, 0.4);
+    --green: #3fb950;
+    --green-soft: rgba(63, 185, 80, 0.14);
+    --green-border: rgba(63, 185, 80, 0.4);
+    --violet: #b692f6;
+    --violet-soft: rgba(158, 119, 237, 0.16);
+    --violet-border: rgba(158, 119, 237, 0.42);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
   }
 }
+:root[data-theme="dark"] {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface-subtle: #1c222b;
+  --border: #2b333e;
+  --border-strong: #3d4756;
+  --text: #e6edf3;
+  --text-secondary: #c9d1d9;
+  --muted: #8b949e;
+  --accent: #58a6ff;
+  --accent-soft: rgba(88, 166, 255, 0.14);
+  --red: #ff7b72;
+  --red-soft: rgba(248, 81, 73, 0.14);
+  --red-border: rgba(248, 81, 73, 0.4);
+  --amber: #e3b341;
+  --amber-soft: rgba(210, 153, 34, 0.14);
+  --amber-border: rgba(210, 153, 34, 0.4);
+  --green: #3fb950;
+  --green-soft: rgba(63, 185, 80, 0.14);
+  --green-border: rgba(63, 185, 80, 0.4);
+  --violet: #b692f6;
+  --violet-soft: rgba(158, 119, 237, 0.16);
+  --violet-border: rgba(158, 119, 237, 0.42);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
 }
-.wrap { max-width: 1240px; margin: 0 auto; padding: 24px 18px 64px; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
-header { border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 20px; }
-h1 { margin: 0 0 6px; font-size: 1.55rem; }
-h2 { margin: 26px 0 10px; font-size: 1.2rem; }
-h3 { margin: 16px 0 8px; font-size: 1rem; }
-.sub { color: var(--muted); font-size: 0.92rem; margin: 0; }
-.meta-bar { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-size: 0.85rem; color: var(--muted); }
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin: 16px 0 18px; }
-.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
-.stat .num { font-size: 1.45rem; font-weight: 700; }
-.stat .lbl { font-size: 0.78rem; color: var(--muted); }
+
+/* Unified Sticky Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.topbar-inner {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 11px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: -0.01em;
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+.brand-scope {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.nav-link {
+  padding: 5px 11px;
+  border-radius: 7px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-link:hover { background: var(--surface-subtle); text-decoration: none; color: var(--text); }
+.nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.theme-btn {
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
+
+/* Layout */
+.wrap { max-width: 1220px; margin: 0 auto; padding: 24px 20px 68px; }
+.wrap.narrow { max-width: 960px; }
+header.page-head { margin-bottom: 20px; }
+h1 { margin: 0 0 8px; font-size: 1.62rem; line-height: 1.25; letter-spacing: -0.02em; }
+h2 { margin: 28px 0 12px; font-size: 1.2rem; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { margin: 16px 0 8px; font-size: 0.98rem; line-height: 1.35; }
+.sub { color: var(--muted); font-size: 0.93rem; margin: 0; }
+.meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin-top: 12px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+
+/* Orientation Banner */
+.hero-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+.hero-strip p { margin: 0; font-size: 0.9rem; color: var(--text-secondary); max-width: 820px; }
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.hero-cta:hover { text-decoration: none; filter: brightness(1.06); }
+
+/* KPI Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  gap: 12px;
+  margin: 0 0 18px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 13px 16px;
+  box-shadow: var(--shadow);
+}
+.stat .num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+.stat .lbl { font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
+.stat.accent .num { color: var(--accent); }
+.stat.rev .num { color: var(--violet); }
+
+/* Map */
 .map-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+#map { width: 100%; height: 400px; background: var(--surface-subtle); }
+#digest-map { width: 100%; height: 320px; background: var(--surface-subtle); }
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  padding: 10px 16px;
+  font-size: 0.79rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: var(--surface-subtle);
+}
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+/* Controls */
+.controls-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.controls-row + .controls-row { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+input[type="search"], select.filter-select {
+  padding: 8px 12px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.88rem;
+}
+input[type="search"]:focus, select.filter-select:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+input[type="search"] { flex: 1 1 250px; }
+select.filter-select { min-width: 165px; }
+button.pill {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.81rem;
+  font-weight: 500;
+  transition: background 0.12s, border-color 0.12s;
+}
+button.pill:hover { border-color: var(--border-strong); color: var(--text); }
+button.pill.active { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 600; }
+button.pill.rev-pill.active { background: var(--violet); border-color: var(--violet); }
+button.reset-btn {
+  margin-left: auto;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+button.reset-btn:hover { color: var(--text); border-color: var(--border-strong); }
+
+/* Cards & Badges */
+.cards { display: flex; flex-direction: column; gap: 11px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+}
+.card.ek1 { border-left: 4px solid var(--accent); }
+.card.has-rev { border-left: 4px solid var(--violet); }
+.card.ek1.has-rev { border-left: 4px solid var(--violet); }
+.row-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 14px;
+  align-items: flex-start;
+}
+.title { font-weight: 650; font-size: 1rem; line-height: 1.38; color: var(--text); flex: 1 1 320px; }
+.title a { color: var(--text); }
+.title a:hover { color: var(--accent); text-decoration: none; }
+.date-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.badge.urgent { background: var(--red-soft); border-color: var(--red-border); color: var(--red); font-weight: 600; }
+.badge.warn { background: var(--amber-soft); border-color: var(--amber-border); color: var(--amber); font-weight: 600; }
+.badge.ok { background: var(--green-soft); border-color: var(--green-border); color: var(--green); font-weight: 600; }
+.badge.info { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
+.badge.rev { background: var(--violet-soft); border-color: var(--violet-border); color: var(--violet); font-weight: 600; }
+.badge.muted { color: var(--muted); }
+.detail { font-size: 0.88rem; color: var(--text-secondary); margin: 9px 0 0; }
+.detail.muted { color: var(--muted); }
+
+/* Revision inline strip on cards */
+.rev-strip {
+  margin-top: 10px;
+  padding: 8px 11px;
+  border-radius: 7px;
+  background: var(--violet-soft);
+  border: 1px solid var(--violet-border);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.rev-strip strong { color: var(--violet); }
+
+/* Action Buttons */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  font-size: 0.83rem;
+  margin-top: 11px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+.btn-primary:hover { text-decoration: none; filter: brightness(1.06); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.btn-secondary:hover { text-decoration: none; border-color: var(--border-strong); color: var(--text); }
+
+/* Tables, Code, Callouts, Timeline */
+table.kv {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.89rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+table.kv th, table.kv td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 13px;
+  text-align: left;
+  vertical-align: top;
+}
+table.kv tr:last-child th, table.kv tr:last-child td { border-bottom: none; }
+table.kv th { width: 250px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
+table.data-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.85rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
   overflow: hidden;
-  margin-bottom: 18px;
 }
-#map { width: 100%; height: 420px; background: var(--badge-bg); }
-#digest-map { width: 100%; height: 320px; background: var(--badge-bg); }
-.map-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  padding: 9px 14px;
-  font-size: 0.8rem;
-  color: var(--muted);
-  border-top: 1px solid var(--border);
+table.data-tbl th, table.data-tbl td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
 }
-.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
-.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; }
-input[type="search"], select.filter-select {
-  padding: 8px 12px;
-  border-radius: 6px;
+table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.data-tbl tr:last-child td { border-bottom: none; }
+code {
+  background: var(--surface-subtle);
   border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.84em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+blockquote {
+  margin: 10px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
   background: var(--surface);
-  color: var(--text);
+  border-radius: 0 8px 8px 0;
   font-size: 0.9rem;
+  color: var(--text-secondary);
 }
-input[type="search"] { flex: 1 1 240px; }
-select.filter-select { min-width: 170px; }
-button.pill {
-  padding: 7px 12px;
-  border-radius: 999px;
+.callout {
+  padding: 14px 16px;
+  border-radius: var(--radius);
   border: 1px solid var(--border);
   background: var(--surface);
-  color: var(--text);
-  cursor: pointer;
-  font-size: 0.82rem;
+  margin: 14px 0;
 }
-button.pill.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
-.cards { display: flex; flex-direction: column; gap: 10px; }
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 15px 17px;
+.callout.rev {
+  background: var(--violet-soft);
+  border-color: var(--violet-border);
 }
-.card.ek1 { border-left: 4px solid var(--accent); }
-.row-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline; }
-.title { font-weight: 600; font-size: 0.98rem; }
-.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 7px; }
-.badge {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  background: var(--badge-bg);
-  border: 1px solid var(--border);
+.callout.warn {
+  background: var(--amber-soft);
+  border-color: var(--amber-border);
 }
-.badge.urgent { border-color: var(--red); color: var(--red); font-weight: 600; }
-.badge.warn { border-color: var(--amber); color: var(--amber); font-weight: 600; }
-.badge.ok { border-color: var(--green); color: var(--green); }
-.badge.muted { color: var(--muted); }
-.detail { font-size: 0.87rem; color: var(--muted); margin: 8px 0; }
-.actions { display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.84rem; margin-top: 8px; }
+.timeline {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid var(--border-strong);
+}
+.timeline li {
+  position: relative;
+  margin: 0 0 10px;
+  padding-left: 8px;
+  font-size: 0.87rem;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+}
+.hit { margin: 8px 0; font-size: 0.88rem; line-height: 1.55; }
+.pno { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
 .notice {
-  margin-top: 28px;
+  margin-top: 32px;
   padding: 14px 16px;
   border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 0.84rem;
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+  font-size: 0.83rem;
   color: var(--muted);
 }
-table.kv { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9rem; }
-table.kv th, table.kv td { border: 1px solid var(--border); padding: 8px 11px; text-align: left; vertical-align: top; }
-table.kv th { width: 240px; background: var(--badge-bg); }
-code { background: var(--badge-bg); padding: 1px 5px; border-radius: 4px; font-size: 0.85em; }
-blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--accent); background: var(--surface); font-size: 0.9rem; }
-.hit { margin: 7px 0; font-size: 0.88rem; }
-.pno { font-weight: 700; color: var(--accent); }
-.leaflet-popup-content { color: #1f2328; font-size: 0.85rem; line-height: 1.45; }
+.toc-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 20px; }
+.toc-pills a {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.81rem;
+  font-weight: 500;
+}
+.toc-pills a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+.step-num {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+pre.template-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.section-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.leaflet-popup-content { color: #161b22; font-size: 0.85rem; line-height: 1.45; }
+@media (max-width: 700px) {
+  table.kv th { width: 145px; }
+  #map { height: 320px; }
+  .topbar-inner { padding: 10px 14px; }
+  .wrap { padding: 18px 14px 54px; }
+}
+@media print {
+  .topbar, .no-print, #digest-map, .map-box { display: none !important; }
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .card, table.kv, table.data-tbl { box-shadow: none; break-inside: avoid; }
+  a { color: #000000; text-decoration: underline; }
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div style="font-size:0.85rem;margin-bottom:8px;"><a href="../index.html">← Türkiye e-ÇED İzleme listesine dön</a> · <a href="../rehber.html">Kullanım ve İnceleme Rehberi</a> · <a href="58476.md">Ham Markdown (.md)</a></div>
-    <h1>e-ÇED Ön Özet #58476 — İZMİR / FOÇA</h1>
-    <p class="sub">2155 RUHSAT NUMARALI ALANDA JEOTERMAL REENJEKSİYON KUYU (1 ADET) FAALİYETİ</p>
-    <div class="badges" style="margin-top:10px;">
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      <span>Türkiye e-ÇED İzleme</span>
+      <span class="brand-scope">81 İl</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link " href="../index.html">Duyurular ve Harita</a>
+      <a class="nav-link " href="../rehber.html">Kullanım Rehberi</a>
+      <a class="nav-link" href="../feed.xml">RSS 2.0</a>
+      <a class="nav-link" href="https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml" target="_blank" rel="noopener">Resmi e-ÇED ↗</a>
+      <button id="theme-toggle" class="theme-btn" type="button">Tema</button>
+    </div>
+  </div>
+</nav>
+<div class="wrap narrow">
+  <header class="page-head">
+    <div style="font-size:0.84rem;color:var(--muted);margin-bottom:8px;" class="no-print">
+      <a href="../index.html">← Duyurular listesine dön</a> · Dosya <code>#58476</code>
+    </div>
+    <h1>2155 RUHSAT NUMARALI ALANDA JEOTERMAL REENJEKSİYON KUYU (1 ADET) FAALİYETİ</h1>
+    <p class="sub">İZMİR / FOÇA · EGE ÇELİK JEOTERMAL ENERJİ SANTRALİ A.Ş.</p>
+    <div class="badges" style="margin-top:11px;">
       <span class="badge">ÇED Gerekli Değil/ÇED Olumlu</span>
-      <span class="badge">Ek-2</span>
-      <span class="badge ok">İYUK 20/A (30g) · 21 gün kaldı (2026-12-11)</span>
+      <span class="badge info">Ek-2</span>
+      <span class="badge ok">İYUK 20/A (30g) · 20 gün kaldı (2026-12-11)</span>
+      <span class="badge warn">Eski Dosya Yeniden Açıldı (1+ yıl)</span>
+    </div>
+    <div class="actions no-print" style="border-top:none;padding-top:4px;">
+      <a class="btn-primary" href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign7504032269344894671.pdf&amp;orjinalAd=e-imza.pdf&amp;yuklemeTarihi=2026-10-28" target="_blank" rel="noopener">Resmi PDF Dosyası ↗</a>
+      <a class="btn-secondary" href="http://eced.csb.gov.tr/jsp/ek1/58476" target="_blank" rel="noopener">e-ÇED Portal Kaydı ↗</a>
+      <a class="btn-secondary" href="58476.md">Ham Markdown (.md)</a>
+      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF Kaydet</button>
     </div>
   </header>
 
@@ -153,10 +616,14 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
     <tr><th>Proje Sahibi</th><td>EGE ÇELİK JEOTERMAL ENERJİ SANTRALİ A.Ş.</td></tr>
     <tr><th>Hazırlayan Kuruluş</th><td>CANÇED ÇEVRE DANIŞMANLIK VE MÜHENDİSLİK SAN. TİC. LTD. ŞTİ.</td></tr>
     <tr><th>Sektör / Alt Sektör</th><td>Enerji / Jeotermal Enerji Santralleri</td></tr>
-    <tr><th>Duyuru Tarihi</th><td><code>11.11.2026</code> (belge yükleme tarihi: <code>30/12/2025 06:09:47</code>)</td></tr>
-    <tr><th>PDF Kapsamı</th><td>62.74 MB · 319 sayfa (255 metin sayfası / 64 taranmış veya görüntü sayfası) · SHA-256 <code>bbe38b0083a35d47…</code></td></tr>
-    <tr><th>Resmi Bağlantılar</th><td><a href="http://eced.csb.gov.tr/jsp/ek1/58476" target="_blank" rel="noopener">e-ÇED Portal Kaydı</a> · <a href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign7504032269344894671.pdf&amp;orjinalAd=e-imza.pdf&amp;yuklemeTarihi=2026-10-28" target="_blank" rel="noopener">Resmi PDF Dosyası</a> · <a href="https://www.openstreetmap.org/?mlat=38.4237&amp;mlon=27.1428#map=8/38.4237/27.1428" target="_blank" rel="noopener">OpenStreetMap</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=38.4237,27.1428" target="_blank" rel="noopener">Google Haritalar</a></td></tr>
+    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>11.11.2026</code> · Belge yükleme: <code>30/12/2025 06:09:47</code></td></tr>
+    <tr><th>PDF Kapsamı ve Bütünlük</th><td>62.74 MB · 319 sayfa (255 metin / 64 taranmış) · SHA-256 <code>bbe38b0083a35d47…</code></td></tr>
+    <tr><th>Harita Bağlantıları</th><td><a href="https://www.openstreetmap.org/?mlat=38.4237&amp;mlon=27.1428#map=8/38.4237/27.1428" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=38.4237,27.1428" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
   </table>
+
+  <h2>Belge Bütünlüğü, Revizyon ve Süreç Geçmişi</h2>
+<p class="sub">Her PDF dosyasının SHA-256 özeti, yükleme tarihi ve teknik göstergeleri arşivlenir. Bakanlık portalında rapor değiştirildiğinde veya 2009/7 Genelgesi kapsamında yeniden yüklendiğinde sürümler arası fark (v1 → v2) otomatik olarak kaydedilir.</p>
+<table class="data-tbl"><thead><tr><th>Sürüm</th><th>Arşiv Tarihi</th><th>Aşama</th><th>Yükleme Tarihi</th><th>Sayfa</th><th>SHA-256</th></tr></thead><tbody><tr><td><code>v1</code></td><td><code>2026-11-11</code></td><td>ÇED Gerekli Değil/ÇED Olumlu</td><td><code>2026-10-28</code></td><td>319</td><td><code>bbe38b0083a35d47…</code></td></tr></tbody></table>
 
   <h2>Konum Haritası</h2>
   <div class="map-box">
@@ -167,9 +634,9 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
   
   <h2>Yapay Zeka Destekli Bilimsel Ön Değerlendirme <span class="badge">gemini-4-hydrogen</span></h2>
   <p class="sub">Bu değerlendirme, resmi PDF dosyasından seçilen 22 sayfa (s.1, s.2, s.3, s.4, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14, s.15, s.16, s.17, s.21, s.24, s.28, s.31, s.46, s.53) esas alınarak hazırlanmıştır. Tüm sayısal verilerin ve tespitlerin resmi PDF belgesindeki ilgili <code>[s. N]</code> sayfalarından doğrulanması gerekir.</p>
-  <section class="card ek1">
-    <p><strong>Özet:</strong> Ege Çelik Jeotermal Enerji Santrali A.Ş. tarafından İzmir ili, Foça ilçesi, Ilıpınar Mahallesi sınırlarındaki 2155 ruhsat numaralı alanda (507132 ada, 643 parsel) 1 adet jeotermal reenjeksiyon kuyusu açılması planlanmaktadır [s. 1, s. 6]. Halihazırda ruhsat sahasında bulunan 6 lt/sn debili İFI 2012/12 kuyusundan elde edilen jeotermal akışkanla 2 MWt ısıl gücündeki sera ısıtılmakta olup, 600 ±50 m derinliğinde planlanan yeni kuyunun bu akışkanın yeraltına geri enjekte edilmesi amacıyla 424 m2’lik ÇED alanında açılması öngörülmektedir [s. 6, s. 15]. Proje bedeli 7.686.000 TL olarak hesaplanan faaliyet için ÇED Yönetmeliği Ek-2 Madde 39 kapsamında Valilikçe &#x27;ÇED Olumlu (Kapsam Ek-2)&#x27; kararı verilmiştir [s. 2, s. 9]. Başlıca çevresel hassasiyetler; sahanın 1/100.000 ölçekli planda Tarım Arazisi içinde yer alması, 5403 sayılı Kanun kapsamında izin gerektirmesi, yüzey ve yeraltı sularının arsenik ve bor gibi parametreler açısından korunması ile erişim yolu için komşu 645 parsel üzerindeki geçit hakkı süreçleridir [s. 7, s. 8, s. 17, s. 28].</p>
-    <details style="margin-top:8px;font-size:0.86rem;color:var(--muted);"><summary style="cursor:pointer;">İngilizce özet (English summary)</summary><p style="margin:6px 0 0;">Ege Çelik Jeotermal Enerji Santrali A.Ş. proposes to drill one geothermal reinjection well (600 ±50 m depth) within License Area 2155 on Parcel 643 (Block 507132) in Ilıpınar Neighborhood, Foça District, İzmir [s. 1, s. 6]. The well is designed to reinject geothermal fluid produced from the existing İFI 2012/12 well (6 L/s flow rate) that currently heats an on-site 2 MWt geothermal greenhouse, utilizing a 424 m2 EIA project footprint [s. 6, s. 15]. Estimated at 7,686,000 TL, the project falls under Annex-2 Article 39 of the Turkish EIA Regulation and received an &#x27;EIA Positive (Scope Annex-2)&#x27; decision [s. 2, s. 9]. Primary environmental stakes involve its location within designated agricultural land requiring permits under Soil Conservation Law No. 5403, protection of surface and groundwater quality (particularly against arsenic and boron contamination), and pending third-party consent on an access easement across neighboring Parcel 645 [s. 7, s. 8, s. 17, s. 28].</p></details>
+  <section class="card ek1" style="margin-top:10px;">
+    <p style="margin-top:0;"><strong>Özet:</strong> Ege Çelik Jeotermal Enerji Santrali A.Ş. tarafından İzmir ili, Foça ilçesi, Ilıpınar Mahallesi sınırlarındaki 2155 ruhsat numaralı alanda (507132 ada, 643 parsel) 1 adet jeotermal reenjeksiyon kuyusu açılması planlanmaktadır [s. 1, s. 6]. Halihazırda ruhsat sahasında bulunan 6 lt/sn debili İFI 2012/12 kuyusundan elde edilen jeotermal akışkanla 2 MWt ısıl gücündeki sera ısıtılmakta olup, 600 ±50 m derinliğinde planlanan yeni kuyunun bu akışkanın yeraltına geri enjekte edilmesi amacıyla 424 m2’lik ÇED alanında açılması öngörülmektedir [s. 6, s. 15]. Proje bedeli 7.686.000 TL olarak hesaplanan faaliyet için ÇED Yönetmeliği Ek-2 Madde 39 kapsamında Valilikçe &#x27;ÇED Olumlu (Kapsam Ek-2)&#x27; kararı verilmiştir [s. 2, s. 9]. Başlıca çevresel hassasiyetler; sahanın 1/100.000 ölçekli planda Tarım Arazisi içinde yer alması, 5403 sayılı Kanun kapsamında izin gerektirmesi, yüzey ve yeraltı sularının arsenik ve bor gibi parametreler açısından korunması ile erişim yolu için komşu 645 parsel üzerindeki geçit hakkı süreçleridir [s. 7, s. 8, s. 17, s. 28].</p>
+    <details style="margin-top:10px;font-size:0.86rem;color:var(--muted);"><summary style="cursor:pointer;">İngilizce özet (English summary)</summary><p style="margin:6px 0 0;">Ege Çelik Jeotermal Enerji Santrali A.Ş. proposes to drill one geothermal reinjection well (600 ±50 m depth) within License Area 2155 on Parcel 643 (Block 507132) in Ilıpınar Neighborhood, Foça District, İzmir [s. 1, s. 6]. The well is designed to reinject geothermal fluid produced from the existing İFI 2012/12 well (6 L/s flow rate) that currently heats an on-site 2 MWt geothermal greenhouse, utilizing a 424 m2 EIA project footprint [s. 6, s. 15]. Estimated at 7,686,000 TL, the project falls under Annex-2 Article 39 of the Turkish EIA Regulation and received an &#x27;EIA Positive (Scope Annex-2)&#x27; decision [s. 2, s. 9]. Primary environmental stakes involve its location within designated agricultural land requiring permits under Soil Conservation Law No. 5403, protection of surface and groundwater quality (particularly against arsenic and boron contamination), and pending third-party consent on an access easement across neighboring Parcel 645 [s. 7, s. 8, s. 17, s. 28].</p></details>
     <div class="badges" style="margin-top:10px;">
       <span class="badge">Saha çalışması: Karışık veya yöntemi belirsiz</span>
       <span class="badge">Mevsimsel örnekleme: Yalnızca onay sonrasına ertelenmiş</span>
@@ -194,11 +661,14 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
 <div class="hit"><span class="badge warn">ORTA</span> <strong>Tarım dışı kullanım izninin sonraya bırakılması ve kapasite artışı çelişkisi</strong> <span class="pno">[s. 6, s. 8, s. 12, s. 28]</span> — Proje alanı Tarım Arazisi lejantında olup İl Tarım ve Orman Müdürlüğü 5403 sayılı Kanun izninin tesis edilmeden önce alınmasını bildirmiştir [s. 8, s. 28]. Ayrıca 8. sayfada &#x27;Planlanan kapasite artışı sebebi ile&#x27; ifadesi yer alırken, diğer bölümlerde projenin yalnızca mevcut 6 lt/sn debili İFI 2012/12 kuyusu için 1 adet reenjeksiyon kuyusu olduğu belirtilerek kapasite artışı olup olmadığı konusunda tutarsızlık doğmaktadır [s. 6, s. 8, s. 12].</div>
 <div class="hit"><span class="badge muted">DÜŞÜK</span> <strong>Biyoçeşitlilik tespitlerinin olasılık listelerine dayanması</strong> <span class="pno">[s. 4, s. 9]</span> — 09.12.2025 tarihinde tek bir saha incelemesi yapıldığı belirtilmekle birlikte [s. 9], Tablolar Dizininde flora, sürüngen, kuş ve memeli tablolarının &#x27;Bulunma Olasılığı Yüksek Olan&#x27; türler olarak adlandırılması [s. 4], çok mevsimli doğrudan arazi gözlemi yerine literatür/olasılık listesi kullanıldığına işaret etmektedir.</div></section>
   
-  <h3>HKT Tutanakları ve Bilirkişi İncelemesi İçin Taslak Teknik Sorular</h3><ul><li>DSİ 2. Bölge Müdürlüğü görüşünde talep edilen faaliyet öncesi yeraltı ve yerüstü suyu kimyasal analizlerinin (başta arsenik ve bor olmak üzere) PTD dosyası içinde sunulması yerine, numune alımının izinler alındıktan sonraki sürece bırakılmasının gerekçesi nedir ve mevcut İFI 2012/12 kuyusu çevresinde onaylı başlangıç su kalitesi verisi oluşturulmuş mudur? <span class="pno">[s. 17, s. 21, s. 24, s. 31]</span></li>
+  <div class="section-head-row"><h3>HKT Tutanakları ve Bilirkişi İncelemesi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card"><ul style="margin:0;padding-left:20px;"><li>DSİ 2. Bölge Müdürlüğü görüşünde talep edilen faaliyet öncesi yeraltı ve yerüstü suyu kimyasal analizlerinin (başta arsenik ve bor olmak üzere) PTD dosyası içinde sunulması yerine, numune alımının izinler alındıktan sonraki sürece bırakılmasının gerekçesi nedir ve mevcut İFI 2012/12 kuyusu çevresinde onaylı başlangıç su kalitesi verisi oluşturulmuş mudur? <span class="pno">[s. 17, s. 21, s. 24, s. 31]</span></li>
 <li>5.907,41 m2 yüzölçümlü 643 parsel içerisinde ÇED koordinatlarında kuyu açılamaması durumunda aynı parselde farklı bir noktada çalışılabileceği belirtilmektedir [s. 6, s. 14]; 100 m3 çamur tankı ve 424 m2 sondaj platformunun olası yer değişikliğinin sızdırmazlık, yüzey drenajı ve komşu parsellere etkisi nasıl modellenmiştir? <span class="pno">[s. 6, s. 14, s. 15]</span></li>
 <li>1/100.000 ölçekli planda Tarım Arazisi içerisinde kalan 643 parsel için İl Tarım ve Orman Müdürlüğünün şart koştuğu 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu kapsamındaki tarım dışı kullanım izni alınmış mıdır; izin süreci tamamlanmadan ÇED Olumlu kararı verilmesinin dayanağı nedir? <span class="pno">[s. 8, s. 28]</span></li>
-<li>Raporun 8. sayfasında &#x27;Planlanan kapasite artışı sebebi ile&#x27; ifadesi kullanılmasına karşın 6. ve 12. sayfalarda yalnızca mevcut 6 lt/sn debili İFI 2012/12 kuyusu için reenjeksiyon kuyusu açılacağı belirtilmektedir; projede üretim debisi veya sera kapasitesi artışı öngörülüp öngörülmediği ve 645 parseldeki geçit hakkı için malik muvafakatnamesinin alınıp alınmadığı açıklanmış mıdır? <span class="pno">[s. 6, s. 7, s. 8, s. 12]</span></li></ul>
-  <p class="sub"><em>İnceleme sınırları:</em> Toplam 319 sayfalık PDF dosyasının 64 sayfası taranmış/görüntü formatında olup yalnızca 22 sayfa alıntılanmıştır (s. 1-4, 6-17, 21, 24, 28, 31, 46, 53). Su tüketimi tablosu (rapor s. 35), atık ve emisyon hesapları (rapor s. 36-43), EK-5 korunan alanların devamı ile zeytinlik/orman durumu (rapor s. 52-58), flora/fauna listeleri (rapor s. 59-68), Kümülatif Etki Değerlendirmesi (Bölüm IV, rapor s. 77), Çevre İzleme Planı (rapor s. 78-79) ve tüm harita, hidrojeoloji raporu ve kurum görüşü ekleri incelenen alıntılar dışında kaldığından doğrulanamamıştır.</p>
+<li>Raporun 8. sayfasında &#x27;Planlanan kapasite artışı sebebi ile&#x27; ifadesi kullanılmasına karşın 6. ve 12. sayfalarda yalnızca mevcut 6 lt/sn debili İFI 2012/12 kuyusu için reenjeksiyon kuyusu açılacağı belirtilmektedir; projede üretim debisi veya sera kapasitesi artışı öngörülüp öngörülmediği ve 645 parseldeki geçit hakkı için malik muvafakatnamesinin alınıp alınmadığı açıklanmış mıdır? <span class="pno">[s. 6, s. 7, s. 8, s. 12]</span></li></ul><textarea id="qs-plain" style="display:none;">1. DSİ 2. Bölge Müdürlüğü görüşünde talep edilen faaliyet öncesi yeraltı ve yerüstü suyu kimyasal analizlerinin (başta arsenik ve bor olmak üzere) PTD dosyası içinde sunulması yerine, numune alımının izinler alındıktan sonraki sürece bırakılmasının gerekçesi nedir ve mevcut İFI 2012/12 kuyusu çevresinde onaylı başlangıç su kalitesi verisi oluşturulmuş mudur? [s. 17, s. 21, s. 24, s. 31]
+2. 5.907,41 m2 yüzölçümlü 643 parsel içerisinde ÇED koordinatlarında kuyu açılamaması durumunda aynı parselde farklı bir noktada çalışılabileceği belirtilmektedir [s. 6, s. 14]; 100 m3 çamur tankı ve 424 m2 sondaj platformunun olası yer değişikliğinin sızdırmazlık, yüzey drenajı ve komşu parsellere etkisi nasıl modellenmiştir? [s. 6, s. 14, s. 15]
+3. 1/100.000 ölçekli planda Tarım Arazisi içerisinde kalan 643 parsel için İl Tarım ve Orman Müdürlüğünün şart koştuğu 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu kapsamındaki tarım dışı kullanım izni alınmış mıdır; izin süreci tamamlanmadan ÇED Olumlu kararı verilmesinin dayanağı nedir? [s. 8, s. 28]
+4. Raporun 8. sayfasında &#x27;Planlanan kapasite artışı sebebi ile&#x27; ifadesi kullanılmasına karşın 6. ve 12. sayfalarda yalnızca mevcut 6 lt/sn debili İFI 2012/12 kuyusu için reenjeksiyon kuyusu açılacağı belirtilmektedir; projede üretim debisi veya sera kapasitesi artışı öngörülüp öngörülmediği ve 645 parseldeki geçit hakkı için malik muvafakatnamesinin alınıp alınmadığı açıklanmış mıdır? [s. 6, s. 7, s. 8, s. 12]</textarea></section>
+  <p class="sub" style="margin-top:10px;"><em>İnceleme sınırları:</em> Toplam 319 sayfalık PDF dosyasının 64 sayfası taranmış/görüntü formatında olup yalnızca 22 sayfa alıntılanmıştır (s. 1-4, 6-17, 21, 24, 28, 31, 46, 53). Su tüketimi tablosu (rapor s. 35), atık ve emisyon hesapları (rapor s. 36-43), EK-5 korunan alanların devamı ile zeytinlik/orman durumu (rapor s. 52-58), flora/fauna listeleri (rapor s. 59-68), Kümülatif Etki Değerlendirmesi (Bölüm IV, rapor s. 77), Çevre İzleme Planı (rapor s. 78-79) ve tüm harita, hidrojeoloji raporu ve kurum görüşü ekleri incelenen alıntılar dışında kaldığından doğrulanamamıştır.</p>
 
 
   <h2>Resmi Duyuru Metni</h2>
@@ -206,41 +676,43 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
 
   <h2>Otomatik Metin Taraması (Deterministik)</h2>
   <table class="kv"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
-<tr><th>Literatür taraması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Literatür taraması ifadesi</th><td><span class="badge warn">Literatür ifadesi mevcut — saha çalışması ile karşılaştırınız</span></td></tr>
 <tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
 <tr><th>Kümülatif etki değerlendirmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
-<tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge urgent">Metinde tespit edilemedi; doğrudan PDF üzerinden kontrol ediniz</span></td></tr>
+<tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge urgent">Metinde tespit edilemedi — doğrudan PDF üzerinden kontrol ediniz</span></td></tr>
 <tr><th>Yeraltı suyu, akifer veya hidrojeoloji ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
-<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr></table>
+<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr>
+<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr></table>
   <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik metin taramasına dahil edilmemiştir.</p>
 
   <h2>Sayfa Kaynaklı Çıkarılan Bulgular</h2>
-  <div class="cards"><section class="card"><h3>Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(59 sayfa: s.1, s.2, s.4, s.6, s.7, s.10, s.12, s.14, s.17, s.20, s.23, s.24, s.25, s.26 (+45 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>Ada 643 parsel</code> — …ıpınar Mahallesi 2155 Ruhsat Numaralı alan (Foça İlçesi, Ilıpınar Mahallesi 507132 ada, 643 nolu parselinde (eski 0 Ada 643 parsel)) Proje Tanıtım Dosyası Nihai Proje Tanıtım Dosyası EKİM-2026 CANÇED Ç…</div>
+  <div class="cards"><section class="card"><h3>Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(59 sayfa: s.1, s.2, s.4, s.6, s.7, s.10, s.12, s.14, s.17, s.20, s.23, s.24, s.25, s.26 (+45 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>Ada 643 parsel</code> — …ıpınar Mahallesi 2155 Ruhsat Numaralı alan (Foça İlçesi, Ilıpınar Mahallesi 507132 ada, 643 nolu parselinde (eski 0 Ada 643 parsel)) Proje Tanıtım Dosyası Nihai Proje Tanıtım Dosyası EKİM-2026 CANÇED Ç…</div>
 <div class="hit"><span class="pno">[s. 2]</span> <code>Ada 643 parsel</code> — …Ilıpınar Mahallesi 2155 Ruhsat Numaralı alan (Foça İlçesi, Ilıpınar Mahallesi 507132 ada, 643 nolu parselinde (eski 0 Ada 643 parsel)) PROJENİN ÇED YÖNETMELİĞİ KAPSAMINDAKİ YERİ (SEKTÖR, ALT SEKTÖR) 29.07.2022 Tarih ve 31907 Sayılı Resmî Gazete’ d…</div>
 <div class="hit"><span class="pno">[s. 4]</span> <code>Koordinat</code> — …................................................ 14 Tablo 3. Faaliyet Alanında Planlanan Yüzeysuyu İzleme Noktalarının Koordinatları 15 Tablo 4. Yerüstü Su Kaynakları için Belirli Kirleticiler ve Çevresel Kalite Standartları16 Tablo 5. İyi Yer Al…</div>
 <div class="hit"><span class="pno">[s. 6]</span> <code>Ada 643 parsel</code> — …2155 Ruhsat Numaralı alan içerisinde tapunun Foça İlçesi, Ilıpınar Mahallesi 507132 ada, 643 nolu parselinde (eski 0 Ada 643 parsel) EGE ÇELİK JEOTERMAL ENERJİ SANTRALİ A.Ş. tarafından “2155 RUHSAT NUMARALI ALANDA JEOTERMAL REENJEKSİYON KUYU (…</div>
 <div class="hit"><span class="pno">[s. 6]</span> <code>koordinat</code> — …lanlanmaktadır. Söz konusu kuyunun 643 parsel içerisinde açılması planlanmakta olup ÇED alanı içerisinde çalışma alanı koordinatları verilmiştir. Eğer koordinatları verilen alanda açılamama durumu olursa yine aynı parsel içerisinde, 1 adet olmak…</div>
-<div class="hit"><span class="pno">[s. 7]</span> <code>4001,07 hektar</code> — …v 2155 Ruhsat Numaralı alan 4001,07 hektar büyüklüğüne sahip olup, 507132 ada, 643 nolu parselin (eski 0 Ada 643 parsel) büyüklüğü ise 5.907,41 m2’dir. T.C. İ…</div></section><section class="card"><h3>Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(104 sayfa: s.1, s.2, s.6, s.10, s.12, s.14, s.15, s.17, s.20, s.21, s.22, s.23, s.24, s.25 (+90 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>REENJEKSİYON</code> — EGE ÇELİK JEOTERMAL ENERJİ SANTRALİ A.Ş. 2155 RUHSAT NUMARALI ALANDA JEOTERMAL REENJEKSİYON KUYU (1 ADET) FAALİYETİ PROJE TANITIM DOSYASI İzmir İli, Aliağa-Foça İlçesi, Horozgediği- Ilıpınar Mahallesi 2…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>4001,07 hektar</code> — …v 2155 Ruhsat Numaralı alan 4001,07 hektar büyüklüğüne sahip olup, 507132 ada, 643 nolu parselin (eski 0 Ada 643 parsel) büyüklüğü ise 5.907,41 m2’dir. T.C. İ…</div></section><section class="card"><h3>Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(104 sayfa: s.1, s.2, s.6, s.10, s.12, s.14, s.15, s.17, s.20, s.21, s.22, s.23, s.24, s.25 (+90 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>REENJEKSİYON</code> — EGE ÇELİK JEOTERMAL ENERJİ SANTRALİ A.Ş. 2155 RUHSAT NUMARALI ALANDA JEOTERMAL REENJEKSİYON KUYU (1 ADET) FAALİYETİ PROJE TANITIM DOSYASI İzmir İli, Aliağa-Foça İlçesi, Horozgediği- Ilıpınar Mahallesi 2…</div>
 <div class="hit"><span class="pno">[s. 2]</span> <code>REENJEKSİYON</code> — …yu Vergi Dairesi Müd. / 3250567671 E-POSTA mineatcali@hotmail.com PROJENİN ADI 2155 RUHSAT NUMARALI ALANDA JEOTERMAL REENJEKSİYON KUYU (1 ADET) FAALİYETİ PROJE BEDELİ 7.686.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) İzm…</div>
 <div class="hit"><span class="pno">[s. 6]</span> <code>REENJEKSİYON</code> — …ki 0 Ada 643 parsel) EGE ÇELİK JEOTERMAL ENERJİ SANTRALİ A.Ş. tarafından “2155 RUHSAT NUMARALI ALANDA JEOTERMAL REENJEKSİYON KUYU (1 ADET) FAALİYETİ” planlanmaktadır. Projeye konu parselde faaliyet sahibi mülk sahibi konumunda olup proje ala…</div>
 <div class="hit"><span class="pno">[s. 6]</span> <code>6 lt/sn</code> — …z. Ek-7). Projeye konu ruhsat alanında İFI 2012/12 Jeotermal Kuyusu bulunmaktadır. İFI 2012/12 Jeotermal Kuyusunun 6 lt/sn debisi bulunmaktadır. Kuyudan sağlanan jeotermal akışkan ile ruhsat alanında yer alan ve EGE ÇELİK JEOTERMAL ENERJİ…</div>
 <div class="hit"><span class="pno">[s. 6]</span> <code>reenjeksiyon</code> — …TERMAL ENERJİ SANTRALİ A.Ş.’ye ait olan sera faaliyetinin ısıtma ihtiyacı karşılanmaktadır. Jeotermal akışkanın 1 adet reenjeksiyon kuyusu vasıtası ile enjeksiyonunun yapılması planlanmaktadır. Söz konusu kuyunun 643 parsel içerisinde açılması planl…</div>
-<div class="hit"><span class="pno">[s. 10]</span> <code>REENJEKSİYON</code> — …ki 0 Ada 643 parsel) EGE ÇELİK JEOTERMAL ENERJİ SANTRALİ A.Ş. tarafından “2155 RUHSAT NUMARALI ALANDA JEOTERMAL REENJEKSİYON KUYU (1 ADET) FAALİYETİ” planlanmaktadır. Projeye konu parselde faaliyet sahibi mülk sahibi konumunda olup proje ala…</div></section><section class="card"><h3>Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(16 sayfa: s.3, s.28, s.46, s.53, s.54, s.56, s.66, s.72, s.96, s.98, s.103, s.104, s.142, s.198 (+2 sayfa))</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>orman alanı</code> — …............................................................... 44 a) Mevcut arazi kullanımı ve kalitesi (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ..................................................................................…</div>
+<div class="hit"><span class="pno">[s. 10]</span> <code>REENJEKSİYON</code> — …ki 0 Ada 643 parsel) EGE ÇELİK JEOTERMAL ENERJİ SANTRALİ A.Ş. tarafından “2155 RUHSAT NUMARALI ALANDA JEOTERMAL REENJEKSİYON KUYU (1 ADET) FAALİYETİ” planlanmaktadır. Projeye konu parselde faaliyet sahibi mülk sahibi konumunda olup proje ala…</div></section><section class="card"><h3>Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(16 sayfa: s.3, s.28, s.46, s.53, s.54, s.56, s.66, s.72, s.96, s.98, s.103, s.104, s.142, s.198 (+2 sayfa))</span></h3><div class="hit"><span class="pno">[s. 3]</span> <code>orman alanı</code> — …............................................................... 44 a) Mevcut arazi kullanımı ve kalitesi (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) ..................................................................................…</div>
 <div class="hit"><span class="pno">[s. 28]</span> <code>doğal sit</code> — …mevzuatı gereğince yapılan inceleme ve değerlendirme sonucunda; belirtilen alanın herhangi bir tabiat varlığı ve/veya doğal sit alanında kalmadığı anlaşılmıştır…” Denilmektedir. Kurum görüşü proje tanıtım dosyası eklerinde yer almaktadır (Bkz. E…</div>
 <div class="hit"><span class="pno">[s. 46]</span> <code>orman alanı</code> — …LÜM II: PROJE YERİ VE ETKİ ALANININ MEVCUT ÇEVRESEL ÖZELLİKLERİ a) Mevcut arazi kullanımı ve kalitesi (tarım alanı, orman alanı, planlı alan, su yüzeyi ve benzeri) İzmir İli, Aliağa-Foça İlçesi, Horozgediği- Ilıpınar Mahallesi 2155 Ruhsat Num…</div>
 <div class="hit"><span class="pno">[s. 53]</span> <code>özel çevre koruma</code> — …koruma alanları, Boğaziçi Kanuna göre koruma altına alınan alanlar, biyogenetik rezerv alanları, biyosfer rezervleri, özel çevre koruma bölgeleri, özel koruma alanları, turizm bölgeleri ve koruma altına alınmış diğer alanlar bulunmamaktadır. Proje al…</div>
 <div class="hit"><span class="pno">[s. 54]</span> <code>Özel Çevre Koruma</code> — …liği’nde tanımlanan alanlar, bulunmamaktadır. f) Çevre Kanunu’nun 9 uncu maddesi uyarınca Cumhurbaşkanı tarafından &quot;Özel Çevre Koruma Bölgeleri&quot; olarak tespit ve ilan edilen alanlar, bulunmamaktadır. g) Boğaziçi Kanunu’na göre koruma altına alınan al…</div>
-<div class="hit"><span class="pno">[s. 54]</span> <code>orman alanı</code> — …lunmamaktadır. g) Boğaziçi Kanunu’na göre koruma altına alınan alanlar, bulunmamaktadır. ğ) Orman Kanunu uyarınca orman alanı sayılan yerler, bulunmamaktadır.</div></section><section class="card"><h3>Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(31 sayfa: s.17, s.21, s.24, s.31, s.35, s.36, s.55, s.56, s.57, s.58, s.60, s.66, s.68, s.69 (+17 sayfa))</span></h3><div class="hit"><span class="pno">[s. 17]</span> <code>mevsimsel</code> — …inlerin alınmasına takiben faaliyet öncesi alınmak üzere, proje alanına yakın yüzeysuyundan belirlenen noktalardan her mevsimsel dönemde bir defa olmak kaydı ile yılda en az dört kere, proje etki alanını temsil edecek yer üstü ve yeraltısuyu nokt…</div>
+<div class="hit"><span class="pno">[s. 54]</span> <code>orman alanı</code> — …lunmamaktadır. g) Boğaziçi Kanunu’na göre koruma altına alınan alanlar, bulunmamaktadır. ğ) Orman Kanunu uyarınca orman alanı sayılan yerler, bulunmamaktadır.</div></section><section class="card"><h3>Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(31 sayfa: s.17, s.21, s.24, s.31, s.35, s.36, s.55, s.56, s.57, s.58, s.60, s.66, s.68, s.69 (+17 sayfa))</span></h3><div class="hit"><span class="pno">[s. 17]</span> <code>mevsimsel</code> — …inlerin alınmasına takiben faaliyet öncesi alınmak üzere, proje alanına yakın yüzeysuyundan belirlenen noktalardan her mevsimsel dönemde bir defa olmak kaydı ile yılda en az dört kere, proje etki alanını temsil edecek yer üstü ve yeraltısuyu nokt…</div>
 <div class="hit"><span class="pno">[s. 21]</span> <code>mevsimsel</code> — …e sunulacaktır. Jeotermal faaliyetten kaynaklanabilecek başta arsenik ve bor olmak üzere; ilki faaliyet öncesi, her mevsimsel dönemde bir defa olmak kaydı ile yılda en az dört kere alınmak üzere proje etki alanını temsil edecek yüzey ve yeraltı…</div>
 <div class="hit"><span class="pno">[s. 24]</span> <code>mevsimsel</code> — …ta uyulacaktır. Jeotermal faaliyetten kaynaklanabilecek başta arsenik ve bor olmak üzere; ilki faaliyet öncesi, her mevsimsel dönemde bir defa olmak kaydı ile yılda en az dört kere alınmak üzere proje etki alanını temsil edecek yüzey ve yeraltı…</div>
 <div class="hit"><span class="pno">[s. 31]</span> <code>mevsimsel</code> — …malı ve uygulanmalıdır. Bu kapsamda, yerüstü sularından (faaliyet alanına göre memba ve mansabında en az iki noktadan) mevsimsel olarak (üç ayda bir) yerüstü suyu numuneleri alınarak mevcut su kalitesinin belirlenmesi,</div>
 <div class="hit"><span class="pno">[s. 35]</span> <code>mevsimsel</code> — …ine sunulmalıdır. Jeotermal faaliyetten kaynaklanabilecek başta arsenik ve bor olmak üzere; ilki faaliyet öncesi, her mevsimsel dönemde bir defa olmak kaydı ile yılda en az dört kere alınmak üzere proje etki alanını temsil edecek yüzey ve yeraltı…</div>
-<div class="hit"><span class="pno">[s. 36]</span> <code>mevsimsel</code> — …e sunulacaktır. Jeotermal faaliyetten kaynaklanabilecek başta arsenik ve bor olmak üzere; ilki faaliyet öncesi, her mevsimsel dönemde bir defa olmak kaydı ile yılda en az dört kere alınmak üzere proje etki alanını temsil edecek yüzey ve yeraltı…</div></section><section class="card"><h3>Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(61 sayfa: s.4, s.13, s.15, s.16, s.17, s.20, s.21, s.24, s.25, s.32, s.33, s.35, s.36, s.38 (+47 sayfa))</span></h3><div class="hit"><span class="pno">[s. 4]</span> <code>Gürültü</code> — …........... 40 Tablo 16. Dizel Araçlardan Kaynaklanan Egzoz Emisyon Faktörleri ve Sınır Değer . 41 Tablo 17. Çevresel Gürültü Kontrol Yönetmeliği Ek-1 Tablo.1 Çevresel Gürültü Düzeyi Sınır Değerleri .............................................…</div>
+<div class="hit"><span class="pno">[s. 36]</span> <code>mevsimsel</code> — …e sunulacaktır. Jeotermal faaliyetten kaynaklanabilecek başta arsenik ve bor olmak üzere; ilki faaliyet öncesi, her mevsimsel dönemde bir defa olmak kaydı ile yılda en az dört kere alınmak üzere proje etki alanını temsil edecek yüzey ve yeraltı…</div></section><section class="card"><h3>Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(61 sayfa: s.4, s.13, s.15, s.16, s.17, s.20, s.21, s.24, s.25, s.32, s.33, s.35, s.36, s.38 (+47 sayfa))</span></h3><div class="hit"><span class="pno">[s. 4]</span> <code>Gürültü</code> — …........... 40 Tablo 16. Dizel Araçlardan Kaynaklanan Egzoz Emisyon Faktörleri ve Sınır Değer . 41 Tablo 17. Çevresel Gürültü Kontrol Yönetmeliği Ek-1 Tablo.1 Çevresel Gürültü Düzeyi Sınır Değerleri .............................................…</div>
 <div class="hit"><span class="pno">[s. 13]</span> <code>sondaj çamuru</code> — …önceden planlanan derinlikte dikey yönlü dairesel kesitli kuyu açılır ve sondaj çalışmaları başlar. Bu esnada oluşan sondaj çamuru çamur havuzunda toplanır. Delme işleminin tamamlanmasının ardından kuyu testleri yapılır ve kaynağın uygun olup olm…</div>
 <div class="hit"><span class="pno">[s. 13]</span> <code>gürültü</code> — …ve bitkisel toprağın sıyrılması esnasında ekskavatör ve kamyon kullanılacağından iş makinelerinin çalışması esnasında gürültü, bir miktar toz ve bir miktar evsel katı-sıvı atık oluşacaktır. Oluşacak tozun önlenmesi amacıyla yüzey sulanacak ve…</div>
 <div class="hit"><span class="pno">[s. 15]</span> <code>sondaj çamuru</code> — …cmi bitmiş sondaj deliği hacminin en az iki katı hacme sahip olmak zorundadır, hükmü gereği hesaplanan kuyu içi toplam sondaj çamuru hacmi tablo olarak verilmiştir. 600 m derinlikteki bir kuyuda bitmiş sondaj deliği hacmi toplamı 46 m³, 2 katı hac…</div>
 <div class="hit"><span class="pno">[s. 16]</span> <code>Sondaj Çamuru</code> — …YETİ 14 Tablo 1. Sondaj Çamuru Hacmi Hesabı Delgi Çapı (inç) Delgi Çapı (m) Delgi Yarı Çapı (m) Delgi Metrajı (m) Delgi Hacmi (m3) 17 ½’’ 0,44…</div>
-<div class="hit"><span class="pno">[s. 17]</span> <code>arsenik</code> — …da DSİ 2. Bölge Müdürlüğü Görüşüne istinaden yapılacak iş ve işlemler Planlanan faaliyetten kaynaklanabilecek başta arsenik ve bor olmak üzere; ilki gerekli izinlerin alınmasına takiben faaliyet öncesi alınmak üzere, proje alanına yakın yüze…</div></section><section class="card"><h3>Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(16 sayfa: s.2, s.3, s.8, s.9, s.12, s.22, s.25, s.42, s.76, s.77, s.88, s.123, s.141, s.157 (+2 sayfa))</span></h3><div class="hit"><span class="pno">[s. 2]</span> <code>PROJE BEDELİ</code> — …OSTA mineatcali@hotmail.com PROJENİN ADI 2155 RUHSAT NUMARALI ALANDA JEOTERMAL REENJEKSİYON KUYU (1 ADET) FAALİYETİ PROJE BEDELİ 7.686.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) İzmir İli, Aliağa-Foça İlçesi, Horozgediği…</div>
+<div class="hit"><span class="pno">[s. 17]</span> <code>arsenik</code> — …da DSİ 2. Bölge Müdürlüğü Görüşüne istinaden yapılacak iş ve işlemler Planlanan faaliyetten kaynaklanabilecek başta arsenik ve bor olmak üzere; ilki gerekli izinlerin alınmasına takiben faaliyet öncesi alınmak üzere, proje alanına yakın yüze…</div></section><section class="card"><h3>Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(16 sayfa: s.2, s.3, s.8, s.9, s.12, s.22, s.25, s.42, s.76, s.77, s.88, s.123, s.141, s.157 (+2 sayfa))</span></h3><div class="hit"><span class="pno">[s. 2]</span> <code>PROJE BEDELİ</code> — …OSTA mineatcali@hotmail.com PROJENİN ADI 2155 RUHSAT NUMARALI ALANDA JEOTERMAL REENJEKSİYON KUYU (1 ADET) FAALİYETİ PROJE BEDELİ 7.686.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) İzmir İli, Aliağa-Foça İlçesi, Horozgediği…</div>
 <div class="hit"><span class="pno">[s. 2]</span> <code>7.686.000 TL</code> — …i@hotmail.com PROJENİN ADI 2155 RUHSAT NUMARALI ALANDA JEOTERMAL REENJEKSİYON KUYU (1 ADET) FAALİYETİ PROJE BEDELİ 7.686.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) İzmir İli, Aliağa-Foça İlçesi, Horozgediği- Ilıpınar Mah…</div>
 <div class="hit"><span class="pno">[s. 3]</span> <code>kapasite</code> — …........................................................................................ 8 b) Projenin iş akım şeması, kapasitesi, kapladığı alan, teknolojisi, çalışacak personel sayısı ............................................................…</div>
 <div class="hit"><span class="pno">[s. 8]</span> <code>kapasite</code> — …ni Planı Lejantı, Plan Hükümleri tarafından onaylanarak raporun ekler kısmında verilmiştir (Bkz. Ek-2-a). Planlanan kapasite artışı sebebi ile 29.07.2022 tarih ve 31907 sayılı Resmi Gazete’de yayımlanarak yürürlüğe giren Çevresel Etki Değerlen…</div>
@@ -275,7 +747,45 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
+
 (() => {
+  const root = document.documentElement;
+  const saved = localStorage.getItem('eced_theme');
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function syncLabel() {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = cur ? cur === 'dark' : prefersDark;
+    btn.textContent = isDark ? 'Açık Tema' : 'Koyu Tema';
+  }
+  syncLabel();
+  btn.addEventListener('click', () => {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = cur ? cur === 'dark' : prefersDark;
+    const next = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('eced_theme', next);
+    syncLabel();
+  });
+})();
+
+(() => {
+  const copyBtn = document.getElementById('copy-qs-btn');
+  const qsTxt = document.getElementById('qs-plain');
+  if (copyBtn && qsTxt) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(qsTxt.value);
+        copyBtn.textContent = 'Kopyalandı ✓';
+        setTimeout(() => (copyBtn.textContent = 'Soruları Kopyala'), 2200);
+      } catch (e) {
+        copyBtn.textContent = 'Kopyalanamadı';
+      }
+    });
+  }
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.4237, "lon": 27.1428, "zoom": 8, "precision": "province_centroid", "points": [], "label": "İZMİR / FOÇA — 2155 RUHSAT NUMARALI ALANDA JEOTERMAL REENJEKSİYON KUYU (1 ADET) FAALİYETİ"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
@@ -285,16 +795,16 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
   }).addTo(map);
   if (g.precision === 'exact_pdf' && g.points.length > 1) {
     const latlngs = g.points.map(p => [p[0], p[1]]);
-    const poly = L.polyline(latlngs, { color: '#58a6ff', weight: 3, opacity: 0.85 }).addTo(map);
+    const poly = L.polyline(latlngs, { color: '#0b5ed7', weight: 3, opacity: 0.85 }).addTo(map);
     for (const ll of latlngs.slice(0, 30)) {
-      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#f85149', fillOpacity: 0.9, weight: 1 }).addTo(map);
+      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#d92d20', fillOpacity: 0.9, weight: 1 }).addTo(map);
     }
     map.fitBounds(poly.getBounds().pad(0.25));
   } else {
     L.circleMarker([g.lat, g.lon], {
       radius: g.precision === 'exact_pdf' ? 8 : 11,
       color: '#ffffff',
-      fillColor: g.precision === 'exact_pdf' ? '#f85149' : '#58a6ff',
+      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#0b5ed7',
       fillOpacity: g.precision === 'exact_pdf' ? 0.9 : 0.45,
       weight: 2
     }).bindPopup(g.label).addTo(map).openPopup();

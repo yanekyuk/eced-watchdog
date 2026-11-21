@@ -265,6 +265,7 @@ def fetch_announcements(
     existing_by_sig: dict[str, dict[str, Any]] | None = None,
     delay_sec: float = 0.2,
     max_records: int | None = None,
+    check_revisions: bool = False,
 ) -> list[dict[str, Any]]:
     """Fetch e-ÇED filings nationwide (when province_code is None) or for a single province."""
     ssl_ctx = build_ssl_context(cert_path)
@@ -374,6 +375,22 @@ def fetch_announcements(
             cached = existing_by_sig.get(sig)
             if cached and cached.get("detail_text") and cached.get("documents"):
                 merged = {**cached, **{k: v for k, v in row.items() if k not in {"row_index", "button_id"}}}
+                if check_revisions:
+                    refreshed_docs = []
+                    for old_doc in cached.get("documents") or []:
+                        doc_url = old_doc.get("portal_doc_url")
+                        if doc_url and "eced.csb.gov.tr" in doc_url:
+                            time.sleep(delay_sec)
+                            refreshed = _resolve_document_page(doc_client, doc_url)
+                            # Keep cached doc if portal hiccupped
+                            if refreshed.get("pdf_urls") or refreshed.get("submitted_at"):
+                                refreshed_docs.append(refreshed)
+                            else:
+                                refreshed_docs.append(old_doc)
+                        else:
+                            refreshed_docs.append(old_doc)
+                    if refreshed_docs:
+                        merged["documents"] = refreshed_docs
                 merged.update(
                     compute_deadlines(
                         merged["decision_type"],
@@ -497,7 +514,49 @@ def merge_filings(
         else:
             prev = by_key[k]
             f["first_seen_at"] = prev.get("first_seen_at", f.get("first_seen_at"))
-            by_key[k] = {**prev, **f}
+            change_log = list(prev.get("change_log") or [])
+
+            prev_doc = (prev.get("documents") or [{}])[0]
+            curr_doc = (f.get("documents") or [{}])[0]
+            prev_urls = [u.get("url", "") for u in (prev_doc.get("pdf_urls") or [])]
+            curr_urls = [u.get("url", "") for u in (curr_doc.get("pdf_urls") or [])]
+            prev_sub = prev_doc.get("submitted_at")
+            curr_sub = curr_doc.get("submitted_at")
+            prev_firm = prev_doc.get("consulting_firm")
+            curr_firm = curr_doc.get("consulting_firm")
+            prev_txt = (prev.get("detail_text") or "").strip()
+            curr_txt = (f.get("detail_text") or "").strip()
+
+            changed_fields: list[str] = []
+            if prev_urls and curr_urls and prev_urls != curr_urls:
+                changed_fields.append("pdf_urls")
+            if prev_sub and curr_sub and prev_sub != curr_sub:
+                changed_fields.append("submitted_at")
+            if prev_firm and curr_firm and prev_firm != curr_firm:
+                changed_fields.append("consulting_firm")
+            if prev_txt and curr_txt and prev_txt != curr_txt:
+                changed_fields.append("detail_text")
+
+            if changed_fields:
+                change_log.append(
+                    {
+                        "detected_at": datetime.now().isoformat(timespec="seconds"),
+                        "changed_fields": changed_fields,
+                        "prev_submitted_at": prev_sub,
+                        "new_submitted_at": curr_sub,
+                        "prev_consulting_firm": prev_firm,
+                        "new_consulting_firm": curr_firm,
+                        "prev_pdf_urls": prev_urls,
+                        "new_pdf_urls": curr_urls,
+                        "prev_detail_sha256": hashlib.sha256(prev_txt.encode("utf-8")).hexdigest()[:16],
+                        "new_detail_sha256": hashlib.sha256(curr_txt.encode("utf-8")).hexdigest()[:16],
+                    }
+                )
+
+            merged_entry = {**prev, **f}
+            if change_log:
+                merged_entry["change_log"] = change_log
+            by_key[k] = merged_entry
 
     merged = list(by_key.values())
     for f in merged:

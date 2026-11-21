@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>e-ÇED Ön Özet #61244 — SİNOP / BOYABAT,GERZE</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+:root {
+  --bg: #f6f8fa;
+  --surface: #ffffff;
+  --surface-subtle: #f1f4f8;
+  --border: #d8dee6;
+  --border-strong: #bcc6d4;
+  --text: #161b22;
+  --text-secondary: #424a53;
+  --muted: #5c6670;
+  --accent: #0b5ed7;
+  --accent-soft: #e7f1ff;
+  --red: #b42318;
+  --red-soft: #fef3f2;
+  --red-border: #fecdca;
+  --amber: #9a5b00;
+  --amber-soft: #fffaeb;
+  --amber-border: #fedf89;
+  --green: #067647;
+  --green-soft: #ecfdf3;
+  --green-border: #abefc6;
+  --violet: #5925dc;
+  --violet-soft: #f4f3ff;
+  --violet-border: #d9d6fe;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface-subtle: #1c222b;
+    --border: #2b333e;
+    --border-strong: #3d4756;
+    --text: #e6edf3;
+    --text-secondary: #c9d1d9;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --accent-soft: rgba(88, 166, 255, 0.14);
+    --red: #ff7b72;
+    --red-soft: rgba(248, 81, 73, 0.14);
+    --red-border: rgba(248, 81, 73, 0.4);
+    --amber: #e3b341;
+    --amber-soft: rgba(210, 153, 34, 0.14);
+    --amber-border: rgba(210, 153, 34, 0.4);
+    --green: #3fb950;
+    --green-soft: rgba(63, 185, 80, 0.14);
+    --green-border: rgba(63, 185, 80, 0.4);
+    --violet: #b692f6;
+    --violet-soft: rgba(158, 119, 237, 0.16);
+    --violet-border: rgba(158, 119, 237, 0.42);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface-subtle: #1c222b;
+  --border: #2b333e;
+  --border-strong: #3d4756;
+  --text: #e6edf3;
+  --text-secondary: #c9d1d9;
+  --muted: #8b949e;
+  --accent: #58a6ff;
+  --accent-soft: rgba(88, 166, 255, 0.14);
+  --red: #ff7b72;
+  --red-soft: rgba(248, 81, 73, 0.14);
+  --red-border: rgba(248, 81, 73, 0.4);
+  --amber: #e3b341;
+  --amber-soft: rgba(210, 153, 34, 0.14);
+  --amber-border: rgba(210, 153, 34, 0.4);
+  --green: #3fb950;
+  --green-soft: rgba(63, 185, 80, 0.14);
+  --green-border: rgba(63, 185, 80, 0.4);
+  --violet: #b692f6;
+  --violet-soft: rgba(158, 119, 237, 0.16);
+  --violet-border: rgba(158, 119, 237, 0.42);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Unified Sticky Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.topbar-inner {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 11px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: -0.01em;
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+.brand-scope {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.nav-link {
+  padding: 5px 11px;
+  border-radius: 7px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-link:hover { background: var(--surface-subtle); text-decoration: none; color: var(--text); }
+.nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.theme-btn {
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
+
+/* Layout */
+.wrap { max-width: 1220px; margin: 0 auto; padding: 24px 20px 68px; }
+.wrap.narrow { max-width: 960px; }
+header.page-head { margin-bottom: 20px; }
+h1 { margin: 0 0 8px; font-size: 1.62rem; line-height: 1.25; letter-spacing: -0.02em; }
+h2 { margin: 28px 0 12px; font-size: 1.2rem; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { margin: 16px 0 8px; font-size: 0.98rem; line-height: 1.35; }
+.sub { color: var(--muted); font-size: 0.93rem; margin: 0; }
+.meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin-top: 12px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+
+/* Orientation Banner */
+.hero-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+.hero-strip p { margin: 0; font-size: 0.9rem; color: var(--text-secondary); max-width: 820px; }
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.hero-cta:hover { text-decoration: none; filter: brightness(1.06); }
+
+/* KPI Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  gap: 12px;
+  margin: 0 0 18px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 13px 16px;
+  box-shadow: var(--shadow);
+}
+.stat .num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+.stat .lbl { font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
+.stat.accent .num { color: var(--accent); }
+.stat.rev .num { color: var(--violet); }
+
+/* Map */
+.map-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+#map { width: 100%; height: 400px; background: var(--surface-subtle); }
+#digest-map { width: 100%; height: 320px; background: var(--surface-subtle); }
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  padding: 10px 16px;
+  font-size: 0.79rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: var(--surface-subtle);
+}
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+/* Controls */
+.controls-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.controls-row + .controls-row { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+input[type="search"], select.filter-select {
+  padding: 8px 12px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.88rem;
+}
+input[type="search"]:focus, select.filter-select:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+input[type="search"] { flex: 1 1 250px; }
+select.filter-select { min-width: 165px; }
+button.pill {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.81rem;
+  font-weight: 500;
+  transition: background 0.12s, border-color 0.12s;
+}
+button.pill:hover { border-color: var(--border-strong); color: var(--text); }
+button.pill.active { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 600; }
+button.pill.rev-pill.active { background: var(--violet); border-color: var(--violet); }
+button.reset-btn {
+  margin-left: auto;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+button.reset-btn:hover { color: var(--text); border-color: var(--border-strong); }
+
+/* Cards & Badges */
+.cards { display: flex; flex-direction: column; gap: 11px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+}
+.card.ek1 { border-left: 4px solid var(--accent); }
+.card.has-rev { border-left: 4px solid var(--violet); }
+.card.ek1.has-rev { border-left: 4px solid var(--violet); }
+.row-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 14px;
+  align-items: flex-start;
+}
+.title { font-weight: 650; font-size: 1rem; line-height: 1.38; color: var(--text); flex: 1 1 320px; }
+.title a { color: var(--text); }
+.title a:hover { color: var(--accent); text-decoration: none; }
+.date-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.badge.urgent { background: var(--red-soft); border-color: var(--red-border); color: var(--red); font-weight: 600; }
+.badge.warn { background: var(--amber-soft); border-color: var(--amber-border); color: var(--amber); font-weight: 600; }
+.badge.ok { background: var(--green-soft); border-color: var(--green-border); color: var(--green); font-weight: 600; }
+.badge.info { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
+.badge.rev { background: var(--violet-soft); border-color: var(--violet-border); color: var(--violet); font-weight: 600; }
+.badge.muted { color: var(--muted); }
+.detail { font-size: 0.88rem; color: var(--text-secondary); margin: 9px 0 0; }
+.detail.muted { color: var(--muted); }
+
+/* Revision inline strip on cards */
+.rev-strip {
+  margin-top: 10px;
+  padding: 8px 11px;
+  border-radius: 7px;
+  background: var(--violet-soft);
+  border: 1px solid var(--violet-border);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.rev-strip strong { color: var(--violet); }
+
+/* Action Buttons */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  font-size: 0.83rem;
+  margin-top: 11px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+.btn-primary:hover { text-decoration: none; filter: brightness(1.06); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.btn-secondary:hover { text-decoration: none; border-color: var(--border-strong); color: var(--text); }
+
+/* Tables, Code, Callouts, Timeline */
+table.kv {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.89rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+table.kv th, table.kv td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 13px;
+  text-align: left;
+  vertical-align: top;
+}
+table.kv tr:last-child th, table.kv tr:last-child td { border-bottom: none; }
+table.kv th { width: 250px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
+table.data-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.85rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+table.data-tbl th, table.data-tbl td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.data-tbl tr:last-child td { border-bottom: none; }
+code {
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.84em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+blockquote {
+  margin: 10px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.callout {
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  margin: 14px 0;
+}
+.callout.rev {
+  background: var(--violet-soft);
+  border-color: var(--violet-border);
+}
+.callout.warn {
+  background: var(--amber-soft);
+  border-color: var(--amber-border);
+}
+.timeline {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid var(--border-strong);
+}
+.timeline li {
+  position: relative;
+  margin: 0 0 10px;
+  padding-left: 8px;
+  font-size: 0.87rem;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+}
+.hit { margin: 8px 0; font-size: 0.88rem; line-height: 1.55; }
+.pno { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.notice {
+  margin-top: 32px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+.toc-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 20px; }
+.toc-pills a {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.81rem;
+  font-weight: 500;
+}
+.toc-pills a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+.step-num {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+pre.template-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.section-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.leaflet-popup-content { color: #161b22; font-size: 0.85rem; line-height: 1.45; }
+@media (max-width: 700px) {
+  table.kv th { width: 145px; }
+  #map { height: 320px; }
+  .topbar-inner { padding: 10px 14px; }
+  .wrap { padding: 18px 14px 54px; }
+}
+@media print {
+  .topbar, .no-print, #digest-map, .map-box { display: none !important; }
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .card, table.kv, table.data-tbl { box-shadow: none; break-inside: avoid; }
+  a { color: #000000; text-decoration: underline; }
+}
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      <span>Türkiye e-ÇED İzleme</span>
+      <span class="brand-scope">81 İl</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link " href="../index.html">Duyurular ve Harita</a>
+      <a class="nav-link " href="../rehber.html">Kullanım Rehberi</a>
+      <a class="nav-link" href="../feed.xml">RSS 2.0</a>
+      <a class="nav-link" href="https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml" target="_blank" rel="noopener">Resmi e-ÇED ↗</a>
+      <button id="theme-toggle" class="theme-btn" type="button">Tema</button>
+    </div>
+  </div>
+</nav>
+<div class="wrap narrow">
+  <header class="page-head">
+    <div style="font-size:0.84rem;color:var(--muted);margin-bottom:8px;" class="no-print">
+      <a href="../index.html">← Duyurular listesine dön</a> · Dosya <code>#61244</code>
+    </div>
+    <h1>GERZE RÜZGAR ENERJİ SANTRALİ (8ADET TÜRBİN VE 60MWm/48MWe KURULU GÜÇ) VE ELEKTRİK DEPOLAMA TESİSİ (48 MWh/48MWe) PROJESİ</h1>
+    <p class="sub">SİNOP / BOYABAT,GERZE · MAV ELEKTRİK ÜRETİM SANAYİ VE TİCARET A.Ş.</p>
+    <div class="badges" style="margin-top:11px;">
+      <span class="badge">Nihai Karar</span>
+      <span class="badge info">Ek-1</span>
+      <span class="badge warn">Madde 14 Askı (10g) · 9 gün kaldı (2026-11-30)</span>
+      
+    </div>
+    <div class="actions no-print" style="border-top:none;padding-top:4px;">
+      <a class="btn-primary" href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=signature_file3355919040307191088.imz&amp;orjinalAd=61244_Son_Sekli_Verilen_Rapor.pdf&amp;yuklemeTarihi=2026-11-05" target="_blank" rel="noopener">Resmi PDF Dosyası ↗</a>
+      <a class="btn-secondary" href="http://eced.csb.gov.tr/jsp/ek1/61244" target="_blank" rel="noopener">e-ÇED Portal Kaydı ↗</a>
+      <a class="btn-secondary" href="61244.md">Ham Markdown (.md)</a>
+      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF Kaydet</button>
+    </div>
+  </header>
+
+  <table class="kv">
+    <tr><th>Proje Sahibi</th><td>MAV ELEKTRİK ÜRETİM SANAYİ VE TİCARET A.Ş.</td></tr>
+    <tr><th>Hazırlayan Kuruluş</th><td>AKTEL ÇEVRE DANIŞMANLIK MÜŞAVİRLİK VE MÜHENDİSLİK LTD. ŞTİ.</td></tr>
+    <tr><th>Sektör / Alt Sektör</th><td>Enerji / Rüzgar Enerji Santralleri</td></tr>
+    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>20.11.2026</code> · Belge yükleme: <code>09/10/2026 11:54:59</code></td></tr>
+    <tr><th>PDF Kapsamı ve Bütünlük</th><td>97.14 MB · 697 sayfa (639 metin / 58 taranmış) · SHA-256 <code>a8ee170316279079…</code></td></tr>
+    <tr><th>Harita Bağlantıları</th><td><a href="https://www.openstreetmap.org/?mlat=41.62731&amp;mlon=35.04279#map=12/41.62731/35.04279" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=41.62731,35.04279" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
+  </table>
+
+  <h2>Belge Bütünlüğü, Revizyon ve Süreç Geçmişi</h2>
+<p class="sub">Her PDF dosyasının SHA-256 özeti, yükleme tarihi ve teknik göstergeleri arşivlenir. Bakanlık portalında rapor değiştirildiğinde veya 2009/7 Genelgesi kapsamında yeniden yüklendiğinde sürümler arası fark (v1 → v2) otomatik olarak kaydedilir.</p>
+<table class="data-tbl"><thead><tr><th>Sürüm</th><th>Arşiv Tarihi</th><th>Aşama</th><th>Yükleme Tarihi</th><th>Sayfa</th><th>SHA-256</th></tr></thead><tbody><tr><td><code>v1</code></td><td><code>2026-11-21T09:03:07</code></td><td>Nihai Karar</td><td><code>2026-11-05</code></td><td>697</td><td><code>a8ee170316279079…</code></td></tr></tbody></table>
+
+  <h2>Konum Haritası</h2>
+  <div class="map-box">
+    <div id="digest-map"></div>
+    <div class="map-legend"><span>PDF metninden çıkarılan kesin proje koordinatları (80 nokta, datum: UTM-Z36/ED50, sayfa: s.58, s.59, s.60, s.61).</span></div>
+  </div>
+
+  
+  <h2>Yapay Zeka Destekli Bilimsel Ön Değerlendirme <span class="badge">gemini-4-hydrogen</span></h2>
+  <p class="sub">Bu değerlendirme, resmi PDF dosyasından seçilen 23 sayfa (s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14, s.15, s.17, s.18, s.21, s.37, s.38, s.43, s.44, s.45) esas alınarak hazırlanmıştır. Tüm sayısal verilerin ve tespitlerin resmi PDF belgesindeki ilgili <code>[s. N]</code> sayfalarından doğrulanması gerekir.</p>
+  <section class="card ek1" style="margin-top:10px;">
+    <p style="margin-top:0;"><strong>Özet:</strong> MAV Elektrik Üretim Sanayi ve Ticaret A.Ş. tarafından Sinop ili Boyabat ve Gerze ilçeleri sınırları içinde 2.029,09 hektarlık lisans sahasında, 8 adet türbinle toplam 60 MWm/48 MWe kurulu güce sahip Gerze Rüzgar Enerji Santrali ve 48 MWh/48 MWe kapasiteli Lityum-İyon Elektrik Depolama Tesisi kurulması planlanmaktadır. Proje, ÇED Yönetmeliği Ek-1 Madde 41 kapsamında hazırlanmış olup 2. İDK sonrasında Madde 14 gereğince 10 takvim günü halkın görüşüne açılmıştır. İncelenen alıntı sayfalara göre türbinler ile depolama ve şalt tesisleri; 1/100.000 ölçekli Çevre Düzeni Planında tarım, orman ve makilik-fundalık-çalılık alan vasıflı araziler üzerinde yer almakta, en yakın meskûn yapı T6 türbinine yaklaşık 498 metre mesafede bulunmaktadır. Ayrıca içindekiler ve şekil listesi kayıtları, RES alanı içinde arkeolojik sit alanlarının bulunduğunu ve Tırnalı Deresi ile Hamsi RES-Boyabat TM enerji iletim hattı bağlantısı üzerinden bölgesel etkileşimlerin söz konusu olduğunu göstermekte olup, bu risklerin temel çevre bölümleri ve ekler üzerinden doğrulanması gerekmektedir.</p>
+    <details style="margin-top:10px;font-size:0.86rem;color:var(--muted);"><summary style="cursor:pointer;">İngilizce özet (English summary)</summary><p style="margin:6px 0 0;">MAV Elektrik Uretim Sanayi ve Ticaret A.S. proposes to construct and operate the Gerze Wind Power Plant (8 turbines, 60 MWm/48 MWe installed capacity) integrated with a 48 MWh/48 MWe Lithium-Ion Battery Energy Storage System across a 2,029.09-hectare license area in the Boyabat and Gerze districts of Sinop Province. Classified under Annex-1 Article 41 of the Turkish EIA Regulation, the finalized EIA report has been opened for public comment under Article 14 following the second Review and Evaluation Commission (IDK) meeting. Based on the supplied excerpts, the turbines, storage containers, and switchyard sit on agricultural, forest, and scrubland parcels under the 1/100,000 Environmental Plan, with the nearest inhabited dwelling located approximately 498 meters northwest of turbine T6. Indexes and figure lists further indicate the presence of archaeological sites within the license boundary, proximity to Tirnali Stream, and grid tie-in to the Hamsi WPP-Boyabat line, underscoring the need to scrutinize full baseline ecology, land-use permits, and cumulative impacts.</p></details>
+    <div class="badges" style="margin-top:10px;">
+      <span class="badge">Saha çalışması: Karışık veya yöntemi belirsiz</span>
+      <span class="badge">Mevsimsel örnekleme: Belirsiz</span>
+      <span class="badge">Kümülatif etki: Eksik veya tespit edilemedi</span>
+    </div>
+    <p class="detail" style="margin-top:10px;"><strong>Zeytinlik ve Korunan Alanlar:</strong> İncelenen alıntılarda 3573 sayılı Kanun kapsamında zeytinlik varlığına dair bir bilgi yer almamaktadır. Buna karşın Şekil 73 başlığı RES alanı içerisinde arkeolojik sit alanlarının bulunduğunu göstermekte [s. 11], Çevre Düzeni Planı ve Arazi Kullanım Haritasına göre üniteler Orman Alanı (T4, T7), Makilik-Fundalık-Çalılık Alan (T1) ve III.-IV. sınıf dâhil Tarım Arazisi (T2, T3, T5, T6, T8, EDT, Şalt) vasıflı alanlarda konumlanmaktadır [s. 18, 44, 45]. ÖÇK ve RAMSAR haritalarının ise yalnızca şekil listesinde (rapor s. 145, 147) bulunduğu görülmektedir [s. 11].<br/>Ek listesinde İlkbahar ve Sonbahar Kuş Göç Dönemi Ornitolojik İzleme ve Değerlendirme Raporu (VIII.4.2), Biyolojik Çeşitlilik Raporu (VIII.4.3) ve Ekosistem Değerlendirme Raporu (VIII.4.4) başlıkları yer almakta [s. 15] ve ÇED firması değişikliği sonrası 28.09.2026 tarihinde bir yer görme çalışması yapıldığı belirtilmektedir [s. 17]. Ancak mevcut çevre özelliklerini (Bölüm II), flora-fauna envanterini, yüzeysel/yeraltı sularını (Tırnalı Deresi dâhil) [s. 4, 11] ve iki sayfalık Kümülatif Çevresel Etki Değerlendirme bölümünü (Bölüm IV, rapor s. 254-255) [s. 8] içeren ana metin ve ek sayfaları sağlanan alıntılarda yer almadığından, proje öncesi saha örneklemesinin kapsamı ve mevsimsel yeterliliği doğrulanamamıştır.</p>
+  </section>
+  <h3>Öne Çıkan Sayısal Bulgular</h3><table class="kv"><tr><th>Kurulu Güç ve Türbin Sayısı</th><td>8 adet Goldwind türbin (8 x 7,5 MWm / 6 MWe), toplam 60 MWm / 48 MWe <span class="pno">[s. 21]</span></td></tr>
+<tr><th>Elektrik Depolama Tesisi (EDT)</th><td>48 MWe / 48 MWh kapasiteli, 16 adet Lityum-İyon konteyner <span class="pno">[s. 21]</span></td></tr>
+<tr><th>Yıllık Azami Enerji Üretimi</th><td>192.000.000 kWh/yıl <span class="pno">[s. 18]</span></td></tr>
+<tr><th>RES Lisans Sahası Büyüklüğü</th><td>2.029,09 Ha (20.290.901,61 m²) <span class="pno">[s. 18]</span></td></tr>
+<tr><th>Proje Yatırım Bedeli</th><td>200.855.000 TL <span class="pno">[s. 2]</span></td></tr>
+<tr><th>En Yakın Meskûn Yapı Mesafesi</th><td>T6 türbininin kuzeybatısında yaklaşık 498 metre <span class="pno">[s. 18]</span></td></tr>
+<tr><th>Yerleşim Merkezlerine Mesafe</th><td>Gerze 19,2 km, Boyabat 25,4 km, Sinop il merkezi 42,6 km (kuş uçuşu) <span class="pno">[s. 18]</span></td></tr>
+<tr><th>Enerji İletim Hattı (EİH)</th><td>154 kV, 1272 MCM ~(4+4) km iki ayrı tek devre (Hamsi RES-Boyabat TM EİH girdi-çıktı) <span class="pno">[s. 18]</span></td></tr>
+<tr><th>EDT Ekonomik Ömrü</th><td>16 yıl <span class="pno">[s. 38]</span></td></tr>
+<tr><th>İstihdam (İnşaat / İşletme)</th><td>İnşaat aşamasında 30 personel, işletme aşamasında 5 personel <span class="pno">[s. 18]</span></td></tr></table>
+  <h3>Danıştay Ölçütlerine Göre Bilimsel ve Hukuki Bulgular</h3><section class="card"><div class="hit"><span class="badge warn">ORTA</span> <span class="badge">5403 / Orman / Korunan Alan</span> <strong>Tarım, Orman ve Arkeolojik Sit Alanlarıyla Çakışma ve Harita Sınıflandırma Çelişkileri</strong> <span class="pno">[s. 11, s. 18, s. 44, s. 45]</span> — Raporda türbin ve tesislerin III., IV., VII. ve VIII. sınıf araziler üzerinde kaldığı belirtilmekte; Çevre Düzeni Planına göre T2, T3, T5, T6, T8 ile EDT ve şalt sahası tarım arazisinde, T4 ve T7 orman alanında, T1 ise makilik-fundalık-çalılık alanda konumlanmaktadır [s. 18, 45]. Buna karşın aynı sayfada Arazi Kullanım Haritası ve Meşcere Haritası verileri ÇDP ile çelişmekte; örneğin T4 ve T7 ÇDP&#x27;de orman alanı görünürken Meşcere Haritasında ziraat alanı, T5 ise ÇDP&#x27;de tarım arazisi görünürken Meşcere Haritasında orman ve ziraat alanı olarak raporlanmaktadır [s. 18, 45]. Ayrıca Şekil 73 başlığı RES alanı içinde arkeolojik sit alanları bulunduğunu göstermekte [s. 11], T5 türbininin ilk konumunun köy mezarlığına denk gelmesi nedeniyle kaydırıldığı belirtilmekte ve arazi izinlerinin ÇED sonrasında alınacağı ifade edilmektedir [s. 18]. 5403 sayılı Kanun, 6831 sayılı Orman Kanunu ve kültür varlıkları koruma izinlerinin keşif ve bilirkişi incelemesiyle denetlenmesi gerekmektedir.</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Ölçüm / İç Tutarlılık</span> <strong>Meskûn Yapılara 498 Metre Yakınlıkta Yüksek Kapasiteli Türbin Konumlandırması</strong> <span class="pno">[s. 18, s. 21]</span> — RES alanı sınırları içerisinde meskûn yapıların yer aldığı ve en yakın meskûn yapının T6 numaralı türbinin kuzeybatısında yaklaşık 498 metre mesafede bulunduğu belirtilmektedir [s. 18]. Her biri 7,5 MWm/6 MWe gücündeki büyük ölçekli türbinlerin [s. 21] yerleşimlere bu yakınlığı nedeniyle oluşacak gürültü, gölge titreşimi (ışık yansıması) ve buz atması gibi güvenlik risklerine ilişkin modelleme ve arka plan ölçümlerinin mahallinde keşifle doğrulanması gerekmektedir.</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Kümülatif Etki</span> <strong>Bölgesel Kümülatif Etki Değerlendirmesinin Sınırlı Hacmi ve Netleşmemiş EİH Güzergâhı</strong> <span class="pno">[s. 7, s. 8, s. 10, s. 18, s. 21]</span> — Projenin 154 kV ~(4+4) km enerji iletim hattıyla Hamsi RES-Boyabat TM EİH&#x27;ya girdi-çıktı şeklinde bağlanacak olması bölgede başka rüzgar enerji santrali altyapısının bulunduğunu göstermektedir [s. 18, 21]. İçindekiler listesinde işletmedeki/inşaattaki diğer RES projeleriyle kümülatif etkiye değinildiği görülse de [s. 7], 697 sayfalık raporda Kümülatif Çevresel Etki Değerlendirme bölümüne (Bölüm IV) yalnızca 2 sayfa (rapor s. 254-255) ayrılmıştır [s. 8]. Ayrıca şekil listesinde yeraltı kablo sistemi ve havai EİH için &#x27;ön güzergah&#x27; ve &#x27;alternatif&#x27; ifadeleri kullanıldığından iletim hattının kesin ekolojik ve mülkiyet etkilerinin netleştirilmesi gerekmektedir [s. 10].</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Ölçüm / İç Tutarlılık</span> <strong>EDT Verimlilik İddiası (%100) ile Teknik ve Yangın/Atık Güvenliği Belirsizlikleri</strong> <span class="pno">[s. 18, s. 21, s. 37, s. 38, s. 45]</span> — Raporda 48 MWe/48 MWh kapasiteli Lityum-İyon Elektrik Depolama Tesisinin depolama verimliliğinin &#x27;%100 olarak planlandığı&#x27; beyan edilmekte olup [s. 37], elektrokimyasal depolama sistemlerinde şarj-deşarj ve soğutma kayıpları nedeniyle yüzde 100 verimlilik teknik olarak mümkün değildir. Ayrıca her biri 3,072 MWh kapasiteli 16 konteynerin toplamı 49,152 MWh ederken tesis kapasitesi 48 MWh olarak verilmekte ve ileride türbin ile batarya marka/modellerinde teknolojik değişikliğe gidilebileceği belirtilmektedir [s. 21]. Tarım arazisi üzerinde planlanan EDT&#x27;nin [s. 18, 45] 16 yıllık ömür sonundaki batarya bertarafı ve termal kaçak/yangın riski [s. 38] teknik açıdan denetlenmelidir.</div>
+<div class="hit"><span class="badge warn">ORTA</span> <span class="badge">Flora / Fauna &amp; Mevsimsellik</span> <strong>Hızlı Yeterlik Firması Değişikliği, Tek Günlük Yer Görme ve Doğrulanamayan Ekosistem Verileri</strong> <span class="pno">[s. 11, s. 15, s. 17]</span> — Projenin ÇED yeterlik firması 16.09.2026 tarihinde değiştirilmiş, 28.09.2026 tarihinde yer görme çalışması yapılmış ve hemen iki gün sonra 30.09.2026 tarihinde 2. İDK toplantısı gerçekleştirilmiştir [s. 17]. Her ne kadar ek listesinde İlkbahar ve Sonbahar kuş göç raporu ile biyolojik çeşitlilik ve ekosistem raporları listelense de [s. 15], türbin revizyonları sonrası güncel koordinatların ornitolojik göç koridorları, Tırnalı Deresi hidrolojisi [s. 11] ve yarasa/arı popülasyonları üzerindeki etkileri ana metin alıntıları dışında kaldığından bilirkişi incelemesine muhtaçtır.</div>
+<div class="hit"><span class="badge muted">DÜŞÜK</span> <span class="badge">5403 / Orman / Korunan Alan</span> <strong>Mahalle İsimleri Listesindeki İdari Tutarsızlık ve Eksik Kurum Görüşü Geçmişi</strong> <span class="pno">[s. 1, s. 2, s. 17, s. 18]</span> — Proje kapak sayfasında ve teknik olmayan özette Boyabat ilçesine bağlı mahalleler arasında Çattepe Mahallesi de sayıldığı ve bazı türbinlerin Çattepe sınırına girdiği belirtildiği halde [s. 1, 17], 2. sayfadaki proje künyesi tablosunda Boyabat mahalleleri arasında Çattepe Mahallesi eksik bırakılmıştır [s. 2]. Ayrıca 12.01.2026 tarihli 1. İDK toplantısında bazı kurum görüşlerinin yetişmemesi ve MAPEG arazi çalışmasının tamamlanmamış olması nedeniyle sürecin durdurulmuş olması, nihai dosyadaki kurum görüşlerinin eksiksizliğinin kontrolünü gerektirmektedir [s. 18].</div></section>
+  <h3>Keşif ve Bilirkişi Heyeti İçin Önerilen Uzmanlık Alanları</h3><section class="card"><div class="badges" style="margin-top:0;"><span class="badge info">Çevre Mühendisi</span> <span class="badge info">Elektrik Mühendisi</span> <span class="badge info">Orman Mühendisi</span> <span class="badge info">Ziraat Mühendisi</span> <span class="badge info">Biyolog (Ornitoloji Uzmanı)</span> <span class="badge info">Hidrojeoloji Mühendisi</span> <span class="badge info">Şehir ve Bölge Plancısı</span> <span class="badge info">Arkeolog</span></div><p class="detail muted">Danıştay içtihatları uyarınca bilirkişi heyetinin tek sayıda uzmandan oluşması, proje niteliğine uygun tüm disiplinleri içermesi ve plan kararlarıyla ilişkili davalarda Şehir ve Bölge Plancısına yer verilmesi gerekmektedir.</p></section>
+  <div class="section-head-row"><h3>HKT Tutanakları ve Bilirkişi İncelemesi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card"><ul style="margin:0;padding-left:20px;"><li>1/100.000 ölçekli Çevre Düzeni Planında tarım arazisi olarak görünen T2, T3, T5, T6, T8 türbinleri ile EDT ve şalt sahası için 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu kapsamında alınmış tarım dışı amaçlı kullanım izni bulunmakta mıdır; ÇDP ile Meşcere Haritası arasındaki (T4, T5, T7 ünitelerine ilişkin) orman-ziraat sınıfı çelişkileri nasıl giderilmiştir? <span class="pno">[s. 18, s. 44, s. 45]</span></li>
+<li>Şekil 73 kapsamında RES alanı içerisinde kaldığı anlaşılan arkeolojik sit alanlarının T1-T8 türbinlerine, yeni açılacak ulaşım yollarına ve EİH güzergâhına mesafeleri nedir ve ilgili Kültür Varlıklarını Koruma Bölge Kurulu&#x27;nun güncel ve olumlu görüşü rapora eklenmiş midir? <span class="pno">[s. 11, s. 18]</span></li>
+<li>T6 numaralı türbine yaklaşık 498 metre mesafedeki en yakın meskûn yapı ile RES alanı içindeki diğer konutlar için 7,5 MWm gücündeki türbinlerden kaynaklanacak gürültü, gölge titreşimi ve güvenlik (buz atması/kanat kopması) etkileri arka plan ölçümlerine dayalı olarak modellenmiş midir ve T5 türbini revizyonu sonrasında başka mezarlık veya hassas yapı çakışması bulunmakta mıdır? <span class="pno">[s. 18, s. 21]</span></li>
+<li>Projenin girdi-çıktı bağlantısı yapacağı Hamsi RES-Boyabat TM hattı dâhil bölgedeki mevcut ve planlanan diğer RES projeleriyle birlikte kümülatif gürültü, kuş göçü çarpışma riski ve EİH etki değerlendirmesi (Bölüm IV&#x27;te yalnızca 2 sayfa yer alması karşısında) bilimsel yöntemlerle yapılmış mıdır? <span class="pno">[s. 7, s. 8, s. 18, s. 21]</span></li>
+<li>Tarım arazisi üzerinde planlanan 48 MWh Lityum-İyon Elektrik Depolama Tesisi için teknik olarak mümkün olmayan %100 depolama verimliliği beyanının gerekçesi nedir; ayrıca türbin ve batarya marka/modellerinde sonradan değişiklik yapılması hakkının saklı tutulması durumunda yangın, tehlikeli atık ve gürültü etkilerinin ÇED kararını nasıl etkileyeceği değerlendirilmiş midir? <span class="pno">[s. 18, s. 21, s. 37, s. 38, s. 45]</span></li></ul><textarea id="qs-plain" style="display:none;">1. 1/100.000 ölçekli Çevre Düzeni Planında tarım arazisi olarak görünen T2, T3, T5, T6, T8 türbinleri ile EDT ve şalt sahası için 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu kapsamında alınmış tarım dışı amaçlı kullanım izni bulunmakta mıdır; ÇDP ile Meşcere Haritası arasındaki (T4, T5, T7 ünitelerine ilişkin) orman-ziraat sınıfı çelişkileri nasıl giderilmiştir? [s. 18, s. 44, s. 45]
+2. Şekil 73 kapsamında RES alanı içerisinde kaldığı anlaşılan arkeolojik sit alanlarının T1-T8 türbinlerine, yeni açılacak ulaşım yollarına ve EİH güzergâhına mesafeleri nedir ve ilgili Kültür Varlıklarını Koruma Bölge Kurulu&#x27;nun güncel ve olumlu görüşü rapora eklenmiş midir? [s. 11, s. 18]
+3. T6 numaralı türbine yaklaşık 498 metre mesafedeki en yakın meskûn yapı ile RES alanı içindeki diğer konutlar için 7,5 MWm gücündeki türbinlerden kaynaklanacak gürültü, gölge titreşimi ve güvenlik (buz atması/kanat kopması) etkileri arka plan ölçümlerine dayalı olarak modellenmiş midir ve T5 türbini revizyonu sonrasında başka mezarlık veya hassas yapı çakışması bulunmakta mıdır? [s. 18, s. 21]
+4. Projenin girdi-çıktı bağlantısı yapacağı Hamsi RES-Boyabat TM hattı dâhil bölgedeki mevcut ve planlanan diğer RES projeleriyle birlikte kümülatif gürültü, kuş göçü çarpışma riski ve EİH etki değerlendirmesi (Bölüm IV&#x27;te yalnızca 2 sayfa yer alması karşısında) bilimsel yöntemlerle yapılmış mıdır? [s. 7, s. 8, s. 18, s. 21]
+5. Tarım arazisi üzerinde planlanan 48 MWh Lityum-İyon Elektrik Depolama Tesisi için teknik olarak mümkün olmayan %100 depolama verimliliği beyanının gerekçesi nedir; ayrıca türbin ve batarya marka/modellerinde sonradan değişiklik yapılması hakkının saklı tutulması durumunda yangın, tehlikeli atık ve gürültü etkilerinin ÇED kararını nasıl etkileyeceği değerlendirilmiş midir? [s. 18, s. 21, s. 37, s. 38, s. 45]</textarea></section>
+  <p class="sub" style="margin-top:10px;"><em>İnceleme sınırları:</em> Toplam 697 sayfalık ÇED Raporu dosyasının (639 metin, 58 taranmış/görsel sayfa) yalnızca 1-15, 17-18, 21, 37-38 ve 43-45 numaralı PDF sayfaları incelenebilmiştir. İçindekiler dizinine göre mevcut çevre özelliklerini içeren Bölüm II (rapor s. 70-168), inşaat ve işletme etkilerini içeren Bölüm III (rapor s. 169-253), Kümülatif Etki Değerlendirme bölümü (rapor s. 254-255), izleme/eylem planları (Bölüm V-VII) ile ornitoloji, biyolojik çeşitlilik, ekosistem, hidroloji-hidrojeoloji ve resmi kurum görüşlerini içeren Bölüm VIII ekleri (Ek-VIII) sağlanan alıntılar dışında kaldığından içerikleri doğrudan denetlenememiştir.</p>
+
+
+  <h2>Resmi Duyuru Metni</h2>
+  <blockquote>SİNOP ili GERZE, BOYABAT ilcesinde SİNOP İli GERZE, BOYABAT ilcesinde MAV ELEKTRİK ÜRETİM SANAYİ VE TİCARET A.Ş.tarafından yapılması planlanan GERZE RÜZGAR ENERJİ SANTRALİ (8ADET TÜRBİN VE 60MWm/48MWe KURULU GÜÇ) VE ELEKTRİK DEPOLAMA TESİSİ (48 MWh/48MWe) PROJESİ projesi ile ilgili olarak hazırlanan ÇED Raporu , İnceleme ve Değerlendirme Komisyonu (İDK) tarafından incelenerek son şekli verilmiş olup, söz konusu rapor halkın görüş ve önerilerini almak üzere ÇED Yönetmeliği&#x27;nin 14.Maddesi (1) no&#x27;lu bendi kapsamında Bakanlıkta ve Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü&#x27;nde on (10) takvim günü görüşe açılmıştır. Bakanlığa/Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü&#x27;ne iletilen görüşler projeyle ilgili karar alma sürecinde dikkate alınacaktır. Görüş ve öneriler için bu süreç içerisinde Çevre, Şehircilik ve İklim Değişikliği Bakanlığı&#x27;na veya SİNOP Çevre ve Şehircilik İl Müdürlüklerine müracaat edilebilir. İlgililere ve kamuoyuna duyurulur.</blockquote>
+
+  <h2>Otomatik Metin Taraması (Deterministik)</h2>
+  <table class="kv"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Literatür taraması ifadesi</th><td><span class="badge warn">Literatür ifadesi mevcut — saha çalışması ile karşılaştırınız</span></td></tr>
+<tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kümülatif etki değerlendirmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge urgent">Metinde tespit edilemedi — doğrudan PDF üzerinden kontrol ediniz</span></td></tr>
+<tr><th>Yeraltı suyu, akifer veya hidrojeoloji ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge warn">Metinde geçmektedir — proje parçalama / 2009/7 yönünden inceleyiniz</span></td></tr>
+<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr></table>
+  <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik metin taramasına dahil edilmemiştir.</p>
+
+  <h2>Sayfa Kaynaklı Çıkarılan Bulgular</h2>
+  <div class="cards"><section class="card"><h3>Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(110 sayfa: s.7, s.15, s.18, s.21, s.26, s.34, s.35, s.39, s.54, s.57, s.58, s.59, s.60, s.61 (+96 sayfa))</span></h3><div class="hit"><span class="pno">[s. 7]</span> <code>utm</code> — …minin ve bataryaların nereden temin edileceği, sistemin nasıl kurulacağı, depolama yönteminin nasıl olacağı, hangi soğutma sisteminin kullanılacağı, türbinler arası mesafe ve depolama tesislerinin nasıl konumlandırılacağı, kullanılacak türb…</div>
+<div class="hit"><span class="pno">[s. 15]</span> <code>koordinat</code> — …POLAMA TESİSİ (48 MWh/Mwe) PROJESİ SON ŞEKLİ VERİLEN ÇED RAPORU 13 EK LİSTESİ VIII.1. Proje için seçilen yerin koordinatları, VIII.2. Proje için belirlenen yer ve alternatiflerinin varsa; çevre düzeni planı (lejant ve plan hükümleri ile…</div>
+<div class="hit"><span class="pno">[s. 18]</span> <code>029,09 Ha</code> — …ojenin öngörülen yıllık azami üretilebilecek elektrik enerjisi 192.000.000 kWh’dir. Lisans sahasının toplam alanı 2.029,09 Ha (20.290.901,61 m²)’dır. Proje alanı 1/25.000 ölçekli Topoğrafik Haritada E34-d1 ve E34-d4 paftalarında yer in yerle…</div>
+<div class="hit"><span class="pno">[s. 18]</span> <code>901,61 m²</code> — …yıllık azami üretilebilecek elektrik enerjisi 192.000.000 kWh’dir. Lisans sahasının toplam alanı 2.029,09 Ha (20.290.901,61 m²)’dır. Proje alanı 1/25.000 ölçekli Topoğrafik Haritada E34-d1 ve E34-d4 paftalarında yer in yerleşimlerini ve saha…</div>
+<div class="hit"><span class="pno">[s. 18]</span> <code>koordinat</code> — …. Proje alanı 1/25.000 ölçekli Topoğrafik Haritada E34-d1 ve E34-d4 paftalarında yer in yerleşimlerini ve saha köşe koordinatlarını gösterir 1/25.000 ölçekli Topoğrafik Harita VIII-2.1’de verilmiştir. Yatırımı planlanan türbinler ve elektrik…</div>
+<div class="hit"><span class="pno">[s. 18]</span> <code>42,6 km</code> — …an sahada faaliyete yönelik çalışmalar yürütülmeyecektir. RES alan sınırı; Sinop İli il merkezine kuş uçuşu yaklaşık 42,6 km, Boyabat İlçesi ilçe merkezine kuş uçuşu yaklaşık 25,4 km ve Gerze İlçesi ilçe merkezine kuş uçuşu yaklaşık 19,2 km m…</div></section><section class="card"><h3>Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(46 sayfa: s.5, s.6, s.37, s.38, s.42, s.43, s.124, s.125, s.128, s.130, s.131, s.150, s.161, s.162 (+32 sayfa))</span></h3><div class="hit"><span class="pno">[s. 5]</span> <code>yeraltı suyu</code> — …emniyeti için yapılacak işlemler, alınacak önlemler; taşkın ve heyelan riski; yüzeysel (kuru dere yatakları dahil) ve yeraltı suyu kaynaklarının etkilenme durumları ve alınacak önlemler; “Dere Yatakları ve Taşkınlar” konulu 2006/27 sayılı Başbakanlı…</div>
+<div class="hit"><span class="pno">[s. 6]</span> <code>deşarj</code> — …nım amaçlarına göre miktarların ayrı ayrı belirtilmesi; oluşacak atık suların cins ve miktarları, bertaraf yöntemleri, deşarj edileceği ortamlar, çevreyi etkileyebilecek olası sorunların belirlenmesi, alıcı ortamla etkileşimi, kümülatif etkiler…</div>
+<div class="hit"><span class="pno">[s. 37]</span> <code>deşarj</code> — …r. Enerji Depolama Sistemleri, enerji maliyetlerini düşürmek ve talep yükünü kontrol etmek adına kendi kendini şarj ve deşarj edebilmektedir. Depolama Tesisinin Toplam Gücü Proje kapsamında depolama kapasitesi 48 MWe/48 MWh olarak belirl…</div>
+<div class="hit"><span class="pno">[s. 38]</span> <code>deşarj</code> — …İyon Bataryalar (Li-ion) İlk ticari Li-ion şarj edilebilir batarya 1991 yılında üretilmiştir. Li-ion bataryalarda, deşarj sırasında lityum iyonlar negatif elektrottan pozitif elektroda doğru hareket ederler, şarj esnasında ise tersi durumda…</div>
+<div class="hit"><span class="pno">[s. 42]</span> <code>deşarj</code> — …r. Enerji Depolama Sistemleri, enerji maliyetlerini düşürmek ve talep yükünü kontrol etmek adına kendi kendini şarj ve deşarj edebilmektedir.</div>
+<div class="hit"><span class="pno">[s. 43]</span> <code>deşarj</code> — …etim birimlerinin çıkış gücündeki dalgalanmalara hızla yanıt vermektedir. Verimlilik: Enerji Depolama Sistemleri şarj/deşarj sürecindeki kayıpları minimuma indirmektedir. Uzun ömür: Enerji Depolama Sistemleri, gelişmiş pil yönetim sistemi il…</div></section><section class="card"><h3>Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(44 sayfa: s.4, s.44, s.45, s.76, s.134, s.135, s.144, s.145, s.146, s.147, s.150, s.155, s.162, s.165 (+30 sayfa))</span></h3><div class="hit"><span class="pno">[s. 4]</span> <code>doğal sit</code> — …t anıtları, tabiatı koruma alanları, yaban hayatı korunma alanları, biyogenetik rezerv alanları, biyosfer rezervleri, doğal sit ve anıtlar, arkeolojik, tarihi, kültürel sitler, özel çevre koruma bölgeleri, özel koruma alanları, turizm alan ve mer…</div>
+<div class="hit"><span class="pno">[s. 4]</span> <code>özel çevre koruma</code> — …alanları, biyogenetik rezerv alanları, biyosfer rezervleri, doğal sit ve anıtlar, arkeolojik, tarihi, kültürel sitler, özel çevre koruma bölgeleri, özel koruma alanları, turizm alan ve merkezleri, mer&#x27;a kanunu kapsamındaki vb. alanlar, hassasiyet dereces…</div>
+<div class="hit"><span class="pno">[s. 44]</span> <code>Orman Alanı</code> — …Bölgesi 1/100.000 Ölçekli Çevre Düzeni Planı kapsamındadır. Proje alanı 1/100.000 ölçekli Çevre Düzeni Planına göre Orman Alanı, Tarım Arazisi, Makilik - Fundalık - Çalılık Alan vasfında yer almaktadır. Yürürlükteki 1/100.000 ölçekli Sinop-Kas…</div>
+<div class="hit"><span class="pno">[s. 45]</span> <code>Orman Alanı</code> — …rinin Arazi Durumu Üniteler Arazi Vasfı T1 Makilik-Fundalık-Çalılık Alan T2 Tarım Arazisi T3 Tarım Arazisi T4 Orman Alanı T5 Tarım Arazisi T6 Tarım Arazisi T7 Orman Alanı T8 Tarım Arazisi Elektrik Depolama Tesisi Alanı Tarım Arazis…</div>
+<div class="hit"><span class="pno">[s. 76]</span> <code>Orman Alanı</code> — …kurulup işletilmesi planlanmaktadır. 1/25.000 ölçekli Çevre Düzeni Planına göre lisans sahası sınırları içerisinde Orman Alanı, Tarım Arazisi, Makilik - Fundalık - Çalılık Alan bulunmaktadır. Tapu ve Kadastro Genel Müdürlüğü Parsel Sorgu siste…</div>
+<div class="hit"><span class="pno">[s. 134]</span> <code>orman alanı</code> — …rişli olup, çayır ve mera alanları dahil toplam 78.637 hektar alanda tarım yapılmaktadır. Geriye kalan alanların %63’ü orman alanı, %6’sı iskân ve tarıma elverişli olmayan alanlar oluşturmaktadır. Aktif tarım alanı olan 78 bin hektarın 25 bin he…</div></section><section class="card"><h3>Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(140 sayfa: s.4, s.15, s.43, s.88, s.148, s.149, s.150, s.152, s.153, s.154, s.155, s.156, s.157, s.211 (+126 sayfa))</span></h3><div class="hit"><span class="pno">[s. 4]</span> <code>Flora ve Fauna</code> — …......................................................................................................... 142 II.2.10. Flora ve Fauna (türlerin belirlenmesi; belirlenen türlerin tehlike kategorileri, endemiklik durumları, nispi bolluk dereceleri, Ulusl…</div>
+<div class="hit"><span class="pno">[s. 4]</span> <code>Bern Sözleşmesi</code> — …i; belirlenen türlerin tehlike kategorileri, endemiklik durumları, nispi bolluk dereceleri, Uluslararası anlaşmalarla (Bern Sözleşmesi vb.) koruma altına alınan türler; nadir ve nesli tehlikeye düşmüş türler ve bunların yaşama ortamları, av hayvanları,…</div>
+<div class="hit"><span class="pno">[s. 15]</span> <code>Kuş Göç</code> — …suyu teminine ilişkin yazı …)vb., VIII.4.1. Ön Lisans ve Lisans Tadili Kurul Kararı VIII.4.2. İlkbahar ve Sonbahar Kuş Göç Dönemi Ornitolojik İzleme ve Değerlendirme Raporu VIII.4.3. Biyolojik Çeşitlilik Raporu VIII.4.4. Ekosistem Değerlen…</div>
+<div class="hit"><span class="pno">[s. 43]</span> <code>mevsimsel</code> — …Depolama Sistemleri&#x27;nin avantajları şu şekildedir; Ayrılabilirlik: Enerji Depolama Sistemleri günlük, haftalık veya mevsimsel olarak değişen yük profiline ve talep yüküne uygun şekilde yanıt vermekte ve ihtiyaca göre çalışmaktadır. Kesintili…</div>
+<div class="hit"><span class="pno">[s. 88]</span> <code>Mevsimsel</code> — …JESİ SON ŞEKLİ VERİLEN ÇED RAPORU 86 Şekil 49. Boyabat Meteoroloji İstasyonu Esme Sayılarına Göre Mevsimsel Rüzgâr</div>
+<div class="hit"><span class="pno">[s. 148]</span> <code>BERN Sözleşmesi</code> — …sözleşmeler uyarınca korunması gerekli alanlar a)&quot;Avrupa’nın Yaban Hayatı ve Yaşama Ortamlarını Koruma Sözleşmesi&quot; (BERN Sözleşmesi) uyarınca koruma altına alınmış alanlardan &quot;Önemli Deniz Kaplumbağası Üreme Alanları&quot;nda belirtilen I. ve II. Koruma B…</div></section><section class="card"><h3>Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(96 sayfa: s.4, s.5, s.6, s.7, s.8, s.11, s.15, s.35, s.39, s.55, s.57, s.72, s.74, s.110 (+82 sayfa))</span></h3><div class="hit"><span class="pno">[s. 4]</span> <code>deprem</code> — …, çığ, su baskını vb.), duyarlılık analizi; heyelan yağış ilişkisi, yamaç stabilitesi, kayma analizi; depremsellik ve deprem riski; heyelan risk haritası, faaliyet alanını da içine alan büyük ölçekli diri fay haritası ile Türkiye Deprem Tehlik…</div>
+<div class="hit"><span class="pno">[s. 5]</span> <code>kümülatif</code> — …ğın hangi amaçlar için kullanılacağı, çevreyi etkileyebilecek olası sorunların belirlenmesi, alıcı ortamla etkileşimi, kümülatif etkilerin belirlenmesi, çevreye olabilecek olumsuz etkilerinin azaltılması için alınacak önlemler, düzenleme ve restor…</div>
+<div class="hit"><span class="pno">[s. 6]</span> <code>kümülatif</code> — …ine, yerleşim yerlerine vb. etkileri, çevreyi etkileyebilecek olası sorunların belirlenmesi, alıcı ortamla etkileşimi, kümülatif etkilerin belirlenmesi, çevreye olabilecek olumsuz etkilerinin azaltılması için alınacak önlemler, ...................…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>kümülatif</code> — …ellikleri ve nasıl bertaraf edileceği çevreyi etkileyebilecek olası sorunların belirlenmesi, alıcı ortamla etkileşimi, kümülatif etkilerin belirlenmesi, çevreye olabilecek olumsuz etkilerinin azaltılması için alınacak önlemler, ...................…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>gürültü</code> — …...................................................... 226 III.2.7. Proje ünitelerinin işletilmesi sırasında oluşacak gürültü kaynak seviyesi, arka plan ölçümleri çevreyi etkileyebilecek olası sorunların belirlenmesi, alıcı ortamla etkileşimi,…</div>
+<div class="hit"><span class="pno">[s. 8]</span> <code>kümülatif</code> — …çin ve ne şekilde değerlendirileceği, çevreyi etkileyebilecek olası sorunların belirlenmesi, alıcı ortamla etkileşimi, kümülatif etkilerin belirlenmesi, çevreye olabilecek olumsuz etkilerinin azaltılması için alınacak önlemler, ..................…</div></section><section class="card"><h3>Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(92 sayfa: s.2, s.3, s.7, s.17, s.18, s.20, s.21, s.22, s.26, s.29, s.31, s.37, s.40, s.42 (+78 sayfa))</span></h3><div class="hit"><span class="pno">[s. 2]</span> <code>KURULU GÜÇ</code> — …28 GSM: - E-POSTA cpaek@mavelektrik.com PROJENİN ADI GERZE RÜZGAR ENERJİ SANTRALİ (8 ADET TÜRBİN VE 60 MWm/48 MWe KURULU GÜÇ) VE ELEKTRİK DEPOLAMA TESİSİ (48 MWh/48 MWe) PROJESİ PROJE BEDELİ 200.855.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK AD…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>PROJE BEDELİ</code> — …ZGAR ENERJİ SANTRALİ (8 ADET TÜRBİN VE 60 MWm/48 MWe KURULU GÜÇ) VE ELEKTRİK DEPOLAMA TESİSİ (48 MWh/48 MWe) PROJESİ PROJE BEDELİ 200.855.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) SİNOP İLİ BOYABAT İLÇESİ YAYLACIK, T…</div>
+<div class="hit"><span class="pno">[s. 2]</span> <code>200.855.000 TL</code> — …NTRALİ (8 ADET TÜRBİN VE 60 MWm/48 MWe KURULU GÜÇ) VE ELEKTRİK DEPOLAMA TESİSİ (48 MWh/48 MWe) PROJESİ PROJE BEDELİ 200.855.000 TL PROJE İÇİN SEÇİLEN YERİN AÇIK ADRESİ (İLİ, İLÇESİ, MEVKİİ) SİNOP İLİ BOYABAT İLÇESİ YAYLACIK, TIRNALI, KOZKULE,…</div>
+<div class="hit"><span class="pno">[s. 3]</span> <code>proje bedeli</code> — …andartlar) proje için seçilen yerin koordinatları...............................52 I.5. Projenin ekonomik özellikleri (proje bedelinin hesaplanma şeklinin bilgi ve belgelerle güncel, açıklayıcı olması) (ilgili yatırım programı, finans kaynakları, bu…</div>
+<div class="hit"><span class="pno">[s. 7]</span> <code>kapasite</code> — …, (modeli, kule yüksekli, kanat çapı-boyu, süpürme alanı, EDT boyutları ve kurulacağı alan büyüklüğü, batarya sayısı, kapasitesi vb. teknik özelliklerin verilmesi), tesisin faaliyet aşamasındaki ana üretim kapasitesi, elektrik bağlantı hattı vb.…</div>
+<div class="hit"><span class="pno">[s. 17]</span> <code>Kurulu Güç</code> — …Mav Elektrik Üretim Sanayi ve Ticaret A.Ş. tarafından “Gerze Rüzgar Enerji Santrali (8 Adet Türbin ve 60 MWm/48 MWe Kurulu Güç) ve Elektrik Depolama Tesisi (48 MWh/48 Mwe)” projesinin yatırımı ve işletilmesi planlanmaktadır. Projenin ÇED süre…</div></section><section class="card"><h3>Proje Parçalama, Kapasite Artışı ve Eşik Değerler <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(23 sayfa: s.71, s.74, s.76, s.121, s.126, s.150, s.212, s.380, s.451, s.453, s.454, s.459, s.470, s.472 (+9 sayfa))</span></h3><div class="hit"><span class="pno">[s. 71]</span> <code>5403 sayılı</code> — …gerçekleştirilmesi tasarlanan diğer ekonomik, sosyal ve altyapı faaliyetleri). İnşaat çalışmasına başlanmadan önce, 5403 sayılı Kanun kapsamında tarım dışı amaçla kullanım izinleri alınacak olup, hazırlanacak imar planlarının kesinleşmesinden so…</div>
+<div class="hit"><span class="pno">[s. 74]</span> <code>ÇED alanı</code> — …omik yönden en çok etkilenecek yerleşimler birimi Tatlıcak Köyü ve Darıözü Köyü’dür. Proje kapsamında lisans alanı, ÇED alanı olarak belirlenmiştir. Lisans alanını merkez kabul edecek şekilde 6 km yarıçapında bir etki alanına sahiptir. Proje et…</div>
+<div class="hit"><span class="pno">[s. 76]</span> <code>5403 sayılı</code> — …sel Sorgu sistemine göre lisans alanı içerisinde orman ve tarla bulunmaktadır. İnşaat çalışmasına başlanmadan önce, 5403 sayılı Kanun kapsamında tarım dışı amaçla kullanım izinleri alınacak olup, hazırlanacak imar planlarının kesinleşmesinden so…</div>
+<div class="hit"><span class="pno">[s. 121]</span> <code>ÇED Alanı</code> — …ilecek bina ve türbin yapıları şiddetli depremlere dayanıklı malzemeler kullanılarak yapılacaktır. Proje kapsamında ÇED Alanı içerisinde fay hattı bulunmamaktadır. Proje kapsamında hazırlanan 1/25.000 Ölçekli Dirifay Haritası aşağıda veril…</div>
+<div class="hit"><span class="pno">[s. 126]</span> <code>ÇED alanı</code> — …üyesi Devlet Su Isleri Genel Müdürlüğü 13.01.2026 tarih ve 6741064 sayı ile görüşlerini bildirmiştir. Görüş yazısında; ÇED alanı içerisinden Göllü Çayı&#x27;na mansaplanan &quot;Tırnalı Deresi&quot; ve yan kolu geçtiğini, bu bağlamda, türbin noktalarına ulaşım i…</div>
+<div class="hit"><span class="pno">[s. 150]</span> <code>5403 sayılı</code> — …dırılacak üniteler, Arazi Kullanım Haritasına göre III., IV., VII., VIII. sınıf arazi niteliğindedir. Proje kapsamında 5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu ile 4342 sayılı Mera Kanunu gereğince Tarım ve Orman Bakanlığı’ndan gerekli i…</div></section></div>
+
+  <h2>Belge Bölüm Haritası</h2>
+  <ul><li><span class="pno">[s. 1]</span> T.C. ENERJİ VE TABİİ KAYNAKLAR BAKANLIĞI Maden ve Petrol İşleri Genel Müdürlüğü Özel Alanlar Ve Harita Dairesi Başkanlığı</li>
+<li><span class="pno">[s. 1]</span> MGS PROJE MÜŞAVİRLİKMÜHENDİSLİK TİCARET LTD ŞTİ.NE</li>
+<li><span class="pno">[s. 687]</span> Arazi Etüt Çalışması</li>
+<li><span class="pno">[s. 688]</span> PTT KEP</li>
+<li><span class="pno">[s. 689]</span> tutanak</li>
+<li><span class="pno">[s. 690]</span> proje alanı foto_28_09_2026</li>
+<li><span class="pno">[s. 690]</span> Proje alanı fotoğraflarıBoyabat ilçesi kısmı</li>
+<li><span class="pno">[s. 691]</span> Proje alanı fotoğraflarıBoyabat ilçesi kısmı</li>
+<li><span class="pno">[s. 692]</span> Proje alanı fotoğraflarıBoyabat ilçesi kısmı</li>
+<li><span class="pno">[s. 693]</span> Proje alanı fotoğraflarıGERZE ilçesi kısmı</li>
+<li><span class="pno">[s. 694]</span> Proje alanı fotoğraflarıGERZE ilçesi kısmı</li>
+<li><span class="pno">[s. 695]</span> Proje alanı fotoğraflarıGERZE ilçesi kısmı</li></ul>
+
+  <div class="notice">
+    Bu sayfa, T.C. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı'nın kamuya açık <code>eced-duyuru.csb.gov.tr</code> duyuru portalındaki kayıtlar esas alınarak bilgilendirme amacıyla hazırlanmıştır. Alıntıların tamamı 1 tabanlı PDF sayfa numarasıyla (<code>[s. N]</code>) gösterilmektedir. Yasal süreler otomatik olarak hesaplanır; kesin sürelerin ve hukuki başvuru yollarının yetkili hukukçular tarafından teyit edilmesi gerekir.
+  </div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+
+(() => {
+  const root = document.documentElement;
+  const saved = localStorage.getItem('eced_theme');
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function syncLabel() {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = cur ? cur === 'dark' : prefersDark;
+    btn.textContent = isDark ? 'Açık Tema' : 'Koyu Tema';
+  }
+  syncLabel();
+  btn.addEventListener('click', () => {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = cur ? cur === 'dark' : prefersDark;
+    const next = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('eced_theme', next);
+    syncLabel();
+  });
+})();
+
+(() => {
+  const copyBtn = document.getElementById('copy-qs-btn');
+  const qsTxt = document.getElementById('qs-plain');
+  if (copyBtn && qsTxt) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(qsTxt.value);
+        copyBtn.textContent = 'Kopyalandı ✓';
+        setTimeout(() => (copyBtn.textContent = 'Soruları Kopyala'), 2200);
+      } catch (e) {
+        copyBtn.textContent = 'Kopyalanamadı';
+      }
+    });
+  }
+  if (typeof L === 'undefined') return;
+  const g = {"lat": 41.62731, "lon": 35.04279, "zoom": 12, "precision": "exact_pdf", "points": [[41.64607, 35.06707], [41.64517, 35.07321], [41.64363, 35.07907], [41.63782, 35.08128], [41.62863, 35.00416], [41.6339, 35.01912], [41.63684, 35.02905], [41.64276, 35.03113], [41.65109, 35.0707], [41.65091, 35.07657], [41.65122, 35.08022], [41.64945, 35.08454], [41.64564, 35.08665], [41.64185, 35.09032], [41.63784, 35.08964], [41.63523, 35.08628], [41.6352, 35.07935], [41.63393, 35.07748], [41.63241, 35.07762], [41.63074, 35.08051], [41.62754, 35.08261], [41.62398, 35.08152], [41.62076, 35.0806], [41.62107, 35.07273], [41.62262, 35.06868], [41.62519, 35.06666], [41.62237, 35.06423], [41.62135, 35.06038], [41.61911, 35.05987], [41.61673, 35.05757], [41.61542, 35.0538], [41.6123, 35.04955], [41.6121, 35.04587], [41.60952, 35.04268], [41.60475, 35.04118], [41.60286, 35.03736], [41.60005, 35.03527], [41.59833, 35.03014], [41.60017, 35.02396], [41.60369, 35.02159]], "label": "SİNOP / BOYABAT,GERZE — GERZE RÜZGAR ENERJİ SANTRALİ (8ADET TÜRBİN VE 60MWm/48MWe KURULU GÜÇ) VE ELEKTRİK DEPOLAMA"};
+  const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; OpenStreetMap katkıda bulunanları'
+  }).addTo(map);
+  if (g.precision === 'exact_pdf' && g.points.length > 1) {
+    const latlngs = g.points.map(p => [p[0], p[1]]);
+    const poly = L.polyline(latlngs, { color: '#0b5ed7', weight: 3, opacity: 0.85 }).addTo(map);
+    for (const ll of latlngs.slice(0, 30)) {
+      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#d92d20', fillOpacity: 0.9, weight: 1 }).addTo(map);
+    }
+    map.fitBounds(poly.getBounds().pad(0.25));
+  } else {
+    L.circleMarker([g.lat, g.lon], {
+      radius: g.precision === 'exact_pdf' ? 8 : 11,
+      color: '#ffffff',
+      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#0b5ed7',
+      fillOpacity: g.precision === 'exact_pdf' ? 0.9 : 0.45,
+      weight: 2
+    }).bindPopup(g.label).addTo(map).openPopup();
+  }
+})();
+</script>
+</body>
+</html>

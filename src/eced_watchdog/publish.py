@@ -17,6 +17,7 @@ from .cli import parse_provinces
 from .digest import ensure_digest_for_filing
 from .fetcher import _quick_row_signature, fetch_announcements, merge_filings
 from .llm import DEFAULT_EK1_MODEL, DEFAULT_EK2_MODEL, choose_gemini_model, resolve_api_key
+from .revisions import has_pdf_changed
 from .site import build_site
 
 # Approximate USD per 1M tokens (input, output) as of late 2026
@@ -117,11 +118,14 @@ def find_missing_llm(
         json_path = digests_dir / f"{fid}_analysis.json"
         has_llm = False
         has_pdf_extract = False
+        pdf_changed = False
         if json_path.exists():
             has_pdf_extract = True
             try:
                 saved = json.loads(json_path.read_text(encoding="utf-8"))
-                has_llm = bool(saved.get("llm_synthesis") and saved["llm_synthesis"].get("result"))
+                incoming_url = docs[0]["pdf_urls"][0]["url"]
+                pdf_changed = has_pdf_changed(saved, incoming_url)
+                has_llm = bool(saved.get("llm_synthesis") and saved["llm_synthesis"].get("result")) and not pdf_changed
             except Exception:
                 has_llm = False
 
@@ -132,6 +136,7 @@ def find_missing_llm(
                     "filing_id": fid,
                     "filing": f,
                     "has_extract": has_pdf_extract,
+                    "pdf_changed": pdf_changed,
                     "model": model,
                     "est_cost": estimate_filing_cost(model),
                 }
@@ -162,6 +167,7 @@ def main() -> None:
     parser.add_argument("--days", type=int, default=7, help="Lookback window in days (default: 7)")
     parser.add_argument("--provinces", nargs="+", help="Optional CODE:LABEL province filter (default: all 81)")
     parser.add_argument("--skip-fetch", action="store_true", help="Skip live portal fetch; inspect existing data/filings.json")
+    parser.add_argument("--check-revisions", action="store_true", help="Re-check document pages on already-cached rows to detect silent PDF edits")
     parser.add_argument("--keep-pdfs", action="store_true", help="Keep downloaded PDFs in data/pdfs/ instead of deleting after digest")
     parser.add_argument("--workers", type=int, default=4, help="Parallel workers for PDF parsing & Gemini synthesis (default: 4; downloads stay capped at 2)")
     parser.add_argument(
@@ -203,6 +209,7 @@ def main() -> None:
                         days=args.days,
                         cert_path=cert_path,
                         existing_by_sig=existing_by_sig,
+                        check_revisions=args.check_revisions,
                     )
                 )
             scope_meta = [f"{c}:{l}" for c, l in provinces]
@@ -211,6 +218,7 @@ def main() -> None:
                 days=args.days,
                 cert_path=cert_path,
                 existing_by_sig=existing_by_sig,
+                check_revisions=args.check_revisions,
             )
             scope_meta = ["ALL:TÜRKİYE"]
 
@@ -398,6 +406,7 @@ def main() -> None:
         digests_dir=digests_dir,
         docs_dir=docs_dir,
         site_url=args.site_url,
+        revisions_out=data_dir / "revisions.json",
     )
     # Validate RSS XML before offering to commit/push
     rss_tree = ET.parse(docs_dir / "feed.xml")
@@ -406,7 +415,7 @@ def main() -> None:
     print(
         f"\nBuilt site: {stats['total']} filings ({stats['provinces']} provinces, "
         f"{stats['active']} active, {stats['digests_rendered']} digests, "
-        f"{stats['exact_geo']} exact-coord, {rss_items} RSS items)."
+        f"{stats['exact_geo']} exact-coord, {stats['audit_alerts']} revision/lifecycle alerts, {rss_items} RSS items)."
     )
     if generated_ok:
         print(

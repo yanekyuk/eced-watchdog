@@ -7,145 +7,608 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
 :root {
-  --bg: #0f1216;
-  --surface: #171c22;
-  --border: #262e38;
-  --text: #e6edf3;
-  --muted: #8b949e;
-  --accent: #58a6ff;
-  --red: #f85149;
-  --amber: #d29922;
-  --green: #3fb950;
-  --badge-bg: #212830;
+  --bg: #f6f8fa;
+  --surface: #ffffff;
+  --surface-subtle: #f1f4f8;
+  --border: #d8dee6;
+  --border-strong: #bcc6d4;
+  --text: #161b22;
+  --text-secondary: #424a53;
+  --muted: #5c6670;
+  --accent: #0b5ed7;
+  --accent-soft: #e7f1ff;
+  --red: #b42318;
+  --red-soft: #fef3f2;
+  --red-border: #fecdca;
+  --amber: #9a5b00;
+  --amber-soft: #fffaeb;
+  --amber-border: #fedf89;
+  --green: #067647;
+  --green-soft: #ecfdf3;
+  --green-border: #abefc6;
+  --violet: #5925dc;
+  --violet-soft: #f4f3ff;
+  --violet-border: #d9d6fe;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --radius: 10px;
 }
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg: #f6f8fa;
-    --surface: #ffffff;
-    --border: #d0d7de;
-    --text: #1f2328;
-    --muted: #656d76;
-    --accent: #0969da;
-    --red: #cf222e;
-    --amber: #9a6700;
-    --green: #1a7f37;
-    --badge-bg: #eef2f6;
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface-subtle: #1c222b;
+    --border: #2b333e;
+    --border-strong: #3d4756;
+    --text: #e6edf3;
+    --text-secondary: #c9d1d9;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --accent-soft: rgba(88, 166, 255, 0.14);
+    --red: #ff7b72;
+    --red-soft: rgba(248, 81, 73, 0.14);
+    --red-border: rgba(248, 81, 73, 0.4);
+    --amber: #e3b341;
+    --amber-soft: rgba(210, 153, 34, 0.14);
+    --amber-border: rgba(210, 153, 34, 0.4);
+    --green: #3fb950;
+    --green-soft: rgba(63, 185, 80, 0.14);
+    --green-border: rgba(63, 185, 80, 0.4);
+    --violet: #b692f6;
+    --violet-soft: rgba(158, 119, 237, 0.16);
+    --violet-border: rgba(158, 119, 237, 0.42);
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
   }
 }
+:root[data-theme="dark"] {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface-subtle: #1c222b;
+  --border: #2b333e;
+  --border-strong: #3d4756;
+  --text: #e6edf3;
+  --text-secondary: #c9d1d9;
+  --muted: #8b949e;
+  --accent: #58a6ff;
+  --accent-soft: rgba(88, 166, 255, 0.14);
+  --red: #ff7b72;
+  --red-soft: rgba(248, 81, 73, 0.14);
+  --red-border: rgba(248, 81, 73, 0.4);
+  --amber: #e3b341;
+  --amber-soft: rgba(210, 153, 34, 0.14);
+  --amber-border: rgba(210, 153, 34, 0.4);
+  --green: #3fb950;
+  --green-soft: rgba(63, 185, 80, 0.14);
+  --green-border: rgba(63, 185, 80, 0.4);
+  --violet: #b692f6;
+  --violet-soft: rgba(158, 119, 237, 0.16);
+  --violet-border: rgba(158, 119, 237, 0.42);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
 }
-.wrap { max-width: 1240px; margin: 0 auto; padding: 24px 18px 64px; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
-header { border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 20px; }
-h1 { margin: 0 0 6px; font-size: 1.55rem; }
-h2 { margin: 26px 0 10px; font-size: 1.2rem; }
-h3 { margin: 16px 0 8px; font-size: 1rem; }
-.sub { color: var(--muted); font-size: 0.92rem; margin: 0; }
-.meta-bar { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-size: 0.85rem; color: var(--muted); }
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin: 16px 0 18px; }
-.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
-.stat .num { font-size: 1.45rem; font-weight: 700; }
-.stat .lbl { font-size: 0.78rem; color: var(--muted); }
+
+/* Unified Sticky Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.topbar-inner {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 11px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: -0.01em;
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+.brand-scope {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.nav-link {
+  padding: 5px 11px;
+  border-radius: 7px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-link:hover { background: var(--surface-subtle); text-decoration: none; color: var(--text); }
+.nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.theme-btn {
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
+
+/* Layout */
+.wrap { max-width: 1220px; margin: 0 auto; padding: 24px 20px 68px; }
+.wrap.narrow { max-width: 960px; }
+header.page-head { margin-bottom: 20px; }
+h1 { margin: 0 0 8px; font-size: 1.62rem; line-height: 1.25; letter-spacing: -0.02em; }
+h2 { margin: 28px 0 12px; font-size: 1.2rem; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { margin: 16px 0 8px; font-size: 0.98rem; line-height: 1.35; }
+.sub { color: var(--muted); font-size: 0.93rem; margin: 0; }
+.meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin-top: 12px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+
+/* Orientation Banner */
+.hero-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+.hero-strip p { margin: 0; font-size: 0.9rem; color: var(--text-secondary); max-width: 820px; }
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.hero-cta:hover { text-decoration: none; filter: brightness(1.06); }
+
+/* KPI Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  gap: 12px;
+  margin: 0 0 18px;
+}
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 13px 16px;
+  box-shadow: var(--shadow);
+}
+.stat .num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+.stat .lbl { font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
+.stat.accent .num { color: var(--accent); }
+.stat.rev .num { color: var(--violet); }
+
+/* Map */
 .map-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+#map { width: 100%; height: 400px; background: var(--surface-subtle); }
+#digest-map { width: 100%; height: 320px; background: var(--surface-subtle); }
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  padding: 10px 16px;
+  font-size: 0.79rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: var(--surface-subtle);
+}
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+/* Controls */
+.controls-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+}
+.controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.controls-row + .controls-row { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+input[type="search"], select.filter-select {
+  padding: 8px 12px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.88rem;
+}
+input[type="search"]:focus, select.filter-select:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+input[type="search"] { flex: 1 1 250px; }
+select.filter-select { min-width: 165px; }
+button.pill {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.81rem;
+  font-weight: 500;
+  transition: background 0.12s, border-color 0.12s;
+}
+button.pill:hover { border-color: var(--border-strong); color: var(--text); }
+button.pill.active { background: var(--accent); border-color: var(--accent); color: #ffffff; font-weight: 600; }
+button.pill.rev-pill.active { background: var(--violet); border-color: var(--violet); }
+button.reset-btn {
+  margin-left: auto;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+button.reset-btn:hover { color: var(--text); border-color: var(--border-strong); }
+
+/* Cards & Badges */
+.cards { display: flex; flex-direction: column; gap: 11px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+}
+.card.ek1 { border-left: 4px solid var(--accent); }
+.card.has-rev { border-left: 4px solid var(--violet); }
+.card.ek1.has-rev { border-left: 4px solid var(--violet); }
+.row-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 14px;
+  align-items: flex-start;
+}
+.title { font-weight: 650; font-size: 1rem; line-height: 1.38; color: var(--text); flex: 1 1 320px; }
+.title a { color: var(--text); }
+.title a:hover { color: var(--accent); text-decoration: none; }
+.date-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+.badge.urgent { background: var(--red-soft); border-color: var(--red-border); color: var(--red); font-weight: 600; }
+.badge.warn { background: var(--amber-soft); border-color: var(--amber-border); color: var(--amber); font-weight: 600; }
+.badge.ok { background: var(--green-soft); border-color: var(--green-border); color: var(--green); font-weight: 600; }
+.badge.info { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-weight: 600; }
+.badge.rev { background: var(--violet-soft); border-color: var(--violet-border); color: var(--violet); font-weight: 600; }
+.badge.muted { color: var(--muted); }
+.detail { font-size: 0.88rem; color: var(--text-secondary); margin: 9px 0 0; }
+.detail.muted { color: var(--muted); }
+
+/* Revision inline strip on cards */
+.rev-strip {
+  margin-top: 10px;
+  padding: 8px 11px;
+  border-radius: 7px;
+  background: var(--violet-soft);
+  border: 1px solid var(--violet-border);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.rev-strip strong { color: var(--violet); }
+
+/* Action Buttons */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  font-size: 0.83rem;
+  margin-top: 11px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+.btn-primary:hover { text-decoration: none; filter: brightness(1.06); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-subtle);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.btn-secondary:hover { text-decoration: none; border-color: var(--border-strong); color: var(--text); }
+
+/* Tables, Code, Callouts, Timeline */
+table.kv {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.89rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+table.kv th, table.kv td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 13px;
+  text-align: left;
+  vertical-align: top;
+}
+table.kv tr:last-child th, table.kv tr:last-child td { border-bottom: none; }
+table.kv th { width: 250px; background: var(--surface-subtle); color: var(--text); font-weight: 600; }
+table.data-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.85rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
   overflow: hidden;
-  margin-bottom: 18px;
 }
-#map { width: 100%; height: 420px; background: var(--badge-bg); }
-#digest-map { width: 100%; height: 320px; background: var(--badge-bg); }
-.map-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  padding: 9px 14px;
-  font-size: 0.8rem;
-  color: var(--muted);
-  border-top: 1px solid var(--border);
+table.data-tbl th, table.data-tbl td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
 }
-.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
-.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; }
-input[type="search"], select.filter-select {
-  padding: 8px 12px;
-  border-radius: 6px;
+table.data-tbl th { background: var(--surface-subtle); font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.data-tbl tr:last-child td { border-bottom: none; }
+code {
+  background: var(--surface-subtle);
   border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.84em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+blockquote {
+  margin: 10px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
   background: var(--surface);
-  color: var(--text);
+  border-radius: 0 8px 8px 0;
   font-size: 0.9rem;
+  color: var(--text-secondary);
 }
-input[type="search"] { flex: 1 1 240px; }
-select.filter-select { min-width: 170px; }
-button.pill {
-  padding: 7px 12px;
-  border-radius: 999px;
+.callout {
+  padding: 14px 16px;
+  border-radius: var(--radius);
   border: 1px solid var(--border);
   background: var(--surface);
-  color: var(--text);
-  cursor: pointer;
-  font-size: 0.82rem;
+  margin: 14px 0;
 }
-button.pill.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
-.cards { display: flex; flex-direction: column; gap: 10px; }
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 15px 17px;
+.callout.rev {
+  background: var(--violet-soft);
+  border-color: var(--violet-border);
 }
-.card.ek1 { border-left: 4px solid var(--accent); }
-.row-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline; }
-.title { font-weight: 600; font-size: 0.98rem; }
-.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 7px; }
-.badge {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  background: var(--badge-bg);
-  border: 1px solid var(--border);
+.callout.warn {
+  background: var(--amber-soft);
+  border-color: var(--amber-border);
 }
-.badge.urgent { border-color: var(--red); color: var(--red); font-weight: 600; }
-.badge.warn { border-color: var(--amber); color: var(--amber); font-weight: 600; }
-.badge.ok { border-color: var(--green); color: var(--green); }
-.badge.muted { color: var(--muted); }
-.detail { font-size: 0.87rem; color: var(--muted); margin: 8px 0; }
-.actions { display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.84rem; margin-top: 8px; }
+.timeline {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid var(--border-strong);
+}
+.timeline li {
+  position: relative;
+  margin: 0 0 10px;
+  padding-left: 8px;
+  font-size: 0.87rem;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+}
+.hit { margin: 8px 0; font-size: 0.88rem; line-height: 1.55; }
+.pno { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
 .notice {
-  margin-top: 28px;
+  margin-top: 32px;
   padding: 14px 16px;
   border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 0.84rem;
+  border-radius: var(--radius);
+  background: var(--surface-subtle);
+  font-size: 0.83rem;
   color: var(--muted);
 }
-table.kv { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9rem; }
-table.kv th, table.kv td { border: 1px solid var(--border); padding: 8px 11px; text-align: left; vertical-align: top; }
-table.kv th { width: 240px; background: var(--badge-bg); }
-code { background: var(--badge-bg); padding: 1px 5px; border-radius: 4px; font-size: 0.85em; }
-blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--accent); background: var(--surface); font-size: 0.9rem; }
-.hit { margin: 7px 0; font-size: 0.88rem; }
-.pno { font-weight: 700; color: var(--accent); }
-.leaflet-popup-content { color: #1f2328; font-size: 0.85rem; line-height: 1.45; }
+.toc-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 20px; }
+.toc-pills a {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: 0.81rem;
+  font-weight: 500;
+}
+.toc-pills a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+.step-num {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+pre.template-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.section-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.leaflet-popup-content { color: #161b22; font-size: 0.85rem; line-height: 1.45; }
+@media (max-width: 700px) {
+  table.kv th { width: 145px; }
+  #map { height: 320px; }
+  .topbar-inner { padding: 10px 14px; }
+  .wrap { padding: 18px 14px 54px; }
+}
+@media print {
+  .topbar, .no-print, #digest-map, .map-box { display: none !important; }
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .card, table.kv, table.data-tbl { box-shadow: none; break-inside: avoid; }
+  a { color: #000000; text-decoration: underline; }
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div style="font-size:0.85rem;margin-bottom:8px;"><a href="../index.html">← Türkiye e-ÇED İzleme listesine dön</a> · <a href="../rehber.html">Kullanım ve İnceleme Rehberi</a> · <a href="61087.md">Ham Markdown (.md)</a></div>
-    <h1>e-ÇED Ön Özet #61087 — DENİZLİ / ÇİVRİL</h1>
-    <p class="sub">G26-Denizli Güneş Enerji Santrali (36 MWm / 30 MWe - 44,8 ha.)</p>
-    <div class="badges" style="margin-top:10px;">
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+      <span>Türkiye e-ÇED İzleme</span>
+      <span class="brand-scope">81 İl</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link " href="../index.html">Duyurular ve Harita</a>
+      <a class="nav-link " href="../rehber.html">Kullanım Rehberi</a>
+      <a class="nav-link" href="../feed.xml">RSS 2.0</a>
+      <a class="nav-link" href="https://eced-duyuru.csb.gov.tr/eced-prod/duyurular.xhtml" target="_blank" rel="noopener">Resmi e-ÇED ↗</a>
+      <button id="theme-toggle" class="theme-btn" type="button">Tema</button>
+    </div>
+  </div>
+</nav>
+<div class="wrap narrow">
+  <header class="page-head">
+    <div style="font-size:0.84rem;color:var(--muted);margin-bottom:8px;" class="no-print">
+      <a href="../index.html">← Duyurular listesine dön</a> · Dosya <code>#61087</code>
+    </div>
+    <h1>G26-Denizli Güneş Enerji Santrali (36 MWm / 30 MWe - 44,8 ha.)</h1>
+    <p class="sub">DENİZLİ / ÇİVRİL · Enerji İşleri Genel Müdürlüğü</p>
+    <div class="badges" style="margin-top:11px;">
       <span class="badge">HKT</span>
-      <span class="badge">Ek-1</span>
-      <span class="badge ok">HKT Toplantısı · 18 gün kaldı (2026-12-08)</span>
+      <span class="badge info">Ek-1</span>
+      <span class="badge ok">HKT Toplantısı · 17 gün kaldı (2026-12-08)</span>
+      
+    </div>
+    <div class="actions no-print" style="border-top:none;padding-top:4px;">
+      <a class="btn-primary" href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign5484956242178825697.pdf&amp;orjinalAd=e-imza.pdf&amp;yuklemeTarihi=2026-09-09" target="_blank" rel="noopener">Resmi PDF Dosyası ↗</a>
+      <a class="btn-secondary" href="http://eced.csb.gov.tr/jsp/ek1/61087" target="_blank" rel="noopener">e-ÇED Portal Kaydı ↗</a>
+      <a class="btn-secondary" href="61087.md">Ham Markdown (.md)</a>
+      <button type="button" class="btn-secondary" onclick="window.print()">Yazdır / PDF Kaydet</button>
     </div>
   </header>
 
@@ -153,10 +616,14 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
     <tr><th>Proje Sahibi</th><td>Enerji İşleri Genel Müdürlüğü</td></tr>
     <tr><th>Hazırlayan Kuruluş</th><td>ELTEM-TEK ELEKTRİK TESİSLERİ MÜHENDİSLİK MÜTEAHHİTLİK DANIŞMANLIK VE TİCARET ANONİM ŞİRKETİ</td></tr>
     <tr><th>Sektör / Alt Sektör</th><td>Enerji / Güneş Enerji Santralleri</td></tr>
-    <tr><th>Duyuru Tarihi</th><td><code>19.11.2026</code> (belge yükleme tarihi: <code>09/09/2026 05:31:54</code>)</td></tr>
-    <tr><th>PDF Kapsamı</th><td>41.37 MB · 160 sayfa (121 metin sayfası / 39 taranmış veya görüntü sayfası) · SHA-256 <code>14cc240b3126f2dd…</code></td></tr>
-    <tr><th>Resmi Bağlantılar</th><td><a href="http://eced.csb.gov.tr/jsp/ek1/61087" target="_blank" rel="noopener">e-ÇED Portal Kaydı</a> · <a href="http://eced.csb.gov.tr/jsp/dosya/dosyaGoster.htm?tempAd=sign5484956242178825697.pdf&amp;orjinalAd=e-imza.pdf&amp;yuklemeTarihi=2026-09-09" target="_blank" rel="noopener">Resmi PDF Dosyası</a> · <a href="https://www.openstreetmap.org/?mlat=38.36692&amp;mlon=29.72399#map=12/38.36692/29.72399" target="_blank" rel="noopener">OpenStreetMap</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=38.36692,29.72399" target="_blank" rel="noopener">Google Haritalar</a></td></tr>
+    <tr><th>Duyuru ve Yükleme</th><td>Duyuru: <code>19.11.2026</code> · Belge yükleme: <code>09/09/2026 05:31:54</code></td></tr>
+    <tr><th>PDF Kapsamı ve Bütünlük</th><td>41.37 MB · 160 sayfa (121 metin / 39 taranmış) · SHA-256 <code>14cc240b3126f2dd…</code></td></tr>
+    <tr><th>Harita Bağlantıları</th><td><a href="https://www.openstreetmap.org/?mlat=38.36692&amp;mlon=29.72399#map=12/38.36692/29.72399" target="_blank" rel="noopener">OpenStreetMap ↗</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=38.36692,29.72399" target="_blank" rel="noopener">Google Haritalar ↗</a></td></tr>
   </table>
+
+  <h2>Belge Bütünlüğü, Revizyon ve Süreç Geçmişi</h2>
+<p class="sub">Her PDF dosyasının SHA-256 özeti, yükleme tarihi ve teknik göstergeleri arşivlenir. Bakanlık portalında rapor değiştirildiğinde veya 2009/7 Genelgesi kapsamında yeniden yüklendiğinde sürümler arası fark (v1 → v2) otomatik olarak kaydedilir.</p>
+<table class="data-tbl"><thead><tr><th>Sürüm</th><th>Arşiv Tarihi</th><th>Aşama</th><th>Yükleme Tarihi</th><th>Sayfa</th><th>SHA-256</th></tr></thead><tbody><tr><td><code>v1</code></td><td><code>2026-11-20T02:10:48</code></td><td>HKT</td><td><code>2026-09-09</code></td><td>160</td><td><code>14cc240b3126f2dd…</code></td></tr></tbody></table>
 
   <h2>Konum Haritası</h2>
   <div class="map-box">
@@ -167,9 +634,9 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
   
   <h2>Yapay Zeka Destekli Bilimsel Ön Değerlendirme <span class="badge">gemini-4-hydrogen</span></h2>
   <p class="sub">Bu değerlendirme, resmi PDF dosyasından seçilen 26 sayfa (s.1, s.2, s.3, s.4, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14, s.25, s.28, s.31, s.32, s.33, s.35, s.37, s.38, s.39, s.40, s.41, s.42, s.83) esas alınarak hazırlanmıştır. Tüm sayısal verilerin ve tespitlerin resmi PDF belgesindeki ilgili <code>[s. N]</code> sayfalarından doğrulanması gerekir.</p>
-  <section class="card ek1">
-    <p><strong>Özet:</strong> Enerji İşleri Genel Müdürlüğü tarafından Denizli ili Çivril ilçesi Yukarı ve Gürpınar mahalleleri (Gökbaşlı ve Taşlı mevkii, 3 Ada/116 Parsel ve 379 Ada/1 Parsel) sınırlarında, 44,8 hektarlık Yenilenebilir Enerji Kaynak Alanı (YEKA) üzerinde 36 MWm / 30 MWe kurulu gücünde G26-Denizli Güneş Enerji Santrali (GES) kurulması planlanmaktadır [s. 1, 8]. ÇED Yönetmeliği Ek-1 Madde 43 kapsamında sunulan ÇED Başvuru Dosyası&#x27;na göre tesiste 500 W gücünde 72.000 adet monokristal çift yüzeyli panel ile yılda 57,6 GWh elektrik üretilmesi, inşaatın 24 ayda 50 personelle tamamlanması ve işletmenin 49 yıl boyunca 10 personelle sürdürülmesi öngörülmektedir [s. 2, 9, 11, 13]. Proje sahasının %98,53&#x27;ü VII. sınıf fundalık (kahverengi orman toprağı), %1,47&#x27;si III. sınıf kuru tarım arazisi olup saha Büyük Menderes Havzası içinde, yüksek sismik tehlike bölgesinde (PGA 475: 0,3 g - 0,4 g) ve mevsimsel kuru dere yataklarının yakınında yer almaktadır [s. 28, 31, 32, 37, 39, 42]. Başvuru dosyasında flora ve fauna saha çalışmaları henüz yapılmayıp ilerideki ÇED Raporu aşamasına bırakılmış, ayrıca alanın Yaban Hayatı Yerleştirme Sahası statüsü konusunda aynı sayfada birbiriyle çelişen beyanlara yer verilmiştir [s. 25, 38].</p>
-    <details style="margin-top:8px;font-size:0.86rem;color:var(--muted);"><summary style="cursor:pointer;">İngilizce özet (English summary)</summary><p style="margin:6px 0 0;">The General Directorate of Energy Affairs proposes the G26-Denizli Solar Power Plant (36 MWm / 30 MWe) covering 44.8 hectares on parcels 3/116 and 379/1 in Yukarı and Gürpınar neighborhoods of Çivril district, Denizli, within a designated Renewable Energy Resource Area (YEKA) [s. 1, 8]. According to the Annex-1 EIA Application File, the facility will install 72,000 bifacial monocrystalline silicon modules (500 W each) to generate 57.6 GWh/year over a 49-year economic life, with a 24-month construction phase (50 staff) and 10 operational staff [s. 2, 9, 11, 13]. Currently, 98.53% of the site is Class VII shrubland on brown forest soils and 1.47% is Class III dry farmland within the Büyük Menderes Basin, situated in a high seismic zone (PGA 475: 0.3 g - 0.4 g) near seasonal dry streambeds [s. 28, 31, 32, 37, 39, 42]. Primary environmental gaps in the application file include the complete deferral of flora and fauna field surveys to the subsequent EIA Report stage and an internal contradiction regarding whether the site falls inside a Wildlife Reintroduction Area [s. 25, 38].</p></details>
+  <section class="card ek1" style="margin-top:10px;">
+    <p style="margin-top:0;"><strong>Özet:</strong> Enerji İşleri Genel Müdürlüğü tarafından Denizli ili Çivril ilçesi Yukarı ve Gürpınar mahalleleri (Gökbaşlı ve Taşlı mevkii, 3 Ada/116 Parsel ve 379 Ada/1 Parsel) sınırlarında, 44,8 hektarlık Yenilenebilir Enerji Kaynak Alanı (YEKA) üzerinde 36 MWm / 30 MWe kurulu gücünde G26-Denizli Güneş Enerji Santrali (GES) kurulması planlanmaktadır [s. 1, 8]. ÇED Yönetmeliği Ek-1 Madde 43 kapsamında sunulan ÇED Başvuru Dosyası&#x27;na göre tesiste 500 W gücünde 72.000 adet monokristal çift yüzeyli panel ile yılda 57,6 GWh elektrik üretilmesi, inşaatın 24 ayda 50 personelle tamamlanması ve işletmenin 49 yıl boyunca 10 personelle sürdürülmesi öngörülmektedir [s. 2, 9, 11, 13]. Proje sahasının %98,53&#x27;ü VII. sınıf fundalık (kahverengi orman toprağı), %1,47&#x27;si III. sınıf kuru tarım arazisi olup saha Büyük Menderes Havzası içinde, yüksek sismik tehlike bölgesinde (PGA 475: 0,3 g - 0,4 g) ve mevsimsel kuru dere yataklarının yakınında yer almaktadır [s. 28, 31, 32, 37, 39, 42]. Başvuru dosyasında flora ve fauna saha çalışmaları henüz yapılmayıp ilerideki ÇED Raporu aşamasına bırakılmış, ayrıca alanın Yaban Hayatı Yerleştirme Sahası statüsü konusunda aynı sayfada birbiriyle çelişen beyanlara yer verilmiştir [s. 25, 38].</p>
+    <details style="margin-top:10px;font-size:0.86rem;color:var(--muted);"><summary style="cursor:pointer;">İngilizce özet (English summary)</summary><p style="margin:6px 0 0;">The General Directorate of Energy Affairs proposes the G26-Denizli Solar Power Plant (36 MWm / 30 MWe) covering 44.8 hectares on parcels 3/116 and 379/1 in Yukarı and Gürpınar neighborhoods of Çivril district, Denizli, within a designated Renewable Energy Resource Area (YEKA) [s. 1, 8]. According to the Annex-1 EIA Application File, the facility will install 72,000 bifacial monocrystalline silicon modules (500 W each) to generate 57.6 GWh/year over a 49-year economic life, with a 24-month construction phase (50 staff) and 10 operational staff [s. 2, 9, 11, 13]. Currently, 98.53% of the site is Class VII shrubland on brown forest soils and 1.47% is Class III dry farmland within the Büyük Menderes Basin, situated in a high seismic zone (PGA 475: 0.3 g - 0.4 g) near seasonal dry streambeds [s. 28, 31, 32, 37, 39, 42]. Primary environmental gaps in the application file include the complete deferral of flora and fauna field surveys to the subsequent EIA Report stage and an internal contradiction regarding whether the site falls inside a Wildlife Reintroduction Area [s. 25, 38].</p></details>
     <div class="badges" style="margin-top:10px;">
       <span class="badge">Saha çalışması: Karışık veya yöntemi belirsiz</span>
       <span class="badge">Mevsimsel örnekleme: İncelenen sayfalarda tespit edilemedi</span>
@@ -194,12 +661,16 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
 <div class="hit"><span class="badge warn">ORTA</span> <strong>Kuru Dere Yatakları ve VII. Sınıf Arazide Hidrolojik/Erozyon Analizi Eksikliği</strong> <span class="pno">[s. 11, s. 32, s. 42]</span> — ÇED alanı çevresinde mevsimsel yağışlarla akışa geçen kuru dere yatakları bulunduğu ve alanın %98,53&#x27;ünün VII. Sınıf arazi olduğu belirtilmesine rağmen, önemli bir arazi düzenlemesi yapılmayacağı varsayılarak yüzeysel akış, taşkın ve erozyon önlemlerine dair nicel hidrolojik veri sunulmamıştır.</div>
 <div class="hit"><span class="badge muted">DÜŞÜK</span> <strong>Tek Aylık ve Eksik Hava Kalitesi Verisi ile Birimsiz Proje Bedeli</strong> <span class="pno">[s. 2, s. 13, s. 33]</span> — Hava kalitesi mevcut durum değerlendirmesi yalnızca Ağustos 2026 dönemindeki tek aylık (25-28.08.2026 tarihleri boş bırakılmış) Çivril istasyonu ölçümüne dayanmakta olup yıllık/mevsimsel arka plan verisi içermemektedir; ayrıca Proje Bedeli tablolarında 324.000.000,00 tutarının para birimi yazılmamıştır.</div></section>
   
-  <h3>HKT Tutanakları ve Bilirkişi İncelemesi İçin Taslak Teknik Sorular</h3><ul><li>Sayfa 38&#x27;de önce ÇED alanı ve yakın çevresinde yaban hayvanı yerleştirme sahası bulunmadığı belirtilip aynı sayfada alanın Avlaklar Haritası&#x27;na göre Yaban Hayatı Yerleştirme Sahası içinde kaldığı yazılmıştır; bu çelişkinin düzeltilerek yaban hayatı ve göç/üreme alanlarına etkilerin nasıl değerlendirileceği açıklanacak mıdır? <span class="pno">[s. 38, s. 25]</span></li>
+  <div class="section-head-row"><h3>HKT Tutanakları ve Bilirkişi İncelemesi İçin Taslak Teknik Sorular</h3><button type="button" class="btn-secondary no-print" id="copy-qs-btn">Soruları Kopyala</button></div><section class="card"><ul style="margin:0;padding-left:20px;"><li>Sayfa 38&#x27;de önce ÇED alanı ve yakın çevresinde yaban hayvanı yerleştirme sahası bulunmadığı belirtilip aynı sayfada alanın Avlaklar Haritası&#x27;na göre Yaban Hayatı Yerleştirme Sahası içinde kaldığı yazılmıştır; bu çelişkinin düzeltilerek yaban hayatı ve göç/üreme alanlarına etkilerin nasıl değerlendirileceği açıklanacak mıdır? <span class="pno">[s. 38, s. 25]</span></li>
 <li>Bölüm II.a.2&#x27;de flora ve fauna saha çalışmalarının henüz yapılmayıp ilerideki ÇED Raporu aşamasına bırakıldığı görülmektedir; %98,53&#x27;ü fundalık ve kahverengi orman toprağı olan 44,8 hektarlık alanda mevsimsel arazi örneklemeleri tamamlanmadan Halkın Katılımı Toplantısı yapılmasının doğuracağı bilgi eksikliği nasıl giderilecektir? <span class="pno">[s. 25, s. 31, s. 37]</span></li>
 <li>Sayfa 28&#x27;de ÇED alanı içerisinde diri fay bulunduğu ve PGA 475 yer ivmesinin 0,3 g - 0,4 g olduğu belirtilirken Sivaslı Fayı&#x27;nın 1.900 m doğuda yer aldığı ifade edilmiştir; saha sınırları içindeki diri fay izine yönelik fay sakınım bandı, sıvılaşma ve zemin etüdü çalışmaları yapılmış mıdır? <span class="pno">[s. 28, s. 11]</span></li>
 <li>Sayfa 32&#x27;de alan çevresinde mevsimsel yağışlarla akışa geçen kuru dere yatakları bulunduğu ve sahanın Büyük Menderes Havzası ile %98,53 oranında VII. Sınıf arazi içinde kaldığı belirtildiğinden, 72.000 panelin kurulacağı alanda yüzeysel akış, sel/taşkın ve erozyonu önlemeye yönelik hangi teknik drenaj hesaplamaları yapılacaktır? <span class="pno">[s. 11, s. 32, s. 39, s. 42]</span></li>
-<li>Kültür varlıkları için yalnızca Denizli ili geneli 404 SİT sayısını veren tablo (s. 35) ve hava kalitesi için sadece Ağustos 2026 dönemine ait 4 günü eksik istasyon verisi (s. 33) yerine, parsel ölçeğinde Kültür Varlıklarını Koruma Bölge Kurulu görüşü ve yıllık çevre kalitesi verileri ÇED Raporu&#x27;na eklenecek midir? <span class="pno">[s. 33, s. 35, s. 38]</span></li></ul>
-  <p class="sub"><em>İnceleme sınırları:</em> Toplam 160 sayfalık (121 metin, 39 taranmış/görsel sayfa) dosyanın yalnızca sağlanan 26 sayfalık bölümü [1-4, 6-14, 25, 28, 31-33, 35, 37-42, 83] incelenebilmiştir. Yer ve teknoloji alternatiflerinin devamı (s. 15-24), nüfus ve jeoloji ayrıntıları (s. 24-27), doğal afet harita ve metinlerinin devamı (s. 29-30), iklimsel faktörler (s. 34), Bölüm III inşaat/işletme etkileri ve su/atıksu/iklim hesapları (s. 43-56), Bölüm IV Kümülatif Çevresel Etki Değerlendirme (s. 57-58), Bölüm V Çevre İzleme ve Sürdürülebilirlik Planları (s. 59-63), Bölüm VI Paydaş Katılımı (s. 64) ile Ek 1-7 kapsamındaki harita, tutanak, kurum görüşleri ve taranmış belgeler (s. 65-160, 83. sayfa hariç) sağlanan özetler dışında kaldığından içerikleri doğrulanamamıştır.</p>
+<li>Kültür varlıkları için yalnızca Denizli ili geneli 404 SİT sayısını veren tablo (s. 35) ve hava kalitesi için sadece Ağustos 2026 dönemine ait 4 günü eksik istasyon verisi (s. 33) yerine, parsel ölçeğinde Kültür Varlıklarını Koruma Bölge Kurulu görüşü ve yıllık çevre kalitesi verileri ÇED Raporu&#x27;na eklenecek midir? <span class="pno">[s. 33, s. 35, s. 38]</span></li></ul><textarea id="qs-plain" style="display:none;">1. Sayfa 38&#x27;de önce ÇED alanı ve yakın çevresinde yaban hayvanı yerleştirme sahası bulunmadığı belirtilip aynı sayfada alanın Avlaklar Haritası&#x27;na göre Yaban Hayatı Yerleştirme Sahası içinde kaldığı yazılmıştır; bu çelişkinin düzeltilerek yaban hayatı ve göç/üreme alanlarına etkilerin nasıl değerlendirileceği açıklanacak mıdır? [s. 38, s. 25]
+2. Bölüm II.a.2&#x27;de flora ve fauna saha çalışmalarının henüz yapılmayıp ilerideki ÇED Raporu aşamasına bırakıldığı görülmektedir; %98,53&#x27;ü fundalık ve kahverengi orman toprağı olan 44,8 hektarlık alanda mevsimsel arazi örneklemeleri tamamlanmadan Halkın Katılımı Toplantısı yapılmasının doğuracağı bilgi eksikliği nasıl giderilecektir? [s. 25, s. 31, s. 37]
+3. Sayfa 28&#x27;de ÇED alanı içerisinde diri fay bulunduğu ve PGA 475 yer ivmesinin 0,3 g - 0,4 g olduğu belirtilirken Sivaslı Fayı&#x27;nın 1.900 m doğuda yer aldığı ifade edilmiştir; saha sınırları içindeki diri fay izine yönelik fay sakınım bandı, sıvılaşma ve zemin etüdü çalışmaları yapılmış mıdır? [s. 28, s. 11]
+4. Sayfa 32&#x27;de alan çevresinde mevsimsel yağışlarla akışa geçen kuru dere yatakları bulunduğu ve sahanın Büyük Menderes Havzası ile %98,53 oranında VII. Sınıf arazi içinde kaldığı belirtildiğinden, 72.000 panelin kurulacağı alanda yüzeysel akış, sel/taşkın ve erozyonu önlemeye yönelik hangi teknik drenaj hesaplamaları yapılacaktır? [s. 11, s. 32, s. 39, s. 42]
+5. Kültür varlıkları için yalnızca Denizli ili geneli 404 SİT sayısını veren tablo (s. 35) ve hava kalitesi için sadece Ağustos 2026 dönemine ait 4 günü eksik istasyon verisi (s. 33) yerine, parsel ölçeğinde Kültür Varlıklarını Koruma Bölge Kurulu görüşü ve yıllık çevre kalitesi verileri ÇED Raporu&#x27;na eklenecek midir? [s. 33, s. 35, s. 38]</textarea></section>
+  <p class="sub" style="margin-top:10px;"><em>İnceleme sınırları:</em> Toplam 160 sayfalık (121 metin, 39 taranmış/görsel sayfa) dosyanın yalnızca sağlanan 26 sayfalık bölümü [1-4, 6-14, 25, 28, 31-33, 35, 37-42, 83] incelenebilmiştir. Yer ve teknoloji alternatiflerinin devamı (s. 15-24), nüfus ve jeoloji ayrıntıları (s. 24-27), doğal afet harita ve metinlerinin devamı (s. 29-30), iklimsel faktörler (s. 34), Bölüm III inşaat/işletme etkileri ve su/atıksu/iklim hesapları (s. 43-56), Bölüm IV Kümülatif Çevresel Etki Değerlendirme (s. 57-58), Bölüm V Çevre İzleme ve Sürdürülebilirlik Planları (s. 59-63), Bölüm VI Paydaş Katılımı (s. 64) ile Ek 1-7 kapsamındaki harita, tutanak, kurum görüşleri ve taranmış belgeler (s. 65-160, 83. sayfa hariç) sağlanan özetler dışında kaldığından içerikleri doğrulanamamıştır.</p>
 
 
   <h2>Resmi Duyuru Metni</h2>
@@ -207,41 +678,43 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
 
   <h2>Otomatik Metin Taraması (Deterministik)</h2>
   <table class="kv"><tr><th>Saha veya arazi çalışması ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
-<tr><th>Literatür taraması ifadesi</th><td><span class="badge urgent">Metinde tespit edilemedi; doğrudan PDF üzerinden kontrol ediniz</span></td></tr>
+<tr><th>Literatür taraması ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr>
 <tr><th>Mevsimsel örnekleme ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
 <tr><th>Kümülatif etki değerlendirmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
 <tr><th>3573 sayılı Zeytincilik Kanunu veya zeytinlik ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
 <tr><th>Yeraltı suyu, akifer veya hidrojeoloji ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
-<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr></table>
+<tr><th>Endemik tür, IUCN veya Bern Sözleşmesi ifadesi</th><td><span class="badge ok">Metinde yer almaktadır</span></td></tr>
+<tr><th>Kapasite artışı, ilave ünite veya eşik değer ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr>
+<tr><th>2009/7 Genelgesi veya yargı kararı sonrası revizyon ifadesi</th><td><span class="badge muted">Metinde tespit edilmedi</span></td></tr></table>
   <p class="sub">Metin katmanı (OCR) bulunmayan taranmış harita ve kurum görüşü ekleri otomatik metin taramasına dahil edilmemiştir.</p>
 
   <h2>Sayfa Kaynaklı Çıkarılan Bulgular</h2>
-  <div class="cards"><section class="card"><h3>Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(93 sayfa: s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14 (+79 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>44,8 ha</code> — …ENERJİ İŞLERİ GENEL MÜDÜRLÜĞÜ G26- Denizli Güneş Enerji Santrali (36 MWm / 30 MWe – 44,8 ha.) Denizli ili, Çivril ilçesi, Yukarı ve Gürpınar Mahallesi, Gökbaşlı ve Taşlı Mevkii, 3 Ada/116 Parsel, 379…</div>
+  <div class="cards"><section class="card"><h3>Koordinatlar, Parsel ve Alan Büyüklüğü <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(93 sayfa: s.1, s.2, s.3, s.4, s.5, s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.14 (+79 sayfa))</span></h3><div class="hit"><span class="pno">[s. 1]</span> <code>44,8 ha</code> — …ENERJİ İŞLERİ GENEL MÜDÜRLÜĞÜ G26- Denizli Güneş Enerji Santrali (36 MWm / 30 MWe – 44,8 ha.) Denizli ili, Çivril ilçesi, Yukarı ve Gürpınar Mahallesi, Gökbaşlı ve Taşlı Mevkii, 3 Ada/116 Parsel, 379…</div>
 <div class="hit"><span class="pno">[s. 1]</span> <code>Ada/116 Parsel, 379 Ada/1 Parsel</code> — …m / 30 MWe – 44,8 ha.) Denizli ili, Çivril ilçesi, Yukarı ve Gürpınar Mahallesi, Gökbaşlı ve Taşlı Mevkii, 3 Ada/116 Parsel, 379 Ada/1 Parsel ÇED Başvuru Dosyası / ÇED Raporu / Son Şekli Verilen ÇED Raporu / Nihai ÇED Raporu ANKARA | 2026</div>
 <div class="hit"><span class="pno">[s. 2]</span> <code>44,8 ha</code> — Enerji İşleri Genel Müdürlüğü G26-Denizli GES (36 MWm / 30 MWe – 44,8 ha.) 1 Başlık Sayfası Proje Sahibinin Adı Enerji İşleri Genel Müdürlüğü Adresi Nasuh Akar Mah. Türkocağı Cad. No:12…</div>
 <div class="hit"><span class="pno">[s. 2]</span> <code>Ada/116 Parsel, 379 Ada/1 Parsel</code> — …k Adresi (İli, İlçesi, Mevki) Denizli ili, Çivril ilçesi, Yukarı ve Gürpınar Mahallesi, Gökbaşlı ve Taşlı Mevkii, 3 Ada/116 Parsel, 379 Ada/1 Parsel Projenin ÇED Yönetmeliği Kapsamındaki Yeri (Sektör, Alt Sektör) Ek I - Madde 43 Proje alanı 25 hektar ve üzerinde ol…</div>
 <div class="hit"><span class="pno">[s. 3]</span> <code>44,8 ha</code> — Enerji İşleri Genel Müdürlüğü G26-Denizli GES (36 MWm / 30 MWe – 44,8 ha.) 2 İçindekiler Listesi Başlık Sayfası .......................................................................…</div>
-<div class="hit"><span class="pno">[s. 4]</span> <code>44,8 ha</code> — Enerji İşleri Genel Müdürlüğü G26-Denizli GES (36 MWm / 30 MWe – 44,8 ha.) 3 Tehlikeli Atıklar ........................................................................... 48 Ömrünü Ta…</div></section><section class="card"><h3>Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(10 sayfa: s.13, s.40, s.41, s.42, s.43, s.47, s.55, s.61, s.62, s.86)</span></h3><div class="hit"><span class="pno">[s. 13]</span> <code>deşarj</code> — …depo, idari ve/veya sosyal bina, köprü, alt ve üst yapılar (arıtma, kanalizasyon, içme/kullanma su hatları, su alma/deşarj hatları vb dahil) viyadük vb. sanat yapıları, drenaj, tesviye vb. gibi araziyi kullanılabilir duruma getirmek için…</div>
+<div class="hit"><span class="pno">[s. 4]</span> <code>44,8 ha</code> — Enerji İşleri Genel Müdürlüğü G26-Denizli GES (36 MWm / 30 MWe – 44,8 ha.) 3 Tehlikeli Atıklar ........................................................................... 48 Ömrünü Ta…</div></section><section class="card"><h3>Su Kullanımı, Hidrojeoloji ve Deşarj <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(10 sayfa: s.13, s.40, s.41, s.42, s.43, s.47, s.55, s.61, s.62, s.86)</span></h3><div class="hit"><span class="pno">[s. 13]</span> <code>deşarj</code> — …depo, idari ve/veya sosyal bina, köprü, alt ve üst yapılar (arıtma, kanalizasyon, içme/kullanma su hatları, su alma/deşarj hatları vb dahil) viyadük vb. sanat yapıları, drenaj, tesviye vb. gibi araziyi kullanılabilir duruma getirmek için…</div>
 <div class="hit"><span class="pno">[s. 40]</span> <code>Sulak Alan</code> — …olarak tanımlanmıştır. j) Sulak Alanların Korunması Yönetmeliği’nde belirtilen alanlar ÇED alanı ve yakın çevresinde Sulak Alan olarak tanımlanmış bir alan bulunmamaktadır. ÇED alanına en yakın sulak alan harita üzerinden 12,5 km mesafede yer al…</div>
 <div class="hit"><span class="pno">[s. 41]</span> <code>Sulak Alan</code> — …ar Yapılan çalışmalar doğrultusunda planlanan ÇED alanı içerisinde Ramsar, ulusal öneme sahip ve mahalli öneme sahip “Sulak Alan” olarak tanımlanmış bir alan bulunmamaktadır. ÇED alanına en yakın sulak alan harita üzerinden 12,5 km mesafede yer…</div>
 <div class="hit"><span class="pno">[s. 42]</span> <code>sulak alan</code> — …ar, bataklık sazlık ve turbiyeler ile bu alanların kıyı kenar çizgisinden itibaren kara tarafına doğru ekolojik açıdan sulak alan kalan yerler ÇED alanı içerisinde Sulak Alan olarak tanımlanmış bir alan bulunmamaktadır. ÇED alanına en yakın sulak…</div>
 <div class="hit"><span class="pno">[s. 43]</span> <code>yeraltı suyu</code> — …(36 MWm / 30 MWe – 44,8 ha.) 42 Şekil 26 ÇED Alanı Çevresinde Yer Alan Sulak Alanlar ç) Göller, akarsular, yeraltı suyu işletme sahaları ÇED alanının işaretlendiği ve bölgedeki, göller, akarsular, içme suyu barajları ve tampon bölgelerin…</div>
-<div class="hit"><span class="pno">[s. 47]</span> <code>atıksu</code> — …ca çevresel etkiler; toz emisyonları, habitat, flora ve fauna kayıpları, çevresel gürültü ve titreşim, evsel nitelikli atıksu, belediye atıkları, ambalaj atıkları, atık yağlar ve tehlikeli atıklardır. Ayrıca işletme aşamasında evsel nitelikli…</div></section><section class="card"><h3>Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(8 sayfa: s.35, s.37, s.38, s.39, s.40, s.41, s.42, s.153)</span></h3><div class="hit"><span class="pno">[s. 35]</span> <code>Sit Alanı</code> — …Özellikleri Projenin sınırları içerisinden kaldığı Denizli ilinde yer alan “Kültür Varlıkları”, “Tabiat Varlıkları”, “Sit Alanı” ve “Koruma Alanı” olarak tanımlanan alanlar Kültür Varlıkları ve Müzeler Genel Müdürlüğü’ nün resmi internet adresind…</div>
+<div class="hit"><span class="pno">[s. 47]</span> <code>atıksu</code> — …ca çevresel etkiler; toz emisyonları, habitat, flora ve fauna kayıpları, çevresel gürültü ve titreşim, evsel nitelikli atıksu, belediye atıkları, ambalaj atıkları, atık yağlar ve tehlikeli atıklardır. Ayrıca işletme aşamasında evsel nitelikli…</div></section><section class="card"><h3>Korunan Alanlar, Orman ve Zeytinlikler <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(8 sayfa: s.35, s.37, s.38, s.39, s.40, s.41, s.42, s.153)</span></h3><div class="hit"><span class="pno">[s. 35]</span> <code>Sit Alanı</code> — …Özellikleri Projenin sınırları içerisinden kaldığı Denizli ilinde yer alan “Kültür Varlıkları”, “Tabiat Varlıkları”, “Sit Alanı” ve “Koruma Alanı” olarak tanımlanan alanlar Kültür Varlıkları ve Müzeler Genel Müdürlüğü’ nün resmi internet adresind…</div>
 <div class="hit"><span class="pno">[s. 35]</span> <code>Arkeolojik Sit</code> — …inden temin edilmiş ve aşağıda verilmiştir1. Tablo 14 Denizli İli Sit Alanları İstatistikleri SİT ALANLARI SAYISI Arkeolojik Sit Alanı 3 Tarihi Sit Alanı 5 Arkeolojik Sit Alanı 394 Karma Sit Alanları Arkeolojik ve Kentsel Sit Alanı 2 TOP…</div>
 <div class="hit"><span class="pno">[s. 37]</span> <code>3573 Sayılı</code> — …441.880 98,53 Kuru Tarım (Nadaslı) 6.603 1,47 Toplam 448.483 100,0 Proje kapsamında; 4342 sayılı Mera Kanunu, 3573 Sayılı (4086 Saylı Kanunla Değişik) Zeytinciliğin Islahı ve Yabanilerinin Aşılattırılması Hakkında Kanun, 5403 Sayılı Toprak…</div>
 <div class="hit"><span class="pno">[s. 37]</span> <code>Tabiat Parkı</code> — …at Koruma Alanları&quot; olarak tanımlanmış bir alan bulunmamaktadır. ÇED alanının harita üzerinden 17,2 km doğusunda Akdağ Tabiat Parkı yer almaktadır. Şekil 23 ÇED Alanı Çevresinde Yer Alan Milli Park Alanları</div>
 <div class="hit"><span class="pno">[s. 37]</span> <code>Milli Park</code> — …nının harita üzerinden 17,2 km doğusunda Akdağ Tabiat Parkı yer almaktadır. Şekil 23 ÇED Alanı Çevresinde Yer Alan Milli Park Alanları</div>
-<div class="hit"><span class="pno">[s. 38]</span> <code>Sit Alanı</code> — …arı ve Müzeler Genel Müdürlüğü’ nün resmi internet adresinden temin edilen “Kültür Varlıkları”, “Tabiat Varlıkları”, “Sit Alanı” ve “Koruma Alanı” olarak tanımlanan alanlar tablosu Bölüm II.a.10’da verilmiştir. 1 Bkz. Ek 3/h Avlaklar Haritası…</div></section><section class="card"><h3>Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(6 sayfa: s.14, s.25, s.32, s.40, s.43, s.47)</span></h3><div class="hit"><span class="pno">[s. 14]</span> <code>kuş göç</code> — …alleri için yer seçimi sırasında; yer yapısı, yükselti, eğim, arazi kullanımı, bitki örtüsü, nüfus yoğunluğu, maliyet, kuş göç rotaları, elektrik hatlarına yakınlık, yola uzaklık, yerleşim alanlarına mesafe, fay hatlarına mesafe ve akarsu-göller…</div>
+<div class="hit"><span class="pno">[s. 38]</span> <code>Sit Alanı</code> — …arı ve Müzeler Genel Müdürlüğü’ nün resmi internet adresinden temin edilen “Kültür Varlıkları”, “Tabiat Varlıkları”, “Sit Alanı” ve “Koruma Alanı” olarak tanımlanan alanlar tablosu Bölüm II.a.10’da verilmiştir. 1 Bkz. Ek 3/h Avlaklar Haritası…</div></section><section class="card"><h3>Flora, Fauna ve Saha Metodolojisi <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(6 sayfa: s.14, s.25, s.32, s.40, s.43, s.47)</span></h3><div class="hit"><span class="pno">[s. 14]</span> <code>kuş göç</code> — …alleri için yer seçimi sırasında; yer yapısı, yükselti, eğim, arazi kullanımı, bitki örtüsü, nüfus yoğunluğu, maliyet, kuş göç rotaları, elektrik hatlarına yakınlık, yola uzaklık, yerleşim alanlarına mesafe, fay hatlarına mesafe ve akarsu-göller…</div>
 <div class="hit"><span class="pno">[s. 25]</span> <code>Flora ve Fauna</code> — …/ 30 MWe – 44,8 ha.) 24 Şekil 14 Denizli ili, Çivril ilçesi 2007 - 2025 Yılı Nüfus Değişim Grafiği II.a.2. Flora ve Fauna Projeye konu bölgenin flora ve faunası ile ilgili detaylı çalışma muhtemel komisyon üyesi olan Doğa koruma ve Milli P…</div>
 <div class="hit"><span class="pno">[s. 25]</span> <code>endemik</code> — …rı varsa araştırılarak yapılacak arazi çalışmaları ile desteklenecektir. Faaliyet alanı ve çevresinde bulunabilecek endemik bitki türlerinin belirlenmesinde Ekim, T. (2000) tarafından hazırlanan “Türkiye Bitkileri Kırmızı Kitabı” adlı yayında…</div>
 <div class="hit"><span class="pno">[s. 25]</span> <code>Bern Sözleşmesi</code> — …D Raporu’nda yer alacaktır. Fauna türlerinden amfibi, sürüngen, kuş ve memeli türlerinin Latince ve Türkçe adları, Bern Sözleşmesi Ek-2 ve Ek-3 listelerinin hangisinde yer aldığı, habitatları, IUCN kategorileri, T.C. Tarım ve Orman Bakanlığı’nın 07.…</div>
 <div class="hit"><span class="pno">[s. 25]</span> <code>IUCN</code> — …eli türlerinin Latince ve Türkçe adları, Bern Sözleşmesi Ek-2 ve Ek-3 listelerinin hangisinde yer aldığı, habitatları, IUCN kategorileri, T.C. Tarım ve Orman Bakanlığı’nın 07.05.2026 tarih ve 25 no’ lu karar numarası ile yürürlüğe giren “202…</div>
-<div class="hit"><span class="pno">[s. 32]</span> <code>mevsimsel</code> — …0 Proje ile ilgili olarak hazırlanan 1/25.000 ölçekli topoğrafik haritada da görüleceği üzere ÇED alanının çevresinde mevsimsel yağışlar ile akışa geçen (kuru dere) dere yatakları yer almaktadır. ÇED Alanı</div></section><section class="card"><h3>Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(22 sayfa: s.7, s.28, s.31, s.33, s.47, s.49, s.50, s.51, s.52, s.53, s.54, s.56, s.58, s.61 (+8 sayfa))</span></h3><div class="hit"><span class="pno">[s. 7]</span> <code>Deprem</code> — …a Ek 3/ç Arazi Varlığı Haritası Ek 3/d Çevre Düzeni Planı, Lejandı ve Plan Hükümleri Ek 3/e Uydu Görüntüleri Ek 3/f Deprem Haritası Ek 3/g Avlaklar Haritası Ek 3/ğ Jeoloji Haritası Ek 3/h Proje Yerine Ait Fotoğraflar Ek 3/ı G26-Denizli GE…</div>
+<div class="hit"><span class="pno">[s. 32]</span> <code>mevsimsel</code> — …0 Proje ile ilgili olarak hazırlanan 1/25.000 ölçekli topoğrafik haritada da görüleceği üzere ÇED alanının çevresinde mevsimsel yağışlar ile akışa geçen (kuru dere) dere yatakları yer almaktadır. ÇED Alanı</div></section><section class="card"><h3>Emisyonlar, Jeokimya ve Atıklar <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(22 sayfa: s.7, s.28, s.31, s.33, s.47, s.49, s.50, s.51, s.52, s.53, s.54, s.56, s.58, s.61 (+8 sayfa))</span></h3><div class="hit"><span class="pno">[s. 7]</span> <code>Deprem</code> — …a Ek 3/ç Arazi Varlığı Haritası Ek 3/d Çevre Düzeni Planı, Lejandı ve Plan Hükümleri Ek 3/e Uydu Görüntüleri Ek 3/f Deprem Haritası Ek 3/g Avlaklar Haritası Ek 3/ğ Jeoloji Haritası Ek 3/h Proje Yerine Ait Fotoğraflar Ek 3/ı G26-Denizli GE…</div>
 <div class="hit"><span class="pno">[s. 28]</span> <code>Deprem</code> — …yal istiflerin eşdeğeridir II.a.4. Doğal Afet Durumu Afet ve Acil Durum Yönetimi Başkanlığı’nca hazırlanan Türkiye Deprem Tehlike Haritaları kullanılarak yapılan deprem tehlike haritası aşağıda görülmektedir. Haritadan da görüleceği üzere…</div>
 <div class="hit"><span class="pno">[s. 31]</span> <code>deprem</code> — …MWe – 44,8 ha.) 30 Projenin inşaat aşamasında yangın, doğal afet (yıldırım düşmesi, sel, heyelan, çığ düşmesi, deprem vb.), sabotaj vb. olağanüstü durumda; • Çalışmalar derhal durdurulacak • Çalışan araç ve iş makineleri kapatılacak,…</div>
 <div class="hit"><span class="pno">[s. 33]</span> <code>PM10</code> — …ölçüm değerleri aşağıdaki tabloda verilmiştir1. Tablo 12 Denizli İli Hava Kalitesi Verileri Tarih Denizli (Çivril) PM10 (µg/m3 ) SO2 (µg/m3) CO (µg/m3) NO2 (µg/m3) NOX (µg/m3) NO (µg/m3) O3 (µg/m3) 01.08.2026 27,35 6,18 - 6,14…</div>
 <div class="hit"><span class="pno">[s. 47]</span> <code>Kümülatif</code> — …III.a. Çevreyi Etkileyebilecek Olası Sorunların Belirlenmesi, Kirleticilerin Miktarı, Alıcı Ortamla Etkileşimi, Kümülatif Etkilerin Belirlenmesi Projenin inşaat aşamasında karşılaşılacak başlıca çevresel etkiler; toz emisyonları, habitat,…</div>
-<div class="hit"><span class="pno">[s. 47]</span> <code>gürültü</code> — …nşaat aşamasında karşılaşılacak başlıca çevresel etkiler; toz emisyonları, habitat, flora ve fauna kayıpları, çevresel gürültü ve titreşim, evsel nitelikli atıksu, belediye atıkları, ambalaj atıkları, atık yağlar ve tehlikeli atıklardır. Ayrıca…</div></section><section class="card"><h3>Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.85rem">(5 sayfa: s.2, s.9, s.13, s.83, s.120)</span></h3><div class="hit"><span class="pno">[s. 2]</span> <code>Proje Bedeli</code> — …0 e-posta tuncay.vesek@eltemtek.com.tr Projenin Adı G26-Denizli Güneş Enerji Santrali (36 MWm / 30 MWe – 44,8 ha.) Proje Bedeli 324.000.000,00 Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevki) Denizli ili, Çivril ilçesi, Yukarı ve Gür…</div>
+<div class="hit"><span class="pno">[s. 47]</span> <code>gürültü</code> — …nşaat aşamasında karşılaşılacak başlıca çevresel etkiler; toz emisyonları, habitat, flora ve fauna kayıpları, çevresel gürültü ve titreşim, evsel nitelikli atıksu, belediye atıkları, ambalaj atıkları, atık yağlar ve tehlikeli atıklardır. Ayrıca…</div></section><section class="card"><h3>Proje Bedeli, Güç ve Kapasite <span style="color:var(--muted);font-weight:400;font-size:0.84rem">(5 sayfa: s.2, s.9, s.13, s.83, s.120)</span></h3><div class="hit"><span class="pno">[s. 2]</span> <code>Proje Bedeli</code> — …0 e-posta tuncay.vesek@eltemtek.com.tr Projenin Adı G26-Denizli Güneş Enerji Santrali (36 MWm / 30 MWe – 44,8 ha.) Proje Bedeli 324.000.000,00 Proje İçin Seçilen Yerin Açık Adresi (İli, İlçesi, Mevki) Denizli ili, Çivril ilçesi, Yukarı ve Gür…</div>
 <div class="hit"><span class="pno">[s. 9]</span> <code>proje bedeli</code> — …makine-ekipman giderleri ve kurulum maliyetleri ve diğer maliyetler göz önünde bulundurularak yapılan hesaplamalar ile proje bedeli 324.000.000,00 olarak hesaplanmıştır. Projenin arazi hazırlık ve güneş panellerinin kurulum çalışmalarının 24 ay i…</div>
 <div class="hit"><span class="pno">[s. 13]</span> <code>proje bedeli</code> — …makine-ekipman giderleri ve kurulum maliyetleri ve diğer maliyetler göz önünde bulundurularak yapılan hesaplamalar ile proje bedeli 324.000.000,00 olarak hesaplanmıştır. Tablo 2 Yatırım Bedelleri Yatırım Giderleri Açıklama Tahmini Bedeli Araz…</div>
 <div class="hit"><span class="pno">[s. 13]</span> <code>PROJE BEDELİ</code> — …307.800.000,00 Diğer (varsa) Eğitim, yazılım, donanım, otomasyon, - sertifikalandırma vb. idari giderler TOPLAM PROJE BEDELİ (KDV dâhil) 324.000.000,00 I.a.4. Projenin Ömrü Gerçekleştirilmesi planlanan güneş enerji santralinin ekonomik ö…</div>
@@ -257,7 +730,45 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
+
 (() => {
+  const root = document.documentElement;
+  const saved = localStorage.getItem('eced_theme');
+  if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  function syncLabel() {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = cur ? cur === 'dark' : prefersDark;
+    btn.textContent = isDark ? 'Açık Tema' : 'Koyu Tema';
+  }
+  syncLabel();
+  btn.addEventListener('click', () => {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = cur ? cur === 'dark' : prefersDark;
+    const next = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('eced_theme', next);
+    syncLabel();
+  });
+})();
+
+(() => {
+  const copyBtn = document.getElementById('copy-qs-btn');
+  const qsTxt = document.getElementById('qs-plain');
+  if (copyBtn && qsTxt) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(qsTxt.value);
+        copyBtn.textContent = 'Kopyalandı ✓';
+        setTimeout(() => (copyBtn.textContent = 'Soruları Kopyala'), 2200);
+      } catch (e) {
+        copyBtn.textContent = 'Kopyalanamadı';
+      }
+    });
+  }
   if (typeof L === 'undefined') return;
   const g = {"lat": 38.36692, "lon": 29.72399, "zoom": 12, "precision": "exact_pdf", "points": [[38.3683, 29.72148], [38.36849, 29.72646], [38.36218, 29.72601], [38.36208, 29.72214], [38.36173, 29.72039], [38.36137, 29.71964], [38.36237, 29.71617], [38.36746, 29.7215], [38.36756, 29.725], [38.36733, 29.72498], [38.36735, 29.72464], [38.36757, 29.72465], [38.36798, 29.72599], [38.36726, 29.72594], [38.36728, 29.72537], [38.368, 29.72542], [38.36895, 29.72106], [38.36914, 29.72603], [38.36282, 29.72559], [38.36273, 29.72172], [38.36237, 29.71996], [38.36202, 29.71922], [38.36302, 29.71574], [38.36811, 29.72108], [38.3682, 29.72457], [38.36798, 29.72456], [38.36799, 29.72422], [38.36822, 29.72423], [38.36863, 29.72556], [38.36791, 29.72552], [38.36793, 29.72495], [38.36865, 29.72499], [38.36801, 29.72526], [38.36765, 29.72523], [38.36767, 29.72466], [38.36803, 29.72469], [38.36755, 29.72535], [38.36737, 29.72534], [38.36738, 29.72505], [38.36756, 29.72506]], "label": "DENİZLİ / ÇİVRİL — G26-Denizli Güneş Enerji Santrali (36 MWm / 30 MWe - 44,8 ha.)"};
   const map = L.map('digest-map').setView([g.lat, g.lon], g.zoom);
@@ -267,16 +778,16 @@ blockquote { margin: 10px 0; padding: 11px 15px; border-left: 3px solid var(--ac
   }).addTo(map);
   if (g.precision === 'exact_pdf' && g.points.length > 1) {
     const latlngs = g.points.map(p => [p[0], p[1]]);
-    const poly = L.polyline(latlngs, { color: '#58a6ff', weight: 3, opacity: 0.85 }).addTo(map);
+    const poly = L.polyline(latlngs, { color: '#0b5ed7', weight: 3, opacity: 0.85 }).addTo(map);
     for (const ll of latlngs.slice(0, 30)) {
-      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#f85149', fillOpacity: 0.9, weight: 1 }).addTo(map);
+      L.circleMarker(ll, { radius: 4, color: '#ffffff', fillColor: '#d92d20', fillOpacity: 0.9, weight: 1 }).addTo(map);
     }
     map.fitBounds(poly.getBounds().pad(0.25));
   } else {
     L.circleMarker([g.lat, g.lon], {
       radius: g.precision === 'exact_pdf' ? 8 : 11,
       color: '#ffffff',
-      fillColor: g.precision === 'exact_pdf' ? '#f85149' : '#58a6ff',
+      fillColor: g.precision === 'exact_pdf' ? '#d92d20' : '#0b5ed7',
       fillOpacity: g.precision === 'exact_pdf' ? 0.9 : 0.45,
       weight: 2
     }).bindPopup(g.label).addTo(map).openPopup();

@@ -6,13 +6,13 @@
     "project_owner": "Atuksan Geri Kazanım Sanayi ve Ticaret Anonim Şirketi",
     "sector": "Atık",
     "sub_sector": "Atık Bertaraf /Geri Kazanım/ Depolama Tesisi Projeleri",
-    "decision_type": "ÇED Süreci Başlayan",
-    "announcement_date_tr": "19.11.2026",
+    "decision_type": "HKT",
+    "announcement_date_tr": "20.11.2026",
     "project_type": "Ek-1",
-    "detail_text": "İSTANBUL ili ESENYURT,  ilcesinde İSTANBUL il ESENYURT,  ilce Akçaburgaz Mahallesi, 3114. Sokak No:4 adresinde (1120 parsel)  mevkiinde Atuksan Geri Kazanım Sanayi ve Ticaret Anonim Şirketi  tarafından yapılması planlanan Tehlikesiz ve Tehlikeli Atık Değerli Metal (Maden) Geri Kazanım Tesisi projesi ile ilgili olarak Bakanlığımıza sunulan ÇED Başvuru Dosyası Çevresel Etki Değerlendirmesi Yönetmeliği'nin 8. maddesi doğrultusunda incelenmiş ve başvurunun ÇED Genel Formatına uygun hazırlandığı anlaşılmış olup, projeye ilişkin ÇED Süreci başlatılmıştır. Çevresel Etki Değerlendirmesi süreci tamamlanana kadar, süreç ile ilgili her türlü bilgiler ve projeye ilişkin görüş, soru ve öneriler İSTANBUL Valiliğine (Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğü) veya Çevre, Şehircilik ve İklim Değişikliği Bakanlığına gönderilebilir.İlgililere ve kamuoyuna duyurulur.",
+    "detail_text": "İSTANBUL ili ESENYURT,  ilcesinde İSTANBUL ili ESENYURT ilçesi sınırları içerisinde Atuksan Geri Kazanım Sanayi ve Ticaret Anonim Şirketi  tarafından yapılması planlanan Tehlikesiz ve Tehlikeli Atık Değerli Metal (Maden) Geri Kazanım Tesisi projesi ile ilgili Çevresel Etki Değerlendirme süreci başlamış ve Çevresel Etki Değerlendirmesi Başvuru Dosyası halkın görüşüne açılmıştır.Söz konusu projeye ilişkin, halkı proje hakkında bilgilendirmek, görüş ve önerilerini almak amacıyla ÇED Yönetmeliğinin 9. maddesi gereğince 17/12/2026 tarihinde Halkın Katılım Toplantısı düzenlenecektir.ÇED Başvuru Dosyasını İncelemek isteyenler Bakanlık Merkezinde veya İSTANBUL Çevre ve Şehircilik İl Müdürlüklerinde duyuru tarihinden itibaren raporu inceleyerek, zamanlama takvimi içerisinde proje hakkında Bakanlığa veya Valiliğe görüş bildirebilirler. Halkın Katılımı Toplantısı yeri ve saati ile ilgili ÇED İzin Denetim Genel Müdürlüğü ve İSTANBUL Çevre, Şehircilik ve İklim Değişikliği İl Müdürlüğünden bilgi alınabilir. İlgililere ve kamuoyuna duyurulur.",
     "detail_links": [
       {
-        "text": "ÇED Başvuru Dosyası",
+        "text": "Başvuru Dosyası",
         "href": "http://eced.csb.gov.tr/jsp/ek1/61813"
       }
     ],
@@ -30,17 +30,17 @@
         ]
       }
     ],
-    "announcement_date": "2026-11-19",
+    "announcement_date": "2026-11-20",
     "statutory_clocks": [
       {
-        "code": "process_open",
-        "kind": "Karar öncesi inceleme süreci (ÇED Yönetmeliği m. 8/16; süreç boyunca yazılı görüş verilebilir)",
-        "deadline": null,
-        "days_remaining": null
+        "code": "hkt",
+        "kind": "Halkın Katılımı Toplantısı (HKT — ÇED Yönetmeliği m. 9)",
+        "deadline": "2026-12-17",
+        "days_remaining": 26
       }
     ],
-    "filing_key": "61813:19.11.2026:ÇED Süreci Başlayan",
-    "first_seen_at": "2026-11-20T02:10:38"
+    "filing_key": "61813:20.11.2026:HKT",
+    "first_seen_at": "2026-11-21T09:02:53"
   },
   "pdf_info": {
     "filename": "61813.pdf",

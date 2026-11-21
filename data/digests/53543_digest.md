@@ -16,7 +16,7 @@
 | **Announcement Date** | `17.11.2026` (uploaded `24/12/2024 11:18:43`) |
 
 **Statutory Deadlines (informational aid — verify with legal counsel):**
-- **ÇED Yönetmeliği Madde 14 kapsamındaki 10 takvim günlük nihai askı ve görüş süresi:** `2026-11-27` (`7 days remaining`)
+- **ÇED Yönetmeliği Madde 14 kapsamındaki 10 takvim günlük nihai askı ve görüş süresi:** `2026-11-27` (`6 days remaining`)
 
 ## 2. AI-Assisted Scientific Synthesis (`gemini-4-hydrogen`)
 

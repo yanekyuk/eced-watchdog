@@ -15,6 +15,12 @@ import pymupdf as fitz
 from .fetcher import USER_AGENT, build_ssl_context
 from .geo import extract_pdf_coordinates
 from .llm import synthesize_with_gemini
+from .revisions import (
+    CIRCULAR_2009_7_RE,
+    compute_pdf_revision_diff,
+    has_pdf_changed,
+    make_pdf_snapshot,
+)
 
 # Keep Ministry portal downloads polite even when Gemini synthesis runs with 4-6 parallel workers
 _DOWNLOAD_SEMAPHORE = threading.Semaphore(2)
@@ -70,11 +76,18 @@ SIGNAL_SPECS: list[tuple[str, str, str]] = [
 ]
 
 
-def download_pdf(pdf_url: str, dest: Path, cert_path: Path | None) -> dict[str, Any]:
-    if dest.exists() and dest.stat().st_size > 1000:
+def download_pdf(
+    pdf_url: str,
+    dest: Path,
+    cert_path: Path | None,
+    *,
+    force_download: bool = False,
+) -> dict[str, Any]:
+    if not force_download and dest.exists() and dest.stat().st_size > 1000:
         data = dest.read_bytes()
         return {
             "filename": dest.name,
+            "source_url": pdf_url,
             "bytes": len(data),
             "sha256": hashlib.sha256(data).hexdigest(),
             "cached": True,
@@ -100,6 +113,7 @@ def download_pdf(pdf_url: str, dest: Path, cert_path: Path | None) -> dict[str, 
             dest.write_bytes(data)
             return {
                 "filename": dest.name,
+                "source_url": pdf_url,
                 "bytes": len(data),
                 "sha256": hashlib.sha256(data).hexdigest(),
                 "cached": False,
@@ -210,6 +224,7 @@ def analyze_pdf(pdf_path: Path, province: str = "") -> dict[str, Any]:
         "mentions_groundwater_or_aquifer": bool(re.search(r"yeraltı\s*su|akifer|hidrojeoloj", full_text_lower)),
         "mentions_iucn_or_endemic": bool(re.search(r"iucn|endemik|bern\s*sözleşme", full_text_lower)),
         "mentions_capacity_or_splitting": bool(re.search(r"kapasite\s*artış|ilave\s*ünite|eşik\s*değer|alan\s*genişlet", full_text_lower)),
+        "mentions_circular_2009_7_or_revision": bool(CIRCULAR_2009_7_RE.search(full_text_lower)),
     }
 
     page_count = len(doc)
@@ -233,6 +248,8 @@ def render_markdown_digest(
     pdf_info: dict[str, Any],
     analysis: dict[str, Any],
     llm_synthesis: dict[str, Any] | None = None,
+    revision_history: list[dict[str, Any]] | None = None,
+    latest_pdf_diff: dict[str, Any] | None = None,
 ) -> str:
     filing_id = doc_meta.get("filing_id") or "unknown"
     pdf_url = doc_meta["pdf_urls"][0]["url"] if doc_meta.get("pdf_urls") else ""
@@ -357,6 +374,8 @@ def render_markdown_digest(
             f"| Olive Law / groves (*3573 / zeytinlik*) | {flag(checks['mentions_olive_law_3573'])} |",
             f"| Groundwater / hydrogeology (*akifer / yeraltı suyu*) | {flag(checks['mentions_groundwater_or_aquifer'])} |",
             f"| Endemic / IUCN / Bern Convention | {flag(checks['mentions_iucn_or_endemic'])} |",
+            f"| Capacity expansion / splitting cues (*kapasite artışı / eşik değer*) | {'Present' if checks.get('mentions_capacity_or_splitting') else 'Not found'} |",
+            f"| Circular 2009/7 or post-annulment revision cues (*2009/7 / mahkeme kararı*) | {'**Present (check 2009/7 loop)**' if checks.get('mentions_circular_2009_7_or_revision') else 'Not found'} |",
             "",
             "*(Scanned annex maps/appendices without OCR are excluded from text scan; see scanned-page count above.)*",
             "",
@@ -384,6 +403,34 @@ def render_markdown_digest(
             lines.append(f"- **[s. {pno}]** {h}")
         lines.append("")
 
+    if revision_history:
+        lines.extend(
+            [
+                "## Revision & Document Integrity History",
+                "",
+                "| Version | Observed | Stage | Upload Date | Pages | SHA-256 |",
+                "|---|---|---|---|---|---|",
+            ]
+        )
+        for snap in revision_history:
+            lines.append(
+                f"| `v{snap.get('version', 1)}` | `{snap.get('observed_at') or '—'}` | "
+                f"{snap.get('decision_type') or '—'} | `{snap.get('pdf_upload_date') or snap.get('submitted_at') or '—'}` | "
+                f"{snap.get('page_count') or '—'} | `{(snap.get('sha256') or '')[:16]}…` |"
+            )
+        if latest_pdf_diff:
+            lines.extend(
+                [
+                    "",
+                    f"**Detected Revision Diff (`v{latest_pdf_diff['from_version']} -> v{latest_pdf_diff['to_version']}`):** {latest_pdf_diff['summary_tr']}",
+                ]
+            )
+            for ch in latest_pdf_diff.get("audit_check_changes") or []:
+                lines.append(
+                    f"- **{ch['label']}:** `{'VAR' if ch['from'] else 'YOK'}` → `{'VAR' if ch['to'] else 'YOK'}`"
+                )
+        lines.append("")
+
     lines.extend(
         [
             "## Scientist Audit Notes (1–2h Async Review Template)",
@@ -391,8 +438,9 @@ def render_markdown_digest(
             "- **Baseline & sampling gaps (`[s. N]`):** ",
             "- **Ecological / hydrological contradictions:** ",
             "- **Cumulative regional impact omitted:** ",
+            "- **Revision / 2009/7 compliance check (if re-filed):** ",
             "- **Questions for HKT minutes / İYUK 20/A petition:** ",
-            "- **Recommended hand-off:** İzmir Barosu Çevre Komisyonu / TMMOB / EGEÇEP / Local press",
+            "- **Recommended hand-off:** İlgili TMMOB Odası / Yerel Çevre Derneği / Belediye / Çevre Hukukçuları",
             "",
         ]
     )
@@ -425,19 +473,58 @@ def ensure_digest_for_filing(
 
     llm_synthesis: dict[str, Any] | None = None
     synthesized_now = False
+    revision_history: list[dict[str, Any]] = []
+    latest_pdf_diff: dict[str, Any] | None = None
+    pdf_revised_now = False
 
     if json_path.exists() and md_path.exists():
         saved = json.loads(json_path.read_text(encoding="utf-8"))
-        pdf_info = saved["pdf_info"]
-        analysis = saved["analysis"]
-        llm_synthesis = saved.get("llm_synthesis")
-        cached = True
+        revision_history = list(saved.get("revision_history") or [])
+        latest_pdf_diff = saved.get("latest_pdf_diff")
+        if not revision_history and saved.get("pdf_info") and saved.get("analysis"):
+            prev_filing = saved.get("filing") or filing
+            prev_doc = (prev_filing.get("documents") or [doc_meta])[0]
+            revision_history.append(
+                make_pdf_snapshot(
+                    prev_filing,
+                    prev_doc,
+                    saved["pdf_info"],
+                    saved["analysis"],
+                    version=1,
+                    observed_at=prev_filing.get("first_seen_at") or prev_filing.get("announcement_date"),
+                )
+            )
+
+        if has_pdf_changed(saved, pdf_url):
+            pdf_info = download_pdf(pdf_url, pdf_path, cert_path, force_download=True)
+            analysis = analyze_pdf(pdf_path, province=filing.get("province", ""))
+            new_ver = (revision_history[-1].get("version", len(revision_history)) + 1) if revision_history else 1
+            new_snap = make_pdf_snapshot(filing, doc_meta, pdf_info, analysis, version=new_ver)
+            if not revision_history or (
+                revision_history[-1].get("sha256") != new_snap.get("sha256")
+                or revision_history[-1].get("source_url") != new_snap.get("source_url")
+            ):
+                prev_snap = revision_history[-1] if revision_history else None
+                revision_history.append(new_snap)
+                if prev_snap:
+                    latest_pdf_diff = compute_pdf_revision_diff(prev_snap, new_snap)
+                    pdf_revised_now = True
+            llm_synthesis = saved.get("llm_synthesis")
+            cached = False
+        else:
+            pdf_info = saved["pdf_info"]
+            if not pdf_info.get("source_url"):
+                pdf_info["source_url"] = pdf_url
+            analysis = saved["analysis"]
+            llm_synthesis = saved.get("llm_synthesis")
+            cached = True
     else:
         pdf_info = download_pdf(pdf_url, pdf_path, cert_path)
         analysis = analyze_pdf(pdf_path, province=filing.get("province", ""))
+        revision_history = [make_pdf_snapshot(filing, doc_meta, pdf_info, analysis, version=1)]
         cached = False
 
-    need_llm = bool(gemini_api_key) and (re_synthesize or not llm_synthesis)
+    need_llm = bool(gemini_api_key) and (re_synthesize or pdf_revised_now or not llm_synthesis)
     if need_llm:
         if not pdf_path.exists():
             pdf_info = download_pdf(pdf_url, pdf_path, cert_path)
@@ -447,6 +534,7 @@ def ensure_digest_for_filing(
             pdf_path,
             api_key=gemini_api_key,
             model=gemini_model,
+            revision_diff=latest_pdf_diff,
         )
         synthesized_now = True
 
@@ -454,13 +542,24 @@ def ensure_digest_for_filing(
         pdf_path.unlink(missing_ok=True)
 
     digests_dir.mkdir(parents=True, exist_ok=True)
-    md = render_markdown_digest(filing, doc_meta, pdf_info, analysis, llm_synthesis=llm_synthesis)
+    md = render_markdown_digest(
+        filing,
+        doc_meta,
+        pdf_info,
+        analysis,
+        llm_synthesis=llm_synthesis,
+        revision_history=revision_history,
+        latest_pdf_diff=latest_pdf_diff,
+    )
     md_path.write_text(md, encoding="utf-8")
     payload: dict[str, Any] = {
         "filing": filing,
         "pdf_info": pdf_info,
         "analysis": analysis,
+        "revision_history": revision_history,
     }
+    if latest_pdf_diff:
+        payload["latest_pdf_diff"] = latest_pdf_diff
     if llm_synthesis:
         payload["llm_synthesis"] = llm_synthesis
     json_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -470,8 +569,11 @@ def ensure_digest_for_filing(
         "md_path": str(md_path),
         "json_path": str(json_path),
         "cached": cached,
+        "pdf_revised_now": pdf_revised_now,
         "synthesized_now": synthesized_now,
         "analysis": analysis,
         "pdf_info": pdf_info,
+        "revision_history": revision_history,
+        "latest_pdf_diff": latest_pdf_diff,
         "llm_synthesis": llm_synthesis,
     }
