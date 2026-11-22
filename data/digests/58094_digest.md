@@ -87,6 +87,8 @@
 | Endemic / IUCN / Bern Convention | Present |
 | Capacity expansion / splitting cues (*kapasite artışı / eşik değer*) | Present |
 | Circular 2009/7 or post-annulment revision cues (*2009/7 / mahkeme kararı*) | **Present (check 2009/7 loop)** |
+| Agency opinions referenced (*DSİ / İl Tarım / OGM / MAPEG*) | **NOT FOUND (check manually)** |
+| Seismic / fault-line / geotechnical stability | Not found |
 
 *(Scanned annex maps/appendices without OCR are excluded from text scan; see scanned-page count above.)*
 
